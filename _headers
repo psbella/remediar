@@ -1,0 +1,21 @@
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+
+/data/medicamentos.json
+  Content-Type: application/json; charset=utf-8
+  Cache-Control: public, max-age=7200, stale-while-revalidate=3600
+
+/*.html
+  Cache-Control: public, max-age=3600, stale-while-revalidate=1800
+
+/style.css
+  Cache-Control: public, max-age=86400
+
+/js/*.js
+  Cache-Control: public, max-age=86400
+
+/img/*
+  Cache-Control: public, max-age=604800

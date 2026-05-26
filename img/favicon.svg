@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 71 71" width="71" height="71">
+  <!-- Background circle -->
+  <circle cx="35.5" cy="35.5" r="35.5" fill="#00897b"/>
+  <!-- Cross symbol -->
+  <rect x="30" y="18" width="11" height="35" rx="3" fill="#ffffff"/>
+  <rect x="18" y="30" width="35" height="11" rx="3" fill="#ffffff"/>
+  <!-- Small pill accent bottom-right -->
+  <g transform="translate(51,51) rotate(-45) scale(0.5)">
+    <rect x="-10" y="-10" width="20" height="20" rx="10" fill="#b2dfdb" opacity="0.9"/>
+    <line x1="-10" y1="0" x2="10" y2="0" stroke="#ffffff" stroke-width="2"/>
+  </g>
+</svg>
