@@ -4,9 +4,9 @@
   <!-- Hosting & License -->
 <img src="https://img.shields.io/badge/hosted-GitHub%20Pages-brightgreen">
 <img src="https://img.shields.io/badge/License-MIT-blue.svg">
-<img src="https://img.shields.io/github/repo-size/psbella/remediar-refactor">
-<img src="https://img.shields.io/github/last-commit/psbella/remediar-refactor">
-<img src="https://img.shields.io/github/issues-raw/psbella/remediar-refactor">
+<img src="https://img.shields.io/github/repo-size/psbella/remedi.ar">
+<img src="https://img.shields.io/github/last-commit/psbella/remedi.ar">
+<img src="https://img.shields.io/github/issues-raw/psbella/remedi.ar">
 <br>
 <!-- Valores -->
 <img src="https://img.shields.io/badge/Open_Source-Yes-brightgreen">
