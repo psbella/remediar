@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
 """
-Extractor de precios de medicamentos desde SIAFAR.
-Usa pdfplumber para extraer tablas sin depender de Java ni OpenCV.
+pdf_to_csv_pdfplumber.py — Extractor robusto de precios SIAFAR.
+
+Estrategia: extract_words() + clasificación por coordenada X.
+Esto evita que pdfplumber colapse celdas vacías y corra los índices.
 
 Columnas del PDF: MONODROGA | NOMBRE | PRESENTACION | LABORATORIO | PRECIO | Precio.Afil.PAMI
 Columnas del CSV: droga | marca | presentacion | laboratorio | precio
 """
 
 import csv
+import re
 import ssl
 import sys
 import urllib.request
@@ -19,18 +22,25 @@ import pdfplumber
 # ---------------------------------------------------------------------------
 # Configuración
 # ---------------------------------------------------------------------------
-BASE_DIR = Path(__file__).parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent
 DATA_DIR = BASE_DIR / "data"
 DATA_DIR.mkdir(parents=True, exist_ok=True)
 
-TMP_PDF = Path("/tmp/precios_siafar.pdf")
+TMP_PDF   = Path("/tmp/precios_siafar.pdf")
 OUTPUT_CSV = DATA_DIR / "medicamentos.csv"
 
-# La URL cambia a diario: Precios AAMMDD .pdf  (ej: Precios260527.pdf)
+FIELDNAMES = ["droga", "marca", "presentacion", "laboratorio", "precio"]
+
+# Palabras que indican fila de encabezado (ignorar)
+HEADER_WORDS = {"monodroga", "nombre", "presentacion", "laboratorio",
+                "precio", "afil", "pami", "p.afil.pami"}
+
+
 def build_pdf_url() -> str:
     arg_tz = timezone(timedelta(hours=-3))
-    hoy = datetime.now(arg_tz).strftime("%y%m%d")   # 260527
+    hoy = datetime.now(arg_tz).strftime("%y%m%d")
     return f"https://siafar.com/precios/pdf/Precios{hoy}.pdf"
+
 
 # ---------------------------------------------------------------------------
 # Descarga
@@ -40,166 +50,209 @@ def download_pdf(url: str, dest: Path) -> None:
     ctx = ssl.create_default_context()
     ctx.check_hostname = False
     ctx.verify_mode = ssl.CERT_NONE
-    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+    req = urllib.request.Request(url, headers={
+        "User-Agent": (
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) "
+            "Chrome/124.0.0.0 Safari/537.36"
+        ),
+        "Accept":          "application/pdf,*/*",
+        "Accept-Language": "es-AR,es;q=0.9",
+        "Referer":         "https://siafar.com/",
+    })
     with urllib.request.urlopen(req, timeout=60, context=ctx) as r:
         dest.write_bytes(r.read())
-    print(f"   → {dest.stat().st_size / 1024:.1f} KB descargados")
+    print(f"   → {dest.stat().st_size / 1024:.1f} KB")
+
 
 # ---------------------------------------------------------------------------
-# Detección de encabezado
+# Detección de límites de columna a partir del encabezado
 # ---------------------------------------------------------------------------
-HEADER_KEYWORDS = {"monodroga", "nombre", "presentacion", "laboratorio", "precio"}
+HEADER_LABELS = ["monodroga", "nombre", "presentacion", "laboratorio", "precio"]
 
-def _is_header_row(cells: list[str]) -> bool:
-    joined = " ".join(cells).lower()
-    hits = sum(1 for kw in HEADER_KEYWORDS if kw in joined)
-    return hits >= 3
+def detect_column_boundaries(page) -> list[float] | None:
+    """
+    Busca la fila de encabezado en la página y devuelve las coordenadas X
+    del borde izquierdo de cada columna [c0, c1, c2, c3, c4, c5_pami].
+    Retorna None si no se encuentra encabezado en esta página.
+    """
+    words = page.extract_words(x_tolerance=3, y_tolerance=3)
+    if not words:
+        return None
+
+    # Agrupar palabras por línea (misma y0 ± 4 px)
+    lines: dict[int, list] = {}
+    for w in words:
+        key = round(w["top"] / 4) * 4
+        lines.setdefault(key, []).append(w)
+
+    for y_key in sorted(lines):
+        line_words = sorted(lines[y_key], key=lambda w: w["x0"])
+        text_lower = " ".join(w["text"].lower() for w in line_words)
+        # Encabezado tiene al menos "monodroga" y "nombre" y "precio"
+        if "monodroga" in text_lower and "nombre" in text_lower and "precio" in text_lower:
+            # Extraer x0 de cada palabra de encabezado
+            bounds = [w["x0"] for w in line_words
+                      if w["text"].lower() not in {"afil.", "pami", "p.afil.pami"}]
+            if len(bounds) >= 5:
+                return bounds[:6]   # hasta 6 columnas
+
+    return None
+
 
 # ---------------------------------------------------------------------------
-# Normalización de fila
+# Clasificar una palabra en una columna según los límites detectados
+# ---------------------------------------------------------------------------
+def classify_col(x0: float, boundaries: list[float]) -> int:
+    """Devuelve el índice de columna (0-5) para una palabra en x0."""
+    col = 0
+    for i, bound in enumerate(boundaries):
+        if x0 >= bound - 4:
+            col = i
+    return col
+
+
+# ---------------------------------------------------------------------------
+# Extracción por coordenadas
 # ---------------------------------------------------------------------------
 def _clean(text: str) -> str:
-    return (text or "").replace("\n", " ").strip()
+    return re.sub(r"\s+", " ", text).strip()
+
 
 def _parse_price(text: str) -> str:
-    """Devuelve el precio como string numérico o vacío."""
     cleaned = text.replace("$", "").replace(",", ".").replace(" ", "").strip()
     try:
-        val = float(cleaned)
-        return f"{val:.2f}"
+        return f"{float(cleaned):.2f}"
     except ValueError:
         return ""
 
-# ---------------------------------------------------------------------------
-# Extracción principal
-# ---------------------------------------------------------------------------
+
+def _is_header_line(cells: dict) -> bool:
+    combined = " ".join(cells.values()).lower()
+    return sum(1 for kw in HEADER_WORDS if kw in combined) >= 2
+
+
 def extract_rows(pdf_path: Path) -> list[dict]:
-    """
-    Estrategia:
-    1. pdfplumber.extract_table() con configuraciones explícitas de bordes.
-    2. Fallback a extract_words() agrupado por línea si la tabla no detecta columnas.
-
-    El PDF SIAFAR tiene 6 columnas:
-      [0] MONODROGA  [1] NOMBRE  [2] PRESENTACION  [3] LABORATORIO  [4] PRECIO  [5] PAMI (ignorar)
-
-    El campo MONODROGA puede estar vacío en filas que son continuación de la misma
-    droga → propagamos el valor anterior (forward-fill).
-    """
     rows: list[dict] = []
     last_droga = ""
-
-    table_settings = {
-        "vertical_strategy": "lines",
-        "horizontal_strategy": "lines",
-        "snap_tolerance": 3,
-        "join_tolerance": 3,
-        "edge_min_length": 10,
-    }
+    col_boundaries: list[float] | None = None
 
     with pdfplumber.open(pdf_path) as pdf:
-        total = len(pdf.pages)
-        print(f"   → {total} páginas en el PDF")
+        total_pages = len(pdf.pages)
+        print(f"   → {total_pages} páginas")
 
         for page_num, page in enumerate(pdf.pages, 1):
-            table = page.extract_table(table_settings)
+            # ── 1. Detectar límites de columna (una vez por página que tenga encabezado) ──
+            new_bounds = detect_column_boundaries(page)
+            if new_bounds:
+                col_boundaries = new_bounds
 
-            if not table:
-                # Fallback: algunas páginas no tienen bordes visibles
-                table = page.extract_table({
-                    "vertical_strategy": "text",
-                    "horizontal_strategy": "text",
-                    "snap_tolerance": 5,
-                })
-
-            if not table:
+            if col_boundaries is None:
+                # Todavía no encontramos encabezado; intentar con extract_table como fallback
                 continue
 
-            for raw_row in table:
-                # pdfplumber puede devolver None en celdas vacías
-                cells = [_clean(c) if c else "" for c in raw_row]
+            # ── 2. Extraer palabras y agrupar por línea ──
+            words = page.extract_words(x_tolerance=3, y_tolerance=3)
+            if not words:
+                continue
 
-                # Saltear filas muy cortas o con pocas celdas útiles
-                non_empty = [c for c in cells if c]
-                if len(non_empty) < 2:
+            lines: dict[int, list] = {}
+            for w in words:
+                key = round(w["top"] / 2) * 2   # agrupa por bloques de 2px
+                lines.setdefault(key, []).append(w)
+
+            # ── 3. Por cada línea, reconstruir las 6 celdas ──
+            for y_key in sorted(lines):
+                line_words = sorted(lines[y_key], key=lambda w: w["x0"])
+
+                # Armar celdas indexadas por columna
+                cells: dict[int, list[str]] = {i: [] for i in range(6)}
+                for w in line_words:
+                    col_idx = classify_col(w["x0"], col_boundaries)
+                    cells[col_idx].append(w["text"])
+
+                # Convertir a texto por columna
+                cell_text = {i: _clean(" ".join(cells[i])) for i in range(6)}
+
+                # Saltar encabezado y líneas vacías
+                if _is_header_line(cell_text):
+                    continue
+                if not any(cell_text.values()):
                     continue
 
-                # Saltear encabezados
-                if _is_header_row(cells):
-                    continue
+                col0 = cell_text[0]   # MONODROGA
+                col1 = cell_text[1]   # NOMBRE / MARCA
+                col2 = cell_text[2]   # PRESENTACION
+                col3 = cell_text[3]   # LABORATORIO
+                col4 = cell_text[4]   # PRECIO
+                # col5 = PAMI → ignorado
 
-                # Aseguramos al menos 5 posiciones
-                while len(cells) < 6:
-                    cells.append("")
+                # Forward-fill de droga
+                if col0:
+                    last_droga = col0
+                droga = last_droga
 
-                droga        = cells[0]
-                marca        = cells[1]
-                presentacion = cells[2]
-                laboratorio  = cells[3]
-                precio_raw   = cells[4]
-                # cells[5] = PAMI → ignorado
-
-                # Forward-fill de droga (filas de continuación)
-                if droga:
-                    last_droga = droga
-                else:
-                    droga = last_droga
-
-                precio = _parse_price(precio_raw)
+                # Necesitamos al menos precio para que la fila sea válida
+                precio = _parse_price(col4)
                 if not precio:
-                    # Si el campo precio está vacío probablemente sea ruido
                     continue
 
-                # Validación básica: marca no puede ser numérica pura
+                # Sanidad: marca no puede ser un número
                 try:
-                    float(marca.replace(",", "."))
-                    # Si marca es un número, las columnas están corridas → skip
-                    continue
+                    float(col1.replace(",", "."))
+                    continue  # marca numérica → fila corrida
                 except ValueError:
                     pass
 
+                if not col1:
+                    continue  # sin marca → fila sin datos útiles
+
                 rows.append({
                     "droga":        droga.lower(),
-                    "marca":        marca.upper(),
-                    "presentacion": presentacion,
-                    "laboratorio":  laboratorio if laboratorio else "Desconocido",
+                    "marca":        col1.upper(),
+                    "presentacion": col2,
+                    "laboratorio":  col3 if col3 else "Desconocido",
                     "precio":       precio,
                 })
 
+            if page_num % 20 == 0:
+                print(f"   → página {page_num}/{total_pages} — {len(rows)} filas acumuladas")
+
     return rows
 
+
 # ---------------------------------------------------------------------------
-# Persistencia
+# Guardar CSV
 # ---------------------------------------------------------------------------
 def save_csv(rows: list[dict], dest: Path) -> None:
-    fieldnames = ["droga", "marca", "presentacion", "laboratorio", "precio"]
     with open(dest, "w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer = csv.DictWriter(f, fieldnames=FIELDNAMES)
         writer.writeheader()
         writer.writerows(rows)
-    print(f"✅ CSV guardado en {dest} → {len(rows)} medicamentos")
+    print(f"✅ {dest} → {len(rows)} medicamentos")
+
 
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 def main() -> None:
-    url = build_pdf_url()
-
-    # Permitir override por argumento (útil para testear con un PDF local)
     if len(sys.argv) > 1:
         pdf_path = Path(sys.argv[1])
-        print(f"🔧 Usando PDF local: {pdf_path}")
+        print(f"🔧 PDF local: {pdf_path}")
     else:
+        url = build_pdf_url()
         download_pdf(url, TMP_PDF)
         pdf_path = TMP_PDF
 
-    print("📊 Extrayendo tabla con pdfplumber...")
+    print("📊 Extrayendo con pdfplumber (coordenadas X)...")
     rows = extract_rows(pdf_path)
 
     if not rows:
-        print("❌ No se extrajeron filas. Revisar el PDF manualmente.")
+        print("❌ Sin filas. Revisá el PDF o los límites de columna.")
         sys.exit(1)
 
     save_csv(rows, OUTPUT_CSV)
+
 
 if __name__ == "__main__":
     main()
