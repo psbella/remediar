@@ -25,6 +25,9 @@
 <img src="https://img.shields.io/badge/Mobile_First-Yes-brightgreen">
 <img src="https://img.shields.io/badge/PWA-Enabled-5A0FC8?logo=pwa">
 <img src="https://img.shields.io/badge/SEO-Optimized-success">
+<img src="https://img.shields.io/badge/Lighthouse-94%2F100-success">
+<img src="https://img.shields.io/badge/dependencies-0-success">
+<img src="https://img.shields.io/badge/Static_Site-Yes-blue">
 
 <br>
 
@@ -61,7 +64,9 @@
 # 📋 Tabla de Contenidos
 
 - [✨ Demo en Vivo](#-demo-en-vivo)
+- [📊 Dataset actual](#-dataset-actual)
 - [🎯 Funcionamiento General](#-funcionamiento-general)
+- [🧭 Principios del Proyecto](#-principios-del-proyecto)
 - [👤 Flujo del Usuario](#-flujo-del-usuario)
 - [🧠 Algoritmo de Búsqueda y Filtrado](#-algoritmo-de-búsqueda-y-filtrado)
 - [🔄 Actualización Automática de Datos](#-actualización-automática-de-datos)
@@ -71,10 +76,12 @@
 - [🏗️ Arquitectura del Sistema](#️-arquitectura-del-sistema)
 - [📁 Estructura del Repositorio](#-estructura-del-repositorio)
 - [🧰 Stack Tecnológico](#-stack-tecnológico)
+- [🧠 Decisiones Técnicas](#-decisiones-técnicas)
 - [💻 Ejecución Local](#-ejecución-local)
 - [🐍 Scripts Python](#-scripts-python)
 - [📊 Métricas y Rendimiento](#-métricas-y-rendimiento)
 - [🔍 SEO y Metadatos](#-seo-y-metadatos)
+- [🔒 Seguridad y Privacidad](#-seguridad-y-privacidad)
 - [📚 Documentación Completa](#-documentación-completa)
 - [🔌 API No Oficial](#-api-no-oficial)
 - [👥 Guía de Contribución](#-guía-de-contribución)
@@ -95,6 +102,19 @@
 |---|---|---|
 | GitHub Pages | https://psbella.github.io/remediar/ | Desarrollo y respaldo |
 | Cloudflare Pages | https://remedi.ar | Producción principal |
+
+---
+
+# 📊 Dataset actual
+
+| Métrica | Valor |
+|---|---|
+| Registros | ~12.100 |
+| Drogas únicas | ~460 |
+| Landings SEO | 56+ |
+| Tamaño JSON | ~2.5 MB |
+| Tamaño gzip | ~520 KB |
+| Actualizaciones | 2 veces/día |
 
 ---
 
@@ -129,6 +149,19 @@ El sistema se compone de tres capas principales:
 - Se indexan en memoria
 - La búsqueda ocurre completamente del lado cliente
 - El estado UI es reactivo mediante `store.js`
+
+---
+
+# 🧭 Principios del Proyecto
+
+- Acceso libre a información de medicamentos
+- Sin publicidad invasiva
+- Sin tracking
+- Performance primero
+- Mobile first
+- Open source
+- Infraestructura simple y transparente
+- Datos públicos y auditables
 
 ---
 
@@ -413,7 +446,7 @@ Los datos se descargan luego del primer render.
 ## ✅ Renderizado progresivo
 
 - 50 resultados iniciales
-- botón “Ver más”
+- botón "Ver más"
 - evita bloquear el hilo principal
 
 ---
@@ -491,6 +524,67 @@ flowchart LR
     P --> Q
 ```
 
+## Arquitectura técnica detallada
+
+```mermaid
+flowchart TD
+
+    subgraph CLIENT["🌐 CLIENTE"]
+        A[index.html]
+        B[store.js]
+        C[searchEngine.js]
+        D[uiRenderer.js]
+        E[sessionStorage Cache]
+    end
+
+    subgraph CDN["☁️ CDN"]
+        F[Cloudflare Pages]
+        G[GitHub Pages]
+    end
+
+    subgraph DATA["📦 DATOS"]
+        H[medicamentos.json]
+        I[Landings HTML]
+        J[sitemap.xml]
+    end
+
+    subgraph ETL["🐍 ETL Python"]
+        K[download_pdf.py]
+        L[pdf_to_json.py]
+        M[validate_data.py]
+        N[generar_landings.py]
+    end
+
+    subgraph SOURCE["📄 FUENTE"]
+        O[SIAFAR / COFA PDF]
+    end
+
+    subgraph CI["⚙️ CI/CD"]
+        P[GitHub Actions]
+    end
+
+    O --> K
+    K --> L
+    L --> M
+    M --> H
+    H --> N
+    N --> I
+
+    H --> F
+    I --> F
+    J --> F
+
+    F --> A
+
+    A --> B
+    B --> C
+    C --> D
+
+    B --> E
+
+    P --> K
+```
+
 ---
 
 # 📁 Estructura del Repositorio
@@ -547,6 +641,32 @@ remediar/
 | Hosting | GitHub Pages + Cloudflare |
 | SEO | JSON-LD + Open Graph |
 | Caché | sessionStorage |
+
+---
+
+# 🧠 Decisiones Técnicas
+
+## ¿Por qué Vanilla JS?
+
+- Menor tamaño final
+- Mejor tiempo de carga
+- Sin dependencias pesadas
+- SEO más simple
+- Mantenimiento sencillo
+
+## ¿Por qué JSON plano y no base de datos?
+
+- Hosting estático
+- Costos prácticamente cero
+- CDN extremadamente eficiente
+- Menor complejidad operacional
+
+## ¿Por qué Cloudflare Pages?
+
+- CDN global
+- Excelente latencia en Argentina
+- Deploy automático
+- HTTPS gratuito
 
 ---
 
@@ -637,6 +757,17 @@ docker run -p 8080:80 remediar
   "activeIngredient": "Ibuprofeno"
 }
 ```
+
+---
+
+# 🔒 Seguridad y Privacidad
+
+- No se recopilan datos personales
+- No se utilizan cookies de tracking
+- No existe autenticación
+- No existe backend persistente
+- No se comparte información con terceros
+- Todo el frontend puede auditarse públicamente
 
 ---
 
@@ -949,7 +1080,4 @@ Datos proporcionados por:
 - COFA
 
 ---
-
-# ❤️ Agradecimientos
-
 Hecho con ❤️ para que los medicamentos sean más accesibles en Argentina.
