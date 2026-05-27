@@ -1,7 +1,7 @@
 {
   "1": {
     "rows": 40,
-    "low_confidence": 11
+    "low_confidence": 0
   },
   "2": {
     "rows": 47,
@@ -13,15 +13,15 @@
   },
   "4": {
     "rows": 47,
-    "low_confidence": 10
+    "low_confidence": 0
   },
   "5": {
     "rows": 47,
-    "low_confidence": 9
+    "low_confidence": 0
   },
   "6": {
     "rows": 47,
-    "low_confidence": 2
+    "low_confidence": 0
   },
   "7": {
     "rows": 47,
@@ -37,11 +37,11 @@
   },
   "10": {
     "rows": 47,
-    "low_confidence": 16
+    "low_confidence": 0
   },
   "11": {
     "rows": 47,
-    "low_confidence": 7
+    "low_confidence": 0
   },
   "12": {
     "rows": 47,
@@ -57,7 +57,7 @@
   },
   "15": {
     "rows": 47,
-    "low_confidence": 3
+    "low_confidence": 0
   },
   "16": {
     "rows": 47,
@@ -73,15 +73,15 @@
   },
   "19": {
     "rows": 47,
-    "low_confidence": 13
+    "low_confidence": 0
   },
   "20": {
     "rows": 47,
-    "low_confidence": 8
+    "low_confidence": 0
   },
   "21": {
     "rows": 47,
-    "low_confidence": 11
+    "low_confidence": 0
   },
   "22": {
     "rows": 47,
@@ -101,11 +101,11 @@
   },
   "26": {
     "rows": 47,
-    "low_confidence": 9
+    "low_confidence": 0
   },
   "27": {
     "rows": 47,
-    "low_confidence": 35
+    "low_confidence": 0
   },
   "28": {
     "rows": 47,
@@ -113,15 +113,15 @@
   },
   "29": {
     "rows": 47,
-    "low_confidence": 4
+    "low_confidence": 0
   },
   "30": {
     "rows": 47,
-    "low_confidence": 11
+    "low_confidence": 0
   },
   "31": {
     "rows": 47,
-    "low_confidence": 1
+    "low_confidence": 0
   },
   "32": {
     "rows": 47,
@@ -133,35 +133,35 @@
   },
   "34": {
     "rows": 47,
-    "low_confidence": 3
+    "low_confidence": 0
   },
   "35": {
     "rows": 47,
-    "low_confidence": 3
+    "low_confidence": 0
   },
   "36": {
     "rows": 47,
-    "low_confidence": 11
+    "low_confidence": 0
   },
   "37": {
     "rows": 47,
-    "low_confidence": 35
+    "low_confidence": 0
   },
   "38": {
     "rows": 47,
-    "low_confidence": 16
+    "low_confidence": 0
   },
   "39": {
     "rows": 47,
-    "low_confidence": 4
+    "low_confidence": 0
   },
   "40": {
     "rows": 47,
-    "low_confidence": 4
+    "low_confidence": 0
   },
   "41": {
     "rows": 47,
-    "low_confidence": 4
+    "low_confidence": 0
   },
   "42": {
     "rows": 47,
@@ -169,15 +169,15 @@
   },
   "43": {
     "rows": 47,
-    "low_confidence": 15
+    "low_confidence": 0
   },
   "44": {
     "rows": 47,
-    "low_confidence": 10
+    "low_confidence": 0
   },
   "45": {
     "rows": 47,
-    "low_confidence": 11
+    "low_confidence": 0
   },
   "46": {
     "rows": 47,
@@ -205,11 +205,11 @@
   },
   "52": {
     "rows": 47,
-    "low_confidence": 5
+    "low_confidence": 0
   },
   "53": {
     "rows": 47,
-    "low_confidence": 4
+    "low_confidence": 0
   },
   "54": {
     "rows": 47,
@@ -221,11 +221,11 @@
   },
   "56": {
     "rows": 47,
-    "low_confidence": 13
+    "low_confidence": 0
   },
   "57": {
     "rows": 47,
-    "low_confidence": 11
+    "low_confidence": 0
   },
   "58": {
     "rows": 47,
@@ -257,35 +257,35 @@
   },
   "65": {
     "rows": 47,
-    "low_confidence": 19
+    "low_confidence": 0
   },
   "66": {
     "rows": 47,
-    "low_confidence": 22
+    "low_confidence": 9
   },
   "67": {
     "rows": 47,
-    "low_confidence": 6
+    "low_confidence": 0
   },
   "68": {
     "rows": 47,
-    "low_confidence": 11
+    "low_confidence": 10
   },
   "69": {
     "rows": 47,
-    "low_confidence": 13
+    "low_confidence": 0
   },
   "70": {
     "rows": 47,
-    "low_confidence": 21
+    "low_confidence": 0
   },
   "71": {
     "rows": 47,
-    "low_confidence": 22
+    "low_confidence": 0
   },
   "72": {
     "rows": 47,
-    "low_confidence": 1
+    "low_confidence": 0
   },
   "73": {
     "rows": 47,
@@ -293,15 +293,15 @@
   },
   "74": {
     "rows": 47,
-    "low_confidence": 18
+    "low_confidence": 0
   },
   "75": {
     "rows": 47,
-    "low_confidence": 2
+    "low_confidence": 0
   },
   "76": {
     "rows": 47,
-    "low_confidence": 9
+    "low_confidence": 0
   },
   "77": {
     "rows": 47,
@@ -309,15 +309,15 @@
   },
   "78": {
     "rows": 47,
-    "low_confidence": 39
+    "low_confidence": 0
   },
   "79": {
     "rows": 47,
-    "low_confidence": 47
+    "low_confidence": 0
   },
   "80": {
     "rows": 47,
-    "low_confidence": 13
+    "low_confidence": 0
   },
   "81": {
     "rows": 47,
@@ -325,7 +325,7 @@
   },
   "82": {
     "rows": 47,
-    "low_confidence": 1
+    "low_confidence": 0
   },
   "83": {
     "rows": 47,
@@ -333,15 +333,15 @@
   },
   "84": {
     "rows": 47,
-    "low_confidence": 12
+    "low_confidence": 0
   },
   "85": {
     "rows": 47,
-    "low_confidence": 6
+    "low_confidence": 0
   },
   "86": {
     "rows": 47,
-    "low_confidence": 42
+    "low_confidence": 0
   },
   "87": {
     "rows": 47,
@@ -349,19 +349,19 @@
   },
   "88": {
     "rows": 47,
-    "low_confidence": 2
+    "low_confidence": 0
   },
   "89": {
     "rows": 47,
-    "low_confidence": 18
+    "low_confidence": 0
   },
   "90": {
     "rows": 47,
-    "low_confidence": 2
+    "low_confidence": 0
   },
   "91": {
     "rows": 47,
-    "low_confidence": 6
+    "low_confidence": 0
   },
   "92": {
     "rows": 47,
@@ -377,7 +377,7 @@
   },
   "95": {
     "rows": 47,
-    "low_confidence": 4
+    "low_confidence": 0
   },
   "96": {
     "rows": 47,
@@ -385,11 +385,11 @@
   },
   "97": {
     "rows": 47,
-    "low_confidence": 1
+    "low_confidence": 0
   },
   "98": {
     "rows": 47,
-    "low_confidence": 14
+    "low_confidence": 0
   },
   "99": {
     "rows": 47,
@@ -397,11 +397,11 @@
   },
   "100": {
     "rows": 47,
-    "low_confidence": 20
+    "low_confidence": 0
   },
   "101": {
     "rows": 47,
-    "low_confidence": 21
+    "low_confidence": 0
   },
   "102": {
     "rows": 47,
@@ -409,7 +409,7 @@
   },
   "103": {
     "rows": 47,
-    "low_confidence": 4
+    "low_confidence": 0
   },
   "104": {
     "rows": 47,
@@ -421,11 +421,11 @@
   },
   "106": {
     "rows": 47,
-    "low_confidence": 28
+    "low_confidence": 0
   },
   "107": {
     "rows": 47,
-    "low_confidence": 9
+    "low_confidence": 1
   },
   "108": {
     "rows": 47,
@@ -433,7 +433,7 @@
   },
   "109": {
     "rows": 47,
-    "low_confidence": 1
+    "low_confidence": 0
   },
   "110": {
     "rows": 47,
@@ -441,15 +441,15 @@
   },
   "111": {
     "rows": 47,
-    "low_confidence": 14
+    "low_confidence": 0
   },
   "112": {
     "rows": 47,
-    "low_confidence": 6
+    "low_confidence": 0
   },
   "113": {
     "rows": 47,
-    "low_confidence": 1
+    "low_confidence": 0
   },
   "114": {
     "rows": 47,
@@ -461,11 +461,11 @@
   },
   "116": {
     "rows": 47,
-    "low_confidence": 12
+    "low_confidence": 0
   },
   "117": {
     "rows": 47,
-    "low_confidence": 10
+    "low_confidence": 0
   },
   "118": {
     "rows": 47,
@@ -473,15 +473,15 @@
   },
   "119": {
     "rows": 47,
-    "low_confidence": 20
+    "low_confidence": 0
   },
   "120": {
     "rows": 47,
-    "low_confidence": 16
+    "low_confidence": 0
   },
   "121": {
     "rows": 47,
-    "low_confidence": 19
+    "low_confidence": 14
   },
   "122": {
     "rows": 47,
@@ -489,11 +489,11 @@
   },
   "123": {
     "rows": 47,
-    "low_confidence": 1
+    "low_confidence": 0
   },
   "124": {
     "rows": 47,
-    "low_confidence": 1
+    "low_confidence": 0
   },
   "125": {
     "rows": 47,
@@ -501,11 +501,11 @@
   },
   "126": {
     "rows": 47,
-    "low_confidence": 2
+    "low_confidence": 0
   },
   "127": {
     "rows": 47,
-    "low_confidence": 1
+    "low_confidence": 0
   },
   "128": {
     "rows": 47,
@@ -513,55 +513,55 @@
   },
   "129": {
     "rows": 47,
-    "low_confidence": 2
+    "low_confidence": 0
   },
   "130": {
     "rows": 47,
-    "low_confidence": 47
+    "low_confidence": 0
   },
   "131": {
     "rows": 47,
-    "low_confidence": 47
+    "low_confidence": 0
   },
   "132": {
     "rows": 47,
-    "low_confidence": 47
+    "low_confidence": 0
   },
   "133": {
     "rows": 47,
-    "low_confidence": 16
+    "low_confidence": 0
   },
   "134": {
     "rows": 47,
-    "low_confidence": 28
+    "low_confidence": 0
   },
   "135": {
     "rows": 47,
-    "low_confidence": 7
+    "low_confidence": 0
   },
   "136": {
     "rows": 47,
-    "low_confidence": 36
+    "low_confidence": 3
   },
   "137": {
     "rows": 47,
-    "low_confidence": 47
+    "low_confidence": 14
   },
   "138": {
     "rows": 47,
-    "low_confidence": 40
+    "low_confidence": 0
   },
   "139": {
     "rows": 47,
-    "low_confidence": 8
+    "low_confidence": 0
   },
   "140": {
     "rows": 47,
-    "low_confidence": 4
+    "low_confidence": 0
   },
   "141": {
     "rows": 47,
-    "low_confidence": 25
+    "low_confidence": 0
   },
   "142": {
     "rows": 47,
@@ -569,27 +569,27 @@
   },
   "143": {
     "rows": 47,
-    "low_confidence": 3
+    "low_confidence": 0
   },
   "144": {
     "rows": 47,
-    "low_confidence": 5
+    "low_confidence": 0
   },
   "145": {
     "rows": 47,
-    "low_confidence": 12
+    "low_confidence": 0
   },
   "146": {
     "rows": 47,
-    "low_confidence": 31
+    "low_confidence": 1
   },
   "147": {
     "rows": 47,
-    "low_confidence": 37
+    "low_confidence": 0
   },
   "148": {
     "rows": 47,
-    "low_confidence": 2
+    "low_confidence": 0
   },
   "149": {
     "rows": 47,
@@ -597,11 +597,11 @@
   },
   "150": {
     "rows": 47,
-    "low_confidence": 1
+    "low_confidence": 0
   },
   "151": {
     "rows": 47,
-    "low_confidence": 6
+    "low_confidence": 0
   },
   "152": {
     "rows": 47,
@@ -617,11 +617,11 @@
   },
   "155": {
     "rows": 47,
-    "low_confidence": 12
+    "low_confidence": 0
   },
   "156": {
     "rows": 47,
-    "low_confidence": 20
+    "low_confidence": 0
   },
   "157": {
     "rows": 47,
@@ -645,7 +645,7 @@
   },
   "162": {
     "rows": 47,
-    "low_confidence": 14
+    "low_confidence": 0
   },
   "163": {
     "rows": 47,
@@ -665,19 +665,19 @@
   },
   "167": {
     "rows": 47,
-    "low_confidence": 47
+    "low_confidence": 37
   },
   "168": {
     "rows": 47,
-    "low_confidence": 47
+    "low_confidence": 38
   },
   "169": {
     "rows": 47,
-    "low_confidence": 47
+    "low_confidence": 35
   },
   "170": {
     "rows": 47,
-    "low_confidence": 4
+    "low_confidence": 3
   },
   "171": {
     "rows": 47,
@@ -685,7 +685,7 @@
   },
   "172": {
     "rows": 47,
-    "low_confidence": 4
+    "low_confidence": 0
   },
   "173": {
     "rows": 47,
@@ -693,15 +693,15 @@
   },
   "174": {
     "rows": 47,
-    "low_confidence": 7
+    "low_confidence": 0
   },
   "175": {
     "rows": 47,
-    "low_confidence": 2
+    "low_confidence": 0
   },
   "176": {
     "rows": 47,
-    "low_confidence": 1
+    "low_confidence": 0
   },
   "177": {
     "rows": 47,
@@ -717,19 +717,19 @@
   },
   "180": {
     "rows": 47,
-    "low_confidence": 5
+    "low_confidence": 0
   },
   "181": {
     "rows": 47,
-    "low_confidence": 8
+    "low_confidence": 0
   },
   "182": {
     "rows": 47,
-    "low_confidence": 12
+    "low_confidence": 0
   },
   "183": {
     "rows": 47,
-    "low_confidence": 3
+    "low_confidence": 0
   },
   "184": {
     "rows": 47,
@@ -737,47 +737,47 @@
   },
   "185": {
     "rows": 47,
-    "low_confidence": 12
+    "low_confidence": 0
   },
   "186": {
     "rows": 47,
-    "low_confidence": 47
+    "low_confidence": 0
   },
   "187": {
     "rows": 47,
-    "low_confidence": 24
+    "low_confidence": 0
   },
   "188": {
     "rows": 47,
-    "low_confidence": 10
+    "low_confidence": 0
   },
   "189": {
     "rows": 47,
-    "low_confidence": 10
+    "low_confidence": 0
   },
   "190": {
     "rows": 47,
-    "low_confidence": 22
+    "low_confidence": 0
   },
   "191": {
     "rows": 47,
-    "low_confidence": 47
+    "low_confidence": 0
   },
   "192": {
     "rows": 47,
-    "low_confidence": 17
+    "low_confidence": 0
   },
   "193": {
     "rows": 47,
-    "low_confidence": 47
+    "low_confidence": 0
   },
   "194": {
     "rows": 47,
-    "low_confidence": 47
+    "low_confidence": 0
   },
   "195": {
     "rows": 47,
-    "low_confidence": 6
+    "low_confidence": 0
   },
   "196": {
     "rows": 47,
@@ -785,19 +785,19 @@
   },
   "197": {
     "rows": 47,
-    "low_confidence": 14
+    "low_confidence": 0
   },
   "198": {
     "rows": 47,
-    "low_confidence": 16
+    "low_confidence": 0
   },
   "199": {
     "rows": 47,
-    "low_confidence": 6
+    "low_confidence": 0
   },
   "200": {
     "rows": 47,
-    "low_confidence": 14
+    "low_confidence": 0
   },
   "201": {
     "rows": 47,
@@ -805,15 +805,15 @@
   },
   "202": {
     "rows": 47,
-    "low_confidence": 9
+    "low_confidence": 1
   },
   "203": {
     "rows": 47,
-    "low_confidence": 12
+    "low_confidence": 0
   },
   "204": {
     "rows": 47,
-    "low_confidence": 2
+    "low_confidence": 0
   },
   "205": {
     "rows": 47,
@@ -825,15 +825,15 @@
   },
   "207": {
     "rows": 47,
-    "low_confidence": 3
+    "low_confidence": 0
   },
   "208": {
     "rows": 47,
-    "low_confidence": 2
+    "low_confidence": 0
   },
   "209": {
     "rows": 47,
-    "low_confidence": 14
+    "low_confidence": 0
   },
   "210": {
     "rows": 47,
@@ -849,11 +849,11 @@
   },
   "213": {
     "rows": 47,
-    "low_confidence": 7
+    "low_confidence": 0
   },
   "214": {
     "rows": 47,
-    "low_confidence": 3
+    "low_confidence": 0
   },
   "215": {
     "rows": 47,
@@ -881,7 +881,7 @@
   },
   "221": {
     "rows": 47,
-    "low_confidence": 8
+    "low_confidence": 0
   },
   "222": {
     "rows": 47,
@@ -893,7 +893,7 @@
   },
   "224": {
     "rows": 47,
-    "low_confidence": 4
+    "low_confidence": 0
   },
   "225": {
     "rows": 47,
@@ -901,15 +901,15 @@
   },
   "226": {
     "rows": 47,
-    "low_confidence": 3
+    "low_confidence": 0
   },
   "227": {
     "rows": 47,
-    "low_confidence": 3
+    "low_confidence": 0
   },
   "228": {
     "rows": 47,
-    "low_confidence": 35
+    "low_confidence": 30
   },
   "229": {
     "rows": 47,
@@ -933,7 +933,7 @@
   },
   "234": {
     "rows": 47,
-    "low_confidence": 4
+    "low_confidence": 0
   },
   "235": {
     "rows": 47,
@@ -953,23 +953,23 @@
   },
   "239": {
     "rows": 47,
-    "low_confidence": 10
+    "low_confidence": 0
   },
   "240": {
     "rows": 47,
-    "low_confidence": 6
+    "low_confidence": 0
   },
   "241": {
     "rows": 47,
-    "low_confidence": 43
+    "low_confidence": 0
   },
   "242": {
     "rows": 47,
-    "low_confidence": 9
+    "low_confidence": 0
   },
   "243": {
     "rows": 47,
-    "low_confidence": 14
+    "low_confidence": 0
   },
   "244": {
     "rows": 47,
@@ -977,19 +977,19 @@
   },
   "245": {
     "rows": 47,
-    "low_confidence": 3
+    "low_confidence": 0
   },
   "246": {
     "rows": 47,
-    "low_confidence": 7
+    "low_confidence": 0
   },
   "247": {
     "rows": 47,
-    "low_confidence": 5
+    "low_confidence": 0
   },
   "248": {
     "rows": 47,
-    "low_confidence": 4
+    "low_confidence": 0
   },
   "249": {
     "rows": 47,
@@ -997,11 +997,11 @@
   },
   "250": {
     "rows": 47,
-    "low_confidence": 9
+    "low_confidence": 0
   },
   "251": {
     "rows": 47,
-    "low_confidence": 2
+    "low_confidence": 0
   },
   "252": {
     "rows": 47,
@@ -1017,7 +1017,7 @@
   },
   "255": {
     "rows": 47,
-    "low_confidence": 2
+    "low_confidence": 0
   },
   "256": {
     "rows": 47,
@@ -1033,19 +1033,19 @@
   },
   "259": {
     "rows": 47,
-    "low_confidence": 9
+    "low_confidence": 2
   },
   "260": {
     "rows": 47,
-    "low_confidence": 10
+    "low_confidence": 9
   },
   "261": {
     "rows": 47,
-    "low_confidence": 43
+    "low_confidence": 42
   },
   "262": {
     "rows": 47,
-    "low_confidence": 22
+    "low_confidence": 8
   },
   "263": {
     "rows": 47,
@@ -1057,15 +1057,15 @@
   },
   "265": {
     "rows": 47,
-    "low_confidence": 36
+    "low_confidence": 0
   },
   "266": {
     "rows": 47,
-    "low_confidence": 28
+    "low_confidence": 0
   },
   "267": {
     "rows": 47,
-    "low_confidence": 21
+    "low_confidence": 0
   },
   "268": {
     "rows": 42,
