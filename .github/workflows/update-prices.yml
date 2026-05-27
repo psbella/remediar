@@ -2,12 +2,14 @@ name: Actualizar precios
 
 on:
   schedule:
+    # 09:00 y 15:00 hora Argentina (UTC-3) → 12:00 y 18:00 UTC
     - cron: '0 12,18 * * 1-5'
   workflow_dispatch:
 
 jobs:
   update:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -17,17 +19,14 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Instalar dependencias del sistema
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y ghostscript poppler-utils
-
+      # Sin Java, sin OpenCV, sin ghostscript
       - name: Instalar dependencias Python
         run: |
-          pip install camelot-py[cv] pandas opencv-python-headless
+          pip install --upgrade pip
+          pip install pdfplumber pandas
 
-      - name: Ejecutar Camelot
-        run: python scripts/pdf_to_csv_camelot.py
+      - name: Extraer precios del PDF
+        run: python scripts/pdf_to_csv_pdfplumber.py
 
       - name: Convertir CSV a JSON
         run: python scripts/csv_to_json.py
@@ -40,7 +39,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "actions@github.com"
           git add data/medicamentos.csv data/medicamentos.json
-          git add *.html
-          git commit -m "⚕️ Actualizar precios $(date +'%Y-%m-%d')" || echo "No changes"
-          git pull origin main --rebase
+          git add -f *.html 2>/dev/null || true
+          git diff --cached --quiet && echo "No changes" && exit 0
+          git commit -m "⚕️ Actualizar precios $(TZ='America/Argentina/Buenos_Aires' date +'%Y-%m-%d %H:%M')"
+          git pull --rebase origin main
           git push origin main
