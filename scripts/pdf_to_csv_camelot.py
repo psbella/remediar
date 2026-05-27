@@ -35,4 +35,4 @@ combined = combined.dropna(subset=['precio'])
 
 output_path = Path("data/medicamentos.csv")
 combined.to_csv(output_path, index=False, encoding='utf-8')
-print(f"✅ CSV guardado: {len(combined)} medicamentos")
+print(f"✅ CSV guardado: {len(combined)} medicamentos (sin PAMI)")
