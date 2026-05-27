@@ -15,16 +15,19 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.x'
+          python-version: '3.11'
 
-      - name: Instalar dependencias
+      - name: Instalar dependencias del sistema
         run: |
-          pip install pymupdf pandas tabula-py
           sudo apt-get update
-          sudo apt-get install -y default-jre
+          sudo apt-get install -y ghostscript poppler-utils
 
-      - name: Ejecutar pdf_to_csv_tabula.py
-        run: python scripts/pdf_to_csv_tabula.py
+      - name: Instalar dependencias Python
+        run: |
+          pip install camelot-py[cv] pandas opencv-python-headless
+
+      - name: Ejecutar Camelot
+        run: python scripts/pdf_to_csv_camelot.py
 
       - name: Convertir CSV a JSON
         run: python scripts/csv_to_json.py
