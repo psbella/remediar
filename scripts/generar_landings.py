@@ -144,10 +144,6 @@ for droga_slug in DROGAS:
         precio_rango = "Consultá los precios actualizados en la tabla."
         precio_rango_meta = f"Precio de {nombre} en Argentina."
 
-        f"ese medicamento está cubierto con receta médica."
-        f"Consultá en tu farmacia o con tu obra social para confirmar cobertura."
-    )
-
     if meds_ordenados:
         filas_tabla  = generar_filas_tabla(meds_ordenados)
         lista_marcas = generar_lista_marcas(meds_ordenados)
