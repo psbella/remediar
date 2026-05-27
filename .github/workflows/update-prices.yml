@@ -23,7 +23,7 @@ jobs:
           pip install pymupdf
 
       - name: Ejecutar extracción (smart v3)
-        run: python scripts/pdf_to_csv_smart_v3.py
+        run: python scripts/pdf_to_csv_smart_v4.py
 
       - name: Convertir CSV a JSON
         run: python scripts/csv_to_json.py
