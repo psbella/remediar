@@ -1,5 +1,28 @@
 # 💊 remediar — Buscador de precios de medicamentos en Argentina
+<!-- SEO -->
+<p align="center">
+  <strong>Buscador de precios de medicamentos en Argentina</strong><br>
+  <em>Comparador actualizado de precios de fármacos, laboratorios y cobertura PAMI</em>
+</p>
 
+<p align="center">
+  <a href="https://remedi.ar">https://remedi.ar</a> ·
+  <a href="https://github.com/psbella/remediar">GitHub</a>
+</p>
+
+---
+
+## 🔍 Keywords
+
+precio medicamentos Argentina, vademécum online, ibuprofeno precio Argentina, buscador de medicamentos, comparación de precios farmacia, COFA SIAFAR precios, medicamentos PAMI, base de datos medicamentos Argentina
+
+---
+
+## 📌 Descripción corta para motores de búsqueda
+
+Sistema open source que procesa datos oficiales del sistema SIAFAR/COFA y genera un buscador optimizado de precios de medicamentos en Argentina con actualización automática dos veces al día.
+
+---
 <p align="center">
 
 <!-- Hosting & License -->
@@ -1072,6 +1095,12 @@ Uso libre para proyectos personales y comerciales.
 
 ---
 
+## 🧠 Proyecto orientado a datos abiertos
+
+Este proyecto utiliza únicamente información pública proveniente de organismos oficiales del sistema farmacéutico argentino. No almacena datos sensibles ni realiza seguimiento de usuarios.
+
+---
+
 # 🙏 Fuente de Datos
 
 Datos proporcionados por:
@@ -1080,4 +1109,6 @@ Datos proporcionados por:
 - COFA
 
 ---
-Hecho con ❤️ para que los medicamentos sean más accesibles en Argentina.
+<p align="center">
+  <strong>Hecho con ❤️ para que los medicamentos sean más accesibles en Argentina.</strong>
+</p>
