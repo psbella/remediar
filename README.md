@@ -642,14 +642,65 @@ docker run -p 8080:80 remediar
 
 # 📚 Documentación Completa
 
-- API No Oficial
-- Guía de Contribución
-- Diagramas Mermaid
-- Referencia Frontend
-- Guía CSS
-- Workflows
-- FAQ
-- Roadmap
+| Documento | Descripción | Link |
+|---|---|---|
+| API No Oficial | Consumo externo de `medicamentos.json` | [Ver sección](#-api-no-oficial) |
+| Guía de Contribución | Cómo colaborar con el proyecto | [Ver sección](#-guía-de-contribución) |
+| Diagramas Mermaid | Arquitectura y flujos internos | [Ver sección](#-diagramas-de-flujo-detallados) |
+| Referencia Frontend | Componentes y módulos JS | [Ver sección](#-referencia-de-componentes-frontend) |
+| Guía CSS | Variables, breakpoints y estilos | [Ver sección](#-guía-de-estilos-css) |
+| Workflows | Automatización y CI/CD | [Ver sección](#-documentación-de-workflows) |
+| FAQ | Preguntas frecuentes | [Ver sección](#-preguntas-frecuentes-faq) |
+| Roadmap | Funcionalidades futuras | [Ver sección](#️-roadmap) |
+
+---
+
+## 🌐 Enlaces del Proyecto
+
+| Recurso | URL |
+|---|---|
+| Producción | https://remedi.ar |
+| GitHub Pages | https://psbella.github.io/remediar/ |
+| Repositorio GitHub | https://github.com/psbella/remediar |
+| Actions / CI | https://github.com/psbella/remediar/actions |
+| medicamentos.json (CDN) | https://remedi.ar/data/medicamentos.json |
+| medicamentos.json (GitHub Raw) | https://raw.githubusercontent.com/psbella/remediar/main/data/medicamentos.json |
+| Sitemap | https://remedi.ar/sitemap.xml |
+| robots.txt | https://remedi.ar/robots.txt |
+| Política de privacidad | https://remedi.ar/privacidad.html |
+| Términos y condiciones | https://remedi.ar/terminos.html |
+
+---
+
+## 📦 Archivos Importantes
+
+| Archivo | Función |
+|---|---|
+| `index.html` | SPA principal |
+| `style.css` | Estilos globales |
+| `js/core/store.js` | Estado reactivo |
+| `js/searchEngine.js` | Motor de búsqueda |
+| `js/uiRenderer.js` | Renderizado frontend |
+| `data/medicamentos.json` | Dataset principal |
+| `scripts/pdf_to_json.py` | Conversión PDF → JSON |
+| `.github/workflows/update-prices.yml` | Automatización |
+
+---
+
+## 🧭 Navegación rápida
+
+- [✨ Demo en Vivo](#-demo-en-vivo)
+- [🎯 Funcionamiento General](#-funcionamiento-general)
+- [👤 Flujo del Usuario](#-flujo-del-usuario)
+- [🧠 Algoritmo](#-algoritmo-de-búsqueda-y-filtrado)
+- [⚡ Optimizaciones](#-optimizaciones-implementadas)
+- [🏗️ Arquitectura](#️-arquitectura-del-sistema)
+- [📁 Estructura del Repositorio](#-estructura-del-repositorio)
+- [🧰 Stack Tecnológico](#-stack-tecnológico)
+- [📊 Métricas](#-métricas-y-rendimiento)
+- [🔍 SEO](#-seo-y-metadatos)
+- [❓ FAQ](#-preguntas-frecuentes-faq)
+- [🗺️ Roadmap](#️-roadmap)
 
 ---
 
