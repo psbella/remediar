@@ -32,7 +32,7 @@ def csv_to_json():
     data = {"fecha": fecha_str, "fuente": "medicamentos.csv", "total": len(medicamentos), "medicamentos": medicamentos}
     with open(JSON_PATH, 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
-    print(f"✅ JSON generado: {len(medicamentos)} registros")
+    print(f"✅ JSON generado: {len(medicamentos)} registros (sin PAMI)")
     print(f"📅 Fecha: {fecha_str}")
 
 if __name__ == "__main__":
