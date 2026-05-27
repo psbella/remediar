@@ -2,14 +2,12 @@ name: Actualizar precios
 
 on:
   schedule:
-    # 09:00 y 15:00 hora Argentina (UTC-3) → 12:00 y 18:00 UTC
     - cron: '0 12,18 * * 1-5'
   workflow_dispatch:
 
 jobs:
   update:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -19,14 +17,13 @@ jobs:
         with:
           python-version: '3.11'
 
-      # Sin Java, sin OpenCV, sin ghostscript
-      - name: Instalar dependencias Python
+      - name: Instalar dependencias
         run: |
           pip install --upgrade pip
-          pip install pdfplumber pandas
+          pip install pymupdf
 
-      - name: Extraer precios del PDF
-        run: python scripts/pdf_to_csv_pdfplumber.py
+      - name: Ejecutar extracción (smart v3)
+        run: python scripts/pdf_to_csv_smart_v3.py
 
       - name: Convertir CSV a JSON
         run: python scripts/csv_to_json.py
@@ -39,8 +36,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "actions@github.com"
           git add data/medicamentos.csv data/medicamentos.json
-          git add -f *.html 2>/dev/null || true
-          git diff --cached --quiet && echo "No changes" && exit 0
-          git commit -m "⚕️ Actualizar precios $(TZ='America/Argentina/Buenos_Aires' date +'%Y-%m-%d %H:%M')"
-          git pull --rebase origin main
+          git add logs/ || true
+          git add *.html
+          git commit -m "⚕️ Actualizar precios $(date +'%Y-%m-%d')" || echo "No changes"
+          git pull origin main --rebase
           git push origin main
