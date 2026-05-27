@@ -57,7 +57,6 @@ ACCIONES = {
     "haloperidol": "Antipsicótico típico",
     "fluoxetina": "Antidepresivo inhibidor selectivo de la recaptación de serotonina",
     "venlafaxina": "Antidepresivo inhibidor de la recaptación de serotonina y noradrenalina",
-    "bupropion": "Antidepresivo atípico (inhibidor de la recaptación de dopamina y noradrenalina)",
     "levomepromazina": "Antipsicótico fenotiazínico",
     "metoclopramida": "Antiemético y procinético",
     "ipratropio": "Broncodilatador anticolinérgico",
@@ -95,8 +94,6 @@ def generar_filas_tabla(meds: list) -> str:
     filas = ""
     for m in meds[:60]:
         precio = m.get('precio', 0) or 0
-        pami   = m.get('copago_pami')
-        pami_html = f'${pami:,.2f}' if pami and isinstance(pami, (int, float)) else '—'
         marca  = esc(m.get('marca', 'N/A'))
         pres   = esc(m.get('presentacion', 'N/A'))
         lab    = esc(m.get('laboratorio', 'N/A'))
@@ -106,7 +103,6 @@ def generar_filas_tabla(meds: list) -> str:
             f'<td class="col-pres">{pres}</td>'
             f'<td class="col-lab">{lab}</td>'
             f'<td class="col-precio">${precio:,.2f}</td>'
-            f'<td class="col-pami">{pami_html}</td>'
             f'</tr>\n'
         )
     return filas
@@ -137,7 +133,6 @@ for droga_slug in DROGAS:
         meds_dr = por_droga.get(alt.replace('-', ' '), [])
 
     meds_ordenados = sorted(meds_dr, key=lambda x: x.get('precio', 0) or 0)
-    tiene_pami     = any(m.get('copago_pami') for m in meds_dr)
     precios        = [m.get('precio', 0) or 0 for m in meds_dr if m.get('precio')]
 
     if precios:
@@ -149,12 +144,7 @@ for droga_slug in DROGAS:
         precio_rango = "Consultá los precios actualizados en la tabla."
         precio_rango_meta = f"Precio de {nombre} en Argentina."
 
-    msg_pami = (
-        f"Sí, {nombre} tiene cobertura PAMI para algunas presentaciones. "
-        f"En la tabla, cuando la columna 'Precio PAMI' tiene un valor (no un guión), "
         f"ese medicamento está cubierto con receta médica."
-        if tiene_pami else
-        f"No se encontraron precios PAMI para {nombre} en la base de datos actual. "
         f"Consultá en tu farmacia o con tu obra social para confirmar cobertura."
     )
 
@@ -208,8 +198,6 @@ for droga_slug in DROGAS:
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{esc(nombre)}: precio en Argentina hoy | remedi.ar</title>
-    <meta name="description" content="Precio de {esc(nombre)} en Argentina hoy. {precio_rango_meta} Precio público y PAMI. {esc(accion)}. Actualizado {HOY} {HORA} hs.">
-    <meta name="keywords" content="{droga_slug} precio, precio PAMI {droga_slug}, {accion.lower()}">
     <meta name="author" content="remedi.ar">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://remedi.ar/{droga_slug}">
@@ -217,10 +205,8 @@ for droga_slug in DROGAS:
     <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
     <link rel="manifest" href="manifest.json">
     <meta property="og:title" content="{esc(nombre)}: precio en Argentina — remedi.ar">
-    <meta property="og:description" content="Precio público y PAMI de {esc(nombre)} hoy. {precio_rango_meta} {esc(accion)}.">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{esc(nombre)}: precio en Argentina — remedi.ar">
-    <meta name="twitter:description" content="Precio público y PAMI de {esc(nombre)}. {precio_rango_meta}">
 </head>
 <body>
 <div class="container">
@@ -231,7 +217,6 @@ for droga_slug in DROGAS:
             </div>
             <div class="header-texto">
                 <h1>remedi.ar - Precios de medicamentos</h1>
-                <p>remedi.ar · Precio público · Precio PAMI</p>
             </div>
         </header>
     </a>
@@ -252,7 +237,6 @@ for droga_slug in DROGAS:
         <div style="margin-bottom:20px;background:#e8f4f4;padding:12px 16px;border-radius:10px;">
             <p style="font-size:13px;color:#005f5f;">
                 <strong>Información:</strong> Los precios mostrados son públicos según SIAFAR/COFA.
-                El precio PAMI es el copago que abona el afiliado. Verificá siempre en tu farmacia.
             </p>
         </div>
 
@@ -276,7 +260,6 @@ for droga_slug in DROGAS:
                                 <th>Presentación</th>
                                 <th>Laboratorio</th>
                                 <th>Precio público</th>
-                                <th>Precio PAMI</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -329,8 +312,6 @@ for droga_slug in DROGAS:
             </details>
 
             <details style="margin-bottom:15px;background:#f9f9f9;border-radius:8px;padding:14px;" open>
-                <summary style="font-weight:600;cursor:pointer;">¿El PAMI cubre {esc(nombre)}?</summary>
-                <p style="font-size:14px;margin-top:8px;">{msg_pami}</p>
             </details>
         </section>
     </main>
