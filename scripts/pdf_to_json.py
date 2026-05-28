@@ -1,12 +1,16 @@
-from datetime import timedelta
-AR_TZ = timezone(timedelta(hours=-3))
+#!/usr/bin/env python3
+"""pdf_to_json.py - Descarga el PDF y genera JSON con fecha Argentina"""
+
 import re
 import json
 import sys
 import urllib.request
 import ssl
 from pathlib import Path
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
+
+# Huso horario Argentina (UTC-3)
+AR_TZ = timezone(timedelta(hours=-3))
 
 ssl_context = ssl.create_default_context()
 ssl_context.check_hostname = False
@@ -97,8 +101,12 @@ def main():
         output_path = Path(__file__).parent.parent / "data" / "medicamentos.json"
         output_path.parent.mkdir(parents=True, exist_ok=True)
 
+        # Fecha Argentina
+        ahora_ar = datetime.now(AR_TZ)
+        fecha_str = ahora_ar.strftime("%Y-%m-%d %H:%M:%S")
+
         data = {
-            "fecha": datetime.now(timezone.utc).isoformat(),
+            "fecha": fecha_str,
             "fuente": pdf_url,
             "total": len(medicamentos),
             "medicamentos": medicamentos
@@ -110,6 +118,7 @@ def main():
         print(f"✅ Guardado: {output_path}")
         print(f"\n📊 ESTADÍSTICAS:")
         print(f"   Total: {len(medicamentos)} medicamentos")
+        print(f"   Fecha: {fecha_str}")
     else:
         print("\n❌ No se extrajo ningún medicamento")
         sys.exit(1)
