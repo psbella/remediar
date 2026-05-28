@@ -1,8 +1,16 @@
+```txt
 /*
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), microphone=(), camera=()
+
+  # Seguridad moderna
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Resource-Policy: same-origin
+
+  # CSP compatible con Adsense + Analytics + GitHub Pages
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://pagead2.googlesyndication.com https://www.googletagmanager.com https://www.google-analytics.com https://fundingchoicesmessages.google.com https://*.googlesyndication.com https://*.doubleclick.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com data:; connect-src 'self' https://www.google-analytics.com https://pagead2.googlesyndication.com https://*.doubleclick.net; frame-src https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://*.doubleclick.net; object-src 'none'; base-uri 'self'; form-action 'self';
 
 /data/medicamentos.json
   Content-Type: application/json; charset=utf-8
@@ -18,4 +26,11 @@
   Cache-Control: public, max-age=86400
 
 /img/*
-  Cache-Control: public, max-age=604800
+  Cache-Control: public, max-age=604800, immutable
+
+/favicon.ico
+  Cache-Control: public, max-age=604800, immutable
+
+/manifest.json
+  Cache-Control: public, max-age=86400
+```
