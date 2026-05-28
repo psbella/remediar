@@ -4,8 +4,7 @@ import sys
 import urllib.request
 import ssl
 from pathlib import Path
-from datetime import datetime, timezone
-from html.parser import HTMLParser
+from datetime import datetime, timezone, timedelta
 
 ssl_context = ssl.create_default_context()
 ssl_context.check_hostname = False
@@ -18,16 +17,7 @@ except ImportError:
     subprocess.check_call([sys.executable, "-m", "pip", "install", "pymupdf"])
     import fitz
 
-class PDFLinkParser(HTMLParser):
-    def __init__(self):
-        super().__init__()
-        self.pdfs = []
-    
-    def handle_starttag(self, tag, attrs):
-        if tag == 'a':
-            for attr, value in attrs:
-                if attr == 'href' and value.endswith('.pdf'):
-                    self.pdfs.append(value)
+LAST_PDF_FILE = Path(__file__).parent.parent / "data" / "last_pdf.txt"
 
 def limpiar_precio(valor):
     if not valor or valor == '-':
@@ -46,38 +36,65 @@ def es_precio(texto):
     limpio = re.sub(r'[\$\s]', '', texto)
     return bool(re.match(r'^[\d\.,]+$', limpio))
 
-def obtener_pdf_mas_reciente():
-    """Obtiene el nombre del PDF más reciente desde la página de listado"""
-    url = "https://siafar.com/precios/pdf/"
-    print(f"Obteniendo listado de: {url}")
+def obtener_ultima_fecha_exitosa():
+    if LAST_PDF_FILE.exists():
+        try:
+            fecha_str = LAST_PDF_FILE.read_text().strip()
+            return datetime.strptime(fecha_str, "%d%m%y")
+        except:
+            return None
+    return None
+
+def guardar_fecha_exitosa(fecha):
+    LAST_PDF_FILE.write_text(fecha.strftime("%d%m%y"))
+
+def encontrar_pdf():
+    # 1. Intentar desde la última fecha exitosa (si existe)
+    ultima_fecha = obtener_ultima_fecha_exitosa()
     
-    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-    with urllib.request.urlopen(req, timeout=30, context=ssl_context) as r:
-        html = r.read().decode('utf-8')
+    fechas_a_probar = []
     
-    parser = PDFLinkParser()
-    parser.feed(html)
+    if ultima_fecha:
+        # Empezar desde la última fecha exitosa hacia adelante (buscar más nuevo)
+        for dias in range(7):
+            fecha = ultima_fecha + timedelta(days=dias)
+            if fecha <= datetime.now():
+                fechas_a_probar.append(fecha)
+        # También incluir días anteriores por si acaso
+        for dias in range(1, 8):
+            fecha = ultima_fecha - timedelta(days=dias)
+            if fecha not in fechas_a_probar:
+                fechas_a_probar.append(fecha)
+    else:
+        # No hay registro, probar desde hoy hacia atrás
+        for dias in range(7):
+            fechas_a_probar.append(datetime.now() - timedelta(days=dias))
     
-    # Filtrar solo Precios*.pdf y ordenar por fecha (por nombre)
-    pdfs = [p for p in parser.pdfs if p.startswith('Precios') and p.endswith('.pdf')]
-    if not pdfs:
-        raise Exception("No se encontraron PDFs")
+    # Eliminar duplicados y ordenar por fecha descendente (más reciente primero)
+    fechas_a_probar = sorted(set(fechas_a_probar), reverse=True)
     
-    # Ordenar por nombre (Precios280526.pdf → 280526)
-    pdfs.sort(key=lambda x: x[7:13] if len(x) >= 13 else '', reverse=True)
-    pdf_mas_reciente = pdfs[0]
-    pdf_url = f"https://siafar.com/precios/pdf/{pdf_mas_reciente}"
-    print(f"✅ PDF más reciente: {pdf_mas_reciente}")
-    return pdf_url
+    for fecha in fechas_a_probar:
+        fecha_str = fecha.strftime("%d%m%y")
+        pdf_url = f"https://siafar.com/precios/pdf/Precios{fecha_str}.pdf"
+        print(f"Intentando: {pdf_url}")
+        
+        try:
+            req = urllib.request.Request(pdf_url, headers={"User-Agent": "Mozilla/5.0"})
+            with urllib.request.urlopen(req, timeout=30, context=ssl_context) as r:
+                pdf_bytes = r.read()
+                print(f"✅ Descargado: {pdf_url}")
+                guardar_fecha_exitosa(fecha)
+                return pdf_bytes, pdf_url
+        except:
+            print(f"   No disponible")
+            continue
+    
+    raise Exception("No se encontró PDF en los últimos días")
 
 def main():
     print(f"Descargando PDF...")
-    pdf_url = obtener_pdf_mas_reciente()
+    pdf_bytes, pdf_url = encontrar_pdf()
     
-    req = urllib.request.Request(pdf_url, headers={"User-Agent": "Mozilla/5.0"})
-    with urllib.request.urlopen(req, timeout=30, context=ssl_context) as r:
-        pdf_bytes = r.read()
-
     print(f"Tamaño: {len(pdf_bytes)} bytes")
     doc = fitz.open(stream=pdf_bytes, filetype="pdf")
 
