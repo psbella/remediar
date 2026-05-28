@@ -1,3 +1,5 @@
+from datetime import timedelta
+AR_TZ = timezone(timedelta(hours=-3))
 import re
 import json
 import sys
