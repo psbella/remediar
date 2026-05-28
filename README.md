@@ -7,7 +7,7 @@
 <!-- SEO -->
 <p align="center">
   <strong>Buscador de precios de medicamentos en Argentina</strong><br>
-  <em>Sistema open source que procesa datos oficiales de SIAFAR/COFA y genera un comparador de precios de medicamentos (ibuprofeno, PAMI, vademécum online) con actualización automática dos veces al día.</em>
+  <em>Sistema open source que procesa datos oficiales de SIAFAR/COFA y genera un comparador de precios de medicamentos con actualización automática dos veces al día.</em>
 </p>
 
 <p align="center">
