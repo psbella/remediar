@@ -1,5 +1,5 @@
 // uiRenderer.js — Renderizado con badges de vigencia y escape seguro
-import { formatearPrecio, escapeHtml, extraerFiltros } from './utils.js';
+import { formatearPrecio, escapeHtml, extraerFiltros, normalizarLaboratorio } from './utils.js';
 
 export function mostrarSkeleton() {
     const el = document.getElementById('resultados');
@@ -130,7 +130,7 @@ function renderizarTarjeta(med) {
             ${badgeVigencia(med)}
             <div class="tarjeta-header">
                 <h3 class="marca-tarjeta">${escapeHtml(med.marca || 'N/A')}</h3>
-                <span class="laboratorio-badge">${escapeHtml(med.laboratorio || 'N/A')}</span>
+                <span class="laboratorio-badge">${escapeHtml(normalizarLaboratorio(med.laboratorio) || "N/A")}</span>
             </div>
             <div class="fila-tabla">
                 <span class="celda etiqueta">
