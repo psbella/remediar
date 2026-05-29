@@ -1,8 +1,8 @@
 name: Actualizar precios
 
 on:
-  schedule:
-    - cron: '0 12,18 * * 1-5'
+  schedule:  
+- cron: '30 13,21 * * 1-5'   # 13:30 UTC = 10:30 ARG, 21:00 UTC = 18:00 ARG
   workflow_dispatch:
 
 jobs:
