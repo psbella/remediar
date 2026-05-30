@@ -2,9 +2,8 @@
   <img src="https://psbella.github.io/remediar/img/favicon.svg" width="90" />
 </p>
 
-#  remediar — Buscador de precios de medicamentos en Argentina
+# remediar — Buscador de precios de medicamentos en Argentina
 
-<!-- SEO -->
 <p align="center">
   <strong>Buscador de precios de medicamentos en Argentina</strong><br>
   <em>Sistema open source que procesa datos oficiales de SIAFAR/COFA y genera un comparador de precios de medicamentos con actualización automática dos veces al día.</em>
@@ -16,6 +15,7 @@
 </p>
 
 ---
+
 <p align="center">
 
 <!-- Hosting & License -->
@@ -84,6 +84,8 @@
 - [🧠 Algoritmo de Búsqueda y Filtrado](#-algoritmo-de-búsqueda-y-filtrado)
 - [🔄 Actualización Automática de Datos](#-actualización-automática-de-datos)
 - [📦 Estructura de Datos JSON](#-estructura-de-datos-json)
+- [🚨 Detección de Precios Outliers](#-detección-de-precios-outliers)
+- [🛡️ Panel de Administración](#️-panel-de-administración)
 - [⚡ Optimizaciones Implementadas](#-optimizaciones-implementadas)
 - [⏱️ Tiempos de Respuesta](#️-tiempos-de-respuesta)
 - [🏗️ Arquitectura del Sistema](#️-arquitectura-del-sistema)
@@ -140,8 +142,10 @@ El sistema se compone de tres capas principales:
 - GitHub Actions ejecuta un workflow automático dos veces al día
 - Se descarga el PDF oficial desde SIAFAR / COFA
 - Python extrae tablas y líneas del PDF
-- Los datos se limpian y validan
-- Se genera `medicamentos.json`
+- Los datos se limpian, validan y analizan estadísticamente
+- Se detectan precios outliers y se aplica la lista negra
+- Se genera `medicamentos.json` con scores de vigencia
+- Se genera `outlier_report.json` para el panel de administración
 - Se crean 56+ landings HTML estáticas SEO
 
 ---
@@ -162,6 +166,7 @@ El sistema se compone de tres capas principales:
 - Se indexan en memoria
 - La búsqueda ocurre completamente del lado cliente
 - El estado UI es reactivo mediante `store.js`
+- Los resultados con precios sospechosos se degradan automáticamente al final
 
 ---
 
@@ -218,6 +223,7 @@ sequenceDiagram
     B->>STORE: Ejecutar búsqueda
 
     STORE->>STORE: Filtrar + ordenar
+    Note over STORE: Outliers (vigencia_score < 50)<br/>degradados automáticamente al final
     STORE->>UI: Actualizar resultados
 
     U->>B: Activa filtro PAMI
@@ -225,7 +231,7 @@ sequenceDiagram
     STORE->>UI: Render reactivo
 
     U->>B: Click en medicamento
-    UI-->>U: Mostrar detalles
+    UI-->>U: Mostrar detalles + badge si precio sospechoso
 ```
 
 ---
@@ -302,6 +308,31 @@ function performSearch(query, filters) {
 
 ---
 
+## Ordenamiento con vigencia
+
+Los resultados se ordenan en tres niveles: primero por relevancia textual, luego por `vigencia_score`, y finalmente por precio ascendente. Los medicamentos con `vigencia_score < 50` (outliers) siempre se envían al fondo de los resultados, independientemente del criterio de orden activo.
+
+```javascript
+// searchEngine.js — criterio de ordenamiento
+return resultados.sort((a, b) => {
+  const vigA = a.vigencia_score ?? 100;
+  const vigB = b.vigencia_score ?? 100;
+
+  // Sospechosos siempre al fondo
+  if ((vigA < 50) !== (vigB < 50)) return vigA < 50 ? 1 : -1;
+
+  // Entre normales: relevancia textual
+  const relA = scoreRelevancia(a, termino);
+  const relB = scoreRelevancia(b, termino);
+  if (relA !== relB) return relB - relA;
+
+  // Desempate: precio ascendente
+  return (a.precio || 0) - (b.precio || 0);
+});
+```
+
+---
+
 ## Complejidades
 
 | Operación | Complejidad | Tiempo estimado |
@@ -321,11 +352,13 @@ function performSearch(query, filters) {
 flowchart TD
 
     A[⏰ Cron GitHub Actions]
-    B[📥 Descargar PDF]
-    C[📄 Extraer tablas]
-    D[🧹 Limpiar datos]
-    E[✅ Validar registros]
+    B[📥 Descargar PDF SIAFAR]
+    C[📄 Extraer registros por página]
+    D[🧹 Limpiar y normalizar]
+    BL[🛡️ Aplicar lista negra]
+    E[🔍 Detectar outliers]
     F[💾 Generar medicamentos.json]
+    R[📋 Generar outlier_report.json]
     G[🌐 Generar landings HTML]
     H[📤 Commit automático]
     I[☁️ Cloudflare detecta cambios]
@@ -334,8 +367,10 @@ flowchart TD
     A --> B
     B --> C
     C --> D
-    D --> E
+    D --> BL
+    BL --> E
     E --> F
+    E --> R
     F --> G
     G --> H
     H --> I
@@ -351,47 +386,58 @@ name: Actualizar precios
 
 on:
   schedule:
-    - cron: '30 13,21 * * 1-5'
-
+    - cron: '30 13,21 * * 1-5'   # 10:30 y 18:00 ARG, días hábiles
   workflow_dispatch:
 
 jobs:
-  update-prices:
+  update:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-
-      - run: pip install pandas pdfplumber requests
-
+      - run: pip install pymupdf
       - run: python scripts/pdf_to_json.py
-
-      - run: git add .
-      - run: git commit -m "Actualización automática"
-      - run: git push
+      - run: python scripts/generar_landings.py
+      - name: Commit y push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "actions@github.com"
+          git add data/medicamentos.json
+          git add data/outlier_report.json
+          git add *.html
+          git commit -m "Actualizar precios $(date +'%Y-%m-%d')" || echo "No changes"
+          git pull origin main --rebase
+          git push origin main
 ```
 
 ---
 
 # 📦 Estructura de Datos JSON
 
-## Ejemplo
+## medicamentos.json
 
 ```json
-[
-  {
-    "droga": "IBUPROFENO",
-    "presentacion": "400 mg COMPRIMIDOS x 20",
-    "laboratorio": "Pfizer",
-    "precio": 1250.50,
-    "pami": 850.30,
-    "fecha_actualizacion": "2026-05-27"
-  }
-]
+{
+  "fecha": "2026-05-28 10:30:00",
+  "fuente": "https://siafar.com/precios/pdf/",
+  "total": 12100,
+  "blacklisted": 3,
+  "medicamentos": [
+    {
+      "droga": "ibuprofeno",
+      "marca": "IBUPROFENO RICHMOND",
+      "presentacion": "400 mg comp.x 20",
+      "laboratorio": "Richmond",
+      "precio": 2850.50,
+      "vigencia_score": 100,
+      "flags": [],
+      "precio_outlier_tipo": null,
+      "outlier_razones": []
+    }
+  ]
+}
 ```
 
 ---
@@ -400,12 +446,240 @@ jobs:
 
 | Campo | Tipo | Descripción |
 |---|---|---|
-| droga | string | Principio activo |
-| presentacion | string | Dosis y formato |
-| laboratorio | string | Laboratorio fabricante |
-| precio | number | Precio normal |
-| pami | number | Precio PAMI |
-| fecha_actualizacion | string | Fecha ISO |
+| `droga` | string | Principio activo (lowercase) |
+| `marca` | string | Nombre comercial (uppercase) |
+| `presentacion` | string | Dosis, forma y cantidad |
+| `laboratorio` | string | Laboratorio fabricante |
+| `precio` | number | Precio en ARS |
+| `vigencia_score` | number | Score de confianza 0-100 |
+| `flags` | array | `precio_bajo` / `precio_sospechoso` / `precio_obsoleto` |
+| `precio_outlier_tipo` | string\|null | Tipo de anomalía detectada |
+| `outlier_razones` | array | Detalle técnico de la detección |
+
+---
+
+## outlier_report.json
+
+Generado en cada corrida del workflow. Consumido exclusivamente por el panel de administración.
+
+```json
+{
+  "timestamp": "2026-05-28T10:30:00-03:00",
+  "total_registros": 12100,
+  "total_outliers": 47,
+  "outliers": [
+    {
+      "droga": "abacavir",
+      "marca": "VIROCAVIR",
+      "presentacion": "300 mg comp.rec.x 60",
+      "laboratorio": "Savant Pharma",
+      "precio": 9029.60,
+      "precio_outlier_tipo": "bajo_critico",
+      "razones": ["precio $9.029,60 < 10% mediana $106.983,97"],
+      "mediana_droga": 106983.97,
+      "n_droga": 5
+    }
+  ]
+}
+```
+
+---
+
+# 🚨 Detección de Precios Outliers
+
+## Contexto
+
+El PDF de SIAFAR incluye registros históricos sin fecha por fila, mezclados con los actuales. Medicamentos desactualizados desde 2018 pueden aparecer con precios que hoy son irrisorios por inflación. El sistema detecta estas anomalías estadísticamente y las degrada en los resultados de búsqueda.
+
+---
+
+## Pipeline de detección
+
+```mermaid
+flowchart TD
+
+    A[Registros extraídos del PDF]
+    BL[🛡️ Filtrar lista negra]
+    S[Calcular estadísticas\nmediana · IQR · fence_low\npor droga]
+
+    A --> BL
+    BL --> S
+
+    S --> RA
+    S --> RB
+    S --> RC
+    S --> RD
+    S --> RE
+
+    subgraph REGLAS["5 Reglas en cascada"]
+        RA["Regla A\nPiso absoluto\nprecio < $1.800 ARS"]
+        RB["Regla B\nUmbral crítico\nprecio < 10% mediana\n(aplica con ≥1 registro)"]
+        RC["Regla C\nUmbral relativo\nprecio < 25% mediana\n(requiere ≥3 registros)"]
+        RD["Regla D\nIQR Tukey\nprecio < Q1 − 1.5×IQR\n(requiere ≥3 registros)"]
+        RE["Regla E\nInconsistencia de escala\nprecio/unidad << mediana\ndel grupo droga+marca"]
+    end
+
+    RA --> FLAG
+    RB --> FLAG
+    RC --> FLAG
+    RD --> FLAG
+    RE --> FLAG
+
+    FLAG{¿Alguna\nregla activa?}
+
+    FLAG -- Sí --> OUT["Asignar\nvigencia_score ≤ 40\nflag correspondiente\ntipo de outlier"]
+    FLAG -- No --> OK["vigencia_score = 100\nflags = []"]
+
+    OUT --> JSON[medicamentos.json]
+    OUT --> REPORT[outlier_report.json]
+    OK --> JSON
+```
+
+---
+
+## Reglas de detección
+
+| Regla | Condición | Flag asignado | Score | Requisito |
+|---|---|---|---|---|
+| A — Piso absoluto | `precio < $1.800` | `precio_bajo` | 45 | Siempre |
+| B — Umbral crítico | `precio < 10% mediana` | `precio_obsoleto` | 20 | ≥ 1 registro |
+| C — Umbral relativo | `precio < 25% mediana` | `precio_sospechoso` | 35 | ≥ 3 registros |
+| D — IQR Tukey | `precio < Q1 − 1.5×IQR` | `precio_sospechoso` | 40 | ≥ 3 registros |
+| E — Escala | `PPU < 20% mediana PPU grupo` | `precio_sospechoso` | 35 | ≥ 2 variantes |
+
+---
+
+## Ejemplos reales detectados
+
+| Medicamento | Precio detectado | Mediana droga | Ratio | Tipo |
+|---|---|---|---|---|
+| VIROCAVIR (abacavir) | $9.029,60 | $106.983,97 | 8,4% | `bajo_critico` |
+| MAXVAN acetilcisteína 20 sobres | $1.122,00 | — | — | `inconsistencia_escala` |
+
+---
+
+## Efecto en el frontend
+
+Los registros con `vigencia_score < 50` son degradados automáticamente:
+
+- Aparecen **al final** de los resultados de búsqueda, por debajo de todos los resultados normales
+- Reciben un **badge de advertencia** visible (`⚠ Precio a verificar`, `⚠ Precio posiblemente desactualizado`)
+- No se eliminan del buscador: el usuario puede verlos con advertencia explícita
+
+```mermaid
+flowchart LR
+    R[Resultados de búsqueda]
+    N[Normales\nvigencia_score ≥ 50]
+    O[Outliers\nvigencia_score < 50]
+    UI[uiRenderer.js]
+
+    R --> N
+    R --> O
+    N --> UI
+    O -->|Al final + badge ⚠| UI
+```
+
+---
+
+# 🛡️ Panel de Administración
+
+## Descripción
+
+`admin.html` es una página estática que permite revisar y gestionar los precios outliers detectados en cada corrida del workflow. No requiere servidor ni base de datos: todo opera vía GitHub API usando un Personal Access Token.
+
+---
+
+## Flujo de administración
+
+```mermaid
+sequenceDiagram
+    autonumber
+
+    participant A as 👤 Admin
+    participant P as 🖥️ admin.html
+    participant GH as 🐙 GitHub API
+    participant WF as ⚙️ Workflow
+
+    A->>P: Abre admin.html + ingresa PAT
+    P->>GH: GET outlier_report.json
+    P->>GH: GET blacklist.json
+    GH-->>P: Lista de outliers + blacklist actual
+
+    P-->>A: Tabla de outliers con estadísticas
+
+    A->>P: Selecciona outliers a bloquear
+    P->>GH: PUT blacklist.json (actualizado)
+    GH-->>P: SHA confirmado
+
+    Note over A,GH: Blacklist persistida en el repo
+
+    A->>GH: Triggerear workflow manualmente
+    WF->>GH: Lee blacklist.json
+    WF->>WF: Excluye registros bloqueados
+    WF->>GH: Commit medicamentos.json actualizado
+```
+
+---
+
+## Características del panel
+
+- **Autenticación** vía GitHub PAT (solo permisos `contents:write` sobre el repo)
+- **Vista de outliers** con precio detectado, mediana de la droga, ratio y tipo de anomalía
+- **Filtros** por tipo: todos / críticos / sospechosos / en lista negra
+- **Selección masiva** para bloquear múltiples registros en un solo commit
+- **Desbloqueo individual** de registros previamente bloqueados
+- **Stats en tiempo real**: total de outliers, críticos, en lista negra, fecha de última corrida
+- **Sin persistencia local**: el token vive solo en memoria mientras dura la sesión
+
+---
+
+## Configuración del PAT
+
+1. GitHub → Settings → Developer settings → Personal access tokens → **Fine-grained tokens**
+2. Repository access: solo `psbella/remediar`
+3. Permissions → Contents: **Read and Write**
+4. Copiar el token generado
+
+> El token se ingresa cada vez que se abre el panel y no se almacena en ningún lado.
+
+---
+
+## blacklist.json
+
+Persistida en `data/blacklist.json` dentro del repo. Cada entrada usa como clave la combinación `droga|marca|presentacion|laboratorio`.
+
+```json
+{
+  "abacavir|virocavir|300 mg comp.rec.x 60|savant pharma": {
+    "droga": "abacavir",
+    "marca": "VIROCAVIR",
+    "presentacion": "300 mg comp.rec.x 60",
+    "laboratorio": "Savant Pharma",
+    "precio_detectado": 9029.60,
+    "tipo": "bajo_critico",
+    "motivo": "precio $9.029,60 < 10% mediana $106.983,97",
+    "bloqueado_en": "2026-05-28T10:30"
+  }
+}
+```
+
+---
+
+## Ciclo completo de un bloqueo
+
+```mermaid
+flowchart TD
+    A[Admin detecta outlier en panel]
+    B[Hace clic en Bloquear]
+    C[admin.html escribe en blacklist.json\nvía GitHub API]
+    D[Admin triggeraa workflow manualmente\no espera la próxima corrida]
+    E[pdf_to_json.py lee blacklist.json]
+    F[Registro excluido del procesamiento]
+    G[medicamentos.json regenerado sin ese registro]
+    H[Registro desaparece del buscador]
+
+    A --> B --> C --> D --> E --> F --> G --> H
+```
 
 ---
 
@@ -419,12 +693,7 @@ El JSON se carga una sola vez y se indexa.
 
 ## ✅ Estado centralizado
 
-`store.js` controla:
-
-- búsqueda
-- filtros
-- ordenamiento
-- render reactivo
+`store.js` controla búsqueda, filtros, ordenamiento y render reactivo.
 
 ---
 
@@ -442,11 +711,7 @@ Los datos se almacenan en `sessionStorage` durante 4 horas.
 
 ## ✅ Mobile first
 
-CSS optimizado para:
-
-- móviles
-- tablets
-- desktop
+CSS optimizado para móviles, tablets y desktop.
 
 ---
 
@@ -458,9 +723,13 @@ Los datos se descargan luego del primer render.
 
 ## ✅ Renderizado progresivo
 
-- 50 resultados iniciales
-- botón "Ver más"
-- evita bloquear el hilo principal
+50 resultados iniciales con botón "Ver más", evitando bloquear el hilo principal.
+
+---
+
+## ✅ Degradación de outliers
+
+Los precios con `vigencia_score < 50` se envían al fondo automáticamente sin costo adicional de procesamiento en el cliente.
 
 ---
 
@@ -482,7 +751,7 @@ Los datos se descargan luego del primer render.
 flowchart LR
 
     subgraph ONE["🌐 FUENTE EXTERNA"]
-        A[("SIAFAR / COFA<br>PDF Oficial")]
+        A[("SIAFAR / COFA\nPDF Oficial")]
         B["📄 Publicación diaria"]
     end
 
@@ -491,14 +760,16 @@ flowchart LR
         D["🔄 Workflow manual"]
     end
 
-    subgraph THREE["🐍 EXTRACCIÓN"]
+    subgraph THREE["🐍 EXTRACCIÓN + CALIDAD"]
         E["pdf_to_json.py"]
+        BL["🛡️ blacklist.json"]
+        OR["📋 outlier_report.json"]
         F["📊 medicamentos.json"]
     end
 
-    subgraph FOUR["🧹 VALIDACIÓN"]
-        G["Normalización"]
-        H["Validación"]
+    subgraph FOUR["🛡️ ADMIN"]
+        ADM["admin.html"]
+        PAT["🔑 GitHub PAT"]
     end
 
     subgraph FIVE["🌐 FRONTEND"]
@@ -519,23 +790,23 @@ flowchart LR
         Q["Cloudflare Pages"]
     end
 
-    A --> B
-    B --> C
+    A --> B --> C
     D --> C
     C --> E
-    E --> G
-    G --> H
-    H --> F
+    BL --> E
+    E --> OR
+    E --> F
+    OR --> ADM
+    PAT --> ADM
+    ADM -->|actualiza| BL
     F --> M
     F --> I
-    I --> J
-    J --> K
-    K --> L
-    M --> N
-    M --> O
-    I --> P
-    P --> Q
+    I --> J --> K --> L
+    M --> N & O
+    I --> P --> Q
 ```
+
+---
 
 ## Arquitectura técnica detallada
 
@@ -557,15 +828,19 @@ flowchart TD
 
     subgraph DATA["📦 DATOS"]
         H[medicamentos.json]
+        HR[outlier_report.json]
+        HB[blacklist.json]
         I[Landings HTML]
         J[sitemap.xml]
     end
 
     subgraph ETL["🐍 ETL Python"]
-        K[download_pdf.py]
-        L[pdf_to_json.py]
-        M[validate_data.py]
-        N[generar_landings.py]
+        K[pdf_to_json.py]
+        L[generar_landings.py]
+    end
+
+    subgraph ADMIN["🛡️ ADMIN"]
+        ADM[admin.html]
     end
 
     subgraph SOURCE["📄 FUENTE"]
@@ -577,23 +852,17 @@ flowchart TD
     end
 
     O --> K
-    K --> L
-    L --> M
-    M --> H
-    H --> N
-    N --> I
+    HB --> K
+    K --> H & HR
+    H --> L --> I
 
-    H --> F
-    I --> F
-    J --> F
-
+    H & I & J --> F
     F --> A
-
-    A --> B
-    B --> C
-    C --> D
-
+    A --> B --> C --> D
     B --> E
+
+    HR --> ADM
+    ADM -->|GitHub API| HB
 
     P --> K
 ```
@@ -604,7 +873,8 @@ flowchart TD
 
 ```text
 remediar/
-├── index.html
+├── index.html                          # SPA principal
+├── admin.html                          # Panel de administración de outliers
 ├── style.css
 ├── manifest.json
 ├── robots.txt
@@ -622,22 +892,25 @@ remediar/
 │   ├── main.js
 │   ├── dataLoader.js
 │   ├── filters.js
-│   ├── searchEngine.js
-│   ├── uiRenderer.js
+│   ├── searchEngine.js                 # Índice invertido + ranking con vigencia_score
+│   ├── uiRenderer.js                   # Badges de precio sospechoso
 │   ├── utils.js
 │   └── core/
 │       └── store.js
 │
 ├── data/
-│   └── medicamentos.json
+│   ├── medicamentos.json               # Dataset principal (generado por workflow)
+│   ├── outlier_report.json             # Reporte de outliers (generado por workflow)
+│   └── blacklist.json                  # Lista negra de precios (gestionada por admin)
 │
 ├── scripts/
-│   └── pdf_to_json.py
+│   ├── pdf_to_json.py                  # Extracción PDF + detección outliers + blacklist
+│   └── generar_landings.py
 │
 ├── .github/workflows/
 │   └── update-prices.yml
 │
-└── [56+ landings HTML]
+└── [56+ landings HTML]                 # Una por droga, generadas automáticamente
 ```
 
 ---
@@ -647,13 +920,15 @@ remediar/
 | Capa | Tecnología |
 |---|---|
 | Frontend | HTML5 + CSS3 + Vanilla JS |
-| Backend ETL | Python 3 |
-| Parsing PDF | PyMuPDF / pdfplumber |
+| Backend ETL | Python 3.11 |
+| Parsing PDF | PyMuPDF (fitz) |
+| Detección outliers | Python stdlib (statistics) |
 | Datos | JSON |
 | CI/CD | GitHub Actions |
 | Hosting | GitHub Pages + Cloudflare |
 | SEO | JSON-LD + Open Graph |
 | Caché | sessionStorage |
+| Admin API | GitHub Contents API |
 
 ---
 
@@ -681,6 +956,17 @@ remediar/
 - Deploy automático
 - HTTPS gratuito
 
+## ¿Por qué mediana y no media para detección de outliers?
+
+La media se distorsiona con los mismos outliers que se quieren detectar. Si una droga tiene 4 registros a $100.000 y uno a $9.000, la media baja a $83.000 haciendo al outlier menos detectable. La mediana permanece en $100.000 independientemente del valor anómalo.
+
+## ¿Por qué la lista negra vive en el repo y no en una base de datos?
+
+- Cero infraestructura adicional
+- Versionada con git: historial completo de bloqueos
+- Auditable públicamente
+- Compatible con el modelo 100% estático del proyecto
+
 ---
 
 # 💻 Ejecución Local
@@ -689,9 +975,7 @@ remediar/
 
 ```bash
 git clone https://github.com/psbella/remediar.git
-
 cd remediar
-
 python -m http.server 8000
 ```
 
@@ -709,7 +993,6 @@ npx http-server -p 8000 --cors -c-1
 
 ```dockerfile
 FROM nginx:alpine
-
 COPY . /usr/share/nginx/html
 ```
 
@@ -720,14 +1003,39 @@ docker run -p 8080:80 remediar
 
 ---
 
+## Ejecutar el pipeline ETL manualmente
+
+```bash
+pip install pymupdf
+python scripts/pdf_to_json.py
+```
+
+La salida en consola incluye el resumen de outliers detectados:
+
+```
+Total extraido: 12443
+Aplicando lista negra...
+   Lista negra: 3 entradas cargadas
+
+Calculando estadisticas de outliers...
+   463 drogas distintas
+
+OUTLIERS: 47/12440 (0.4%) | Escala: +2 | Criticos: 8
+   VIROCAVIR (abacavir): $9.029,60  [mediana: $106.983,97]
+   ...
+   Reporte: data/outlier_report.json
+
+Guardado: data/medicamentos.json
+```
+
+---
+
 # 🐍 Scripts Python
 
 | Script | Función |
 |---|---|
-| pdf_to_json.py | Convierte PDF a JSON |
-| generar_landings.py | Crea landings SEO |
-| validate_data.py | Limpia y valida |
-| download_pdf.py | Descarga PDF oficial |
+| `pdf_to_json.py` | Descarga PDF, aplica blacklist, detecta outliers, genera `medicamentos.json` y `outlier_report.json` |
+| `generar_landings.py` | Crea landings SEO estáticas por droga |
 
 ---
 
@@ -748,15 +1056,11 @@ docker run -p 8080:80 remediar
 
 ## Implementaciones
 
-- JSON-LD
-- Drug schema
-- Offer schema
-- BreadcrumbList
-- Open Graph
-- Twitter Cards
+- JSON-LD con Drug schema, Offer schema y BreadcrumbList
+- Open Graph y Twitter Cards
 - Sitemap.xml
 - robots.txt
-- Landings estáticas indexables
+- 56+ landings estáticas indexables por droga
 
 ---
 
@@ -777,9 +1081,10 @@ docker run -p 8080:80 remediar
 
 - No se recopilan datos personales
 - No se utilizan cookies de tracking
-- No existe autenticación
+- No existe autenticación en el buscador principal
 - No existe backend persistente
 - No se comparte información con terceros
+- El panel de admin opera con un PAT que vive solo en memoria (no se persiste)
 - Todo el frontend puede auditarse públicamente
 
 ---
@@ -789,6 +1094,8 @@ docker run -p 8080:80 remediar
 | Documento | Descripción | Link |
 |---|---|---|
 | API No Oficial | Consumo externo de `medicamentos.json` | [Ver sección](#-api-no-oficial) |
+| Detección de Outliers | Algoritmo y reglas | [Ver sección](#-detección-de-precios-outliers) |
+| Panel de Admin | Gestión de lista negra | [Ver sección](#️-panel-de-administración) |
 | Guía de Contribución | Cómo colaborar con el proyecto | [Ver sección](#-guía-de-contribución) |
 | Diagramas Mermaid | Arquitectura y flujos internos | [Ver sección](#-diagramas-de-flujo-detallados) |
 | Referencia Frontend | Componentes y módulos JS | [Ver sección](#-referencia-de-componentes-frontend) |
@@ -806,8 +1113,10 @@ docker run -p 8080:80 remediar
 | Producción | https://remedi.ar |
 | GitHub Pages | https://psbella.github.io/remediar/ |
 | Repositorio GitHub | https://github.com/psbella/remediar |
+| Panel Admin | https://remedi.ar/admin.html |
 | Actions / CI | https://github.com/psbella/remediar/actions |
 | medicamentos.json (CDN) | https://remedi.ar/data/medicamentos.json |
+| outlier_report.json | https://remedi.ar/data/outlier_report.json |
 | medicamentos.json (GitHub Raw) | https://raw.githubusercontent.com/psbella/remediar/main/data/medicamentos.json |
 | Sitemap | https://remedi.ar/sitemap.xml |
 | robots.txt | https://remedi.ar/robots.txt |
@@ -821,30 +1130,16 @@ docker run -p 8080:80 remediar
 | Archivo | Función |
 |---|---|
 | `index.html` | SPA principal |
+| `admin.html` | Panel de administración de outliers |
 | `style.css` | Estilos globales |
 | `js/core/store.js` | Estado reactivo |
-| `js/searchEngine.js` | Motor de búsqueda |
-| `js/uiRenderer.js` | Renderizado frontend |
+| `js/searchEngine.js` | Motor de búsqueda con ranking por vigencia |
+| `js/uiRenderer.js` | Renderizado + badges de precio sospechoso |
 | `data/medicamentos.json` | Dataset principal |
-| `scripts/pdf_to_json.py` | Conversión PDF → JSON |
+| `data/outlier_report.json` | Reporte de precios anómalos |
+| `data/blacklist.json` | Lista negra de registros bloqueados |
+| `scripts/pdf_to_json.py` | ETL completo con detección de outliers |
 | `.github/workflows/update-prices.yml` | Automatización |
-
----
-
-## 🧭 Navegación rápida
-
-- [✨ Demo en Vivo](#-demo-en-vivo)
-- [🎯 Funcionamiento General](#-funcionamiento-general)
-- [👤 Flujo del Usuario](#-flujo-del-usuario)
-- [🧠 Algoritmo](#-algoritmo-de-búsqueda-y-filtrado)
-- [⚡ Optimizaciones](#-optimizaciones-implementadas)
-- [🏗️ Arquitectura](#️-arquitectura-del-sistema)
-- [📁 Estructura del Repositorio](#-estructura-del-repositorio)
-- [🧰 Stack Tecnológico](#-stack-tecnológico)
-- [📊 Métricas](#-métricas-y-rendimiento)
-- [🔍 SEO](#-seo-y-metadatos)
-- [❓ FAQ](#-preguntas-frecuentes-faq)
-- [🗺️ Roadmap](#️-roadmap)
 
 ---
 
@@ -862,11 +1157,11 @@ docker run -p 8080:80 remediar
 ## JavaScript
 
 ```javascript
-const response = await fetch(
-  'https://remedi.ar/data/medicamentos.json'
-);
+const response = await fetch('https://remedi.ar/data/medicamentos.json');
+const { medicamentos } = await response.json();
 
-const medicamentos = await response.json();
+// Filtrar solo registros confiables
+const confiables = medicamentos.filter(m => (m.vigencia_score ?? 100) >= 50);
 ```
 
 ---
@@ -876,11 +1171,12 @@ const medicamentos = await response.json();
 ```python
 import pandas as pd
 
-df = pd.read_json(
-  "https://remedi.ar/data/medicamentos.json"
-)
+data = pd.read_json("https://remedi.ar/data/medicamentos.json")
+df   = pd.json_normalize(data['medicamentos'])
 
-print(df.head())
+# Excluir outliers
+df_limpio = df[df['vigencia_score'] >= 50]
+print(df_limpio.head())
 ```
 
 ---
@@ -891,9 +1187,7 @@ print(df.head())
 
 ```bash
 git checkout -b feature/nueva-funcion
-
 git commit -m "feat: agregar filtro"
-
 git push
 ```
 
@@ -919,20 +1213,18 @@ flowchart TD
 
     A[PDF SIAFAR]
     B[Descarga]
-    C[Extracción]
-    D[Limpieza]
-    E[Validación]
-    F[JSON]
-    G[Landings]
+    C[Extracción página por página]
+    BL[Filtro lista negra]
+    D[Estadísticas por droga]
+    E[Detección outliers 5 reglas]
+    F[medicamentos.json + vigencia_score]
+    R[outlier_report.json]
+    G[Landings SEO]
     H[Deploy]
 
-    A --> B
-    B --> C
-    C --> D
-    D --> E
-    E --> F
-    F --> G
-    G --> H
+    A --> B --> C --> BL --> D --> E
+    E --> F --> G --> H
+    E --> R
 ```
 
 ---
@@ -948,10 +1240,8 @@ flowchart LR
     D[searchEngine.js]
     E[uiRenderer.js]
 
-    A --> B
-    B --> C
-    C --> D
-    D --> E
+    A --> B --> C --> D --> E
+    D -->|vigencia_score < 50\nal fondo + badge| E
 ```
 
 ---
@@ -961,25 +1251,31 @@ flowchart LR
 ## store.js
 
 - Estado global
-- Filtros
-- Ordenamiento
+- Filtros y ordenamiento
 - Eventos reactivos
+
+---
+
+## searchEngine.js
+
+- Índice invertido por prefijos
+- Ranking por relevancia textual
+- Degradación automática de outliers (`vigencia_score < 50` → al fondo)
 
 ---
 
 ## uiRenderer.js
 
-- Render tarjetas
-- Render resultados
-- Skeleton loaders
-- Mensajes error
+- Render de tarjetas con badges de vigencia
+- `badge-sospechoso`: precio posiblemente desactualizado
+- `badge-verificar`: precio bajo a verificar
+- Skeleton loaders y mensajes de error
 
 ---
 
 ## dataLoader.js
 
-- Caché
-- sessionStorage
+- Caché con sessionStorage
 - Refresh manual
 
 ---
@@ -998,6 +1294,16 @@ flowchart LR
 
 ---
 
+## Badges de vigencia
+
+```css
+.badge-sospechoso { /* naranja — precio posiblemente desactualizado */ }
+.badge-verificar  { /* amarillo — precio bajo a verificar           */ }
+.tarjeta-sospechosa { /* tarjeta con fondo levemente diferenciado   */ }
+```
+
+---
+
 ## Responsive
 
 | Breakpoint | Tamaño |
@@ -1012,10 +1318,12 @@ flowchart LR
 
 | Parámetro | Valor |
 |---|---|
-| Schedule | 10:30 / 18:00 ARG |
-| Runtime | Ubuntu |
+| Schedule | 10:30 / 18:00 ARG, días hábiles |
+| Runtime | Ubuntu Latest |
 | Python | 3.11 |
-| Trigger manual | Sí |
+| Dependencias | pymupdf |
+| Trigger manual | Sí (workflow_dispatch) |
+| Archivos commiteados | `medicamentos.json`, `outlier_report.json`, `*.html` |
 
 ---
 
@@ -1029,7 +1337,19 @@ Del PDF oficial publicado por SIAFAR / COFA.
 
 ## ¿Cada cuánto se actualiza?
 
-Dos veces al día.
+Dos veces al día en días hábiles (10:30 y 18:00 ARG).
+
+---
+
+## ¿Por qué algunos precios aparecen con advertencia?
+
+El PDF de SIAFAR incluye registros históricos sin fecha, algunos de años anteriores. El sistema detecta estadísticamente los precios que son anómalos respecto al resto de su droga y los muestra con una advertencia al final de los resultados.
+
+---
+
+## ¿Qué es la lista negra?
+
+Un archivo `blacklist.json` gestionado desde el panel de administración. Los registros bloqueados se excluyen completamente del buscador en la próxima actualización.
 
 ---
 
@@ -1047,7 +1367,7 @@ No.
 
 ## ¿Se puede usar el JSON libremente?
 
-Sí, bajo licencia MIT.
+Sí, bajo licencia MIT. Se recomienda filtrar por `vigencia_score >= 50` para excluir outliers.
 
 ---
 
@@ -1056,7 +1376,7 @@ Sí, bajo licencia MIT.
 ## Corto plazo
 
 - Historial de precios
-- Alertas
+- Alertas de variación
 - Comparador de farmacias
 
 ---
@@ -1064,8 +1384,8 @@ Sí, bajo licencia MIT.
 ## Mediano plazo
 
 - API REST pública
-- Dashboard estadístico
-- Evolución histórica
+- Dashboard estadístico de outliers
+- Evolución histórica de precios
 
 ---
 
@@ -1079,9 +1399,7 @@ Sí, bajo licencia MIT.
 
 # 📄 Licencia
 
-MIT License.
-
-Uso libre para proyectos personales y comerciales.
+MIT License. Uso libre para proyectos personales y comerciales.
 
 ---
 
@@ -1093,12 +1411,10 @@ Este proyecto utiliza únicamente información pública proveniente de organismo
 
 # 🙏 Fuente de Datos
 
-Datos proporcionados por:
-
-- SIAFAR
-- COFA
+Datos proporcionados por SIAFAR y COFA.
 
 ---
+
 <p align="center">
   <strong>Hecho con ❤️ para que los medicamentos sean más accesibles en Argentina.</strong>
 </p>
