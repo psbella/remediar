@@ -1,1 +1,12 @@
-{}
+{
+  "-|amilo,salicilato, asoc.|atomo clasico monodosisenv. x 1 x 10 g|imvi": {
+    "droga": "-",
+    "marca": "AMILO,SALICILATO, ASOC.",
+    "presentacion": "ATOMO CLASICO MONODOSISenv. x 1 x 10 g",
+    "laboratorio": "Imvi",
+    "precio_detectado": 2575.98,
+    "tipo": "bajo_relativo",
+    "motivo": "precio $2,575.98 < 25% mediana $23,672.05 (n=445)",
+    "bloqueado_en": "2026-05-30T18:17"
+  }
+}
