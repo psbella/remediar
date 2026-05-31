@@ -1,10 +1,15 @@
 {
- "name": "remedi.ar - Precios de medicamentos",
+  "name": "remedi.ar - Precios de medicamentos",
   "short_name": "remedi.ar",
+  "description": "Buscador de precios de medicamentos en Argentina",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#f0f5f5",
   "theme_color": "#008B8B",
   "lang": "es-AR",
-  "icons": [{"src": "img/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable"}]
+  "icons": [
+    {"src": "img/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any"},
+    {"src": "img/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable"}
+  ]
 }
