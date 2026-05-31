@@ -189,14 +189,20 @@ for droga_slug in DROGAS:
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{esc(nombre)}: precio en Argentina hoy | remedi.ar</title>
     <meta name="author" content="remedi.ar">
+    <meta name="description" content="Precio de {esc(nombre)} en Argentina hoy. Consultá todas las marcas y presentaciones con precios actualizados de SIAFAR/COFA. Gratuito, sin registro.">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://remedi.ar/{droga_slug}">
+    <link rel="canonical" href="https://remedi.ar/{droga_slug}.html">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
     <link rel="manifest" href="manifest.json">
     <meta property="og:title" content="{esc(nombre)}: precio en Argentina — remedi.ar">
+    <meta property="og:description" content="Precio de {esc(nombre)} en Argentina. {precio_rango} Datos oficiales SIAFAR/COFA actualizados 2 veces al día.">
+    <meta property="og:url" content="https://remedi.ar/{droga_slug}.html">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="es_AR">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{esc(nombre)}: precio en Argentina — remedi.ar">
+    <meta name="twitter:description" content="Precio de {esc(nombre)} en Argentina. {precio_rango}">
 </head>
 <body>
 <div class="container">
