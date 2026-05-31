@@ -1,41 +1,21 @@
 User-agent: *
-Allow: /
-Allow: /$
-Allow: /index.html$
-Allow: /ibuprofeno.html$
-Allow: /paracetamol.html$
-Allow: /amoxicilina.html$
-Allow: /omeprazol.html$
-Allow: /sildenafil.html$
-Allow: /enalapril.html$
-Allow: /metformina.html$
-Allow: /clonazepam.html$
-Allow: /azitromicina.html$
-Allow: /loratadina.html$
-Allow: /cetirizina.html$
-Allow: /amlodipina.html$
-Allow: /pantoprazol.html$
-Allow: /alprazolam.html$
-Allow: /aciclovir.html$
-Allow: /levotiroxina.html$
-Allow: /privacidad.html$
-Allow: /terminos.html$
 Disallow: /data/
 Disallow: /js/
 Disallow: /scripts/
-Disallow: /img/
-Disallow: /*?q=*
+Disallow: /logs/
 Sitemap: https://remedi.ar/sitemap.xml
-Host: https://remedi.ar/
+
 User-agent: AhrefsBot
 Crawl-delay: 10
-Disallow: /
+
 User-agent: SemrushBot
 Crawl-delay: 10
-Disallow: /
+
 User-agent: MJ12bot
 Disallow: /
+
 User-agent: GPTBot
 Disallow: /
+
 User-agent: ClaudeBot
 Disallow: /
