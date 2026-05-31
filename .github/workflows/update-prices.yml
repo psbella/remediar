@@ -2,7 +2,7 @@ name: Actualizar precios
 
 on:
   schedule:
-    - cron: '30 13,21 * * 1-5'   # 13:30 UTC = 10:30 ARG, 21:00 UTC = 18:00 ARG
+    - cron: '30 13,21 * * 1-5'
   workflow_dispatch:
 
 jobs:
@@ -23,7 +23,7 @@ jobs:
       - name: Ejecutar pdf_to_json.py
         run: python scripts/pdf_to_json.py
 
-      - name: Generar landings
+      - name: Generar landings + sitemap
         run: python scripts/generar_landings.py
 
       - name: Commit y push
@@ -33,6 +33,7 @@ jobs:
           git add data/medicamentos.json
           git add data/outlier_report.json
           git add *.html
+          git add sitemap.xml
           git commit -m "Actualizar precios $(date +'%Y-%m-%d')" || echo "No changes"
-          git pull origin main --rebase
+          git pull origin main --rebase --no-edit
           git push origin main
