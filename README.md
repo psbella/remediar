@@ -1,3 +1,4 @@
+cat > /home/claude/README.md << 'MDEOF'
 <p align="center">
   <img src="https://psbella.github.io/remediar/img/favicon.svg" width="90" />
 </p>
@@ -20,11 +21,11 @@
 
 <!-- Hosting & License -->
 <img src="https://img.shields.io/badge/hosted-GitHub%20Pages-brightgreen">
-<img src="https://img.shields.io/badge/hosted-Cloudflare%20Pages-F38020?logo=cloudflare&logoColor=white">
+<img src="https://img.shields.io/badge/DNS-Cloudflare-F38020?logo=cloudflare&logoColor=white">
 <img src="https://img.shields.io/badge/License-MIT-blue.svg">
-<img src="https://img.shields.io/github/repo-size/psbella/remedi.ar">
-<img src="https://img.shields.io/github/last-commit/psbella/remedi.ar">
-<img src="https://img.shields.io/github/issues-raw/psbella/remedi.ar">
+<img src="https://img.shields.io/github/repo-size/psbella/remediar">
+<img src="https://img.shields.io/github/last-commit/psbella/remediar">
+<img src="https://img.shields.io/github/issues-raw/psbella/remediar">
 
 <br>
 
@@ -51,7 +52,6 @@
 <img src="https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white">
 <img src="https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white">
 <img src="https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?logo=javascript&logoColor=black">
-<img src="https://img.shields.io/badge/CSV-000000?logo=csv&logoColor=white">
 <img src="https://img.shields.io/badge/JSON-000000?logo=json&logoColor=white">
 <img src="https://img.shields.io/badge/SVG-FF9800?logo=svg&logoColor=white">
 
@@ -60,7 +60,6 @@
 <!-- Backend / Automation -->
 <img src="https://img.shields.io/badge/Python-3.x-3776AB?logo=python&logoColor=white">
 <img src="https://img.shields.io/badge/PyMuPDF-ee0000?logo=pypi&logoColor=white">
-<img src="https://img.shields.io/badge/pandas-150458?logo=pandas&logoColor=white">
 <img src="https://img.shields.io/badge/Git-F05032?logo=git&logoColor=white">
 <img src="https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=white">
 <img src="https://img.shields.io/badge/GitHub_Actions-2088FF?logo=github-actions">
@@ -115,8 +114,8 @@
 
 | Entorno | URL | Propósito |
 |---|---|---|
-| GitHub Pages | https://psbella.github.io/remediar/ | Desarrollo y respaldo |
-| Cloudflare Pages | https://remedi.ar | Producción principal |
+| GitHub Pages | https://psbella.github.io/remediar/ | Hosting principal |
+| remedi.ar | https://remedi.ar | Dominio custom vía Cloudflare DNS |
 
 ---
 
@@ -147,14 +146,15 @@ El sistema se compone de tres capas principales:
 - Se genera `medicamentos.json` con scores de vigencia
 - Se genera `outlier_report.json` para el panel de administración
 - Se crean 56+ landings HTML estáticas SEO
+- Se regenera `sitemap.xml` con la fecha del día
 
 ---
 
 ## 2️⃣ Distribución
 
 - El proyecto es 100% estático
-- GitHub Pages funciona como backup
-- Cloudflare Pages distribuye el contenido globalmente mediante CDN
+- Hosteado en GitHub Pages
+- El dominio `remedi.ar` apunta a GitHub Pages vía Cloudflare DNS
 - No existe backend persistente ni base de datos tradicional
 
 ---
@@ -173,7 +173,6 @@ El sistema se compone de tres capas principales:
 # 🧭 Principios del Proyecto
 
 - Acceso libre a información de medicamentos
-- Sin publicidad invasiva
 - Sin tracking
 - Performance primero
 - Mobile first
@@ -191,17 +190,18 @@ sequenceDiagram
 
     participant U as 👤 Usuario
     participant B as 🌐 Navegador
-    participant CDN as ⚡ Cloudflare CDN
+    participant GHP as ⚡ GitHub Pages
+    participant SW as ⚙️ Service Worker
     participant CACHE as 💾 sessionStorage
-    participant JSON as 📦 medicamentos.json
     participant STORE as 🧠 store.js
     participant UI as 🖥️ uiRenderer.js
 
     U->>B: Ingresa a remedi.ar
 
-    B->>CDN: GET /index.html
-    CDN-->>B: HTML + CSS + JS
+    B->>GHP: GET /index.html
+    GHP-->>B: HTML + CSS + JS
 
+    B->>SW: Registrar sw.js
     B->>B: Render inicial (skeleton)
     B->>STORE: Inicializar estado
 
@@ -209,8 +209,8 @@ sequenceDiagram
         B->>CACHE: Leer medicamentos.json
         CACHE-->>B: Datos cacheados
     else Caché vacía o vencida
-        B->>CDN: GET /data/medicamentos.json
-        CDN-->>B: JSON comprimido (~520KB gzip)
+        B->>GHP: GET /data/medicamentos.json
+        GHP-->>B: JSON (~520KB gzip)
         B->>CACHE: Guardar datos + timestamp
     end
 
@@ -359,10 +359,9 @@ flowchart TD
     E[🔍 Detectar outliers]
     F[💾 Generar medicamentos.json]
     R[📋 Generar outlier_report.json]
-    G[🌐 Generar landings HTML]
+    G[🌐 Generar landings HTML + sitemap.xml]
     H[📤 Commit automático]
-    I[☁️ Cloudflare detecta cambios]
-    J[🚀 Deploy automático]
+    I[🚀 GitHub Pages actualizado]
 
     A --> B
     B --> C
@@ -374,7 +373,6 @@ flowchart TD
     F --> G
     G --> H
     H --> I
-    I --> J
 ```
 
 ---
@@ -406,6 +404,7 @@ jobs:
           git config user.email "actions@github.com"
           git add data/medicamentos.json
           git add data/outlier_report.json
+          git add sitemap.xml
           git add *.html
           git commit -m "Actualizar precios $(date +'%Y-%m-%d')" || echo "No changes"
           git pull origin main --rebase
@@ -562,8 +561,8 @@ flowchart TD
 
 Los registros con `vigencia_score < 50` son degradados automáticamente:
 
-- Aparecen **al final** de los resultados de búsqueda, por debajo de todos los resultados normales
-- Reciben un **badge de advertencia** visible (`⚠ Precio a verificar`, `⚠ Precio posiblemente desactualizado`)
+- Aparecen **al final** de los resultados de búsqueda
+- Reciben un **badge de advertencia** visible
 - No se eliminan del buscador: el usuario puede verlos con advertencia explícita
 
 ```mermaid
@@ -689,43 +688,33 @@ flowchart TD
 
 El JSON se carga una sola vez y se indexa.
 
----
+## ✅ Service Worker (PWA)
+
+`sw.js` cachea assets estáticos con cache-first y datos con network-first. Permite instalación como app nativa.
 
 ## ✅ Estado centralizado
 
 `store.js` controla búsqueda, filtros, ordenamiento y render reactivo.
 
----
-
 ## ✅ Debounce
 
 La búsqueda espera 250ms luego de la última tecla.
-
----
 
 ## ✅ Caché
 
 Los datos se almacenan en `sessionStorage` durante 4 horas.
 
----
-
 ## ✅ Mobile first
 
 CSS optimizado para móviles, tablets y desktop.
-
----
 
 ## ✅ Lazy loading
 
 Los datos se descargan luego del primer render.
 
----
-
 ## ✅ Renderizado progresivo
 
 50 resultados iniciales con botón "Ver más", evitando bloquear el hilo principal.
-
----
 
 ## ✅ Degradación de outliers
 
@@ -752,7 +741,6 @@ flowchart LR
 
     subgraph ONE["🌐 FUENTE EXTERNA"]
         A[("SIAFAR / COFA\nPDF Oficial")]
-        B["📄 Publicación diaria"]
     end
 
     subgraph TWO["⚙️ AUTOMATIZACIÓN"]
@@ -774,6 +762,7 @@ flowchart LR
 
     subgraph FIVE["🌐 FRONTEND"]
         I["index.html"]
+        SW["sw.js (PWA)"]
         J["store.js"]
         K["searchEngine.js"]
         L["uiRenderer.js"]
@@ -782,15 +771,15 @@ flowchart LR
     subgraph SIX["📈 SEO"]
         M["Landings HTML"]
         N["JSON-LD"]
-        O["Sitemap.xml"]
+        O["sitemap.xml"]
     end
 
     subgraph SEVEN["☁️ HOSTING"]
         P["GitHub Pages"]
-        Q["Cloudflare Pages"]
+        CF["Cloudflare DNS"]
     end
 
-    A --> B --> C
+    A --> C
     D --> C
     C --> E
     BL --> E
@@ -801,9 +790,10 @@ flowchart LR
     ADM -->|actualiza| BL
     F --> M
     F --> I
+    I --> SW
     I --> J --> K --> L
     M --> N & O
-    I --> P --> Q
+    P --> CF
 ```
 
 ---
@@ -815,15 +805,16 @@ flowchart TD
 
     subgraph CLIENT["🌐 CLIENTE"]
         A[index.html]
+        SW[sw.js]
         B[store.js]
         C[searchEngine.js]
         D[uiRenderer.js]
         E[sessionStorage Cache]
     end
 
-    subgraph CDN["☁️ CDN"]
-        F[Cloudflare Pages]
-        G[GitHub Pages]
+    subgraph HOSTING["☁️ HOSTING"]
+        F[GitHub Pages]
+        CF[Cloudflare DNS]
     end
 
     subgraph DATA["📦 DATOS"]
@@ -854,10 +845,12 @@ flowchart TD
     O --> K
     HB --> K
     K --> H & HR
-    H --> L --> I
+    H --> L --> I & J
 
     H & I & J --> F
+    CF --> F
     F --> A
+    A --> SW
     A --> B --> C --> D
     B --> E
 
@@ -875,18 +868,22 @@ flowchart TD
 remediar/
 ├── index.html                          # SPA principal
 ├── admin.html                          # Panel de administración de outliers
+├── sw.js                               # Service Worker (PWA)
 ├── style.css
-├── manifest.json
+├── manifest.json                       # PWA manifest
 ├── robots.txt
-├── sitemap.xml
+├── sitemap.xml                         # Generado automáticamente por workflow
 ├── privacidad.html
 ├── terminos.html
 ├── README.md
-├── _headers
-├── .nojekyll
+├── LICENSE
+├── CNAME                               # Dominio custom: remedi.ar
+├── _headers                            # Headers HTTP (Netlify/Cloudflare Pages)
+├── .nojekyll                           # Deshabilita Jekyll en GitHub Pages
 │
 ├── img/
-│   └── favicon.svg
+│   ├── favicon.svg
+│   └── og-image.png                    # Imagen para Open Graph / shares
 │
 ├── js/
 │   ├── main.js
@@ -904,8 +901,8 @@ remediar/
 │   └── blacklist.json                  # Lista negra de precios (gestionada por admin)
 │
 ├── scripts/
-│   ├── pdf_to_json.py                  # Extracción PDF + detección outliers + blacklist
-│   └── generar_landings.py
+│   ├── pdf_to_json.py                  # ETL: extracción PDF + outliers + blacklist
+│   └── generar_landings.py             # Genera landings SEO + sitemap.xml
 │
 ├── .github/workflows/
 │   └── update-prices.yml
@@ -920,14 +917,16 @@ remediar/
 | Capa | Tecnología |
 |---|---|
 | Frontend | HTML5 + CSS3 + Vanilla JS |
+| PWA | Service Worker (sw.js) |
 | Backend ETL | Python 3.11 |
 | Parsing PDF | PyMuPDF (fitz) |
 | Detección outliers | Python stdlib (statistics) |
 | Datos | JSON |
 | CI/CD | GitHub Actions |
-| Hosting | GitHub Pages + Cloudflare |
-| SEO | JSON-LD + Open Graph |
-| Caché | sessionStorage |
+| Hosting | GitHub Pages |
+| DNS | Cloudflare |
+| SEO | JSON-LD + Open Graph + Twitter Cards |
+| Caché | sessionStorage + Service Worker |
 | Admin API | GitHub Contents API |
 
 ---
@@ -949,12 +948,11 @@ remediar/
 - CDN extremadamente eficiente
 - Menor complejidad operacional
 
-## ¿Por qué Cloudflare Pages?
+## ¿Por qué GitHub Pages + Cloudflare DNS?
 
-- CDN global
-- Excelente latencia en Argentina
-- Deploy automático
-- HTTPS gratuito
+- GitHub Pages provee hosting gratuito y confiable
+- Cloudflare DNS agrega dominio custom, HTTPS y protección DDoS sin costo adicional
+- Sin servidor que mantener
 
 ## ¿Por qué mediana y no media para detección de outliers?
 
@@ -979,15 +977,11 @@ cd remediar
 python -m http.server 8000
 ```
 
----
-
 ## Node.js
 
 ```bash
 npx http-server -p 8000 --cors -c-1
 ```
-
----
 
 ## Docker
 
@@ -1000,8 +994,6 @@ COPY . /usr/share/nginx/html
 docker build -t remediar .
 docker run -p 8080:80 remediar
 ```
-
----
 
 ## Ejecutar el pipeline ETL manualmente
 
@@ -1035,7 +1027,7 @@ Guardado: data/medicamentos.json
 | Script | Función |
 |---|---|
 | `pdf_to_json.py` | Descarga PDF, aplica blacklist, detecta outliers, genera `medicamentos.json` y `outlier_report.json` |
-| `generar_landings.py` | Crea landings SEO estáticas por droga |
+| `generar_landings.py` | Crea landings SEO estáticas por droga y regenera `sitemap.xml` con fecha del día |
 
 ---
 
@@ -1056,11 +1048,15 @@ Guardado: data/medicamentos.json
 
 ## Implementaciones
 
-- JSON-LD con Drug schema, Offer schema y BreadcrumbList
-- Open Graph y Twitter Cards
-- Sitemap.xml
-- robots.txt
+- `meta description` única por página
+- JSON-LD con WebSite schema en home, Drug schema en landings
+- Open Graph completo (título, descripción, imagen, URL)
+- Twitter Cards
+- `sitemap.xml` generado automáticamente con `lastmod` del día
+- `robots.txt` optimizado
 - 56+ landings estáticas indexables por droga
+- `canonical` con URL correcta en cada página
+- `og-image.png` 1200×630px para shares en redes sociales
 
 ---
 
@@ -1091,21 +1087,6 @@ Guardado: data/medicamentos.json
 
 # 📚 Documentación Completa
 
-| Documento | Descripción | Link |
-|---|---|---|
-| API No Oficial | Consumo externo de `medicamentos.json` | [Ver sección](#-api-no-oficial) |
-| Detección de Outliers | Algoritmo y reglas | [Ver sección](#-detección-de-precios-outliers) |
-| Panel de Admin | Gestión de lista negra | [Ver sección](#️-panel-de-administración) |
-| Guía de Contribución | Cómo colaborar con el proyecto | [Ver sección](#-guía-de-contribución) |
-| Diagramas Mermaid | Arquitectura y flujos internos | [Ver sección](#-diagramas-de-flujo-detallados) |
-| Referencia Frontend | Componentes y módulos JS | [Ver sección](#-referencia-de-componentes-frontend) |
-| Guía CSS | Variables, breakpoints y estilos | [Ver sección](#-guía-de-estilos-css) |
-| Workflows | Automatización y CI/CD | [Ver sección](#-documentación-de-workflows) |
-| FAQ | Preguntas frecuentes | [Ver sección](#-preguntas-frecuentes-faq) |
-| Roadmap | Funcionalidades futuras | [Ver sección](#️-roadmap) |
-
----
-
 ## 🌐 Enlaces del Proyecto
 
 | Recurso | URL |
@@ -1115,9 +1096,8 @@ Guardado: data/medicamentos.json
 | Repositorio GitHub | https://github.com/psbella/remediar |
 | Panel Admin | https://remedi.ar/admin.html |
 | Actions / CI | https://github.com/psbella/remediar/actions |
-| medicamentos.json (CDN) | https://remedi.ar/data/medicamentos.json |
+| medicamentos.json | https://remedi.ar/data/medicamentos.json |
 | outlier_report.json | https://remedi.ar/data/outlier_report.json |
-| medicamentos.json (GitHub Raw) | https://raw.githubusercontent.com/psbella/remediar/main/data/medicamentos.json |
 | Sitemap | https://remedi.ar/sitemap.xml |
 | robots.txt | https://remedi.ar/robots.txt |
 | Política de privacidad | https://remedi.ar/privacidad.html |
@@ -1131,7 +1111,10 @@ Guardado: data/medicamentos.json
 |---|---|
 | `index.html` | SPA principal |
 | `admin.html` | Panel de administración de outliers |
+| `sw.js` | Service Worker — caché PWA |
 | `style.css` | Estilos globales |
+| `manifest.json` | PWA manifest |
+| `img/og-image.png` | Imagen Open Graph para shares |
 | `js/core/store.js` | Estado reactivo |
 | `js/searchEngine.js` | Motor de búsqueda con ranking por vigencia |
 | `js/uiRenderer.js` | Renderizado + badges de precio sospechoso |
@@ -1139,6 +1122,7 @@ Guardado: data/medicamentos.json
 | `data/outlier_report.json` | Reporte de precios anómalos |
 | `data/blacklist.json` | Lista negra de registros bloqueados |
 | `scripts/pdf_to_json.py` | ETL completo con detección de outliers |
+| `scripts/generar_landings.py` | Landings SEO + sitemap.xml |
 | `.github/workflows/update-prices.yml` | Automatización |
 
 ---
@@ -1169,14 +1153,14 @@ const confiables = medicamentos.filter(m => (m.vigencia_score ?? 100) >= 50);
 ## Python
 
 ```python
-import pandas as pd
+import json, urllib.request
 
-data = pd.read_json("https://remedi.ar/data/medicamentos.json")
-df   = pd.json_normalize(data['medicamentos'])
+with urllib.request.urlopen('https://remedi.ar/data/medicamentos.json') as r:
+    data = json.load(r)
 
-# Excluir outliers
-df_limpio = df[df['vigencia_score'] >= 50]
-print(df_limpio.head())
+medicamentos = data['medicamentos']
+confiables   = [m for m in medicamentos if (m.get('vigencia_score') or 100) >= 50]
+print(f"{len(confiables)} registros confiables de {len(medicamentos)} totales")
 ```
 
 ---
@@ -1191,92 +1175,44 @@ git commit -m "feat: agregar filtro"
 git push
 ```
 
----
-
 ## Convenciones
 
-| Tipo | Ejemplo |
+| Tipo | Descripción |
 |---|---|
 | feat | Nueva funcionalidad |
-| fix | Corrección |
+| fix | Corrección de bug |
 | docs | Documentación |
-| perf | Performance |
-
----
-
-# 📊 Diagramas de Flujo Detallados
-
-## Pipeline completo
-
-```mermaid
-flowchart TD
-
-    A[PDF SIAFAR]
-    B[Descarga]
-    C[Extracción página por página]
-    BL[Filtro lista negra]
-    D[Estadísticas por droga]
-    E[Detección outliers 5 reglas]
-    F[medicamentos.json + vigencia_score]
-    R[outlier_report.json]
-    G[Landings SEO]
-    H[Deploy]
-
-    A --> B --> C --> BL --> D --> E
-    E --> F --> G --> H
-    E --> R
-```
-
----
-
-## Frontend
-
-```mermaid
-flowchart LR
-
-    A[Usuario]
-    B[index.html]
-    C[store.js]
-    D[searchEngine.js]
-    E[uiRenderer.js]
-
-    A --> B --> C --> D --> E
-    D -->|vigencia_score < 50\nal fondo + badge| E
-```
+| perf | Mejora de performance |
+| chore | Limpieza / mantenimiento |
 
 ---
 
 # 🧩 Referencia de Componentes Frontend
 
 ## store.js
-
 - Estado global
 - Filtros y ordenamiento
 - Eventos reactivos
 
----
-
 ## searchEngine.js
-
 - Índice invertido por prefijos
 - Ranking por relevancia textual
 - Degradación automática de outliers (`vigencia_score < 50` → al fondo)
 
----
-
 ## uiRenderer.js
-
 - Render de tarjetas con badges de vigencia
 - `badge-sospechoso`: precio posiblemente desactualizado
 - `badge-verificar`: precio bajo a verificar
 - Skeleton loaders y mensajes de error
 
----
-
 ## dataLoader.js
-
 - Caché con sessionStorage
 - Refresh manual
+
+## sw.js
+- Cache-first para assets estáticos (CSS, JS, imágenes)
+- Network-first para `medicamentos.json` (datos siempre frescos)
+- Limpieza automática de caches viejas al activar nueva versión
 
 ---
 
@@ -1286,13 +1222,11 @@ flowchart LR
 
 ```css
 :root {
-  --color-primary: #0088cc;
+  --color-primary: #008B8B;
   --color-success: #00a86b;
   --border-radius: 8px;
 }
 ```
-
----
 
 ## Badges de vigencia
 
@@ -1301,8 +1235,6 @@ flowchart LR
 .badge-verificar  { /* amarillo — precio bajo a verificar           */ }
 .tarjeta-sospechosa { /* tarjeta con fondo levemente diferenciado   */ }
 ```
-
----
 
 ## Responsive
 
@@ -1323,7 +1255,7 @@ flowchart LR
 | Python | 3.11 |
 | Dependencias | pymupdf |
 | Trigger manual | Sí (workflow_dispatch) |
-| Archivos commiteados | `medicamentos.json`, `outlier_report.json`, `*.html` |
+| Archivos commiteados | `medicamentos.json`, `outlier_report.json`, `sitemap.xml`, `*.html` |
 
 ---
 
@@ -1333,41 +1265,29 @@ flowchart LR
 
 Del PDF oficial publicado por SIAFAR / COFA.
 
----
-
 ## ¿Cada cuánto se actualiza?
 
 Dos veces al día en días hábiles (10:30 y 18:00 ARG).
-
----
 
 ## ¿Por qué algunos precios aparecen con advertencia?
 
 El PDF de SIAFAR incluye registros históricos sin fecha, algunos de años anteriores. El sistema detecta estadísticamente los precios que son anómalos respecto al resto de su droga y los muestra con una advertencia al final de los resultados.
 
----
-
 ## ¿Qué es la lista negra?
 
 Un archivo `blacklist.json` gestionado desde el panel de administración. Los registros bloqueados se excluyen completamente del buscador en la próxima actualización.
-
----
-
-## ¿Tiene publicidad?
-
-No.
-
----
 
 ## ¿Tiene tracking?
 
 No.
 
----
-
 ## ¿Se puede usar el JSON libremente?
 
 Sí, bajo licencia MIT. Se recomienda filtrar por `vigencia_score >= 50` para excluir outliers.
+
+## ¿Funciona sin conexión?
+
+Parcialmente. El Service Worker cachea los assets y la última versión del JSON, permitiendo usar la app con datos cacheados si no hay conexión.
 
 ---
 
@@ -1379,15 +1299,11 @@ Sí, bajo licencia MIT. Se recomienda filtrar por `vigencia_score >= 50` para ex
 - Alertas de variación
 - Comparador de farmacias
 
----
-
 ## Mediano plazo
 
 - API REST pública
 - Dashboard estadístico de outliers
 - Evolución histórica de precios
-
----
 
 ## Largo plazo
 
@@ -1400,12 +1316,6 @@ Sí, bajo licencia MIT. Se recomienda filtrar por `vigencia_score >= 50` para ex
 # 📄 Licencia
 
 MIT License. Uso libre para proyectos personales y comerciales.
-
----
-
-## 🧠 Proyecto orientado a datos abiertos
-
-Este proyecto utiliza únicamente información pública proveniente de organismos oficiales del sistema farmacéutico argentino. No almacena datos sensibles ni realiza seguimiento de usuarios.
 
 ---
 
