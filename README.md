@@ -1,4 +1,3 @@
-cat > /home/claude/README.md << 'MDEOF'
 <p align="center">
   <img src="https://psbella.github.io/remediar/img/favicon.svg" width="90" />
 </p>
