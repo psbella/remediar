@@ -35,7 +35,6 @@ ACCIONES = {
     "betametasona": "Corticoesteroide",
     "naproxeno": "Antiinflamatorio no esteroide",
     "diclofenac": "Antiinflamatorio no esteroide",
-    "amlodipino": "Antihipertensivo (bloqueante de los canales de calcio)",
     "amlodipina": "Antihipertensivo (bloqueante de los canales de calcio)",
     "carvedilol": "Antihipertensivo y betabloqueante",
     "clortalidona": "Diurético tiazídico",
@@ -66,6 +65,7 @@ ACCIONES = {
     "pantoprazol": "Inhibidor de la bomba de protones",
     "aciclovir": "Antiviral (análogo de nucleósido)",
     "azitromicina": "Antibiótico macrólido",
+    "bupropion": "Antidepresivo y coadyuvante para dejar de fumar",
 }
 
 DROGAS = list(ACCIONES.keys())
@@ -74,8 +74,9 @@ with open(DATA_DIR / "medicamentos.json", encoding='utf-8') as f:
     data = json.load(f)
 
 medicamentos = data.get('medicamentos', [])
-HOY  = datetime.now().strftime("%d/%m/%Y")
-HORA = datetime.now().strftime("%H:%M")
+HOY      = datetime.now().strftime("%d/%m/%Y")
+HORA     = datetime.now().strftime("%H:%M")
+LASTMOD  = datetime.now().strftime("%Y-%m-%d")   # ← para sitemap
 
 por_droga: dict[str, list] = {}
 for m in medicamentos:
@@ -85,12 +86,10 @@ for m in medicamentos:
 
 
 def esc(val) -> str:
-    """Escape HTML entities in dynamic content."""
     return html_module.escape(str(val)) if val else ''
 
 
 def generar_filas_tabla(meds: list) -> str:
-    """Genera <tr> con clases CSS en lugar de estilos inline."""
     filas = ""
     for m in meds[:60]:
         precio = m.get('precio', 0) or 0
@@ -121,13 +120,12 @@ def generar_lista_marcas(meds: list) -> str:
     return html
 
 
-# ── Plantilla ──────────────────────────────────────────────────────────
+# ── Generar landings ───────────────────────────────────────────────────
 for droga_slug in DROGAS:
     nombre  = droga_slug.replace('-', ' ').replace('_', ' ').title()
     accion  = ACCIONES.get(droga_slug, "Medicamento")
     meds_dr = por_droga.get(droga_slug.replace('-', ' '), [])
 
-    # Buscar también variantes (ej: "amlodipina" vs "amlodipino")
     if not meds_dr:
         alt = droga_slug.rstrip('ao') + ('a' if droga_slug.endswith('o') else 'o')
         meds_dr = por_droga.get(alt.replace('-', ' '), [])
@@ -136,13 +134,11 @@ for droga_slug in DROGAS:
     precios        = [m.get('precio', 0) or 0 for m in meds_dr if m.get('precio')]
 
     if precios:
-        precio_min = min(precios)
-        precio_max = max(precios)
+        precio_min   = min(precios)
+        precio_max   = max(precios)
         precio_rango = f"Precios desde ${precio_min:,.0f} hasta ${precio_max:,.0f} (ARS)."
-        precio_rango_meta = precio_rango
     else:
         precio_rango = "Consultá los precios actualizados en la tabla."
-        precio_rango_meta = f"Precio de {nombre} en Argentina."
 
     if meds_ordenados:
         filas_tabla  = generar_filas_tabla(meds_ordenados)
@@ -151,10 +147,8 @@ for droga_slug in DROGAS:
         filas_tabla  = '<tr><td colspan="5" style="padding:40px;text-align:center;color:#999;">No se encontraron precios para este medicamento en la base de datos actual.</td></tr>'
         lista_marcas = '<p style="color:#999;font-size:13px;">Sin datos disponibles.</p>'
 
-    # Nombre de archivo: coincide con robots.txt y sitemap
     fname = droga_slug + ".html"
 
-    # JS separado del f-string para evitar escapar llaves
     JS_INLINE = """<script>
 (function() {
     var btn = document.getElementById('btnTop');
@@ -239,7 +233,6 @@ for droga_slug in DROGAS:
         <div style="margin-bottom:35px;">
             <h2 style="color:#008B8B;margin-bottom:16px;font-size:20px;">Precios actualizados de {esc(nombre)}</h2>
 
-            <!-- Indicador de scroll (solo visible en mobile) -->
             <p class="scroll-hint">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <polyline points="9 18 15 12 9 6"/>
@@ -306,9 +299,6 @@ for droga_slug in DROGAS:
                 <summary style="font-weight:600;cursor:pointer;">¿Cuánto cuesta {esc(nombre)} en Argentina?</summary>
                 <p style="font-size:14px;margin-top:8px;">{precio_rango} Consultá la tabla actualizada arriba con todos los precios públicos.</p>
             </details>
-
-            <details style="margin-bottom:15px;background:#f9f9f9;border-radius:8px;padding:14px;" open>
-            </details>
         </section>
     </main>
 
@@ -328,7 +318,6 @@ for droga_slug in DROGAS:
     </footer>
 </div>
 
-<!-- Botón scroll-to-top -->
 <button id="btnTop" aria-label="Volver arriba">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5">
         <polyline points="18 15 12 9 6 15"/>
@@ -344,3 +333,45 @@ for droga_slug in DROGAS:
     print(f"✅ {fname}")
 
 print(f"\n✅ {len(DROGAS)} landings generadas.")
+
+
+# ── Generar sitemap ────────────────────────────────────────────────────
+def generar_sitemap():
+    urls = []
+
+    # Home
+    urls.append(f"""  <url>
+    <loc>https://remedi.ar/</loc>
+    <lastmod>{LASTMOD}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>""")
+
+    # Landings por droga
+    for droga_slug in DROGAS:
+        urls.append(f"""  <url>
+    <loc>https://remedi.ar/{droga_slug}.html</loc>
+    <lastmod>{LASTMOD}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>""")
+
+    # Páginas estáticas
+    for slug, freq, pri in [("privacidad", "monthly", "0.3"), ("terminos", "monthly", "0.3")]:
+        urls.append(f"""  <url>
+    <loc>https://remedi.ar/{slug}.html</loc>
+    <lastmod>{LASTMOD}</lastmod>
+    <changefreq>{freq}</changefreq>
+    <priority>{pri}</priority>
+  </url>""")
+
+    sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n'
+    sitemap += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+    sitemap += '\n'.join(urls)
+    sitemap += '\n</urlset>'
+
+    out = BASE_DIR / "sitemap.xml"
+    out.write_text(sitemap, encoding='utf-8')
+    print(f"✅ sitemap.xml generado con {len(urls)} URLs ({LASTMOD})")
+
+generar_sitemap()
