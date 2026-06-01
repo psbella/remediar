@@ -374,8 +374,8 @@ for droga_slug in DROGAS:
     bloque_relacionadas = generar_relacionadas(droga_slug)
     bloque_faq = generar_faq(nombre, accion, precio_rango, n_marcas, precio_min)
 
-    # JSON-LD Drug schema
-    json_ld = json.dumps({
+    # JSON-LD Drug schema + BreadcrumbList
+    drug_ld = {
         "@context": "https://schema.org",
         "@type": "Drug",
         "name": nombre,
@@ -383,13 +383,38 @@ for droga_slug in DROGAS:
         "drugClass": accion,
         "description": desc,
         "url": f"https://remedi.ar/{droga_slug}.html",
-        "offers": {
+    }
+    if precio_min:
+        drug_ld["offers"] = {
             "@type": "AggregateOffer",
             "priceCurrency": "ARS",
             "lowPrice": str(int(precio_min)) if precio_min else "0",
+            "lowPrice": str(int(precio_min)),
+            "highPrice": str(int(precio_max)) if precios else str(int(precio_min)),
             "offerCount": str(len(meds_ordenados)),
-        } if precio_min else None
-    }, ensure_ascii=False, indent=2)
+        }
+
+    breadcrumb_ld = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Inicio",
+                "item": "https://remedi.ar/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": f"Precio de {nombre} en Argentina",
+                "item": f"https://remedi.ar/{droga_slug}.html"
+            }
+        ]
+    }
+
+    json_ld = json.dumps(drug_ld, ensure_ascii=False, indent=2)
+    json_ld_breadcrumb = json.dumps(breadcrumb_ld, ensure_ascii=False, indent=2)
 
     fname = droga_slug + ".html"
 
@@ -450,6 +475,9 @@ for droga_slug in DROGAS:
     <meta name="twitter:description" content="Precio de {esc(nombre)} en Argentina. {precio_rango}">
     <script type="application/ld+json">
 {json_ld}
+    </script>
+    <script type="application/ld+json">
+{json_ld_breadcrumb}
     </script>
 </head>
 <body>
