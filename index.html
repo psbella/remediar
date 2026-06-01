@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Precios de medicamentos en Argentina | remedi.ar</title>
-    <meta name="description" content="Buscador gratuito de precios de medicamentos en Argentina. Consultá precios actualizados de más de 12.000 medicamentos según SIAFAR/COFA. Sin registro, sin publicidad.">
+    <title>remedi.ar - Precios de medicamentos en Argentina</title>
+
+
     <meta name="robots" content="index, follow">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self';">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -14,23 +15,17 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
     <link rel="manifest" href="manifest.json">
-    <meta property="og:title" content="Precios de medicamentos en Argentina | remedi.ar">
-    <meta property="og:description" content="Buscador gratuito de precios de medicamentos en Argentina. Más de 12.000 medicamentos actualizados 2 veces al día desde SIAFAR/COFA.">
+    <meta property="og:title" content="Precios de Remedios Argentina">
+
     <meta property="og:url" content="https://remedi.ar/">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="es_AR">
-    <meta property="og:image" content="https://remedi.ar/img/og-image.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Precios de medicamentos en Argentina | remedi.ar">
-    <meta name="twitter:description" content="Buscador gratuito de precios de medicamentos en Argentina. Más de 12.000 medicamentos actualizados 2 veces al día.">
-    <meta name="twitter:image" content="https://remedi.ar/img/og-image.png">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
-      "name": "remedi.ar - Precios de medicamentos en Argentina",
+      "name": "Precios de Remedios Argentina",
       "url": "https://remedi.ar/",
-      "description": "Buscador gratuito de precios de medicamentos en Argentina",
       "potentialAction": {
         "@type": "SearchAction",
         "target": "https://remedi.ar/?q={search_term_string}",
@@ -140,11 +135,17 @@
 
     <div class="footer">
         <div class="footer-update">
-            <span>🕒 Última actualización: <strong id="fecha-actualizacion-footer">Cargando...</strong></span>
+            <span>Última actualización: <strong id="fecha-actualizacion-footer">Cargando...</strong></span>
         </div>
-        <div class="footer-aviso">
-            <svg width="14" height="14"><use href="#ic-info"/></svg>
-            Datos: <a href="https://siafar.com/datos" target="_blank" rel="noopener">Siafar / COFA</a> — Precios orientativos. Verificá en tu farmacia.
+        <div class="footer-aviso" style="flex-direction:column;gap:6px;">
+            <span>
+                <svg width="14" height="14"><use href="#ic-info"/></svg>
+                <strong>Aviso médico:</strong> La información de este sitio es de carácter informativo y no reemplaza la consulta con un médico o farmacéutico. Ante cualquier duda sobre medicamentos, dosificación o tratamientos, consultá con un profesional de la salud.
+            </span>
+            <span>
+                <svg width="14" height="14"><use href="#ic-info"/></svg>
+                Datos: <a href="https://siafar.com/datos" target="_blank" rel="noopener">Siafar / COFA</a> — Precios orientativos. Verificá en tu farmacia.
+            </span>
         </div>
         <nav class="footer-links">
             <a href="privacidad.html"><svg width="13" height="13"><use href="#ic-shield"/></svg>Privacidad</a>
@@ -152,14 +153,9 @@
             <a href="mailto:pablo.s.bella@gmail.com?subject=remedi.ar%20-%20Consulta"><svg width="13" height="13"><use href="#ic-mail"/></svg>Contacto</a>
         </nav>
     </div>
+    </footer>
+
 </div>
 <script type="module" src="js/main.js"></script>
-<script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/sw.js');
-    });
-  }
-</script>
 </body>
 </html>
