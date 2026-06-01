@@ -388,7 +388,6 @@ for droga_slug in DROGAS:
         drug_ld["offers"] = {
             "@type": "AggregateOffer",
             "priceCurrency": "ARS",
-            "lowPrice": str(int(precio_min)) if precio_min else "0",
             "lowPrice": str(int(precio_min)),
             "highPrice": str(int(precio_max)) if precios else str(int(precio_min)),
             "offerCount": str(len(meds_ordenados)),
