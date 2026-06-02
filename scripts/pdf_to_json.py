@@ -24,9 +24,9 @@ except ImportError:
     subprocess.check_call([sys.executable, "-m", "pip", "install", "pymupdf"])
     import fitz
 
-# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+# ─────────────────────────────────────────────────────────────────────────────
 # CONFIG
-# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+# ─────────────────────────────────────────────────────────────────────────────
 OUTLIER_CONFIG = {
     "PRECIO_MINIMO_ARS":  1_800,
     "UMBRAL_CRITICO":     0.10,
@@ -43,9 +43,9 @@ OUTLIER_REPORT    = BASE / "data" / "outlier_report.json"
 MEDICAMENTOS_PATH = BASE / "data" / "medicamentos.json"
 
 
-# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+# ─────────────────────────────────────────────────────────────────────────────
 # HELPERS PARSEO
-# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+# ─────────────────────────────────────────────────────────────────────────────
 def limpiar_precio(valor):
     if not valor or valor == '-':
         return None
@@ -64,9 +64,9 @@ def es_precio(texto):
     return bool(re.match(r'^[\d\.,]+$', limpio))
 
 
-# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+# ─────────────────────────────────────────────────────────────────────────────
 # BLACKLIST
-# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+# ─────────────────────────────────────────────────────────────────────────────
 def make_key(m):
     return '|'.join([
         (m.get('droga')        or '').strip().lower(),
@@ -94,9 +94,80 @@ def filtrar_blacklist(medicamentos, blacklist):
     return filtrados, n
 
 
-# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+# ─────────────────────────────────────────────────────────────────────────────
+# REPARACIÓN DENVER FARMA
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Denver Farma usa el nombre comercial genérico "DROGA DENVER FARMA" sin marca
+# propia, lo que hace que el parser fusione marca+presentacion en un solo token.
+# Tres variantes según dónde ocurrió la fusión en el PDF:
+#
+#   Variante A — presentacion pegada al final de marca (caso más común):
+#     PDF:    "ALPRAZOLAM DENVER FARMA\n1 MG COMP.X 60\n..."  → sin salto entre ambos
+#     Parser: marca="ALPRAZOLAM DENVER FARMA1 MG COMP.X 60"  presentacion=""
+#     Fix:    separar por el token "DENVER FARM(A)" + dígito/unidad siguiente
+#
+#   Variante B — "denver farma" absorbido en el campo droga:
+#     PDF:    fusión distinta donde droga captura el lab
+#     Parser: droga="betametasona...denvercrem denver farma"  marca="CR.X 20 G"
+#     Fix:    limpiar droga, mover marca → presentacion
+#
+#   Variante C — abreviaturas DENCR. y DF como separador:
+#     PDF:    "SULFADIAZINA DE PLATA DENCR.POMO X 30 G" o "BUDESONIDA DF AEROSOL..."
+#     Fix:    mismo regex extendido con DENCR\. y DF como anclas de corte
+
+_RE_MARCA_DENVER = re.compile(
+    r'^(.*?(?:DENVER\s*FARM[A]?|DENCR\.|(?<!\w)DF(?!\w)))\s*'
+    r'([A-Z]{2,}[\w\s\.,/%x\-áéíóúü]*|\d[\w\s\.,/%x\-áéíóúü]*)',
+    re.IGNORECASE
+)
+_RE_DROGA_DENVER = re.compile(
+    r'^(.*?)\s*(?:\w*denver\w*\s*)?denver\s*farma\s*$',
+    re.IGNORECASE
+)
+
+def reparar_denver(medicamentos: list) -> tuple:
+    """
+    Corrige los registros de Denver Farma donde marca y presentacion
+    quedaron fusionados por el parser.
+
+    Retorna el dataset corregido y la cantidad de registros reparados.
+    """
+    reparados = 0
+
+    for m in medicamentos:
+        if (m.get("laboratorio") or "").lower() != "denver farma":
+            continue
+
+        marca        = (m.get("marca")        or "").strip()
+        presentacion = (m.get("presentacion") or "").strip()
+        droga        = (m.get("droga")        or "").strip()
+
+        # Variante B: "denver farma" se coló dentro del campo droga
+        if "denver" in droga.lower():
+            match_droga = _RE_DROGA_DENVER.match(droga)
+            if match_droga:
+                droga_limpia   = match_droga.group(1).strip().rstrip(',').strip()
+                m["droga"]        = droga_limpia.lower()
+                m["presentacion"] = marca   # lo que era marca es en realidad la presentacion
+                m["marca"]        = ""
+                reparados += 1
+            continue
+
+        # Variantes A y C: presentacion vacía, todo fusionado en marca
+        if not presentacion:
+            match_marca = _RE_MARCA_DENVER.match(marca)
+            if match_marca:
+                m["marca"]        = match_marca.group(1).strip()
+                m["presentacion"] = match_marca.group(2).strip().lower()
+                reparados += 1
+
+    return medicamentos, reparados
+
+
+# ─────────────────────────────────────────────────────────────────────────────
 # RESCATE DE LABORATORIOS DESPLAZADOS
-# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+# ─────────────────────────────────────────────────────────────────────────────
 def rescatar_laboratorios(medicamentos: list) -> tuple:
     """
     Capa 2 de rescate: para registros que escaparon al parser con
@@ -107,17 +178,17 @@ def rescatar_laboratorios(medicamentos: list) -> tuple:
     Casos que resuelve:
       A) presentacion == laboratorio conocido exacto
          {"presentacion": "Denver Farma", "laboratorio": "Desconocido"}
-         â†’ {"presentacion": "Denver Farma", "laboratorio": "Denver Farma"}
+         → {"presentacion": "Denver Farma", "laboratorio": "Denver Farma"}
 
       B) presentacion termina con laboratorio conocido
          {"presentacion": "crema x 30 g Bago", "laboratorio": "Desconocido"}
-         â†’ {"presentacion": "crema x 30 g", "laboratorio": "Bago"}
+         → {"presentacion": "crema x 30 g", "laboratorio": "Bago"}
 
-    El laboratorio recuperado usa la capitalizaciÃ³n original del dataset.
-    MÃ­nimo de 4 caracteres para evitar matches espurios en el sufijo.
+    El laboratorio recuperado usa la capitalización original del dataset.
+    Mínimo de 4 caracteres para evitar matches espurios en el sufijo.
     """
 
-    # Construir Ã­ndice: lower â†’ forma original (primera apariciÃ³n)
+    # Construir índice: lower → forma original (primera aparición)
     labs_conocidos: dict[str, str] = {}
     for m in medicamentos:
         lab = (m.get('laboratorio') or '').strip()
@@ -153,7 +224,7 @@ def rescatar_laboratorios(medicamentos: list) -> tuple:
             m['laboratorio'] = lab_original
 
             # Limpiar presentacion: si era solo el lab, vaciar;
-            # si tenÃ­a contenido antes, quitar el sufijo
+            # si tenía contenido antes, quitar el sufijo
             if presentacion_lower == lab_lower:
                 m['presentacion'] = ''
             else:
@@ -164,9 +235,9 @@ def rescatar_laboratorios(medicamentos: list) -> tuple:
     return medicamentos, rescatados
 
 
-# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+# ─────────────────────────────────────────────────────────────────────────────
 # DETECCION DE OUTLIERS
-# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+# ─────────────────────────────────────────────────────────────────────────────
 def calcular_stats_por_droga(medicamentos):
     grupos = defaultdict(list)
     for m in medicamentos:
@@ -322,9 +393,9 @@ def calcular_vigencia(medicamentos):
     return medicamentos
 
 
-# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+# ─────────────────────────────────────────────────────────────────────────────
 # MAIN
-# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+# ─────────────────────────────────────────────────────────────────────────────
 def main():
     pdf_url = "https://siafar.com/precios/pdf/"
     print(f"Descargando: {pdf_url}")
@@ -348,7 +419,7 @@ def main():
             if es_precio(linea):
                 i += 1; continue
 
-            # â”€â”€ CAPA 1: detecciÃ³n de desplazamiento en tiempo de parse â”€â”€
+            # ── CAPA 1: detección de desplazamiento en tiempo de parse ──
             #
             # Estructura normal (5 campos):
             #   i+0  droga
@@ -360,11 +431,11 @@ def main():
             # Estructura desplazada (4 campos, lab ausente en PDF):
             #   i+0  droga
             #   i+1  marca
-            #   i+2  laboratorio  â† ocupa el slot de presentacion
-            #   i+3  precio       â† sube un lugar
+            #   i+2  laboratorio  ← ocupa el slot de presentacion
+            #   i+3  precio       ← sube un lugar
             #
-            # DetecciÃ³n: si lineas[i+3] ya es precio, el laboratorio
-            # se desplazÃ³ a lineas[i+2] y no hay presentacion separada.
+            # Detección: si lineas[i+3] ya es precio, el laboratorio
+            # se desplazó a lineas[i+2] y no hay presentacion separada.
 
             if i + 3 < len(lineas) and es_precio(lineas[i+3]):
                 # Estructura de 4 campos: lab en slot de presentacion
@@ -409,11 +480,16 @@ def main():
         print("No se extrajo ningun medicamento")
         sys.exit(1)
 
-    # â”€â”€ CAPA 2: rescate post-parse con laboratorios conocidos â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    # ── CAPA 2: rescate post-parse con laboratorios conocidos ──────────────
     print("\nRescatando laboratorios desplazados...")
     medicamentos, n_rescatados = rescatar_laboratorios(medicamentos)
     n_desconocidos = sum(1 for m in medicamentos if m.get('laboratorio') == 'Desconocido')
     print(f"   Rescatados: {n_rescatados} | Sin recuperar: {n_desconocidos}")
+
+    # ── CAPA 3: reparación de fusiones marca+presentacion de Denver Farma ──
+    print("\nReparando registros Denver Farma...")
+    medicamentos, n_denver = reparar_denver(medicamentos)
+    print(f"   Reparados: {n_denver}")
 
     print("\nAplicando lista negra...")
     blacklist            = cargar_blacklist()
