@@ -354,6 +354,8 @@ flowchart TD
     B[📥 Descargar PDF SIAFAR]
     C[📄 Extraer registros por página]
     D[🧹 Limpiar y normalizar]
+    N1[🔧 Rescatar laboratorios desplazados]
+    N2[🔧 Reparar fusiones marca+presentacion]
     BL[🛡️ Aplicar lista negra]
     E[🔍 Detectar outliers]
     F[💾 Generar medicamentos.json]
@@ -365,7 +367,9 @@ flowchart TD
     A --> B
     B --> C
     C --> D
-    D --> BL
+    D --> N1
+    N1 --> N2
+    N2 --> BL
     BL --> E
     E --> F
     E --> R
@@ -1025,7 +1029,7 @@ Guardado: data/medicamentos.json
 
 | Script | Función |
 |---|---|
-| `pdf_to_json.py` | Descarga PDF, aplica blacklist, detecta outliers, genera `medicamentos.json` y `outlier_report.json` |
+| `pdf_to_json.py`      | Descarga PDF; normaliza registros con campos desplazados (`rescatar_laboratorios`) y fusiones de laboratorios sin marca propia (`reparar_denver`); aplica blacklist; detecta outliers; genera `medicamentos.json` y `outlier_report.json` |
 | `generar_landings.py` | Crea landings SEO estáticas por droga y regenera `sitemap.xml` con fecha del día |
 
 ---
