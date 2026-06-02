@@ -24,9 +24,9 @@ except ImportError:
     subprocess.check_call([sys.executable, "-m", "pip", "install", "pymupdf"])
     import fitz
 
-# ─────────────────────────────────────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 # CONFIG
-# ─────────────────────────────────────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 OUTLIER_CONFIG = {
     "PRECIO_MINIMO_ARS":  1_800,
     "UMBRAL_CRITICO":     0.10,
@@ -43,9 +43,9 @@ OUTLIER_REPORT    = BASE / "data" / "outlier_report.json"
 MEDICAMENTOS_PATH = BASE / "data" / "medicamentos.json"
 
 
-# ─────────────────────────────────────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 # HELPERS PARSEO
-# ─────────────────────────────────────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def limpiar_precio(valor):
     if not valor or valor == '-':
         return None
@@ -64,9 +64,9 @@ def es_precio(texto):
     return bool(re.match(r'^[\d\.,]+$', limpio))
 
 
-# ─────────────────────────────────────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 # BLACKLIST
-# ─────────────────────────────────────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def make_key(m):
     return '|'.join([
         (m.get('droga')        or '').strip().lower(),
@@ -94,9 +94,79 @@ def filtrar_blacklist(medicamentos, blacklist):
     return filtrados, n
 
 
-# ─────────────────────────────────────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+# RESCATE DE LABORATORIOS DESPLAZADOS
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+def rescatar_laboratorios(medicamentos: list) -> tuple:
+    """
+    Capa 2 de rescate: para registros que escaparon al parser con
+    laboratorio='Desconocido', intenta recuperar el laboratorio desde
+    el campo 'presentacion' usando el set de laboratorios conocidos
+    construido desde el propio dataset.
+
+    Casos que resuelve:
+      A) presentacion == laboratorio conocido exacto
+         {"presentacion": "Denver Farma", "laboratorio": "Desconocido"}
+         â†’ {"presentacion": "Denver Farma", "laboratorio": "Denver Farma"}
+
+      B) presentacion termina con laboratorio conocido
+         {"presentacion": "crema x 30 g Bago", "laboratorio": "Desconocido"}
+         â†’ {"presentacion": "crema x 30 g", "laboratorio": "Bago"}
+
+    El laboratorio recuperado usa la capitalizaciÃ³n original del dataset.
+    MÃ­nimo de 4 caracteres para evitar matches espurios en el sufijo.
+    """
+
+    # Construir Ã­ndice: lower â†’ forma original (primera apariciÃ³n)
+    labs_conocidos: dict[str, str] = {}
+    for m in medicamentos:
+        lab = (m.get('laboratorio') or '').strip()
+        if lab and lab != 'Desconocido':
+            labs_conocidos.setdefault(lab.lower(), lab)
+
+    rescatados = 0
+
+    for m in medicamentos:
+        if m.get('laboratorio') != 'Desconocido':
+            continue
+
+        presentacion       = (m.get('presentacion') or '').strip()
+        presentacion_lower = presentacion.lower()
+
+        lab_lower    = None
+        lab_original = None
+
+        # Caso A: presentacion es exactamente un laboratorio
+        if presentacion_lower in labs_conocidos:
+            lab_lower    = presentacion_lower
+            lab_original = labs_conocidos[lab_lower]
+
+        # Caso B: presentacion termina con un laboratorio (min 4 chars)
+        else:
+            for ll, lo in labs_conocidos.items():
+                if len(ll) >= 4 and presentacion_lower.endswith(ll):
+                    lab_lower    = ll
+                    lab_original = lo
+                    break
+
+        if lab_original:
+            m['laboratorio'] = lab_original
+
+            # Limpiar presentacion: si era solo el lab, vaciar;
+            # si tenÃ­a contenido antes, quitar el sufijo
+            if presentacion_lower == lab_lower:
+                m['presentacion'] = ''
+            else:
+                m['presentacion'] = presentacion[:len(presentacion) - len(lab_lower)].strip()
+
+            rescatados += 1
+
+    return medicamentos, rescatados
+
+
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 # DETECCION DE OUTLIERS
-# ─────────────────────────────────────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def calcular_stats_por_droga(medicamentos):
     grupos = defaultdict(list)
     for m in medicamentos:
@@ -252,9 +322,9 @@ def calcular_vigencia(medicamentos):
     return medicamentos
 
 
-# ─────────────────────────────────────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 # MAIN
-# ─────────────────────────────────────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def main():
     pdf_url = "https://siafar.com/precios/pdf/"
     print(f"Descargando: {pdf_url}")
@@ -277,24 +347,58 @@ def main():
                 i += 1; continue
             if es_precio(linea):
                 i += 1; continue
-            if i + 4 < len(lineas):
+
+            # â”€â”€ CAPA 1: detecciÃ³n de desplazamiento en tiempo de parse â”€â”€
+            #
+            # Estructura normal (5 campos):
+            #   i+0  droga
+            #   i+1  marca
+            #   i+2  presentacion
+            #   i+3  laboratorio
+            #   i+4  precio
+            #
+            # Estructura desplazada (4 campos, lab ausente en PDF):
+            #   i+0  droga
+            #   i+1  marca
+            #   i+2  laboratorio  â† ocupa el slot de presentacion
+            #   i+3  precio       â† sube un lugar
+            #
+            # DetecciÃ³n: si lineas[i+3] ya es precio, el laboratorio
+            # se desplazÃ³ a lineas[i+2] y no hay presentacion separada.
+
+            if i + 3 < len(lineas) and es_precio(lineas[i+3]):
+                # Estructura de 4 campos: lab en slot de presentacion
+                droga        = linea
+                marca        = lineas[i+1]
+                presentacion = ''
+                laboratorio  = lineas[i+2]
+                precio_str   = lineas[i+3]
+                avance       = 4
+            elif i + 4 < len(lineas):
+                # Estructura normal de 5 campos
                 droga        = linea
                 marca        = lineas[i+1]
                 presentacion = lineas[i+2]
                 laboratorio  = lineas[i+3]
                 precio_str   = lineas[i+4]
-                if es_precio(precio_str):
-                    precio = limpiar_precio(precio_str)
-                    if precio and droga:
-                        medicamentos.append({
-                            'droga':        droga.lower(),
-                            'marca':        marca.upper(),
-                            'presentacion': presentacion,
-                            'laboratorio':  laboratorio if not es_precio(laboratorio) else 'Desconocido',
-                            'precio':       precio,
-                        })
-                    i += 5; continue
+                avance       = 5
+            else:
+                i += 1; continue
+
+            if es_precio(precio_str):
+                precio = limpiar_precio(precio_str)
+                if precio and droga:
+                    medicamentos.append({
+                        'droga':        droga.lower(),
+                        'marca':        marca.upper(),
+                        'presentacion': presentacion,
+                        'laboratorio':  laboratorio if not es_precio(laboratorio) else 'Desconocido',
+                        'precio':       precio,
+                    })
+                i += avance; continue
+
             i += 1
+
         if (pagina_num + 1) % 10 == 0:
             print(f"Pagina {pagina_num + 1}: {len(medicamentos)} medicamentos")
 
@@ -304,6 +408,12 @@ def main():
     if not medicamentos:
         print("No se extrajo ningun medicamento")
         sys.exit(1)
+
+    # â”€â”€ CAPA 2: rescate post-parse con laboratorios conocidos â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    print("\nRescatando laboratorios desplazados...")
+    medicamentos, n_rescatados = rescatar_laboratorios(medicamentos)
+    n_desconocidos = sum(1 for m in medicamentos if m.get('laboratorio') == 'Desconocido')
+    print(f"   Rescatados: {n_rescatados} | Sin recuperar: {n_desconocidos}")
 
     print("\nAplicando lista negra...")
     blacklist            = cargar_blacklist()
