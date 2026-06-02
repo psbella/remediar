@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-06-02T14:52:17.331874-03:00",
-  "total_registros": 11994,
-  "total_outliers": 262,
+  "timestamp": "2026-06-02T17:37:20.521131-03:00",
+  "total_registros": 12144,
+  "total_outliers": 258,
   "outliers": [
     {
       "droga": "acetilcisteína",
@@ -130,10 +130,10 @@
       "precio": 5338.41,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $5,338.41 < 25% mediana $25,754.72 (n=427)"
+        "precio $5,338.41 < 25% mediana $24,804.94 (n=441)"
       ],
-      "mediana_droga": 25754.72,
-      "n_droga": 427
+      "mediana_droga": 24804.94,
+      "n_droga": 441
     },
     {
       "droga": "alcohol diclorobencílico, asoc",
@@ -256,43 +256,17 @@
       "n_droga": 4
     },
     {
-      "droga": "amoxicilina, clavulánico,ác.",
-      "marca": "AMOXICILINA CLAVULANICO R1000 MG COMP.X 8",
-      "presentacion": "Richet",
-      "laboratorio": "Desconocido",
-      "precio": 5208.16,
-      "precio_outlier_tipo": "bajo_relativo",
+      "droga": "amoxicilina, ambroxol",
+      "marca": "NOBACTAM BRONQUIAL",
+      "presentacion": "comp.rec.x 16",
+      "laboratorio": "Microsules Arg.",
+      "precio": 10009.55,
+      "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $5,208.16 < 25% mediana $21,200.00 (n=61)"
+        "precio $10,009.55 < fence_low $10,473.50"
       ],
-      "mediana_droga": 21200.0,
-      "n_droga": 61
-    },
-    {
-      "droga": "amoxicilina, clavulánico,ác.",
-      "marca": "AMOXICILINA CLAVULANICO R250 MG PVO.P/SUSP.X 60ML",
-      "presentacion": "Richet",
-      "laboratorio": "Desconocido",
-      "precio": 2985.3,
-      "precio_outlier_tipo": "bajo_relativo",
-      "razones": [
-        "precio $2,985.30 < 25% mediana $21,200.00 (n=61)"
-      ],
-      "mediana_droga": 21200.0,
-      "n_droga": 61
-    },
-    {
-      "droga": "amoxicilina, clavulánico,ác.",
-      "marca": "AMOXICILINA CLAVULANICO R250 MG PVO.P/SUSP.X 90ML",
-      "presentacion": "Richet",
-      "laboratorio": "Desconocido",
-      "precio": 4141.94,
-      "precio_outlier_tipo": "bajo_relativo",
-      "razones": [
-        "precio $4,141.94 < 25% mediana $21,200.00 (n=61)"
-      ],
-      "mediana_droga": 21200.0,
-      "n_droga": 61
+      "mediana_droga": 16423.0,
+      "n_droga": 7
     },
     {
       "droga": "amoxicilina, clavulánico,ác.",
@@ -303,10 +277,10 @@
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
         "precio $278.00 < minimo $1,800",
-        "precio $278.00 < 10% mediana $21,200.00"
+        "precio $278.00 < 10% mediana $21,926.39"
       ],
-      "mediana_droga": 21200.0,
-      "n_droga": 61
+      "mediana_droga": 21926.39,
+      "n_droga": 63
     },
     {
       "droga": "-",
@@ -318,8 +292,8 @@
       "razones": [
         "ppu $2.17 << mediana_grupo $109.62"
       ],
-      "mediana_droga": 25754.72,
-      "n_droga": 427
+      "mediana_droga": 24804.94,
+      "n_droga": 441
     },
     {
       "droga": "amoxicilina, clavulánico,ác.",
@@ -331,8 +305,8 @@
       "razones": [
         "ppu $52.10 << mediana_grupo $15,400.15"
       ],
-      "mediana_droga": 21200.0,
-      "n_droga": 61
+      "mediana_droga": 21926.39,
+      "n_droga": 63
     },
     {
       "droga": "amoxicilina, clavulánico,ác.",
@@ -343,10 +317,10 @@
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
         "precio $388.00 < minimo $1,800",
-        "precio $388.00 < 10% mediana $21,200.00"
+        "precio $388.00 < 10% mediana $21,926.39"
       ],
-      "mediana_droga": 21200.0,
-      "n_droga": 61
+      "mediana_droga": 21926.39,
+      "n_droga": 63
     },
     {
       "droga": "amoxicilina, clavulánico,ác.",
@@ -357,23 +331,10 @@
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
         "precio $1,316.02 < minimo $1,800",
-        "precio $1,316.02 < 10% mediana $21,200.00"
+        "precio $1,316.02 < 10% mediana $21,926.39"
       ],
-      "mediana_droga": 21200.0,
-      "n_droga": 61
-    },
-    {
-      "droga": "amoxicilina, clavulánico,ác.",
-      "marca": "AMOXICILINA CLAVULANICO R500 MG COMP.X 8",
-      "presentacion": "Richet",
-      "laboratorio": "Desconocido",
-      "precio": 3675.36,
-      "precio_outlier_tipo": "bajo_relativo",
-      "razones": [
-        "precio $3,675.36 < 25% mediana $21,200.00 (n=61)"
-      ],
-      "mediana_droga": 21200.0,
-      "n_droga": 61
+      "mediana_droga": 21926.39,
+      "n_droga": 63
     },
     {
       "droga": "amoxicilina, clavulánico,ác.",
@@ -385,8 +346,8 @@
       "razones": [
         "ppu $155.71 << mediana_grupo $780.00"
       ],
-      "mediana_droga": 21200.0,
-      "n_droga": 61
+      "mediana_droga": 21926.39,
+      "n_droga": 63
     },
     {
       "droga": "amoxicilina, clavulánico,ác.",
@@ -398,8 +359,8 @@
       "razones": [
         "ppu $192.78 << mediana_grupo $1,113.24"
       ],
-      "mediana_droga": 21200.0,
-      "n_droga": 61
+      "mediana_droga": 21926.39,
+      "n_droga": 63
     },
     {
       "droga": "amoxicilina, sulbactam",
@@ -426,32 +387,6 @@
       ],
       "mediana_droga": 30212.22,
       "n_droga": 5
-    },
-    {
-      "droga": "antígeno hepatitis a",
-      "marca": "HAVRIX 1440 EL.U. ADULTOS JGA.PRELL.X 1",
-      "presentacion": "GlaxoSmithKline",
-      "laboratorio": "Desconocido",
-      "precio": 30632.23,
-      "precio_outlier_tipo": "bajo_relativo",
-      "razones": [
-        "precio $30,632.23 < 25% mediana $152,754.79 (n=6)"
-      ],
-      "mediana_droga": 152754.79,
-      "n_droga": 6
-    },
-    {
-      "droga": "antígeno hepatitis a",
-      "marca": "HAVRIX 720 EL.U. MONO DOSJGA.PRELL.X 1",
-      "presentacion": "GlaxoSmithKline",
-      "laboratorio": "Desconocido",
-      "precio": 27509.98,
-      "precio_outlier_tipo": "bajo_relativo",
-      "razones": [
-        "precio $27,509.98 < 25% mediana $152,754.79 (n=6)"
-      ],
-      "mediana_droga": 152754.79,
-      "n_droga": 6
     },
     {
       "droga": "apixaban",
@@ -552,10 +487,10 @@
       "precio": 652425.0,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $652,425.00 < 25% mediana $3,413,679.00 (n=17)"
+        "precio $652,425.00 < 25% mediana $3,349,420.32 (n=18)"
       ],
-      "mediana_droga": 3413679.0,
-      "n_droga": 17
+      "mediana_droga": 3349420.32,
+      "n_droga": 18
     },
     {
       "droga": "benzoílo,peróxido",
@@ -610,19 +545,6 @@
       "n_droga": 37
     },
     {
-      "droga": "-",
-      "marca": "BETAMETASONA, GENTAMIC., MICONBETACORT PLUS CASSARA CR.DÉRMICA X 25 G",
-      "presentacion": "Cassará",
-      "laboratorio": "Desconocido",
-      "precio": 4526.85,
-      "precio_outlier_tipo": "bajo_relativo",
-      "razones": [
-        "precio $4,526.85 < 25% mediana $25,754.72 (n=427)"
-      ],
-      "mediana_droga": 25754.72,
-      "n_droga": 427
-    },
-    {
       "droga": "budesonide, formoterol",
       "marca": "NEUMOCORT PLUS",
       "presentacion": "aer./inhal.x 60 ds.",
@@ -630,10 +552,10 @@
       "precio": 26330.0,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $26,330.00 < 25% mediana $113,600.71 (n=19)"
+        "precio $26,330.00 < 25% mediana $113,147.11 (n=20)"
       ],
-      "mediana_droga": 113600.71,
-      "n_droga": 19
+      "mediana_droga": 113147.11,
+      "n_droga": 20
     },
     {
       "droga": "buflomedil",
@@ -828,8 +750,8 @@
       "razones": [
         "ppu $32.29 << mediana_grupo $1,117.39"
       ],
-      "mediana_droga": 18619.0,
-      "n_droga": 41
+      "mediana_droga": 18367.26,
+      "n_droga": 44
     },
     {
       "droga": "-",
@@ -839,10 +761,10 @@
       "precio": 5519.07,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $5,519.07 < 25% mediana $25,754.72 (n=427)"
+        "precio $5,519.07 < 25% mediana $24,804.94 (n=441)"
       ],
-      "mediana_droga": 25754.72,
-      "n_droga": 427
+      "mediana_droga": 24804.94,
+      "n_droga": 441
     },
     {
       "droga": "cladribina",
@@ -905,10 +827,10 @@
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
         "precio $1,376.16 < minimo $1,800",
-        "precio $1,376.16 < 10% mediana $25,754.72"
+        "precio $1,376.16 < 10% mediana $24,804.94"
       ],
-      "mediana_droga": 25754.72,
-      "n_droga": 427
+      "mediana_droga": 24804.94,
+      "n_droga": 441
     },
     {
       "droga": "clonazepam",
@@ -948,6 +870,19 @@
       ],
       "mediana_droga": 15259.96,
       "n_droga": 106
+    },
+    {
+      "droga": "clonixinato lisina",
+      "marca": "DORIXINA GEL",
+      "presentacion": "gel x 50 g",
+      "laboratorio": "Roemmers",
+      "precio": 10962.0,
+      "precio_outlier_tipo": "bajo_critico",
+      "razones": [
+        "precio $10,962.00 < 10% mediana $214,058.25"
+      ],
+      "mediana_droga": 214058.25,
+      "n_droga": 2
     },
     {
       "droga": "clorhexidina, asoc.",
@@ -1042,6 +977,33 @@
       "n_droga": 12
     },
     {
+      "droga": "dexametasona, polimix., trimet neolag",
+      "marca": "GTS.OFT.X 5 ML",
+      "presentacion": "",
+      "laboratorio": "Lab Internacion",
+      "precio": 403.96,
+      "precio_outlier_tipo": "bajo_absoluto",
+      "razones": [
+        "precio $403.96 < minimo $1,800"
+      ],
+      "mediana_droga": 403.96,
+      "n_droga": 1
+    },
+    {
+      "droga": "-",
+      "marca": "DEXTROMETORFANO, DIFENHIDRAMIN BISOLVON COMPOSITUM NF SOL.X 120 ML",
+      "presentacion": "",
+      "laboratorio": "Opella Healthca",
+      "precio": 1768.56,
+      "precio_outlier_tipo": "bajo_critico",
+      "razones": [
+        "precio $1,768.56 < minimo $1,800",
+        "precio $1,768.56 < 10% mediana $24,804.94"
+      ],
+      "mediana_droga": 24804.94,
+      "n_droga": 441
+    },
+    {
       "droga": "-",
       "marca": "DICLOFENAC POTÁSICO, PARACETAM FLEXIPLEN COMPLEX",
       "presentacion": "50/400 mg comp.rec.x 10",
@@ -1049,23 +1011,10 @@
       "precio": 6040.36,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $6,040.36 < 25% mediana $25,754.72 (n=427)"
+        "precio $6,040.36 < 25% mediana $24,804.94 (n=441)"
       ],
-      "mediana_droga": 25754.72,
-      "n_droga": 427
-    },
-    {
-      "droga": "-",
-      "marca": "DICLOFENAC POTÁSICO, PARACETAM DOLOFENAC GESIC",
-      "presentacion": "comp.rec.x 10",
-      "laboratorio": "Sanitas",
-      "precio": 6300.0,
-      "precio_outlier_tipo": "bajo_relativo",
-      "razones": [
-        "precio $6,300.00 < 25% mediana $25,754.72 (n=427)"
-      ],
-      "mediana_droga": 25754.72,
-      "n_droga": 427
+      "mediana_droga": 24804.94,
+      "n_droga": 441
     },
     {
       "droga": "diclofenac sódico",
@@ -1158,6 +1107,32 @@
       ],
       "mediana_droga": 14794.49,
       "n_droga": 96
+    },
+    {
+      "droga": "-",
+      "marca": "DICLOFENAC SÓDICO, PARACETAMOL TAFIROL PLUS RAPIDA ACCIOCÁPS.BL. X 8",
+      "presentacion": "",
+      "laboratorio": "Genomma Lab.",
+      "precio": 4884.37,
+      "precio_outlier_tipo": "bajo_relativo",
+      "razones": [
+        "precio $4,884.37 < 25% mediana $24,804.94 (n=441)"
+      ],
+      "mediana_droga": 24804.94,
+      "n_droga": 441
+    },
+    {
+      "droga": "-",
+      "marca": "DICLOFENAC SÓDICO, PARACETAMOL ANAFLEX PLUS RAPIDA ACCIOCAPS.BL.X 8",
+      "presentacion": "",
+      "laboratorio": "Bagó",
+      "precio": 4765.24,
+      "precio_outlier_tipo": "bajo_relativo",
+      "razones": [
+        "precio $4,765.24 < 25% mediana $24,804.94 (n=441)"
+      ],
+      "mediana_droga": 24804.94,
+      "n_droga": 441
     },
     {
       "droga": "diclofenac, vit.b12, betametas",
@@ -1300,8 +1275,8 @@
       "razones": [
         "ppu $18.55 << mediana_grupo $231.59"
       ],
-      "mediana_droga": 25754.72,
-      "n_droga": 427
+      "mediana_droga": 24804.94,
+      "n_droga": 441
     },
     {
       "droga": "esmolol",
@@ -1331,42 +1306,15 @@
     },
     {
       "droga": "fenitoína",
-      "marca": "FENITOINA DENVER FARMA 100 MG CAPS.X 30",
-      "presentacion": "Denver Farma",
-      "laboratorio": "Desconocido",
-      "precio": 3079.9,
-      "precio_outlier_tipo": "bajo_relativo",
-      "razones": [
-        "precio $3,079.90 < 25% mediana $28,950.58 (n=9)"
-      ],
-      "mediana_droga": 28950.58,
-      "n_droga": 9
-    },
-    {
-      "droga": "fenitoína",
-      "marca": "FENITOINA DENVER FARMA 100 MG CAPS.X 50",
-      "presentacion": "Denver Farma",
-      "laboratorio": "Desconocido",
-      "precio": 4883.7,
-      "precio_outlier_tipo": "bajo_relativo",
-      "razones": [
-        "precio $4,883.70 < 25% mediana $28,950.58 (n=9)"
-      ],
-      "mediana_droga": 28950.58,
-      "n_droga": 9
-    },
-    {
-      "droga": "fenitoína",
       "marca": "FENITENK",
       "presentacion": "100 mg comp.rec.x 30",
       "laboratorio": "Biotenk",
       "precio": 3833.2,
-      "precio_outlier_tipo": "bajo_relativo",
+      "precio_outlier_tipo": "bajo_critico",
       "razones": [
-        "precio $3,833.20 < 25% mediana $28,950.58 (n=9)",
-        "ppu $38.33 << mediana_grupo $392.53"
+        "precio $3,833.20 < 10% mediana $65,114.12"
       ],
-      "mediana_droga": 28950.58,
+      "mediana_droga": 65114.12,
       "n_droga": 9
     },
     {
@@ -1379,8 +1327,21 @@
       "razones": [
         "ppu $241.25 << mediana_grupo $2,105.82"
       ],
-      "mediana_droga": 28950.58,
+      "mediana_droga": 65114.12,
       "n_droga": 9
+    },
+    {
+      "droga": "fentanilo",
+      "marca": "SUBLIMAZE S/CONSERVADORINY.X 5 X 2 ML",
+      "presentacion": "",
+      "laboratorio": "Janssen-Cilag",
+      "precio": 11286.79,
+      "precio_outlier_tipo": "bajo_critico",
+      "razones": [
+        "precio $11,286.79 < 10% mediana $334,473.35"
+      ],
+      "mediana_droga": 334473.35,
+      "n_droga": 5
     },
     {
       "droga": "fluconazol",
@@ -1407,32 +1368,6 @@
       ],
       "mediana_droga": 223391.46,
       "n_droga": 5
-    },
-    {
-      "droga": "fluticasona, salmeterol",
-      "marca": "INHALAN BRONQUIAL 250/50 CÁPS.P/INHAL.X 60+APLIC.",
-      "presentacion": "Casasco",
-      "laboratorio": "Desconocido",
-      "precio": 18063.61,
-      "precio_outlier_tipo": "bajo_relativo",
-      "razones": [
-        "precio $18,063.61 < 25% mediana $90,963.70 (n=27)"
-      ],
-      "mediana_droga": 90963.7,
-      "n_droga": 27
-    },
-    {
-      "droga": "fluticasona, salmeterol",
-      "marca": "INHALAN BRONQUIAL 500/50 CÁPS.P/INHAL.X 60+APLIC.",
-      "presentacion": "Casasco",
-      "laboratorio": "Desconocido",
-      "precio": 18283.09,
-      "precio_outlier_tipo": "bajo_relativo",
-      "razones": [
-        "precio $18,283.09 < 25% mediana $90,963.70 (n=27)"
-      ],
-      "mediana_droga": 90963.7,
-      "n_droga": 27
     },
     {
       "droga": "fólico,ác.",
@@ -1540,19 +1475,6 @@
       "n_droga": 5
     },
     {
-      "droga": "hierro, fólico,ác.",
-      "marca": "SULFATO FERROSO RICHET 525 MG COMP.X 30 (TRZB)",
-      "presentacion": "Richet",
-      "laboratorio": "Desconocido",
-      "precio": 8192.6,
-      "precio_outlier_tipo": "bajo_relativo",
-      "razones": [
-        "precio $8,192.60 < 25% mediana $35,895.74 (n=17)"
-      ],
-      "mediana_droga": 35895.74,
-      "n_droga": 17
-    },
-    {
       "droga": "hierro, vit.b12, fólico,ác.",
       "marca": "TENVIC",
       "presentacion": "comp.rec.x 20",
@@ -1586,10 +1508,10 @@
       "precio": 3457.0,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $3,457.00 < 25% mediana $25,754.72 (n=427)"
+        "precio $3,457.00 < 25% mediana $24,804.94 (n=441)"
       ],
-      "mediana_droga": 25754.72,
-      "n_droga": 427
+      "mediana_droga": 24804.94,
+      "n_droga": 441
     },
     {
       "droga": "-",
@@ -1599,10 +1521,10 @@
       "precio": 4032.09,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $4,032.09 < 25% mediana $25,754.72 (n=427)"
+        "precio $4,032.09 < 25% mediana $24,804.94 (n=441)"
       ],
-      "mediana_droga": 25754.72,
-      "n_droga": 427
+      "mediana_droga": 24804.94,
+      "n_droga": 441
     },
     {
       "droga": "ibuprofeno",
@@ -1614,8 +1536,8 @@
       "razones": [
         "ppu $10.11 << mediana_grupo $1,128.80"
       ],
-      "mediana_droga": 7750.13,
-      "n_droga": 104
+      "mediana_droga": 7790.26,
+      "n_droga": 105
     },
     {
       "droga": "ibuprofeno",
@@ -1627,8 +1549,8 @@
       "razones": [
         "ppu $11.90 << mediana_grupo $983.45"
       ],
-      "mediana_droga": 7750.13,
-      "n_droga": 104
+      "mediana_droga": 7790.26,
+      "n_droga": 105
     },
     {
       "droga": "-",
@@ -1638,10 +1560,10 @@
       "precio": 2682.0,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $2,682.00 < 25% mediana $25,754.72 (n=427)"
+        "precio $2,682.00 < 25% mediana $24,804.94 (n=441)"
       ],
-      "mediana_droga": 25754.72,
-      "n_droga": 427
+      "mediana_droga": 24804.94,
+      "n_droga": 441
     },
     {
       "droga": "-",
@@ -1651,10 +1573,10 @@
       "precio": 5095.0,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $5,095.00 < 25% mediana $25,754.72 (n=427)"
+        "precio $5,095.00 < 25% mediana $24,804.94 (n=441)"
       ],
-      "mediana_droga": 25754.72,
-      "n_droga": 427
+      "mediana_droga": 24804.94,
+      "n_droga": 441
     },
     {
       "droga": "ibuprofeno",
@@ -1664,10 +1586,10 @@
       "precio": 1915.69,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $1,915.69 < 25% mediana $7,750.13 (n=104)"
+        "precio $1,915.69 < 25% mediana $7,790.26 (n=105)"
       ],
-      "mediana_droga": 7750.13,
-      "n_droga": 104
+      "mediana_droga": 7790.26,
+      "n_droga": 105
     },
     {
       "droga": "ibuprofeno",
@@ -1678,10 +1600,10 @@
       "precio_outlier_tipo": "bajo_absoluto",
       "razones": [
         "precio $1,348.73 < minimo $1,800",
-        "precio $1,348.73 < 25% mediana $7,750.13 (n=104)"
+        "precio $1,348.73 < 25% mediana $7,790.26 (n=105)"
       ],
-      "mediana_droga": 7750.13,
-      "n_droga": 104
+      "mediana_droga": 7790.26,
+      "n_droga": 105
     },
     {
       "droga": "-",
@@ -1691,10 +1613,10 @@
       "precio": 4220.0,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $4,220.00 < 25% mediana $25,754.72 (n=427)"
+        "precio $4,220.00 < 25% mediana $24,804.94 (n=441)"
       ],
-      "mediana_droga": 25754.72,
-      "n_droga": 427
+      "mediana_droga": 24804.94,
+      "n_droga": 441
     },
     {
       "droga": "-",
@@ -1704,10 +1626,10 @@
       "precio": 5547.0,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $5,547.00 < 25% mediana $25,754.72 (n=427)"
+        "precio $5,547.00 < 25% mediana $24,804.94 (n=441)"
       ],
-      "mediana_droga": 25754.72,
-      "n_droga": 427
+      "mediana_droga": 24804.94,
+      "n_droga": 441
     },
     {
       "droga": "inosina,monofosfato disódico",
@@ -1733,8 +1655,8 @@
       "razones": [
         "ppu $1,205.64 << mediana_grupo $6,411.89"
       ],
-      "mediana_droga": 98274.79,
-      "n_droga": 14
+      "mediana_droga": 142396.62,
+      "n_droga": 16
     },
     {
       "droga": "insulina humana",
@@ -1746,8 +1668,8 @@
       "razones": [
         "ppu $944.04 << mediana_grupo $6,411.89"
       ],
-      "mediana_droga": 98274.79,
-      "n_droga": 14
+      "mediana_droga": 142396.62,
+      "n_droga": 16
     },
     {
       "droga": "iodopovidona",
@@ -1851,8 +1773,8 @@
       "razones": [
         "ppu $2,984.24 << mediana_grupo $15,434.24"
       ],
-      "mediana_droga": 25754.72,
-      "n_droga": 427
+      "mediana_droga": 24804.94,
+      "n_droga": 441
     },
     {
       "droga": "leucovorina",
@@ -1917,10 +1839,10 @@
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
         "precio $1,409.55 < minimo $1,800",
-        "precio $1,409.55 < 10% mediana $25,754.72"
+        "precio $1,409.55 < 10% mediana $24,804.94"
       ],
-      "mediana_droga": 25754.72,
-      "n_droga": 427
+      "mediana_droga": 24804.94,
+      "n_droga": 441
     },
     {
       "droga": "lidocaína, asoc.",
@@ -1946,8 +1868,8 @@
       "razones": [
         "ppu $124.42 << mediana_grupo $778.40"
       ],
-      "mediana_droga": 7260.88,
-      "n_droga": 34
+      "mediana_droga": 7105.8,
+      "n_droga": 35
     },
     {
       "droga": "loratadina, betametasona",
@@ -2050,10 +1972,10 @@
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
         "precio $1,500.00 < minimo $1,800",
-        "precio $1,500.00 < 10% mediana $25,754.72"
+        "precio $1,500.00 < 10% mediana $24,804.94"
       ],
-      "mediana_droga": 25754.72,
-      "n_droga": 427
+      "mediana_droga": 24804.94,
+      "n_droga": 441
     },
     {
       "droga": "mebendazol",
@@ -2364,8 +2286,8 @@
       "razones": [
         "ppu $366.66 << mediana_grupo $2,250.00"
       ],
-      "mediana_droga": 25754.72,
-      "n_droga": 427
+      "mediana_droga": 24804.94,
+      "n_droga": 441
     },
     {
       "droga": "paracetamol",
@@ -2382,16 +2304,16 @@
     },
     {
       "droga": "-",
-      "marca": "PARACETAMOL, PSEUDOEFEDRINA, ATERMOGRIP",
-      "presentacion": "comp.rec.x 10",
-      "laboratorio": "Ronnet",
-      "precio": 6412.8,
+      "marca": "PARACETAMOL, CLORFENIRAMINA, A DECIDEX COMPUESTO GRIP COMP.REC.X 10",
+      "presentacion": "",
+      "laboratorio": "Roemmers",
+      "precio": 5568.0,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $6,412.80 < 25% mediana $25,754.72 (n=427)"
+        "precio $5,568.00 < 25% mediana $24,804.94 (n=441)"
       ],
-      "mediana_droga": 25754.72,
-      "n_droga": 427
+      "mediana_droga": 24804.94,
+      "n_droga": 441
     },
     {
       "droga": "-",
@@ -2401,10 +2323,10 @@
       "precio": 6200.0,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $6,200.00 < 25% mediana $25,754.72 (n=427)"
+        "precio $6,200.00 < 25% mediana $24,804.94 (n=441)"
       ],
-      "mediana_droga": 25754.72,
-      "n_droga": 427
+      "mediana_droga": 24804.94,
+      "n_droga": 441
     },
     {
       "droga": "polisacaridosulf£rico,ác.(éste",
@@ -2432,6 +2354,19 @@
       ],
       "mediana_droga": 92754.27,
       "n_droga": 28
+    },
+    {
+      "droga": "pregabalina",
+      "marca": "CLASICA",
+      "presentacion": "25 mg caps.x 30",
+      "laboratorio": "Craveri",
+      "precio": 10577.22,
+      "precio_outlier_tipo": "bajo_relativo",
+      "razones": [
+        "precio $10,577.22 < 25% mediana $42,569.43 (n=112)"
+      ],
+      "mediana_droga": 42569.43,
+      "n_droga": 112
     },
     {
       "droga": "producto cosmético",
@@ -2636,10 +2571,10 @@
       "precio": 4009.52,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $4,009.52 < 25% mediana $17,302.46 (n=75)"
+        "precio $4,009.52 < 25% mediana $17,229.21 (n=76)"
       ],
-      "mediana_droga": 17302.46,
-      "n_droga": 75
+      "mediana_droga": 17229.21,
+      "n_droga": 76
     },
     {
       "droga": "sildenafil",
@@ -2651,8 +2586,8 @@
       "razones": [
         "ppu $126.86 << mediana_grupo $813.55"
       ],
-      "mediana_droga": 17302.46,
-      "n_droga": 75
+      "mediana_droga": 17229.21,
+      "n_droga": 76
     },
     {
       "droga": "sildenafil",
@@ -2664,8 +2599,8 @@
       "razones": [
         "ppu $126.71 << mediana_grupo $813.55"
       ],
-      "mediana_droga": 17302.46,
-      "n_droga": 75
+      "mediana_droga": 17229.21,
+      "n_droga": 76
     },
     {
       "droga": "sildenafil",
@@ -2677,8 +2612,8 @@
       "razones": [
         "ppu $124.00 << mediana_grupo $676.18"
       ],
-      "mediana_droga": 17302.46,
-      "n_droga": 75
+      "mediana_droga": 17229.21,
+      "n_droga": 76
     },
     {
       "droga": "sildenafil",
@@ -2690,8 +2625,8 @@
       "razones": [
         "ppu $346.05 << mediana_grupo $2,053.76"
       ],
-      "mediana_droga": 17302.46,
-      "n_droga": 75
+      "mediana_droga": 17229.21,
+      "n_droga": 76
     },
     {
       "droga": "sirolimus",
@@ -2721,16 +2656,29 @@
     },
     {
       "droga": "soluc.parent/fisiol/glucos/otr",
+      "marca": "CLORURO DE SODIO 0.9% BPA.PLÁST.X 10 ML",
+      "presentacion": "",
+      "laboratorio": "B.Braun",
+      "precio": 3714.2,
+      "precio_outlier_tipo": "bajo_relativo",
+      "razones": [
+        "precio $3,714.20 < 25% mediana $32,320.10 (n=21)"
+      ],
+      "mediana_droga": 32320.1,
+      "n_droga": 21
+    },
+    {
+      "droga": "soluc.parent/fisiol/glucos/otr",
       "marca": "AGUA INYECTABLE BP",
       "presentacion": "a.plást.x 10 ml",
       "laboratorio": "B.Braun",
       "precio": 3714.2,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $3,714.20 < 25% mediana $33,022.49 (n=20)"
+        "precio $3,714.20 < 25% mediana $32,320.10 (n=21)"
       ],
-      "mediana_droga": 33022.49,
-      "n_droga": 20
+      "mediana_droga": 32320.1,
+      "n_droga": 21
     },
     {
       "droga": "-",
@@ -2740,10 +2688,10 @@
       "precio": 2807.3,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $2,807.30 < 25% mediana $25,754.72 (n=427)"
+        "precio $2,807.30 < 25% mediana $24,804.94 (n=441)"
       ],
-      "mediana_droga": 25754.72,
-      "n_droga": 427
+      "mediana_droga": 24804.94,
+      "n_droga": 441
     },
     {
       "droga": "soluc.parent/fisiol/glucos/otr",
@@ -2753,10 +2701,10 @@
       "precio": 2807.3,
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
-        "precio $2,807.30 < 10% mediana $33,022.49"
+        "precio $2,807.30 < 10% mediana $32,320.10"
       ],
-      "mediana_droga": 33022.49,
-      "n_droga": 20
+      "mediana_droga": 32320.1,
+      "n_droga": 21
     },
     {
       "droga": "-",
@@ -2768,8 +2716,8 @@
       "razones": [
         "ppu $207.98 << mediana_grupo $1,454.58"
       ],
-      "mediana_droga": 25754.72,
-      "n_droga": 427
+      "mediana_droga": 24804.94,
+      "n_droga": 441
     },
     {
       "droga": "sulfadiazina de plata, asoc.",
@@ -2779,10 +2727,10 @@
       "precio": 5923.0,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $5,923.00 < 25% mediana $24,934.19 (n=22)"
+        "precio $5,923.00 < 25% mediana $24,934.19 (n=24)"
       ],
       "mediana_droga": 24934.19,
-      "n_droga": 22
+      "n_droga": 24
     },
     {
       "droga": "sulfametoxazol, trimetoprima",
