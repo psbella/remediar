@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-04T19:54:11.780503-03:00",
+  "timestamp": "2026-06-04T20:49:02.084595-03:00",
   "total_registros": 12150,
   "total_outliers": 264,
   "outliers": [
@@ -1004,8 +1004,8 @@
     },
     {
       "droga": "dexametasona, polimix., trimet neolag",
-      "marca": "GTS.OFT.X 5 ML",
-      "presentacion": "",
+      "marca": "GTS.OFT.X",
+      "presentacion": "5 ml",
       "laboratorio": "Lab Internacion",
       "precio": 403.96,
       "precio_outlier_tipo": "bajo_absoluto",
@@ -1017,8 +1017,8 @@
     },
     {
       "droga": "-",
-      "marca": "DEXTROMETORFANO, DIFENHIDRAMIN BISOLVON COMPOSITUM NF SOL.X 120 ML",
-      "presentacion": "",
+      "marca": "DEXTROMETORFANO, DIFENHIDRAMIN BISOLVON COMPOSITUM NF",
+      "presentacion": "sol.x 120 ml",
       "laboratorio": "Opella Healthca",
       "precio": 1768.56,
       "precio_outlier_tipo": "bajo_critico",
@@ -1358,8 +1358,8 @@
     },
     {
       "droga": "fentanilo",
-      "marca": "SUBLIMAZE S/CONSERVADORINY.X 5 X 2 ML",
-      "presentacion": "",
+      "marca": "SUBLIMAZE S/CONSERVADORINY.X 5 X",
+      "presentacion": "2 ml",
       "laboratorio": "Janssen-Cilag",
       "precio": 11286.79,
       "precio_outlier_tipo": "bajo_critico",
@@ -2356,8 +2356,8 @@
     },
     {
       "droga": "-",
-      "marca": "PARACETAMOL, CLORFENIRAMINA, A DECIDEX COMPUESTO GRIP COMP.REC.X 10",
-      "presentacion": "",
+      "marca": "PARACETAMOL, CLORFENIRAMINA, A DECIDEX COMPUESTO GRIP",
+      "presentacion": "comp.rec.x 10",
       "laboratorio": "Roemmers",
       "precio": 5568.0,
       "precio_outlier_tipo": "bajo_relativo",
@@ -2695,8 +2695,8 @@
     },
     {
       "droga": "soluc.parent/fisiol/glucos/otr",
-      "marca": "CLORURO DE SODIO 0.9% BPA.PLÁST.X 10 ML",
-      "presentacion": "",
+      "marca": "CLORURO DE SODIO",
+      "presentacion": "0.9% bpa.plást.x 10 ml",
       "laboratorio": "B.Braun",
       "precio": 3714.2,
       "precio_outlier_tipo": "bajo_relativo",
