@@ -166,6 +166,47 @@ def reparar_denver(medicamentos: list) -> tuple:
 
 
 # ─────────────────────────────────────────────────────────────────────────────
+# REPARACIÓN MARCA DESPLAZADA
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Ocurre cuando el nombre comercial (marca) cayó en el campo droga durante
+# el parsing, y la presentacion quedó en el slot de marca.
+#
+# Criterio de detección (ambas condiciones):
+#   - marca empieza con dígito → es dosis/presentacion, no nombre comercial
+#   - presentacion vacía
+#
+# Corrección:
+#   marca → presentacion
+#   droga → marca (en mayúsculas)
+#   droga queda vacía (el principio activo no está disponible en el PDF para estos casos)
+#
+# Excluye correctamente marcas legítimas que empiezan con dígito
+# como "3 TC", "5-ASA", "4 X 4", "8 HORAS" (tienen presentacion no vacía).
+
+def reparar_marca_desplazada(medicamentos: list) -> tuple:
+    """
+    Corrige registros donde el nombre comercial cayó en el campo droga
+    y la presentacion quedó en el slot de marca.
+
+    Retorna el dataset corregido y la cantidad de registros reparados.
+    """
+    reparados = 0
+    for m in medicamentos:
+        marca        = (m.get("marca")        or "").strip()
+        presentacion = (m.get("presentacion") or "").strip()
+        droga        = (m.get("droga")        or "").strip()
+
+        if marca and marca[0].isdigit() and not presentacion:
+            m["presentacion"] = marca.lower()
+            m["marca"]        = droga.upper()
+            m["droga"]        = ""
+            reparados += 1
+
+    return medicamentos, reparados
+
+
+# ─────────────────────────────────────────────────────────────────────────────
 # RESCATE DE LABORATORIOS DESPLAZADOS
 # ─────────────────────────────────────────────────────────────────────────────
 def rescatar_laboratorios(medicamentos: list) -> tuple:
@@ -490,6 +531,11 @@ def main():
     print("\nReparando registros Denver Farma...")
     medicamentos, n_denver = reparar_denver(medicamentos)
     print(f"   Reparados: {n_denver}")
+
+    # ── CAPA 4: reparación de marca desplazada (nombre comercial en droga) ──
+    print("\nReparando marcas desplazadas...")
+    medicamentos, n_marca = reparar_marca_desplazada(medicamentos)
+    print(f"   Reparados: {n_marca}")
 
     print("\nAplicando lista negra...")
     blacklist            = cargar_blacklist()
