@@ -166,6 +166,47 @@ def reparar_denver(medicamentos: list) -> tuple:
 
 
 # ─────────────────────────────────────────────────────────────────────────────
+# FIXES MANUALES DE DROGA
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Diccionario curado manualmente: marca (upper) → droga (principio activo).
+# Cubre marcas sin nombre genérico en el PDF de SIAFAR que no pueden
+# resolverse automáticamente (nombres comerciales de laboratorios que no
+# imprimen el principio activo en el PDF).
+# Archivo: data/droga_fixes.json
+
+DROGA_FIXES_PATH = BASE / "data" / "droga_fixes.json"
+
+def aplicar_droga_fixes(medicamentos: list) -> tuple:
+    """
+    Aplica correcciones manuales de droga (principio activo) desde
+    data/droga_fixes.json usando la marca como clave.
+
+    Solo actúa cuando el campo droga está vacío.
+    Si el archivo no existe, es un no-op con aviso.
+
+    Retorna el dataset corregido y la cantidad de registros corregidos.
+    """
+    if not DROGA_FIXES_PATH.exists():
+        print("   droga_fixes: archivo no encontrado, se omite")
+        return medicamentos, 0
+
+    with open(DROGA_FIXES_PATH, encoding='utf-8') as f:
+        fixes = json.load(f)
+
+    corregidos = 0
+    for m in medicamentos:
+        if m.get('droga', '').strip():
+            continue
+        marca_upper = (m.get('marca') or '').strip().upper()
+        if marca_upper in fixes:
+            m['droga'] = fixes[marca_upper]
+            corregidos += 1
+
+    return medicamentos, corregidos
+
+
+# ─────────────────────────────────────────────────────────────────────────────
 # CROSSWALK PAMI
 # ─────────────────────────────────────────────────────────────────────────────
 
@@ -701,6 +742,11 @@ def main():
     print(f"   Matches exactos: {stats_pami['match_exacto']} | "
           f"Drogas recuperadas: {stats_pami['droga_recuperada']} | "
           f"Labs corregidos: {stats_pami['lab_corregido']}")
+
+    # ── CAPA 7: fixes manuales de droga ──────────────────────────────────
+    print("\nAplicando fixes manuales de droga...")
+    medicamentos, n_fixes = aplicar_droga_fixes(medicamentos)
+    print(f"   Corregidos: {n_fixes}")
 
     print("\nAplicando lista negra...")
     blacklist            = cargar_blacklist()
