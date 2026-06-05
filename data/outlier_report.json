@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-04T20:49:02.084595-03:00",
+  "timestamp": "2026-06-05T04:53:14.931593-03:00",
   "total_registros": 12150,
   "total_outliers": 264,
   "outliers": [
@@ -212,7 +212,7 @@
       "razones": [
         "ppu $14.60 << mediana_grupo $100.83"
       ],
-      "mediana_droga": 11082.41,
+      "mediana_droga": 11083.15,
       "n_droga": 105
     },
     {
@@ -225,7 +225,7 @@
       "razones": [
         "ppu $12.31 << mediana_grupo $160.00"
       ],
-      "mediana_droga": 11082.41,
+      "mediana_droga": 11083.15,
       "n_droga": 105
     },
     {
@@ -238,7 +238,7 @@
       "razones": [
         "ppu $15.82 << mediana_grupo $120.00"
       ],
-      "mediana_droga": 11082.41,
+      "mediana_droga": 11083.15,
       "n_droga": 105
     },
     {
@@ -1204,10 +1204,10 @@
       "marca": "DIPIRONA KLONAL",
       "presentacion": "jbe.x 100 ml",
       "laboratorio": "Klonal",
-      "precio": 11497.64,
+      "precio": 11842.57,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $114.98 << mediana_grupo $294,930.28"
+        "ppu $118.43 << mediana_grupo $300,829.46"
       ],
       "mediana_droga": 12036.74,
       "n_droga": 20
@@ -1497,7 +1497,7 @@
       "razones": [
         "ppu $112.70 << mediana_grupo $892.73"
       ],
-      "mediana_droga": 16219.13,
+      "mediana_droga": 16289.0,
       "n_droga": 20
     },
     {
@@ -1575,7 +1575,7 @@
       "razones": [
         "ppu $10.11 << mediana_grupo $1,128.80"
       ],
-      "mediana_droga": 7790.26,
+      "mediana_droga": 7820.0,
       "n_droga": 105
     },
     {
@@ -1588,7 +1588,7 @@
       "razones": [
         "ppu $11.90 << mediana_grupo $983.45"
       ],
-      "mediana_droga": 7790.26,
+      "mediana_droga": 7820.0,
       "n_droga": 105
     },
     {
@@ -1625,9 +1625,9 @@
       "precio": 1915.69,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $1,915.69 < 25% mediana $7,790.26 (n=105)"
+        "precio $1,915.69 < 25% mediana $7,820.00 (n=105)"
       ],
-      "mediana_droga": 7790.26,
+      "mediana_droga": 7820.0,
       "n_droga": 105
     },
     {
@@ -1639,9 +1639,9 @@
       "precio_outlier_tipo": "bajo_absoluto",
       "razones": [
         "precio $1,348.73 < minimo $1,800",
-        "precio $1,348.73 < 25% mediana $7,790.26 (n=105)"
+        "precio $1,348.73 < 25% mediana $7,820.00 (n=105)"
       ],
-      "mediana_droga": 7790.26,
+      "mediana_droga": 7820.0,
       "n_droga": 105
     },
     {
@@ -1797,7 +1797,7 @@
       "precio": 23842.04,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $23,842.04 < fence_low $25,504.22"
+        "precio $23,842.04 < fence_low $27,099.32"
       ],
       "mediana_droga": 32533.78,
       "n_droga": 7
@@ -1905,9 +1905,9 @@
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
         "precio $205.00 < minimo $1,800",
-        "precio $205.00 < 10% mediana $9,926.50"
+        "precio $205.00 < 10% mediana $10,224.30"
       ],
-      "mediana_droga": 9926.5,
+      "mediana_droga": 10224.3,
       "n_droga": 5
     },
     {
@@ -1920,7 +1920,7 @@
       "razones": [
         "ppu $124.42 << mediana_grupo $778.40"
       ],
-      "mediana_droga": 7105.8,
+      "mediana_droga": 7415.96,
       "n_droga": 35
     },
     {
@@ -2190,10 +2190,10 @@
       "marca": "KLOMEPRAX",
       "presentacion": "20 mg caps.x 14",
       "laboratorio": "Klonal",
-      "precio": 3640.02,
+      "precio": 3749.22,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $3,640.02 < 25% mediana $16,082.91 (n=71)"
+        "precio $3,749.22 < 25% mediana $16,082.91 (n=71)"
       ],
       "mediana_droga": 16082.91,
       "n_droga": 71
@@ -3102,10 +3102,10 @@
       "marca": "KLONAMICIN",
       "presentacion": "0.3% sol.oft.x 10 ml",
       "laboratorio": "Klonal",
-      "precio": 9544.58,
+      "precio": 9830.92,
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
-        "precio $9,544.58 < 10% mediana $3,485,968.50"
+        "precio $9,830.92 < 10% mediana $3,485,968.50"
       ],
       "mediana_droga": 3485968.5,
       "n_droga": 27
