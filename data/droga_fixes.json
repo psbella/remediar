@@ -79,5 +79,49 @@
   "GAMMAGLOBULINA ANTITETÁN., TOX TETANOGAMMA P": {
     "droga": "gammaglobulina antitetánica",
     "marca": "TETANOGAMMA P"
+  },
+  "ALFA CETOANÁLOGOS DE AMINOÁCIDKETOSTERIL": {
+    "droga": "alfa cetoanálogos de aminoácidos",
+    "marca": "KETOSTERIL"
+  },
+  "CLORFENIRAMINA MALEATO, IBUPRO ASEPTOBRON ANTIGRIPAL FOR": {
+    "droga": "clorfeniramina maleato, ibuprofeno",
+    "marca": "ASEPTOBRON ANTIGRIPAL FORTE"
+  },
+  "DESLORATADINA, PSEUDOEFEDRINA FRENALER D": {
+    "droga": "desloratadina, pseudoefedrina",
+    "marca": "FRENALER D"
+  },
+  "DEXAMETASONA, CLORFENIRAMINA DEXALERGIN": {
+    "droga": "dexametasona, clorfeniramina",
+    "marca": "DEXALERGIN"
+  },
+  "DEXAMETASONA, CLORFENIRAMINA VIXALERG": {
+    "droga": "dexametasona, clorfeniramina",
+    "marca": "VIXALERG"
+  },
+  "DICLOFENAC POTÁSICO, PARACETAM KINALGIN P": {
+    "droga": "diclofenac potásico, paracetamol",
+    "marca": "KINALGIN P"
+  },
+  "METOCLOPRAMIDA, SIMETICONA, ASFARADIL": {
+    "droga": "metoclopramida, simeticona",
+    "marca": "ASFARADIL"
+  },
+  "NOMEGESTROL,ACETATO, ESTRADIOL FEMIDEN": {
+    "droga": "nomegestrol acetato, estradiol",
+    "marca": "FEMIDEN"
+  },
+  "NOMEGESTROL,ACETATO, ESTRADIOL SIGNORINA": {
+    "droga": "nomegestrol acetato, estradiol",
+    "marca": "SIGNORINA"
+  },
+  "PYGEUM AFRICANUM, SERENOA REP.NORMOPROST PLUS": {
+    "droga": "pygeum africanum, serenoa repens",
+    "marca": "NORMOPROST PLUS"
+  },
+  "POLISACÁRIDOS DE S.PNEUMONIAE VAXNEUVANCE": {
+    "droga": "polisacáridos de streptococcus pneumoniae",
+    "marca": "VAXNEUVANCE"
   }
 }
