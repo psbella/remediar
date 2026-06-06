@@ -17,5 +17,67 @@
   "CRAVENORM": "repaglinida",
   "UPTRAVI": "selexipag",
   "GALEXIG": "selexipag",
-  "PULMOXI": "selexipag"
+  "PULMOXI": "selexipag",
+  "ORNATE": "eltrombopag",
+  "PERTROMB": "eltrombopag",
+  "REVOLADE": "eltrombopag",
+  "GESNAT": "eltrombopag",
+  "GLYXAMBI": "empagliflozina, linagliptina",
+  "ACTILYSE": "alteplasa",
+  "LEVODOPA, CARBIDOPA, ENTACAPONSTALEVO 100": {
+    "droga": "levodopa, carbidopa, entacapona",
+    "marca": "STALEVO 100"
+  },
+  "LEVODOPA, CARBIDOPA, ENTACAPONSTALEVO 125": {
+    "droga": "levodopa, carbidopa, entacapona",
+    "marca": "STALEVO 125"
+  },
+  "LEVODOPA, CARBIDOPA, ENTACAPONSTALEVO 150": {
+    "droga": "levodopa, carbidopa, entacapona",
+    "marca": "STALEVO 150"
+  },
+  "LEVODOPA, CARBIDOPA, ENTACAPONSTALEVO 200": {
+    "droga": "levodopa, carbidopa, entacapona",
+    "marca": "STALEVO 200"
+  },
+  "LEVODOPA, CARBIDOPA, ENTACAPONSTALEVO 50": {
+    "droga": "levodopa, carbidopa, entacapona",
+    "marca": "STALEVO 50"
+  },
+  "LEVODOPA, CARBIDOPA, ENTACAPONSTALEVO 75": {
+    "droga": "levodopa, carbidopa, entacapona",
+    "marca": "STALEVO 75"
+  },
+  "MEMANTINE CLORH., DONEPECILO C VALPEX DUO": {
+    "droga": "memantine clorh., donepecilo",
+    "marca": "VALPEX DUO"
+  },
+  "MEMANTINE CLORH., DONEPECILO C CARRIER PLUS": {
+    "droga": "memantine clorh., donepecilo",
+    "marca": "CARRIER PLUS"
+  },
+  "DIOSMINA, HESPERIDINA MICRONIZ TERBENOL DUO 1000": {
+    "droga": "diosmina, hesperidina micronizada",
+    "marca": "TERBENOL DUO 1000"
+  },
+  "DIOSMINA, HESPERIDINA MICRONIZ ALIVIAFLEB": {
+    "droga": "diosmina, hesperidina micronizada",
+    "marca": "ALIVIAFLEB"
+  },
+  "PERINDOPRIL, INDAPAMIDA, AMLOD TRIPLIXAM": {
+    "droga": "perindopril, indapamida, amlodipina",
+    "marca": "TRIPLIXAM"
+  },
+  "METOCLOPRAMIDA, SIMETICONA, ASFARADIL 200": {
+    "droga": "metoclopramida, simeticona",
+    "marca": "ASFARADIL 200"
+  },
+  "ERITROPOYETINA RECOMB.HUMANA HEMASTIM P JP": {
+    "droga": "eritropoyetina recombinante humana",
+    "marca": "HEMASTIM P JP"
+  },
+  "GAMMAGLOBULINA ANTITETÁN., TOX TETANOGAMMA P": {
+    "droga": "gammaglobulina antitetánica",
+    "marca": "TETANOGAMMA P"
+  }
 }
