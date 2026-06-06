@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-06T00:11:50.019466-03:00",
+  "timestamp": "2026-06-06T16:18:19.603235-03:00",
   "total_registros": 12150,
   "total_outliers": 263,
   "outliers": [
@@ -1123,8 +1123,8 @@
     },
     {
       "droga": "-",
-      "marca": "DICLOFENAC SÓDICO, PARACETAMOL TAFIROL PLUS RAPIDA ACCIOCÁPS.BL. X 8",
-      "presentacion": "",
+      "marca": "DICLOFENAC SÓDICO, PARACETAMOL TAFIROL PLUS RAPIDA ACCIO",
+      "presentacion": "cáps.bl. x 8",
       "laboratorio": "Genomma Lab.",
       "precio": 4884.37,
       "precio_outlier_tipo": "bajo_relativo",
@@ -1136,8 +1136,8 @@
     },
     {
       "droga": "-",
-      "marca": "DICLOFENAC SÓDICO, PARACETAMOL ANAFLEX PLUS RAPIDA ACCIOCAPS.BL.X 8",
-      "presentacion": "",
+      "marca": "DICLOFENAC SÓDICO, PARACETAMOL ANAFLEX PLUS RAPIDA ACCIO",
+      "presentacion": "caps.bl.x 8",
       "laboratorio": "Bagó",
       "precio": 4765.24,
       "precio_outlier_tipo": "bajo_relativo",
