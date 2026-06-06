@@ -199,9 +199,16 @@ def aplicar_droga_fixes(medicamentos: list) -> tuple:
         if m.get('droga', '').strip():
             continue
         marca_upper = (m.get('marca') or '').strip().upper()
-        if marca_upper in fixes:
-            m['droga'] = fixes[marca_upper]
-            corregidos += 1
+        if marca_upper not in fixes:
+            continue
+        valor = fixes[marca_upper]
+        if isinstance(valor, str):
+            m['droga'] = valor
+        elif isinstance(valor, dict):
+            m['droga'] = valor.get('droga', '')
+            if valor.get('marca'):
+                m['marca'] = valor['marca']
+        corregidos += 1
 
     return medicamentos, corregidos
 
