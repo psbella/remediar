@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-06-05T19:44:42.264948-03:00",
+  "timestamp": "2026-06-06T00:11:50.019466-03:00",
   "total_registros": 12150,
-  "total_outliers": 264,
+  "total_outliers": 263,
   "outliers": [
     {
       "droga": "acetilcisteína",
@@ -614,10 +614,10 @@
       "marca": "BUPICAINA",
       "presentacion": "0.50% s/cons.f.a.x 20 ml",
       "laboratorio": "Scott-Cassará",
-      "precio": 19240.0,
+      "precio": 19780.0,
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
-        "precio $19,240.00 < 10% mediana $327,248.07"
+        "precio $19,780.00 < 10% mediana $327,248.07"
       ],
       "mediana_droga": 327248.07,
       "n_droga": 4
@@ -791,19 +791,6 @@
       ],
       "mediana_droga": 24500.0,
       "n_droga": 443
-    },
-    {
-      "droga": "cladribina",
-      "marca": "INTOCEL",
-      "presentacion": "iny.a.x 7",
-      "laboratorio": "Sidus",
-      "precio": 5784738.21,
-      "precio_outlier_tipo": "bajo_iqr",
-      "razones": [
-        "precio $5,784,738.21 < fence_low $5,907,748.46"
-      ],
-      "mediana_droga": 6469592.27,
-      "n_droga": 6
     },
     {
       "droga": "claritromicina",
@@ -1196,7 +1183,7 @@
       "razones": [
         "ppu $118.21 << mediana_grupo $959.34"
       ],
-      "mediana_droga": 10483.32,
+      "mediana_droga": 10692.99,
       "n_droga": 15
     },
     {
@@ -1728,12 +1715,12 @@
       "marca": "ISOPROTERENOL",
       "presentacion": "a.x 5 ml",
       "laboratorio": "Scott-Cassará",
-      "precio": 10825.0,
+      "precio": 11095.0,
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
-        "precio $10,825.00 < 10% mediana $148,804.30"
+        "precio $11,095.00 < 10% mediana $148,939.30"
       ],
-      "mediana_droga": 148804.3,
+      "mediana_droga": 148939.3,
       "n_droga": 2
     },
     {
@@ -1846,13 +1833,13 @@
       "marca": "LIDOCAINA",
       "presentacion": "1% s/epi.a.x 5 ml",
       "laboratorio": "Scott-Cassará",
-      "precio": 1645.0,
+      "precio": 1686.4,
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
-        "precio $1,645.00 < minimo $1,800",
-        "precio $1,645.00 < 10% mediana $17,274.76"
+        "precio $1,686.40 < minimo $1,800",
+        "precio $1,686.40 < 10% mediana $17,454.76"
       ],
-      "mediana_droga": 17274.76,
+      "mediana_droga": 17454.76,
       "n_droga": 16
     },
     {
@@ -1865,7 +1852,7 @@
       "razones": [
         "ppu $9,004.76 << mediana_grupo $337,341.60"
       ],
-      "mediana_droga": 17274.76,
+      "mediana_droga": 17454.76,
       "n_droga": 16
     },
     {
@@ -1873,13 +1860,13 @@
       "marca": "LIDOCAINA",
       "presentacion": "2% s/epi.a.x 5 ml",
       "laboratorio": "Scott-Cassará",
-      "precio": 1654.0,
+      "precio": 1695.4,
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
-        "precio $1,654.00 < minimo $1,800",
-        "precio $1,654.00 < 10% mediana $17,274.76"
+        "precio $1,695.40 < minimo $1,800",
+        "precio $1,695.40 < 10% mediana $17,454.76"
       ],
-      "mediana_droga": 17274.76,
+      "mediana_droga": 17454.76,
       "n_droga": 16
     },
     {
@@ -2245,9 +2232,9 @@
       "precio": 14849.48,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $14,849.48 < 25% mediana $74,199.58 (n=13)"
+        "precio $14,849.48 < 25% mediana $75,542.97 (n=13)"
       ],
-      "mediana_droga": 74199.58,
+      "mediana_droga": 75542.97,
       "n_droga": 13
     },
     {
@@ -2258,9 +2245,9 @@
       "precio": 10776.0,
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
-        "precio $10,776.00 < 10% mediana $201,538.36"
+        "precio $10,776.00 < 10% mediana $221,692.20"
       ],
-      "mediana_droga": 201538.36,
+      "mediana_droga": 221692.2,
       "n_droga": 3
     },
     {
@@ -2307,12 +2294,12 @@
       "marca": "PANCURON",
       "presentacion": "4 mg a.x 1 x 2 ml",
       "laboratorio": "Scott-Cassará",
-      "precio": 6181.0,
+      "precio": 6325.0,
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
-        "precio $6,181.00 < 10% mediana $144,512.56"
+        "precio $6,325.00 < 10% mediana $144,584.56"
       ],
-      "mediana_droga": 144512.56,
+      "mediana_droga": 144584.56,
       "n_droga": 2
     },
     {
@@ -2506,7 +2493,7 @@
       "precio": 53376.08,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $53,376.08 < fence_low $76,751.49"
+        "precio $53,376.08 < fence_low $76,380.37"
       ],
       "mediana_droga": 111859.6,
       "n_droga": 49
@@ -2519,7 +2506,7 @@
       "precio": 53359.0,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $53,359.00 < fence_low $76,751.49"
+        "precio $53,359.00 < fence_low $76,380.37"
       ],
       "mediana_droga": 111859.6,
       "n_droga": 49
@@ -2532,7 +2519,7 @@
       "precio": 54187.98,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $54,187.98 < fence_low $76,751.49"
+        "precio $54,187.98 < fence_low $76,380.37"
       ],
       "mediana_droga": 111859.6,
       "n_droga": 49
@@ -2545,7 +2532,7 @@
       "precio": 58547.44,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $58,547.44 < fence_low $76,751.49"
+        "precio $58,547.44 < fence_low $76,380.37"
       ],
       "mediana_droga": 111859.6,
       "n_droga": 49
@@ -2558,7 +2545,7 @@
       "precio": 63643.5,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $63,643.50 < fence_low $76,751.49"
+        "precio $63,643.50 < fence_low $76,380.37"
       ],
       "mediana_droga": 111859.6,
       "n_droga": 49
@@ -2571,7 +2558,7 @@
       "precio": 69014.0,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $69,014.00 < fence_low $76,751.49"
+        "precio $69,014.00 < fence_low $76,380.37"
       ],
       "mediana_droga": 111859.6,
       "n_droga": 49
@@ -2584,7 +2571,7 @@
       "precio": 58943.18,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $58,943.18 < fence_low $76,751.49"
+        "precio $58,943.18 < fence_low $76,380.37"
       ],
       "mediana_droga": 111859.6,
       "n_droga": 49
@@ -2815,12 +2802,12 @@
       "marca": "NETOCUR BALSAMICO",
       "presentacion": "jbe.x 100 ml",
       "laboratorio": "Duncan",
-      "precio": 14186.8,
+      "precio": 14470.54,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $141.87 << mediana_grupo $857.00"
+        "ppu $144.71 << mediana_grupo $874.14"
       ],
-      "mediana_droga": 15721.32,
+      "mediana_droga": 16035.75,
       "n_droga": 5
     },
     {
@@ -2833,7 +2820,7 @@
       "razones": [
         "ppu $109.34 << mediana_grupo $764.43"
       ],
-      "mediana_droga": 15721.32,
+      "mediana_droga": 16035.75,
       "n_droga": 5
     },
     {
@@ -3405,9 +3392,9 @@
       "precio": 20835.93,
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
-        "precio $20,835.93 < 10% mediana $397,630.02"
+        "precio $20,835.93 < 10% mediana $402,595.60"
       ],
-      "mediana_droga": 397630.02,
+      "mediana_droga": 402595.6,
       "n_droga": 9
     },
     {
