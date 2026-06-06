@@ -196,18 +196,29 @@ def aplicar_droga_fixes(medicamentos: list) -> tuple:
 
     corregidos = 0
     for m in medicamentos:
-        if m.get('droga', '').strip():
-            continue
         marca_upper = (m.get('marca') or '').strip().upper()
-        if marca_upper not in fixes:
+        droga_upper = (m.get('droga') or '').strip().upper()
+
+        # Buscar fix por marca (cuando droga está vacía)
+        clave = None
+        if not m.get('droga', '').strip() and marca_upper in fixes:
+            clave = marca_upper
+        # Buscar fix por droga (cuando droga+marca están fusionadas en campo droga)
+        elif droga_upper in fixes and isinstance(fixes[droga_upper], dict):
+            clave = droga_upper
+
+        if clave is None:
             continue
-        valor = fixes[marca_upper]
+
+        valor = fixes[clave]
         if isinstance(valor, str):
             m['droga'] = valor
         elif isinstance(valor, dict):
             m['droga'] = valor.get('droga', '')
             if valor.get('marca'):
                 m['marca'] = valor['marca']
+            if valor.get('presentacion'):
+                m['presentacion'] = valor['presentacion']
         corregidos += 1
 
     return medicamentos, corregidos
@@ -403,6 +414,103 @@ def extraer_presentacion_de_marca(medicamentos: list) -> tuple:
                 m["marca"]        = nombre
                 m["presentacion"] = pres
                 reparados += 1
+
+    return medicamentos, reparados
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# REPARACIÓN DE PRESENTACIÓN DESPLAZADA AL CAMPO LABORATORIO
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Cuando el parser consume una línea extra, la presentacion cae en el slot
+# del laboratorio. Tres variantes:
+#
+#   2A — lab tiene "presentacion + lab" fusionados:
+#     lab: "10/134mg compx30+capsx30Teva argentina"
+#     → presentacion: "10/134mg compx30+capsx30"  lab: "Teva argentina"
+#
+#   2B — marca+presentacion fusionadas sin espacio:
+#     marca: "BAGOHEPAT RAPIDA ACCIONCÁPS.BL.X 20"
+#     → marca: "BAGOHEPAT RAPIDA ACCION"  presentacion: "cáps.bl.x 20"
+#
+#   2C — marca real está al final del campo droga, marca actual es la presentacion:
+#     droga: "alprazolam, domperidona, asoc.sidomal"  marca: "COMP.X 30"
+#     → droga: "alprazolam, domperidona"  marca: "SIDOMAL"  presentacion: "comp.x 30"
+
+_FORMAS_PAT2 = r'(?:COMP|CAPS|CÁPS|GRAG|SOL|OV|INY|LIOF|SOB|JGA|LAP|AERO|F\.A|INHAL)'
+
+_RE_SOLO_FORMA2 = re.compile(
+    r'^(?:COMP|CAPS|CÁPS|GRAG|SOL|OV|INY|LIOF|SOB|JGA|LAP|A\.X|F\.A|AEROSOL|INY\.)',
+    re.IGNORECASE
+)
+
+# 2A: lab empieza con dígito o minúscula → tiene presentacion+lab
+_RE_PRES_EN_LAB = re.compile(
+    r'^([\d\w\s\.,/%x\+\(\)/]+?)\s+([A-ZÁÉÍÓÚÜÑ][a-záéíóúüñ][a-zA-ZÁÉÍÓÚÜÑáéíóúüñ\s\.\-]+)$'
+)
+
+# 2B: marca+pres fusionadas (forma farmacéutica o número pegado)
+_RE_MARCA_FORMA2 = re.compile(r'^(.+?)(' + _FORMAS_PAT2 + r'[\.\s\-].+)$', re.IGNORECASE)
+_RE_MARCA_NUM2   = re.compile(r'^(.+?[A-ZÁÉÍÓÚÜÑ])(\d[\d\.,/\s\w\+\(\)]+)$', re.IGNORECASE)
+
+# 2C: marca al final del campo droga
+_RE_DROGA_MARCA2 = re.compile(
+    r'^(.*?(?:,\s*asoc\.|,\s*ác\.|fosf\.diso|peróxid|sulf\.|microniz|clorh\.|'
+    r'rep\.|maleato|acetato|,\s*[a-záéíóúüñ]{1,6}\b))\s*'
+    r'([a-záéíóúüñA-ZÁÉÍÓÚÜÑ][a-záéíóúüñA-ZÁÉÍÓÚÜÑ\s\d]+)$',
+    re.IGNORECASE
+)
+
+def reparar_presentacion_desplazada(medicamentos: list) -> tuple:
+    """
+    Corrige registros donde la presentacion quedó desplazada al campo
+    laboratorio (o a la marca), separando correctamente los campos.
+
+    Retorna el dataset corregido y la cantidad de registros reparados.
+    """
+    reparados = 0
+
+    for m in medicamentos:
+        if (m.get('presentacion') or '').strip():
+            continue
+
+        marca = (m.get('marca') or '').strip()
+        lab   = (m.get('laboratorio') or '').strip()
+        droga = (m.get('droga') or '').strip()
+
+        # ── 2A: presentacion+lab en campo lab ────────────────────────────
+        if lab and (lab[0].isdigit() or lab[0].islower() or
+                    re.match(r'^[A-ZÁÉÍÓÚÜÑ][a-záéíóúüñ]+\s+\d', lab)):
+            match = _RE_PRES_EN_LAB.match(lab)
+            if match:
+                m['presentacion'] = match.group(1).strip().lower()
+                m['laboratorio']  = match.group(2).strip()
+                reparados += 1
+                continue
+
+        # ── 2B: marca+pres fusionadas ─────────────────────────────────────
+        if marca and not _RE_SOLO_FORMA2.match(marca):
+            match = _RE_MARCA_FORMA2.search(marca) or _RE_MARCA_NUM2.search(marca)
+            if match:
+                nueva_marca = match.group(1).strip()
+                pres        = match.group(2).strip().lower()
+                if len(nueva_marca) >= 3 and not nueva_marca[-1].isdigit():
+                    m['marca']        = nueva_marca
+                    m['presentacion'] = pres
+                    reparados += 1
+                    continue
+
+        # ── 2C: marca real al final del campo droga ───────────────────────
+        if droga and droga != '-' and _RE_SOLO_FORMA2.match(marca):
+            match = _RE_DROGA_MARCA2.match(droga)
+            if match:
+                droga_limpia = match.group(1).strip().rstrip(',').strip()
+                nombre_marca = match.group(2).strip()
+                if len(nombre_marca) >= 3 and len(droga_limpia) >= 3:
+                    m['droga']        = droga_limpia.lower()
+                    m['marca']        = nombre_marca.upper()
+                    m['presentacion'] = marca.lower()
+                    reparados += 1
 
     return medicamentos, reparados
 
@@ -742,6 +850,11 @@ def main():
     print("\nExtrayendo presentacion de marca fusionada...")
     medicamentos, n_extrac = extraer_presentacion_de_marca(medicamentos)
     print(f"   Reparados: {n_extrac}")
+
+    # ── CAPA 5b: reparar presentacion desplazada al campo lab ────────────
+    print("\nReparando presentacion desplazada...")
+    medicamentos, n_pres = reparar_presentacion_desplazada(medicamentos)
+    print(f"   Reparados: {n_pres}")
 
     # ── CAPA 6: crosswalk PAMI → recuperar droga y corregir laboratorio ───
     print("\nCrosswalk PAMI...")
