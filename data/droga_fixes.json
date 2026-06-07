@@ -123,5 +123,30 @@
   "POLISACÁRIDOS DE S.PNEUMONIAE VAXNEUVANCE": {
     "droga": "polisacáridos de streptococcus pneumoniae",
     "marca": "VAXNEUVANCE"
+  },
+  "HIPOSTEROL": {
+    "droga": "atorvastatín, fenofibrato",
+    "marca": "HIPOSTEROL",
+    "laboratorio_pres": true
+  },
+  "ALUNBRIG TRAT.INICIAL": {
+    "droga": "brigatinib",
+    "marca": "ALUNBRIG TRAT.INICIAL",
+    "laboratorio_pres": true
+  },
+  "CRAVERIL DUO": {
+    "droga": "ezetimibe, fenofibrato",
+    "marca": "CRAVERIL DUO",
+    "laboratorio_pres": true
+  },
+  "RIBASTAMIN 150 DUO": {
+    "droga": "risedronato, calcio carbonato, vitamina d",
+    "marca": "RIBASTAMIN 150 DUO",
+    "laboratorio_pres": true
+  },
+  "SOLUC.PARENT.PARENTGLASS": {
+    "droga": "solución parenteral fisiol/glucos",
+    "marca": "SOLUC.PARENT.PARENTGLASS",
+    "laboratorio_pres": true
   }
 }
