@@ -810,7 +810,7 @@ _PREFIJOS_DROGA = {
     'betametasona (acet.y fosf.diso':           'betametasona (acet. y fosf. disódico)',
     'betametasona (diprop.y f.disod':           'betametasona (diprop. y fosf. disódico)',
     'betametasona, gentamic., micon':           'betametasona, gentamicina, miconazol',
-    'activador tisular plasminógeno':           'alteplasa (activador tisular del plasminógeno)',
+    'activador tisular plasminógeno':           'alteplasa',
     'betametasona, gentamic.':                  'betametasona, gentamicina',
     'betametasona, gentamicina, aso':           'betametasona, gentamicina, asoc.',
     'calamina, difenhidramina, asoc':           'calamina, difenhidramina, asoc.',
@@ -975,6 +975,33 @@ def reparar_droga_faltante(medicamentos: list, fixes: dict) -> tuple:
         # Sin resolver: mover igual la droga, dejar presentacion como está
         m['marca'] = pres
         reparados += 1
+
+    # ── Fixes puntuales post-loop ─────────────────────────────────────────
+    # Casos que el diccionario de prefijos no cubre por su estructura especial
+
+    for m in medicamentos:
+        droga = (m.get('droga') or '').strip()
+        marca = (m.get('marca') or '').strip()
+
+        # HISTAGLOBIN: marca contiene la presentacion (kit complejo)
+        if 'histamihistaglobin' in droga and marca == 'LIOF.F.A.+A.DIL.+JER.+AG':
+            m['presentacion'] = marca.lower()
+            m['marca']        = 'HISTAGLOBIN TRIPLEX' if 'triplex' in droga else 'HISTAGLOBIN'
+            m['droga']        = 'gammaglobulina humana, histamina'
+            reparados += 1
+
+        # DIABESIL AP 1000: lab tiene pres+lab fusionados
+        elif marca == 'DIABESIL AP 1000' and not (m.get('presentacion') or '').strip():
+            lab = (m.get('laboratorio') or '').strip()
+            match = re.match(r'^(.+?)\s+(Gador.*)$', lab)
+            if match:
+                m['presentacion'] = match.group(1).strip().lower()
+                m['laboratorio']  = match.group(2).strip()
+                reparados += 1
+
+        # VAXNEUVANCE: lab truncado
+        elif marca == 'VAXNEUVANCE':
+            m['laboratorio'] = 'MSD Argentina S.A.'
 
     return medicamentos, reparados
 
