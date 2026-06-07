@@ -445,9 +445,10 @@ _RE_SOLO_FORMA2 = re.compile(
 )
 
 # 2A: lab empieza con dígito o minúscula → tiene presentacion+lab
-_RE_PRES_EN_LAB = re.compile(
-    r'^([\d\w\s\.,/%x\+\(\)/]+?)\s+([A-ZÁÉÍÓÚÜÑ][a-záéíóúüñ][a-zA-ZÁÉÍÓÚÜÑáéíóúüñ\s\.\-]+)$'
-)
+# No usamos regex para el corte porque el lab puede estar pegado sin espacio
+# (ej: "10/134mg compx30+capsx30Teva argentina"). En su lugar cruzamos
+# contra el set de laboratorios conocidos del propio dataset.
+_RE_PRES_EN_LAB = None  # señal para usar el método por labs conocidos
 
 # 2B: marca+pres fusionadas (forma farmacéutica o número pegado)
 _RE_MARCA_FORMA2 = re.compile(r'^(.+?)(' + _FORMAS_PAT2 + r'[\.\s\-].+)$', re.IGNORECASE)
@@ -479,13 +480,28 @@ def reparar_presentacion_desplazada(medicamentos: list) -> tuple:
         droga = (m.get('droga') or '').strip()
 
         # ── 2A: presentacion+lab en campo lab ────────────────────────────
+        # El lab puede estar pegado sin espacio al final de la presentacion,
+        # por lo que no usamos regex de separación. En su lugar construimos
+        # el set de labs conocidos y buscamos sufijo.
         if lab and (lab[0].isdigit() or lab[0].islower() or
                     re.match(r'^[A-ZÁÉÍÓÚÜÑ][a-záéíóúüñ]+\s+\d', lab)):
-            match = _RE_PRES_EN_LAB.match(lab)
-            if match:
-                m['presentacion'] = match.group(1).strip().lower()
-                m['laboratorio']  = match.group(2).strip()
-                reparados += 1
+            labs_conocidos = {
+                (m2.get('laboratorio') or '').strip().lower(): (m2.get('laboratorio') or '').strip()
+                for m2 in medicamentos
+                if m2.get('laboratorio') and m2['laboratorio'] != 'Desconocido'
+            }
+            lab_lower = lab.lower()
+            encontrado = False
+            for ll, lo in labs_conocidos.items():
+                if len(ll) >= 4 and lab_lower.endswith(ll):
+                    pres = lab[:len(lab) - len(ll)].strip()
+                    if pres:
+                        m['presentacion'] = pres.lower()
+                        m['laboratorio']  = lo
+                        reparados += 1
+                        encontrado = True
+                        break
+            if encontrado:
                 continue
 
         # ── 2B: marca+pres fusionadas ─────────────────────────────────────
@@ -744,6 +760,126 @@ def calcular_vigencia(medicamentos):
 
 
 # ─────────────────────────────────────────────────────────────────────────────
+# REPARACIÓN DE REGISTROS CON DROGA FALTANTE (CAPA 0)
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Cuando el PDF de SIAFAR omite la línea del principio activo, el parser
+# produce registros donde:
+#   droga       = '-'  (vacío / guión)
+#   marca       = principio activo real  ← desplazado
+#   presentacion= marca + presentacion fusionadas
+#   laboratorio = correcto
+#
+# Esta función invierte el desplazamiento:
+#   1. Mueve marca → droga
+#   2. Separa presentacion en marca_real + presentacion_real usando:
+#      A) Dosis numérica como punto de corte
+#      B) Forma farmacéutica con espacio previo
+#      C) Forma farmacéutica pegada sin espacio (minúscula abrupta)
+#      D) Solo presentacion (empieza con minúscula/dígito) → marca queda vacía
+#      E) droga_fixes.json para casos especiales
+#   3. Para los 5 casos con pres+lab fusionados en lab, extrae pres del lab
+#      usando el set de labs conocidos.
+
+_RE_DROGA_SPLIT_DOSIS = re.compile(
+    r'^(.+?)\s+(\d[\d,\.]*\s*(?:MG|MCG|G\b|ML|UI|%|U\b).+)$',
+    re.IGNORECASE
+)
+_RE_DROGA_SPLIT_FORMA = re.compile(
+    r'^(.+?)\s+((?:comp|caps|cáps|cr\b|gts|jbe|sol\b|susp|ung|gel\b|aer|iny|liof|pomo|'
+    r'sob\b|ov\b|grag|env|colirio|emuls|aerosol|pvo|caram|gran|tab\b|film|amp|vial|'
+    r'bolsa|sobre|spray|parche|inhal|polvo|sach|fco|frasco|kit|lap\b|sup\b|pouch|'
+    r'sachet|perlas|elixir|soluc|a\.x|f\.a|pda\b|liq\b|rollo|cr\.x)[\.\s\-x].+)$',
+    re.IGNORECASE
+)
+_RE_DROGA_SPLIT_PEGADO = re.compile(
+    r'^(.+[A-ZÁÉÍÓÚÜÑ\d])([a-záéíóúüñ]{2,}[\.\s].+)$'
+)
+
+def reparar_droga_faltante(medicamentos: list, fixes: dict) -> tuple:
+    """
+    Capa 0: corrige registros donde la droga (principio activo) falta en el
+    PDF y todos los campos se desplazaron un slot hacia arriba.
+
+    Retorna el dataset corregido y la cantidad de registros reparados.
+    """
+    # Set de labs conocidos para separar pres+lab fusionados en campo lab
+    labs_conocidos = {
+        (m.get('laboratorio') or '').strip().lower(): (m.get('laboratorio') or '').strip()
+        for m in medicamentos
+        if m.get('laboratorio') and m['laboratorio'] != 'Desconocido'
+    }
+
+    reparados = 0
+
+    for m in medicamentos:
+        droga = (m.get('droga') or '').strip()
+        if droga and droga != '-':
+            continue  # ya tiene droga
+
+        marca = (m.get('marca') or '').strip()
+        pres  = (m.get('presentacion') or '').strip()
+        lab   = (m.get('laboratorio') or '').strip()
+
+        # ── Verificar si hay fix especial para este caso ──────────────────
+        fix = fixes.get(pres.upper()) or fixes.get(marca.upper())
+        if fix and isinstance(fix, dict) and fix.get('laboratorio_pres'):
+            # pres+lab fusionados en lab → extraer pres del lab
+            m['droga'] = fix['droga']
+            m['marca'] = fix['marca']
+            lab_lower  = lab.lower()
+            for ll, lo in labs_conocidos.items():
+                if len(ll) >= 4 and lab_lower.endswith(ll):
+                    m['presentacion'] = lab[:len(lab) - len(ll)].strip().lower()
+                    m['laboratorio']  = lo
+                    break
+            reparados += 1
+            continue
+
+        # ── La droga real está en marca, moverla ─────────────────────────
+        m['droga'] = marca.lower()
+
+        # ── Separar presentacion en marca_real + presentacion_real ───────
+
+        # Caso D: ya es solo presentacion (empieza con minúscula o dígito)
+        if pres and (pres[0].islower() or pres[0].isdigit()):
+            m['marca']        = ''
+            m['presentacion'] = pres.lower()
+            reparados += 1
+            continue
+
+        # Caso A: dosis como punto de corte
+        match = _RE_DROGA_SPLIT_DOSIS.match(pres)
+        if match:
+            m['marca']        = match.group(1).strip()
+            m['presentacion'] = match.group(2).strip().lower()
+            reparados += 1
+            continue
+
+        # Caso B: forma farmacéutica con espacio
+        match = _RE_DROGA_SPLIT_FORMA.match(pres)
+        if match:
+            m['marca']        = match.group(1).strip()
+            m['presentacion'] = match.group(2).strip().lower()
+            reparados += 1
+            continue
+
+        # Caso C: forma farmacéutica pegada sin espacio (minúscula abrupta)
+        match = _RE_DROGA_SPLIT_PEGADO.match(pres)
+        if match:
+            m['marca']        = match.group(1).strip()
+            m['presentacion'] = match.group(2).strip().lower()
+            reparados += 1
+            continue
+
+        # Sin resolver: mover igual la droga, dejar presentacion como está
+        m['marca'] = pres
+        reparados += 1
+
+    return medicamentos, reparados
+
+
+# ─────────────────────────────────────────────────────────────────────────────
 # MAIN
 # ─────────────────────────────────────────────────────────────────────────────
 def main():
@@ -829,6 +965,15 @@ def main():
     if not medicamentos:
         print("No se extrajo ningun medicamento")
         sys.exit(1)
+
+    # ── CAPA 0: cargar fixes y reparar registros con droga faltante ───────
+    fixes_droga = {}
+    if DROGA_FIXES_PATH.exists():
+        with open(DROGA_FIXES_PATH, encoding='utf-8') as f:
+            fixes_droga = json.load(f)
+    print("\nReparando registros con droga faltante (capa 0)...")
+    medicamentos, n_capa0 = reparar_droga_faltante(medicamentos, fixes_droga)
+    print(f"   Reparados: {n_capa0}")
 
     # ── CAPA 2: rescate post-parse con laboratorios conocidos ──────────────
     print("\nRescatando laboratorios desplazados...")
