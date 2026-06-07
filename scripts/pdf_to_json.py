@@ -1032,7 +1032,7 @@ def main():
             if es_precio(linea):
                 i += 1; continue
 
-            # ── CAPA 1: detección de desplazamiento en tiempo de parse ──
+            # ── CAPA 1: detección de desplazamiento en tiempo de parse 
             #
             # Estructura normal (5 campos):
             #   i+0  droga
