@@ -796,6 +796,78 @@ _RE_DROGA_SPLIT_PEGADO = re.compile(
     r'^(.+[A-ZÁÉÍÓÚÜÑ\d])([a-záéíóúüñ]{2,}[\.\s].+)$'
 )
 
+# Prefijos de droga truncada por el PDF → droga completa correcta.
+# Cuando el PDF omite la droga, el campo droga del parser queda con
+# principio_activo_truncado + nombre_comercial (en minúsculas) concatenados.
+# Este diccionario identifica el prefijo truncado y devuelve la droga completa,
+# permitiendo separar correctamente el nombre comercial.
+_PREFIJOS_DROGA = {
+    'ácido omega 3-ésteres etílicos':          'ácido omega 3-ésteres etílicos',
+    'albutrepenonacog alfa - factor':           'albutrepenonacog alfa',
+    'albutrepenonacog alfa':                    'albutrepenonacog alfa',
+    'bacilo calmette-guerin (bcg)':             'bacilo calmette-guerin',
+    'benzocaína, permetrina, bencil':           'benzocaína, permetrina, bencilbenzoato',
+    'betametasona (acet.y fosf.diso':           'betametasona (acet. y fosf. disódico)',
+    'betametasona (diprop.y f.disod':           'betametasona (diprop. y fosf. disódico)',
+    'betametasona, gentamic., micon':           'betametasona, gentamicina, miconazol',
+    'activador tisular plasminógeno':           'alteplasa (activador tisular del plasminógeno)',
+    'betametasona, gentamic.':                  'betametasona, gentamicina',
+    'betametasona, gentamicina, aso':           'betametasona, gentamicina, asoc.',
+    'calamina, difenhidramina, asoc':           'calamina, difenhidramina, asoc.',
+    'carbocisteína, dextrometorfano':           'carbocisteína, dextrometorfano',
+    'clindamicina, benzoílo,peróxid':           'clindamicina, benzoílo, peróxido',
+    'clorfeniramina, dextrometorfan':           'clorfeniramina, dextrometorfano',
+    'colagenasa, cloranfenicol, aso':           'colagenasa, cloranfenicol, asoc.',
+    'decametrina, piperonilbutóxido':           'decametrina, piperonilbutóxido',
+    'desloratadina, pseudoefedrina':            'desloratadina, pseudoefedrina',
+    'dexametasona, clorfeniramina':             'dexametasona, clorfeniramina',
+    'dexametasona, neomicina, asoc.':           'dexametasona, neomicina, asoc.',
+    'dextrometorfano, difenhidramin':           'dextrometorfano, difenhidramina',
+    'diclofenac potásico, betametas':           'diclofenac potásico, betametasona',
+    'diclofenac potásico, paracetam':           'diclofenac potásico, paracetamol',
+    'diclofenac sódico, paracetamol':           'diclofenac sódico, paracetamol',
+    'diclofenac sódico, tobramicina':           'diclofenac sódico, tobramicina',
+    'diosmina, hesperidina microniz':           'diosmina, hesperidina micronizada',
+    'empagliflozina, metformina clo':           'empagliflozina, metformina clorhidrato',
+    'eritropoyetina recomb.humana':             'eritropoyetina recombinante humana',
+    'ext.seco de ruscus, hesperidin':           'ext. seco de ruscus, hesperidina',
+    'factor viii coagulación recomb':           'factor viii de coagulación recombinante',
+    'gammaglobulina antitetán., tox':           'gammaglobulina antitetánica',
+    'gentamicina, benzocaína, asoc.':           'gentamicina, benzocaína, asoc.',
+    'haemophilus influenz.b, dpt, a':           'haemophilus influenzae b, dpt, antipolio',
+    'ibuprofeno, ergotamina, cafeín':           'ibuprofeno, ergotamina, cafeína',
+    'lamivudina, zidovudina, nevira':           'lamivudina, zidovudina, nevirapina',
+    'miconazol, metronidazol, asoc.':           'miconazol, metronidazol, asoc.',
+    'nomegestrol,acetato, estradiol':           'nomegestrol acetato, estradiol',
+    'nonacog beta pegol - factor ix':           'nonacog beta pegol (factor ix)',
+    'oximetazolina, hialuronato sód':           'oximetazolina, hialuronato sódico',
+    'paracetamol, clorfeniramina, a':           'paracetamol, clorfeniramina, asoc.',
+    'paracetamol, difenhidramina, a':           'paracetamol, difenhidramina, asoc.',
+    'paracetamol, pseudoefedrina, a':           'paracetamol, pseudoefedrina, asoc.',
+    'plántago ovata, cassia angusti':           'plántago ovata, cassia angustifolia',
+    'polisac.meningocóc.a-c-y-w135':           'polisacáridos meningocócicos a-c-y-w135',
+    'polisacáridos de s.pneumoniae':            'polisacáridos de streptococcus pneumoniae',
+    'ruscogenina, hesperidina, asoc':           'ruscogenina, hesperidina, asoc.',
+    'sodio,acexamato, cetrimonio,br':           'sodio acexamato, cetrimonio bromuro',
+    'sodio,acexamato, gentamicina':             'sodio acexamato, gentamicina',
+    'takadiastasa, pancreatina, pep':           'takadiastasa, pancreatina, pepsina',
+    'vacuna dpt, antipoliomielítica':           'vacuna dpt, antipoliomielítica',
+}
+
+def _separar_droga_marca(droga_raw: str) -> tuple:
+    """
+    Dado el campo droga fusionado (principio_activo_truncado + nombre_comercial),
+    retorna (droga_completa, nombre_comercial) usando el diccionario de prefijos.
+    Si no hay match, retorna (None, None).
+    """
+    droga_lower = droga_raw.lower()
+    # Ordenar de mayor a menor longitud para matchear el prefijo más específico
+    for prefijo, droga_completa in sorted(_PREFIJOS_DROGA.items(), key=lambda x: -len(x[0])):
+        if droga_lower.startswith(prefijo.lower()):
+            resto = droga_raw[len(prefijo):].strip()
+            return droga_completa, resto
+    return None, None
+
 def reparar_droga_faltante(medicamentos: list, fixes: dict) -> tuple:
     """
     Capa 0: corrige registros donde la droga (principio activo) falta en el
@@ -814,10 +886,17 @@ def reparar_droga_faltante(medicamentos: list, fixes: dict) -> tuple:
 
     for m in medicamentos:
         droga = (m.get('droga') or '').strip()
-        if droga and droga != '-':
-            continue  # ya tiene droga
-
         marca = (m.get('marca') or '').strip()
+
+        # Procesar cuando:
+        # a) droga está vacía o es '-' (campo desplazado)
+        # b) marca está vacía y droga tiene droga+marca fusionadas (246 casos)
+        tiene_droga_vacia  = not droga or droga == '-'
+        tiene_marca_vacia  = not marca and droga  # droga tiene contenido fusionado
+
+        if not tiene_droga_vacia and not tiene_marca_vacia:
+            continue
+
         pres  = (m.get('presentacion') or '').strip()
         lab   = (m.get('laboratorio') or '').strip()
 
@@ -834,6 +913,27 @@ def reparar_droga_faltante(medicamentos: list, fixes: dict) -> tuple:
                     m['laboratorio']  = lo
                     break
             reparados += 1
+            continue
+
+        # ── Caso especial: marca vacía → droga tiene droga+marca fusionadas ──
+        # El campo droga contiene principio_activo_truncado + nombre_comercial.
+        # Usamos el diccionario de prefijos para separar correctamente.
+        if not marca:
+            droga_completa, nombre_comercial = _separar_droga_marca(droga)
+            if droga_completa and nombre_comercial:
+                m['droga'] = droga_completa
+
+                # nombre_comercial puede tener marca+pres pegadas — separar
+                match_pres = re.search(
+                    r'^(.+?)\s*([a-záéíóúüñ]{2,}[\.\s].+|\d.+)$',
+                    nombre_comercial, re.IGNORECASE
+                )
+                if match_pres and not pres:
+                    m['marca']        = match_pres.group(1).strip().upper()
+                    m['presentacion'] = match_pres.group(2).strip().lower()
+                else:
+                    m['marca'] = nombre_comercial.strip().upper()
+                reparados += 1
             continue
 
         # ── La droga real está en marca, moverla ─────────────────────────
