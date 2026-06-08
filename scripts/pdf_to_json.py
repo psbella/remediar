@@ -286,7 +286,7 @@ def crosswalk_pami(medicamentos: list) -> tuple:
     def _norm(s):
         return _re.sub(r'\s+', ' ', str(s or '').strip().upper())
 
-    stats = {'match_exacto': 0, 'droga_recuperada': 0, 'lab_corregido': 0}
+    stats = {'match_exacto': 0, 'droga_recuperada': 0, 'lab_corregido': 0, 'pami_cobertura': 0}
 
     by_marca_pres, by_marca = _build_pami_index()
     if by_marca_pres is None:
@@ -309,6 +309,15 @@ def crosswalk_pami(medicamentos: list) -> tuple:
             if m.get('laboratorio') == 'Desconocido' and str(row.get('LABORATORIO', '')).strip():
                 m['laboratorio'] = str(row['LABORATORIO']).strip()
                 stats['lab_corregido'] += 1
+
+            # Guardar cobertura PAMI como entero (ej: "55%" → 55)
+            cobertura_raw = str(row.get('COBERTURA', '') or '')
+            if cobertura_raw.strip().endswith('%'):
+                try:
+                    m['pami_cobertura'] = int(cobertura_raw.strip().rstrip('%'))
+                    stats['pami_cobertura'] += 1
+                except ValueError:
+                    pass
 
         # Estrategia 2: solo marca (presentacion vacía, droga vacía)
         elif not pres and not m.get('droga', '').strip() and mk in by_marca:
