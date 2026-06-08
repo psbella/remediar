@@ -892,7 +892,11 @@ def reparar_droga_faltante(medicamentos: list, fixes: dict) -> tuple:
         # a) droga está vacía o es '-' (campo desplazado)
         # b) marca está vacía y droga tiene droga+marca fusionadas (246 casos)
         tiene_droga_vacia  = not droga or droga == '-'
-        tiene_marca_vacia  = not marca and droga  # droga tiene contenido fusionado
+        # Caso: droga vacía y marca tiene principio_activo+nombre_comercial fusionados
+        # El parser asigna marca=DROGA.upper() cuando el PDF omite el campo droga
+        tiene_droga_en_marca = (not droga or droga == '-') and bool(marca)
+        # Caso: droga tiene contenido pero marca está vacía (post-procesamiento anterior)
+        tiene_marca_vacia    = not marca and droga
 
         if not tiene_droga_vacia and not tiene_marca_vacia:
             continue
@@ -916,10 +920,11 @@ def reparar_droga_faltante(medicamentos: list, fixes: dict) -> tuple:
             continue
 
         # ── Caso especial: marca vacía → droga tiene droga+marca fusionadas ──
-        # El campo droga contiene principio_activo_truncado + nombre_comercial.
-        # Usamos el diccionario de prefijos para separar correctamente.
-        if not marca:
-            droga_completa, nombre_comercial = _separar_droga_marca(droga)
+        # También: droga vacía y marca tiene principio_activo+nombre_comercial fusionados
+        # (el parser asigna marca=DROGA.upper() cuando el PDF omite el campo droga)
+        campo_fusionado = droga if not marca else marca.lower()
+        if not marca or (not droga or droga == '-'):
+            droga_completa, nombre_comercial = _separar_droga_marca(campo_fusionado)
             if droga_completa and nombre_comercial:
                 m['droga'] = droga_completa
 
@@ -1032,7 +1037,7 @@ def main():
             if es_precio(linea):
                 i += 1; continue
 
-            # ── CAPA 1: detección de desplazamiento en tiempo de parse 
+            # ── CAPA 1: detección de desplazamiento en tiempo de parse ──
             #
             # Estructura normal (5 campos):
             #   i+0  droga
