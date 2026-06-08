@@ -158,6 +158,12 @@ function renderizarTarjeta(med) {
             </div>
             <div class="fila-precios">
                 <span class="precio-publico">${formatearPrecio(med.precio)}</span>
+                ${med.pami_cobertura ? `
+                <div class="pami-info">
+                    <span class="pami-label">PAMI</span>
+                    <span class="pami-pct">${med.pami_cobertura}% off</span>
+                    <span class="pami-price">${formatearPrecio(Math.round(med.precio * (1 - med.pami_cobertura / 100)))}</span>
+                </div>` : ''}
             </div>
         </article>`;
 }
