@@ -1,4 +1,4 @@
-// uiRenderer.js — Renderizado con badges de vigencia y escape seguro
+// uiRenderer.js — Renderizado con badges de vigencia y escape seguro.
 import { formatearPrecio, escapeHtml, extraerFiltros, normalizarLaboratorio } from './utils.js';
 
 export function mostrarSkeleton() {

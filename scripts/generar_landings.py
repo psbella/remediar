@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""generar_landings.py — Landings SEO con contenido rico para indexación."""
+"""generar_landings.py — Genera landings SEO con contenido rico para indexación."""
 import json
 import statistics
 from pathlib import Path
