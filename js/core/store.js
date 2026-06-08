@@ -1,4 +1,4 @@
-// js/core/store.js — Estado centralizado.
+// js/core/store.js — Estado Centralizado.
 // Usa searchEngine para búsqueda real (índice invertido + ranking).
 // Sin texto → resultados vacíos (mensaje inicial), no lista completa.
 
