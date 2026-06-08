@@ -25,6 +25,11 @@ suscribirse((state) => {
         return;
     }
 
+    // Actualizar dropdowns con las opciones disponibles en los resultados actuales
+    // Esto permite que al buscar "ibuprofeno" solo aparezcan las presentaciones
+    // y laboratorios que existen para ese medicamento, no todos los del dataset
+    cargarOpcionesFiltros(resultados.length > 0 ? resultados : todos, filtros);
+
     mostrarResultados(resultados, filtros.texto);
 });
 

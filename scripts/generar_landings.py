@@ -350,8 +350,11 @@ for droga_slug in DROGAS:
         alt = droga_slug.rstrip('ao') + ('a' if droga_slug.endswith('o') else 'o')
         meds_dr = por_droga.get(alt.replace('-', ' '), [])
 
-    meds_ordenados = sorted(meds_dr, key=lambda x: x.get('precio', 0) or 0)
-    precios        = [m.get('precio', 0) or 0 for m in meds_dr if m.get('precio')]
+    # Excluir outliers (vigencia_score < 50) de la tabla y stats
+    # para evitar mostrar precios obsoletos o corruptos en las landings
+    meds_validos   = [m for m in meds_dr if (m.get('vigencia_score') or 100) >= 50 and (m.get('precio') or 0) > 0]
+    meds_ordenados = sorted(meds_validos or meds_dr, key=lambda x: x.get('precio', 0) or 0)
+    precios        = [m.get('precio', 0) or 0 for m in meds_validos if m.get('precio')]
     n_marcas       = len(set(m.get('marca', '') for m in meds_dr if m.get('marca')))
 
     if precios:

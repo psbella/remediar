@@ -42,24 +42,30 @@ export function mostrarError(msg) {
     _ocultarChip();
 }
 
-export function cargarOpcionesFiltros(medicamentos) {
+export function cargarOpcionesFiltros(medicamentos, filtrosActivos = {}) {
     const { presentaciones, laboratorios } = extraerFiltros(medicamentos);
     const selP = document.getElementById('filtroPresentacion');
     const selL = document.getElementById('filtroLaboratorio');
+
     if (selP) {
+        const presActual = filtrosActivos.presentacion || selP.value;
         selP.innerHTML = '<option value="">Presentación: Todas</option>';
         presentaciones.forEach(p => {
             const o = document.createElement('option');
             o.value = p;
             o.textContent = p.length > 60 ? p.slice(0,60)+'…' : p;
+            if (p === presActual) o.selected = true;
             selP.appendChild(o);
         });
     }
+
     if (selL) {
+        const labActual = filtrosActivos.laboratorio || selL.value;
         selL.innerHTML = '<option value="">Laboratorio: Todos</option>';
         laboratorios.forEach(l => {
             const o = document.createElement('option');
             o.value = l; o.textContent = l;
+            if (l === labActual) o.selected = true;
             selL.appendChild(o);
         });
     }
