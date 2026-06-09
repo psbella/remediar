@@ -457,6 +457,25 @@ jobs:
 | `data/blacklist.json` | Registros excluidos manualmente del dataset |
 | `data/outlier_report.json` | Reporte detallado de outliers de la última corrida |
 
+### Cómo agregar una corrección a `droga_fixes.json`
+
+`droga_fixes.json` es editable manualmente — no hace falta tocar el código para cubrir nuevas marcas sin principio activo en el PDF.
+
+Dos formatos soportados:
+
+```json
+// Solo droga (la marca ya está bien parseada)
+"FORXIGA": "dapagliflozina"
+
+// Droga + corrección de marca (droga y marca estaban fusionadas)
+"DICLOFENAC POTÁSICO, PARACETAM KINALGIN P": {
+  "droga": "diclofenac potásico, paracetamol",
+  "marca": "KINALGIN P"
+}
+```
+
+La clave es siempre el valor del campo `marca` o `droga` en mayúsculas tal como aparece en el JSON. El workflow lo aplica automáticamente en cada corrida.
+
 ---
 
 # ⚡ Optimizaciones Implementadas
@@ -1018,7 +1037,16 @@ Un score de 0 a 100 que indica la confiabilidad del precio. Un score < 50 indica
 
 ## ¿Qué significa el badge PAMI?
 
-Muestra el porcentaje de cobertura del medicamento en el vademécum de PAMI y calcula el copago estimado aplicando ese porcentaje sobre el PVP actual de SIAFAR. Es una aproximación — el copago real puede variar.
+Muestra el porcentaje de cobertura del medicamento en el vademécum de PAMI y calcula el copago estimado aplicando ese porcentaje sobre el PVP actual de SIAFAR.
+
+**Ejemplo:**
+```
+PVP SIAFAR:       $10.000
+Cobertura PAMI:   55%
+Copago estimado:  $10.000 × (1 - 0.55) = $4.500
+```
+
+Es una aproximación — el copago real puede variar porque el porcentaje de cobertura es del vademécum PAMI y el precio base es el PVP actualizado de SIAFAR.
 
 ## ¿Cada cuánto se actualiza?
 
@@ -1035,6 +1063,18 @@ No.
 ## ¿Se puede usar el JSON libremente?
 
 Sí, bajo licencia MIT.
+
+---
+
+# ⚠️ Limitaciones conocidas
+
+| Limitación | Descripción |
+|---|---|
+| ~9 registros sin presentación | El PDF de SIAFAR no incluye la presentación para estas marcas (KETOSTERIL, FRENALER D, DEXALERGIN, VIXALERG, KINALGIN P, ASFARADIL, FEMIDEN, SIGNORINA, VAXNEUVANCE). No son errores del parser — el dato simplemente no está en la fuente. |
+| `pami_cobertura` es aproximado | El porcentaje de cobertura proviene del vademécum PAMI (que se actualiza con menor frecuencia) aplicado sobre el PVP actual de SIAFAR. El copago real puede diferir por actualizaciones de precios o cambios en la cobertura. |
+| Precios de SIAFAR en ARS | Con la inflación argentina, los precios pueden quedar desactualizados entre corridas. El `vigencia_score` ayuda a identificar los registros más sospechosos. |
+| PDF de SIAFAR sin esquema fijo | Distintos laboratorios aplican su propia semántica al PDF (nombre comercial como droga, presentación fusionada con marca, etc.). El pipeline de 8 capas resuelve los patrones conocidos; pueden aparecer casos nuevos en futuras corridas. |
+| Cobertura PAMI parcial | El vademécum de PAMI no cubre todos los medicamentos del dataset de SIAFAR. Los registros sin `pami_cobertura` simplemente no están en el vademécum. |
 
 ---
 
