@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-08T23:51:25.992890-03:00",
+  "timestamp": "2026-06-09T13:22:53.384714-03:00",
   "total_registros": 12156,
   "total_outliers": 266,
   "outliers": [
@@ -918,9 +918,9 @@
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
         "precio $775.39 < minimo $1,800",
-        "precio $775.39 < 10% mediana $15,920.62"
+        "precio $775.39 < 10% mediana $16,318.64"
       ],
-      "mediana_droga": 15920.62,
+      "mediana_droga": 16318.64,
       "n_droga": 3
     },
     {
@@ -1716,9 +1716,9 @@
       "precio": 3460.05,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $3,460.05 < 25% mediana $13,858.14 (n=20)"
+        "precio $3,460.05 < 25% mediana $13,963.02 (n=20)"
       ],
-      "mediana_droga": 13858.14,
+      "mediana_droga": 13963.02,
       "n_droga": 20
     },
     {
@@ -2331,10 +2331,10 @@
       "marca": "PARACETAMOL",
       "presentacion": "MEJORAL PARA NI¥OS GOTASgts.x 20 ml",
       "laboratorio": "Laboratorio Gra",
-      "precio": 7333.22,
+      "precio": 7479.89,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $366.66 << mediana_grupo $2,250.00"
+        "ppu $373.99 << mediana_grupo $2,250.00"
       ],
       "mediana_droga": 27668.89,
       "n_droga": 196
@@ -2402,9 +2402,9 @@
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
         "precio $225.15 < minimo $1,800",
-        "precio $225.15 < 10% mediana $9,207.15"
+        "precio $225.15 < 10% mediana $9,389.05"
       ],
-      "mediana_droga": 9207.15,
+      "mediana_droga": 9389.05,
       "n_droga": 2
     },
     {
