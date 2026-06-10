@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-06-09T20:01:32.202647-03:00",
+  "timestamp": "2026-06-10T13:48:14.916211-03:00",
   "total_registros": 12156,
-  "total_outliers": 266,
+  "total_outliers": 265,
   "outliers": [
     {
       "droga": "acetilcisteína",
@@ -30,19 +30,6 @@
       ],
       "mediana_droga": 16389.85,
       "n_droga": 30
-    },
-    {
-      "droga": "acetilsalicílico,ác., asoc.",
-      "marca": "RESAQUIT V.L.",
-      "presentacion": "comp.bicapa x 4",
-      "laboratorio": "Lazar",
-      "precio": 2755.68,
-      "precio_outlier_tipo": "bajo_iqr",
-      "razones": [
-        "precio $2,755.68 < fence_low $2,905.05"
-      ],
-      "mediana_droga": 7820.83,
-      "n_droga": 6
     },
     {
       "droga": "aciclovir",
@@ -1918,7 +1905,7 @@
       "razones": [
         "ppu $124.42 << mediana_grupo $778.40"
       ],
-      "mediana_droga": 7415.96,
+      "mediana_droga": 7464.96,
       "n_droga": 35
     },
     {
