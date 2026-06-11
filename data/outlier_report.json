@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-10T23:22:11.739680-03:00",
+  "timestamp": "2026-06-11T14:07:58.311343-03:00",
   "total_registros": 12156,
   "total_outliers": 265,
   "outliers": [
@@ -500,9 +500,9 @@
       "precio": 652425.0,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $652,425.00 < 25% mediana $3,349,420.32 (n=18)"
+        "precio $652,425.00 < 25% mediana $3,392,091.32 (n=18)"
       ],
-      "mediana_droga": 3349420.32,
+      "mediana_droga": 3392091.32,
       "n_droga": 18
     },
     {
@@ -1414,9 +1414,9 @@
       "precio": 189665.92,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $189,665.92 < 25% mediana $963,602.00 (n=19)"
+        "precio $189,665.92 < 25% mediana $987,692.00 (n=19)"
       ],
-      "mediana_droga": 963602.0,
+      "mediana_droga": 987692.0,
       "n_droga": 19
     },
     {
@@ -1429,7 +1429,7 @@
       "razones": [
         "ppu $3,705.54 << mediana_grupo $1,813,337.15"
       ],
-      "mediana_droga": 963602.0,
+      "mediana_droga": 987692.0,
       "n_droga": 19
     },
     {
@@ -1440,9 +1440,9 @@
       "precio": 206755.91,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $206,755.91 < 25% mediana $963,602.00 (n=19)"
+        "precio $206,755.91 < 25% mediana $987,692.00 (n=19)"
       ],
-      "mediana_droga": 963602.0,
+      "mediana_droga": 987692.0,
       "n_droga": 19
     },
     {
@@ -2071,10 +2071,10 @@
       "marca": "SALOFALK",
       "presentacion": "500 mg comp.x 100",
       "laboratorio": "LKM",
-      "precio": 358494.02,
+      "precio": 367456.37,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $716.99 << mediana_grupo $246,847.38"
+        "ppu $734.91 << mediana_grupo $253,018.56"
       ],
       "mediana_droga": 216265.79,
       "n_droga": 42
@@ -2110,10 +2110,10 @@
       "marca": "SALOFALK",
       "presentacion": "500 mg sup.x 30",
       "laboratorio": "LKM",
-      "precio": 187361.86,
+      "precio": 192045.91,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $374.72 << mediana_grupo $246,847.38"
+        "ppu $384.09 << mediana_grupo $253,018.56"
       ],
       "mediana_droga": 216265.79,
       "n_droga": 42
