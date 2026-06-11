@@ -41,6 +41,7 @@ function notificar() {
 export function getState()     { return { ...state }; }
 export function getFiltros()   { return { ...state.filtros }; }
 export function getResultados(){ return [...state.resultados]; }
+export function getTodos()     { return [...state.todos]; }
 
 // ── Recalcular resultados ─────────────────────────────────────────────
 function recalcularResultados() {
