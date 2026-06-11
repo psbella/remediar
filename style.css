@@ -152,6 +152,25 @@ body {
     color: var(--text-5);
 }
 
+.btn-limpiar {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    padding: 6px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: var(--text-4);
+    flex-shrink: 0;
+    transition: background 0.15s, color 0.15s;
+}
+
+.btn-limpiar:hover {
+    background: rgba(0,0,0,0.06);
+    color: var(--text-1);
+}
+
 #btnBuscar {
     background: var(--teal);
     color: #fff;
