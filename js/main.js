@@ -7,7 +7,7 @@ import {
     mostrarResultados, cargarOpcionesFiltros, actualizarFechaEnFooter,
 } from './uiRenderer.js?v=2';
 import {
-    getState, getResultados, getFiltros,
+    getState, getResultados, getFiltros, getTodos,
     setFiltroTexto, setFiltroPresentacion,
     setFiltroLaboratorio, setFiltroOrden, limpiarFiltros,
     setLoading, setError, initStore, suscribirse,
@@ -37,6 +37,10 @@ suscribirse((state) => {
 function onInput() {
     clearTimeout(timeout);
     const q = document.getElementById('buscador').value.trim();
+
+    // Mostrar/ocultar botón limpiar
+    const btnLimpiar = document.getElementById('btnLimpiar');
+    if (btnLimpiar) btnLimpiar.style.display = q ? 'flex' : 'none';
 
     if (!q || q.length < 2) {
         mostrarMensajeInicial();
@@ -78,8 +82,15 @@ function onLimpiar() {
 
     limpiarFiltros();
     mostrarMensajeInicial();
-    cargarOpcionesFiltros(todos);
+    cargarOpcionesFiltros(getTodos());
     _actualizarURL('');
+
+    // Ocultar botón limpiar
+    const btnLimpiar = document.getElementById('btnLimpiar');
+    if (btnLimpiar) btnLimpiar.style.display = 'none';
+
+    // Foco al buscador
+    document.getElementById('buscador')?.focus();
 }
 
 // ── Persistencia URL ──────────────────────────────────────────────────
