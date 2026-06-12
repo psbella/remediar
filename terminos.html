@@ -7,10 +7,33 @@
     <meta name="robots" content="noindex, follow">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+    <style>
+        .legal-header { border-bottom: 1px solid var(--border-1); margin-bottom: 0; }
+        .legal-header .header-texto h1 { font-size: 18px; }
+        .legal-container { max-width: 700px; margin: 0 auto; padding: 32px 20px 48px; }
+        .legal-container h1 { font-size: 24px; color: var(--text-1); margin-bottom: 4px; }
+        .legal-container h2 { font-size: 16px; color: var(--text-1); margin: 28px 0 8px; border-bottom: 1px solid var(--border-1); padding-bottom: 6px; }
+        .legal-container h3 { font-size: 14px; color: var(--text-2); margin: 20px 0 6px; }
+        .legal-container p, .legal-container li { font-size: 14px; color: var(--text-2); line-height: 1.7; }
+        .legal-container ul { padding-left: 20px; }
+        .legal-container a { color: var(--teal); text-decoration: none; }
+        .legal-container a:hover { text-decoration: underline; }
+        .fecha { font-size: 12px; color: var(--text-4); margin-bottom: 24px; }
+        .resumen { background: var(--teal-light); border-radius: var(--r-md); padding: 14px 16px; display: flex; gap: 12px; align-items: flex-start; margin-bottom: 28px; font-size: 14px; color: var(--text-2); line-height: 1.6; }
+        .resumen svg { flex-shrink: 0; margin-top: 2px; }
+    </style>
 </head>
 <body>
 <div class="container">
-<div class="legal-container">
+    <header class="header legal-header">
+        <a href="/" class="header-logo-circle" aria-label="Volver al inicio">
+            <img src="img/favicon.svg" alt="remedi.ar" width="38" height="38">
+        </a>
+        <div class="header-texto">
+            <h1>remedi.ar</h1>
+        </div>
+    </header>
+    <div class="legal-container">
     <h1>Términos y Condiciones</h1>
     <div class="fecha">Última actualización: 22 de mayo de 2026</div>
 
@@ -41,7 +64,7 @@
     <p>La información presentada no sustituye la consulta con un profesional de la salud. Siempre consultá a tu médico o farmacéutico antes de tomar cualquier decisión relacionada con medicamentos.</p>
 
     <h2>5. Fuente de los datos</h2>
-    <p>Todos los precios y medicamentos provienen de <strong>SIAFAR</strong> (Sistema Integrado de Administración de Farmacias), administrado por la <strong>Confederación Farmacéutica Argentina (COFA)</strong>. Los datos son públicos conforme a:</p>
+    <p>Los precios al público provienen de <strong>SIAFAR</strong> (Sistema Integrado de Administración de Farmacias), administrado por la <strong>Confederación Farmacéutica Argentina (COFA)</strong>. Los precios con descuento para afiliados se obtienen del vademécum oficial del <strong>PAMI</strong> (<a href="https://datos.pami.org.ar/dataset/medicamentos-para-afiliados" target="_blank" rel="noopener">pami.org.ar</a>). Los datos son públicos conforme a:</p>
     <ul>
         <li>Ley 24.240 de Defensa del Consumidor</li>
         <li>Resolución Conjunta N° 2/2025</li>
@@ -50,7 +73,7 @@
     <p><strong>Fuente oficial:</strong> <a href="https://siafar.com/precios/pdf/" target="_blank" rel="noopener">siafar.com/precios/pdf/</a></p>
 
     <h2>6. Propiedad intelectual</h2>
-    <p>El diseño, código fuente, y elementos visuales de remedi.ar son propiedad de <strong>Pablo S. Bella</strong>. Queda prohibida la copia, reproducción o redistribución no autorizada del código o diseño.</p>
+    <p>El diseño, código fuente, y elementos visuales de remedi.ar son de autoría propia y se distribuyen bajo licencia MIT. Queda prohibida la copia, reproducción o redistribución no autorizada del código o diseño sin atribución.</p>
     <p>Los datos de precios y medicamentos son de dominio público (fuente SIAFAR/COFA) y pueden ser utilizados libremente, siempre que se cite la fuente original.</p>
 
     <h2>7. Uso permitido y prohibido</h2>
@@ -68,8 +91,8 @@
         <li>La modificación o redistribución del código sin permiso</li>
     </ul>
 
-    <h2>8. Publicidad (Google AdSense)</h2>
-    <p>Este sitio muestra publicidad de Google AdSense. Google puede mostrar anuncios basados en tu comportamiento de navegación. Podés gestionar tus preferencias de anuncios en <a href="https://adssettings.google.com" target="_blank" rel="noopener">adssettings.google.com</a>.</p>
+    <h2>8. Publicidad</h2>
+    <p>En el futuro, este sitio podría mostrar publicidad de Google AdSense. De ser así, Google podría personalizar anuncios según tu comportamiento de navegación. Podés gestionar tus preferencias en <a href="https://adssettings.google.com" target="_blank" rel="noopener">adssettings.google.com</a>.</p>
 
     <h2>9. Limitación de responsabilidad</h2>
     <p>remedi.ar no se hace responsable por:</p>
@@ -90,10 +113,7 @@
     <p>Estos términos se rigen por las leyes de la <strong>República Argentina</strong>. Cualquier controversia será resuelta por los tribunales ordinarios de <strong>Mar del Plata, Provincia de Buenos Aires</strong>.</p>
 
     <h2>13. Contacto</h2>
-    <p>Para consultas sobre estos términos, contactanos en:</p>
-    <ul>
-        <li><strong>Email:</strong> <a href="mailto:pablo.s.bella@gmail.com?subject=remedi.ar%20-%20Consulta?subject=remedi.ar?subject=Terminos%20-%20remedi.ar">pablo.s.bella@gmail.com</a></li>
-    </ul>
+    <p>Para consultas sobre estos términos, contactanos en: <a href="mailto:pablo.s.bella@gmail.com?subject=remedi.ar - Términos">pablo.s.bella@gmail.com</a>.</p>
 
     <a href="index.html" class="btn-volver">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
@@ -102,7 +122,22 @@
         </svg>
         Volver al buscador
     </a>
-</div>
+    </div>
+    <footer>
+    <div class="footer">
+        <div class="footer-fuentes">
+            Fuente de datos:
+            <a href="https://siafar.com/datos" target="_blank" rel="noopener">SIAFAR / COFA</a>
+            <span class="footer-sep">|</span>
+            <a href="https://datos.pami.org.ar/dataset/medicamentos-para-afiliados" target="_blank" rel="noopener">PAMI</a>
+        </div>
+        <nav class="footer-links">
+            <a href="privacidad.html">Privacidad</a>
+            <a href="terminos.html">Términos</a>
+            <a href="/">Inicio</a>
+        </nav>
+    </div>
+    </footer>
 </div>
 </body>
 </html>
