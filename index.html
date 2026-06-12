@@ -15,11 +15,15 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
     <link rel="manifest" href="manifest.json">
-    <meta property="og:title" content="Precios de Remedios Argentina">
-
+    <meta name="description" content="Precios al público de medicamentos en Argentina, actualizados las 24 horas. Incluye precios con descuento para afiliados PAMI. Gratis, sin publicidad.">
+    <meta property="og:title" content="remedi.ar - Precios de medicamentos en Argentina">
+    <meta property="og:description" content="Precios al público de medicamentos en Argentina, actualizados las 24 horas. Incluye precios con descuento para afiliados PAMI. Gratis, sin publicidad.">
     <meta property="og:url" content="https://remedi.ar/">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="es_AR">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="remedi.ar - Precios de medicamentos en Argentina">
+    <meta name="twitter:description" content="Precios al público de medicamentos en Argentina, actualizados las 24 horas. Incluye precios con descuento para afiliados PAMI. Gratis, sin publicidad.">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -98,6 +102,9 @@
                 <svg width="16" height="16"><use href="#ic-search"/></svg>
                 Buscar
             </button>
+            <button id="btnLimpiar" class="btn-limpiar" aria-label="Limpiar búsqueda" style="display:none">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
         </div>
 
         <section class="filtros-section" aria-label="Filtros">
@@ -141,7 +148,7 @@
             Fuente de datos:
             <a href="https://siafar.com/datos" target="_blank" rel="noopener">SIAFAR / COFA</a>
             <span class="footer-sep">|</span>
-            <a href="https://www.pami.org.ar" target="_blank" rel="noopener">PAMI</a>
+            <a href="https://datos.pami.org.ar/dataset/medicamentos-para-afiliados" target="_blank" rel="noopener">PAMI</a>
         </div>
         <div class="footer-aviso">
             <svg width="14" height="14"><use href="#ic-info"/></svg>
