@@ -7,10 +7,33 @@
     <meta name="robots" content="noindex, follow">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+    <style>
+        .legal-header { border-bottom: 1px solid var(--border-1); margin-bottom: 0; }
+        .legal-header .header-texto h1 { font-size: 18px; }
+        .legal-container { max-width: 700px; margin: 0 auto; padding: 32px 20px 48px; }
+        .legal-container h1 { font-size: 24px; color: var(--text-1); margin-bottom: 4px; }
+        .legal-container h2 { font-size: 16px; color: var(--text-1); margin: 28px 0 8px; border-bottom: 1px solid var(--border-1); padding-bottom: 6px; }
+        .legal-container h3 { font-size: 14px; color: var(--text-2); margin: 20px 0 6px; }
+        .legal-container p, .legal-container li { font-size: 14px; color: var(--text-2); line-height: 1.7; }
+        .legal-container ul { padding-left: 20px; }
+        .legal-container a { color: var(--teal); text-decoration: none; }
+        .legal-container a:hover { text-decoration: underline; }
+        .fecha { font-size: 12px; color: var(--text-4); margin-bottom: 24px; }
+        .resumen { background: var(--teal-light); border-radius: var(--r-md); padding: 14px 16px; display: flex; gap: 12px; align-items: flex-start; margin-bottom: 28px; font-size: 14px; color: var(--text-2); line-height: 1.6; }
+        .resumen svg { flex-shrink: 0; margin-top: 2px; }
+    </style>
 </head>
 <body>
 <div class="container">
-<div class="legal-container">
+    <header class="header legal-header">
+        <a href="/" class="header-logo-circle" aria-label="Volver al inicio">
+            <img src="img/favicon.svg" alt="remedi.ar" width="38" height="38">
+        </a>
+        <div class="header-texto">
+            <h1>remedi.ar</h1>
+        </div>
+    </header>
+    <div class="legal-container">
     <h1>Política de Privacidad</h1>
     <div class="fecha">Última actualización: 22 de mayo de 2026</div>
 
@@ -28,8 +51,7 @@
     </div>
 
     <h2>1. Responsable del tratamiento</h2>
-    <p><strong>remedi.ar</strong> es un sitio web de consulta de precios de medicamentos operado por <strong>Pablo S. Bella</strong>. 
-    Para cualquier consulta relacionada con privacidad, podés contactarnos en: <a href="mailto:pablo.s.bella@gmail.com?subject=remedi.ar%20-%20Consulta?subject=remedi.ar?subject=remedi.ar">pablo.s.bella@gmail.com</a>.</p>
+    <p><strong>remedi.ar</strong> es un sitio web de consulta de precios de medicamentos. Para cualquier consulta relacionada con privacidad, podés contactarnos en: <a href="mailto:pablo.s.bella@gmail.com?subject=remedi.ar - Privacidad">pablo.s.bella@gmail.com</a>.</p>
 
     <h2>2. Datos que recopilamos</h2>
     <p><strong>No recopilamos información personal identificable.</strong> Este sitio es completamente estático y se aloja en GitHub Pages. No tenemos servidores propios, ni bases de datos, ni formularios de contacto que almacenen información.</p>
@@ -55,10 +77,10 @@
     <p><strong>Este sitio no utiliza cookies propias.</strong> GitHub Pages puede establecer cookies técnicas necesarias para el funcionamiento de la plataforma, pero no son controladas por nosotros.</p>
     
     <h3>4.1 Google AdSense</h3>
-    <p>Este sitio muestra publicidad de Google AdSense. Google utiliza cookies para mostrar anuncios relevantes basados en tus visitas a este y otros sitios web. Podés optar por no participar en <a href="https://adssettings.google.com" target="_blank" rel="noopener">adssettings.google.com</a>.</p>
+    <p>En el futuro, este sitio podría mostrar publicidad de Google AdSense. De ser así, Google podría utilizar cookies para mostrar anuncios relevantes basados en tus visitas. Podés gestionar tus preferencias en <a href="https://adssettings.google.com" target="_blank" rel="noopener">adssettings.google.com</a>.</p>
 
     <h2>5. Fuente de los datos de medicamentos</h2>
-    <p>Todos los precios y medicamentos mostrados en remedi.ar provienen de <strong>SIAFAR</strong> (Sistema Integrado de Administración de Farmacias), administrado por la <strong>Confederación Farmacéutica Argentina (COFA)</strong>. Los datos son públicos y de libre acceso conforme a:</p>
+    <p>Los precios al público mostrados en remedi.ar provienen de <strong>SIAFAR</strong> (Sistema Integrado de Administración de Farmacias), administrado por la <strong>Confederación Farmacéutica Argentina (COFA)</strong>. Los precios con descuento para afiliados se obtienen del vademécum oficial del <strong>PAMI</strong> (<a href="https://datos.pami.org.ar/dataset/medicamentos-para-afiliados" target="_blank" rel="noopener">pami.org.ar</a>). Los datos son públicos y de libre acceso conforme a:</p>
     <ul>
         <li>Ley 24.240 de Defensa del Consumidor</li>
         <li>Resolución Conjunta N° 2/2025</li>
@@ -79,10 +101,7 @@
     <p>Podemos actualizar esta Política de Privacidad ocasionalmente. La versión más reciente siempre estará disponible en esta URL. Los cambios significativos se notificarán mediante un aviso en el sitio.</p>
 
     <h2>10. Contacto</h2>
-    <p>Si tenés preguntas sobre esta política, contactanos:</p>
-    <ul>
-        <li><strong>Email:</strong> <a href="mailto:pablo.s.bella@gmail.com?subject=remedi.ar%20-%20Consulta?subject=remedi.ar?subject=remedi.ar">pablo.s.bella@gmail.com</a></li>
-    </ul>
+    <p>Si tenés preguntas sobre esta política, contactanos en: <a href="mailto:pablo.s.bella@gmail.com?subject=remedi.ar - Privacidad">pablo.s.bella@gmail.com</a>.</p>
 
     <h2>11. Ley aplicable y jurisdicción</h2>
     <p>Esta política se rige por las leyes de la <strong>República Argentina</strong>. Cualquier controversia será resuelta por los tribunales ordinarios de <strong>Mar del Plata, Provincia de Buenos Aires</strong>.</p>
@@ -94,7 +113,22 @@
         </svg>
         Volver al buscador
     </a>
-</div>
+    </div>
+    <footer>
+    <div class="footer">
+        <div class="footer-fuentes">
+            Fuente de datos:
+            <a href="https://siafar.com/precios/pdf/" target="_blank" rel="noopener">SIAFAR / COFA</a>
+            <span class="footer-sep">|</span>
+            <a href="https://datos.pami.org.ar/dataset/medicamentos-para-afiliados" target="_blank" rel="noopener">PAMI</a>
+        </div>
+        <nav class="footer-links">
+            <a href="privacidad.html">Privacidad</a>
+            <a href="terminos.html">Términos</a>
+            <a href="/">Inicio</a>
+        </nav>
+    </div>
+    </footer>
 </div>
 </body>
 </html>
