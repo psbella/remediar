@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-11T20:07:58.216514-03:00",
+  "timestamp": "2026-06-12T00:29:16.082738-03:00",
   "total_registros": 12156,
   "total_outliers": 265,
   "outliers": [
@@ -117,9 +117,9 @@
       "precio": 5338.41,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $5,338.41 < 25% mediana $27,668.89 (n=196)"
+        "precio $5,338.41 < 25% mediana $27,765.25 (n=196)"
       ],
-      "mediana_droga": 27668.89,
+      "mediana_droga": 27765.25,
       "n_droga": 196
     },
     {
@@ -170,9 +170,9 @@
       "precio": 2575.98,
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
-        "precio $2,575.98 < 10% mediana $27,668.89"
+        "precio $2,575.98 < 10% mediana $27,765.25"
       ],
-      "mediana_droga": 27668.89,
+      "mediana_droga": 27765.25,
       "n_droga": 196
     },
     {
@@ -265,7 +265,7 @@
       "razones": [
         "ppu $29.36 << mediana_grupo $290.14"
       ],
-      "mediana_droga": 27668.89,
+      "mediana_droga": 27765.25,
       "n_droga": 196
     },
     {
@@ -305,7 +305,7 @@
       "razones": [
         "ppu $2.26 << mediana_grupo $114.00"
       ],
-      "mediana_droga": 27668.89,
+      "mediana_droga": 27765.25,
       "n_droga": 196
     },
     {
@@ -513,9 +513,9 @@
       "precio": 5539.43,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $5,539.43 < 25% mediana $41,138.52 (n=8)"
+        "precio $5,539.43 < 25% mediana $41,563.68 (n=8)"
       ],
-      "mediana_droga": 41138.52,
+      "mediana_droga": 41563.68,
       "n_droga": 8
     },
     {
@@ -735,9 +735,9 @@
       "precio": 6663.71,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $6,663.71 < 25% mediana $27,668.89 (n=196)"
+        "precio $6,663.71 < 25% mediana $27,765.25 (n=196)"
       ],
-      "mediana_droga": 27668.89,
+      "mediana_droga": 27765.25,
       "n_droga": 196
     },
     {
@@ -787,9 +787,9 @@
       "precio": 5519.07,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $5,519.07 < 25% mediana $27,668.89 (n=196)"
+        "precio $5,519.07 < 25% mediana $27,765.25 (n=196)"
       ],
-      "mediana_droga": 27668.89,
+      "mediana_droga": 27765.25,
       "n_droga": 196
     },
     {
@@ -1297,9 +1297,9 @@
       "precio": 2589760.68,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $2,589,760.68 < 25% mediana $10,360,050.57 (n=11)"
+        "precio $2,589,760.68 < 25% mediana $10,375,423.68 (n=11)"
       ],
-      "mediana_droga": 10360050.57,
+      "mediana_droga": 10375423.68,
       "n_droga": 11
     },
     {
@@ -1519,9 +1519,9 @@
       "precio": 3457.0,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $3,457.00 < 25% mediana $27,668.89 (n=196)"
+        "precio $3,457.00 < 25% mediana $27,765.25 (n=196)"
       ],
-      "mediana_droga": 27668.89,
+      "mediana_droga": 27765.25,
       "n_droga": 196
     },
     {
@@ -1532,9 +1532,9 @@
       "precio": 4193.37,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $4,193.37 < 25% mediana $27,668.89 (n=196)"
+        "precio $4,193.37 < 25% mediana $27,765.25 (n=196)"
       ],
-      "mediana_droga": 27668.89,
+      "mediana_droga": 27765.25,
       "n_droga": 196
     },
     {
@@ -1545,9 +1545,9 @@
       "precio": 6557.0,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $6,557.00 < 25% mediana $27,668.89 (n=196)"
+        "precio $6,557.00 < 25% mediana $27,765.25 (n=196)"
       ],
-      "mediana_droga": 27668.89,
+      "mediana_droga": 27765.25,
       "n_droga": 196
     },
     {
@@ -1584,9 +1584,9 @@
       "precio": 2682.0,
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
-        "precio $2,682.00 < 10% mediana $27,668.89"
+        "precio $2,682.00 < 10% mediana $27,765.25"
       ],
-      "mediana_droga": 27668.89,
+      "mediana_droga": 27765.25,
       "n_droga": 196
     },
     {
@@ -1597,9 +1597,9 @@
       "precio": 5095.0,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $5,095.00 < 25% mediana $27,668.89 (n=196)"
+        "precio $5,095.00 < 25% mediana $27,765.25 (n=196)"
       ],
-      "mediana_droga": 27668.89,
+      "mediana_droga": 27765.25,
       "n_droga": 196
     },
     {
@@ -1637,9 +1637,9 @@
       "precio": 4220.0,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $4,220.00 < 25% mediana $27,668.89 (n=196)"
+        "precio $4,220.00 < 25% mediana $27,765.25 (n=196)"
       ],
-      "mediana_droga": 27668.89,
+      "mediana_droga": 27765.25,
       "n_droga": 196
     },
     {
@@ -1650,9 +1650,9 @@
       "precio": 5547.0,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $5,547.00 < 25% mediana $27,668.89 (n=196)"
+        "precio $5,547.00 < 25% mediana $27,765.25 (n=196)"
       ],
-      "mediana_droga": 27668.89,
+      "mediana_droga": 27765.25,
       "n_droga": 196
     },
     {
@@ -1797,7 +1797,7 @@
       "razones": [
         "ppu $2,984.24 << mediana_grupo $15,434.24"
       ],
-      "mediana_droga": 27668.89,
+      "mediana_droga": 27765.25,
       "n_droga": 196
     },
     {
@@ -1876,9 +1876,9 @@
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
         "precio $1,409.55 < minimo $1,800",
-        "precio $1,409.55 < 10% mediana $27,668.89"
+        "precio $1,409.55 < 10% mediana $27,765.25"
       ],
-      "mediana_droga": 27668.89,
+      "mediana_droga": 27765.25,
       "n_droga": 196
     },
     {
@@ -2009,9 +2009,9 @@
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
         "precio $1,500.00 < minimo $1,800",
-        "precio $1,500.00 < 10% mediana $27,668.89"
+        "precio $1,500.00 < 10% mediana $27,765.25"
       ],
-      "mediana_droga": 27668.89,
+      "mediana_droga": 27765.25,
       "n_droga": 196
     },
     {
@@ -2279,10 +2279,10 @@
       "marca": "PACLINOVA",
       "presentacion": "30 mg vial x 1 x 5 ml",
       "laboratorio": "Elea",
-      "precio": 286024.87,
+      "precio": 293175.49,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $286,024.87 < 25% mediana $1,273,595.86 (n=50)"
+        "precio $293,175.49 < 25% mediana $1,273,595.86 (n=50)"
       ],
       "mediana_droga": 1273595.86,
       "n_droga": 50
@@ -2323,7 +2323,7 @@
       "razones": [
         "ppu $373.99 << mediana_grupo $2,250.00"
       ],
-      "mediana_droga": 27668.89,
+      "mediana_droga": 27765.25,
       "n_droga": 196
     },
     {
@@ -2740,9 +2740,9 @@
       "precio": 2807.3,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $2,807.30 < 25% mediana $27,668.89 (n=196)"
+        "precio $2,807.30 < 25% mediana $27,765.25 (n=196)"
       ],
-      "mediana_droga": 27668.89,
+      "mediana_droga": 27765.25,
       "n_droga": 196
     },
     {
@@ -2766,9 +2766,9 @@
       "precio": 41596.89,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $207.98 << mediana_grupo $1,454.58"
+        "ppu $207.98 << mediana_grupo $1,495.04"
       ],
-      "mediana_droga": 27668.89,
+      "mediana_droga": 27765.25,
       "n_droga": 196
     },
     {
@@ -2779,9 +2779,9 @@
       "precio": 5923.0,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $5,923.00 < 25% mediana $24,934.19 (n=24)"
+        "precio $5,923.00 < 25% mediana $25,537.50 (n=24)"
       ],
-      "mediana_droga": 24934.19,
+      "mediana_droga": 25537.5,
       "n_droga": 24
     },
     {
@@ -3000,7 +3000,7 @@
       "precio": 53054.34,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $2,652.72 << mediana_grupo $21,819.55"
+        "ppu $2,652.72 << mediana_grupo $22,117.83"
       ],
       "mediana_droga": 64381.87,
       "n_droga": 72
@@ -3049,10 +3049,10 @@
       "marca": "TEMONOVA 20",
       "presentacion": "20 mg caps.x 5",
       "laboratorio": "Elea",
-      "precio": 351805.59,
+      "precio": 360600.73,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $351,805.59 < 25% mediana $3,206,084.95 (n=34)"
+        "precio $360,600.73 < 25% mediana $3,206,084.95 (n=34)"
       ],
       "mediana_droga": 3206084.95,
       "n_droga": 34
