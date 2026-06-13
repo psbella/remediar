@@ -318,21 +318,9 @@ body {
 }
 
 .resultados {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 10px;
-}
-
-@media (min-width: 640px) {
-    .resultados {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (min-width: 960px) {
-    .resultados {
-        grid-template-columns: repeat(3, 1fr);
-    }
 }
 
 .tarjeta {
