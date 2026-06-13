@@ -19,8 +19,8 @@
     "motivo": "precio $9,029.60 < 10% mediana $119,516.28",
     "bloqueado_en": "2026-05-30T18:32"
   },
-  "acetilcisteã­na|maxvan|600 mg comp.efer.x 10|vannier": {
-    "droga": "acetilcisteÃ­na",
+  "acetilcisteÃ£Â­na|maxvan|600 mg comp.efer.x 10|vannier": {
+    "droga": "acetilcisteÃÂ­na",
     "marca": "MAXVAN",
     "presentacion": "600 mg comp.efer.x 10",
     "laboratorio": "Vannier",
@@ -29,8 +29,8 @@
     "motivo": "precio $1,433.00 < minimo $1,800 | precio $1,433.00 < 10% mediana $16,389.85",
     "bloqueado_en": "2026-05-30T18:32"
   },
-  "acetilcisteã­na|maxvan|600 mg comp.efer.x 20|vannier": {
-    "droga": "acetilcisteÃ­na",
+  "acetilcisteÃ£Â­na|maxvan|600 mg comp.efer.x 20|vannier": {
+    "droga": "acetilcisteÃÂ­na",
     "marca": "MAXVAN",
     "presentacion": "600 mg comp.efer.x 20",
     "laboratorio": "Vannier",
@@ -49,8 +49,8 @@
     "motivo": "precio $1,849.59 < 10% mediana $20,772.58",
     "bloqueado_en": "2026-05-30T18:32"
   },
-  "alcohol diclorobencã­lico, asoc|strepsils caramelos|menta fuerte x 8 u.|reckitt benckis": {
-    "droga": "alcohol diclorobencÃ­lico, asoc",
+  "alcohol diclorobencÃ£Â­lico, asoc|strepsils caramelos|menta fuerte x 8 u.|reckitt benckis": {
+    "droga": "alcohol diclorobencÃÂ­lico, asoc",
     "marca": "STREPSILS CARAMELOS",
     "presentacion": "Menta Fuerte x 8 u.",
     "laboratorio": "Reckitt Benckis",
@@ -179,11 +179,11 @@
     "motivo": "precio $224.00 < minimo $1,800 | precio $224.00 < 10% mediana $14,112.90",
     "bloqueado_en": "2026-05-30T18:32"
   },
-  "amitriptilina|amitriptilina luar|25 mg comp.rec.x 50|quã­mica luar": {
+  "amitriptilina|amitriptilina luar|25 mg comp.rec.x 50|quÃ£Â­mica luar": {
     "droga": "amitriptilina",
     "marca": "AMITRIPTILINA LUAR",
     "presentacion": "25 mg comp.rec.x 50",
-    "laboratorio": "QuÃ­mica Luar",
+    "laboratorio": "QuÃÂ­mica Luar",
     "precio_detectado": 67.95,
     "tipo": "bajo_critico",
     "motivo": "precio $67.95 < minimo $1,800 | precio $67.95 < 10% mediana $24,055.48",
@@ -199,8 +199,8 @@
     "motivo": "precio $262.50 < minimo $1,800 | precio $262.50 < 10% mediana $11,040.00",
     "bloqueado_en": "2026-05-30T18:32"
   },
-  "amoxicilina, acetilcisteã­na|cistefort duo|875/300 mg comp.x 14|fortbenton": {
-    "droga": "amoxicilina, acetilcisteÃ­na",
+  "amoxicilina, acetilcisteÃ£Â­na|cistefort duo|875/300 mg comp.x 14|fortbenton": {
+    "droga": "amoxicilina, acetilcisteÃÂ­na",
     "marca": "CISTEFORT DUO",
     "presentacion": "875/300 mg comp.x 14",
     "laboratorio": "Fortbenton",
@@ -209,8 +209,8 @@
     "motivo": "precio $1,706.89 < minimo $1,800 | precio $1,706.89 < 10% mediana $20,189.44",
     "bloqueado_en": "2026-05-30T18:32"
   },
-  "amoxicilina, clavulã¡nico,ã¡c.|bioxilina plus duo|400 mg susp.x 70 ml|biosintex retai": {
-    "droga": "amoxicilina, clavulÃ¡nico,Ã¡c.",
+  "amoxicilina, clavulÃ£Â¡nico,Ã£Â¡c.|bioxilina plus duo|400 mg susp.x 70 ml|biosintex retai": {
+    "droga": "amoxicilina, clavulÃÂ¡nico,ÃÂ¡c.",
     "marca": "BIOXILINA PLUS DUO",
     "presentacion": "400 mg susp.x 70 ml",
     "laboratorio": "Biosintex Retai",
@@ -219,8 +219,8 @@
     "motivo": "precio $278.00 < minimo $1,800 | precio $278.00 < 10% mediana $21,200.00",
     "bloqueado_en": "2026-05-30T18:32"
   },
-  "amoxicilina, clavulã¡nico,ã¡c.|bioxilina plus|500 mg comp.rec.x 16|biosintex retai": {
-    "droga": "amoxicilina, clavulÃ¡nico,Ã¡c.",
+  "amoxicilina, clavulÃ£Â¡nico,Ã£Â¡c.|bioxilina plus|500 mg comp.rec.x 16|biosintex retai": {
+    "droga": "amoxicilina, clavulÃÂ¡nico,ÃÂ¡c.",
     "marca": "BIOXILINA PLUS",
     "presentacion": "500 mg comp.rec.x 16",
     "laboratorio": "Biosintex Retai",
@@ -229,8 +229,8 @@
     "motivo": "precio $388.00 < minimo $1,800 | precio $388.00 < 10% mediana $21,200.00",
     "bloqueado_en": "2026-05-30T18:32"
   },
-  "amoxicilina, clavulã¡nico,ã¡c.|amoclav|500 mg comp.rec.x 16|casasco": {
-    "droga": "amoxicilina, clavulÃ¡nico,Ã¡c.",
+  "amoxicilina, clavulÃ£Â¡nico,Ã£Â¡c.|amoclav|500 mg comp.rec.x 16|casasco": {
+    "droga": "amoxicilina, clavulÃÂ¡nico,ÃÂ¡c.",
     "marca": "AMOCLAV",
     "presentacion": "500 mg comp.rec.x 16",
     "laboratorio": "Casasco",
@@ -239,8 +239,8 @@
     "motivo": "precio $1,316.02 < minimo $1,800 | precio $1,316.02 < 10% mediana $21,200.00",
     "bloqueado_en": "2026-05-30T18:32"
   },
-  "atorvastatã­n, ezetimibe|ateroclar duo|10/10 mg blist.x 30+30|beta": {
-    "droga": "atorvastatÃ­n, ezetimibe",
+  "atorvastatÃ£Â­n, ezetimibe|ateroclar duo|10/10 mg blist.x 30+30|beta": {
+    "droga": "atorvastatÃÂ­n, ezetimibe",
     "marca": "ATEROCLAR DUO",
     "presentacion": "10/10 mg blist.x 30+30",
     "laboratorio": "Beta",
@@ -249,8 +249,8 @@
     "motivo": "precio $2,687.54 < 10% mediana $50,778.57",
     "bloqueado_en": "2026-05-30T18:32"
   },
-  "atorvastatã­n, ezetimibe|ateroclar duo|20/10 mg blist.x 30+30|beta": {
-    "droga": "atorvastatÃ­n, ezetimibe",
+  "atorvastatÃ£Â­n, ezetimibe|ateroclar duo|20/10 mg blist.x 30+30|beta": {
+    "droga": "atorvastatÃÂ­n, ezetimibe",
     "marca": "ATEROCLAR DUO",
     "presentacion": "20/10 mg blist.x 30+30",
     "laboratorio": "Beta",
@@ -319,8 +319,8 @@
     "motivo": "precio $659.00 < minimo $1,800 | precio $659.00 < 10% mediana $8,719.55",
     "bloqueado_en": "2026-05-30T18:32"
   },
-  "bupivacaã­na|caina-g hiperbarica|0.5% a.x 4 ml|gray": {
-    "droga": "bupivacaÃ­na",
+  "bupivacaÃ£Â­na|caina-g hiperbarica|0.5% a.x 4 ml|gray": {
+    "droga": "bupivacaÃÂ­na",
     "marca": "CAINA-G HIPERBARICA",
     "presentacion": "0.5% a.x 4 ml",
     "laboratorio": "Gray",
@@ -329,11 +329,11 @@
     "motivo": "precio $29,880.75 < 10% mediana $327,248.07",
     "bloqueado_en": "2026-05-30T18:32"
   },
-  "bupivacaã­na|bupicaina|0.50% s/cons.f.a.x 20 ml|scott-cassarã¡": {
-    "droga": "bupivacaÃ­na",
+  "bupivacaÃ£Â­na|bupicaina|0.50% s/cons.f.a.x 20 ml|scott-cassarÃ£Â¡": {
+    "droga": "bupivacaÃÂ­na",
     "marca": "BUPICAINA",
     "presentacion": "0.50% s/cons.f.a.x 20 ml",
-    "laboratorio": "Scott-CassarÃ¡",
+    "laboratorio": "Scott-CassarÃÂ¡",
     "precio_detectado": 19240,
     "tipo": "bajo_critico",
     "motivo": "precio $19,240.00 < 10% mediana $327,248.07",
@@ -359,8 +359,8 @@
     "motivo": "precio $15,221.95 < 10% mediana $450,770.00",
     "bloqueado_en": "2026-05-30T18:32"
   },
-  "carboximetilcelulosa sã³d., aso|biodrop|sol.oft.x 15 ml|sidus": {
-    "droga": "carboximetilcelulosa sÃ³d., aso",
+  "carboximetilcelulosa sÃ£Â³d., aso|biodrop|sol.oft.x 15 ml|sidus": {
+    "droga": "carboximetilcelulosa sÃÂ³d., aso",
     "marca": "BIODROP",
     "presentacion": "sol.oft.x 15 ml",
     "laboratorio": "Sidus",
@@ -519,9 +519,9 @@
     "motivo": "precio $317.00 < minimo $1,800 | precio $317.00 < 10% mediana $19,068.58",
     "bloqueado_en": "2026-05-30T18:32"
   },
-  "-|clindamicina, benzoãlo,perãxid perclin|cr.x 30 g|fortbenton": {
+  "-|clindamicina, benzoÃ£Âlo,perÃ£Âxid perclin|cr.x 30 g|fortbenton": {
     "droga": "-",
-    "marca": "CLINDAMICINA, BENZOÃLO,PERÃXID PERCLIN",
+    "marca": "CLINDAMICINA, BENZOÃÂLO,PERÃÂXID PERCLIN",
     "presentacion": "cr.x 30 g",
     "laboratorio": "Fortbenton",
     "precio_detectado": 1376.16,
@@ -549,10 +549,10 @@
     "motivo": "precio $368.00 < minimo $1,800 | precio $368.00 < 10% mediana $15,212.03",
     "bloqueado_en": "2026-05-30T18:32"
   },
-  "clorhexidina, asoc.|merthiolate nueva formula|espã¡t.incoloro x 60 ml|laboratorio gra": {
+  "clorhexidina, asoc.|merthiolate nueva formula|espÃ£Â¡t.incoloro x 60 ml|laboratorio gra": {
     "droga": "clorhexidina, asoc.",
     "marca": "MERTHIOLATE NUEVA FORMULA",
-    "presentacion": "espÃ¡t.incoloro x 60 ml",
+    "presentacion": "espÃÂ¡t.incoloro x 60 ml",
     "laboratorio": "Laboratorio Gra",
     "precio_detectado": 775.39,
     "tipo": "bajo_critico",
@@ -829,11 +829,11 @@
     "motivo": "precio $2,762.92 < 10% mediana $51,193.69",
     "bloqueado_en": "2026-05-30T18:32"
   },
-  "ginseng, vit., minerales|marathon|caps.x 20|gramã³n": {
+  "ginseng, vit., minerales|marathon|caps.x 20|gramÃ£Â³n": {
     "droga": "ginseng, vit., minerales",
     "marca": "MARATHON",
     "presentacion": "caps.x 20",
-    "laboratorio": "GramÃ³n",
+    "laboratorio": "GramÃÂ³n",
     "precio_detectado": 1640.1,
     "tipo": "bajo_critico",
     "motivo": "precio $1,640.10 < minimo $1,800 | precio $1,640.10 < 10% mediana $22,981.86",
@@ -1019,8 +1019,8 @@
     "motivo": "precio $94,953.63 < 10% mediana $4,108,247.54",
     "bloqueado_en": "2026-05-30T18:32"
   },
-  "inosina,monofosfato disã³dico|inokat|sol.oft.esteril x 10 ml|lab internacion": {
-    "droga": "inosina,monofosfato disÃ³dico",
+  "inosina,monofosfato disÃ£Â³dico|inokat|sol.oft.esteril x 10 ml|lab internacion": {
+    "droga": "inosina,monofosfato disÃÂ³dico",
     "marca": "INOKAT",
     "presentacion": "sol.oft.esteril x 10 ml",
     "laboratorio": "Lab Internacion",
@@ -1039,20 +1039,20 @@
     "motivo": "precio $179.50 < minimo $1,800 | precio $179.50 < 10% mediana $12,966.71",
     "bloqueado_en": "2026-05-30T18:32"
   },
-  "isoproterenol|isoproterenol|a.x 5 ml|scott-cassarã¡": {
+  "isoproterenol|isoproterenol|a.x 5 ml|scott-cassarÃ£Â¡": {
     "droga": "isoproterenol",
     "marca": "ISOPROTERENOL",
     "presentacion": "a.x 5 ml",
-    "laboratorio": "Scott-CassarÃ¡",
+    "laboratorio": "Scott-CassarÃÂ¡",
     "precio_detectado": 10825,
     "tipo": "bajo_critico",
     "motivo": "precio $10,825.00 < 10% mediana $148,804.30",
     "bloqueado_en": "2026-05-30T18:32"
   },
-  "isotretinoã­na|atlacne|gel tã³pico x 25 g|lab internacion": {
-    "droga": "isotretinoÃ­na",
+  "isotretinoÃ£Â­na|atlacne|gel tÃ£Â³pico x 25 g|lab internacion": {
+    "droga": "isotretinoÃÂ­na",
     "marca": "ATLACNE",
-    "presentacion": "gel tÃ³pico x 25 g",
+    "presentacion": "gel tÃÂ³pico x 25 g",
     "laboratorio": "Lab Internacion",
     "precio_detectado": 470.35,
     "tipo": "bajo_critico",
@@ -1159,29 +1159,29 @@
     "motivo": "precio $1,141.00 < minimo $1,800 | precio $1,141.00 < 10% mediana $19,707.70",
     "bloqueado_en": "2026-05-30T18:32"
   },
-  "lidocaã­na|lidocaina|1% s/epi.a.x 5 ml|scott-cassarã¡": {
-    "droga": "lidocaÃ­na",
+  "lidocaÃ£Â­na|lidocaina|1% s/epi.a.x 5 ml|scott-cassarÃ£Â¡": {
+    "droga": "lidocaÃÂ­na",
     "marca": "LIDOCAINA",
     "presentacion": "1% s/epi.a.x 5 ml",
-    "laboratorio": "Scott-CassarÃ¡",
+    "laboratorio": "Scott-CassarÃÂ¡",
     "precio_detectado": 1645,
     "tipo": "bajo_critico",
     "motivo": "precio $1,645.00 < minimo $1,800 | precio $1,645.00 < 10% mediana $17,274.76",
     "bloqueado_en": "2026-05-30T18:32"
   },
-  "lidocaã­na|lidocaina|2% s/epi.a.x 5 ml|scott-cassarã¡": {
-    "droga": "lidocaÃ­na",
+  "lidocaÃ£Â­na|lidocaina|2% s/epi.a.x 5 ml|scott-cassarÃ£Â¡": {
+    "droga": "lidocaÃÂ­na",
     "marca": "LIDOCAINA",
     "presentacion": "2% s/epi.a.x 5 ml",
-    "laboratorio": "Scott-CassarÃ¡",
+    "laboratorio": "Scott-CassarÃÂ¡",
     "precio_detectado": 1654,
     "tipo": "bajo_critico",
     "motivo": "precio $1,654.00 < minimo $1,800 | precio $1,654.00 < 10% mediana $17,274.76",
     "bloqueado_en": "2026-05-30T18:32"
   },
-  "-|lidocaãna|lidocaina denver farma 2% viscosa fco.got.x50ml|denver farma": {
+  "-|lidocaÃ£Âna|lidocaina denver farma 2% viscosa fco.got.x50ml|denver farma": {
     "droga": "-",
-    "marca": "LIDOCAÃNA",
+    "marca": "LIDOCAÃÂNA",
     "presentacion": "LIDOCAINA DENVER FARMA 2% viscosa fco.got.x50ml",
     "laboratorio": "Denver Farma",
     "precio_detectado": 1409.55,
@@ -1189,8 +1189,8 @@
     "motivo": "precio $1,409.55 < minimo $1,800 | precio $1,409.55 < 10% mediana $23,672.05",
     "bloqueado_en": "2026-05-30T18:32"
   },
-  "lidocaã­na, asoc.|pomada hadensa|cr.x 15 g|biosintex retai": {
-    "droga": "lidocaÃ­na, asoc.",
+  "lidocaÃ£Â­na, asoc.|pomada hadensa|cr.x 15 g|biosintex retai": {
+    "droga": "lidocaÃÂ­na, asoc.",
     "marca": "POMADA HADENSA",
     "presentacion": "cr.x 15 g",
     "laboratorio": "Biosintex Retai",
@@ -1229,8 +1229,8 @@
     "motivo": "precio $299.83 < minimo $1,800 | precio $299.83 < 10% mediana $13,439.07",
     "bloqueado_en": "2026-05-30T18:32"
   },
-  "losartã¡n|besubial|50 mg comp.x 30|biosintex retai": {
-    "droga": "losartÃ¡n",
+  "losartÃ£Â¡n|besubial|50 mg comp.x 30|biosintex retai": {
+    "droga": "losartÃÂ¡n",
     "marca": "BESUBIAL",
     "presentacion": "50 mg comp.x 30",
     "laboratorio": "Biosintex Retai",
@@ -1239,9 +1239,9 @@
     "motivo": "precio $347.50 < minimo $1,800 | precio $347.50 < 10% mediana $30,492.66",
     "bloqueado_en": "2026-05-30T18:32"
   },
-  "-|magnesio,hidrãxido|leche de magnesia axar susp.x 240 ml|wunder pharm": {
+  "-|magnesio,hidrÃ£Âxido|leche de magnesia axar susp.x 240 ml|wunder pharm": {
     "droga": "-",
-    "marca": "MAGNESIO,HIDRÃXIDO",
+    "marca": "MAGNESIO,HIDRÃÂXIDO",
     "presentacion": "LECHE DE MAGNESIA AXAR susp.x 240 ml",
     "laboratorio": "Wunder Pharm",
     "precio_detectado": 1500,
@@ -1479,10 +1479,10 @@
     "motivo": "precio $3,200.00 < 10% mediana $103,193.74",
     "bloqueado_en": "2026-05-30T18:32"
   },
-  "oseltamivir|oseltamivir elea|75 mg cã¡ps.x 10|elea": {
+  "oseltamivir|oseltamivir elea|75 mg cÃ£Â¡ps.x 10|elea": {
     "droga": "oseltamivir",
     "marca": "OSELTAMIVIR ELEA",
-    "presentacion": "75 mg cÃ¡ps.x 10",
+    "presentacion": "75 mg cÃÂ¡ps.x 10",
     "laboratorio": "Elea",
     "precio_detectado": 10776,
     "tipo": "bajo_critico",
@@ -1509,11 +1509,11 @@
     "motivo": "precio $114,754.79 < 10% mediana $1,225,555.15",
     "bloqueado_en": "2026-05-30T18:32"
   },
-  "pancuronio,bromuro|pancuron|4 mg a.x 1 x 2 ml|scott-cassarã¡": {
+  "pancuronio,bromuro|pancuron|4 mg a.x 1 x 2 ml|scott-cassarÃ£Â¡": {
     "droga": "pancuronio,bromuro",
     "marca": "PANCURON",
     "presentacion": "4 mg a.x 1 x 2 ml",
-    "laboratorio": "Scott-CassarÃ¡",
+    "laboratorio": "Scott-CassarÃÂ¡",
     "precio_detectado": 6181,
     "tipo": "bajo_critico",
     "motivo": "precio $6,181.00 < 10% mediana $134,036.85",
@@ -1659,8 +1659,8 @@
     "motivo": "precio $618,904.65 < 10% mediana $7,416,877.66",
     "bloqueado_en": "2026-05-30T18:32"
   },
-  "polisacaridosulfâ£rico,ã¡c.(ã©ste|fleboderma|cr.x 30 g|laboratorio gra": {
-    "droga": "polisacaridosulfÂ£rico,Ã¡c.(Ã©ste",
+  "polisacaridosulfÃ¢Â£rico,Ã£Â¡c.(Ã£Â©ste|fleboderma|cr.x 30 g|laboratorio gra": {
+    "droga": "polisacaridosulfÃÂ£rico,ÃÂ¡c.(ÃÂ©ste",
     "marca": "FLEBODERMA",
     "presentacion": "cr.x 30 g",
     "laboratorio": "Laboratorio Gra",
@@ -1839,10 +1839,10 @@
     "motivo": "precio $310.00 < minimo $1,800 | precio $310.00 < 10% mediana $14,599.82",
     "bloqueado_en": "2026-05-30T18:32"
   },
-  "soluc.parent/fisiol/glucos/otr|agua inyectable bp|a.plã¡st.x 5 ml|b.braun": {
+  "soluc.parent/fisiol/glucos/otr|agua inyectable bp|a.plÃ£Â¡st.x 5 ml|b.braun": {
     "droga": "soluc.parent/fisiol/glucos/otr",
     "marca": "AGUA INYECTABLE BP",
-    "presentacion": "a.plÃ¡st.x 5 ml",
+    "presentacion": "a.plÃÂ¡st.x 5 ml",
     "laboratorio": "B.Braun",
     "precio_detectado": 2807.3,
     "tipo": "bajo_critico",
@@ -2009,8 +2009,8 @@
     "motivo": "precio $16,880.41 < 25% mediana $119,516.28 (n=6)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "acetilsalicã­lico,ã¡c., asoc.|resaquit v.l.|comp.bicapa x 4|lazar": {
-    "droga": "acetilsalicÃ­lico,Ã¡c., asoc.",
+  "acetilsalicÃ£Â­lico,Ã£Â¡c., asoc.|resaquit v.l.|comp.bicapa x 4|lazar": {
+    "droga": "acetilsalicÃÂ­lico,ÃÂ¡c., asoc.",
     "marca": "RESAQUIT V.L.",
     "presentacion": "comp.bicapa x 4",
     "laboratorio": "Lazar",
@@ -2039,8 +2039,8 @@
     "motivo": "precio $8,967,836.43 < fence_low $11,372,370.85",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "albâ£mina humana|albumina serica|20% iny.x 10 ml|hemoderivados": {
-    "droga": "albÂ£mina humana",
+  "albÃ¢Â£mina humana|albumina serica|20% iny.x 10 ml|hemoderivados": {
+    "droga": "albÃÂ£mina humana",
     "marca": "ALBUMINA SERICA",
     "presentacion": "20% iny.x 10 ml",
     "laboratorio": "Hemoderivados",
@@ -2059,9 +2059,9 @@
     "motivo": "precio $2,871.18 < 25% mediana $11,761.35 (n=4)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "-|alcohol diclorobencãlico, asoc|strepsils plus carameloscaram.x 8 u.|reckitt benckis": {
+  "-|alcohol diclorobencÃ£Âlico, asoc|strepsils plus carameloscaram.x 8 u.|reckitt benckis": {
     "droga": "-",
-    "marca": "ALCOHOL DICLOROBENCÃLICO, ASOC",
+    "marca": "ALCOHOL DICLOROBENCÃÂLICO, ASOC",
     "presentacion": "STREPSILS PLUS CARAMELOScaram.x 8 u.",
     "laboratorio": "Reckitt Benckis",
     "precio_detectado": 5338.41,
@@ -2069,8 +2069,8 @@
     "motivo": "precio $5,338.41 < 25% mediana $23,672.05 (n=445)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "alcohol polivinã­lico, asoc.|panoptic lagrimas|sol.oft.x 10 ml|bausch & lomb a": {
-    "droga": "alcohol polivinÃ­lico, asoc.",
+  "alcohol polivinÃ£Â­lico, asoc.|panoptic lagrimas|sol.oft.x 10 ml|bausch & lomb a": {
+    "droga": "alcohol polivinÃÂ­lico, asoc.",
     "marca": "PANOPTIC LAGRIMAS",
     "presentacion": "sol.oft.x 10 ml",
     "laboratorio": "Bausch & Lomb A",
@@ -2139,10 +2139,10 @@
     "motivo": "precio $1,373.48 < minimo $1,800 | precio $1,373.48 < 25% mediana $12,427.07 (n=98)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "aluminio,hidr., magn.hidr., si|aludrox ii|clã¡sico comp.mast.x 6|omicron": {
+  "aluminio,hidr., magn.hidr., si|aludrox ii|clÃ£Â¡sico comp.mast.x 6|omicron": {
     "droga": "aluminio,hidr., magn.hidr., si",
     "marca": "ALUDROX II",
-    "presentacion": "ClÃ¡sico comp.mast.x 6",
+    "presentacion": "ClÃÂ¡sico comp.mast.x 6",
     "laboratorio": "Omicron",
     "precio_detectado": 3745.45,
     "tipo": "bajo_relativo",
@@ -2189,8 +2189,8 @@
     "motivo": "ppu $29.36 << mediana_grupo $290.14",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "amoxicilina, clavulã¡nico,ã¡c.|amoxicilina clavulanico r1000 mg comp.x 8|richet|desconocido": {
-    "droga": "amoxicilina, clavulÃ¡nico,Ã¡c.",
+  "amoxicilina, clavulÃ£Â¡nico,Ã£Â¡c.|amoxicilina clavulanico r1000 mg comp.x 8|richet|desconocido": {
+    "droga": "amoxicilina, clavulÃÂ¡nico,ÃÂ¡c.",
     "marca": "AMOXICILINA CLAVULANICO R1000 MG COMP.X 8",
     "presentacion": "Richet",
     "laboratorio": "Desconocido",
@@ -2199,8 +2199,8 @@
     "motivo": "precio $5,208.16 < 25% mediana $21,200.00 (n=61)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "amoxicilina, clavulã¡nico,ã¡c.|amoxicilina clavulanico r250 mg pvo.p/susp.x 60ml|richet|desconocido": {
-    "droga": "amoxicilina, clavulÃ¡nico,Ã¡c.",
+  "amoxicilina, clavulÃ£Â¡nico,Ã£Â¡c.|amoxicilina clavulanico r250 mg pvo.p/susp.x 60ml|richet|desconocido": {
+    "droga": "amoxicilina, clavulÃÂ¡nico,ÃÂ¡c.",
     "marca": "AMOXICILINA CLAVULANICO R250 MG PVO.P/SUSP.X 60ML",
     "presentacion": "Richet",
     "laboratorio": "Desconocido",
@@ -2209,8 +2209,8 @@
     "motivo": "precio $2,985.30 < 25% mediana $21,200.00 (n=61)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "amoxicilina, clavulã¡nico,ã¡c.|amoxicilina clavulanico r250 mg pvo.p/susp.x 90ml|richet|desconocido": {
-    "droga": "amoxicilina, clavulÃ¡nico,Ã¡c.",
+  "amoxicilina, clavulÃ£Â¡nico,Ã£Â¡c.|amoxicilina clavulanico r250 mg pvo.p/susp.x 90ml|richet|desconocido": {
+    "droga": "amoxicilina, clavulÃÂ¡nico,ÃÂ¡c.",
     "marca": "AMOXICILINA CLAVULANICO R250 MG PVO.P/SUSP.X 90ML",
     "presentacion": "Richet",
     "laboratorio": "Desconocido",
@@ -2219,9 +2219,9 @@
     "motivo": "precio $4,141.94 < 25% mediana $21,200.00 (n=61)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "-|amoxicilina, clavulãnico,ãc.|amoxicilina clavulanico 7400/57.5 mg susp.x 70 ml|richet": {
+  "-|amoxicilina, clavulÃ£Ânico,Ã£Âc.|amoxicilina clavulanico 7400/57.5 mg susp.x 70 ml|richet": {
     "droga": "-",
-    "marca": "AMOXICILINA, CLAVULÃNICO,ÃC.",
+    "marca": "AMOXICILINA, CLAVULÃÂNICO,ÃÂC.",
     "presentacion": "AMOXICILINA CLAVULANICO 7400/57.5 mg susp.x 70 ml",
     "laboratorio": "Richet",
     "precio_detectado": 16064.02,
@@ -2229,8 +2229,8 @@
     "motivo": "ppu $2.17 << mediana_grupo $109.62",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "amoxicilina, clavulã¡nico,ã¡c.|amoxicilina clavulanico r500 mg comp.x 8|richet|desconocido": {
-    "droga": "amoxicilina, clavulÃ¡nico,Ã¡c.",
+  "amoxicilina, clavulÃ£Â¡nico,Ã£Â¡c.|amoxicilina clavulanico r500 mg comp.x 8|richet|desconocido": {
+    "droga": "amoxicilina, clavulÃÂ¡nico,ÃÂ¡c.",
     "marca": "AMOXICILINA CLAVULANICO R500 MG COMP.X 8",
     "presentacion": "Richet",
     "laboratorio": "Desconocido",
@@ -2249,8 +2249,8 @@
     "motivo": "ppu $35.00 << mediana_grupo $13,168.87",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "antã­geno hepatitis a|havrix 1440 el.u. adultos jga.prell.x 1|glaxosmithkline|desconocido": {
-    "droga": "antÃ­geno hepatitis a",
+  "antÃ£Â­geno hepatitis a|havrix 1440 el.u. adultos jga.prell.x 1|glaxosmithkline|desconocido": {
+    "droga": "antÃÂ­geno hepatitis a",
     "marca": "HAVRIX 1440 EL.U. ADULTOS JGA.PRELL.X 1",
     "presentacion": "GlaxoSmithKline",
     "laboratorio": "Desconocido",
@@ -2259,8 +2259,8 @@
     "motivo": "precio $30,632.23 < 25% mediana $152,754.79 (n=6)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "antã­geno hepatitis a|havrix 720 el.u. mono dosjga.prell.x 1|glaxosmithkline|desconocido": {
-    "droga": "antÃ­geno hepatitis a",
+  "antÃ£Â­geno hepatitis a|havrix 720 el.u. mono dosjga.prell.x 1|glaxosmithkline|desconocido": {
+    "droga": "antÃÂ­geno hepatitis a",
     "marca": "HAVRIX 720 EL.U. MONO DOSJGA.PRELL.X 1",
     "presentacion": "GlaxoSmithKline",
     "laboratorio": "Desconocido",
@@ -2319,8 +2319,8 @@
     "motivo": "precio $282,345.00 < 25% mediana $1,835,057.85 (n=21)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "benzoã­lo,perã³xido|vixiderm e|5% gel x 40 g|siegfried": {
-    "droga": "benzoÃ­lo,perÃ³xido",
+  "benzoÃ£Â­lo,perÃ£Â³xido|vixiderm e|5% gel x 40 g|siegfried": {
+    "droga": "benzoÃÂ­lo,perÃÂ³xido",
     "marca": "VIXIDERM E",
     "presentacion": "5% gel x 40 g",
     "laboratorio": "Siegfried",
@@ -2359,11 +2359,11 @@
     "motivo": "precio $6,989.49 < 25% mediana $28,810.69 (n=34)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "betametasona|novocort|cr.x 15 g|andrã³maco": {
+  "betametasona|novocort|cr.x 15 g|andrÃ£Â³maco": {
     "droga": "betametasona",
     "marca": "NOVOCORT",
     "presentacion": "cr.x 15 g",
-    "laboratorio": "AndrÃ³maco",
+    "laboratorio": "AndrÃÂ³maco",
     "precio_detectado": 17059.81,
     "tipo": "inconsistencia_escala",
     "motivo": "ppu $1,137.32 << mediana_grupo $8,995.94",
@@ -2379,10 +2379,10 @@
     "motivo": "precio $1,555.28 < minimo $1,800",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "-|betametasona, gentamic., miconbetacort plus cassara cr.dãrmica x 25 g|cassarã¡|desconocido": {
+  "-|betametasona, gentamic., miconbetacort plus cassara cr.dÃ£Ârmica x 25 g|cassarÃ£Â¡|desconocido": {
     "droga": "-",
-    "marca": "BETAMETASONA, GENTAMIC., MICONBETACORT PLUS CASSARA CR.DÃRMICA X 25 G",
-    "presentacion": "CassarÃ¡",
+    "marca": "BETAMETASONA, GENTAMIC., MICONBETACORT PLUS CASSARA CR.DÃÂRMICA X 25 G",
+    "presentacion": "CassarÃÂ¡",
     "laboratorio": "Desconocido",
     "precio_detectado": 4526.85,
     "tipo": "bajo_relativo",
@@ -2449,21 +2449,21 @@
     "motivo": "precio $25,731.91 < 25% mediana $113,147.11 (n=20)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "budesonide, formoterol|neumocort plus|aer./inhal.x 60 ds.|cassarã¡": {
+  "budesonide, formoterol|neumocort plus|aer./inhal.x 60 ds.|cassarÃ£Â¡": {
     "droga": "budesonide, formoterol",
     "marca": "NEUMOCORT PLUS",
     "presentacion": "aer./inhal.x 60 ds.",
-    "laboratorio": "CassarÃ¡",
+    "laboratorio": "CassarÃÂ¡",
     "precio_detectado": 26330,
     "tipo": "bajo_relativo",
     "motivo": "precio $26,330.00 < 25% mediana $113,147.11 (n=20)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "buflomedil|buflomed|50 mg iny.a.x 6|scott-cassarã¡": {
+  "buflomedil|buflomed|50 mg iny.a.x 6|scott-cassarÃ£Â¡": {
     "droga": "buflomedil",
     "marca": "BUFLOMED",
     "presentacion": "50 mg iny.a.x 6",
-    "laboratorio": "Scott-CassarÃ¡",
+    "laboratorio": "Scott-CassarÃÂ¡",
     "precio_detectado": 1492,
     "tipo": "bajo_absoluto",
     "motivo": "precio $1,492.00 < minimo $1,800",
@@ -2479,8 +2479,8 @@
     "motivo": "precio $2,143.00 < 25% mediana $13,214.06 (n=6)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "carbã³n activado|carbon belloc|comp.x 30|schafer": {
-    "droga": "carbÃ³n activado",
+  "carbÃ£Â³n activado|carbon belloc|comp.x 30|schafer": {
+    "droga": "carbÃÂ³n activado",
     "marca": "CARBON BELLOC",
     "presentacion": "comp.x 30",
     "laboratorio": "Schafer",
@@ -2529,8 +2529,8 @@
     "motivo": "precio $22,230.40 < fence_low $22,991.54",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "cã¡scara sagrada|cascara sagrada oligoplex|comp.x 30|dr.madaus": {
-    "droga": "cÃ¡scara sagrada",
+  "cÃ£Â¡scara sagrada|cascara sagrada oligoplex|comp.x 30|dr.madaus": {
+    "droga": "cÃÂ¡scara sagrada",
     "marca": "CASCARA SAGRADA OLIGOPLEX",
     "presentacion": "comp.x 30",
     "laboratorio": "Dr.Madaus",
@@ -2549,11 +2549,11 @@
     "motivo": "precio $4,573.32 < 25% mediana $19,253.10 (n=6)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "cefixima|vixcef|susp.x 30 ml|bagã³": {
+  "cefixima|vixcef|susp.x 30 ml|bagÃ£Â³": {
     "droga": "cefixima",
     "marca": "VIXCEF",
     "presentacion": "susp.x 30 ml",
-    "laboratorio": "BagÃ³",
+    "laboratorio": "BagÃÂ³",
     "precio_detectado": 25471.44,
     "tipo": "bajo_iqr",
     "motivo": "precio $25,471.44 < fence_low $31,714.00",
@@ -2589,10 +2589,10 @@
     "motivo": "precio $5,852.23 < fence_low $6,370.00",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "-|ciprofloxacina, hidrocortisona|ciprofloxacina lazar hcgts.ã³ticas x 5 ml|lazar": {
+  "-|ciprofloxacina, hidrocortisona|ciprofloxacina lazar hcgts.Ã£Â³ticas x 5 ml|lazar": {
     "droga": "-",
     "marca": "CIPROFLOXACINA, HIDROCORTISONA",
-    "presentacion": "CIPROFLOXACINA LAZAR HCgts.Ã³ticas x 5 ml",
+    "presentacion": "CIPROFLOXACINA LAZAR HCgts.ÃÂ³ticas x 5 ml",
     "laboratorio": "Lazar",
     "precio_detectado": 5519.07,
     "tipo": "bajo_relativo",
@@ -2699,10 +2699,10 @@
     "motivo": "precio $2,297.92 < 25% mediana $22,318.52 (n=72)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "clindamicina|dexacne|300 mg cã¡ps.x 16|hlb pharma": {
+  "clindamicina|dexacne|300 mg cÃ£Â¡ps.x 16|hlb pharma": {
     "droga": "clindamicina",
     "marca": "DEXACNE",
-    "presentacion": "300 mg cÃ¡ps.x 16",
+    "presentacion": "300 mg cÃÂ¡ps.x 16",
     "laboratorio": "HLB Pharma",
     "precio_detectado": 8757.82,
     "tipo": "inconsistencia_escala",
@@ -2779,8 +2779,8 @@
     "motivo": "precio $3,065.23 < 25% mediana $13,645.63 (n=27)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "condroitã­n,sulfato, glucosamin|mecanyl k duo|gran.sob.x 30|beta": {
-    "droga": "condroitÃ­n,sulfato, glucosamin",
+  "condroitÃ£Â­n,sulfato, glucosamin|mecanyl k duo|gran.sob.x 30|beta": {
+    "droga": "condroitÃÂ­n,sulfato, glucosamin",
     "marca": "MECANYL K DUO",
     "presentacion": "gran.sob.x 30",
     "laboratorio": "Beta",
@@ -2879,8 +2879,8 @@
     "motivo": "precio $2,324.03 < 25% mediana $12,953.01 (n=30)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "diclofenac sã³dico|diclac|150 mg comp.rapirtd.x 5|siegfried": {
-    "droga": "diclofenac sÃ³dico",
+  "diclofenac sÃ£Â³dico|diclac|150 mg comp.rapirtd.x 5|siegfried": {
+    "droga": "diclofenac sÃÂ³dico",
     "marca": "DICLAC",
     "presentacion": "150 mg comp.rapirtd.x 5",
     "laboratorio": "Siegfried",
@@ -2889,8 +2889,8 @@
     "motivo": "precio $3,301.97 < 25% mediana $14,794.49 (n=96)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "diclofenac sã³dico|acloxigenac|50 mg comp.rec.x 10|eczane": {
-    "droga": "diclofenac sÃ³dico",
+  "diclofenac sÃ£Â³dico|acloxigenac|50 mg comp.rec.x 10|eczane": {
+    "droga": "diclofenac sÃÂ³dico",
     "marca": "ACLOXIGENAC",
     "presentacion": "50 mg comp.rec.x 10",
     "laboratorio": "Eczane",
@@ -2899,8 +2899,8 @@
     "motivo": "precio $3,501.20 < 25% mediana $14,794.49 (n=96)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "diclofenac sã³dico|diclac|75 mg comp.rapirtd.x 10|siegfried": {
-    "droga": "diclofenac sÃ³dico",
+  "diclofenac sÃ£Â³dico|diclac|75 mg comp.rapirtd.x 10|siegfried": {
+    "droga": "diclofenac sÃÂ³dico",
     "marca": "DICLAC",
     "presentacion": "75 mg comp.rapirtd.x 10",
     "laboratorio": "Siegfried",
@@ -2909,18 +2909,18 @@
     "motivo": "precio $3,690.41 < 25% mediana $14,794.49 (n=96)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "diclofenac sã³dico|anaflex|caps.blandas x 8|bagã³": {
-    "droga": "diclofenac sÃ³dico",
+  "diclofenac sÃ£Â³dico|anaflex|caps.blandas x 8|bagÃ£Â³": {
+    "droga": "diclofenac sÃÂ³dico",
     "marca": "ANAFLEX",
     "presentacion": "caps.blandas x 8",
-    "laboratorio": "BagÃ³",
+    "laboratorio": "BagÃÂ³",
     "precio_detectado": 2246.32,
     "tipo": "bajo_relativo",
     "motivo": "precio $2,246.32 < 25% mediana $14,794.49 (n=96)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "diclofenac sã³dico|oxa retard|comp.rec.x 30|beta": {
-    "droga": "diclofenac sÃ³dico",
+  "diclofenac sÃ£Â³dico|oxa retard|comp.rec.x 30|beta": {
+    "droga": "diclofenac sÃÂ³dico",
     "marca": "OXA RETARD",
     "presentacion": "comp.rec.x 30",
     "laboratorio": "Beta",
@@ -2929,8 +2929,8 @@
     "motivo": "precio $1,709.06 < minimo $1,800 | precio $1,709.06 < 25% mediana $14,794.49 (n=96)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "diclofenac sã³dico|volforte 25|comp.x 10|omicron": {
-    "droga": "diclofenac sÃ³dico",
+  "diclofenac sÃ£Â³dico|volforte 25|comp.x 10|omicron": {
+    "droga": "diclofenac sÃÂ³dico",
     "marca": "VOLFORTE 25",
     "presentacion": "comp.x 10",
     "laboratorio": "Omicron",
@@ -2939,11 +2939,11 @@
     "motivo": "precio $2,793.97 < 25% mediana $14,794.49 (n=96)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "diclofenac, vit.b12, betametas|dioxaflex b12|comp.x 20|bagã³": {
+  "diclofenac, vit.b12, betametas|dioxaflex b12|comp.x 20|bagÃ£Â³": {
     "droga": "diclofenac, vit.b12, betametas",
     "marca": "DIOXAFLEX B12",
     "presentacion": "comp.x 20",
-    "laboratorio": "BagÃ³",
+    "laboratorio": "BagÃÂ³",
     "precio_detectado": 33488.39,
     "tipo": "inconsistencia_escala",
     "motivo": "ppu $1,674.42 << mediana_grupo $11,698.20",
@@ -3009,8 +3009,8 @@
     "motivo": "precio $2,888.00 < 25% mediana $13,959.19 (n=96)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "enoxaparina sã³dica|omatex|40 mg jga.prell.x 2|elea": {
-    "droga": "enoxaparina sÃ³dica",
+  "enoxaparina sÃ£Â³dica|omatex|40 mg jga.prell.x 2|elea": {
+    "droga": "enoxaparina sÃÂ³dica",
     "marca": "OMATEX",
     "presentacion": "40 mg jga.prell.x 2",
     "laboratorio": "Elea",
@@ -3019,8 +3019,8 @@
     "motivo": "precio $84,458.13 < 25% mediana $668,881.30 (n=30) | ppu $2,111.45 << mediana_grupo $11,287.69",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "enoxaparina sã³dica|enoxanorth|40 mg jga.prell.x 2|lab internacion": {
-    "droga": "enoxaparina sÃ³dica",
+  "enoxaparina sÃ£Â³dica|enoxanorth|40 mg jga.prell.x 2|lab internacion": {
+    "droga": "enoxaparina sÃÂ³dica",
     "marca": "ENOXANORTH",
     "presentacion": "40 mg jga.prell.x 2",
     "laboratorio": "Lab Internacion",
@@ -3029,8 +3029,8 @@
     "motivo": "precio $93,638.78 < 25% mediana $668,881.30 (n=30)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "enoxaparina sã³dica|clexane|40 mg jga.prell.x 2|sanofi-aventis": {
-    "droga": "enoxaparina sÃ³dica",
+  "enoxaparina sÃ£Â³dica|clexane|40 mg jga.prell.x 2|sanofi-aventis": {
+    "droga": "enoxaparina sÃÂ³dica",
     "marca": "CLEXANE",
     "presentacion": "40 mg jga.prell.x 2",
     "laboratorio": "Sanofi-Aventis",
@@ -3039,8 +3039,8 @@
     "motivo": "precio $124,823.00 < 25% mediana $668,881.30 (n=30)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "enoxaparina sã³dica|dilutol|40mg jga.prell.x 2x0.4ml|lazar": {
-    "droga": "enoxaparina sÃ³dica",
+  "enoxaparina sÃ£Â³dica|dilutol|40mg jga.prell.x 2x0.4ml|lazar": {
+    "droga": "enoxaparina sÃÂ³dica",
     "marca": "DILUTOL",
     "presentacion": "40mg jga.prell.x 2x0.4ml",
     "laboratorio": "Lazar",
@@ -3169,8 +3169,8 @@
     "motivo": "precio $3,364.00 < 25% mediana $17,842.00 (n=13)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "fenitoã­na|fenitoina denver farma 100 mg caps.x 30|denver farma|desconocido": {
-    "droga": "fenitoÃ­na",
+  "fenitoÃ£Â­na|fenitoina denver farma 100 mg caps.x 30|denver farma|desconocido": {
+    "droga": "fenitoÃÂ­na",
     "marca": "FENITOINA DENVER FARMA 100 MG CAPS.X 30",
     "presentacion": "Denver Farma",
     "laboratorio": "Desconocido",
@@ -3179,8 +3179,8 @@
     "motivo": "precio $3,079.90 < 25% mediana $28,950.58 (n=9)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "fenitoã­na|fenitoina denver farma 100 mg caps.x 50|denver farma|desconocido": {
-    "droga": "fenitoÃ­na",
+  "fenitoÃ£Â­na|fenitoina denver farma 100 mg caps.x 50|denver farma|desconocido": {
+    "droga": "fenitoÃÂ­na",
     "marca": "FENITOINA DENVER FARMA 100 MG CAPS.X 50",
     "presentacion": "Denver Farma",
     "laboratorio": "Desconocido",
@@ -3189,8 +3189,8 @@
     "motivo": "precio $4,883.70 < 25% mediana $28,950.58 (n=9)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "fenitoã­na|fenitenk|100 mg comp.rec.x 30|biotenk": {
-    "droga": "fenitoÃ­na",
+  "fenitoÃ£Â­na|fenitenk|100 mg comp.rec.x 30|biotenk": {
+    "droga": "fenitoÃÂ­na",
     "marca": "FENITENK",
     "presentacion": "100 mg comp.rec.x 30",
     "laboratorio": "Biotenk",
@@ -3269,9 +3269,9 @@
     "motivo": "precio $8,308.71 < 25% mediana $33,701.18 (n=22)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "fluticasona, salmeterol|inhalan bronquial 250/50 cãps.p/inhal.x 60+aplic.|casasco|desconocido": {
+  "fluticasona, salmeterol|inhalan bronquial 250/50 cÃ£Âps.p/inhal.x 60+aplic.|casasco|desconocido": {
     "droga": "fluticasona, salmeterol",
-    "marca": "INHALAN BRONQUIAL 250/50 CÃPS.P/INHAL.X 60+APLIC.",
+    "marca": "INHALAN BRONQUIAL 250/50 CÃÂPS.P/INHAL.X 60+APLIC.",
     "presentacion": "Casasco",
     "laboratorio": "Desconocido",
     "precio_detectado": 18063.61,
@@ -3279,9 +3279,9 @@
     "motivo": "precio $18,063.61 < 25% mediana $90,963.70 (n=27)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "fluticasona, salmeterol|inhalan bronquial 500/50 cãps.p/inhal.x 60+aplic.|casasco|desconocido": {
+  "fluticasona, salmeterol|inhalan bronquial 500/50 cÃ£Âps.p/inhal.x 60+aplic.|casasco|desconocido": {
     "droga": "fluticasona, salmeterol",
-    "marca": "INHALAN BRONQUIAL 500/50 CÃPS.P/INHAL.X 60+APLIC.",
+    "marca": "INHALAN BRONQUIAL 500/50 CÃÂPS.P/INHAL.X 60+APLIC.",
     "presentacion": "Casasco",
     "laboratorio": "Desconocido",
     "precio_detectado": 18283.09,
@@ -3289,8 +3289,8 @@
     "motivo": "precio $18,283.09 < 25% mediana $90,963.70 (n=27)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "fã³lico,ã¡c.|suprafol|5 mg comp.x 30|siegfried": {
-    "droga": "fÃ³lico,Ã¡c.",
+  "fÃ£Â³lico,Ã£Â¡c.|suprafol|5 mg comp.x 30|siegfried": {
+    "droga": "fÃÂ³lico,ÃÂ¡c.",
     "marca": "SUPRAFOL",
     "presentacion": "5 mg comp.x 30",
     "laboratorio": "Siegfried",
@@ -3499,8 +3499,8 @@
     "motivo": "precio $45,396.49 < 25% mediana $422,867.02 (n=5)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "hierro, fã³lico,ã¡c.|sulfato ferroso richet 525 mg comp.x 30 (trzb)|richet|desconocido": {
-    "droga": "hierro, fÃ³lico,Ã¡c.",
+  "hierro, fÃ£Â³lico,Ã£Â¡c.|sulfato ferroso richet 525 mg comp.x 30 (trzb)|richet|desconocido": {
+    "droga": "hierro, fÃÂ³lico,ÃÂ¡c.",
     "marca": "SULFATO FERROSO RICHET 525 MG COMP.X 30 (TRZB)",
     "presentacion": "Richet",
     "laboratorio": "Desconocido",
@@ -3509,8 +3509,8 @@
     "motivo": "precio $8,192.60 < 25% mediana $35,895.74 (n=17)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "hierro, vit.b12, fã³lico,ã¡c.|tenvic|comp.rec.x 20|ariston": {
-    "droga": "hierro, vit.b12, fÃ³lico,Ã¡c.",
+  "hierro, vit.b12, fÃ£Â³lico,Ã£Â¡c.|tenvic|comp.rec.x 20|ariston": {
+    "droga": "hierro, vit.b12, fÃÂ³lico,ÃÂ¡c.",
     "marca": "TENVIC",
     "presentacion": "comp.rec.x 20",
     "laboratorio": "Ariston",
@@ -3539,20 +3539,20 @@
     "motivo": "precio $4,498.64 < 25% mediana $23,672.05 (n=445)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "-|ibuprofeno|ibu evanol forte rapida a400 mg cã¡ps.blandas x 10|glaxosmithkline": {
+  "-|ibuprofeno|ibu evanol forte rapida a400 mg cÃ£Â¡ps.blandas x 10|glaxosmithkline": {
     "droga": "-",
     "marca": "IBUPROFENO",
-    "presentacion": "IBU EVANOL FORTE RAPIDA A400 mg cÃ¡ps.blandas x 10",
+    "presentacion": "IBU EVANOL FORTE RAPIDA A400 mg cÃÂ¡ps.blandas x 10",
     "laboratorio": "GlaxoSmithKline",
     "precio_detectado": 3457,
     "tipo": "bajo_relativo",
     "motivo": "precio $3,457.00 < 25% mediana $23,672.05 (n=445)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "-|ibuprofeno|ibupirac capsula blanda 400 mg cã¡ps.blandas x 12|pfizer": {
+  "-|ibuprofeno|ibupirac capsula blanda 400 mg cÃ£Â¡ps.blandas x 12|pfizer": {
     "droga": "-",
     "marca": "IBUPROFENO",
-    "presentacion": "IBUPIRAC CAPSULA BLANDA 400 mg cÃ¡ps.blandas x 12",
+    "presentacion": "IBUPIRAC CAPSULA BLANDA 400 mg cÃÂ¡ps.blandas x 12",
     "laboratorio": "Pfizer",
     "precio_detectado": 4032.09,
     "tipo": "bajo_relativo",
@@ -3609,20 +3609,20 @@
     "motivo": "precio $857.05 < minimo $1,800 | precio $857.05 < 25% mediana $7,233.68 (n=117)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "-|ibuprofeno|ibu evanol rapida accioncã¡ps.blandas x 10|glaxosmithkline": {
+  "-|ibuprofeno|ibu evanol rapida accioncÃ£Â¡ps.blandas x 10|glaxosmithkline": {
     "droga": "-",
     "marca": "IBUPROFENO",
-    "presentacion": "IBU EVANOL RAPIDA ACCIONcÃ¡ps.blandas x 10",
+    "presentacion": "IBU EVANOL RAPIDA ACCIONcÃÂ¡ps.blandas x 10",
     "laboratorio": "GlaxoSmithKline",
     "precio_detectado": 2682,
     "tipo": "bajo_relativo",
     "motivo": "precio $2,682.00 < 25% mediana $23,672.05 (n=445)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "-|ibuprofeno|ibu evanol rapida accioncã¡ps.blandas x 20|glaxosmithkline": {
+  "-|ibuprofeno|ibu evanol rapida accioncÃ£Â¡ps.blandas x 20|glaxosmithkline": {
     "droga": "-",
     "marca": "IBUPROFENO",
-    "presentacion": "IBU EVANOL RAPIDA ACCIONcÃ¡ps.blandas x 20",
+    "presentacion": "IBU EVANOL RAPIDA ACCIONcÃÂ¡ps.blandas x 20",
     "laboratorio": "GlaxoSmithKline",
     "precio_detectado": 5095,
     "tipo": "bajo_relativo",
@@ -3649,9 +3649,9 @@
     "motivo": "ppu $109.20 << mediana_grupo $615.99",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "ibuprofeno|ibumejoral niâ¥os 2%|susp.oral.x 90 ml|laboratorio gra": {
+  "ibuprofeno|ibumejoral niÃ¢Â¥os 2%|susp.oral.x 90 ml|laboratorio gra": {
     "droga": "ibuprofeno",
-    "marca": "IBUMEJORAL NIÂ¥OS 2%",
+    "marca": "IBUMEJORAL NIÃÂ¥OS 2%",
     "presentacion": "susp.oral.x 90 ml",
     "laboratorio": "Laboratorio Gra",
     "precio_detectado": 1348.73,
@@ -3659,20 +3659,20 @@
     "motivo": "precio $1,348.73 < minimo $1,800 | precio $1,348.73 < 25% mediana $7,233.68 (n=117)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "-|ibuprofeno, cafeãna|ibu evanol max rapida acccã¡ps.blandas x 10|glaxosmithkline": {
+  "-|ibuprofeno, cafeÃ£Âna|ibu evanol max rapida acccÃ£Â¡ps.blandas x 10|glaxosmithkline": {
     "droga": "-",
-    "marca": "IBUPROFENO, CAFEÃNA",
-    "presentacion": "IBU EVANOL MAX RAPIDA ACCcÃ¡ps.blandas x 10",
+    "marca": "IBUPROFENO, CAFEÃÂNA",
+    "presentacion": "IBU EVANOL MAX RAPIDA ACCcÃÂ¡ps.blandas x 10",
     "laboratorio": "GlaxoSmithKline",
     "precio_detectado": 4220,
     "tipo": "bajo_relativo",
     "motivo": "precio $4,220.00 < 25% mediana $23,672.05 (n=445)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "-|ibuprofeno, cafeãna|ibu evanol plus rapida accã¡ps.blandas x 20|glaxosmithkline": {
+  "-|ibuprofeno, cafeÃ£Âna|ibu evanol plus rapida accÃ£Â¡ps.blandas x 20|glaxosmithkline": {
     "droga": "-",
-    "marca": "IBUPROFENO, CAFEÃNA",
-    "presentacion": "IBU EVANOL PLUS RAPIDA ACcÃ¡ps.blandas x 20",
+    "marca": "IBUPROFENO, CAFEÃÂNA",
+    "presentacion": "IBU EVANOL PLUS RAPIDA ACcÃÂ¡ps.blandas x 20",
     "laboratorio": "GlaxoSmithKline",
     "precio_detectado": 5547,
     "tipo": "bajo_relativo",
@@ -3839,8 +3839,8 @@
     "motivo": "precio $256.26 < minimo $1,800",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "losartã¡n|fiban 50|50 mg comp.rec.x 30|finadiet": {
-    "droga": "losartÃ¡n",
+  "losartÃ£Â¡n|fiban 50|50 mg comp.rec.x 30|finadiet": {
+    "droga": "losartÃÂ¡n",
     "marca": "FIBAN 50",
     "presentacion": "50 mg comp.rec.x 30",
     "laboratorio": "Finadiet",
@@ -3849,8 +3849,8 @@
     "motivo": "precio $7,187.57 < 25% mediana $30,492.66 (n=73)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "losartã¡n, hidroclorotiazida|cartan d 100|100/25 mg comp.rec.x 30|eurofarma": {
-    "droga": "losartÃ¡n, hidroclorotiazida",
+  "losartÃ£Â¡n, hidroclorotiazida|cartan d 100|100/25 mg comp.rec.x 30|eurofarma": {
+    "droga": "losartÃÂ¡n, hidroclorotiazida",
     "marca": "CARTAN D 100",
     "presentacion": "100/25 mg comp.rec.x 30",
     "laboratorio": "Eurofarma",
@@ -3859,8 +3859,8 @@
     "motivo": "precio $7,009.00 < 25% mediana $34,849.01 (n=36)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "losartã¡n, hidroclorotiazida|prisonil d|50/12.5 mg comp.rec.x 15|lepetit": {
-    "droga": "losartÃ¡n, hidroclorotiazida",
+  "losartÃ£Â¡n, hidroclorotiazida|prisonil d|50/12.5 mg comp.rec.x 15|lepetit": {
+    "droga": "losartÃÂ¡n, hidroclorotiazida",
     "marca": "PRISONIL D",
     "presentacion": "50/12.5 mg comp.rec.x 15",
     "laboratorio": "Lepetit",
@@ -3869,8 +3869,8 @@
     "motivo": "precio $15,840.00 < fence_low $22,793.26",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "losartã¡n, hidroclorotiazida|cartan d|50/12.5 mg comp.rec.x 30|eurofarma": {
-    "droga": "losartÃ¡n, hidroclorotiazida",
+  "losartÃ£Â¡n, hidroclorotiazida|cartan d|50/12.5 mg comp.rec.x 30|eurofarma": {
+    "droga": "losartÃÂ¡n, hidroclorotiazida",
     "marca": "CARTAN D",
     "presentacion": "50/12.5 mg comp.rec.x 30",
     "laboratorio": "Eurofarma",
@@ -3899,11 +3899,11 @@
     "motivo": "precio $3,843.83 < 25% mediana $22,635.91 (n=20)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "mesalazina|5-asa 400|400 mg sup.x 10|domã­nguez": {
+  "mesalazina|5-asa 400|400 mg sup.x 10|domÃ£Â­nguez": {
     "droga": "mesalazina",
     "marca": "5-ASA 400",
     "presentacion": "400 mg sup.x 10",
-    "laboratorio": "DomÃ­nguez",
+    "laboratorio": "DomÃÂ­nguez",
     "precio_detectado": 41133.21,
     "tipo": "bajo_relativo",
     "motivo": "precio $41,133.21 < 25% mediana $204,255.12 (n=43)",
@@ -4059,10 +4059,10 @@
     "motivo": "precio $4,445.10 < 25% mediana $30,584.00 (n=9)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "nitisinona|nitine|2 mg cã¡ps.fco.x 60|conifarma": {
+  "nitisinona|nitine|2 mg cÃ£Â¡ps.fco.x 60|conifarma": {
     "droga": "nitisinona",
     "marca": "NITINE",
-    "presentacion": "2 mg cÃ¡ps.fco.x 60",
+    "presentacion": "2 mg cÃÂ¡ps.fco.x 60",
     "laboratorio": "Conifarma",
     "precio_detectado": 3263443,
     "tipo": "bajo_relativo",
@@ -4169,8 +4169,8 @@
     "motivo": "ppu $214.74 << mediana_grupo $1,174.02",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "ondansetrã³n|ondansetron gobbi|8 mg iny.a. x 1 x 4 ml|gobbi": {
-    "droga": "ondansetrÃ³n",
+  "ondansetrÃ£Â³n|ondansetron gobbi|8 mg iny.a. x 1 x 4 ml|gobbi": {
+    "droga": "ondansetrÃÂ³n",
     "marca": "ONDANSETRON GOBBI",
     "presentacion": "8 mg iny.a. x 1 x 4 ml",
     "laboratorio": "Gobbi",
@@ -4349,10 +4349,10 @@
     "motivo": "ppu $317.58 << mediana_grupo $4,880.43",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "-|paracetamol|mejoral para niâ¥os gotasgts.x 20 ml|laboratorio gra": {
+  "-|paracetamol|mejoral para niÃ¢Â¥os gotasgts.x 20 ml|laboratorio gra": {
     "droga": "-",
     "marca": "PARACETAMOL",
-    "presentacion": "MEJORAL PARA NIÂ¥OS GOTASgts.x 20 ml",
+    "presentacion": "MEJORAL PARA NIÃÂ¥OS GOTASgts.x 20 ml",
     "laboratorio": "Laboratorio Gra",
     "precio_detectado": 7333.22,
     "tipo": "inconsistencia_escala",
@@ -4549,11 +4549,11 @@
     "motivo": "precio $6,732.70 < 25% mediana $41,612.51 (n=112) | ppu $22.44 << mediana_grupo $528.80",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "producto cosmã©tico|percutafeine|env.x 200 ml|pierre fabre mã©": {
-    "droga": "producto cosmÃ©tico",
+  "producto cosmÃ£Â©tico|percutafeine|env.x 200 ml|pierre fabre mÃ£Â©": {
+    "droga": "producto cosmÃÂ©tico",
     "marca": "PERCUTAFEINE",
     "presentacion": "env.x 200 ml",
-    "laboratorio": "Pierre Fabre MÃ©",
+    "laboratorio": "Pierre Fabre MÃÂ©",
     "precio_detectado": 313.73,
     "tipo": "bajo_absoluto",
     "motivo": "precio $313.73 < minimo $1,800",
@@ -4719,8 +4719,8 @@
     "motivo": "precio $974,386.53 < 25% mediana $3,933,526.70 (n=11)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "rivaroxabã¡n|remexal|10 mg comp.rec.x 10|casasco": {
-    "droga": "rivaroxabÃ¡n",
+  "rivaroxabÃ£Â¡n|remexal|10 mg comp.rec.x 10|casasco": {
+    "droga": "rivaroxabÃÂ¡n",
     "marca": "REMEXAL",
     "presentacion": "10 mg comp.rec.x 10",
     "laboratorio": "Casasco",
@@ -4729,8 +4729,8 @@
     "motivo": "precio $53,376.08 < fence_low $76,751.49",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "rivaroxabã¡n|abaxon|10 mg x 10 comp.rec.|roemmers": {
-    "droga": "rivaroxabÃ¡n",
+  "rivaroxabÃ£Â¡n|abaxon|10 mg x 10 comp.rec.|roemmers": {
+    "droga": "rivaroxabÃÂ¡n",
     "marca": "ABAXON",
     "presentacion": "10 mg x 10 comp.rec.",
     "laboratorio": "Roemmers",
@@ -4739,8 +4739,8 @@
     "motivo": "precio $53,359.00 < fence_low $76,751.49",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "rivaroxabã¡n|xaroban|10 mg x 10 comp.rec.|raffo": {
-    "droga": "rivaroxabÃ¡n",
+  "rivaroxabÃ£Â¡n|xaroban|10 mg x 10 comp.rec.|raffo": {
+    "droga": "rivaroxabÃÂ¡n",
     "marca": "XAROBAN",
     "presentacion": "10 mg x 10 comp.rec.",
     "laboratorio": "Raffo",
@@ -4749,8 +4749,8 @@
     "motivo": "precio $54,187.98 < fence_low $76,751.49",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "rivaroxabã¡n|xaroban|15 mg x 15 comp.rec.|raffo": {
-    "droga": "rivaroxabÃ¡n",
+  "rivaroxabÃ£Â¡n|xaroban|15 mg x 15 comp.rec.|raffo": {
+    "droga": "rivaroxabÃÂ¡n",
     "marca": "XAROBAN",
     "presentacion": "15 mg x 15 comp.rec.",
     "laboratorio": "Raffo",
@@ -4759,8 +4759,8 @@
     "motivo": "precio $58,547.44 < fence_low $76,751.49",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "rivaroxabã¡n|xaroban|2.5 mg x 30 comp.rec.|raffo": {
-    "droga": "rivaroxabÃ¡n",
+  "rivaroxabÃ£Â¡n|xaroban|2.5 mg x 30 comp.rec.|raffo": {
+    "droga": "rivaroxabÃÂ¡n",
     "marca": "XAROBAN",
     "presentacion": "2.5 mg x 30 comp.rec.",
     "laboratorio": "Raffo",
@@ -4769,8 +4769,8 @@
     "motivo": "precio $63,643.50 < fence_low $76,751.49",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "rivaroxabã¡n|abaxon|2.5 mg x 30 comp.rec.|roemmers": {
-    "droga": "rivaroxabÃ¡n",
+  "rivaroxabÃ£Â¡n|abaxon|2.5 mg x 30 comp.rec.|roemmers": {
+    "droga": "rivaroxabÃÂ¡n",
     "marca": "ABAXON",
     "presentacion": "2.5 mg x 30 comp.rec.",
     "laboratorio": "Roemmers",
@@ -4779,8 +4779,8 @@
     "motivo": "precio $69,014.00 < fence_low $76,751.49",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "rivaroxabã¡n|xaroban|20 mg x 15 comp.rec.|raffo": {
-    "droga": "rivaroxabÃ¡n",
+  "rivaroxabÃ£Â¡n|xaroban|20 mg x 15 comp.rec.|raffo": {
+    "droga": "rivaroxabÃÂ¡n",
     "marca": "XAROBAN",
     "presentacion": "20 mg x 15 comp.rec.",
     "laboratorio": "Raffo",
@@ -4789,11 +4789,11 @@
     "motivo": "precio $58,943.18 < fence_low $76,751.49",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "salicã­lico,ã¡c.|verrukid pediatrico|gel lã­q.x 10 g|cassarã¡": {
-    "droga": "salicÃ­lico,Ã¡c.",
+  "salicÃ£Â­lico,Ã£Â¡c.|verrukid pediatrico|gel lÃ£Â­q.x 10 g|cassarÃ£Â¡": {
+    "droga": "salicÃÂ­lico,ÃÂ¡c.",
     "marca": "VERRUKID PEDIATRICO",
-    "presentacion": "gel lÃ­q.x 10 g",
-    "laboratorio": "CassarÃ¡",
+    "presentacion": "gel lÃÂ­q.x 10 g",
+    "laboratorio": "CassarÃÂ¡",
     "precio_detectado": 10560,
     "tipo": "bajo_iqr",
     "motivo": "precio $10,560.00 < fence_low $17,267.42",
@@ -4969,20 +4969,20 @@
     "motivo": "precio $693,848.32 < 25% mediana $6,797,908.91 (n=7)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "soluc.parent/fisiol/glucos/otr|agua inyectable bp|a.plã¡st.x 10 ml|b.braun": {
+  "soluc.parent/fisiol/glucos/otr|agua inyectable bp|a.plÃ£Â¡st.x 10 ml|b.braun": {
     "droga": "soluc.parent/fisiol/glucos/otr",
     "marca": "AGUA INYECTABLE BP",
-    "presentacion": "a.plÃ¡st.x 10 ml",
+    "presentacion": "a.plÃÂ¡st.x 10 ml",
     "laboratorio": "B.Braun",
     "precio_detectado": 3714.2,
     "tipo": "bajo_relativo",
     "motivo": "precio $3,714.20 < 25% mediana $32,320.10 (n=21)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "-|soluc.parent/fisiol/glucos/otr|cloruro de sodio 0.9% bpa.plã¡st.x 5 ml|b.braun": {
+  "-|soluc.parent/fisiol/glucos/otr|cloruro de sodio 0.9% bpa.plÃ£Â¡st.x 5 ml|b.braun": {
     "droga": "-",
     "marca": "SOLUC.PARENT/FISIOL/GLUCOS/OTR",
-    "presentacion": "CLORURO DE SODIO 0.9% BPa.plÃ¡st.x 5 ml",
+    "presentacion": "CLORURO DE SODIO 0.9% BPa.plÃÂ¡st.x 5 ml",
     "laboratorio": "B.Braun",
     "precio_detectado": 2807.3,
     "tipo": "bajo_relativo",
@@ -5199,8 +5199,8 @@
     "motivo": "ppu $1,372.23 << mediana_grupo $11,260.93",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "telmisartã¡n|mitex|40 mg comp.x 28|eczane": {
-    "droga": "telmisartÃ¡n",
+  "telmisartÃ£Â¡n|mitex|40 mg comp.x 28|eczane": {
+    "droga": "telmisartÃÂ¡n",
     "marca": "MITEX",
     "presentacion": "40 mg comp.x 28",
     "laboratorio": "Eczane",
@@ -5279,8 +5279,8 @@
     "motivo": "precio $70,592.01 < 25% mediana $419,085.07 (n=6)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "tetraciclina, papaã­na|solustres|grag.x 16|finadiet": {
-    "droga": "tetraciclina, papaÃ­na",
+  "tetraciclina, papaÃ£Â­na|solustres|grag.x 16|finadiet": {
+    "droga": "tetraciclina, papaÃÂ­na",
     "marca": "SOLUSTRES",
     "presentacion": "grag.x 16",
     "laboratorio": "Finadiet",
@@ -5319,8 +5319,8 @@
     "motivo": "precio $2,094,159.90 < 25% mediana $8,596,300.01 (n=3)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "tirotricina, benzocaã­na, asoc.|filotricin a|caram.x 10|siegfried": {
-    "droga": "tirotricina, benzocaÃ­na, asoc.",
+  "tirotricina, benzocaÃ£Â­na, asoc.|filotricin a|caram.x 10|siegfried": {
+    "droga": "tirotricina, benzocaÃÂ­na, asoc.",
     "marca": "FILOTRICIN A",
     "presentacion": "caram.x 10",
     "laboratorio": "Siegfried",
@@ -5339,8 +5339,8 @@
     "motivo": "ppu $2,060.53 << mediana_grupo $106,478.13",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "tranexã¡mico,ã¡c.|tranexal 1000|1000 mg i.v.a. x 10 ml|rivero": {
-    "droga": "tranexÃ¡mico,Ã¡c.",
+  "tranexÃ£Â¡mico,Ã£Â¡c.|tranexal 1000|1000 mg i.v.a. x 10 ml|rivero": {
+    "droga": "tranexÃÂ¡mico,ÃÂ¡c.",
     "marca": "TRANEXAL 1000",
     "presentacion": "1000 mg I.V.a. x 10 ml",
     "laboratorio": "Rivero",
@@ -5369,8 +5369,8 @@
     "motivo": "precio $17,812,421.55 < 25% mediana $84,608,771.48 (n=19)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "tretinoã­na, eritromicina|acneout|gel x 15 g|hlb pharma": {
-    "droga": "tretinoÃ­na, eritromicina",
+  "tretinoÃ£Â­na, eritromicina|acneout|gel x 15 g|hlb pharma": {
+    "droga": "tretinoÃÂ­na, eritromicina",
     "marca": "ACNEOUT",
     "presentacion": "gel x 15 g",
     "laboratorio": "HLB Pharma",
@@ -5379,8 +5379,8 @@
     "motivo": "precio $2,160.63 < 25% mediana $20,461.74 (n=3)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "ursodesoxicã³lico,ã¡c.|ursidesox|150 mg comp.rec.x 20|duncan": {
-    "droga": "ursodesoxicÃ³lico,Ã¡c.",
+  "ursodesoxicÃ£Â³lico,Ã£Â¡c.|ursidesox|150 mg comp.rec.x 20|duncan": {
+    "droga": "ursodesoxicÃÂ³lico,ÃÂ¡c.",
     "marca": "URSIDESOX",
     "presentacion": "150 mg comp.rec.x 20",
     "laboratorio": "Duncan",
@@ -5389,8 +5389,8 @@
     "motivo": "precio $5,924.33 < 25% mediana $56,691.37 (n=33)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "ursodesoxicã³lico,ã¡c.|urigesic|150 mg comp.x 20|hlb pharma": {
-    "droga": "ursodesoxicÃ³lico,Ã¡c.",
+  "ursodesoxicÃ£Â³lico,Ã£Â¡c.|urigesic|150 mg comp.x 20|hlb pharma": {
+    "droga": "ursodesoxicÃÂ³lico,ÃÂ¡c.",
     "marca": "URIGESIC",
     "presentacion": "150 mg comp.x 20",
     "laboratorio": "HLB Pharma",
@@ -5399,8 +5399,8 @@
     "motivo": "precio $12,184.02 < 25% mediana $56,691.37 (n=33)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "valsartã¡n|dilcoran|320 mg comp.rec.x 56|casasco": {
-    "droga": "valsartÃ¡n",
+  "valsartÃ£Â¡n|dilcoran|320 mg comp.rec.x 56|casasco": {
+    "droga": "valsartÃÂ¡n",
     "marca": "DILCORAN",
     "presentacion": "320 mg comp.rec.x 56",
     "laboratorio": "Casasco",
@@ -5479,8 +5479,8 @@
     "motivo": "precio $115,413.21 < fence_low $216,155.59",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "vit.a, alantoã­na, asoc.|masivol|emuls.x 100 g|siegfried": {
-    "droga": "vit.a, alantoÃ­na, asoc.",
+  "vit.a, alantoÃ£Â­na, asoc.|masivol|emuls.x 100 g|siegfried": {
+    "droga": "vit.a, alantoÃÂ­na, asoc.",
     "marca": "MASIVOL",
     "presentacion": "emuls.x 100 g",
     "laboratorio": "Siegfried",
@@ -5489,8 +5489,8 @@
     "motivo": "precio $3,790.85 < 25% mediana $19,194.43 (n=30)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "vit.a, alantoã­na, asoc.|factor ae|emuls.x 300 ml|casasco": {
-    "droga": "vit.a, alantoÃ­na, asoc.",
+  "vit.a, alantoÃ£Â­na, asoc.|factor ae|emuls.x 300 ml|casasco": {
+    "droga": "vit.a, alantoÃÂ­na, asoc.",
     "marca": "FACTOR AE",
     "presentacion": "emuls.x 300 ml",
     "laboratorio": "Casasco",
@@ -5519,8 +5519,8 @@
     "motivo": "precio $1,953.81 < 25% mediana $12,897.27 (n=51)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "zoledrã³nico,ã¡c.|zolenico|4 mg iny.liof.x 1+solv.|lkm onco/especi": {
-    "droga": "zoledrÃ³nico,Ã¡c.",
+  "zoledrÃ£Â³nico,Ã£Â¡c.|zolenico|4 mg iny.liof.x 1+solv.|lkm onco/especi": {
+    "droga": "zoledrÃÂ³nico,ÃÂ¡c.",
     "marca": "ZOLENICO",
     "presentacion": "4 mg iny.liof.x 1+solv.",
     "laboratorio": "LKM Onco/Especi",
@@ -5558,5 +5558,495 @@
     "tipo": "inconsistencia_escala",
     "motivo": "ppu $23.17 << mediana_grupo $327.16",
     "bloqueado_en": "2026-05-30T18:45"
+  },
+  "acetilcisteã­na|maxvan|600 mg comp.efer.x 10|vannier": {
+    "droga": "acetilcisteÃ­na",
+    "marca": "MAXVAN",
+    "presentacion": "600 mg comp.efer.x 10",
+    "laboratorio": "Vannier",
+    "precio_detectado": 1433,
+    "tipo": "bajo_critico",
+    "motivo": "precio $1,433.00 < minimo $1,800 | precio $1,433.00 < 10% mediana $16,389.85",
+    "bloqueado_en": "2026-06-13T03:08"
+  },
+  "acetilcisteã­na|maxvan|600 mg comp.efer.x 20|vannier": {
+    "droga": "acetilcisteÃ­na",
+    "marca": "MAXVAN",
+    "presentacion": "600 mg comp.efer.x 20",
+    "laboratorio": "Vannier",
+    "precio_detectado": 1122,
+    "tipo": "bajo_critico",
+    "motivo": "precio $1,122.00 < minimo $1,800 | precio $1,122.00 < 10% mediana $16,389.85",
+    "bloqueado_en": "2026-06-13T03:08"
+  },
+  "alcohol diclorobencã­lico, asoc|strepsils caramelos|menta fuerte x 8 u.|reckitt benckis": {
+    "droga": "alcohol diclorobencÃ­lico, asoc",
+    "marca": "STREPSILS CARAMELOS",
+    "presentacion": "Menta Fuerte x 8 u.",
+    "laboratorio": "Reckitt Benckis",
+    "precio_detectado": 266,
+    "tipo": "bajo_critico",
+    "motivo": "precio $266.00 < minimo $1,800 | precio $266.00 < 10% mediana $4,430.03",
+    "bloqueado_en": "2026-06-13T03:08"
+  },
+  "-|amilo,salicilato, asoc.|atomo clasico monodosisenv. x 1 x 10 g|laboratorio gramon": {
+    "droga": "-",
+    "marca": "AMILO,SALICILATO, ASOC.",
+    "presentacion": "ATOMO CLASICO MONODOSISenv. x 1 x 10 g",
+    "laboratorio": "Laboratorio Gramon",
+    "precio_detectado": 2575.98,
+    "tipo": "bajo_critico",
+    "motivo": "precio $2,575.98 < 10% mediana $27,765.25",
+    "bloqueado_en": "2026-06-13T03:08"
+  },
+  "amitriptilina|amitriptilina luar|25 mg comp.rec.x 50|quã­mica luar": {
+    "droga": "amitriptilina",
+    "marca": "AMITRIPTILINA LUAR",
+    "presentacion": "25 mg comp.rec.x 50",
+    "laboratorio": "QuÃ­mica Luar",
+    "precio_detectado": 67.95,
+    "tipo": "bajo_critico",
+    "motivo": "precio $67.95 < minimo $1,800 | precio $67.95 < 10% mediana $24,255.91",
+    "bloqueado_en": "2026-06-13T03:08"
+  },
+  "amoxicilina, acetilcisteã­na|cistefort duo|875/300 mg comp.x 14|fortbenton": {
+    "droga": "amoxicilina, acetilcisteÃ­na",
+    "marca": "CISTEFORT DUO",
+    "presentacion": "875/300 mg comp.x 14",
+    "laboratorio": "Fortbenton",
+    "precio_detectado": 1706.89,
+    "tipo": "bajo_critico",
+    "motivo": "precio $1,706.89 < minimo $1,800 | precio $1,706.89 < 10% mediana $20,189.44",
+    "bloqueado_en": "2026-06-13T03:08"
+  },
+  "amoxicilina, clavulã¡nico,ã¡c.|bioxilina plus duo|400 mg susp.x 70 ml|biosintex retai": {
+    "droga": "amoxicilina, clavulÃ¡nico,Ã¡c.",
+    "marca": "BIOXILINA PLUS DUO",
+    "presentacion": "400 mg susp.x 70 ml",
+    "laboratorio": "Biosintex Retai",
+    "precio_detectado": 278,
+    "tipo": "bajo_critico",
+    "motivo": "precio $278.00 < minimo $1,800 | precio $278.00 < 10% mediana $21,926.39",
+    "bloqueado_en": "2026-06-13T03:08"
+  },
+  "amoxicilina, clavulã¡nico,ã¡c.|bioxilina plus|500 mg comp.rec.x 16|biosintex retai": {
+    "droga": "amoxicilina, clavulÃ¡nico,Ã¡c.",
+    "marca": "BIOXILINA PLUS",
+    "presentacion": "500 mg comp.rec.x 16",
+    "laboratorio": "Biosintex Retai",
+    "precio_detectado": 388,
+    "tipo": "bajo_critico",
+    "motivo": "precio $388.00 < minimo $1,800 | precio $388.00 < 10% mediana $21,926.39",
+    "bloqueado_en": "2026-06-13T03:08"
+  },
+  "amoxicilina, clavulã¡nico,ã¡c.|amoclav|500 mg comp.rec.x 16|casasco": {
+    "droga": "amoxicilina, clavulÃ¡nico,Ã¡c.",
+    "marca": "AMOCLAV",
+    "presentacion": "500 mg comp.rec.x 16",
+    "laboratorio": "Casasco",
+    "precio_detectado": 1316.02,
+    "tipo": "bajo_critico",
+    "motivo": "precio $1,316.02 < minimo $1,800 | precio $1,316.02 < 10% mediana $21,926.39",
+    "bloqueado_en": "2026-06-13T03:08"
+  },
+  "atorvastatã­n, ezetimibe|ateroclar duo|10/10 mg blist.x 30+30|beta": {
+    "droga": "atorvastatÃ­n, ezetimibe",
+    "marca": "ATEROCLAR DUO",
+    "presentacion": "10/10 mg blist.x 30+30",
+    "laboratorio": "Beta",
+    "precio_detectado": 2687.54,
+    "tipo": "bajo_critico",
+    "motivo": "precio $2,687.54 < 10% mediana $50,778.57",
+    "bloqueado_en": "2026-06-13T03:08"
+  },
+  "atorvastatã­n, ezetimibe|ateroclar duo|20/10 mg blist.x 30+30|beta": {
+    "droga": "atorvastatÃ­n, ezetimibe",
+    "marca": "ATEROCLAR DUO",
+    "presentacion": "20/10 mg blist.x 30+30",
+    "laboratorio": "Beta",
+    "precio_detectado": 3223.77,
+    "tipo": "bajo_critico",
+    "motivo": "precio $3,223.77 < 10% mediana $50,778.57",
+    "bloqueado_en": "2026-06-13T03:08"
+  },
+  "bupivacaã­na|caina-g hiperbarica|0.5% a.x 4 ml|gray": {
+    "droga": "bupivacaÃ­na",
+    "marca": "CAINA-G HIPERBARICA",
+    "presentacion": "0.5% a.x 4 ml",
+    "laboratorio": "Gray",
+    "precio_detectado": 29880.75,
+    "tipo": "bajo_critico",
+    "motivo": "precio $29,880.75 < 10% mediana $327,248.07",
+    "bloqueado_en": "2026-06-13T03:08"
+  },
+  "bupivacaã­na|bupicaina|0.50% s/cons.f.a.x 20 ml|scott-cassarã¡": {
+    "droga": "bupivacaÃ­na",
+    "marca": "BUPICAINA",
+    "presentacion": "0.50% s/cons.f.a.x 20 ml",
+    "laboratorio": "Scott-CassarÃ¡",
+    "precio_detectado": 19780,
+    "tipo": "bajo_critico",
+    "motivo": "precio $19,780.00 < 10% mediana $327,248.07",
+    "bloqueado_en": "2026-06-13T03:08"
+  },
+  "carboximetilcelulosa sã³d., aso|biodrop|sol.oft.x 15 ml|sidus": {
+    "droga": "carboximetilcelulosa sÃ³d., aso",
+    "marca": "BIODROP",
+    "presentacion": "sol.oft.x 15 ml",
+    "laboratorio": "Sidus",
+    "precio_detectado": 448.08,
+    "tipo": "bajo_critico",
+    "motivo": "precio $448.08 < minimo $1,800 | precio $448.08 < 10% mediana $5,223.66",
+    "bloqueado_en": "2026-06-13T03:08"
+  },
+  "clonixinato lisina|dorixina gel|gel x 50 g|roemmers": {
+    "droga": "clonixinato lisina",
+    "marca": "DORIXINA GEL",
+    "presentacion": "gel x 50 g",
+    "laboratorio": "Roemmers",
+    "precio_detectado": 10962,
+    "tipo": "bajo_critico",
+    "motivo": "precio $10,962.00 < 10% mediana $214,058.25",
+    "bloqueado_en": "2026-06-13T03:08"
+  },
+  "clorhexidina, asoc.|merthiolate nueva formula|espã¡t.incoloro x 60 ml|laboratorio gra": {
+    "droga": "clorhexidina, asoc.",
+    "marca": "MERTHIOLATE NUEVA FORMULA",
+    "presentacion": "espÃ¡t.incoloro x 60 ml",
+    "laboratorio": "Laboratorio Gra",
+    "precio_detectado": 775.39,
+    "tipo": "bajo_critico",
+    "motivo": "precio $775.39 < minimo $1,800 | precio $775.39 < 10% mediana $16,318.64",
+    "bloqueado_en": "2026-06-13T03:08"
+  },
+  "fenitoã­na|fenitenk|100 mg comp.rec.x 30|biotenk": {
+    "droga": "fenitoÃ­na",
+    "marca": "FENITENK",
+    "presentacion": "100 mg comp.rec.x 30",
+    "laboratorio": "Biotenk",
+    "precio_detectado": 3833.2,
+    "tipo": "bajo_critico",
+    "motivo": "precio $3,833.20 < 10% mediana $65,114.12",
+    "bloqueado_en": "2026-06-13T03:08"
+  },
+  "fentanilo|sublimaze s/conservadoriny.x 5 x|2 ml|janssen-cilag": {
+    "droga": "fentanilo",
+    "marca": "SUBLIMAZE S/CONSERVADORINY.X 5 X",
+    "presentacion": "2 ml",
+    "laboratorio": "Janssen-Cilag",
+    "precio_detectado": 11286.79,
+    "tipo": "bajo_critico",
+    "motivo": "precio $11,286.79 < 10% mediana $334,473.35",
+    "bloqueado_en": "2026-06-13T03:08"
+  },
+  "ginseng, vit., minerales|marathon|caps.x 20|laboratorio gramon": {
+    "droga": "ginseng, vit., minerales",
+    "marca": "MARATHON",
+    "presentacion": "caps.x 20",
+    "laboratorio": "Laboratorio Gramon",
+    "precio_detectado": 1640.1,
+    "tipo": "bajo_critico",
+    "motivo": "precio $1,640.10 < minimo $1,800 | precio $1,640.10 < 10% mediana $22,981.86",
+    "bloqueado_en": "2026-06-13T03:08"
+  },
+  "-|ibuprofeno|ibu evanol rapida accioncã¡ps.blandas x 10|glaxosmithkline": {
+    "droga": "-",
+    "marca": "IBUPROFENO",
+    "presentacion": "IBU EVANOL RAPIDA ACCIONcÃ¡ps.blandas x 10",
+    "laboratorio": "GlaxoSmithKline",
+    "precio_detectado": 2682,
+    "tipo": "bajo_critico",
+    "motivo": "precio $2,682.00 < 10% mediana $27,765.25",
+    "bloqueado_en": "2026-06-13T03:08"
+  },
+  "inosina,monofosfato disã³dico|inokat|sol.oft.esteril x 10 ml|lab internacion": {
+    "droga": "inosina,monofosfato disÃ³dico",
+    "marca": "INOKAT",
+    "presentacion": "sol.oft.esteril x 10 ml",
+    "laboratorio": "Lab Internacion",
+    "precio_detectado": 1341.02,
+    "tipo": "bajo_critico",
+    "motivo": "precio $1,341.02 < minimo $1,800 | precio $1,341.02 < 10% mediana $19,290.51",
+    "bloqueado_en": "2026-06-13T03:08"
+  },
+  "isoproterenol|isoproterenol|a.x 5 ml|scott-cassarã¡": {
+    "droga": "isoproterenol",
+    "marca": "ISOPROTERENOL",
+    "presentacion": "a.x 5 ml",
+    "laboratorio": "Scott-CassarÃ¡",
+    "precio_detectado": 11095,
+    "tipo": "bajo_critico",
+    "motivo": "precio $11,095.00 < 10% mediana $148,939.30",
+    "bloqueado_en": "2026-06-13T03:08"
+  },
+  "isotretinoã­na|atlacne|gel tã³pico x 25 g|lab internacion": {
+    "droga": "isotretinoÃ­na",
+    "marca": "ATLACNE",
+    "presentacion": "gel tÃ³pico x 25 g",
+    "laboratorio": "Lab Internacion",
+    "precio_detectado": 470.35,
+    "tipo": "bajo_critico",
+    "motivo": "precio $470.35 < minimo $1,800 | precio $470.35 < 10% mediana $108,051.55",
+    "bloqueado_en": "2026-06-13T03:08"
+  },
+  "lidocaã­na|lidocaina|1% s/epi.a.x 5 ml|scott-cassarã¡": {
+    "droga": "lidocaÃ­na",
+    "marca": "LIDOCAINA",
+    "presentacion": "1% s/epi.a.x 5 ml",
+    "laboratorio": "Scott-CassarÃ¡",
+    "precio_detectado": 1686.4,
+    "tipo": "bajo_critico",
+    "motivo": "precio $1,686.40 < minimo $1,800 | precio $1,686.40 < 10% mediana $17,454.76",
+    "bloqueado_en": "2026-06-13T03:08"
+  },
+  "lidocaã­na|lidocaina|2% s/epi.a.x 5 ml|scott-cassarã¡": {
+    "droga": "lidocaÃ­na",
+    "marca": "LIDOCAINA",
+    "presentacion": "2% s/epi.a.x 5 ml",
+    "laboratorio": "Scott-CassarÃ¡",
+    "precio_detectado": 1695.4,
+    "tipo": "bajo_critico",
+    "motivo": "precio $1,695.40 < minimo $1,800 | precio $1,695.40 < 10% mediana $17,454.76",
+    "bloqueado_en": "2026-06-13T03:08"
+  },
+  "-|lidocaãna|lidocaina denver farma 2% viscosa fco.got.x50ml|denver farma": {
+    "droga": "-",
+    "marca": "LIDOCAÃNA",
+    "presentacion": "LIDOCAINA DENVER FARMA 2% viscosa fco.got.x50ml",
+    "laboratorio": "Denver Farma",
+    "precio_detectado": 1409.55,
+    "tipo": "bajo_critico",
+    "motivo": "precio $1,409.55 < minimo $1,800 | precio $1,409.55 < 10% mediana $27,765.25",
+    "bloqueado_en": "2026-06-13T03:08"
+  },
+  "lidocaã­na, asoc.|pomada hadensa|cr.x 15 g|biosintex retai": {
+    "droga": "lidocaÃ­na, asoc.",
+    "marca": "POMADA HADENSA",
+    "presentacion": "cr.x 15 g",
+    "laboratorio": "Biosintex Retai",
+    "precio_detectado": 205,
+    "tipo": "bajo_critico",
+    "motivo": "precio $205.00 < minimo $1,800 | precio $205.00 < 10% mediana $10,224.30",
+    "bloqueado_en": "2026-06-13T03:08"
+  },
+  "losartã¡n|besubial|50 mg comp.x 30|biosintex retai": {
+    "droga": "losartÃ¡n",
+    "marca": "BESUBIAL",
+    "presentacion": "50 mg comp.x 30",
+    "laboratorio": "Biosintex Retai",
+    "precio_detectado": 347.5,
+    "tipo": "bajo_critico",
+    "motivo": "precio $347.50 < minimo $1,800 | precio $347.50 < 10% mediana $30,492.66",
+    "bloqueado_en": "2026-06-13T03:08"
+  },
+  "-|magnesio,hidrãxido|leche de magnesia axar susp.x 240 ml|wunder pharm": {
+    "droga": "-",
+    "marca": "MAGNESIO,HIDRÃXIDO",
+    "presentacion": "LECHE DE MAGNESIA AXAR susp.x 240 ml",
+    "laboratorio": "Wunder Pharm",
+    "precio_detectado": 1500,
+    "tipo": "bajo_critico",
+    "motivo": "precio $1,500.00 < minimo $1,800 | precio $1,500.00 < 10% mediana $27,765.25",
+    "bloqueado_en": "2026-06-13T03:08"
+  },
+  "oseltamivir|oseltamivir elea|75 mg cã¡ps.x 10|elea": {
+    "droga": "oseltamivir",
+    "marca": "OSELTAMIVIR ELEA",
+    "presentacion": "75 mg cÃ¡ps.x 10",
+    "laboratorio": "Elea",
+    "precio_detectado": 10776,
+    "tipo": "bajo_critico",
+    "motivo": "precio $10,776.00 < 10% mediana $221,692.20",
+    "bloqueado_en": "2026-06-13T03:08"
+  },
+  "pancuronio,bromuro|pancuron|4 mg a.x 1 x 2 ml|scott-cassarã¡": {
+    "droga": "pancuronio,bromuro",
+    "marca": "PANCURON",
+    "presentacion": "4 mg a.x 1 x 2 ml",
+    "laboratorio": "Scott-CassarÃ¡",
+    "precio_detectado": 6325,
+    "tipo": "bajo_critico",
+    "motivo": "precio $6,325.00 < 10% mediana $144,584.56",
+    "bloqueado_en": "2026-06-13T03:08"
+  },
+  "paracetamol, clorfeniramina, asoc.|pirigrip|comp.rec.x 16|biosintex retai": {
+    "droga": "paracetamol, clorfeniramina, asoc.",
+    "marca": "PIRIGRIP",
+    "presentacion": "comp.rec.x 16",
+    "laboratorio": "Biosintex Retai",
+    "precio_detectado": 419,
+    "tipo": "bajo_critico",
+    "motivo": "precio $419.00 < minimo $1,800 | precio $419.00 < 10% mediana $8,280.27",
+    "bloqueado_en": "2026-06-13T03:08"
+  },
+  "paracetamol, clorfeniramina, asoc.|pirigrip|comp.rec.x 8|biosintex retai": {
+    "droga": "paracetamol, clorfeniramina, asoc.",
+    "marca": "PIRIGRIP",
+    "presentacion": "comp.rec.x 8",
+    "laboratorio": "Biosintex Retai",
+    "precio_detectado": 259,
+    "tipo": "bajo_critico",
+    "motivo": "precio $259.00 < minimo $1,800 | precio $259.00 < 10% mediana $8,280.27",
+    "bloqueado_en": "2026-06-13T03:08"
+  },
+  "polisacaridosulfâ£rico,ã¡c.(ã©ste|fleboderma|cr.x 30 g|laboratorio gra": {
+    "droga": "polisacaridosulfÂ£rico,Ã¡c.(Ã©ste",
+    "marca": "FLEBODERMA",
+    "presentacion": "cr.x 30 g",
+    "laboratorio": "Laboratorio Gra",
+    "precio_detectado": 225.15,
+    "tipo": "bajo_critico",
+    "motivo": "precio $225.15 < minimo $1,800 | precio $225.15 < 10% mediana $9,389.05",
+    "bloqueado_en": "2026-06-13T03:08"
+  },
+  "soluc.parent/fisiol/glucos/otr|agua inyectable bp|a.plã¡st.x 5 ml|b.braun": {
+    "droga": "soluc.parent/fisiol/glucos/otr",
+    "marca": "AGUA INYECTABLE BP",
+    "presentacion": "a.plÃ¡st.x 5 ml",
+    "laboratorio": "B.Braun",
+    "precio_detectado": 2807.3,
+    "tipo": "bajo_critico",
+    "motivo": "precio $2,807.30 < 10% mediana $32,320.10",
+    "bloqueado_en": "2026-06-13T03:08"
+  },
+  "tobramicina|klonamicin|0.3% sol.oft.x 10 ml|klonal": {
+    "droga": "tobramicina",
+    "marca": "KLONAMICIN",
+    "presentacion": "0.3% sol.oft.x 10 ml",
+    "laboratorio": "Klonal",
+    "precio_detectado": 9830.92,
+    "tipo": "bajo_critico",
+    "motivo": "precio $9,830.92 < 10% mediana $3,485,968.50",
+    "bloqueado_en": "2026-06-13T03:08"
+  },
+  "tobramicina|xibrax|0.3% sol.oft.x 5 ml|vannier": {
+    "droga": "tobramicina",
+    "marca": "XIBRAX",
+    "presentacion": "0.3% sol.oft.x 5 ml",
+    "laboratorio": "Vannier",
+    "precio_detectado": 9544.51,
+    "tipo": "bajo_critico",
+    "motivo": "precio $9,544.51 < 10% mediana $3,485,968.50",
+    "bloqueado_en": "2026-06-13T03:08"
+  },
+  "tobramicina|bideon biotic|colirio x 5 ml|fecofar": {
+    "droga": "tobramicina",
+    "marca": "BIDEON BIOTIC",
+    "presentacion": "colirio x 5 ml",
+    "laboratorio": "Fecofar",
+    "precio_detectado": 10521.9,
+    "tipo": "bajo_critico",
+    "motivo": "precio $10,521.90 < 10% mediana $3,485,968.50",
+    "bloqueado_en": "2026-06-13T03:08"
+  },
+  "tobramicina|gotabiotic|colirio x 5 ml|poen": {
+    "droga": "tobramicina",
+    "marca": "GOTABIOTIC",
+    "presentacion": "colirio x 5 ml",
+    "laboratorio": "Poen",
+    "precio_detectado": 12771.56,
+    "tipo": "bajo_critico",
+    "motivo": "precio $12,771.56 < 10% mediana $3,485,968.50",
+    "bloqueado_en": "2026-06-13T03:08"
+  },
+  "tobramicina|gotabiotic|gel oft.x 5 g|poen": {
+    "droga": "tobramicina",
+    "marca": "GOTABIOTIC",
+    "presentacion": "gel oft.x 5 g",
+    "laboratorio": "Poen",
+    "precio_detectado": 12981.85,
+    "tipo": "bajo_critico",
+    "motivo": "precio $12,981.85 < 10% mediana $3,485,968.50",
+    "bloqueado_en": "2026-06-13T03:08"
+  },
+  "tobramicina|radina|gts.oft.x 10 ml|valmax": {
+    "droga": "tobramicina",
+    "marca": "RADINA",
+    "presentacion": "gts.oft.x 10 ml",
+    "laboratorio": "Valmax",
+    "precio_detectado": 9400,
+    "tipo": "bajo_critico",
+    "motivo": "precio $9,400.00 < 10% mediana $3,485,968.50",
+    "bloqueado_en": "2026-06-13T03:08"
+  },
+  "tobramicina|oftalbrax|gts.oft.x 5 ml|biosintex": {
+    "droga": "tobramicina",
+    "marca": "OFTALBRAX",
+    "presentacion": "gts.oft.x 5 ml",
+    "laboratorio": "Biosintex",
+    "precio_detectado": 10426,
+    "tipo": "bajo_critico",
+    "motivo": "precio $10,426.00 < 10% mediana $3,485,968.50",
+    "bloqueado_en": "2026-06-13T03:08"
+  },
+  "tobramicina|tobrex|gts.oft.x 5 ml|novartis": {
+    "droga": "tobramicina",
+    "marca": "TOBREX",
+    "presentacion": "gts.oft.x 5 ml",
+    "laboratorio": "Novartis",
+    "precio_detectado": 18685.81,
+    "tipo": "bajo_critico",
+    "motivo": "precio $18,685.81 < 10% mediana $3,485,968.50",
+    "bloqueado_en": "2026-06-13T03:08"
+  },
+  "tobramicina|tobralep|sol.oft.esteril x 5 ml|austral": {
+    "droga": "tobramicina",
+    "marca": "TOBRALEP",
+    "presentacion": "sol.oft.esteril x 5 ml",
+    "laboratorio": "Austral",
+    "precio_detectado": 9560,
+    "tipo": "bajo_critico",
+    "motivo": "precio $9,560.00 < 10% mediana $3,485,968.50",
+    "bloqueado_en": "2026-06-13T03:08"
+  },
+  "tobramicina|tobramicina atlas|sol.oft.esteril x 5 ml|lab internacion": {
+    "droga": "tobramicina",
+    "marca": "TOBRAMICINA ATLAS",
+    "presentacion": "sol.oft.esteril x 5 ml",
+    "laboratorio": "Lab Internacion",
+    "precio_detectado": 10443.72,
+    "tipo": "bajo_critico",
+    "motivo": "precio $10,443.72 < 10% mediana $3,485,968.50",
+    "bloqueado_en": "2026-06-13T03:08"
+  },
+  "tobramicina|tobraler|sol.oft.x 5 ml|novoplos": {
+    "droga": "tobramicina",
+    "marca": "TOBRALER",
+    "presentacion": "sol.oft.x 5 ml",
+    "laboratorio": "Novoplos",
+    "precio_detectado": 9100,
+    "tipo": "bajo_critico",
+    "motivo": "precio $9,100.00 < 10% mediana $3,485,968.50",
+    "bloqueado_en": "2026-06-13T03:08"
+  },
+  "tobramicina|tobrabiotic|sol.oft.x 5 ml|denver farma": {
+    "droga": "tobramicina",
+    "marca": "TOBRABIOTIC",
+    "presentacion": "sol.oft.x 5 ml",
+    "laboratorio": "Denver Farma",
+    "precio_detectado": 10600.4,
+    "tipo": "bajo_critico",
+    "motivo": "precio $10,600.40 < 10% mediana $3,485,968.50",
+    "bloqueado_en": "2026-06-13T03:08"
+  },
+  "tobramicina|fotex|sol.oft.x 5 ml|elea": {
+    "droga": "tobramicina",
+    "marca": "FOTEX",
+    "presentacion": "sol.oft.x 5 ml",
+    "laboratorio": "Elea",
+    "precio_detectado": 12638.53,
+    "tipo": "bajo_critico",
+    "motivo": "precio $12,638.53 < 10% mediana $3,485,968.50",
+    "bloqueado_en": "2026-06-13T03:08"
+  },
+  "vinorelbine|navelbine|10 mg iny.x 1|sidus": {
+    "droga": "vinorelbine",
+    "marca": "NAVELBINE",
+    "presentacion": "10 mg iny.x 1",
+    "laboratorio": "Sidus",
+    "precio_detectado": 20835.93,
+    "tipo": "bajo_critico",
+    "motivo": "precio $20,835.93 < 10% mediana $402,595.60",
+    "bloqueado_en": "2026-06-13T03:08"
   }
 }
