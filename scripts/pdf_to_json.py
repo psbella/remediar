@@ -41,6 +41,7 @@ BASE              = Path(__file__).parent.parent
 BLACKLIST_PATH    = BASE / "data" / "blacklist.json"
 OUTLIER_REPORT    = BASE / "data" / "outlier_report.json"
 MEDICAMENTOS_PATH = BASE / "data" / "medicamentos.json"
+PRES_DEBUG_PATH   = BASE / "data" / "presentaciones_debug.csv"
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -1020,6 +1021,210 @@ def reparar_droga_faltante(medicamentos: list, fixes: dict) -> tuple:
     return medicamentos, reparados
 
 
+
+# ─────────────────────────────────────────────────────────────────────────────
+# PARSER DE PRESENTACIONES (debug CSV)
+# ─────────────────────────────────────────────────────────────────────────────
+
+_FORMAS_NORM_PRES = {
+    'comp.rec.ran': 'COMPRIMIDOS RECUBIERTOS RANURADOS',
+    'comp.rec.gast': 'COMPRIMIDOS GASTRORRESISTENTES',
+    'comp.rec.lib.prol': 'COMPRIMIDOS LIBERACIÓN PROLONGADA RECUBIERTOS',
+    'comp.rec.acc.prol': 'COMPRIMIDOS ACCIÓN PROLONGADA RECUBIERTOS',
+    'comp.rec.ap': 'COMPRIMIDOS ACCIÓN PROLONGADA RECUBIERTOS',
+    'comp.lib.prol': 'COMPRIMIDOS LIBERACIÓN PROLONGADA',
+    'comp.lib.cont': 'COMPRIMIDOS LIBERACIÓN CONTROLADA',
+    'comp.lib.contr': 'COMPRIMIDOS LIBERACIÓN CONTROLADA',
+    'comp.lib.modif': 'COMPRIMIDOS LIBERACIÓN MODIFICADA',
+    'comp.rec': 'COMPRIMIDOS RECUBIERTOS',
+    'comp. rec': 'COMPRIMIDOS RECUBIERTOS',
+    'comp.ran': 'COMPRIMIDOS RANURADOS',
+    'comp.ranur': 'COMPRIMIDOS RANURADOS',
+    'comp.birranur': 'COMPRIMIDOS BIRRANURADOS',
+    'comp.birran': 'COMPRIMIDOS BIRRANURADOS',
+    'comp.trirran': 'COMPRIMIDOS TRIRRANURADOS',
+    'comp.subl': 'COMPRIMIDOS SUBLINGUALES',
+    'comp.mast': 'COMPRIMIDOS MASTICABLES',
+    'comp.efer': 'COMPRIMIDOS EFERVESCENTES',
+    'comp.ef': 'COMPRIMIDOS EFERVESCENTES',
+    'comp.dispers': 'COMPRIMIDOS DISPERSABLES',
+    'comp.acc.prol': 'COMPRIMIDOS ACCIÓN PROLONGADA',
+    'comp.ap': 'COMPRIMIDOS ACCIÓN PROLONGADA',
+    'comp': 'COMPRIMIDOS',
+    'cáps.blandas': 'CÁPSULAS BLANDAS', 'caps.blandas': 'CÁPSULAS BLANDAS',
+    'cáps.duras': 'CÁPSULAS DURAS', 'caps.duras': 'CÁPSULAS DURAS',
+    'cáps.bl': 'CÁPSULAS BLANDAS', 'caps.bl': 'CÁPSULAS BLANDAS',
+    'cáps. bl': 'CÁPSULAS BLANDAS', 'caps. bl': 'CÁPSULAS BLANDAS',
+    'cáps.lib.cont': 'CÁPSULAS LIBERACIÓN CONTROLADA',
+    'cáps.lib.contr': 'CÁPSULAS LIBERACIÓN CONTROLADA',
+    'caps.lib.cont': 'CÁPSULAS LIBERACIÓN CONTROLADA',
+    'cáps.lib.prol': 'CÁPSULAS LIBERACIÓN PROLONGADA',
+    'caps.lib.prol': 'CÁPSULAS LIBERACIÓN PROLONGADA',
+    'cáps.p/inhalar': 'CÁPSULAS PARA INHALACIÓN',
+    'cáps.p/inh': 'CÁPSULAS PARA INHALACIÓN',
+    'caps.p/inh': 'CÁPSULAS PARA INHALACIÓN',
+    'cáps': 'CÁPSULAS', 'caps': 'CÁPSULAS',
+    'iny.liof': 'INYECTABLE LIOFILIZADO',
+    'iny.f.a': 'INYECTABLE FRASCO AMPOLLA',
+    'iny.a': 'INYECTABLE AMPOLLA',
+    'iny': 'INYECTABLE',
+    'liof.f.a': 'LIOFILIZADO FRASCO AMPOLLA',
+    'f.a.liof': 'FRASCO AMPOLLA LIOFILIZADO',
+    'liof': 'LIOFILIZADO',
+    'f.a': 'FRASCO AMPOLLA',
+    'fco.a': 'FRASCO AMPOLLA', 'fco.gotero': 'FRASCO GOTERO', 'fco': 'FRASCO',
+    'a.': 'AMPOLLA', 'a': 'AMPOLLA', 'amp': 'AMPOLLA',
+    'vial': 'VIAL', 'bolsa': 'BOLSA',
+    'jga.prell': 'JERINGA PRELLENADA', 'lap.prell': 'LAPICERA PRELLENADA',
+    'jga': 'JERINGA', 'autoinyector': 'AUTOINYECTOR', 'autoin': 'AUTOINYECTOR',
+    'lap': 'LAPICERA', 'pluma': 'LAPICERA', 'env': 'ENVASE',
+    'sol.oft': 'SOLUCIÓN OFTÁLMICA', 'sol.of': 'SOLUCIÓN OFTÁLMICA',
+    'sol.oral': 'SOLUCIÓN ORAL', 'sol. oral': 'SOLUCIÓN ORAL',
+    'sol.top': 'SOLUCIÓN TÓPICA', 'sol.tópica': 'SOLUCIÓN TÓPICA',
+    'sol.neb': 'SOLUCIÓN NEBULIZABLE', 'sol.p/neb': 'SOLUCIÓN NEBULIZABLE',
+    'sol.p/nebulizar': 'SOLUCIÓN NEBULIZABLE', 'sol.iny': 'SOLUCIÓN INYECTABLE',
+    'sol': 'SOLUCIÓN',
+    'susp.oral': 'SUSPENSIÓN ORAL', 'susp.nasal': 'SUSPENSIÓN NASAL', 'susp': 'SUSPENSIÓN',
+    'jbe': 'JARABE', 'jarabe': 'JARABE', 'liq': 'LÍQUIDO', 'elixir': 'ELIXIR',
+    'gts.oft': 'GOTAS OFTÁLMICAS', 'gts.óticas': 'GOTAS ÓTICAS',
+    'gts.ót': 'GOTAS ÓTICAS', 'gts.nas': 'GOTAS NASALES', 'gts': 'GOTAS',
+    'colirio': 'COLIRIO',
+    'cr.dérmica': 'CREMA DÉRMICA', 'cr.dérm': 'CREMA DÉRMICA', 'cr': 'CREMA',
+    'gel': 'GEL', 'ung': 'UNGÜENTO', 'pomo': 'POMO', 'jalea': 'JALEA',
+    'lot': 'LOCIÓN', 'loc': 'LOCIÓN', 'emuls': 'EMULSIÓN',
+    'xamp': 'CHAMPÚ', 'shamp': 'CHAMPÚ',
+    'roll-on': 'ROLL-ON', 'pda': 'PARCHE', 'parche': 'PARCHE',
+    'aer.bronq': 'AEROSOL BRONQUIAL', 'aer': 'AEROSOL', 'aerosol': 'AEROSOL',
+    'inhal': 'INHALADOR', 'spray': 'SPRAY', 'nasal': 'SPRAY NASAL', 'puff': 'PUFF',
+    'ov.vag': 'ÓVULOS VAGINALES', 'óv.vag': 'ÓVULOS VAGINALES',
+    'óv': 'ÓVULOS', 'ov': 'ÓVULOS', 'sup': 'SUPOSITORIOS',
+    'polv.p/susp.oral': 'POLVO PARA SUSPENSIÓN ORAL',
+    'polv.p/susp': 'POLVO PARA SUSPENSIÓN', 'polv.p/sol': 'POLVO PARA SOLUCIÓN',
+    'pvo.p/susp': 'POLVO PARA SUSPENSIÓN', 'pvo.sob': 'POLVO SOBRES',
+    'pvo': 'POLVO', 'polv': 'POLVO',
+    'gran.sob': 'GRÁNULOS SOBRES', 'gran': 'GRÁNULOS',
+    'blist.grag': 'BLÍSTER GRAGEAS', 'blist': 'BLÍSTER',
+    'sob': 'SOBRES', 'sobre': 'SOBRES', 'sobres': 'SOBRES', 'sachet': 'SOBRES',
+    'pouch': 'POUCH', 'kit': 'KIT',
+    'grag': 'GRAGEAS', 'tab': 'TABLETAS', 'caram': 'CARAMELOS', 'film': 'FILM',
+}
+
+_MODS_PRES = {
+    'oft':      {'sol': 'SOLUCIÓN OFTÁLMICA',  'gts': 'GOTAS OFTÁLMICAS',  None: 'OFTÁLMICO'},
+    'of':       {'sol': 'SOLUCIÓN OFTÁLMICA',  'gts': 'GOTAS OFTÁLMICAS',  None: 'OFTÁLMICO'},
+    'oral':     {'sol': 'SOLUCIÓN ORAL', 'susp': 'SUSPENSIÓN ORAL',        None: 'ORAL'},
+    'vag':      {'ov': 'ÓVULOS VAGINALES', 'óv': 'ÓVULOS VAGINALES', 'cr': 'CREMA VAGINAL', None: 'VAGINAL'},
+    'nasal':    {'susp': 'SUSPENSIÓN NASAL', 'sol': 'SOLUCIÓN NASAL', 'spray': 'SPRAY NASAL', None: 'SPRAY NASAL'},
+    'liof':     {'f.a': 'FRASCO AMPOLLA LIOFILIZADO', None: 'LIOFILIZADO'},
+    'f.a':      {'iny': 'INYECTABLE FRASCO AMPOLLA', 'liof': 'LIOFILIZADO FRASCO AMPOLLA', None: 'FRASCO AMPOLLA'},
+    'gotero':   {'fco': 'FRASCO GOTERO', None: 'FRASCO GOTERO'},
+    'rec':      {'comp': 'COMPRIMIDOS RECUBIERTOS', None: 'RECUBIERTO'},
+    'acc.prol': {'comp': 'COMPRIMIDOS ACCIÓN PROLONGADA', None: 'ACCIÓN PROLONGADA'},
+    'ap':       {'comp': 'COMPRIMIDOS ACCIÓN PROLONGADA', None: 'ACCIÓN PROLONGADA'},
+    'prell':    {'lap': 'LAPICERA PRELLENADA', 'jga': 'JERINGA PRELLENADA', None: 'PRELLENADO'},
+    'duras':    {'cáps': 'CÁPSULAS DURAS', 'caps': 'CÁPSULAS DURAS', None: None},
+    'ur': {None: None}, 'andas': {None: None}, 'solv': {None: None},
+    's': {None: None}, 't': {None: None}, 'r': {None: None}, 'er': {None: None},
+}
+
+_RE_PP  = re.compile(r'^(?:ad|ped)\.?\s+', re.IGNORECASE)
+_RE_PD  = re.compile(r'^(\d[\d\.,/]*)\s*')
+_RE_PU  = re.compile(r'^(mg|mcg|ug|g\b|ml|ui|iu|meq|mmol|kcal|%)\s*', re.IGNORECASE)
+_RE_PPR = re.compile(r'^(?:hfa|cfc)\s*', re.IGNORECASE)
+_RE_PC  = re.compile(r'^(\d[\d\.,]*)\s*(mg|mcg|g)\s*/\s*(\d[\d\.,]*)\s*(ml|g)\s*', re.IGNORECASE)
+_RE_PKV = re.compile(r'x\s*\d[\d\.,]*\s*(ml|g)\b', re.IGNORECASE)
+_RE_PCO = re.compile(r'\(\d+\+\d+\)')
+_RE_PCA = re.compile(r'x\s*(\d[\d\.,]*)\s*(ds\.?|dosis|ml|g\b|u\.?|unid\.?)?', re.IGNORECASE)
+_RE_PAE = re.compile(r'(?:dosis\s+x\s+(\d+)|(\d+)\s+dosis)', re.IGNORECASE)
+_formas_pres_re = '|'.join(re.escape(k) for k in sorted(_FORMAS_NORM_PRES.keys(), key=len, reverse=True))
+_RE_PF  = re.compile(r'^(' + _formas_pres_re + r')[\s\.]?', re.IGNORECASE)
+_RE_PFF = re.compile(r'\b(' + _formas_pres_re + r')[\s\.]?$', re.IGNORECASE)
+_UNI_MAP = {'mg':'MG','mcg':'MCG','ug':'MCG','g':'G','ml':'ML',
+            'ui':'UI','iu':'UI','u':'U','meq':'MEQ','mmol':'MMOL','kcal':'KCAL','%':'%'}
+
+
+def _parsear_presentacion(pres: str) -> dict:
+    r = {'forma': None, 'dosis': None, 'unidad': None, 'cantidad': None, 'resto': None}
+    s = pres.strip().lower()
+    s = _RE_PP.sub('', s).strip()
+    m = _RE_PC.match(s)
+    if m:
+        r['dosis']  = f"{m.group(1)}{m.group(2)}/{m.group(3)}{m.group(4)}"
+        r['unidad'] = 'MG/ML'
+        s = s[m.end():]
+    else:
+        m = _RE_PD.match(s)
+        if m: r['dosis'] = m.group(1); s = s[m.end():]
+        m = _RE_PU.match(s)
+        if m: r['unidad'] = _UNI_MAP.get(m.group(1).lower(), m.group(1).upper()); s = s[m.end():]
+    s = _RE_PPR.sub('', s).strip()
+    fkr = None
+    m = _RE_PF.match(s.strip())
+    if m:
+        fkr = m.group(1).lower().rstrip('. ')
+        r['forma'] = _FORMAS_NORM_PRES.get(fkr, fkr.upper())
+        s = s[m.end():]
+    if not r['forma']:
+        m = _RE_PFF.search(s.strip())
+        if m:
+            fk = m.group(1).lower().rstrip('. ')
+            r['forma'] = _FORMAS_NORM_PRES.get(fk, fk.upper())
+            s = s[:m.start()].strip()
+    s_sk = _RE_PKV.sub('', s)
+    m = _RE_PCA.search(s_sk)
+    if m:
+        cant = m.group(1); uc = (m.group(2) or '').strip().rstrip('.')
+        if uc == 'dosis': uc = 'ds.'
+        r['cantidad'] = (cant + (' ' + uc if uc else '')).strip()
+        s = (s_sk[:m.start()] + s_sk[m.end():]).strip(' .,+')
+    else:
+        s = s_sk
+        m = _RE_PAE.search(s)
+        if m:
+            n = m.group(1) or m.group(2)
+            r['cantidad'] = n + ' ds.'
+            s = (s[:m.start()] + s[m.end():]).strip(' .,+')
+    s = _RE_PCO.sub('', s).strip(' .,+')
+    if s and fkr:
+        mod = s.strip(' .')
+        if mod in _MODS_PRES:
+            mapa = _MODS_PRES[mod]
+            fr = mapa.get(fkr) or mapa.get(None)
+            if fr: r['forma'] = fr; s = ''
+            elif mapa.get(None) is None: s = ''
+    s = s.strip(' .,+-')
+    if s: r['resto'] = s
+    return r
+
+
+def generar_debug_presentaciones(medicamentos: list) -> None:
+    import csv as _csv
+    PRES_DEBUG_PATH.parent.mkdir(parents=True, exist_ok=True)
+    campos = ['droga', 'marca', 'presentacion_original', 'forma', 'dosis', 'unidad', 'cantidad', 'resto']
+    sin_forma = con_resto = total = 0
+    with open(PRES_DEBUG_PATH, 'w', newline='', encoding='utf-8') as f:
+        writer = _csv.DictWriter(f, fieldnames=campos)
+        writer.writeheader()
+        for m in medicamentos:
+            pres = (m.get('presentacion') or '').strip()
+            if not pres: continue
+            r = _parsear_presentacion(pres)
+            if not r['forma']:   sin_forma += 1
+            if r['resto']:       con_resto += 1
+            total += 1
+            writer.writerow({
+                'droga': m.get('droga', ''), 'marca': m.get('marca', ''),
+                'presentacion_original': pres,
+                'forma': r['forma'] or '', 'dosis': r['dosis'] or '',
+                'unidad': r['unidad'] or '', 'cantidad': r['cantidad'] or '',
+                'resto': r['resto'] or '',
+            })
+    limpios = total - sin_forma - con_resto
+    print(f"   Total: {total} | Limpio: {limpios} ({100*limpios/max(total,1):.1f}%) | "
+          f"Sin forma: {sin_forma} | Con resto: {con_resto}")
+    print(f"   Debug: {PRES_DEBUG_PATH}")
+
+
 # ─────────────────────────────────────────────────────────────────────────────
 # MAIN
 # ─────────────────────────────────────────────────────────────────────────────
@@ -1158,6 +1363,9 @@ def main():
     blacklist            = cargar_blacklist()
     medicamentos, n_bl   = filtrar_blacklist(medicamentos, blacklist)
     medicamentos         = calcular_vigencia(medicamentos)
+
+    print("\nGenerando debug de presentaciones...")
+    generar_debug_presentaciones(medicamentos)
 
     ahora_ar  = datetime.now(AR_TZ)
     fecha_str = ahora_ar.strftime("%Y-%m-%d %H:%M:%S")
