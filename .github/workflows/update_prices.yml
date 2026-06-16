@@ -29,6 +29,7 @@ jobs:
           git add data/outlier_report.json
           git add data/droga_fixes.json
           git add data/pami.xlsx
+          git add data/presentaciones_debug.csv
           git add *.html
           git add sitemap.xml
           git commit -m "Actualizar precios $(date +'%Y-%m-%d')" || echo "No changes"
