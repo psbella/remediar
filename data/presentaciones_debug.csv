@@ -68,8 +68,8 @@ acetilcisteína,BRONCOLIUM,600 mg comp.efer.x 24,COMPRIMIDOS EFERVESCENTES,600,M
 acetilcisteína,BISTRONFOR,600 mg sob.x 10,SOBRES,600,MG,10,
 acetilcisteína,DENVERMUC 600,600 mg sob.x 10,SOBRES,600,MG,10,
 acetilcisteína,BALIMUC,600 mg sob.x 10,SOBRES,600,MG,10,
-acetilcisteína,TEMPOTANE,600 mg sob.x 10,SOBRES,600,MG,10,
 acetilcisteína,TOFLUX,600 mg sob.x 10,SOBRES,600,MG,10,
+acetilcisteína,TEMPOTANE,600 mg sob.x 10,SOBRES,600,MG,10,
 acetilcisteína,CISTEFORT,600 mg sob.x 10,SOBRES,600,MG,10,
 acetilcisteína,TOFLUX,600 mg sob.x 20,SOBRES,600,MG,20,
 acetilcisteína,TEMPOTANE,600 mg sob.x 20,SOBRES,600,MG,20,
@@ -111,12 +111,12 @@ acetilcisteína,TOFLUX JARABE,jbe.x 100 ml,JARABE,,,,
 "acetilsalicílico,ác., asoc.",TAFIROL RESACA,comp.x 8,COMPRIMIDOS,,,8,
 "acetilsalicílico,ác., cafeína",CAFIASPIRINA PLUS,comp.x 20,COMPRIMIDOS,,,20,
 "acetilsalicílico,ác., cafeína",CAFIASPIRINA,comp.x 30,COMPRIMIDOS,,,30,
-"acetilsalicílico,ác., cafeína",ALIKAL,expend.sob.x 3 (c/prosp),,,,3,expend.sob.(c/prosp)
-"acetilsalicílico,ác., cafeína",ALIKAL LIMON,expend.sob.x 3(c/prosp),,,,3,expend.sob.(c/prosp)
-"acetilsalicílico,ác., cafeína",ALIKAL NARANJA,expend.sob.x 3(c/prosp),,,,3,expend.sob.(c/prosp)
-"acetilsalicílico,ác., cafeína",ALIKAL LIMON,expend.sob.x 30(c/prosp),,,,30,expend.sob.(c/prosp)
-"acetilsalicílico,ác., cafeína",ALIKAL NARANJA,expend.sob.x 30(c/prosp),,,,30,expend.sob.(c/prosp)
-"acetilsalicílico,ác., cafeína",ALIKAL,expend.sob.x 30(c/prosp),,,,30,expend.sob.(c/prosp)
+"acetilsalicílico,ác., cafeína",ALIKAL,expend.sob.x 3 (c/prosp),SOBRES EXPENDEDOR,,,3,(c/prosp)
+"acetilsalicílico,ác., cafeína",ALIKAL LIMON,expend.sob.x 3(c/prosp),SOBRES EXPENDEDOR,,,3,(c/prosp)
+"acetilsalicílico,ác., cafeína",ALIKAL NARANJA,expend.sob.x 3(c/prosp),SOBRES EXPENDEDOR,,,3,(c/prosp)
+"acetilsalicílico,ác., cafeína",ALIKAL LIMON,expend.sob.x 30(c/prosp),SOBRES EXPENDEDOR,,,30,(c/prosp)
+"acetilsalicílico,ác., cafeína",ALIKAL NARANJA,expend.sob.x 30(c/prosp),SOBRES EXPENDEDOR,,,30,(c/prosp)
+"acetilsalicílico,ác., cafeína",ALIKAL,expend.sob.x 30(c/prosp),SOBRES EXPENDEDOR,,,30,(c/prosp)
 -,"ACETILSALICÍLICO,ÁC., VIT.C",BAYASPIRINA C LIMON 240 Mefer.gran.sob.x 12,,,,12,bayaspirina c limon 240 mefer.gran.sob
 -,"ACETILSALICÍLICO,ÁC., VIT.C",BAYASPIRINA C LIMON 240 Mefer.gran.sob.x 24,,,,24,bayaspirina c limon 240 mefer.gran.sob
 "acetilsalicílico,ác., vit.c",BAYASPIRINA C CALIENTE,gran.sob.x 24,GRÁNULOS SOBRES,,,24,
@@ -168,7 +168,7 @@ acitretina,NEOTIGASON,25 mg caps.x 30,CÁPSULAS,25,MG,30,
 acth,ACTHEL,25 UI f.a+jer+ag+solv.,FRASCO AMPOLLA,25,UI,,jer+ag+solv
 acth,ACTHEL,40 UI gel f.a.+jer+ag.,GEL,40,UI,,f.a.+jer+ag
 ,ACTIVADOR TISULAR PLASMINÓGENO ACTILYSE,50 mg iny.f.a.x 2,INYECTABLE FRASCO AMPOLLA,50,MG,2,
-adalimumab,HUMIRA AC X 2 (20 MG),20mg/0.2ml jer.prell.x 2,,20mg/0.2ml,MG/ML,2,jer.prell
+adalimumab,HUMIRA AC X 2 (20 MG),20mg/0.2ml jer.prell.x 2,JERINGA PRELLENADA,20mg/0.2ml,MG/ML,2,
 adalimumab,HUMIRA AC X 2 (40 MG),40mg/0.4ml lap.prell.x 2,LAPICERA PRELLENADA,40mg/0.4ml,MG/ML,2,
 adalimumab,AMGEVITA,40mg/0.8ml autoiny.x 2,AUTOINYECTOR,40mg/0.8ml,MG/ML,2,y
 adalimumab,ABRILADA,40mg/0.8ml lap.prell.x 2,LAPICERA PRELLENADA,40mg/0.8ml,MG/ML,2,
@@ -193,8 +193,8 @@ adapaleno,DIFFERIN,0.3% gel x 30 g,GEL,0.3,%,,
 adapaleno,DERMOTOPIC,gel 0.1% x 30 g,GEL,,,,0.1%
 adapaleno,DERMOTOPIC,gel 0.3% x 30 g,GEL,,,,0.3%
 adapaleno,ADERMICINA ANTI ACNE,gel x 30 g,GEL,,,,
-"adapaleno, benzoílo,peróxido",DERMOTOPIC DUO,gel x 30 g,GEL,,,,
 "adapaleno, benzoílo,peróxido",DUOTEX,gel x 30 g,GEL,,,,
+"adapaleno, benzoílo,peróxido",DERMOTOPIC DUO,gel x 30 g,GEL,,,,
 "adapaleno, benzoílo,peróxido",GELACNE,gel x 30 g,GEL,,,,
 "adapaleno, benzoílo,peróxido",DUOTEX FORTE,gel x 30 g,GEL,,,,
 "adapaleno, benzoílo,peróxido",ADAPNE DUO,gel x 30 g,GEL,,,,
@@ -234,8 +234,8 @@ albendazol,VERMICET,400 mg comp.ran. x 3,COMPRIMIDOS RANURADOS,400,MG,3,
 albendazol,VERMICET,400 mg comp.ran. x 6,COMPRIMIDOS RANURADOS,400,MG,6,
 albendazol,VERMIZOLE,400 mg comp.x 6,COMPRIMIDOS,400,MG,6,
 albendazol,VERMICET,susp. x 30 ml,SUSPENSIÓN,,,,
-albutrepenonacog alfa,IDELVION,1000 UI pvo.liof+disolv.,POLVO,1000,UI,,liof+disolv
-albutrepenonacog alfa,IDELVION,500 UI pvo.liof.+disolv.,POLVO,500,UI,,liof.+disolv
+albutrepenonacog alfa,IDELVION,1000 UI pvo.liof+disolv.,POLVO LIOFILIZADO,1000,UI,,disolv
+albutrepenonacog alfa,IDELVION,500 UI pvo.liof.+disolv.,POLVO LIOFILIZADO,500,UI,,disolv
 "alcachofa, asoc.",DIGESTINA,fco.gotero x 45 ml,FRASCO GOTERO,,,,
 "alcachofa, asoc.",CHOFITOL PLUS,mentol gts.x 120 ml,,,,,mentol gts
 "alcachofa, asoc.",CHOFITOL PLUS,mentol gts.x 40 ml,,,,,mentol gts
@@ -396,8 +396,8 @@ alprazolam,ALPLAX,2 mg comp.x 60,COMPRIMIDOS,2,MG,60,
 "alprazolam, domperidona, asoc.",TENSIUM GASTRIC,comp.x 30,COMPRIMIDOS,,,30,
 "alprazolam, domperidona, asoc.",ALPLAX NET,comp.x 30,COMPRIMIDOS,,,30,
 "alprazolam, domperidona, asoc.",ANSIELIX DIGEST,comp.x 30,COMPRIMIDOS,,,30,
-"alprazolam, sulpirida",ALPLAX DIGEST,caplets x 30,,,,30,caplets
-"alprazolam, sulpirida",ALPLAX DIGEST,caplets x 60,,,,60,caplets
+"alprazolam, sulpirida",ALPLAX DIGEST,caplets x 30,TABLETAS,,,30,
+"alprazolam, sulpirida",ALPLAX DIGEST,caplets x 60,TABLETAS,,,60,
 alprostadil,ALPROSTADIL RICHET,0.5 mg/ml a.x 1,,0.5,MG,1,/ml a
 alprostadil,ALPROSTADIL GRAY,500 mcg/ml a.x 1 x 1 ml,,500,MCG,1,/ml a
 "aluminio,cloruro",ALUMPAK,loc.x 30 ml,LOCIÓN,,,,
@@ -462,7 +462,6 @@ ambroxol,EXPECTOSAN TE CALIENTE,sob.x 5 x 5 g c/u,SOBRES,,,5,c/u
 amikacina,AMIKACINA RICHET,(como base) 500 mg a.x 1,,,,1,(como base) 500 mg a
 "amilo,salicilato, asoc.",ATOMO DESINFLAMANTE AEROS,aer.x 165 g,AEROSOL,,,,
 "amilo,salicilato, asoc.",RATI SALIL CREMA,cr.x 40 g,CREMA,,,,
--,"AMILO,SALICILATO, ASOC.",ATOMO CLASICO MONODOSISenv. x 1 x 10 g,AMPOLLA,,,1,tomo clasico monodosisenv
 "amilo,salicilato, asoc.",ATOMO DESINFLAMANTE CLASI,pomo x 40 g,POMO,,,,
 aminoácidos,AMINOVEN 10%,10% fco.x 500 ml,FRASCO,10,%,,
 aminoácidos,AMINOVEN 15%,15% fco.x 500 ml,FRASCO,15,%,,
@@ -618,9 +617,9 @@ amlodipina,AMLODICORD 10,comp.ran.x 60,COMPRIMIDOS RANURADOS,,,60,
 "amlodipina, losartán,potásico",PRESIMAX A,50/5 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,50/5,MG,30,
 "amlodipina, losartán,potásico",FENSARTAN UNIMAX,50/5 mg comp.x 30,COMPRIMIDOS,50/5,MG,30,
 "amlodipina, losartán, hidroclo",PELMEC MAX D,comp.x 60 (30+30),COMPRIMIDOS,,,60,
-amorolfina,LAQUIFUN,laca p/uñas x 4 ml,,,,,laca p/uñas
-amorolfina,MICOFORTILAC,laca p/uñas x 5 ml,,,,,laca p/uñas
-amorolfina,LOCERYL LACA,laca p/uñas x 5 ml,,,,,laca p/uñas
+amorolfina,LAQUIFUN,laca p/uñas x 4 ml,LACA,,,,p/uñas
+amorolfina,MICOFORTILAC,laca p/uñas x 5 ml,LACA,,,,p/uñas
+amorolfina,LOCERYL LACA,laca p/uñas x 5 ml,LACA,,,,p/uñas
 amoxicilina,NOBACTAM,1 g comp.rec.x 16,COMPRIMIDOS RECUBIERTOS,1,G,16,
 amoxicilina,NOBACTAM,1 g comp.rec.x 8,COMPRIMIDOS RECUBIERTOS,1,G,8,
 amoxicilina,AMOXICILINA RICHET,1 g comp.x 16,COMPRIMIDOS,1,G,16,
@@ -972,14 +971,14 @@ armodafinilo,NUVIGIL,150 mg comp.x 30,COMPRIMIDOS,150,MG,30,
 armodafinilo,NUVIGIL,250 mg comp.x 30,COMPRIMIDOS,250,MG,30,
 asciminib,SCEMBLIX,20 mg comp. rec.x 60,COMPRIMIDOS RECUBIERTOS,20,MG,60,
 asciminib,SCEMBLIX,40 mg comp. rec.x 60,COMPRIMIDOS RECUBIERTOS,40,MG,60,
-asparaginasa,SPECTRILA,10000 UI pvo.liof.iny.x1,POLVO,10000,UI,1,liof.iny
+asparaginasa,SPECTRILA,10000 UI pvo.liof.iny.x1,POLVO LIOFILIZADO,10000,UI,1,iny
 atenolol,VERICORDIN,100 mg comp.x 28,COMPRIMIDOS,100,MG,28,
 atenolol,LOLATENO,100 mg comp.x 28,COMPRIMIDOS,100,MG,28,
 atenolol,ATENOLOL GADOR,100 mg comp.x 28,COMPRIMIDOS,100,MG,28,
 atenolol,ATENOLOL ECZANE,100 mg comp.x 28,COMPRIMIDOS,100,MG,28,
 atenolol,PLENACOR,100 mg comp.x 30,COMPRIMIDOS,100,MG,30,
-atenolol,VERICORDIN,100 mg comp.x 30,COMPRIMIDOS,100,MG,30,
 atenolol,ATELSTA,100 mg comp.x 30,COMPRIMIDOS,100,MG,30,
+atenolol,VERICORDIN,100 mg comp.x 30,COMPRIMIDOS,100,MG,30,
 atenolol,ATENOLOL GADOR,100 mg comp.x 30,COMPRIMIDOS,100,MG,30,
 atenolol,LOLATENO,100 mg comp.x 56,COMPRIMIDOS,100,MG,56,
 atenolol,VERICORDIN,100 mg comp.x 56,COMPRIMIDOS,100,MG,56,
@@ -1015,8 +1014,8 @@ atenolol,VERICORDIN,50 mg comp.x 56,COMPRIMIDOS,50,MG,56,
 atenolol,LOLATENO,50 mg comp.x 56,COMPRIMIDOS,50,MG,56,
 atenolol,ATENOLOL MICROSULES,50 mg comp.x 56,COMPRIMIDOS,50,MG,56,
 atenolol,ATENOLOL GADOR,50 mg comp.x 56,COMPRIMIDOS,50,MG,56,
-atenolol,VERICORDIN,50 mg comp.x 60,COMPRIMIDOS,50,MG,60,
 atenolol,PLENACOR,50 mg comp.x 60,COMPRIMIDOS,50,MG,60,
+atenolol,VERICORDIN,50 mg comp.x 60,COMPRIMIDOS,50,MG,60,
 atenolol,ATENOLOL GADOR,50 mg comp.x 60,COMPRIMIDOS,50,MG,60,
 "atenolol, asoc.",VERICORDIN COMPUESTO,comp.x 28,COMPRIMIDOS,,,28,
 "atenolol, asoc.",PLENACOR D,comp.x 30,COMPRIMIDOS,,,30,
@@ -1040,8 +1039,8 @@ atorvastatín,ATARVA,10 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,10,MG,30,
 atorvastatín,KOSPIDEL 10,10 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,10,MG,30,
 atorvastatín,ATORVAX,10 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,10,MG,30,
 atorvastatín,NORMOLIPOL,10 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,10,MG,30,
-atorvastatín,LIPONORM,10 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,10,MG,30,
 atorvastatín,ATORVASTAN,10 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,10,MG,30,
+atorvastatín,LIPONORM,10 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,10,MG,30,
 atorvastatín,LIPAREX,10 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,10,MG,30,
 atorvastatín,NORMALIP,10 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,10,MG,30,
 atorvastatín,ATEROCLAR,10 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,10,MG,30,
@@ -1210,7 +1209,7 @@ azacitidina,AMILIX,100 mg iny.liof.f.a.x 1,FRASCO AMPOLLA,100,MG,1,
 azacitidina,AZATEVA,100 mg iny.x 1,INYECTABLE,100,MG,1,
 azacitidina,AZITECH,100 mg liof.iny.f.a.x 1,LIOFILIZADO,100,MG,1,iny.f.a
 azacitidina,IGNATIL,100 mg liof.iny.x 1,LIOFILIZADO,100,MG,1,iny
-azacitidina,CELAZA,100 mg pvo.liof.f.a.x 1,POLVO,100,MG,1,liof.f.a
+azacitidina,CELAZA,100 mg pvo.liof.f.a.x 1,FRASCO AMPOLLA,100,MG,1,
 azacitidina,AZANOVA,100 mg vial x 1,VIAL,100,MG,1,
 azacitidina,ONUREG,200 mg comp. x 7,COMPRIMIDOS,200,MG,7,
 azacitidina,ONUREG,300 mg comp. x 7,COMPRIMIDOS,300,MG,7,
@@ -1243,9 +1242,9 @@ azitromicina,CRONOPEN,500 mg comp.rec.x 5,COMPRIMIDOS RECUBIERTOS,500,MG,5,
 azitromicina,NOVOZITRON,500 mg comp.rec.x 6,COMPRIMIDOS RECUBIERTOS,500,MG,6,
 azitromicina,TALCILINA,500 mg comp.rec.x 6,COMPRIMIDOS RECUBIERTOS,500,MG,6,
 azitromicina,SITROX,500 mg comp.rec.x 6,COMPRIMIDOS RECUBIERTOS,500,MG,6,
-azitromicina,NEBLIC,500 mg comp.rec.x 6,COMPRIMIDOS RECUBIERTOS,500,MG,6,
 azitromicina,TRIAMID,500 mg comp.rec.x 6,COMPRIMIDOS RECUBIERTOS,500,MG,6,
 azitromicina,TREXBIOTIC,500 mg comp.rec.x 6,COMPRIMIDOS RECUBIERTOS,500,MG,6,
+azitromicina,NEBLIC,500 mg comp.rec.x 6,COMPRIMIDOS RECUBIERTOS,500,MG,6,
 azitromicina,TRITAB,500 mg comp.rec.x 6,COMPRIMIDOS RECUBIERTOS,500,MG,6,
 azitromicina,MISULTINA,500 mg comp.rec.x 6,COMPRIMIDOS RECUBIERTOS,500,MG,6,
 azitromicina,CRONOPEN,500 mg comp.rec.x 6,COMPRIMIDOS RECUBIERTOS,500,MG,6,
@@ -1353,7 +1352,7 @@ bempedoico ác.,BEMPENAL,180 mg comp. rec.x 60,COMPRIMIDOS RECUBIERTOS,180,MG,60
 "bendamustina,clorh.",BENDEL,100 mg f.a.x 1,FRASCO AMPOLLA,100,MG,1,
 "bendamustina,clorh.",ESEVARIL,100 mg f.a.x 1,FRASCO AMPOLLA,100,MG,1,
 "bendamustina,clorh.",BENDAVAR,100 mg fco.a.x 1,FRASCO AMPOLLA,100,MG,1,
-"bendamustina,clorh.",QUERAMUS,100 mg pvo.liof.x 1,LIOFILIZADO,100,MG,1,
+"bendamustina,clorh.",QUERAMUS,100 mg pvo.liof.x 1,POLVO LIOFILIZADO,100,MG,1,
 "bendamustina,clorh.",MEXED,25 mg f.a.liof.x 1,FRASCO AMPOLLA LIOFILIZADO,25,MG,1,
 "bendamustina,clorh.",BEMUX,25 mg f.a.liof.x 1,FRASCO AMPOLLA LIOFILIZADO,25,MG,1,
 "bendamustina,clorh.",BENDAM,25 mg f.a.x 1,FRASCO AMPOLLA,25,MG,1,
@@ -1572,7 +1571,7 @@ biperideno,AKINETON,comp.x 20,COMPRIMIDOS,,,20,
 biperideno,AKINETON,comp.x 60,COMPRIMIDOS,,,60,
 bisacodilo,MODATON,5 mg comp.rec.x 20,COMPRIMIDOS RECUBIERTOS,5,MG,20,
 bisacodilo,MODATON,5 mg comp.rec.x 50,COMPRIMIDOS RECUBIERTOS,5,MG,50,
-bisacodilo,ULTRALAX,comp.gastrorres.x 10,COMPRIMIDOS,,,10,gastrorres
+bisacodilo,ULTRALAX,comp.gastrorres.x 10,COMPRIMIDOS GASTRORRESISTENTES,,,10,orres
 bisacodilo,LAXAMIN,comp.rec.x 10,COMPRIMIDOS RECUBIERTOS,,,10,
 bisacodilo,LAXAMIN,comp.rec.x 20,COMPRIMIDOS RECUBIERTOS,,,20,
 bisacodilo,LAXAMIN,comp.rec.x 40,COMPRIMIDOS RECUBIERTOS,,,40,
@@ -1637,8 +1636,8 @@ bortezomib,BORTMEX,3.5 mg f.a.x 1,FRASCO AMPOLLA,3.5,MG,1,
 bortezomib,VELCADE,3.5 mg f.a.x 1,FRASCO AMPOLLA,3.5,MG,1,
 bortezomib,BROMADENE,3.5 mg f.a.x 1,FRASCO AMPOLLA,3.5,MG,1,
 bortezomib,BORATER,3.5 mg f.a.x 1,FRASCO AMPOLLA,3.5,MG,1,
-bortezomib,MULTIZOM,3.5 mg pvo.liof.x1,LIOFILIZADO,3.5,MG,1,
-bortezomib,SIMBIOTE,3.5 mg pvo.liof.x1,LIOFILIZADO,3.5,MG,1,
+bortezomib,MULTIZOM,3.5 mg pvo.liof.x1,POLVO LIOFILIZADO,3.5,MG,1,
+bortezomib,SIMBIOTE,3.5 mg pvo.liof.x1,POLVO LIOFILIZADO,3.5,MG,1,
 bosentan,USENTA 125,125 mg comp.ran.x 60,COMPRIMIDOS RANURADOS,125,MG,60,
 bosentan,BOSENTAL,125 mg comp.ran.x 60,COMPRIMIDOS RANURADOS,125,MG,60,
 bosentan,BOFINTAN,125 mg comp.rec.x 60,COMPRIMIDOS RECUBIERTOS,125,MG,60,
@@ -1674,7 +1673,7 @@ brimonidina,BRIMOPRESS,0.2% sol.oft.x 5 ml,SOLUCIÓN OFTÁLMICA,0.2,%,,
 brimonidina,ALPHAGAN,sol.oft.x 5 ml,SOLUCIÓN OFTÁLMICA,,,,
 brimonidina,ALPHAGAN P,sol.oft.x 5 ml,SOLUCIÓN OFTÁLMICA,,,,
 "brimonidina, timolol",COMBIGAN,0.2%/0.5% gts.oft.x 5 ml,,0.2,%,,/0.5% gts.oft
-"brimonidina, timolol",TIMOBRIM,sol.oft.esteril x 5ml,SOLUCIÓN OFTÁLMICA,,,,esteril
+"brimonidina, timolol",TIMOBRIM,sol.oft.esteril x 5ml,SOLUCIÓN OFTÁLMICA ESTÉRIL,,,,
 "brimonidina, timolol",BRIT,sol.oft.x 5 ml,SOLUCIÓN OFTÁLMICA,,,,
 "brimonidina, timolol",BRIMOPRESS T,sol.oft.x 5 ml,SOLUCIÓN OFTÁLMICA,,,,
 brinzolamida,AZOPT,1% susp.oft.x 5 ml,OFTÁLMICO,1,%,,
@@ -1710,7 +1709,7 @@ bromazepam,LEXOTANIL,6 mg comp.x 50,COMPRIMIDOS,6,MG,50,
 bromazepam,CREOSEDIN,6 mg comp.x 50,COMPRIMIDOS,6,MG,50,
 bromazepam,ATEMPERATOR,6 mg comp.x 60,COMPRIMIDOS,6,MG,60,
 bromfenac,NATAX,fco.gotero x 5 ml,FRASCO GOTERO,,,,
-bromfenac,FENAC,sol.oft.estéril x 5 ml,SOLUCIÓN OFTÁLMICA,,,,estéril
+bromfenac,FENAC,sol.oft.estéril x 5 ml,SOLUCIÓN OFTÁLMICA ESTÉRIL,,,,
 bromfenac,OFTALFENAC,sol.oft.x 5 ml,SOLUCIÓN OFTÁLMICA,,,,
 bromfenac,BERLOFEN,sol.oft.x 5 ml,SOLUCIÓN OFTÁLMICA,,,,
 bromhexina,TOSTOP NI¥OS,0.08% jbe.x 120 ml,JARABE,0.08,%,,
@@ -1767,7 +1766,7 @@ budesonide,NEUMOTEX 400,caps.p/inhalar x 60,CÁPSULAS PARA INHALACIÓN,,,60,alar
 budesonide,BUDENOFALK,cáps.x 100,CÁPSULAS,,,100,
 budesonide,BUDESONIDA DF NEBU,env.x 20 ml,ENVASE,,,,
 budesonide,NEUMOTEX NEBU,env.x 20 ml,ENVASE,,,,
-budesonide,BUDENOFALK,espuma rectal x14 aplic.,,,,14,espuma rectal aplic
+budesonide,BUDENOFALK,espuma rectal x14 aplic.,ESPUMA RECTAL,,,14,aplic
 budesonide,PROETZONIDE NEBU,fco.x 20 ml,FRASCO,,,,
 budesonide,RINO-B NEBU,gts.p/nebulizar x 20 ml,GOTAS,,,,p/nebulizar
 -,BUDESONIDE,RINO-B NEBU CON DILUYENTEgts.p/nebulizar x 20 ml,,,,,rino-b nebu con diluyentegts.p/nebulizar
@@ -1932,20 +1931,20 @@ calcitriol,CALCITRIOL MEGALABS,caps.x 30,CÁPSULAS,,,30,
 canagliflozina,INVOKANA,100 mg comp.x 30,COMPRIMIDOS,100,MG,30,
 canagliflozina,INVOKANA,300 mg comp.x 30,COMPRIMIDOS,300,MG,30,
 canakinumab,ILARIS,150 mg/ml iny.x 1,,150,MG,1,/ml iny
-candesartán cilexetil,ATACAND,16 mg comp.divis.x 28,COMPRIMIDOS,16,MG,28,divis
+candesartán cilexetil,ATACAND,16 mg comp.divis.x 28,COMPRIMIDOS DIVISIBLES,16,MG,28,
 candesartán cilexetil,DACTEN,16 mg comp.x 15,COMPRIMIDOS,16,MG,15,
 candesartán cilexetil,CANDESARTAN RICHET,16 mg comp.x 30,COMPRIMIDOS,16,MG,30,
 candesartán cilexetil,DACTEN,16 mg comp.x 30,COMPRIMIDOS,16,MG,30,
 candesartán cilexetil,TIADYL,16 mg comp.x 30,COMPRIMIDOS,16,MG,30,
-candesartán cilexetil,ATACAND,32 mg comp.divis.x 28,COMPRIMIDOS,32,MG,28,divis
-candesartán cilexetil,ATACAND,8 mg comp.divis.x 28,COMPRIMIDOS,8,MG,28,divis
+candesartán cilexetil,ATACAND,32 mg comp.divis.x 28,COMPRIMIDOS DIVISIBLES,32,MG,28,
+candesartán cilexetil,ATACAND,8 mg comp.divis.x 28,COMPRIMIDOS DIVISIBLES,8,MG,28,
 candesartán cilexetil,DACTEN,8 mg comp.x 15,COMPRIMIDOS,8,MG,15,
 candesartán cilexetil,CANDESARTAN RICHET,8 mg comp.x 30,COMPRIMIDOS,8,MG,30,
 candesartán cilexetil,DACTEN,8 mg comp.x 30,COMPRIMIDOS,8,MG,30,
 candesartán cilexetil,TIADYL,8 mg comp.x 30,COMPRIMIDOS,8,MG,30,
-"candesartán, hidroclorotiazida",ATACAND D,16 mg comp.divis.x 28,COMPRIMIDOS,16,MG,28,divis
+"candesartán, hidroclorotiazida",ATACAND D,16 mg comp.divis.x 28,COMPRIMIDOS DIVISIBLES,16,MG,28,
 "candesartán, hidroclorotiazida",TIADYL PLUS,16 mg comp.x 30,COMPRIMIDOS,16,MG,30,
-"candesartán, hidroclorotiazida",ATACAND D,8 mg comp.divis.x 28,COMPRIMIDOS,8,MG,28,divis
+"candesartán, hidroclorotiazida",ATACAND D,8 mg comp.divis.x 28,COMPRIMIDOS DIVISIBLES,8,MG,28,
 "candesartán, hidroclorotiazida",DACTEN D,comp.x 15,COMPRIMIDOS,,,15,
 "candesartán, hidroclorotiazida",DACTEN D,comp.x 30,COMPRIMIDOS,,,30,
 cannabidiol,KANBIS,Sol. oral x 100 ml,SOLUCIÓN ORAL,,,,
@@ -1953,9 +1952,9 @@ cannabidiol,KANBIS,Sol. oral x 30 ml,SOLUCIÓN ORAL,,,,
 cannabidiol,CONVUPIDIOL,Sol. oral x 35 ml,SOLUCIÓN ORAL,,,,
 cannabidiol,CONVUPIDIOL,Sol. oral x 70 ml,SOLUCIÓN ORAL,,,,
 capecitabina,CAPECINOVA,500 mg comp.rec.x 120,COMPRIMIDOS RECUBIERTOS,500,MG,120,
-capecitabina,CAPECITABINA GLENMARK,500 mg comp.rec.x 120,COMPRIMIDOS RECUBIERTOS,500,MG,120,
 capecitabina,IMACAP,500 mg comp.rec.x 120,COMPRIMIDOS RECUBIERTOS,500,MG,120,
 capecitabina,CAPECITABINA GP PHARM,500 mg comp.rec.x 120,COMPRIMIDOS RECUBIERTOS,500,MG,120,
+capecitabina,CAPECITABINA GLENMARK,500 mg comp.rec.x 120,COMPRIMIDOS RECUBIERTOS,500,MG,120,
 capecitabina,CATEPEN,500 mg comp.rec.x 120,COMPRIMIDOS RECUBIERTOS,500,MG,120,
 capecitabina,BODABINA,500 mg comp.rec.x 120,COMPRIMIDOS RECUBIERTOS,500,MG,120,
 capecitabina,CAPECTAN,500 mg comp.rec.x 120,COMPRIMIDOS RECUBIERTOS,500,MG,120,
@@ -2050,7 +2049,7 @@ carfilzomib,ALCAF,60 mg fco.a.pvo.liof.x 1,FRASCO AMPOLLA,60,MG,1,pvo.liof
 carfilzomib,TSUMIS,60 mg fco.a.x 1,FRASCO AMPOLLA,60,MG,1,
 carfilzomib,ZELEV,60 mg fco.a.x 1,FRASCO AMPOLLA,60,MG,1,
 carfilzomib,KARFIB,60 mg fco.a.x 1,FRASCO AMPOLLA,60,MG,1,
-carfilzomib,FILZOCAR,60 mg pvo.liof. f.a. x 1,POLVO,60,MG,1,liof. f.a
+carfilzomib,FILZOCAR,60 mg pvo.liof. f.a. x 1,FRASCO AMPOLLA,60,MG,1,
 carfilzomib,KYPROLIS 30 MG,fco.a.pvo.liof.x 1,FRASCO AMPOLLA,,,1,pvo.liof
 carfilzomib,KYPROLIS 60 MG,fco.a.pvo.liof.x 1,FRASCO AMPOLLA,,,1,pvo.liof
 cariprazina,CARIPRAL,1.5 mg cáps.x 30,CÁPSULAS,1.5,MG,30,
@@ -2130,8 +2129,8 @@ carvedilol,DUOBLOC,25 mg comp.x 28,COMPRIMIDOS,25,MG,28,
 carvedilol,ENTARSOL 25,25 mg comp.x 28,COMPRIMIDOS,25,MG,28,
 carvedilol,CARDIONORM,25 mg comp.x 28,COMPRIMIDOS,25,MG,28,
 carvedilol,CARVEDILOL RICHET,25 mg comp.x 28,COMPRIMIDOS,25,MG,28,
-carvedilol,CORUBIN,25 mg comp.x 28,COMPRIMIDOS,25,MG,28,
 carvedilol,CARVEDILOL BIOTENK,25 mg comp.x 28,COMPRIMIDOS,25,MG,28,
+carvedilol,CORUBIN,25 mg comp.x 28,COMPRIMIDOS,25,MG,28,
 carvedilol,VICARDOL,25 mg comp.x 28,COMPRIMIDOS,25,MG,28,
 carvedilol,CARVEDIL,25 mg comp.x 28,COMPRIMIDOS,25,MG,28,
 carvedilol,CARTIATO,25 mg comp.x 30,COMPRIMIDOS,25,MG,30,
@@ -2319,16 +2318,16 @@ ceftarolina fosamil,ZINFORO,600 mg fco.a.x 10,FRASCO AMPOLLA,600,MG,10,
 ceftazidima,CEFTAZIDIMA RICHET,1 g iny.f.a. (C/u),INYECTABLE FRASCO AMPOLLA,1,G,,(c/u)
 ceftazidima,CEFTAZIDIMA FABRA,1000 mg f.a.x 1,FRASCO AMPOLLA,1000,MG,1,
 "ceftazidima, avibactam",ZAVICEFTA,2 g/0.5 g f.a.x 10,FRASCO AMPOLLA,2g/0.5g,MG/ML,10,
-"ceftolozano, tazobactam",ZERBAXA,1/0.5 g pvo.liof.f.a.x10,POLVO,1/0.5,G,10,liof.f.a
+"ceftolozano, tazobactam",ZERBAXA,1/0.5 g pvo.liof.f.a.x10,FRASCO AMPOLLA,1/0.5,G,10,
 ceftriaxona,CEFTRIAXONA FABRA,1 g f.a.x 1,FRASCO AMPOLLA,1,G,1,
 ceftriaxona,CEFTRIAXONA RICHET,1 g IM f.a.+a.solv.(C/u),,1,G,,im f.a.+a.solv.(c/u)
 ceftriaxona,ACANTEX,1 g IM f.a.x 1,,1,G,1,im f.a
-ceftriaxona,RIVACEFIN,1 g IV f.a. x 1 + a.dil.,,1,G,1,iv f.a. + a.dil
-ceftriaxona,CEFTRIAXONA RICHET,1 g IV f.a.+a.solv.,,1,G,,iv f.a.+a.solv
-ceftriaxona,ACANTEX,1 g IV f.a.x 1,,1,G,1,iv f.a
+ceftriaxona,RIVACEFIN,1 g IV f.a. x 1 + a.dil.,INYECTABLE INTRAVENOSO,1,G,1,f.a. + a.dil
+ceftriaxona,CEFTRIAXONA RICHET,1 g IV f.a.+a.solv.,INYECTABLE INTRAVENOSO,1,G,,f.a.+a.solv
+ceftriaxona,ACANTEX,1 g IV f.a.x 1,FRASCO AMPOLLA,1,G,1,
 ceftriaxona,CEFTRIAXONA DUNCAN,1000 mg IM iny.f.a.x 1,,1000,MG,1,im iny.f.a
 ceftriaxona,CEFTRIAZ,1000 mg iny.x 1,INYECTABLE,1000,MG,1,
-ceftriaxona,ACANTEX,2 g IV f.a.x 1,,2,G,1,iv f.a
+ceftriaxona,ACANTEX,2 g IV f.a.x 1,FRASCO AMPOLLA,2,G,1,
 ceftriaxona,ACANTEX,500 mg IM f.a.x 1,,500,MG,1,im f.a
 cefuroxima,CEFUROXIMA RICHET,1.5 g iny.f.a.,INYECTABLE FRASCO AMPOLLA,1.5,G,,
 cefuroxima,CEFUROXIMA RICHET,500 mg comp.x 8,COMPRIMIDOS,500,MG,8,
@@ -2378,12 +2377,12 @@ ciclofosfamida,CICLOFOSFAMIDA FILAXIS,200 mg f.a.x 5,FRASCO AMPOLLA,200,MG,5,
 ciclofosfamida,CICLOFOSFAMIDA FILAXIS,50 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,50,MG,30,
 ciclopentolato,CICLOPENTOLATO POEN,1% colirio x 5 ml,COLIRIO,1,%,,
 ciclopirox,NIOGERMOX,Frasco x 3.3 ml,,,,,frasco
-ciclopirox,MICOMAZOL LACA,laca x 5 ml,,,,,laca
-ciclopirox,MICOPIROX LACA,laca x 5 ml,,,,,laca
+ciclopirox,MICOMAZOL LACA,laca x 5 ml,LACA,,,,
+ciclopirox,MICOPIROX LACA,laca x 5 ml,LACA,,,,
 ciclopiroxolamina,MICOPIROX,cr.x 30 g,CREMA,,,,
 ciclopiroxolamina,MICOPIROX,loc.x 50 ml,LOCIÓN,,,,
 ciclopiroxolamina,MICOPIROX,shamp.x 100 ml,CHAMPÚ,,,,
-ciclosporina,SANDIMMUN,50 mg IV iny.a.x 10 x5ml,,50,MG,10,iv iny.a
+ciclosporina,SANDIMMUN,50 mg IV iny.a.x 10 x5ml,INYECTABLE INTRAVENOSO,50,MG,10,iny.a
 ciclosporina,CLOSPORIL 0.1%,gts.oft.x 5 ml,GOTAS OFTÁLMICAS,,,,
 ciclosporina,CIPOS 0.1,sol.oft.x 5 ml,SOLUCIÓN OFTÁLMICA,,,,
 ciclosporina,INMUNOSPORIN 0.1%,sol.oft.x 5 ml,SOLUCIÓN OFTÁLMICA,,,,
@@ -2532,8 +2531,8 @@ ciprofloxacina,CIFLOXIN,sol.oft.x 5 ml,SOLUCIÓN OFTÁLMICA,,,,
 "ciprofloxacina, dexametasona",QUIDEX,ung.oft.x 3.5 g,OFTÁLMICO,,,,
 "ciprofloxacina, hidrocortisona",OTIKIT,gts.óticas x 5 ml,GOTAS ÓTICAS,,,,
 "ciprofloxacina, hidrocortisona",CIRIAX OTIC,gts.óticas x 5 ml,GOTAS ÓTICAS,,,,
--,"CIPROFLOXACINA, HIDROCORTISONA",CIPROFLOXACINA LAZAR HCgts.óticas x 5 ml,,,,,ciprofloxacina lazar hcgts.óticas
 "ciprofloxacina, hidrocortisona",OTOCEROL OTIC,gts.óticas x 5 ml,GOTAS ÓTICAS,,,,
+-,"CIPROFLOXACINA, HIDROCORTISONA",CIPROFLOXACINA LAZAR HCgts.óticas x 5 ml,,,,,ciprofloxacina lazar hcgts.óticas
 "ciprofloxacina, hidrocortisona",OTEX HC,gts.óticas x 5 ml,GOTAS ÓTICAS,,,,
 "ciprofloxacina, hidrocortisona",OTOLEF,susp.ótica x 5 ml,SUSPENSIÓN,,,,ótica
 "ciproheptadina, calcio, asoc.",CIPROVIT CALCICO,comp.blist.x 60,COMPRIMIDOS,,,60,blist
@@ -2658,7 +2657,7 @@ claritromicina,CLARITROMICINA RICHET,500 mg comp.x 8,COMPRIMIDOS,500,MG,8,
 claritromicina,CORIXA,500 mg comp.x 8,COMPRIMIDOS,500,MG,8,
 claritromicina,ISET U.D.,500 mg comp.x 8,COMPRIMIDOS,500,MG,8,
 claritromicina,KLARICID,500 mg comp.x 8,COMPRIMIDOS,500,MG,8,
-claritromicina,CLARITROMICINA RICHET,500 mg IV iny.f.a.,INYECTABLE FRASCO AMPOLLA,500,MG,,iv
+claritromicina,CLARITROMICINA RICHET,500 mg IV iny.f.a.,INYECTABLE INTRAVENOSO,500,MG,,iny.f.a
 claritromicina,QUOTAL UD,comp.rec.acc.prol.x 4,COMPRIMIDOS ACCIÓN PROLONGADA RECUBIERTOS,,,4,
 claritromicina,QUOTAL UD,comp.rec.acc.prol.x 8,COMPRIMIDOS ACCIÓN PROLONGADA RECUBIERTOS,,,8,
 claritromicina,KLARICID UD,comp.x 5,COMPRIMIDOS,,,5,
@@ -2734,8 +2733,8 @@ clobetasol,PROAVENAL C,cr.x 30 g,CREMA,,,,
 clobetasol,DERMADEX,cr.x 30 g,CREMA,,,,
 clobetasol,PROAVENAL C,cr.x 60 g,CREMA,,,,
 clobetasol,SALAC,esp.x 60 g,,,,,esp
-clobetasol,CLOBESOL,espuma x 100 g,,,,,espuma
-clobetasol,DERMEXANE,espuma x 60 g,,,,,espuma
+clobetasol,CLOBESOL,espuma x 100 g,ESPUMA,,,,
+clobetasol,DERMEXANE,espuma x 60 g,ESPUMA,,,,
 clobetasol,CANTRIL,loc.x 30 ml,LOCIÓN,,,,
 clobetasol,CLOBESOL,loc.x 30 ml,LOCIÓN,,,,
 clobetasol,DERMEXANE CAPILAR,loc.x 30 ml,LOCIÓN,,,,
@@ -2767,8 +2766,8 @@ clofibrato,CLOFIBRATE MAGNESICO CHOB,comp.x 50,COMPRIMIDOS,,,50,
 "clomifeno,citrato",GENOZYM,comp.x 20,COMPRIMIDOS,,,20,
 "clomifeno,citrato",GENOZYM,comp.x 60,COMPRIMIDOS,,,60,
 clomipramina,ANAFRANIL 75 DIVITABS,75 mg comp.rec.x 20,COMPRIMIDOS RECUBIERTOS,75,MG,20,
-clomipramina,CLOMISAL DIVIDOSIS,comp.ran.divids.x 20,COMPRIMIDOS RANURADOS,,,20,divids
-clomipramina,CLOMISAL DIVIDOSIS,comp.ran.divids.x 30,COMPRIMIDOS RANURADOS,,,30,divids
+clomipramina,CLOMISAL DIVIDOSIS,comp.ran.divids.x 20,COMPRIMIDOS RANURADOS DIVISIBLES,,,20,
+clomipramina,CLOMISAL DIVIDOSIS,comp.ran.divids.x 30,COMPRIMIDOS RANURADOS DIVISIBLES,,,30,
 clomipramina,ANAFRANIL,grag.x 30,GRAGEAS,,,30,
 clonazepam,QUAZEMIC SL,0.25 mg comp.subl. x 30,COMPRIMIDOS SUBLINGUALES,0.25,MG,30,
 clonazepam,CLONAGIN SL,0.25 mg comp.subl.x 15,COMPRIMIDOS SUBLINGUALES,0.25,MG,15,
@@ -2879,7 +2878,6 @@ clonazepam,CLONAGIN,gts.x 20 ml,GOTAS,,,,
 "clonidina, clortalidona",BEMPLAS,comp.x 30,COMPRIMIDOS,,,30,
 "clonidina, clortalidona",BEMPLAS,comp.x 60,COMPRIMIDOS,,,60,
 clonixinato lisina,CLONIXINATO DE LISINA LARA.X 100 X,4 ml,,4,ML,,
-clonixinato lisina,DORIXINA GEL,gel x 50 g,GEL,,,,
 "clonixinato lisina, ciclobenza",DORIXINA RELAX,comp.rec.x 20,COMPRIMIDOS RECUBIERTOS,,,20,
 "clonixinato lisina, ergotamina",MIGRA DORIXINA,comp.x 10,COMPRIMIDOS,,,10,
 "clonixinato lisina, vit.b,comp",DORIXINA B1 B6 B12,comp.x 20,COMPRIMIDOS,,,20,
@@ -2917,7 +2915,7 @@ clorfeniramina,ALERGITRAT,jbe.x 120 ml,JARABE,,,,
 "clorfeniramina, asoc.",DECIDEX,gts.x 30 ml,GOTAS,,,,
 "clorfeniramina, asoc.",DECIDEX,sol.x 100 ml,SOLUCIÓN,,,,
 "clorfeniramina, dextrometorfano",ASEPTOBRON,jbe.x 150 ml,JARABE,,,,
-clorhexidina,GERMILISIN,espuma x 130 ml,,,,,espuma
+clorhexidina,GERMILISIN,espuma x 130 ml,ESPUMA,,,,
 clorhexidina,PERVINOX INCOLORO,sol.fco.gotero x 60 ml,SOLUCIÓN,,,,fco.gotero
 clorhexidina,PERVINOX INCOLORO,sol.spray x 40 ml,SOLUCIÓN,,,,spray
 clorhexidina,PERVINOX INCOLORO,sol.spray x 60 ml,SOLUCIÓN,,,,spray
@@ -3081,7 +3079,7 @@ dacomitinib,VIZIMPRO,15 mg comp.rec.x30,COMPRIMIDOS RECUBIERTOS,15,MG,30,
 dacomitinib,VIZIMPRO,30 mg comp.rec.x30,COMPRIMIDOS RECUBIERTOS,30,MG,30,
 dacomitinib,VIZIMPRO,45 mg comp.rec.x30,COMPRIMIDOS RECUBIERTOS,45,MG,30,
 dactinomicina,COSMEGEN,0.5 mg iny.a.x 1,INYECTABLE AMPOLLA,0.5,MG,1,
-dantroleno,DANTROCRIS,20 mg pvo.liof.f.a. x 12,POLVO,20,MG,12,liof.f.a
+dantroleno,DANTROCRIS,20 mg pvo.liof.f.a. x 12,FRASCO AMPOLLA,20,MG,12,
 dapagliflozina,ACUS,10 mg comp. x 30,COMPRIMIDOS,10,MG,30,
 dapagliflozina,GLIFOSIN,10 mg comp. x 30,COMPRIMIDOS,10,MG,30,
 dapagliflozina,FANTER,10 mg comp. x 30,COMPRIMIDOS,10,MG,30,
@@ -3194,16 +3192,16 @@ degarelix,FIRMAGON,80mg iny.pvof.a.prell.x1,INYECTABLE,80,MG,1,pvof.a.prell
 "dehidrocólico,ác., asoc.",BIL 13,comp.x 100,COMPRIMIDOS,,,100,
 "dehidrocólico,ác., asoc.",BIL 13,comp.x 20,COMPRIMIDOS,,,20,
 "dehidrocólico,ác., asoc.",BIL 13,comp.x 40,COMPRIMIDOS,,,40,
-denosumab,XGEVA,120mg/1.7 ml iny.vial x1,INYECTABLE,120mg/1.7ml,MG/ML,1,vial
+denosumab,XGEVA,120mg/1.7 ml iny.vial x1,INYECTABLE VIAL,120mg/1.7ml,MG/ML,1,
 denosumab,PROLIA,60 mg/ml jga.prell.x 1,,60,MG,1,/ml jga.prell
 desferoxamina,DESFERAL,f.a.x 10,FRASCO AMPOLLA,,,10,
 desflurano,SUPRANE BAXTER,env.x 240 ml,ENVASE,,,,
 desloratadina,NOVO ALERPRIV,5 mg comp.rec.x 10,COMPRIMIDOS RECUBIERTOS,5,MG,10,
 desloratadina,AERIUS,5 mg comp.rec.x 10,COMPRIMIDOS RECUBIERTOS,5,MG,10,
 desloratadina,TERALMINA,5 mg comp.rec.x 14,COMPRIMIDOS RECUBIERTOS,5,MG,14,
-desloratadina,DELORAT,5 mg comp.rec.x 14,COMPRIMIDOS RECUBIERTOS,5,MG,14,
 desloratadina,HEXALER,5 mg comp.rec.x 14,COMPRIMIDOS RECUBIERTOS,5,MG,14,
 desloratadina,FRENALER,5 mg comp.rec.x 14,COMPRIMIDOS RECUBIERTOS,5,MG,14,
+desloratadina,DELORAT,5 mg comp.rec.x 14,COMPRIMIDOS RECUBIERTOS,5,MG,14,
 desloratadina,NOVO ALERPRIV,5 mg comp.rec.x 20,COMPRIMIDOS RECUBIERTOS,5,MG,20,
 desloratadina,AERIUS,5 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,5,MG,30,
 desloratadina,HEXALER,5 mg comp.rec.x 7,COMPRIMIDOS RECUBIERTOS,5,MG,7,
@@ -3223,15 +3221,15 @@ desloratadina,FRENALER,jbe.x 60 ml,JARABE,,,,
 desloratadina,DESLORAMAR,susp.fco.x 60 ml,SUSPENSIÓN,,,,fco
 "desloratadina, betametasona",DESLORAMAR CORT,5 mg comp.x 10,COMPRIMIDOS,5,MG,10,
 "desloratadina, betametasona",HEXALER CORT,comp.rec.x 10,COMPRIMIDOS RECUBIERTOS,,,10,
-"desloratadina, betametasona",DELORAT B,comp.rec.x 10,COMPRIMIDOS RECUBIERTOS,,,10,
 "desloratadina, betametasona",HISTADICASONE,comp.rec.x 10,COMPRIMIDOS RECUBIERTOS,,,10,
 "desloratadina, betametasona",FRENALER CORT,comp.rec.x 10,COMPRIMIDOS RECUBIERTOS,,,10,
+"desloratadina, betametasona",DELORAT B,comp.rec.x 10,COMPRIMIDOS RECUBIERTOS,,,10,
 "desloratadina, betametasona",DESALER CORT,comp.x 10,COMPRIMIDOS,,,10,
 "desloratadina, betametasona",DESALER CORT,comp.x 30,COMPRIMIDOS,,,30,
 "desloratadina, betametasona",HISTADICASONE,jbe.x 60 ml,JARABE,,,,
 "desloratadina, betametasona",HEXALER CORT,jbe.x 60 ml,JARABE,,,,
-"desloratadina, betametasona",DELORAT B,jbe.x 60 ml,JARABE,,,,
 "desloratadina, betametasona",FRENALER CORT,jbe.x 60 ml,JARABE,,,,
+"desloratadina, betametasona",DELORAT B,jbe.x 60 ml,JARABE,,,,
 "desloratadina, betametasona",DESLORAMAR CORT,susp.fco.x 60 ml,SUSPENSIÓN,,,,fco
 "desloratadina, pseudoefedrina",HEXALER PLUS,caps.lib.prol.x 10,CÁPSULAS LIBERACIÓN PROLONGADA,,,10,
 desmopresina acetato,DESMOPRESIN,0.1 mg comp.x 100,COMPRIMIDOS,0.1,MG,100,
@@ -3513,7 +3511,7 @@ diclofenac potásico,METAFLEX,susp.x 90 ml,SUSPENSIÓN,,,,
 "diclofenac potásico, pridinol",RODINAC FLEX K,comp.x 15,COMPRIMIDOS,,,15,
 "diclofenac potásico, pridinol",RODINAC FLEX K,comp.x 20,COMPRIMIDOS,,,20,
 "diclofenac potásico, pridinol",RODINAC FLEX K,comp.x 30,COMPRIMIDOS,,,30,
-diclofenac sódico,KINALGIN,1.5% sol.tópica x 60 ml,SOLUCIÓN,1.5,%,,tópica
+diclofenac sódico,KINALGIN,1.5% sol.tópica x 60 ml,SOLUCIÓN TÓPICA,1.5,%,,
 diclofenac sódico,BEFOL AP RETARD,100 mg cáps.x 15,CÁPSULAS,100,MG,15,
 diclofenac sódico,LAFENAC,100 mg cáps.x 15,CÁPSULAS,100,MG,15,
 diclofenac sódico,XEDENOL,100 mg comp.rec.LP x 15,COMPRIMIDOS RECUBIERTOS,100,MG,15,lp
@@ -3524,9 +3522,9 @@ diclofenac sódico,NORVIKEN 100 VENT-3,100mg cáps.lib.prol.x 30,CÁPSULAS LIBER
 diclofenac sódico,ACLOXIGENAC LP,100mg cáps.lib.prol.x500,CÁPSULAS LIBERACIÓN PROLONGADA,100,MG,500,
 diclofenac sódico,DICLOGESIC 100 AP,100mg comp.acc.prol.x 10,COMPRIMIDOS ACCIÓN PROLONGADA,100,MG,10,
 diclofenac sódico,BLOKIUM,100mg comp.acc.prol.x 15,COMPRIMIDOS ACCIÓN PROLONGADA,100,MG,15,
-diclofenac sódico,DICLAC,150 mg comp.rapirtd.x 10,COMPRIMIDOS,150,MG,10,rapirtd
-diclofenac sódico,DICLAC,150 mg comp.rapirtd.x 20,COMPRIMIDOS,150,MG,20,rapirtd
-diclofenac sódico,DICLAC,150 mg comp.rapirtd.x 5,COMPRIMIDOS,150,MG,5,rapirtd
+diclofenac sódico,DICLAC,150 mg comp.rapirtd.x 10,COMPRIMIDOS LIBERACIÓN RÁPIDA,150,MG,10,
+diclofenac sódico,DICLAC,150 mg comp.rapirtd.x 20,COMPRIMIDOS LIBERACIÓN RÁPIDA,150,MG,20,
+diclofenac sódico,DICLAC,150 mg comp.rapirtd.x 5,COMPRIMIDOS LIBERACIÓN RÁPIDA,150,MG,5,
 diclofenac sódico,DIOXAFLEX CB,50 mg caps.blandas x 15,CÁPSULAS BLANDAS,50,MG,15,
 diclofenac sódico,DIOXAFLEX CB,50 mg caps.blandas x 30,CÁPSULAS BLANDAS,50,MG,30,
 diclofenac sódico,ACLOXIGENAC,50 mg comp.rec.x 10,COMPRIMIDOS RECUBIERTOS,50,MG,10,
@@ -3543,13 +3541,13 @@ diclofenac sódico,BLOKIUM,50 mg comp.x 30,COMPRIMIDOS,50,MG,30,
 diclofenac sódico,DIOXAFLEX RAPID,50 mg gran.sob.x20,GRÁNULOS SOBRES,50,MG,20,
 diclofenac sódico,XEDENOL,50mgcomp.rec.gastror.x15,COMPRIMIDOS GASTRORRESISTENTES,50,MG,15,ror
 diclofenac sódico,XEDENOL,50mgcomp.rec.gastror.x30,COMPRIMIDOS GASTRORRESISTENTES,50,MG,30,ror
-diclofenac sódico,XEDENOL CB,75 mg caps.bl.gastr.x 15,CÁPSULAS BLANDAS,75,MG,15,gastr
+diclofenac sódico,XEDENOL CB,75 mg caps.bl.gastr.x 15,CÁPSULAS BLANDAS GASTRORRESISTENTES,75,MG,15,
 -,DICLOFENAC SÓDICO,FLEXIPLEN CAPSULA BLANDA75 mg cáps.bl.x 10,,,,10,flexiplen capsula blanda75 mg cáps.bl
 diclofenac sódico,XEDENOL,75 mg comp.lib.prol.x 15,COMPRIMIDOS LIBERACIÓN PROLONGADA,75,MG,15,
 diclofenac sódico,NORVIKEN 75 VENT-3,75 mg comp.lib.prol.x 30,COMPRIMIDOS LIBERACIÓN PROLONGADA,75,MG,30,
 diclofenac sódico,XEDENOL,75 mg comp.lib.prol.x 30,COMPRIMIDOS LIBERACIÓN PROLONGADA,75,MG,30,
-diclofenac sódico,DICLAC,75 mg comp.rapirtd.x 10,COMPRIMIDOS,75,MG,10,rapirtd
-diclofenac sódico,DICLAC,75 mg comp.rapirtd.x 20,COMPRIMIDOS,75,MG,20,rapirtd
+diclofenac sódico,DICLAC,75 mg comp.rapirtd.x 10,COMPRIMIDOS LIBERACIÓN RÁPIDA,75,MG,10,
+diclofenac sódico,DICLAC,75 mg comp.rapirtd.x 20,COMPRIMIDOS LIBERACIÓN RÁPIDA,75,MG,20,
 diclofenac sódico,ACLOXIGENAC,75 mg comp.rec.x 10,COMPRIMIDOS RECUBIERTOS,75,MG,10,
 diclofenac sódico,DICLOGESIC,75 mg comp.rec.x 10,COMPRIMIDOS RECUBIERTOS,75,MG,10,
 diclofenac sódico,METAFLEX 75,75 mg comp.rec.x 10,COMPRIMIDOS RECUBIERTOS,75,MG,10,
@@ -3833,8 +3831,8 @@ diosmina,DIOSMIN CREMA,pomo x 90 g,POMO,,,,
 "diosmina, hesperidina micronizada",DIPEMINA,500 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,500,MG,30,
 "diosmina, hesperidina micronizada",FLEVOMAX,500 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,500,MG,30,
 "diosmina, hesperidina micronizada",ALIVIAFLEB,500 mg comp.rec.x 60,COMPRIMIDOS RECUBIERTOS,500,MG,60,
-"diosmina, hesperidina micronizada",DIPEMINA,500 mg comp.rec.x 60,COMPRIMIDOS RECUBIERTOS,500,MG,60,
 "diosmina, hesperidina micronizada",ATUREN,500 mg comp.rec.x 60,COMPRIMIDOS RECUBIERTOS,500,MG,60,
+"diosmina, hesperidina micronizada",DIPEMINA,500 mg comp.rec.x 60,COMPRIMIDOS RECUBIERTOS,500,MG,60,
 "diosmina, hesperidina micronizada",FLEVOMAX,500 mg comp.rec.x 60,COMPRIMIDOS RECUBIERTOS,500,MG,60,
 "diosmina, hesperidina micronizada",VEDIPAL,500 mg comp.x 30,COMPRIMIDOS,500,MG,30,
 "diosmina, hesperidina micronizada",DAFLON 500,500 mg comp.x 30,COMPRIMIDOS,500,MG,30,
@@ -3984,8 +3982,8 @@ dorzolamida,DORLAMIDA,sol.oft.x 5 ml,SOLUCIÓN OFTÁLMICA,,,,
 "dorzolamida, timolol",TIMED D,sol.oft.x 5 ml,SOLUCIÓN OFTÁLMICA,,,,
 "dorzolamida, timolol",DORLAMIDA T,sol.oft.x 5 ml,SOLUCIÓN OFTÁLMICA,,,,
 "dorzolamida, timolol",GLAUCOTENSIL TD LC,sol.oft.x 5 ml,SOLUCIÓN OFTÁLMICA,,,,
-"dorzolamida, timolol",PRESS OUT T,sol.oft.x 5 ml,SOLUCIÓN OFTÁLMICA,,,,
 "dorzolamida, timolol",ZOPIROL DM,sol.oft.x 5 ml,SOLUCIÓN OFTÁLMICA,,,,
+"dorzolamida, timolol",PRESS OUT T,sol.oft.x 5 ml,SOLUCIÓN OFTÁLMICA,,,,
 "dorzolamida, timolol, brimonid",XEGREX,sol.oft.x 5 ml,SOLUCIÓN OFTÁLMICA,,,,
 dostarlimab,JEMPERLI,50 mg/ml vial x 10 ml,,50,MG,,/ml vial
 doxazosina,CARDURA,2 mg tab.x 30,TABLETAS,2,MG,30,
@@ -4018,13 +4016,13 @@ doxorubicina,ONKOSTATIL,50 mg f.a.x 1,FRASCO AMPOLLA,50,MG,1,
 doxorubicina,DOXORUBICINA KEMEX,50 mg f.a.x 1,FRASCO AMPOLLA,50,MG,1,
 doxorubicina,DOXOKEBIR,50 mg f.a.x 1,FRASCO AMPOLLA,50,MG,1,
 doxorubicina,DOXTIE,50 mg iny.f.a.x 1,INYECTABLE FRASCO AMPOLLA,50,MG,1,
--,DOXORUBICINA,DOXORUBICINA GLENMARK 50 mg liof.f.a.x 1,,,,1,doxorubicina glenmark 50 mg liof.f.a
 doxorubicina,DOXORUBICINA IMA,50 mg liof.f.a.x 1,LIOFILIZADO FRASCO AMPOLLA,50,MG,1,
+-,DOXORUBICINA,DOXORUBICINA GLENMARK 50 mg liof.f.a.x 1,,,,1,doxorubicina glenmark 50 mg liof.f.a
 doxorubicina,ROXORIN,50 mg liof.f.a.x 1,LIOFILIZADO FRASCO AMPOLLA,50,MG,1,
-doxorubicina,COLHIDROL,50 mg pvo.liof.a.x 1,POLVO,50,MG,1,liof.a
+doxorubicina,COLHIDROL,50 mg pvo.liof.a.x 1,POLVO LIOFILIZADO,50,MG,1,a
 doxorubicina liposomal,DOXPLAX,20 mg f.a.x 1 x 10 ml,FRASCO AMPOLLA,20,MG,1,
 doxorubicina liposomal,LIBENDE,20 mg f.a.x 1 x 10 ml,FRASCO AMPOLLA,20,MG,1,
-doxorubicina liposomal,DOXOPEG,20 mg iny.vial x 1,INYECTABLE,20,MG,1,vial
+doxorubicina liposomal,DOXOPEG,20 mg iny.vial x 1,INYECTABLE VIAL,20,MG,1,
 drospirenona,SLINDA SIN ESTROGENOS,comp.rec.x 24 + 4,COMPRIMIDOS RECUBIERTOS,,,24,4
 drospirenona,FUCSIA SIN ESTROGENOS,comp.rec.x 28,COMPRIMIDOS RECUBIERTOS,,,28,
 drospirenona,KALI SIN ESTROGENOS,comp.rec.x 28,COMPRIMIDOS RECUBIERTOS,,,28,
@@ -4147,8 +4145,8 @@ efinaconazol,EFITUM,10% sol.tóp.x4ml +aplic.,SOLUCIÓN,10,%,,tóp. +aplic
 efinaconazol,FUNGO NAIL,10%sol.tóp.x4ml+aplic.,SOLUCIÓN,10,%,,tóp.+aplic
 eletriptán,RELPAX,40 mg comp.x 6,COMPRIMIDOS,40,MG,6,
 "elexacaftor, tezacaftor, ivaca",TRIXACAR P,comp.rec.x 90,COMPRIMIDOS RECUBIERTOS,,,90,
-"elexacaftor, tezacaftor, ivaca",TRILEXA,comp.rec.x 90,COMPRIMIDOS RECUBIERTOS,,,90,
 "elexacaftor, tezacaftor, ivaca",TRIXACAR,comp.rec.x 90,COMPRIMIDOS RECUBIERTOS,,,90,
+"elexacaftor, tezacaftor, ivaca",TRILEXA,comp.rec.x 90,COMPRIMIDOS RECUBIERTOS,,,90,
 eliglustat,ELIGLAS,100 mg cáps. x 60,CÁPSULAS,100,MG,60,
 elosulfase alfa,VIMIZIM,5 mg f.a. x 1,FRASCO AMPOLLA,5,MG,1,
 eltrombopag,ORNATE,25 mg comp.rec.x 28,COMPRIMIDOS RECUBIERTOS,25,MG,28,
@@ -4192,9 +4190,9 @@ enalapril,PRESI REGUL,10 mg comp.x 20,COMPRIMIDOS,10,MG,20,
 enalapril,ENALAPRIL 10 MG,10 mg comp.x 30,COMPRIMIDOS,10,MG,30,
 enalapril,ENALAPRIL RICHET,10 mg comp.x 30,COMPRIMIDOS,10,MG,30,
 enalapril,ENATRAL 10 MG,10 mg comp.x 30,COMPRIMIDOS,10,MG,30,
-enalapril,ECAPRILAT,10 mg comp.x 30,COMPRIMIDOS,10,MG,30,
 enalapril,PRILTENK,10 mg comp.x 30,COMPRIMIDOS,10,MG,30,
 enalapril,ENALDUN,10 mg comp.x 30,COMPRIMIDOS,10,MG,30,
+enalapril,ECAPRILAT,10 mg comp.x 30,COMPRIMIDOS,10,MG,30,
 enalapril,NALAPRIL,10 mg comp.x 30,COMPRIMIDOS,10,MG,30,
 enalapril,TENCAS,10 mg comp.x 30,COMPRIMIDOS,10,MG,30,
 enalapril,LOTRIAL,10 mg comp.x 30,COMPRIMIDOS,10,MG,30,
@@ -4211,8 +4209,8 @@ enalapril,LOTRIAL,10 mg comp.x 50,COMPRIMIDOS,10,MG,50,
 enalapril,ENALDUN,10 mg comp.x 60,COMPRIMIDOS,10,MG,60,
 enalapril,ENATRAL 10 MG,10 mg comp.x 60,COMPRIMIDOS,10,MG,60,
 enalapril,ENALAPRIL RICHET,10 mg comp.x 60,COMPRIMIDOS,10,MG,60,
-enalapril,ECAPRILAT,10 mg comp.x 60,COMPRIMIDOS,10,MG,60,
 enalapril,PRILTENK,10 mg comp.x 60,COMPRIMIDOS,10,MG,60,
+enalapril,ECAPRILAT,10 mg comp.x 60,COMPRIMIDOS,10,MG,60,
 enalapril,TENCAS,10 mg comp.x 60,COMPRIMIDOS,10,MG,60,
 enalapril,LOTRIAL,10 mg comp.x 60,COMPRIMIDOS,10,MG,60,
 enalapril,SULOCTEN,10 mg comp.x 60,COMPRIMIDOS,10,MG,60,
@@ -4404,7 +4402,7 @@ eribulina,ELEFIX,vial x 1 x 2 ml,VIAL,,,1,
 eritromicina,ERITROMICINA KLONAL,200 mg susp.x 60 ml,SUSPENSIÓN,200,MG,,
 eritromicina,ERITROVIS,200mg/5ml susp.x 60 ml,SUSPENSIÓN,200mg/5ml,MG/ML,,
 eritromicina,ERISOL,4% gel x 30 g,GEL,4,%,,
-eritromicina,ERISOL,4% sol.tópica derm.x50ml,SOLUCIÓN,4,%,,tópica derm
+eritromicina,ERISOL,4% sol.tópica derm.x50ml,SOLUCIÓN TÓPICA,4,%,,derm
 eritromicina,ERITROVIS,500 mg comp.x 16,COMPRIMIDOS,500,MG,16,
 eritromicina,ERIT BIOQUIM,500 mg comp.x 16,COMPRIMIDOS,500,MG,16,
 eritromicina,ERITROFARM,colirio x 5 ml,COLIRIO,,,,
@@ -4427,24 +4425,24 @@ eritromicina,ERITROMICINA ELEA,ung.x 3.5 g,UNGÜENTO,,,,
 eritromicina,TRIXNE 4% GEL,unidosis x 30 ml,,,,,unidosis
 eritropoyetina recombinante humana,EPOGEN,10000 UI f.a.x 1 x 1 ml,FRASCO AMPOLLA,10000,UI,1,
 eritropoyetina recombinante humana,HEMASTIM P JP,10000 ui jga.prell. x 1,JERINGA PRELLENADA,10000,UI,1,
-eritropoyetina recombinante humana,ERITROGEN,10000 UI sol.f.a.x 1 ml,FRASCO AMPOLLA,10000,UI,,
-eritropoyetina recombinante humana,HEMAX,10000UI pvo.liof.+diluy.,POLVO,10000,UI,,liof.+diluy
-eritropoyetina recombinante humana,HEMAX,1000UI pvo.liof.+ diluy.,POLVO,1000,UI,,liof.+ diluy
+eritropoyetina recombinante humana,ERITROGEN,10000 UI sol.f.a.x 1 ml,SOLUCIÓN FRASCO AMPOLLA,10000,UI,,
+eritropoyetina recombinante humana,HEMAX,10000UI pvo.liof.+diluy.,POLVO LIOFILIZADO,10000,UI,,diluy
+eritropoyetina recombinante humana,HEMAX,1000UI pvo.liof.+ diluy.,POLVO LIOFILIZADO,1000,UI,,diluy
 eritropoyetina recombinante humana,HEMAX,2000 UI f.a. x 1 x 1 ml,FRASCO AMPOLLA,2000,UI,1,
 eritropoyetina recombinante humana,HEMAX,2000 UI f.a. x 50 x 1 ml,FRASCO AMPOLLA,2000,UI,50,
 eritropoyetina recombinante humana,EPOGEN,2000 UI f.a.x 1 x 1 ml,FRASCO AMPOLLA,2000,UI,1,
-eritropoyetina recombinante humana,ERITROGEN,2000 UI sol.f.a.x 1 ml,FRASCO AMPOLLA,2000,UI,,
-eritropoyetina recombinante humana,HEMAX,20000UI pvo.liof.+diluy.,POLVO,20000,UI,,liof.+diluy
+eritropoyetina recombinante humana,ERITROGEN,2000 UI sol.f.a.x 1 ml,SOLUCIÓN FRASCO AMPOLLA,2000,UI,,
+eritropoyetina recombinante humana,HEMAX,20000UI pvo.liof.+diluy.,POLVO LIOFILIZADO,20000,UI,,diluy
 eritropoyetina recombinante humana,HEMASTIM P,2000UI a.x 1 x 1 ml,AMPOLLA,2000,UI,1,
-eritropoyetina recombinante humana,HEMAX,2000UI pvo.liof.+ diluy,POLVO,2000,UI,,liof.+ diluy
-eritropoyetina recombinante humana,HEMAX,3000UI pvo.liof.+ diluy.,POLVO,3000,UI,,liof.+ diluy
+eritropoyetina recombinante humana,HEMAX,2000UI pvo.liof.+ diluy,POLVO LIOFILIZADO,2000,UI,,diluy
+eritropoyetina recombinante humana,HEMAX,3000UI pvo.liof.+ diluy.,POLVO LIOFILIZADO,3000,UI,,diluy
 eritropoyetina recombinante humana,EPOGEN,4000 UI f.a.x 1 x 1 ml,FRASCO AMPOLLA,4000,UI,1,
-eritropoyetina recombinante humana,ERITROGEN,4000 UI sol.f.a.x 1 ml,FRASCO AMPOLLA,4000,UI,,
+eritropoyetina recombinante humana,ERITROGEN,4000 UI sol.f.a.x 1 ml,SOLUCIÓN FRASCO AMPOLLA,4000,UI,,
 eritropoyetina recombinante humana,EPOGEN,40000 UI f.a.x 1 x 1 ml,FRASCO AMPOLLA,40000,UI,1,
-eritropoyetina recombinante humana,ERITROGEN,40000 UI sol.f.a.x 1 ml,FRASCO AMPOLLA,40000,UI,,
-eritropoyetina recombinante humana,HEMAX,40000UI pvo.liof.+diluy.,POLVO,40000,UI,,liof.+diluy
+eritropoyetina recombinante humana,ERITROGEN,40000 UI sol.f.a.x 1 ml,SOLUCIÓN FRASCO AMPOLLA,40000,UI,,
+eritropoyetina recombinante humana,HEMAX,40000UI pvo.liof.+diluy.,POLVO LIOFILIZADO,40000,UI,,diluy
 eritropoyetina recombinante humana,HEMASTIM P,4000UI a.x 1 x 2 ml,AMPOLLA,4000,UI,1,
-eritropoyetina recombinante humana,HEMAX,4000UI pvo.liof.+ diluy.,POLVO,4000,UI,,liof.+ diluy
+eritropoyetina recombinante humana,HEMAX,4000UI pvo.liof.+ diluy.,POLVO LIOFILIZADO,4000,UI,,diluy
 eritropoyetina recombinante humana,HYPERCRIT 10000 UI,f.a.liof.x1+a.disol.x1ml,FRASCO AMPOLLA LIOFILIZADO,,,1,a.disol
 eritropoyetina recombinante humana,HYPERCRIT 2000 UI,f.a.liof.x1+a.disol.x2ml,FRASCO AMPOLLA LIOFILIZADO,,,1,a.disol
 eritropoyetina recombinante humana,HYPERCRIT 4000 UI,f.a.liof.x1+a.disol.x2ml,FRASCO AMPOLLA LIOFILIZADO,,,1,a.disol
@@ -4465,8 +4463,8 @@ erlotinib,STAMEL,150 mg comp.x 30,COMPRIMIDOS,150,MG,30,
 erlotinib,ERLOTER,150 mg comp.x 30,COMPRIMIDOS,150,MG,30,
 erlotinib,ERLONIX,25 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,25,MG,30,
 erlotinib,ERLOTINIB ECZANE,25 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,25,MG,30,
-ertapenem,INVANZ,1 g IV/IM vial liof.x 1,,1,G,1,iv/im vial liof
-ertapenem,ERTAPENEM RICHET,pvo.liof.f.a. x 1,POLVO,,,1,liof.f.a
+ertapenem,INVANZ,1 g IV/IM vial liof.x 1,INYECTABLE INTRAVENOSO,1,G,1,/im vial liof
+ertapenem,ERTAPENEM RICHET,pvo.liof.f.a. x 1,FRASCO AMPOLLA,,,1,
 escina(extr.cast.de indias),NADEM FORTE,grag.x 30,GRAGEAS,,,30,
 escina(extr.cast.de indias),NADEM FORTE,grag.x 60,GRAGEAS,,,60,
 "escina, asoc.",VENOSTASIN,gel x 50 g,GEL,,,,
@@ -4614,7 +4612,7 @@ estradiol,PROGYNOVA,2 mg comp.x 28,COMPRIMIDOS,2,MG,28,
 estradiol,RONTAGEL,env.x 80 g,ENVASE,,,,
 estradiol,TRIAL GEL,gel x 80 g,GEL,,,,
 "estradiol, noretisterona",MESIGYNA,iny.IM a.x 1 ml,INYECTABLE,,,,im a
-"estradiol, noretisterona",MESIGYNA,jer.prell. x 1 ml,,,,,jer.prell
+"estradiol, noretisterona",MESIGYNA,jer.prell. x 1 ml,JERINGA PRELLENADA,,,,
 -,ESTREPTOMICINA,ESTREPTOMICINA RICHET TP1 g iny.f.a.x 1,,,,1,estreptomicina richet tp1 g iny.f.a
 estreptoquinasa,STREPTOFACTOR,1500000 UI a.x 1,AMPOLLA,1500000,UI,1,
 estriol,ORGESTRIOL,cr.vag.x 15 g c/aplic.,CREMA,,,,vag. c/aplic
@@ -4639,9 +4637,9 @@ eszopiclona,MIAPAX,3 mg comp.x 30,COMPRIMIDOS,3,MG,30,
 eszopiclona,NOVO INSOMNIUM,3 mg comp.x 30,COMPRIMIDOS,3,MG,30,
 etambutol,ETAMBUTOL RICHET,400 mg comp.x 50 (TRZB),COMPRIMIDOS,400,MG,50,(trzb)
 etanercept,ENBREL,25 mg cartucho x 4,,25,MG,4,cartucho
-etanercept,ENBREL,25 mg jer.prell. x 4,,25,MG,4,jer.prell
+etanercept,ENBREL,25 mg jer.prell. x 4,JERINGA PRELLENADA,25,MG,4,
 etanercept,ENERCEPTAN,25 mg jga.prell.x 4,JERINGA PRELLENADA,25,MG,4,
-etanercept,ENBREL,25 mg pvo.liof. vial x 4,POLVO,25,MG,4,liof. vial
+etanercept,ENBREL,25 mg pvo.liof. vial x 4,POLVO LIOFILIZADO,25,MG,4,vial
 etanercept,ERELZI,50 mg autoinyector x 4,AUTOINYECTOR,50,MG,4,
 etanercept,ENERCEPTAN,50 mg autoinyector x 4,AUTOINYECTOR,50,MG,4,
 etanercept,ENBREL,50 mg autoinyector x 4,AUTOINYECTOR,50,MG,4,
@@ -4819,17 +4817,17 @@ factor viii,OCTANATE,500 UI liof.f.a.x 1,LIOFILIZADO FRASCO AMPOLLA,500,UI,1,
 factor viii,EMOCLOT,500UI a.x1+diluy+set inf,AMPOLLA,500,UI,1,diluy+set inf
 factor viii de coagulación recombinante,KOVALTRY,1000 UI f.a. x 1,FRASCO AMPOLLA,1000,UI,1,
 factor viii de coagulación recombinante,XYNTHA,1000 UI f.a.x1+jga.prell,FRASCO AMPOLLA,1000,UI,1,jga.prell
-factor viii de coagulación recombinante,ESPEROCT,1000 UI liof.pvo.vial x1,LIOFILIZADO,1000,UI,1,pvo.vial
-factor viii de coagulación recombinante,ESPEROCT,1500 UI liof.pvo.vial x1,LIOFILIZADO,1500,UI,1,pvo.vial
-factor viii de coagulación recombinante,XYNTHA,250 UI pvo.liof.iny.x 1,POLVO,250,UI,1,liof.iny
+factor viii de coagulación recombinante,ESPEROCT,1000 UI liof.pvo.vial x1,LIOFILIZADO POLVO VIAL,1000,UI,1,
+factor viii de coagulación recombinante,ESPEROCT,1500 UI liof.pvo.vial x1,LIOFILIZADO POLVO VIAL,1500,UI,1,
+factor viii de coagulación recombinante,XYNTHA,250 UI pvo.liof.iny.x 1,POLVO LIOFILIZADO,250,UI,1,iny
 factor viii de coagulación recombinante,KOVALTRY,500 UI f.a. x 1,FRASCO AMPOLLA,500,UI,1,
 factor viii de coagulación recombinante,XYNTHA,500 UI f.a.x1+jga.prell.,FRASCO AMPOLLA,500,UI,1,jga.prell
-factor viii de coagulación recombinante,NOVOEIGHT 500UI,liof.pvo.vial+j.p.x1x4ml,LIOFILIZADO,,,1,pvo.vial+j.p
-factor viii de coagulación recombinante,NOVOEIGHT 1000UI,liof.pvo.vial+j.p.x1x4ml,LIOFILIZADO,,,1,pvo.vial+j.p
-factor viii de coagulación recombinante,NUWIQ 250 UI,liof.pvo.vial+j.p.x1x8ml,LIOFILIZADO,,,1,pvo.vial+j.p
-factor viii de coagulación recombinante,NUWIQ 500 UI,liof.pvo.vial+j.p.x1x8ml,LIOFILIZADO,,,1,pvo.vial+j.p
-factor viii de coagulación recombinante,NUWIQ 1000 UI,liof.pvo.vial+j.p.x1x8ml,LIOFILIZADO,,,1,pvo.vial+j.p
-factor viii de coagulación recombinante,NUWIQ 2000 UI,liof.pvo.vial+j.p.x1x8ml,LIOFILIZADO,,,1,pvo.vial+j.p
+factor viii de coagulación recombinante,NOVOEIGHT 500UI,liof.pvo.vial+j.p.x1x4ml,LIOFILIZADO POLVO VIAL,,,1,j.p
+factor viii de coagulación recombinante,NOVOEIGHT 1000UI,liof.pvo.vial+j.p.x1x4ml,LIOFILIZADO POLVO VIAL,,,1,j.p
+factor viii de coagulación recombinante,NUWIQ 250 UI,liof.pvo.vial+j.p.x1x8ml,LIOFILIZADO POLVO VIAL,,,1,j.p
+factor viii de coagulación recombinante,NUWIQ 500 UI,liof.pvo.vial+j.p.x1x8ml,LIOFILIZADO POLVO VIAL,,,1,j.p
+factor viii de coagulación recombinante,NUWIQ 1000 UI,liof.pvo.vial+j.p.x1x8ml,LIOFILIZADO POLVO VIAL,,,1,j.p
+factor viii de coagulación recombinante,NUWIQ 2000 UI,liof.pvo.vial+j.p.x1x8ml,LIOFILIZADO POLVO VIAL,,,1,j.p
 "factor viii, fact.von willebra",WILATE,1000 UI f.a.x 1,FRASCO AMPOLLA,1000,UI,1,
 "factor viii, fact.von willebra",FANHDI,1000 UI f.a.x 1+disolv.,FRASCO AMPOLLA,1000,UI,1,disolv
 "factor viii, fact.von willebra",HAEMATE P,1000 UI f.a.x 1+set adm.,FRASCO AMPOLLA,1000,UI,1,set adm
@@ -4953,7 +4951,6 @@ fentanilo,FENTORA 100,100 mcg comp.dis.buc.x28,COMPRIMIDOS,100,MCG,28,dis.buc
 fentanilo,FENTORA 200,200 mcg comp.dis.buc.x28,COMPRIMIDOS,200,MCG,28,dis.buc
 fentanilo,DUROGESIC D-TRANS,25 mcg/h parch.matriz.x5,,25,MCG,5,/h parch.matriz
 fentanilo,DUROGESIC D-TRANS,50 mcg/h parch.matriz.x5,,50,MCG,5,/h parch.matriz
-fentanilo,SUBLIMAZE S/CONSERVADORINY.X 5 X,2 ml,,2,ML,,
 -,FENTANILO,SUBLIMAZE S/CONSERVADORiny.x 5 x 5 ml,,,,5,sublimaze s/conservadoriny
 fexofenadina,ALERTIAL,120 mg comp.rec.x 10,COMPRIMIDOS RECUBIERTOS,120,MG,10,
 fexofenadina,ALLEGRA,120 mg comp.rec.x 10,COMPRIMIDOS RECUBIERTOS,120,MG,10,
@@ -5113,7 +5110,7 @@ fludrocortisona,LONIKAN,comp.x 50,COMPRIMIDOS,,,50,
 flumazenil,FLUMAZENIL RICHET,0.5 mg iny.a.x 5,INYECTABLE AMPOLLA,0.5,MG,5,
 flumazenil,FLUMANOVAG,0.5 mg/5 ml a.x 50,AMPOLLA,0.5mg/5ml,MG/ML,50,
 flunarizina,SIBELIUM,comp.x 30,COMPRIMIDOS,,,30,
-flunitrazepam,ROHYPNOL,1 mg comp.laq.x 30,COMPRIMIDOS,1,MG,30,laq
+flunitrazepam,ROHYPNOL,1 mg comp.laq.x 30,COMPRIMIDOS LACADOS,1,MG,30,
 flunitrazepam,MIRPAW,1 mg comp.x 30,COMPRIMIDOS,1,MG,30,
 "fluocinolona, hidroquinona, as",NEOBLANC,cr.x 15 g,CREMA,,,,
 "fluocinolona, hidroquinona, as",TRIMEGTANTE,cr.x 15 g,CREMA,,,,
@@ -5259,10 +5256,10 @@ fluvoxamina,LUVOX,100 mg comp.ran.x 60,COMPRIMIDOS RANURADOS,100,MG,60,
 "fólico,ác., vit.b",BLASTOP,comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,,,30,
 "fólico,ác., vit.b",ACIFOL B12,comp.x 30,COMPRIMIDOS,,,30,
 "fólico,ác., vit.b",ACIFOL B12,comp.x 60,COMPRIMIDOS,,,60,
-fondaparinux,ARIXTRA,2.5mg/0.5ml jga.pr. x 10,JERINGA,2.5mg/0.5ml,MG/ML,10,pr
-fondaparinux,ARIXTRA,2.5mg/0.5ml jga.pr. x 2,JERINGA,2.5mg/0.5ml,MG/ML,2,pr
-fondaparinux,ARIXTRA,7.5mg/0.5ml jga.pr. x 10,JERINGA,7.5mg/0.5ml,MG/ML,10,pr
-fondaparinux,ARIXTRA,7.5mg/0.5ml jga.pr. x 2,JERINGA,7.5mg/0.5ml,MG/ML,2,pr
+fondaparinux,ARIXTRA,2.5mg/0.5ml jga.pr. x 10,JERINGA PRELLENADA,2.5mg/0.5ml,MG/ML,10,
+fondaparinux,ARIXTRA,2.5mg/0.5ml jga.pr. x 2,JERINGA PRELLENADA,2.5mg/0.5ml,MG/ML,2,
+fondaparinux,ARIXTRA,7.5mg/0.5ml jga.pr. x 10,JERINGA PRELLENADA,7.5mg/0.5ml,MG/ML,10,
+fondaparinux,ARIXTRA,7.5mg/0.5ml jga.pr. x 2,JERINGA PRELLENADA,7.5mg/0.5ml,MG/ML,2,
 fosamprenavir,TELZIR,700 mg comp.x 60,COMPRIMIDOS,700,MG,60,
 fosaprepitant dimeglumina,EMEND IV,1 vial x 10 ml,VIAL,1,,,
 "fosfato disódico, fosfato mono",FOSFALAX ENEMA,env.x 135 ml,ENVASE,,,,
@@ -5273,7 +5270,7 @@ fosaprepitant dimeglumina,EMEND IV,1 vial x 10 ml,VIAL,1,,,
 fosfolípidos,LIPOVENOS 20% MCT-LCT,fco.x 500 ml,FRASCO,,,,
 "fosfolípidos, asoc.",SURVANTA,f.a.x 4 ml,FRASCO AMPOLLA,,,,
 "fosfolípidos, asoc.",SURVANTA,f.a.x 8 ml,FRASCO AMPOLLA,,,,
-fosfomicina,FOSFOMICINA LUAR,1 g IV iny.f.a.caja x 10,,1,G,10,iv iny.f.a.caja
+fosfomicina,FOSFOMICINA LUAR,1 g IV iny.f.a.caja x 10,INYECTABLE INTRAVENOSO,1,G,10,iny.f.a.caja
 fosfomicina trometamol,FOSFOLEA,pvo.sob.x 1,POLVO SOBRES,,,1,
 fosfomicina trometamol,FOMIXINA,sob.x 1,SOBRES,,,1,
 fosfomicina trometamol,FOMIXINA,sob.x 2,SOBRES,,,2,
@@ -5371,7 +5368,7 @@ gabapentin,ARAPENTIN,600 mg comp.x 30,COMPRIMIDOS,600,MG,30,
 gabapentin,ELIFER,600 mg comp.x 30,COMPRIMIDOS,600,MG,30,
 gabapentin,ULTRANEURAL,600 mg comp.x 30,COMPRIMIDOS,600,MG,30,
 gadobutrol,GADOVIST,1.0 VL 1x 30ml AR,,1.0,,,vl 1 ar
-"gadoxetato,sodio",PRIMOVIST,Jga.precarg.x 1 x 10 ml,JERINGA,,,1,precarg
+"gadoxetato,sodio",PRIMOVIST,Jga.precarg.x 1 x 10 ml,JERINGA PRELLENADA,,,1,ecarg
 galantamina,INTELEC ER,16 mg caps.x 28,CÁPSULAS,16,MG,28,
 galantamina,REMINYL ER,16 mg caps.x 28,CÁPSULAS,16,MG,28,
 galantamina,NUMENCIAL,4 mg comp.rec.x 14,COMPRIMIDOS RECUBIERTOS,4,MG,14,
@@ -5391,7 +5388,7 @@ gammaglobulina antitetánica,GAMMATET T,500UI jga.prell.+toxoide,JERINGA PRELLEN
 "gammaglobulina humana, histamina",HISTAGLOBIN TRIPLEX,liof.f.a.+a.dil.+jer.+ag,LIOFILIZADO FRASCO AMPOLLA,,,,a.dil.+jer.+ag
 ganciclovir,CIGANCLOR,500 mg f.a.x 1,FRASCO AMPOLLA,500,MG,1,
 ganciclovir,NEAGEL,gel oft.x 5 g,OFTÁLMICO,,,,
-ganciclovir,GANCICLOVIR RICHET,IV 500 mg f.a.x 1,,,,1,iv 500 mg f.a
+ganciclovir,GANCICLOVIR RICHET,IV 500 mg f.a.x 1,INYECTABLE INTRAVENOSO,,,1,500 mg f.a
 gangliósidos,SINAXIAL,100 mg a.x 3,AMPOLLA,100,MG,3,
 gangliósidos,SINAXIAL,20 mg a.x 6,AMPOLLA,20,MG,6,
 ganirelix,ORGALUTRAN,jga.prell.x 1 x 0.5 ml,JERINGA PRELLENADA,,,1,
@@ -5427,12 +5424,12 @@ gemcitabina,GEMCINOVA 1000,1000 mg f.a.x 1,FRASCO AMPOLLA,1000,MG,1,
 gemcitabina,HAXANIT,1000 mg f.a.x 1,FRASCO AMPOLLA,1000,MG,1,
 gemcitabina,GEBINA,1000 mg f.a.x 1,FRASCO AMPOLLA,1000,MG,1,
 gemcitabina,GEMCITABINA GLENMARK,1000 mg liof.iny.f.a.x 1,LIOFILIZADO,1000,MG,1,iny.f.a
-gemcitabina,GEMCITABINA IMA,1000 mg pvo.liof.x 1,LIOFILIZADO,1000,MG,1,
+gemcitabina,GEMCITABINA IMA,1000 mg pvo.liof.x 1,POLVO LIOFILIZADO,1000,MG,1,
 gemcitabina,NABIGEM,200 mg f.a.iny.liof.x 1,FRASCO AMPOLLA,200,MG,1,iny.liof
 gemcitabina,HAXANIT,200 mg f.a.x 1,FRASCO AMPOLLA,200,MG,1,
 gemcitabina,GEBINA,200 mg f.a.x 1,FRASCO AMPOLLA,200,MG,1,
 gemcitabina,GEMTRO,200 mg f.a.x 1,FRASCO AMPOLLA,200,MG,1,
-gemcitabina,GEMCITABINA IMA,200 mg pvo.liof.x 1,LIOFILIZADO,200,MG,1,
+gemcitabina,GEMCITABINA IMA,200 mg pvo.liof.x 1,POLVO LIOFILIZADO,200,MG,1,
 -,GEMFIBROZIL,GEMFIBROZIL VANNIER 600 600 mg comp.x 30,,,,30,gemfibrozil vannier 600 600 mg comp
 gemfibrozil,GEDUN,600 mg comp.x 30,COMPRIMIDOS,600,MG,30,
 gemfibrozil,GEMFI-LIP,600 mg comp.x 30,COMPRIMIDOS,600,MG,30,
@@ -5460,7 +5457,6 @@ ginkgo biloba,TANAKAN FORTE,comp.x 15,COMPRIMIDOS,,,15,
 ginkgo biloba,TANAKAN FORTE,comp.x 30,COMPRIMIDOS,,,30,
 ginkgo biloba,TANAKAN,grag.x 30,GRAGEAS,,,30,
 ginkgo biloba,TANAKAN,grag.x 60,GRAGEAS,,,60,
-"ginseng, vit., minerales",MARATHON,caps.x 20,CÁPSULAS,,,20,
 "ginseng, vit., minerales",TANVIMIL GINSENG,caps.x 30,CÁPSULAS,,,30,
 "ginseng, vit., minerales",MARATHON,caps.x 30,CÁPSULAS,,,30,
 "ginseng, vit., minerales",TANVIMIL GINSENG,caps.x 60,CÁPSULAS,,,60,
@@ -5521,8 +5517,8 @@ glicopirronio,SEEBRI BREEZHALER,50 mcg caps.x 30+inhal.,CÁPSULAS,50,MCG,30,inha
 glicoproteina e de virus de va,SHINGRIX,liof.vial x 1 + ady. x 1,LIOFILIZADO,,,1,vial + ady. x 1
 glimepiride,GLEMAZ 2,2 mg comp.ran.x 30,COMPRIMIDOS RANURADOS,2,MG,30,
 glimepiride,NEXT STEP 2,2 mg comp.x 30,COMPRIMIDOS,2,MG,30,
-glimepiride,ADIUVAN,2 mg comp.x 30,COMPRIMIDOS,2,MG,30,
 glimepiride,HIPOGLUT 2,2 mg comp.x 30,COMPRIMIDOS,2,MG,30,
+glimepiride,ADIUVAN,2 mg comp.x 30,COMPRIMIDOS,2,MG,30,
 glimepiride,ENDIAL,2 mg comp.x 30,COMPRIMIDOS,2,MG,30,
 glimepiride,ISLOPIR,2 mg comp.x 30,COMPRIMIDOS,2,MG,30,
 glimepiride,DIABUTIL 2 MG,2 mg comp.x 30,COMPRIMIDOS,2,MG,30,
@@ -5598,7 +5594,7 @@ guaifenesina,PLENUM,jbe.x 120 ml,JARABE,,,,
 "guaifenisina, asoc.",PECHOVIT ADULTO,jbe.x 120 ml,JARABE,,,,
 guselkumab,TREMFYA,100 mg/ml autoiny. x 1,,100,MG,1,/ml autoiny
 "haemophilus influenzae b, dpt, antipolio",PENTAXIM,fco.+jga.prell.x 0.5 ml,FRASCO,,,,jga.prell
-"haemophilus influenzae b, dpt, antipolio",INFANRIX HEXA,pvo.liof.+susp.iny.,POLVO,,,,liof.+susp.iny
+"haemophilus influenzae b, dpt, antipolio",INFANRIX HEXA,pvo.liof.+susp.iny.,POLVO LIOFILIZADO,,,,susp.iny
 haloperidol,HALOPIDOL,1 mg comp.x 100,COMPRIMIDOS,1,MG,100,
 haloperidol,HALOPERIDOL VANNIER,10 mg comp.x 30,COMPRIMIDOS,10,MG,30,
 haloperidol,HALOPERIDOL MEDIPHARMA10 MG,comp.x 30,COMPRIMIDOS,,,30,
@@ -5647,7 +5643,7 @@ hialuronato sódico,ARTFLEX,25 mg jga.prell.x1+ag.x2,JERINGA PRELLENADA,25,MG,1,
 hialuronato sódico,DROPSTAR P,colirio x 10 ml,COLIRIO,,,,
 hialuronato sódico,DROPSTAR,colirio x 10 ml,COLIRIO,,,,
 hialuronato sódico,DROPSTAR LC,colirio x 10 ml,COLIRIO,,,,
-hialuronato sódico,CRUZAL URO,fco.vial x 50 ml,FRASCO,,,,vial
+hialuronato sódico,CRUZAL URO,fco.vial x 50 ml,FRASCO VIAL,,,,
 hialuronato sódico,BIOSOL GEL,gel oft.x 5 g,OFTÁLMICO,,,,
 hialuronato sódico,CRUZAL 20,jga.prell.x 2 ml+aguja,JERINGA PRELLENADA,,,,aguja
 hialuronato sódico,CRUZAL 40,jga.prell.x 2 ml+aguja,JERINGA PRELLENADA,,,,aguja
@@ -5662,7 +5658,7 @@ hialuronato sódico,OSIRIS,sol.oft.x 10 ml,SOLUCIÓN OFTÁLMICA,,,,
 "hialurónico,ác.",IURONICODERM,cr.x 30 g,CREMA,,,,
 "hialurónico,ác.",IURONICODERM,cr.x 90 g,CREMA,,,,
 "hialurónico,ác.",BIOSOL LC,gts.oft.estéril x 7.5 ml,GOTAS OFTÁLMICAS,,,,estéril
-"hialurónico,ác.",BIOSOL GOTAS,sol.oft.estéril x 10 ml,SOLUCIÓN OFTÁLMICA,,,,estéril
+"hialurónico,ác.",BIOSOL GOTAS,sol.oft.estéril x 10 ml,SOLUCIÓN OFTÁLMICA ESTÉRIL,,,,
 "hialurónico,ác.",HYALOMB,sol.oft.x 10 ml,SOLUCIÓN OFTÁLMICA,,,,
 hidralazina,HIDRAL 25,25 mg comp.x 30,COMPRIMIDOS,25,MG,30,
 hidralazina,HIDRAL 50,50 mg comp.x 30,COMPRIMIDOS,50,MG,30,
@@ -6090,7 +6086,7 @@ imatinib,GLIVEC,400 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,400,MG,30,
 imatinib,TIMAB 400,400 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,400,MG,30,
 imatinib,TAGONIB,400 mg comp.x 30,COMPRIMIDOS,400,MG,30,
 -,"IMIPENEM, CILASTATÍN",IMIPENEM CILASTATIN RICHE500 mg IV f.a.x 1,,,,1,imipenem cilastatin riche500 mg iv f.a
-"imipenem, cilastatín",IMIPENEM FABRA,500 mg IV pvo.p/iny.x 1,,500,MG,1,iv pvo.p/iny
+"imipenem, cilastatín",IMIPENEM FABRA,500 mg IV pvo.p/iny.x 1,INYECTABLE INTRAVENOSO,500,MG,1,pvo.p/iny
 imiquimod,MIQUIMOD,3.75% cr.x 3 g,CREMA,3.75,%,,
 imiquimod,VIROSUPRIL 3.75,3.75% cr.x 5 g,CREMA,3.75,%,,
 imiquimod,MODULCASS,5% cr.derm.x 10 g,CREMA,5,%,,derm
@@ -6149,10 +6145,10 @@ inmunoglobulina humana,IG VENA 2.5 G,2.5 g f.a.x 1 x 50 ml,FRASCO AMPOLLA,2.5,G,
 inmunoglobulina humana,KIOVIG,20 g f.a.x 1 x 200 ml,FRASCO AMPOLLA,20,G,1,
 inmunoglobulina humana,PRIVIGEN,20 g f.a.x 1 x 200 ml,FRASCO AMPOLLA,20,G,1,
 inmunoglobulina humana,HIZENTRA,2g env.x 10 ml,ENVASE,2,G,,
-inmunoglobulina humana,HIZENTRA,2g jer.prell. x 10 ml,,2,G,,jer.prell
+inmunoglobulina humana,HIZENTRA,2g jer.prell. x 10 ml,JERINGA PRELLENADA,2,G,,
 inmunoglobulina humana,GAMMANORM,3.3 g fco.a.x 20 ml,FRASCO AMPOLLA,3.3,G,,
 inmunoglobulina humana,HIZENTRA,4g env.x 20 ml,ENVASE,4,G,,
-inmunoglobulina humana,HIZENTRA,4g jer.prell. x 20 ml,,4,G,,jer.prell
+inmunoglobulina humana,HIZENTRA,4g jer.prell. x 20 ml,JERINGA PRELLENADA,4,G,,
 inmunoglobulina humana,OCTAGAM 5 %,5 g f.a.x 1 x 100 ml,FRASCO AMPOLLA,5,G,1,
 inmunoglobulina humana,IG VENA 5 G,5 g f.a.x 1 x 100 ml,FRASCO AMPOLLA,5,G,1,
 inmunoglobulina humana,OCTAGAM 10%,5 g f.a.x 1 x 50 ml,FRASCO AMPOLLA,5,G,1,
@@ -6162,8 +6158,8 @@ inmunoglobulina humana,PANZYGA,5 g f.a.x 1 x 50 ml,FRASCO AMPOLLA,5,G,1,
 inmunoglobulina humana,CIELDOM,5 g f.a.x 100 ml,FRASCO AMPOLLA,5,G,,
 inmunoglobulina humana,PENTAGLOBIN,f.a.x 50 ml,FRASCO AMPOLLA,,,,
 "inosina,monofosfato disódico",LUMICLAR,colirio x 10 ml,COLIRIO,,,,
-"inosina,monofosfato disódico",INOKAT,sol.oft.esteril x 10 ml,SOLUCIÓN OFTÁLMICA,,,,esteril
-inotuzumab ozogamicina,BESPONSA,pvo.liof.+solv.,POLVO,,,,liof.+solv
+"inosina,monofosfato disódico",INOKAT,sol.oft.esteril x 10 ml,SOLUCIÓN OFTÁLMICA ESTÉRIL,,,,
+inotuzumab ozogamicina,BESPONSA,pvo.liof.+solv.,POLVO LIOFILIZADO,,,,
 "ins.glargina, lixisenatida",SOLIQUA 10-40,lap.prell. x 5 x 3 ml,LAPICERA PRELLENADA,,,5,
 "ins.glargina, lixisenatida",SOLIQUA 30-60,lap.prell. x 5 x 3 ml,LAPICERA PRELLENADA,,,5,
 -,"INS.LISPRO, INS.LISPRO PROTAMI",INSULINA HUMALOG MIX 25 100 UI 3.0 ml cart.x 5,,,,25,insulina humalog mi100 ui 3.0 ml cart.x 5
@@ -6225,18 +6221,18 @@ interferón beta 1 a sin albumi,INMUNOMAS NF,44 mcg jga.prell. x 12,JERINGA PREL
 -,INTERFERÓN BETA 1 A SIN ALBUMI,REBIF NF MULTIDOSIS 44 MCiny.x 4 cart.(3 ds.c/u),,,,4,rebif nf multidosis 44 mciny.cart.(3 ds.c/u)
 interferón beta 1 a sin albumi,REBIF NF 44 MCG,jga.prell.x 12,JERINGA PRELLENADA,,,12,
 interferón beta 1 b,BETAFERON,15 env.indiv.+kit c/jga.,ENVASE,15,,,indiv.+kit c/jga
-iobitridol,XENETIX 300,iny.sol.f.a.x 100 ml,INYECTABLE,,,,sol.f.a
-iobitridol,XENETIX 350,iny.sol.f.a.x 100 ml,INYECTABLE,,,,sol.f.a
-iobitridol,XENETIX 300,iny.sol.f.a.x 50 ml,INYECTABLE,,,,sol.f.a
-iobitridol,XENETIX 350,iny.sol.f.a.x 50 ml,INYECTABLE,,,,sol.f.a
-iobitridol,XENETIX 300,iny.sol.f.a.x 500 ml,INYECTABLE,,,,sol.f.a
-iobitridol,XENETIX 350,iny.sol.f.a.x 500 ml,INYECTABLE,,,,sol.f.a
+iobitridol,XENETIX 300,iny.sol.f.a.x 100 ml,FRASCO AMPOLLA,,,,
+iobitridol,XENETIX 350,iny.sol.f.a.x 100 ml,FRASCO AMPOLLA,,,,
+iobitridol,XENETIX 300,iny.sol.f.a.x 50 ml,FRASCO AMPOLLA,,,,
+iobitridol,XENETIX 350,iny.sol.f.a.x 50 ml,FRASCO AMPOLLA,,,,
+iobitridol,XENETIX 300,iny.sol.f.a.x 500 ml,FRASCO AMPOLLA,,,,
+iobitridol,XENETIX 350,iny.sol.f.a.x 500 ml,FRASCO AMPOLLA,,,,
 iodixanol,VISIPAQUE,320 mg x 100 ml,,320,MG,,
 iodo povacrylex,PERVINOX CAMPO QUIRURGICO,env.x 26 ml,ENVASE,,,,
 iodopovidona,IODOMED,10% sol. x 60 ml,SOLUCIÓN,10,%,,
 iodopovidona,POVICLER,10% sol.fco.x 60 ml,SOLUCIÓN,10,%,,fco
-iodopovidona,IOPOX,10% sol.tópica x 60 ml,SOLUCIÓN,10,%,,tópica
-iodopovidona,POVITIOL,10% sol.tópica x 60 ml,SOLUCIÓN,10,%,,tópica
+iodopovidona,IOPOX,10% sol.tópica x 60 ml,SOLUCIÓN TÓPICA,10,%,,
+iodopovidona,POVITIOL,10% sol.tópica x 60 ml,SOLUCIÓN TÓPICA,10,%,,
 iodopovidona,POVI COMPLEX,10% sol.x 60 ml x 12fcos,SOLUCIÓN,10,%,12,fcos
 iodopovidona,PERVINOX,jab.liq.x 120 ml,,,,,jab.liq
 iodopovidona,PERVINOX,jab.liq.x 250 ml c/valv.,,,,,jab.liq. c/valv
@@ -6244,10 +6240,10 @@ iodopovidona,PERVINOX,jab.liq.x 60 ml,,,,,jab.liq
 iodopovidona,POVITIOL,jab.sol. x 100 g,,,,,jab.sol
 iodopovidona,PERVINOX,jab.sol.x 100 g,,,,,jab.sol
 iodopovidona,KLOPOXONA,sol. tópica x 30 ml,SOLUCIÓN,,,,tópica
-iodopovidona,PERVINOX,sol.tópica x 120 ml,SOLUCIÓN,,,,tópica
-iodopovidona,PERVINOX,sol.tópica x 250 c/valv.,SOLUCIÓN,,,250,tópica c/valv
-iodopovidona,MERTHIOLATE IODOPOVIDONA,sol.tópica x 60 ml,SOLUCIÓN,,,,tópica
-iodopovidona,PERVINOX,sol.tópica x 60 ml,SOLUCIÓN,,,,tópica
+iodopovidona,PERVINOX,sol.tópica x 120 ml,SOLUCIÓN TÓPICA,,,,
+iodopovidona,PERVINOX,sol.tópica x 250 c/valv.,SOLUCIÓN TÓPICA,,,250,c/valv
+iodopovidona,MERTHIOLATE IODOPOVIDONA,sol.tópica x 60 ml,SOLUCIÓN TÓPICA,,,,
+iodopovidona,PERVINOX,sol.tópica x 60 ml,SOLUCIÓN TÓPICA,,,,
 iodopovidona,POVIBAC,sol.x 100 ml,SOLUCIÓN,,,,
 iodopovidona,IODOPOVIDONA SIDUS,sol.x 5 ml,SOLUCIÓN,,,,
 iodopovidona,DG-6 POVIDONA IODO,sol.x 60 ml,SOLUCIÓN,,,,
@@ -6579,7 +6575,7 @@ latanoprost,KLONAPROST,50mcg/ml sol.oft.x 2.5ml,,50,MCG,,/ml sol.oft
 latanoprost,GLAUCOSTAT,50mcg/ml sol.oft.x 2.5ml,,50,MCG,,/ml sol.oft
 latanoprost,GLAUCOGESIC,fco.got.sol.oft.x 2.5ml,FRASCO,,,,got.sol.oft
 latanoprost,XALATAN,gts.oft.x 2.5 ml,GOTAS OFTÁLMICAS,,,,
-latanoprost,OFTALPRES,sol.oft.estéril x 2.5 ml,SOLUCIÓN OFTÁLMICA,,,,estéril
+latanoprost,OFTALPRES,sol.oft.estéril x 2.5 ml,SOLUCIÓN OFTÁLMICA ESTÉRIL,,,,
 "latanoprost, timolol",LOUTEN T,colirio x 2.5 ml,COLIRIO,,,,
 "latanoprost, timolol",LATIMODORF,gts.oft.x 2.5 ml,GOTAS OFTÁLMICAS,,,,
 "latanoprost, timolol",LATANOFLAX T,gts.oft.x 2.5 ml,GOTAS OFTÁLMICAS,,,,
@@ -6771,10 +6767,10 @@ levocetirizina,LEVOMINE,gtas.x 20 ml,,,,,gtas
 "levocetirizina, betametasona",SUPRALER CORT,comp.x 10,COMPRIMIDOS,,,10,
 "levocetirizina, betametasona",SUPRALER CORT,comp.x 30,COMPRIMIDOS,,,30,
 "levodopa, benserazida",MADOPAR HBS,125 mg caps.x 50,CÁPSULAS,125,MG,50,
-"levodopa, benserazida",MADOPAR DISPERSABLE,125 mg tab.dispers.x 100,TABLETAS,125,MG,100,dispers
+"levodopa, benserazida",MADOPAR DISPERSABLE,125 mg tab.dispers.x 100,TABLETAS DISPERSABLES,125,MG,100,ers
 "levodopa, benserazida",MADOPAR,250 mg comp.x 30,COMPRIMIDOS,250,MG,30,
 "levodopa, benserazida",MADOPAR,250 mg comp.x 50,COMPRIMIDOS,250,MG,50,
-"levodopa, benserazida",MADOPAR DISPERSABLE,62.5 mg tab.dispers.x100,TABLETAS,62.5,MG,100,dispers
+"levodopa, benserazida",MADOPAR DISPERSABLE,62.5 mg tab.dispers.x100,TABLETAS DISPERSABLES,62.5,MG,100,ers
 "levodopa, carbidopa",PARKINEL,100 mg/25 mg comp.x 30,,100,MG,30,/25 mg comp
 "levodopa, carbidopa",LEBOCAR,100/25 comp. x 30,COMPRIMIDOS,100/25,,30,
 "levodopa, carbidopa",LEBOCAR,100/25 comp. x 60,COMPRIMIDOS,100/25,,60,
@@ -6806,8 +6802,8 @@ levofloxacina,LEVOTRAX,500 mg comp.rec.x 7,COMPRIMIDOS RECUBIERTOS,500,MG,7,
 levofloxacina,FLOXLEVO,500 mg comp.rec.x 7,COMPRIMIDOS RECUBIERTOS,500,MG,7,
 levofloxacina,LEXOBRON 500,500 mg comp.rec.x 7,COMPRIMIDOS RECUBIERTOS,500,MG,7,
 levofloxacina,BACFURON,500 mg comp.rec.x 7,COMPRIMIDOS RECUBIERTOS,500,MG,7,
-levofloxacina,BACTOCILINA,500 mg comp.rec.x 7,COMPRIMIDOS RECUBIERTOS,500,MG,7,
 levofloxacina,BACTIFREN 500,500 mg comp.rec.x 7,COMPRIMIDOS RECUBIERTOS,500,MG,7,
+levofloxacina,BACTOCILINA,500 mg comp.rec.x 7,COMPRIMIDOS RECUBIERTOS,500,MG,7,
 levofloxacina,ANUAR,500 mg comp.rec.x 7,COMPRIMIDOS RECUBIERTOS,500,MG,7,
 levofloxacina,FENTAXINA,500 mg comp.rec.x 7,COMPRIMIDOS RECUBIERTOS,500,MG,7,
 levofloxacina,LEFLUMAX,500 mg comp.rec.x 7,COMPRIMIDOS RECUBIERTOS,500,MG,7,
@@ -6822,9 +6818,9 @@ levofloxacina,LEVOTRAX,750 mg comp.rec.x 5,COMPRIMIDOS RECUBIERTOS,750,MG,5,
 levofloxacina,LEXOBRON 750,750 mg comp.rec.x 5,COMPRIMIDOS RECUBIERTOS,750,MG,5,
 levofloxacina,ELY DIAR,750 mg comp.rec.x 5,COMPRIMIDOS RECUBIERTOS,750,MG,5,
 levofloxacina,BACFURON,750 mg comp.rec.x 5,COMPRIMIDOS RECUBIERTOS,750,MG,5,
-levofloxacina,BACTOCILINA,750 mg comp.rec.x 5,COMPRIMIDOS RECUBIERTOS,750,MG,5,
 levofloxacina,BACTIFREN 750,750 mg comp.rec.x 5,COMPRIMIDOS RECUBIERTOS,750,MG,5,
 levofloxacina,ANUAR,750 mg comp.rec.x 5,COMPRIMIDOS RECUBIERTOS,750,MG,5,
+levofloxacina,BACTOCILINA,750 mg comp.rec.x 5,COMPRIMIDOS RECUBIERTOS,750,MG,5,
 levofloxacina,FENTAXINA,750 mg comp.rec.x 5,COMPRIMIDOS RECUBIERTOS,750,MG,5,
 levofloxacina,UNIFLOX 750,750 mg comp.rec.x 5,COMPRIMIDOS RECUBIERTOS,750,MG,5,
 levofloxacina,LEFLUMAX,750 mg comp.rec.x 5,COMPRIMIDOS RECUBIERTOS,750,MG,5,
@@ -6920,9 +6916,9 @@ lidocaína,LIDOCAINA,2% s/epi.f.a.x 20 ml,,2,%,,s/epi.f.a
 lidocaína,INDICAN GEL,5% pote x 20 g,,5,%,,pote
 lidocaína,LIDOCAINA VISCOSA,fco.got.x 50 ml,FRASCO,,,,got
 lidocaína,LAFECAINA,jalea pomo x 25 ml,JALEA,,,,pomo
-lidocaína,SOLVENTE INDOLORO MONSERR,sol.f.a.x 24 x 5 ml,FRASCO AMPOLLA,,,24,
-lidocaína,SOLVENTE INDOLORO MONSERR,sol.f.a.x 3 x 5 ml,FRASCO AMPOLLA,,,3,
-lidocaína,LIDOCAINA 4%,sol.tópica x 25 ml,SOLUCIÓN,,,,tópica
+lidocaína,SOLVENTE INDOLORO MONSERR,sol.f.a.x 24 x 5 ml,SOLUCIÓN FRASCO AMPOLLA,,,24,
+lidocaína,SOLVENTE INDOLORO MONSERR,sol.f.a.x 3 x 5 ml,SOLUCIÓN FRASCO AMPOLLA,,,3,
+lidocaína,LIDOCAINA 4%,sol.tópica x 25 ml,SOLUCIÓN TÓPICA,,,,
 lidocaína,FULLCAINA,spray x 50 ml,SPRAY,,,,
 lidocaína,INDICAN,spray x 60 ml,SPRAY,,,,
 "lidocaína, adrenalina",LIDOCAINA,1% c/epi.f.a.x 20 ml,,1,%,,c/epi.f.a
@@ -7002,8 +6998,8 @@ lisinopril,TENSOPRIL,5 mg comp.x 40,COMPRIMIDOS,5,MG,40,
 "lomifilina, dihidroergocristin",CERVILANE,comp.rec.x 40,COMPRIMIDOS RECUBIERTOS,,,40,
 lomustina,LOMUSTINA ECZANE,10 mg caps. x 20,CÁPSULAS,10,MG,20,
 lomustina,LOMUSTINA ECZANE,40 mg caps. x 20,CÁPSULAS,40,MG,20,
-lonoctocog alfa - factor viii,AFSTYLA,1000 UI pvo.liof+disolv.,POLVO,1000,UI,,liof+disolv
-lonoctocog alfa - factor viii,AFSTYLA,500 UI pvo.liof.+disolv.,POLVO,500,UI,,liof.+disolv
+lonoctocog alfa - factor viii,AFSTYLA,1000 UI pvo.liof+disolv.,POLVO LIOFILIZADO,1000,UI,,disolv
+lonoctocog alfa - factor viii,AFSTYLA,500 UI pvo.liof.+disolv.,POLVO LIOFILIZADO,500,UI,,disolv
 loperamida,NODIAR,2 mg comp.x 10,COMPRIMIDOS,2,MG,10,
 loperamida,LOVOPREN,2 mg comp.x 10,COMPRIMIDOS,2,MG,10,
 loperamida,LOPERIX,2 mg comp.x 10,COMPRIMIDOS,2,MG,10,
@@ -7243,10 +7239,10 @@ losartán,NITEN,comp.x 60,COMPRIMIDOS,,,60,
 "losartán, hidroclorotiazida",FENSARTAN D,comp.x 30,COMPRIMIDOS,,,30,
 "losartán, hidroclorotiazida",NITEN D,comp.x 30,COMPRIMIDOS,,,30,
 "loteprednol,etabonato",LOTEVIS,susp.oft.x 5 ml,OFTÁLMICO,,,,
-"loteprednol,etabonato",TALOF,susp.oft.x 5 ml,OFTÁLMICO,,,,
 "loteprednol,etabonato",LOPRED,susp.oft.x 5 ml,OFTÁLMICO,,,,
 "loteprednol,etabonato",LOTEMAX,susp.oft.x 5 ml,OFTÁLMICO,,,,
 "loteprednol,etabonato",LOTESOFT,susp.oft.x 5 ml,OFTÁLMICO,,,,
+"loteprednol,etabonato",TALOF,susp.oft.x 5 ml,OFTÁLMICO,,,,
 "loteprednol,etabonato",LOTESOFT,ung.oft.x 3.5 g,OFTÁLMICO,,,,
 "loteprednol, tobramicina",ZYLET,fco.gotero x 5 ml,FRASCO GOTERO,,,,
 "loteprednol, tobramicina",LOTEVIS T,susp.oft.x 5 ml,OFTÁLMICO,,,,
@@ -7460,7 +7456,7 @@ memantine,NEUROPLUS,sol.oral x 30 ml,SOLUCIÓN ORAL,,,,
 "mentol, alcanfor, asoc.",VICK VAPORUB,pote x 50 g,,,,,pote
 "mentol, eucaliptol",FLOGODISTEN DUO GEL,pomo x 100 g,POMO,,,,
 "mentol, eucaliptol",FLOGODISTEN DUO GEL,pomo x 50 g,POMO,,,,
-mepolizumab,NUCALA,100mg pvo.liof. vial x 1,POLVO,100,MG,1,liof. vial
+mepolizumab,NUCALA,100mg pvo.liof. vial x 1,POLVO LIOFILIZADO,100,MG,1,vial
 mepolizumab,NUCALA AI,100mg/ml autoiny. x 1 ml,,100,MG,,/ml autoiny
 mepolizumab,NUCALA SS,100mg/ml jga.prell.x 1ml,,100,MG,,/ml jga.prell
 meprednisona,PREDNISONAL,0.4% gts.orales x 15 ml,GOTAS,0.4,%,,orales
@@ -7492,13 +7488,13 @@ meprednisona,DELTISONA B,gts.x 20 ml,GOTAS,,,,
 meprednisona,GALLCORT,gts.x 20 ml,GOTAS,,,,
 mercaptopurina,PURINETHOL,50 mg comp.x 25,COMPRIMIDOS,50,MG,25,
 mercaptopurina,VARIMER,50 mg comp.x 25,COMPRIMIDOS,50,MG,25,
-meropenem,MEROPENEM RICHET,1 g IV iny.f.a.x 1,,1,G,1,iv iny.f.a
+meropenem,MEROPENEM RICHET,1 g IV iny.f.a.x 1,INYECTABLE INTRAVENOSO,1,G,1,iny.f.a
 meropenem,MEROPENEM FABRA,1000 mg f.a.x 1,FRASCO AMPOLLA,1000,MG,1,
-meropenem,MEROPENEM LARJAN,1000 mg IV iny.f.a.x 1,,1000,MG,1,iv iny.f.a
+meropenem,MEROPENEM LARJAN,1000 mg IV iny.f.a.x 1,INYECTABLE INTRAVENOSO,1000,MG,1,iny.f.a
 meropenem,MEROPENEM FABRA,500 mg f.a.x 1,FRASCO AMPOLLA,500,MG,1,
-meropenem,MEROPENEM LARJAN,500 mg IV iny.f.a.x 1,,500,MG,1,iv iny.f.a
-meropenem,MEROPENEM RICHET,500 mg IV iny.f.a.x 1,,500,MG,1,iv iny.f.a
-meropenem,MEROZEN,500 mg IV vial x 10,,500,MG,10,iv vial
+meropenem,MEROPENEM LARJAN,500 mg IV iny.f.a.x 1,INYECTABLE INTRAVENOSO,500,MG,1,iny.f.a
+meropenem,MEROPENEM RICHET,500 mg IV iny.f.a.x 1,INYECTABLE INTRAVENOSO,500,MG,1,iny.f.a
+meropenem,MEROZEN,500 mg IV vial x 10,INYECTABLE INTRAVENOSO,500,MG,10,vial
 mesalazina,PENTASA,1 g comp.x 30,COMPRIMIDOS,1,G,30,
 mesalazina,PENTASA,1 g comp.x 60,COMPRIMIDOS,1,G,60,
 mesalazina,PENTASA ENEMA,1 g pomos x 7 x 100 ml,POMO,1,G,7,
@@ -7540,7 +7536,7 @@ mesalazina,XALAZINA,800 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,800,MG,30,
 mesalazina,5-ASA 800,800 mg comp.x 30,COMPRIMIDOS,800,MG,30,
 mesalazina,CONDUCTASA,800 mg comp.x 60,COMPRIMIDOS,800,MG,60,
 mesalazina,5-ASA 800,800 mg comp.x 60,COMPRIMIDOS,800,MG,60,
-mesalazina,SALOFALK,espuma rectal x14 aplic.,,,,14,espuma rectal aplic
+mesalazina,SALOFALK,espuma rectal x14 aplic.,ESPUMA RECTAL,,,14,aplic
 mesna,FADA MESNA,200 mg a.x 10,AMPOLLA,200,MG,10,
 mesna,MESNA GOBBI,200 mg a.x 15,AMPOLLA,200,MG,15,
 mesna,VARIMESNA,200 mg sol.iny.a.x 15,SOLUCIÓN INYECTABLE,200,MG,15,a
@@ -7798,8 +7794,8 @@ metotrexato,METOTREXATO MARTIAN,500 mg f.a.x 1,FRASCO AMPOLLA,500,MG,1,
 metotrexato,METOTREXATE TEVA,500 mg/20 ml f.a.x 1,FRASCO AMPOLLA,500mg/20ml,MG/ML,1,
 metotrexato,ARTRAIT,7.5 mg comp.ran.x 10,COMPRIMIDOS RANURADOS,7.5,MG,10,
 metotrexato,ERVEMIN,7.5 mg comp.x 10,COMPRIMIDOS,7.5,MG,10,
-metoxipolietilenglicol-epoetin,MIRCERA,100mcg/0.3mljer.prell.x1,,100mcg/0.3ml,MG/ML,1,jer.prell
-metoxipolietilenglicol-epoetin,MIRCERA,50mcg/0.3ml jer.prell.x1,,50mcg/0.3ml,MG/ML,1,jer.prell
+metoxipolietilenglicol-epoetin,MIRCERA,100mcg/0.3mljer.prell.x1,JERINGA PRELLENADA,100mcg/0.3ml,MG/ML,1,
+metoxipolietilenglicol-epoetin,MIRCERA,50mcg/0.3ml jer.prell.x1,JERINGA PRELLENADA,50mcg/0.3ml,MG/ML,1,
 metoxsaleno,OXSORALEN ULTRA,caps.blandas x 30,CÁPSULAS BLANDAS,,,30,
 metoxsaleno,OXSORALEN ULTRA,caps.rigidas x 30,CÁPSULAS,,,30,rigidas
 metronidazol,ROZEX,0.75% gel x 30 g,GEL,0.75,%,,
@@ -7849,8 +7845,8 @@ micofenolato mofetil,MMF SANDOZ,250 mg cáps.x 100,CÁPSULAS,250,MG,100,
 micofenolato mofetil,MMF SANDOZ,500 mg comp.rec.x 50,COMPRIMIDOS RECUBIERTOS,500,MG,50,
 micofenolato mofetil,SUPRIMUN,500 mg comp.rec.x 50,COMPRIMIDOS RECUBIERTOS,500,MG,50,
 micofenolato mofetil,CELLCEPT,500 mg comp.x 50,COMPRIMIDOS,500,MG,50,
-micofenolato sódico,MYFORTIC,180 mg comp.gastr.x 120,COMPRIMIDOS,180,MG,120,gastr
-micofenolato sódico,MYFORTIC,360 mg comp.gastr.x 120,COMPRIMIDOS,360,MG,120,gastr
+micofenolato sódico,MYFORTIC,180 mg comp.gastr.x 120,COMPRIMIDOS GASTRORRESISTENTES,180,MG,120,
+micofenolato sódico,MYFORTIC,360 mg comp.gastr.x 120,COMPRIMIDOS GASTRORRESISTENTES,360,MG,120,
 miconazol,MICOTRAL,2% cr.x 30 g,CREMA,2,%,,
 miconazol,MICONOL,cr.x 35 g,CREMA,,,,
 miconazol,DOCTOR PIES HONGOS,cr.x 40 g,CREMA,,,,
@@ -7915,8 +7911,8 @@ minociclina,SEBOCLEAR,comp.x 30,COMPRIMIDOS,,,30,
 minoxidil,MINOCASS,2.5 mg comp. x 30,COMPRIMIDOS,2.5,MG,30,
 minoxidil,IVIX HTA,2.5 mg comp. x 30,COMPRIMIDOS,2.5,MG,30,
 minoxidil,COMBINATER,2.5 mg comp. x 30,COMPRIMIDOS,2.5,MG,30,
-minoxidil,CAPILEX,Espuma aer. x 60 g,,,,,espuma aer
-minoxidil,ANAGEN 5%,Espuma dérmica x 60 g,,,,,espuma dérmica
+minoxidil,CAPILEX,Espuma aer. x 60 g,ESPUMA,,,,aer
+minoxidil,ANAGEN 5%,Espuma dérmica x 60 g,ESPUMA,,,,dérmica
 minoxidil,IVIX LOCION 2%,fco.x 60 ml,FRASCO,,,,
 minoxidil,IVIX LOCION 5%,fco.x 60 ml,FRASCO,,,,
 minoxidil,ANAGEN 5%,loc.capilar x 100 ml,LOCIÓN,,,,capilar
@@ -7947,8 +7943,8 @@ mitomicina,MITOMICINA LKM 20,20 mg iny.f.a.x 1,INYECTABLE FRASCO AMPOLLA,20,MG,1
 mitomicina,MITOMICINA MICROSULES,20 mg iny.liof.f.a.x 1,FRASCO AMPOLLA,20,MG,1,
 mitomicina,RONZINE,20 mg iny.liof.fco.a.x 1,INYECTABLE LIOFILIZADO,20,MG,1,fco.a
 mitoxantrona,MITOXGEN,20 mg iny.f.a.x 10 ml,INYECTABLE FRASCO AMPOLLA,20,MG,,
-modafinilo,ACTEMIN,200 mg comp.x 10,COMPRIMIDOS,200,MG,10,
 modafinilo,INTENSIT,200 mg comp.x 10,COMPRIMIDOS,200,MG,10,
+modafinilo,ACTEMIN,200 mg comp.x 10,COMPRIMIDOS,200,MG,10,
 modafinilo,FOVEX,200 mg comp.x 10,COMPRIMIDOS,200,MG,10,
 modafinilo,FORCILIN,200 mg comp.x 10,COMPRIMIDOS,200,MG,10,
 modafinilo,VISPER,200 mg comp.x 15,COMPRIMIDOS,200,MG,15,
@@ -7989,8 +7985,8 @@ montelukast,MONTELUKAST TEVA,10 mg comp. x 30,COMPRIMIDOS,10,MG,30,
 montelukast,MONTELUKAST RICHET,10 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,10,MG,30,
 montelukast,MONTAIR,10 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,10,MG,30,
 montelukast,ASMAVITAN,10 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,10,MG,30,
-montelukast,INSPIROL,10 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,10,MG,30,
 montelukast,AIREAL 10,10 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,10,MG,30,
+montelukast,INSPIROL,10 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,10,MG,30,
 montelukast,ROLAST,10 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,10,MG,30,
 montelukast,LUKAST,10 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,10,MG,30,
 montelukast,PLENAIR,10 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,10,MG,30,
@@ -8003,8 +7999,8 @@ montelukast,MONTELUKAST RICHET,4 mg comp.mast.x 30,COMPRIMIDOS MASTICABLES,4,MG,
 montelukast,AIREAL 4,4 mg comp.mast.x 30,COMPRIMIDOS MASTICABLES,4,MG,30,
 montelukast,PLENAIR,4 mg comp.mast.x 30,COMPRIMIDOS MASTICABLES,4,MG,30,
 montelukast,ASMAVITAN,4 mg comp.mast.x 30,COMPRIMIDOS MASTICABLES,4,MG,30,
-montelukast,INSPIROL,4 mg comp.mast.x 30,COMPRIMIDOS MASTICABLES,4,MG,30,
 montelukast,MONTRATE,4 mg comp.mast.x 30,COMPRIMIDOS MASTICABLES,4,MG,30,
+montelukast,INSPIROL,4 mg comp.mast.x 30,COMPRIMIDOS MASTICABLES,4,MG,30,
 montelukast,LUKAST,4 mg comp.mast.x 30,COMPRIMIDOS MASTICABLES,4,MG,30,
 montelukast,MONTELUKAST TEVA,4 mg comp.mast.x 30,COMPRIMIDOS MASTICABLES,4,MG,30,
 montelukast,MONTELUK,4 mg comp.mast.x 30,COMPRIMIDOS MASTICABLES,4,MG,30,
@@ -8015,9 +8011,9 @@ montelukast,MONTELUKAST RICHET,5 mg comp.mast.x 30,COMPRIMIDOS MASTICABLES,5,MG,
 montelukast,LUKASMA,5 mg comp.mast.x 30,COMPRIMIDOS MASTICABLES,5,MG,30,
 montelukast,MONTAIR,5 mg comp.mast.x 30,COMPRIMIDOS MASTICABLES,5,MG,30,
 montelukast,ASMAVITAN,5 mg comp.mast.x 30,COMPRIMIDOS MASTICABLES,5,MG,30,
-montelukast,INSPIROL,5 mg comp.mast.x 30,COMPRIMIDOS MASTICABLES,5,MG,30,
 montelukast,MONTRATE,5 mg comp.mast.x 30,COMPRIMIDOS MASTICABLES,5,MG,30,
 montelukast,AIREAL 5,5 mg comp.mast.x 30,COMPRIMIDOS MASTICABLES,5,MG,30,
+montelukast,INSPIROL,5 mg comp.mast.x 30,COMPRIMIDOS MASTICABLES,5,MG,30,
 montelukast,LUKAST,5 mg comp.mast.x 30,COMPRIMIDOS MASTICABLES,5,MG,30,
 montelukast,MONTELUKAST TEVA,5 mg comp.mast.x 30,COMPRIMIDOS MASTICABLES,5,MG,30,
 montelukast,PLENAIR,5 mg comp.mast.x 30,COMPRIMIDOS MASTICABLES,5,MG,30,
@@ -8081,8 +8077,8 @@ mupirocina,BACTROBAN CREMA,pomo x 15 g,POMO,,,,
 mupirocina,MUPAX,ung.derm.x 15 g,UNGÜENTO,,,,derm
 mupirocina,PALDAR,ung.x 15 g,UNGÜENTO,,,,
 mupirocina,BACTROBAN NASAL,ung.x 3 g,UNGÜENTO,,,,
-"mupirocina, hidrocortisona",MUPAX H,cr.x 15 g,CREMA,,,,
 "mupirocina, hidrocortisona",PALDAR H,cr.x 15 g,CREMA,,,,
+"mupirocina, hidrocortisona",MUPAX H,cr.x 15 g,CREMA,,,,
 mycobacterium bovis,BCG CULTIVO AJV,f.a.x 4,FRASCO AMPOLLA,,,4,
 nafarelina,SYNRELIN,fco.bomba dosif.x 8 ml,FRASCO,,,,bomba dosif
 nafazolina,NAFAZOLEX,env.gotero x 20 ml,FRASCO GOTERO,,,,
@@ -8185,9 +8181,9 @@ nebivolol,NABILA,5 mg comp.x 28,COMPRIMIDOS,5,MG,28,
 nebivolol,NEBILET,5 mg comp.x 28,COMPRIMIDOS,5,MG,28,
 nebivolol,SYNCROCOR,5 mg comp.x 28,COMPRIMIDOS,5,MG,28,
 nebivolol,NEBIBLOC,5 mg comp.x 30,COMPRIMIDOS,5,MG,30,
-nebivolol,NEBICOR,5 mg comp.x 30,COMPRIMIDOS,5,MG,30,
 nebivolol,MOBAN,5 mg comp.x 30,COMPRIMIDOS,5,MG,30,
 nebivolol,NIRPOL,5 mg comp.x 30,COMPRIMIDOS,5,MG,30,
+nebivolol,NEBICOR,5 mg comp.x 30,COMPRIMIDOS,5,MG,30,
 nebivolol,CORPRES 5,5 mg comp.x 30,COMPRIMIDOS,5,MG,30,
 nebivolol,NEBIX,5 mg comp.x 30,COMPRIMIDOS,5,MG,30,
 nebivolol,NIRPOL,5 mg comp.x 56,COMPRIMIDOS,5,MG,56,
@@ -8195,8 +8191,8 @@ nebivolol,SYNCROCOR,5 mg comp.x 56,COMPRIMIDOS,5,MG,56,
 nebivolol,CORPRES 5,5 mg comp.x 60,COMPRIMIDOS,5,MG,60,
 "nebivolol, hidroclorotiazida",NABILA D,5/12.5 mg comp.rec.x 28,COMPRIMIDOS RECUBIERTOS,5/12.5,MG,28,
 "nebivolol, hidroclorotiazida",SYNCROCOR D,5/12.5 mg comp.rec.x 28,COMPRIMIDOS RECUBIERTOS,5/12.5,MG,28,
-"nebivolol, hidroclorotiazida",NEBICOR D,5/12.5 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,5/12.5,MG,30,
 "nebivolol, hidroclorotiazida",CORPRES D,5/12.5 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,5/12.5,MG,30,
+"nebivolol, hidroclorotiazida",NEBICOR D,5/12.5 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,5/12.5,MG,30,
 "nebivolol, hidroclorotiazida",CORPRES D,5/12.5 mg comp.rec.x 60,COMPRIMIDOS RECUBIERTOS,5/12.5,MG,60,
 "nebivolol, hidroclorotiazida",NIRPOL D,5/12.5 mg comp.x 28,COMPRIMIDOS,5/12.5,MG,28,
 "nebivolol, hidroclorotiazida",NEBILET D,5/12.5 mg comp.x 28,COMPRIMIDOS,5/12.5,MG,28,
@@ -8300,8 +8296,8 @@ nomegestrol,LUTENYL,comp.x 10,COMPRIMIDOS,,,10,
 "nomegestrol acetato, estradiol",AMAPOLI,comp.rec.x 28,COMPRIMIDOS RECUBIERTOS,,,28,
 "nomegestrol acetato, estradiol",FEMALVI,comp.x 28 (24+4),COMPRIMIDOS,,,28,
 "nomegestrol acetato, estradiol",MIRANDA,comp.x 28 (24+4),COMPRIMIDOS,,,28,
-nonacog beta pegol (factor ix),REFIXIA,1000 UI pvo.liof+disolv.,POLVO,1000,UI,,liof+disolv
-nonacog beta pegol (factor ix),REFIXIA,500 UI pvo.liof+disolv.,POLVO,500,UI,,liof+disolv
+nonacog beta pegol (factor ix),REFIXIA,1000 UI pvo.liof+disolv.,POLVO LIOFILIZADO,1000,UI,,disolv
+nonacog beta pegol (factor ix),REFIXIA,500 UI pvo.liof+disolv.,POLVO LIOFILIZADO,500,UI,,disolv
 noradrenalina,NOREPINEFRINA GRAY,1 mg a.x 100 x 4 ml,AMPOLLA,1,MG,100,
 "norelgestromin, etinilestradio",EVRA,parches transdérmicos x3,PARCHE,,,3,s transdérmicos
 noretisterona,PRIMOLUT NOR,10 mg blist.comp.x 20,BLÍSTER,10,MG,20,comp
@@ -8354,9 +8350,9 @@ olanzapina,OLANZAPINA  ROSPAW,10 mg comp.x 28,COMPRIMIDOS,10,MG,28,
 olanzapina,APSICO,10 mg comp.x 28,COMPRIMIDOS,10,MG,28,
 olanzapina,ZYPREXA,10 mg comp.x 28,COMPRIMIDOS,10,MG,28,
 olanzapina,SARTINA,10 mg comp.x 30,COMPRIMIDOS,10,MG,30,
-olanzapina,ZYPREXA ZYDIS,10 mg tab.dis.inst.x 14,TABLETAS,10,MG,14,dis.inst
-olanzapina,ONOTRAN RAPID,10 mg tab.dis.inst.x 28,TABLETAS,10,MG,28,dis.inst
-olanzapina,ZYPREXA ZYDIS,10 mg tab.dis.inst.x 28,TABLETAS,10,MG,28,dis.inst
+olanzapina,ZYPREXA ZYDIS,10 mg tab.dis.inst.x 14,TABLETAS DISPERSABLES DE DISOLUCIÓN INSTANTÁNEA,10,MG,14,
+olanzapina,ONOTRAN RAPID,10 mg tab.dis.inst.x 28,TABLETAS DISPERSABLES DE DISOLUCIÓN INSTANTÁNEA,10,MG,28,
+olanzapina,ZYPREXA ZYDIS,10 mg tab.dis.inst.x 28,TABLETAS DISPERSABLES DE DISOLUCIÓN INSTANTÁNEA,10,MG,28,
 olanzapina,MIDAX,2.5 mg comp.x 28,COMPRIMIDOS,2.5,MG,28,
 olanzapina,MIDAX,2.5 mg comp.x 28,COMPRIMIDOS,2.5,MG,28,
 olanzapina,APSICO,2.5 mg comp.x 28,COMPRIMIDOS,2.5,MG,28,
@@ -8378,9 +8374,9 @@ olanzapina,ENOLEX,5 mg comp.x 28,COMPRIMIDOS,5,MG,28,
 olanzapina,OLANZAPINA  ROSPAW,5 mg comp.x 28,COMPRIMIDOS,5,MG,28,
 olanzapina,ZYPREXA,5 mg comp.x 28,COMPRIMIDOS,5,MG,28,
 olanzapina,SARTINA,5 mg comp.x 30,COMPRIMIDOS,5,MG,30,
-olanzapina,ZYPREXA ZYDIS,5 mg tab.dis.inst.x 14,TABLETAS,5,MG,14,dis.inst
-olanzapina,ONOTRAN RAPID,5 mg tab.dis.inst.x 28,TABLETAS,5,MG,28,dis.inst
-olanzapina,ZYPREXA ZYDIS,5 mg tab.dis.inst.x 28,TABLETAS,5,MG,28,dis.inst
+olanzapina,ZYPREXA ZYDIS,5 mg tab.dis.inst.x 14,TABLETAS DISPERSABLES DE DISOLUCIÓN INSTANTÁNEA,5,MG,14,
+olanzapina,ONOTRAN RAPID,5 mg tab.dis.inst.x 28,TABLETAS DISPERSABLES DE DISOLUCIÓN INSTANTÁNEA,5,MG,28,
+olanzapina,ZYPREXA ZYDIS,5 mg tab.dis.inst.x 28,TABLETAS DISPERSABLES DE DISOLUCIÓN INSTANTÁNEA,5,MG,28,
 olaparib,OLAPATER COMPRIMIDOS,100 mg comp. x 56,COMPRIMIDOS,100,MG,56,
 olaparib,LYNPARZA,100 mg comp. x 56,COMPRIMIDOS,100,MG,56,
 olaparib,OLAPATER COMPRIMIDOS,150 mg comp. x 56,COMPRIMIDOS,150,MG,56,
@@ -8468,7 +8464,7 @@ omeprazol,ACIMED,40 mg caps.x 30,CÁPSULAS,40,MG,30,
 omeprazol,DANLOX,40 mg caps.x 30,CÁPSULAS,40,MG,30,
 omeprazol,OMEFORT,40 mg caps.x 56,CÁPSULAS,40,MG,56,
 omeprazol,ULCOZOL,40 mg comp.x 28,COMPRIMIDOS,40,MG,28,
-omeprazol,OMEPRAZOL RICHET,40 mg IV f.a.x 1,,40,MG,1,iv f.a
+omeprazol,OMEPRAZOL RICHET,40 mg IV f.a.x 1,FRASCO AMPOLLA,40,MG,1,
 omeprazol,GENOPRAZOL,Exp.blist.x14 comp.x 14,,,,14,exp.blist.comp.x 14
 omeprazol,ULCOZOL 20,polv.p/susp.oral x30 sob,POLVO PARA SUSPENSIÓN ORAL,,,30,sob
 "omeprazol, sodio,bicarbonato",DANLOX RAPIDO,20 mg caps.x 15,CÁPSULAS,20,MG,15,
@@ -8600,7 +8596,7 @@ oximetazolina,LIDIL SPRAY,Spray nasal Inf.x 20 ml,SPRAY,,,,nasal inf
 oximetazolina,ALLERHIT,Spray nasal x 10 ml,SPRAY NASAL,,,,
 oximetazolina,LIDIL SPRAY,Spray nasal x 20 ml,SPRAY NASAL,,,,
 oximetazolina,OXILER D,spray x 10 ml,SPRAY,,,,
-"oximetazolina clor., asoc.",OCUREL LC,sol.oft.esteril x 7.5 ml,SOLUCIÓN OFTÁLMICA,,,,esteril
+"oximetazolina clor., asoc.",OCUREL LC,sol.oft.esteril x 7.5 ml,SOLUCIÓN OFTÁLMICA ESTÉRIL,,,,
 "oximetazolina, hialuronato sódico",ALOSOL,gts.oft.x 10 ml,GOTAS OFTÁLMICAS,,,,
 ozanimod,OSIREN MS,0.23/0.46 mg cáps. x 7,CÁPSULAS,0.23/0.46,MG,7,
 ozanimod,OSIREN MS,0.92 mg cáps. x 28,CÁPSULAS,0.92,MG,28,
@@ -8702,7 +8698,7 @@ pamidronato disódico,AMINOMUX,90 mg iny.liof.f.a.x 1,FRASCO AMPOLLA,90,MG,1,
 "pancuronio,bromuro",PANCURON,4 mg a.x 1 x 2 ml,AMPOLLA,4,MG,1,
 "pancuronio,bromuro",BEMICIN,a.x 25,AMPOLLA,,,25,
 panitumumab,VECTIBIX,100 mg f.a.x 1 x 5 ml,FRASCO AMPOLLA,100,MG,1,
-pantoprazol,DUNCAN SIPAR,20 mg comp.gastrorr.x 28,COMPRIMIDOS,20,MG,28,gastrorr
+pantoprazol,DUNCAN SIPAR,20 mg comp.gastrorr.x 28,COMPRIMIDOS GASTRORRESISTENTES,20,MG,28,orr
 pantoprazol,GASTROMAX 20,20 mg comp.x 14,COMPRIMIDOS,20,MG,14,
 pantoprazol,PANTOPRAZOL TEVA,20 mg comp.x 28,COMPRIMIDOS,20,MG,28,
 pantoprazol,SUPRACAM,20 mg comp.x 30,COMPRIMIDOS,20,MG,30,
@@ -8715,9 +8711,9 @@ pantoprazol,PANTOCAS,20 mg comp.x 60,COMPRIMIDOS,20,MG,60,
 pantoprazol,GASTROMAX 20,20 mg comp.x 60,COMPRIMIDOS,20,MG,60,
 pantoprazol,PANTUS 20,20mg comp.rec.gastr.x 15,COMPRIMIDOS GASTRORRESISTENTES,20,MG,15,
 pantoprazol,PANTUS 20,20mg comp.rec.gastr.x 30,COMPRIMIDOS GASTRORRESISTENTES,20,MG,30,
-pantoprazol,PANTOSEPTO,40 mg comp.gastr.x28,COMPRIMIDOS,40,MG,28,gastr
-pantoprazol,PANTOSEPTO,40 mg comp.gastr.x30,COMPRIMIDOS,40,MG,30,gastr
-pantoprazol,DUNCAN SIPAR,40 mg comp.gastrorr.x 28,COMPRIMIDOS,40,MG,28,gastrorr
+pantoprazol,PANTOSEPTO,40 mg comp.gastr.x28,COMPRIMIDOS GASTRORRESISTENTES,40,MG,28,
+pantoprazol,PANTOSEPTO,40 mg comp.gastr.x30,COMPRIMIDOS GASTRORRESISTENTES,40,MG,30,
+pantoprazol,DUNCAN SIPAR,40 mg comp.gastrorr.x 28,COMPRIMIDOS GASTRORRESISTENTES,40,MG,28,orr
 pantoprazol,GASTROMAX,40 mg comp.x 14,COMPRIMIDOS,40,MG,14,
 pantoprazol,PANTOPRAZOL TEVA,40 mg comp.x 28,COMPRIMIDOS,40,MG,28,
 pantoprazol,ZURCAL,40 mg comp.x 30,COMPRIMIDOS,40,MG,30,
@@ -8728,7 +8724,7 @@ pantoprazol,GASTROMAX,40 mg comp.x 30,COMPRIMIDOS,40,MG,30,
 pantoprazol,PAMPAR 40,40 mg comp.x 30,COMPRIMIDOS,40,MG,30,
 pantoprazol,GASTROMAX,40 mg comp.x 60,COMPRIMIDOS,40,MG,60,
 pantoprazol,PANTOCAS,40 mg comp.x 60,COMPRIMIDOS,40,MG,60,
-pantoprazol,PANTUS IV,40 mg IV f.a.liof.x 1,,40,MG,1,iv f.a.liof
+pantoprazol,PANTUS IV,40 mg IV f.a.liof.x 1,INYECTABLE INTRAVENOSO,40,MG,1,f.a.liof
 pantoprazol,PANTUS 40,40 mg sob.x 30,SOBRES,40,MG,30,
 pantoprazol,PANTUS 40,40mg comp.rec.gastr.x 15,COMPRIMIDOS GASTRORRESISTENTES,40,MG,15,
 pantoprazol,PANTUS 40,40mg comp.rec.gastr.x 30,COMPRIMIDOS GASTRORRESISTENTES,40,MG,30,
@@ -8815,10 +8811,8 @@ paracetamol,TERMOFREN,sol.x 120 ml,SOLUCIÓN,,,,
 "paracetamol, clorfeniramina, asoc.",TABCIN COMPUESTO,caps.x 12,CÁPSULAS,,,12,
 "paracetamol, clorfeniramina, asoc.",TABCIN COMPUESTO,caps.x 20,CÁPSULAS,,,20,
 "paracetamol, clorfeniramina, asoc.",D,ecidex compuesto grip comp.rec.x 10,,,,10,ecidex compuesto grip comp.rec
-"paracetamol, clorfeniramina, asoc.",PIRIGRIP,comp.rec.x 16,COMPRIMIDOS RECUBIERTOS,,,16,
 "paracetamol, clorfeniramina, asoc.",FEBRIGRIP,comp.rec.x 16,COMPRIMIDOS RECUBIERTOS,,,16,
 "paracetamol, clorfeniramina, asoc.",D,ecidex compuesto grip comp.rec.x 20,,,,20,ecidex compuesto grip comp.rec
-"paracetamol, clorfeniramina, asoc.",PIRIGRIP,comp.rec.x 8,COMPRIMIDOS RECUBIERTOS,,,8,
 "paracetamol, clorfeniramina, asoc.",DUFLEGRIP,comp.x 20,COMPRIMIDOS,,,20,
 "paracetamol, clorfeniramina, asoc.",DECIDEX COMPUESTO,gts.x 30 ml,GOTAS,,,,
 "paracetamol, clorfeniramina, asoc.",DUFLEGRIP,jbe.x 100 ml,JARABE,,,,
@@ -8984,7 +8978,7 @@ pemetrexed,VENUSTED,500 mg iny.liof.x 1,INYECTABLE LIOFILIZADO,500,MG,1,
 pemetrexed,ENZASTAR,500 mg liof.f.a.x 1,LIOFILIZADO FRASCO AMPOLLA,500,MG,1,
 pemetrexed,SUKUBA,500 mg liof.f.a.x 1,LIOFILIZADO FRASCO AMPOLLA,500,MG,1,
 -,PEMETREXED,MARTXEL 500 MG 1 FCO.AMP.500 mg pvo. liof. 1 vial,VIAL,,,,martxel 500 mg 1 fco.amp.500 mg pvo. liof. 1
-pemetrexed,PEMETREXED IMA,500 mg pvo.liof.x 1,LIOFILIZADO,500,MG,1,
+pemetrexed,PEMETREXED IMA,500 mg pvo.liof.x 1,POLVO LIOFILIZADO,500,MG,1,
 penicilamina,CUPRIPEN,250 mg caps.x 30,CÁPSULAS,250,MG,30,
 -,PENICILINA G BENZATÍNICA,PENICILINA G BENZATINICA 1200000 UI f.a.x 1,,,,1,penicilina g benzatinica 1200000 ui f.a
 penicilina g benzatínica,PENICILINA G BENZATINICA,1200000 ui f.a.x 1,FRASCO AMPOLLA,1200000,UI,1,
@@ -9048,7 +9042,7 @@ pioglitazona,CERELUC,30 mg comp.x 30,COMPRIMIDOS,30,MG,30,
 pioglitazona,PIOTAMAX 45,45 mg comp.bi-ranur.x 30,COMPRIMIDOS,45,MG,30,bi-ranur
 pioglitazona,HIGLUCEM,45 mg comp.x 30,COMPRIMIDOS,45,MG,30,
 pioglitazona,CERELUC,45 mg comp.x 30,COMPRIMIDOS,45,MG,30,
-"piperacilina, tazobactam",PIPERACILINA+TAZOBACTAM R,4.5 g IV f.a.x 1,,4.5,G,1,iv f.a
+"piperacilina, tazobactam",PIPERACILINA+TAZOBACTAM R,4.5 g IV f.a.x 1,FRASCO AMPOLLA,4.5,G,1,
 piracetam,NOOSTAN,1200 mg comp.x 20,COMPRIMIDOS,1200,MG,20,
 piracetam,NOOSTAN,800 mg comp.x 45,COMPRIMIDOS,800,MG,45,
 pirfenidona,PIRFEMAX,200 mg comp.rec.x 360,COMPRIMIDOS RECUBIERTOS,200,MG,360,
@@ -9097,7 +9091,7 @@ pitavastatina,PIVAST,2 mg comp.rec.x 60,COMPRIMIDOS RECUBIERTOS,2,MG,60,
 plerixafor,CELIXAFOR,20 mg f.a.x 1,FRASCO AMPOLLA,20,MG,1,
 plerixafor,REVIXIL,20 mg f.a.x 1,FRASCO AMPOLLA,20,MG,1,
 podofilox,PODOXIN,gel x 5 g,GEL,,,,
-podofilox,PODOXIN,sol.tópica x 3.5 ml,SOLUCIÓN,,,,tópica
+podofilox,PODOXIN,sol.tópica x 3.5 ml,SOLUCIÓN TÓPICA,,,,
 polatuzumab vedotina,POLIVY,140 mg vial x 1,VIAL,140,MG,1,
 polatuzumab vedotina,POLIVY,30 mg vial x 1,VIAL,30,MG,1,
 "polen,extracto",CERNILTON PLUS,caps.x 30,CÁPSULAS,,,30,
@@ -9114,13 +9108,13 @@ polietilenglicol,AGAROL PUR PURIFICADOR,sob.x 12 x 17 g,SOBRES,,,12,
 -,POLIETILENGLICOL,AGAROL PUR PURIFICADOR sob.x 5 x 17 g,AMPOLLA,,,5,garol pur purificador sob
 "polietilenglicol, propilenglic",SYSTANE,Drop Tainer fco.x 15 ml,,,,,drop tainer fco
 "polietilenglicol, propilenglic",SYSTANE GEL EN GOTAS,gel oft.en gotas x 10 ml,GEL,,,,oft.en gotas
-"polietilenglicol, propilenglic",SYSTANE ULTRA,sol.oft.estéril x 10 ml,SOLUCIÓN OFTÁLMICA,,,,estéril
-"polietilenglicol, propilenglic",SYSTANE HIDRATACION SP,sol.oft.estéril x 10 ml,SOLUCIÓN OFTÁLMICA,,,,estéril
+"polietilenglicol, propilenglic",SYSTANE ULTRA,sol.oft.estéril x 10 ml,SOLUCIÓN OFTÁLMICA ESTÉRIL,,,,
+"polietilenglicol, propilenglic",SYSTANE HIDRATACION SP,sol.oft.estéril x 10 ml,SOLUCIÓN OFTÁLMICA ESTÉRIL,,,,
 "polimixina b, neomicina, asoc.",POENBIOPTAL NF,colirio x 5 ml,COLIRIO,,,,
 "polimixina b, neomicina, asoc.",OTOSPORIN,gts.óticas x 10 ml,GOTAS ÓTICAS,,,,
 "polimixina b, neomicina, asoc.",OTOSPORIN L,gts.óticas x 10 ml,GOTAS ÓTICAS,,,,
 "polimixina b, neomicina, asoc.",SINCERUM BIOTIC L,gts.x 8 ml,GOTAS,,,,
-"polimixina,sulfato",POLIMIXINA B RICHET,pvo.liof. f.a.x 1,POLVO,,,1,liof. f.a
+"polimixina,sulfato",POLIMIXINA B RICHET,pvo.liof. f.a.x 1,FRASCO AMPOLLA,,,1,
 polisacáridos meningocócicos a-c-y-w135,MENQUADFI,sol. iny. vial x 1,SOLUCIÓN,,,1,iny. vial
 polisacáridos de neumococos,PNEUMOVAX 23,vial monodosis x 0.5 ml,VIAL,,,,monodosis
 polisacáridos de streptococcus pneumoniae,PREVENAR 13,jga.prell.x 1 x 0.5 ml,JERINGA PRELLENADA,,,1,
@@ -9185,8 +9179,8 @@ posaconazol,NOXAFIL,40mg/ml susp.oral x105ml,,40,MG,,/ml susp.oral
 "potasio,gluconato",KAON,elixir x 500 ml,ELIXIR,,,,
 "potasio,gluconato",KAON,pvo.sob.x 30,POLVO SOBRES,,,30,
 "potasio,gluconato",POTAMKIM,sol.beb. x 150 ml,SOLUCIÓN,,,,beb
-pralidoxima,CONTRATHION,pvo.liof. vial x 5,POLVO,,,5,liof. vial
-pralidoxima,CONTRATHION,pvo.liof. vial x1 +solv.,POLVO,,,1,liof. vial +solv
+pralidoxima,CONTRATHION,pvo.liof. vial x 5,POLVO LIOFILIZADO,,,5,vial
+pralidoxima,CONTRATHION,pvo.liof. vial x1 +solv.,POLVO LIOFILIZADO,,,1,vial +solv
 pramipexol,NULIPAR,0.25 mg comp.ran.x 30,COMPRIMIDOS RANURADOS,0.25,MG,30,
 pramipexol,NULIPAR,0.25 mg comp.ran.x 60,COMPRIMIDOS RANURADOS,0.25,MG,60,
 pramipexol,NOXOPRAN,0.25 mg comp.x 100,COMPRIMIDOS,0.25,MG,100,
@@ -9342,7 +9336,7 @@ pregabalina,PRINCIPIA PRACTIDOSIS,75 mg comp.birranur.x 30,COMPRIMIDOS BIRRANURA
 pregabalina,LINPREL MULTIDOSIS,75 mg comp.birranur.x 60,COMPRIMIDOS BIRRANURADOS,75,MG,60,
 pregabalina,PGB 75 MULTIDOSIS,75 mg comp.multid.x 15,COMPRIMIDOS,75,MG,15,multid
 pregabalina,PGB 75 MULTIDOSIS,75 mg comp.multid.x 30,COMPRIMIDOS,75,MG,30,multid
-pregabalina,SERIPRAN,75 mg comp.ran.dividsx30,COMPRIMIDOS RANURADOS,75,MG,30,divids
+pregabalina,SERIPRAN,75 mg comp.ran.dividsx30,COMPRIMIDOS RANURADOS DIVISIBLES,75,MG,30,
 pregabalina,MYSTIKA 75 MULTIDOSIS,75 mg comp.rec.birr.x 30,COMPRIMIDOS RECUBIERTOS,75,MG,30,birr
 pregabalina,DOLONEUTIN PRACTIDOSIS,75 mg comp.x 15,COMPRIMIDOS,75,MG,15,
 pregabalina,PLENICA 75 PRACTIDOSIS,75 mg comp.x 15,COMPRIMIDOS,75,MG,15,
@@ -9399,7 +9393,7 @@ propafenona,NORMORYTMIN,300 mg comp.rec.x 50,COMPRIMIDOS RECUBIERTOS,300,MG,50,
 proparacaína,POEN CAINA,colirio x 10 ml,COLIRIO,,,,
 proparacaína,ANESTALCON,fco.x 15 ml,FRASCO,,,,
 propilenglicol,COLTIX HIDRA LAGRIMAS,env.x 12 ml,ENVASE,,,,
-propilenglicol,SYSTANE BALANCE,sol.oft.estéril x 10 ml,SOLUCIÓN OFTÁLMICA,,,,estéril
+propilenglicol,SYSTANE BALANCE,sol.oft.estéril x 10 ml,SOLUCIÓN OFTÁLMICA ESTÉRIL,,,,
 propilenglicol,SYSTANE COMPLETE,sol.oft.x 10 ml,SOLUCIÓN OFTÁLMICA,,,,
 propinox,SERTAL PERLAS,caps.blandas x 10,CÁPSULAS BLANDAS,,,10,
 propinox,SERTAL FEM,cáps.blandas x 10,CÁPSULAS BLANDAS,,,10,
@@ -9812,11 +9806,11 @@ rosuvastatina,HIPOLIPOL,10 mg comp.rec.x 28,COMPRIMIDOS RECUBIERTOS,10,MG,28,
 rosuvastatina,ROVASTANE,10 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,10,MG,30,
 rosuvastatina,ROSTAN,10 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,10,MG,30,
 rosuvastatina,MESOTEROL 10,10 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,10,MG,30,
-rosuvastatina,ASTENDE,10 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,10,MG,30,
 rosuvastatina,ROXOLAN,10 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,10,MG,30,
 rosuvastatina,NODIS 10,10 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,10,MG,30,
 rosuvastatina,HIPOLIPOL,10 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,10,MG,30,
 rosuvastatina,TURBULINA,10 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,10,MG,30,
+rosuvastatina,ASTENDE,10 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,10,MG,30,
 rosuvastatina,SINLIP,10 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,10,MG,30,
 rosuvastatina,LIPOGLUTAREN 10,10 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,10,MG,30,
 rosuvastatina,ROSUFEN,10 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,10,MG,30,
@@ -9859,12 +9853,12 @@ rosuvastatina,HIPOLIPOL,20 mg comp.rec.x 28,COMPRIMIDOS RECUBIERTOS,20,MG,28,
 rosuvastatina,ROVASTANE,20 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,20,MG,30,
 rosuvastatina,ROSTAN,20 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,20,MG,30,
 rosuvastatina,MESOTEROL 20,20 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,20,MG,30,
-rosuvastatina,ASTENDE,20 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,20,MG,30,
 rosuvastatina,HIPOLIPOL,20 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,20,MG,30,
 rosuvastatina,TURBULINA,20 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,20,MG,30,
 rosuvastatina,NODIS 20,20 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,20,MG,30,
 rosuvastatina,ROXOLAN,20 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,20,MG,30,
 rosuvastatina,SINLIP,20 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,20,MG,30,
+rosuvastatina,ASTENDE,20 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,20,MG,30,
 rosuvastatina,LIPOGLUTAREN 20,20 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,20,MG,30,
 rosuvastatina,ROSUFEN,20 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,20,MG,30,
 rosuvastatina,ROVARTAL,20 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,20,MG,30,
@@ -9895,9 +9889,9 @@ rosuvastatina,ROSUCOL,20 mg comp.x 60,COMPRIMIDOS,20,MG,60,
 rosuvastatina,ROSUVAST,20 mg comp.x 60,COMPRIMIDOS,20,MG,60,
 rosuvastatina,REOVEX 40,40 mg comp.rec.ran.x 30,COMPRIMIDOS RECUBIERTOS RANURADOS,40,MG,30,
 rosuvastatina,HIPOLIPOL,40 mg comp.rec.x 28,COMPRIMIDOS RECUBIERTOS,40,MG,28,
-rosuvastatina,ASTENDE,40 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,40,MG,30,
 rosuvastatina,HIPOLIPOL,40 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,40,MG,30,
 rosuvastatina,NODIS 40,40 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,40,MG,30,
+rosuvastatina,ASTENDE,40 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,40,MG,30,
 rosuvastatina,SINLIP,40 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,40,MG,30,
 rosuvastatina,ROXOLAN,40 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,40,MG,30,
 rosuvastatina,ROSUFEN,40 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,40,MG,30,
@@ -9920,9 +9914,9 @@ rosuvastatina,REOVEX 5,5 mg comp.rec.ran.x 60,COMPRIMIDOS RECUBIERTOS RANURADOS,
 rosuvastatina,HIPOLIPOL,5 mg comp.rec.x 28,COMPRIMIDOS RECUBIERTOS,5,MG,28,
 rosuvastatina,ROSTAN,5 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,5,MG,30,
 rosuvastatina,MESOTEROL 5,5 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,5,MG,30,
-rosuvastatina,ASTENDE,5 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,5,MG,30,
 rosuvastatina,ROXOLAN,5 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,5,MG,30,
 rosuvastatina,HIPOLIPOL,5 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,5,MG,30,
+rosuvastatina,ASTENDE,5 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,5,MG,30,
 rosuvastatina,NODIS 5,5 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,5,MG,30,
 rosuvastatina,SINLIP,5 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,5,MG,30,
 rosuvastatina,ROSUFEN,5 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,5,MG,30,
@@ -10061,7 +10055,7 @@ salbutamol,VENTOLIN,sol.p/nebul.x 20 ml,SOLUCIÓN NEBULIZABLE,,,,ul
 "salicílico,ác.",VERRUTOPIC AS,6 mm após.x 20+acces.,,6,,20,mm após.+acces
 "salicílico,ác.",VERRUPLANT,fco.x 8 ml,FRASCO,,,,
 "salicílico,ác.",VERRUKID PEDIATRICO,gel líq.x 10 g,GEL,,,,líq
-"salicílico,ác.",VERRUDERM,laca x 8 ml,,,,,laca
+"salicílico,ác.",VERRUDERM,laca x 8 ml,LACA,,,,
 "salicílico,ác.",VERRUTRIX,sob.x 2 x 5 após.c/u,SOBRES,,,2,x 5 após.c/u
 "salicílico,ác.",VERRUTRIX,sob.x 4 x 5 após.c/u,SOBRES,,,4,x 5 após.c/u
 "salicílico,ác.",SALPAD 2%,toallitas x 30,,,,30,toallitas
@@ -10620,8 +10614,8 @@ sulfadiazina de plata,SULFATRAL,cr.x 30 g,CREMA,,,,
 "sulfametoxazol, trimetoprima",COTRIMOX,comp.x 20,COMPRIMIDOS,,,20,
 "sulfametoxazol, trimetoprima",BACTRIM,comp.x 20,COMPRIMIDOS,,,20,
 "sulfametoxazol, trimetoprima",SPECTREX,Forte comp.x 10,,,,10,forte comp
-"sulfametoxazol, trimetoprima",BACTRIM,IV a.x 5 x 5 ml,,,,5,iv a
-"sulfametoxazol, trimetoprima",SPECTREX,IV a.x 5 x 5 ml,,,,5,iv a
+"sulfametoxazol, trimetoprima",BACTRIM,IV a.x 5 x 5 ml,INYECTABLE INTRAVENOSO,,,5,a
+"sulfametoxazol, trimetoprima",SPECTREX,IV a.x 5 x 5 ml,INYECTABLE INTRAVENOSO,,,5,a
 "sulfametoxazol, trimetoprima",NETOCUR,jbe.x 100 ml,JARABE,,,,
 "sulfametoxazol, trimetoprima",ADRENOL,jbe.x 100 ml,JARABE,,,,
 "sulfametoxazol, trimetoprima",BACTRIM,jbe.x 100 ml,JARABE,,,,
@@ -10752,8 +10746,8 @@ tadalafilo,SUPER-O 36,5 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,5,MG,30,
 tadalafilo,FALIC 36,5 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,5,MG,30,
 tadalafilo,MOMENTUM,5 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,5,MG,30,
 tadalafilo,MAGNUS 36,5 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,5,MG,30,
-tadalafilo,H36 LAZAR,5 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,5,MG,30,
 tadalafilo,VORST 36,5 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,5,MG,30,
+tadalafilo,H36 LAZAR,5 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,5,MG,30,
 tadalafilo,DROTAQ,5 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,5,MG,30,
 tadalafilo,INVICTUS 5,5 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,5,MG,30,
 tadalafilo,VIRILON MAX,5 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,5,MG,30,
@@ -11084,8 +11078,6 @@ tirotricina,TYROSUR,gel x 25 g,GEL,,,,
 "tirotricina, benzocaína, asoc.",FILOTRICIN A,spray x 30 ml,SPRAY,,,,
 tizanidina,TIZANIDAL,2 mg comp.x 15,COMPRIMIDOS,2,MG,15,
 tizanidina,TIZANIDAL,4 mg comp.x 30,COMPRIMIDOS,4,MG,30,
-tobramicina,KLONAMICIN,0.3% sol.oft.x 10 ml,SOLUCIÓN OFTÁLMICA,0.3,%,,
-tobramicina,XIBRAX,0.3% sol.oft.x 5 ml,SOLUCIÓN OFTÁLMICA,0.3,%,,
 tobramicina,TOBI,300 mg/5 ml amp.x 56,AMPOLLA,300mg/5ml,MG/ML,56,
 tobramicina,TOFIB,300 mg/5 ml amp.x 56,AMPOLLA,300mg/5ml,MG/ML,56,
 tobramicina,TUBERBUT,300 mg/5 ml amp.x 56,AMPOLLA,300mg/5ml,MG/ML,56,
@@ -11096,19 +11088,8 @@ tobramicina,ALVEOTEROL,300mg/5ml amp.p/neb.x 56,AMPOLLA,300mg/5ml,MG/ML,56,p/neb
 tobramicina,TOBRAMITEX,300mg/5ml fco.amp.x 56,FRASCO AMPOLLA,300mg/5ml,MG/ML,56,mp
 tobramicina,TOBI PODHALER,cáps.duras x 224+inh.x 5,CÁPSULAS DURAS,,,224,inh.x 5
 tobramicina,TOBRADOSA HALER,cáps.duras x 224+inh.x 6,CÁPSULAS DURAS,,,224,inh.x 6
-tobramicina,BIDEON BIOTIC,colirio x 5 ml,COLIRIO,,,,
-tobramicina,GOTABIOTIC,colirio x 5 ml,COLIRIO,,,,
-tobramicina,GOTABIOTIC,gel oft.x 5 g,OFTÁLMICO,,,,
-tobramicina,RADINA,gts.oft.x 10 ml,GOTAS OFTÁLMICAS,,,,
-tobramicina,OFTALBRAX,gts.oft.x 5 ml,GOTAS OFTÁLMICAS,,,,
-tobramicina,TOBREX,gts.oft.x 5 ml,GOTAS OFTÁLMICAS,,,,
-tobramicina,BELBARMICINA INL,pvo.liof.p/inhal.f.a.x28,POLVO,,,28,liof.p/inhal.f.a
-tobramicina,BELBARMICINA INL,pvo.liof.p/inhal.f.a.x56,POLVO,,,56,liof.p/inhal.f.a
-tobramicina,TOBRALEP,sol.oft.esteril x 5 ml,SOLUCIÓN OFTÁLMICA,,,,esteril
-tobramicina,TOBRAMICINA ATLAS,sol.oft.esteril x 5 ml,SOLUCIÓN OFTÁLMICA,,,,esteril
-tobramicina,TOBRALER,sol.oft.x 5 ml,SOLUCIÓN OFTÁLMICA,,,,
-tobramicina,TOBRABIOTIC,sol.oft.x 5 ml,SOLUCIÓN OFTÁLMICA,,,,
-tobramicina,FOTEX,sol.oft.x 5 ml,SOLUCIÓN OFTÁLMICA,,,,
+tobramicina,BELBARMICINA INL,pvo.liof.p/inhal.f.a.x28,POLVO LIOFILIZADO,,,28,p/inhal.f.a
+tobramicina,BELBARMICINA INL,pvo.liof.p/inhal.f.a.x56,POLVO LIOFILIZADO,,,56,p/inhal.f.a
 tobramicina,TOBRAMICINA CASSARA,sol.p/inh.fco.amp.x 56,SOLUCIÓN,,,56,p/inh.fco.amp
 tobramicina,TOBRAL,sol.p/inh.fco.amp.x 56,SOLUCIÓN,,,56,p/inh.fco.amp
 "tobramicina, dexametasona",BIDEON BIOTIC PLUS,colirio x 5 ml,COLIRIO,,,,
@@ -11511,8 +11492,8 @@ urea,XEROBASE,emuls.x 100 g,EMULSIÓN,,,,
 ustekinumab,STELARA IV,130 mg/26 ml vial x 1,VIAL,130mg/26ml,MG/ML,1,
 ustekinumab,STELARA,45mg/0.5 ml vial+j.prell,VIAL,45mg/0.5ml,MG/ML,,j.prell
 ustekinumab,STELARA,90 mg/1 ml vial+j.prell,VIAL,90mg/1ml,MG/ML,,j.prell
-vac.antimeningocóccica acyw-13,NIMENRIX,pvo.liof.+jga.disolv.x 1,POLVO,,,1,liof.+jga.disolv
-vac.antimeningocóccica acyw-13,MENVEO,pvo.liof.x 1+sol.iny.x 1,POLVO,,,1,liof.+sol.iny.x 1
+vac.antimeningocóccica acyw-13,NIMENRIX,pvo.liof.+jga.disolv.x 1,POLVO LIOFILIZADO,,,1,jga.disolv
+vac.antimeningocóccica acyw-13,MENVEO,pvo.liof.x 1+sol.iny.x 1,POLVO LIOFILIZADO,,,1,sol.iny.x 1
 vac.meningocócica multicompone,BEXSERO,jga.prell.x 1,JERINGA PRELLENADA,,,1,
 vacuna antirrábica,VERORAB,liof.f.a.+jga.solv.,LIOFILIZADO FRASCO AMPOLLA,,,,jga.solv
 vacuna antitifoidea,TYPHIM VI,jga.prell.x 0.5 ml,JERINGA PRELLENADA,,,,
@@ -11773,8 +11754,8 @@ vilazodona clorh.,VISDON 40,40 mg comp.x 30,COMPRIMIDOS,40,MG,30,
 vildagliptin,ZOMARIST,50 mg comp.x 28,COMPRIMIDOS,50,MG,28,
 vildagliptin,GLUCEMIX,50 mg comp.x 28,COMPRIMIDOS,50,MG,28,
 vildagliptin,GALVUS,50 mg comp.x 28,COMPRIMIDOS,50,MG,28,
-vildagliptin,CARFLAX,50 mg comp.x 30,COMPRIMIDOS,50,MG,30,
 vildagliptin,VILZER,50 mg comp.x 30,COMPRIMIDOS,50,MG,30,
+vildagliptin,CARFLAX,50 mg comp.x 30,COMPRIMIDOS,50,MG,30,
 vildagliptin,JOVIUS,50 mg comp.x 30,COMPRIMIDOS,50,MG,30,
 vildagliptin,AVAMIDE,50 mg comp.x 30,COMPRIMIDOS,50,MG,30,
 vildagliptin,ZATIUM,50 mg comp.x 30,COMPRIMIDOS,50,MG,30,
@@ -11782,8 +11763,8 @@ vildagliptin,ZOMARIST,50 mg comp.x 56,COMPRIMIDOS,50,MG,56,
 vildagliptin,GLUCEMIX,50 mg comp.x 56,COMPRIMIDOS,50,MG,56,
 vildagliptin,GALVUS,50 mg comp.x 56,COMPRIMIDOS,50,MG,56,
 vildagliptin,AVAMIDE,50 mg comp.x 60,COMPRIMIDOS,50,MG,60,
-vildagliptin,CARFLAX,50 mg comp.x 60,COMPRIMIDOS,50,MG,60,
 vildagliptin,VILZER,50 mg comp.x 60,COMPRIMIDOS,50,MG,60,
+vildagliptin,CARFLAX,50 mg comp.x 60,COMPRIMIDOS,50,MG,60,
 vildagliptin,JOVIUS,50 mg comp.x 60,COMPRIMIDOS,50,MG,60,
 vildagliptin,ZATIUM,50 mg comp.x 60,COMPRIMIDOS,50,MG,60,
 "vildagliptin, metformina",VI-BALIGLUC,50/1000 mg comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,50/1000,MG,30,
@@ -11838,7 +11819,6 @@ vincristina,VINCRISTINA KEMEX,1 mg iny.a.x 1,INYECTABLE AMPOLLA,1,MG,1,
 vincristina,VINCRISTINA LKM 1,1 mg iny.a.x 1,INYECTABLE AMPOLLA,1,MG,1,
 vinflunina ditartrato,JAVLOR,f.a.x 250 mg/ml,FRASCO AMPOLLA,,,250,mg/ml
 vinflunina ditartrato,JAVLOR,f.a.x 50 mg/ml,FRASCO AMPOLLA,,,50,mg/ml
-vinorelbine,NAVELBINE,10 mg iny.x 1,INYECTABLE,10,MG,1,
 vinorelbine,VINORGEN ORAL,20 mg cáps.bl. x 1,CÁPSULAS BLANDAS,20,MG,1,
 vinorelbine,NAVELBINE ORAL,20 mg caps.x 1,CÁPSULAS,20,MG,1,
 vinorelbine,VINORGEN ORAL,30 mg cáps.bl. x 1,CÁPSULAS BLANDAS,30,MG,1,
@@ -11863,9 +11843,9 @@ vismodegib,ERIVEDGE,150 mg cáps.x 28,CÁPSULAS,150,MG,28,
 "vit., minerales",CAL C VITA FLUOR,comp.efer.x 30,COMPRIMIDOS EFERVESCENTES,,,30,
 "vit., minerales",CAL C VITA,comp.efer.x 30,COMPRIMIDOS EFERVESCENTES,,,30,
 "vit., minerales",BEROCCA PLUS,comp.efer.x 30,COMPRIMIDOS EFERVESCENTES,,,30,
-"vit., minerales",BEROCCA PLUS,comp.laq.x 30,COMPRIMIDOS,,,30,laq
-"vit., minerales",SUPRADYN PRONATAL,comp.laq.x 30,COMPRIMIDOS,,,30,laq
-"vit., minerales",SUPRADYN PRONATAL,comp.laq.x 90,COMPRIMIDOS,,,90,laq
+"vit., minerales",BEROCCA PLUS,comp.laq.x 30,COMPRIMIDOS LACADOS,,,30,
+"vit., minerales",SUPRADYN PRONATAL,comp.laq.x 30,COMPRIMIDOS LACADOS,,,30,
+"vit., minerales",SUPRADYN PRONATAL,comp.laq.x 90,COMPRIMIDOS LACADOS,,,90,
 "vit., minerales",OCUVITE DM,comp.rec.x 60,COMPRIMIDOS RECUBIERTOS,,,60,
 -,"VIT., MINERALES",POLPER CALCIO-MAGNESIO comp.x 30,,,,30,polper calcio-magnesio comp
 "vit., minerales",SUPRADYN FORTE,Efer.comp.x 10 Nar.s/az.,,,,10,efer.comp.nar.s/az
@@ -11932,7 +11912,7 @@ vit.a,TANVIMIL A,50000 UI caps.x 60,CÁPSULAS,50000,UI,60,
 "vit.b,complejo",TRISEL,250/250/3 mg comp.x 10,COMPRIMIDOS,250/250/3,MG,10,
 "vit.b,complejo",BAGO B1 B6 B12,5000 mcg comp.x 30,COMPRIMIDOS,5000,MCG,30,
 "vit.b,complejo",BECOZYM NF,a.x 6,AMPOLLA,,,6,
-"vit.b,complejo",COBENEXOL FUERTE,comp.laq.x 30,COMPRIMIDOS,,,30,laq
+"vit.b,complejo",COBENEXOL FUERTE,comp.laq.x 30,COMPRIMIDOS LACADOS,,,30,
 "vit.b,complejo",POLI B FUERTE,comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,,,30,
 "vit.b,complejo",TANVIMIL B1 B6 B12,comp.rec.x 30,COMPRIMIDOS RECUBIERTOS,,,30,
 "vit.b,complejo",LISINFOS,comp.x 30,COMPRIMIDOS,,,30,
@@ -12053,7 +12033,7 @@ voriconazol,KEFIDIM,200 mg comp.rec.x 10,COMPRIMIDOS RECUBIERTOS,200,MG,10,
 voriconazol,V FEND,200 mg comp.rec.x 10,COMPRIMIDOS RECUBIERTOS,200,MG,10,
 voriconazol,VORICONAZOL RICHET,200 mg comp.x 10,COMPRIMIDOS,200,MG,10,
 voriconazol,VORICONAZOL RICHET,200 mg f.a.x 1,FRASCO AMPOLLA,200,MG,1,
-voriconazol,V FEND,200 mg IV liof.f.a.x 1,,200,MG,1,iv liof.f.a
+voriconazol,V FEND,200 mg IV liof.f.a.x 1,INYECTABLE INTRAVENOSO,200,MG,1,liof.f.a
 voriconazol,KEFIDIM,50 mg comp.rec.x 10,COMPRIMIDOS RECUBIERTOS,50,MG,10,
 voriconazol,V FEND,50 mg comp.rec.x 10,COMPRIMIDOS RECUBIERTOS,50,MG,10,
 vorinostat,ZOLINZA,100 mg comp.x 120,COMPRIMIDOS,100,MG,120,
@@ -12119,9 +12099,9 @@ zofenopril,PRESIAM,30 mg comp.x 28,COMPRIMIDOS,30,MG,28,
 "zoledrónico,ác.",SINRESOR,4 mg liof. f.a.x 1+solv.,LIOFILIZADO,4,MG,1,f.a.+solv
 "zoledrónico,ác.",ZOLETECH,4 mg liof. f.a.x 1+solv.,LIOFILIZADO,4,MG,1,f.a.+solv
 "zoledrónico,ác.",LEDRON,4 mg liof.vial x 1+solv.,LIOFILIZADO,4,MG,1,vial +solv
-"zoledrónico,ác.",DREICO,4 mg pvo.liof.x 1,LIOFILIZADO,4,MG,1,
-"zoledrónico,ác.",DREICO,4 mg pvo.liof.x 1+solv.,POLVO,4,MG,1,liof.+solv
-"zoledrónico,ác.",ACIDO ZOLEDRONICO IMA,4 mg pvo.liof.x 1+solv.,POLVO,4,MG,1,liof.+solv
+"zoledrónico,ác.",DREICO,4 mg pvo.liof.x 1,POLVO LIOFILIZADO,4,MG,1,
+"zoledrónico,ác.",DREICO,4 mg pvo.liof.x 1+solv.,POLVO LIOFILIZADO,4,MG,1,
+"zoledrónico,ác.",ACIDO ZOLEDRONICO IMA,4 mg pvo.liof.x 1+solv.,POLVO LIOFILIZADO,4,MG,1,
 "zoledrónico,ác.",DREICO,4 mg sol.iny. f.a.x 5 ml,FRASCO AMPOLLA,4,MG,,
 "zoledrónico,ác.",ALAMUR,4mg/5ml fco.a.x 1,FRASCO AMPOLLA,4mg/5ml,MG/ML,1,
 -,"ZOLEDRÓNICO,ÁC.",ACIDO ZOLEDRONICO RICHET4mg/5ml liof.f.a.x1+solv,AMPOLLA,,,1,cido zoledronico richet4mg/5ml liof.f.a.+solv
