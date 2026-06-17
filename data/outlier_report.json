@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-16T20:06:17.660277-03:00",
+  "timestamp": "2026-06-17T13:47:29.045812-03:00",
   "total_registros": 12136,
   "total_outliers": 245,
   "outliers": [
@@ -12,9 +12,9 @@
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
         "precio $1,433.00 < minimo $1,800",
-        "precio $1,433.00 < 10% mediana $16,476.49"
+        "precio $1,433.00 < 10% mediana $16,493.09"
       ],
-      "mediana_droga": 16476.49,
+      "mediana_droga": 16493.09,
       "n_droga": 30
     },
     {
@@ -26,9 +26,9 @@
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
         "precio $1,122.00 < minimo $1,800",
-        "precio $1,122.00 < 10% mediana $16,476.49"
+        "precio $1,122.00 < 10% mediana $16,493.09"
       ],
-      "mediana_droga": 16476.49,
+      "mediana_droga": 16493.09,
       "n_droga": 30
     },
     {
@@ -88,12 +88,12 @@
       "marca": "VERMIZOLE",
       "presentacion": "200 mg comp.x 6",
       "laboratorio": "Lafedar",
-      "precio": 21529.84,
+      "precio": 21981.97,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $107.65 << mediana_grupo $3,060.37"
+        "ppu $109.91 << mediana_grupo $3,124.64"
       ],
-      "mediana_droga": 21356.28,
+      "mediana_droga": 21804.76,
       "n_droga": 9
     },
     {
@@ -101,12 +101,12 @@
       "marca": "VERMIZOLE",
       "presentacion": "400 mg comp.x 6",
       "laboratorio": "Lafedar",
-      "precio": 33073.99,
+      "precio": 33768.55,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $82.68 << mediana_grupo $3,060.37"
+        "ppu $84.42 << mediana_grupo $3,124.64"
       ],
-      "mediana_droga": 21356.28,
+      "mediana_droga": 21804.76,
       "n_droga": 9
     },
     {
@@ -186,7 +186,7 @@
       "razones": [
         "ppu $14.60 << mediana_grupo $100.83"
       ],
-      "mediana_droga": 11083.15,
+      "mediana_droga": 11091.98,
       "n_droga": 105
     },
     {
@@ -194,12 +194,12 @@
       "marca": "AMOXI DUO MAR",
       "presentacion": "875 mg comp. x 14",
       "laboratorio": "Mar",
-      "precio": 10775.0,
+      "precio": 11000.0,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $12.31 << mediana_grupo $160.00"
+        "ppu $12.57 << mediana_grupo $163.25"
       ],
-      "mediana_droga": 11083.15,
+      "mediana_droga": 11091.98,
       "n_droga": 105
     },
     {
@@ -212,7 +212,7 @@
       "razones": [
         "ppu $15.82 << mediana_grupo $120.00"
       ],
-      "mediana_droga": 11083.15,
+      "mediana_droga": 11091.98,
       "n_droga": 105
     },
     {
@@ -463,7 +463,7 @@
       "razones": [
         "ppu $46.63 << mediana_grupo $859.42"
       ],
-      "mediana_droga": 19259.52,
+      "mediana_droga": 19663.97,
       "n_droga": 67
     },
     {
@@ -787,9 +787,9 @@
       "precio": 6037.96,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $6,037.96 < 25% mediana $26,782.07 (n=66)"
+        "precio $6,037.96 < 25% mediana $27,047.07 (n=66)"
       ],
-      "mediana_droga": 26782.07,
+      "mediana_droga": 27047.07,
       "n_droga": 66
     },
     {
@@ -800,9 +800,9 @@
       "precio": 5734.16,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $5,734.16 < 25% mediana $26,782.07 (n=66)"
+        "precio $5,734.16 < 25% mediana $27,047.07 (n=66)"
       ],
-      "mediana_droga": 26782.07,
+      "mediana_droga": 27047.07,
       "n_droga": 66
     },
     {
@@ -815,7 +815,7 @@
       "razones": [
         "ppu $29.19 << mediana_grupo $162.72"
       ],
-      "mediana_droga": 19916.76,
+      "mediana_droga": 20755.33,
       "n_droga": 20
     },
     {
@@ -941,10 +941,10 @@
       "marca": "DESLORAMAR",
       "presentacion": "susp.fco.x 60 ml",
       "laboratorio": "Mar",
-      "precio": 10210.0,
+      "precio": 10420.0,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $170.17 << mediana_grupo $1,220.00"
+        "ppu $173.67 << mediana_grupo $1,245.00"
       ],
       "mediana_droga": 11619.63,
       "n_droga": 23
@@ -954,10 +954,10 @@
       "marca": "DESLORAMAR CORT",
       "presentacion": "susp.fco.x 60 ml",
       "laboratorio": "Mar",
-      "precio": 11330.0,
+      "precio": 11560.0,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $188.83 << mediana_grupo $1,146.42"
+        "ppu $192.67 << mediana_grupo $1,169.33"
       ],
       "mediana_droga": 13007.1,
       "n_droga": 12
@@ -1687,10 +1687,10 @@
       "marca": "KETONAZOL LAFEDAR",
       "presentacion": "200 mg comp.x 10",
       "laboratorio": "Lafedar",
-      "precio": 9013.67,
+      "precio": 9202.96,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $45.07 << mediana_grupo $5,094.43"
+        "ppu $46.01 << mediana_grupo $5,201.42"
       ],
       "mediana_droga": 13668.61,
       "n_droga": 21
@@ -2318,10 +2318,10 @@
       "marca": "NEUROSOMAT 0.25 MG",
       "presentacion": "0.25 mg comp.x 30",
       "laboratorio": "Beta",
-      "precio": 22111.55,
+      "precio": 22575.9,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $22,111.55 < 25% mediana $92,754.27 (n=28)"
+        "precio $22,575.90 < 25% mediana $92,754.27 (n=28)"
       ],
       "mediana_droga": 92754.27,
       "n_droga": 28
@@ -2388,7 +2388,7 @@
       "razones": [
         "ppu $1,154.28 << mediana_grupo $16,427.62"
       ],
-      "mediana_droga": 40749.76,
+      "mediana_droga": 40802.99,
       "n_droga": 58
     },
     {
@@ -2396,12 +2396,12 @@
       "marca": "RISPERDAL",
       "presentacion": "sol.oral x 100 ml",
       "laboratorio": "Janssen-Cilag",
-      "precio": 181459.67,
+      "precio": 185270.32,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $1,814.60 << mediana_grupo $28,359.34"
+        "ppu $1,852.70 << mediana_grupo $28,954.88"
       ],
-      "mediana_droga": 40749.76,
+      "mediana_droga": 40802.99,
       "n_droga": 58
     },
     {
@@ -2409,12 +2409,12 @@
       "marca": "RISPERDAL",
       "presentacion": "sol.oral x 30 ml",
       "laboratorio": "Janssen-Cilag",
-      "precio": 60979.75,
+      "precio": 62260.33,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $2,032.66 << mediana_grupo $28,359.34"
+        "ppu $2,075.34 << mediana_grupo $28,954.88"
       ],
-      "mediana_droga": 40749.76,
+      "mediana_droga": 40802.99,
       "n_droga": 58
     },
     {
@@ -2713,7 +2713,7 @@
       "razones": [
         "ppu $152.89 << mediana_grupo $858.69"
       ],
-      "mediana_droga": 16121.81,
+      "mediana_droga": 16218.05,
       "n_droga": 20
     },
     {
@@ -2721,12 +2721,12 @@
       "marca": "SPECTREX",
       "presentacion": "susp.oral x 100 ml",
       "laboratorio": "Lafedar",
-      "precio": 15952.53,
+      "precio": 16145.0,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $159.53 << mediana_grupo $1,562.86"
+        "ppu $161.45 << mediana_grupo $1,363.82"
       ],
-      "mediana_droga": 16121.81,
+      "mediana_droga": 16218.05,
       "n_droga": 20
     },
     {
@@ -2739,7 +2739,7 @@
       "razones": [
         "ppu $105.24 << mediana_grupo $682.29"
       ],
-      "mediana_droga": 16121.81,
+      "mediana_droga": 16218.05,
       "n_droga": 20
     },
     {
