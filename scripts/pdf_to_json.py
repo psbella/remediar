@@ -1187,6 +1187,12 @@ def _parsear_presentacion(pres: str) -> dict:
         r['dosis']  = f"{m.group(1)}{m.group(2)}/{m.group(3)}{m.group(4)}"
         r['unidad'] = 'MG/ML'
         s = s[m.end():]
+        # Capturar forma que sigue a la concentración (ej: "0.5 mg/ml a.x 1")
+        m2 = _RE_PF.match(s.strip())
+        if m2:
+            fkr2 = m2.group(1).lower().rstrip('. ')
+            r['forma'] = _FORMAS_NORM_PRES.get(fkr2, fkr2.upper())
+            s = s[m2.end():]
     else:
         m = _RE_PD.match(s)
         if m: r['dosis'] = m.group(1); s = s[m.end():]
@@ -1228,6 +1234,9 @@ def _parsear_presentacion(pres: str) -> dict:
             if fr: r['forma'] = fr; s = ''
             elif mapa.get(None) is None: s = ''
     s = s.strip(' .,+-')
+    if not r['forma'] and not s and r['cantidad']:
+        if r['unidad'] == 'ML': r['forma'] = 'LÍQUIDO'
+        elif r['unidad'] == 'G': r['forma'] = 'TÓPICO'
     if s: r['resto'] = s
     return r
 
