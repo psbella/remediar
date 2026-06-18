@@ -1244,7 +1244,8 @@ def _parsear_presentacion(pres: str) -> dict:
 def generar_debug_presentaciones(medicamentos: list) -> None:
     import csv as _csv
     PRES_DEBUG_PATH.parent.mkdir(parents=True, exist_ok=True)
-    campos = ['droga', 'marca', 'presentacion_original', 'forma', 'dosis', 'unidad', 'cantidad', 'resto']
+    debug_generado = datetime.now(AR_TZ).strftime("%Y-%m-%d %H:%M:%S")
+    campos = ['debug_generado', 'droga', 'marca', 'presentacion_original', 'forma', 'dosis', 'unidad', 'cantidad', 'resto']
     sin_forma = con_resto = total = 0
     with open(PRES_DEBUG_PATH, 'w', newline='', encoding='utf-8') as f:
         writer = _csv.DictWriter(f, fieldnames=campos)
@@ -1257,6 +1258,7 @@ def generar_debug_presentaciones(medicamentos: list) -> None:
             if r['resto']:       con_resto += 1
             total += 1
             writer.writerow({
+                'debug_generado': debug_generado,
                 'droga': m.get('droga', ''), 'marca': m.get('marca', ''),
                 'presentacion_original': pres,
                 'forma': r['forma'] or '', 'dosis': r['dosis'] or '',
