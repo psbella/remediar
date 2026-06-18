@@ -17,7 +17,10 @@ import urllib.request
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-import pdfplumber
+try:
+    import pdfplumber
+except ModuleNotFoundError:  # pragma: no cover - depende del entorno
+    pdfplumber = None
 
 # ---------------------------------------------------------------------------
 # Configuración
@@ -120,7 +123,24 @@ def _clean(text: str) -> str:
 
 
 def _parse_price(text: str) -> str:
-    cleaned = text.replace("$", "").replace(",", ".").replace(" ", "").strip()
+    """Parsea precios en formato AR (ej: 1.234,56 o 1234.56)."""
+    cleaned = re.sub(r"[^0-9,.-]", "", text).strip()
+    if not cleaned:
+        return ""
+
+    # Si hay coma y punto, asumir AR: punto miles + coma decimal
+    if "," in cleaned and "." in cleaned:
+        cleaned = cleaned.replace(".", "").replace(",", ".")
+    # Solo coma: usarla como decimal
+    elif "," in cleaned:
+        cleaned = cleaned.replace(",", ".")
+    # Solo punto: puede ser decimal o miles. Si parece miles (grupos de 3), eliminar puntos.
+    elif cleaned.count(".") > 1 or re.fullmatch(r"\d{1,3}(?:\.\d{3})+", cleaned):
+        cleaned = cleaned.replace(".", "")
+
+    # Mantener un único signo negativo al inicio si existiera
+    cleaned = re.sub(r"(?!^)-", "", cleaned)
+
     try:
         return f"{float(cleaned):.2f}"
     except ValueError:
@@ -185,7 +205,7 @@ def extract_rows(pdf_path: Path) -> list[dict]:
                 col2 = cell_text[2]   # PRESENTACION
                 col3 = cell_text[3]   # LABORATORIO
                 col4 = cell_text[4]   # PRECIO
-                # col5 = PAMI → ignorado
+                col5 = cell_text[5]   # Precio Afil. PAMI (a veces se corre)
 
                 # Forward-fill de droga
                 if col0:
@@ -193,7 +213,7 @@ def extract_rows(pdf_path: Path) -> list[dict]:
                 droga = last_droga
 
                 # Necesitamos al menos precio para que la fila sea válida
-                precio = _parse_price(col4)
+                precio = _parse_price(col4) or _parse_price(col5)
                 if not precio:
                     continue
 
@@ -235,7 +255,17 @@ def save_csv(rows: list[dict], dest: Path) -> None:
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
+def _ensure_dependencies() -> None:
+    if pdfplumber is None:
+        print("❌ Falta dependencia: pdfplumber")
+        print("   Instalá con: python -m pip install pdfplumber")
+        print("   Si usás virtualenv: source .venv/bin/activate && python -m pip install pdfplumber")
+        sys.exit(2)
+
+
 def main() -> None:
+    _ensure_dependencies()
+
     if len(sys.argv) > 1:
         pdf_path = Path(sys.argv[1])
         print(f"🔧 PDF local: {pdf_path}")
