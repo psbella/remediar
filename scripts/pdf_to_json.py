@@ -795,6 +795,10 @@ _RE_DROGA_SPLIT_DOSIS = re.compile(
     r'^(.+?)\s+(\d[\d,\.]*\s*(?:MG|MCG|G\b|ML|UI|%|U\b).+)$',
     re.IGNORECASE
 )
+_RE_DROGA_SPLIT_DOSIS_PEGADA = re.compile(
+    r'^(.+?[A-ZÁÉÍÓÚÜÑ])(\d[\d,\.]*\s*(?:MG|MCG|G\b|ML|UI|%|U\b).+)$',
+    re.IGNORECASE
+)
 _RE_DROGA_SPLIT_FORMA = re.compile(
     r'^(.+?)\s+((?:comp|caps|cáps|cr\b|gts|jbe|sol\b|susp|ung|gel\b|aer|iny|liof|pomo|'
     r'sob\b|ov\b|grag|env|colirio|emuls|aerosol|pvo|caram|gran|tab\b|film|amp|vial|'
@@ -949,7 +953,9 @@ def reparar_droga_faltante(medicamentos: list, fixes: dict) -> tuple:
                 else:
                     m['marca'] = nombre_comercial.strip().upper()
                 reparados += 1
-            continue
+                continue
+            if not marca:
+                continue
 
         # ── La droga real está en marca, moverla ─────────────────────────
         m['droga'] = marca.lower()
@@ -965,6 +971,14 @@ def reparar_droga_faltante(medicamentos: list, fixes: dict) -> tuple:
 
         # Caso A: dosis como punto de corte
         match = _RE_DROGA_SPLIT_DOSIS.match(pres)
+        if match:
+            m['marca']        = match.group(1).strip()
+            m['presentacion'] = match.group(2).strip().lower()
+            reparados += 1
+            continue
+
+        # Caso A2: dosis pegada a la marca sin espacio
+        match = _RE_DROGA_SPLIT_DOSIS_PEGADA.match(pres)
         if match:
             m['marca']        = match.group(1).strip()
             m['presentacion'] = match.group(2).strip().lower()
@@ -1172,8 +1186,8 @@ _RE_PCO = re.compile(r'\(\d+\+\d+\)')
 _RE_PCA = re.compile(r'x\s*(\d[\d\.,]*)\s*(ds\.?|dosis|ml|g\b|u\.?|unid\.?)?', re.IGNORECASE)
 _RE_PAE = re.compile(r'(?:dosis\s+x\s+(\d+)|(\d+)\s+dosis)', re.IGNORECASE)
 _formas_pres_re = '|'.join(re.escape(k) for k in sorted(_FORMAS_NORM_PRES.keys(), key=len, reverse=True))
-_RE_PF  = re.compile(r'^(' + _formas_pres_re + r')[\s\.]?', re.IGNORECASE)
-_RE_PFF = re.compile(r'\b(' + _formas_pres_re + r')[\s\.]?$', re.IGNORECASE)
+_RE_PF  = re.compile(r'^(' + _formas_pres_re + r')(?=$|[\s\.])[\s\.]?', re.IGNORECASE)
+_RE_PFF = re.compile(r'\b(' + _formas_pres_re + r')\.?$', re.IGNORECASE)
 _UNI_MAP = {'mg':'MG','mcg':'MCG','ug':'MCG','g':'G','ml':'ML',
             'ui':'UI','iu':'UI','u':'U','meq':'MEQ','mmol':'MMOL','kcal':'KCAL','%':'%'}
 
