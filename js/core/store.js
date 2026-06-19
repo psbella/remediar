@@ -46,15 +46,17 @@ export function getTodos()     { return [...state.todos]; }
 // ── Recalcular resultados ─────────────────────────────────────────────
 function recalcularResultados() {
     const { texto, presentacion, laboratorio, orden } = state.filtros;
+    const hayTexto  = texto && texto.trim().length >= 2;
+    const hayFiltro = !!(presentacion || laboratorio);
 
-    // Sin texto: no mostrar nada (mensaje inicial en UI)
-    if (!texto || texto.trim().length < 2) {
+    // Sin texto ni filtro: no mostrar nada (mensaje inicial en UI)
+    if (!hayTexto && !hayFiltro) {
         state.resultados = [];
         return;
     }
 
-    // 1. Búsqueda con índice invertido (ya ordena por relevancia + vigencia)
-    let resultados = buscar(texto);
+    // 1. Búsqueda: si hay texto usar el índice; si no, partir del dataset completo
+    let resultados = hayTexto ? buscar(texto) : [...state.todos];
 
     // 2. Filtros adicionales
     resultados = aplicarFiltros(resultados, presentacion, laboratorio, true);

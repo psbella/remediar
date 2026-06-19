@@ -20,7 +20,10 @@ let timeout = null;
 suscribirse((state) => {
     const { resultados, filtros } = state;
 
-    if (!filtros.texto || filtros.texto.trim().length < 2) {
+    const hayTexto  = filtros.texto && filtros.texto.trim().length >= 2;
+    const hayFiltro = !!(filtros.presentacion || filtros.laboratorio);
+
+    if (!hayTexto && !hayFiltro) {
         mostrarMensajeInicial();
         return;
     }
@@ -43,7 +46,8 @@ function onInput() {
     if (btnLimpiar) btnLimpiar.style.display = q ? 'flex' : 'none';
 
     if (!q || q.length < 2) {
-        mostrarMensajeInicial();
+        const hayFiltro = !!(document.getElementById('filtroPresentacion')?.value || document.getElementById('filtroLaboratorio')?.value);
+        if (!hayFiltro) mostrarMensajeInicial();
         setFiltroTexto('');
         _actualizarURL('');
         return;
