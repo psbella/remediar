@@ -1315,6 +1315,50 @@ _FORMAS_NORM_PRES = {
     'liof.pvo.vial': 'LIOFILIZADO POLVO VIAL',
     'jbe': 'JARABE',
     'd.jbe': 'JARABE',
+    # Formas faltantes detectadas en debug (2024-06)
+    'champu': 'CHAMPÚ',
+    'sachets': 'SOBRES',
+    'implante': 'IMPLANTE',
+    'pasta': 'PASTA',
+    'polvo': 'POLVO',
+    'talquera': 'TALQUERA',
+    'esp': 'ESPUMA',
+    'got': 'GOTAS',
+    'got.': 'GOTAS',
+    'gotero incoloro': 'FRASCO GOTERO',
+    'locion atomizador': 'LOCIÓN ATOMIZADOR',
+    'pomada dérm': 'POMADA DÉRMICA',
+    'pomada': 'POMADA',
+    'colir': 'COLIRIO',
+    'tubos': 'TUBOS',
+    'viales': 'VIALES',
+    'autoinyect.prell': 'AUTOINYECTOR PRELLENADO',
+    'implante oft.intravítrea': 'IMPLANTE OFTÁLMICO INTRAVÍTREO',
+    'gtas': 'GOTAS',
+    'gotas': 'GOTAS',
+    'pote': 'POTE',
+    'colut': 'COLUTORIO',
+    'past': 'PASTILLAS',
+    'pastillas': 'PASTILLAS',
+    'soluc': 'SOLUCIÓN',
+    'parches': 'PARCHES',
+    'caramelos': 'CARAMELOS',
+    'blister caram': 'BLÍSTER CARAMELOS',
+    'caram': 'CARAMELOS',
+    'pasta dérm': 'PASTA DÉRMICA',
+    'pasta derm': 'PASTA DÉRMICA',
+    'unidosis': 'UNIDOSIS',
+    'toallitas desc': 'TOALLITAS DESCARTABLES',
+    'toallitas': 'TOALLITAS',
+    'ap.aplic.desc': 'APLICADOR DESCARTABLE',
+    'sistemas': 'SISTEMAS',
+    'estuche': 'ESTUCHE',
+    'frasco': 'FRASCO',
+    'efer.gran.sob': 'GRÁNULOS EFERVESCENTES SOBRES',
+    'gran.efer.sob': 'GRÁNULOS EFERVESCENTES SOBRES',
+    'anillo vaginal sob': 'ANILLO VAGINAL SOBRES',
+    'anillo vaginal': 'ANILLO VAGINAL',
+    'crema': 'CREMA',
 }
 
 _MODS_PRES = {
@@ -1335,7 +1379,7 @@ _MODS_PRES = {
     's': {None: None}, 't': {None: None}, 'r': {None: None}, 'er': {None: None},
 }
 
-_RE_PP  = re.compile(r'^(?:ad|ped)\.?\s+', re.IGNORECASE)
+_RE_PP  = re.compile(r'^(?:ad|ped|rtd|hm|ap)\.?\s+', re.IGNORECASE)
 _RE_PD  = re.compile(r'^(\d[\d\.,/]*)\s*')
 _RE_PU  = re.compile(r'^(mg|mcg|ug|g\b|ml|ui|iu|meq|mmol|kcal|%)\s*', re.IGNORECASE)
 _RE_PPR = re.compile(r'^(?:hfa|cfc)\s*', re.IGNORECASE)
@@ -1384,6 +1428,15 @@ def _parsear_presentacion(pres: str) -> dict:
             fk = m.group(1).lower().rstrip('. ')
             r['forma'] = _FORMAS_NORM_PRES.get(fk, fk.upper())
             s = s[:m.start()].strip()
+    # Fallback: si hay una palabra descriptiva antes de la forma (ej: "aspirina prev.comp.x 60",
+    # "clásico comp.mast.x 6", "mentol gts.x 120 ml") buscar forma en cualquier posición.
+    if not r['forma']:
+        m = re.search(r'\b(' + _formas_pres_re + r')(?=$|[\s.x])', s, re.IGNORECASE)
+        if m:
+            fk = m.group(1).lower().rstrip('. ')
+            r['forma'] = _FORMAS_NORM_PRES.get(fk, fk.upper())
+            # Descartar la parte previa a la forma (es texto descriptivo, no dato útil)
+            s = s[m.end():]
     s_sk = _RE_PKV.sub('', s)
     m = _RE_PCA.search(s_sk)
     if m:
@@ -1593,6 +1646,22 @@ def main():
 
     print("\nGenerando debug de presentaciones...")
     generar_debug_presentaciones(medicamentos)
+
+    # ── Promover campos parseados de presentación a cada registro ────────
+    print("\nEnriqueciendo registros con campos de presentación...")
+    n_enriquecidos = 0
+    for m in medicamentos:
+        pres = (m.get('presentacion') or '').strip()
+        if not pres:
+            continue
+        r = _parsear_presentacion(pres)
+        if r['forma'] or r['dosis']:
+            if r['forma']:   m['pres_forma']   = r['forma']
+            if r['dosis']:   m['pres_dosis']   = r['dosis']
+            if r['unidad']:  m['pres_unidad']  = r['unidad']
+            if r['cantidad']:m['pres_cantidad']= r['cantidad']
+            n_enriquecidos += 1
+    print(f"   Enriquecidos: {n_enriquecidos}/{len(medicamentos)} ({100*n_enriquecidos/max(len(medicamentos),1):.1f}%)")
 
     ahora_ar  = datetime.now(AR_TZ)
     fecha_str = ahora_ar.strftime("%Y-%m-%d %H:%M:%S")
