@@ -757,6 +757,16 @@ body {
 
 /* ========== RESPONSIVE ========== */
 @media (max-width: 600px) {
+    .fila-presentacion {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+    .fila-presentacion .pres-tabla {
+        justify-content: flex-start;
+    }
+
     body {
         padding: 12px;
     }
@@ -988,4 +998,4 @@ body {
 
 #btnTop svg {
     stroke: white;
-}
+    }
