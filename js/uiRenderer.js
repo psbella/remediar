@@ -145,9 +145,9 @@ function renderizarTarjeta(med) {
                     </svg>
                     Principio activo
                 </span>
-                <span class="celda valor">${escapeHtml(med.droga || 'N/A')}</span>
+                <span class="celda valor" style="text-transform:uppercase">${escapeHtml(med.droga || 'N/A')}</span>
             </div>
-            <div class="fila-tabla">
+            <div class="fila-tabla fila-presentacion">
                 <span class="celda etiqueta">
                     <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
                         <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
@@ -172,9 +172,7 @@ function renderizarTarjeta(med) {
                 <span class="precio-publico">${formatearPrecio(med.precio)}</span>
                 ${med.pami_cobertura ? `
                 <div class="pami-info">
-                    <span class="pami-label">PAMI</span>
-                    <span class="pami-pct">${med.pami_cobertura}% off</span>
-                    <span class="pami-price">${formatearPrecio(Math.round(med.precio * (1 - med.pami_cobertura / 100)))}</span>
+                    <span class="pami-chip">Cobertura PAMI ${med.pami_cobertura}% · ${formatearPrecio(Math.round(med.precio * (1 - med.pami_cobertura / 100)))}</span>
                 </div>` : ''}
             </div>
         </article>`;
