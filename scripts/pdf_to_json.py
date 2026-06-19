@@ -390,6 +390,7 @@ def reparar_marca_desplazada(medicamentos: list) -> tuple:
 _FORMAS_FARM = (
     r'COMP|CAPS|CÁPS|CR|GTS|JBE|SOL|SUSP|UNG|GEL|AER|INY|F\.A|LIOF|POMO'
     r'|SOB|OV|GRAG|ENV|COLIRIO|COLIRO|EMULS|AEROSOL'
+    r'|BOLSA|VIAL|SPRAY|ESPUMA|LACA|POUCH|JALEA|POTE|FCO|TOALLITAS'
 )
 
 _RE_EXTRAER_PRES = re.compile(
@@ -398,16 +399,111 @@ _RE_EXTRAER_PRES = re.compile(
     re.IGNORECASE
 )
 
+
+def _build_re_lab_pegado(medicamentos: list):
+    """
+    Construye un regex que detecta cuando un laboratorio conocido (de los
+    que YA aparecen correctamente en el campo 'laboratorio' de otros
+    registros del propio dataset) quedó pegado SIN espacio a la dosis o
+    forma que le sigue dentro del campo 'marca'.
+
+    Caso real (laboratorios que venden genéricos sin marca de fantasía,
+    usando "DROGA LABORATORIO" como descripción comercial):
+        "BICALUTAMIDA TECHSPHERE50 mg comp.x 30"
+        "CARBOPLATINO MICROSULES150 mg iny.f.a.x 1"
+        "LEVOMEPROMAZINA VANNIER25 mg comp.x 30"
+
+    Sin este separador, _RE_EXTRAER_PRES se traga la dosis dentro de la
+    marca (ej: marca="BICALUTAMIDA TECHSPHERE50 mg" en vez de
+    "BICALUTAMIDA TECHSPHERE"), porque el \\s* antes de la unidad es
+    opcional y el dígito pegado al laboratorio parece el inicio de la
+    dosis igual.
+
+    Se usa solo la ÚLTIMA PALABRA significativa de cada laboratorio
+    conocido (no el nombre completo), porque es esa la que queda pegada
+    a la dosis en el campo 'marca' — el PDF nunca repite ahí el nombre
+    completo del laboratorio. Ej: laboratorio="Delta Farma" pero en la
+    marca aparece "...DELTA FARMA500 mg..." (la dosis pegada a "FARMA",
+    la última palabra, no a "DELTA"). También se ignoran sufijos
+    legales/societarios cortos o puntuados (Arg., S.A.U., (PH), etc.)
+    que tampoco se repiten ahí. Se exige un mínimo de 4 caracteres para
+    evitar matches espurios con palabras cortas.
+
+    El índice se construye desde el propio dataset (mismo patrón que
+    usa rescatar_laboratorios()), no es una lista hardcodeada aparte.
+    """
+    ultimas_palabras = set()
+    for m in medicamentos:
+        lab = (m.get('laboratorio') or '').strip()
+        if lab in ('', 'Desconocido'):
+            continue
+        palabras = [p for p in lab.split() if re.match(r'^[A-Za-zÁÉÍÓÚÑáéíóúñ]+$', p)]
+        if palabras:
+            ultima = palabras[-1]
+            if len(ultima) >= 4:
+                ultimas_palabras.add(ultima)
+
+    if not ultimas_palabras:
+        return None
+    labs_validos = sorted(ultimas_palabras, key=len, reverse=True)
+    patron_labs = '|'.join(re.escape(lab) for lab in labs_validos)
+    # Un laboratorio conocido seguido directamente (sin espacio) de un
+    # DÍGITO. Se exige dígito (no letra) a propósito: un lookahead más
+    # laxo (cualquier letra) generaba falsos positivos graves en marcas
+    # de fantasía que contienen el nombre de un laboratorio como
+    # substring por coincidencia, ej. "RAFFOLUTIL" (contiene "Raffo",
+    # laboratorio real) se partía en "RAFFO LUTIL" sin que hubiera
+    # ningún pegado real que arreglar. Los pocos casos de forma
+    # abreviada en mayúscula pegada sin dígito de por medio (ej.
+    # "VANNIERAd.gts.x 20 ml") quedan fuera de este fix puntual.
+    return re.compile(r'\b(' + patron_labs + r')(?=\d)', re.IGNORECASE)
+
+
+# Separa formas farmacéuticas pegadas sin espacio al texto previo.
+# "NUTRIFLEX OMEGA ESPECIALbolsa x 1250 ml" -> "NUTRIFLEX OMEGA ESPECIAL bolsa x 1250 ml"
+_RE_FORMA_PEGADA = re.compile(
+    r'(?<=[A-ZÁÉÍÓÚÑa-záéíóúñ])'
+    r'(bolsa|vial|spray|espuma|laca|pouch|jalea|pote|fco|toallitas'
+    r'|comp\.|caps\.|cáps\.|cr\.|gts\.|jbe\.|sol\.|susp\.|iny\.|aer\.)'
+    r'(?=[\sx\d])',
+    re.IGNORECASE,
+)
+
+
+def separar_lab_pegado_de_marca(marca: str, re_lab_pegado) -> str:
+    """
+    Inserta un espacio entre un laboratorio conocido y la dosis/forma
+    que le sigue sin separación, y también entre texto y formas
+    farmacéuticas pegadas sin espacio.
+
+    "BICALUTAMIDA TECHSPHERE50 mg comp.x 30"
+        -> "BICALUTAMIDA TECHSPHERE 50 mg comp.x 30"
+    "NUTRIFLEX OMEGA ESPECIALbolsa x 1250 ml"
+        -> "NUTRIFLEX OMEGA ESPECIAL bolsa x 1250 ml"
+    """
+    nueva = _RE_FORMA_PEGADA.sub(lambda m: ' ' + m.group(1), marca)
+    if re_lab_pegado is None:
+        return nueva
+    return re_lab_pegado.sub(lambda m: m.group(1) + ' ', nueva)
+
+
 def extraer_presentacion_de_marca(medicamentos: list) -> tuple:
     """
     Para registros con presentacion vacía, intenta extraer la presentacion
     desde el campo marca cuando ambos campos quedaron fusionados.
+
+    Antes de aplicar el regex de corte, separa los casos donde un
+    laboratorio conocido quedó pegado sin espacio a la dosis/forma
+    siguiente (ver separar_lab_pegado_de_marca), para que el corte caiga
+    en el lugar correcto y no se trague la dosis dentro de la marca.
 
     Solo actúa cuando el nombre resultante tiene al menos 3 caracteres
     y no empieza con dígito (descarta falsos positivos).
 
     Retorna el dataset corregido y la cantidad de registros reparados.
     """
+    re_lab_pegado = _build_re_lab_pegado(medicamentos)
+
     reparados = 0
     for m in medicamentos:
         if (m.get("presentacion") or "").strip():
@@ -416,6 +512,7 @@ def extraer_presentacion_de_marca(medicamentos: list) -> tuple:
             continue
 
         marca = (m.get("marca") or "").strip()
+        marca = separar_lab_pegado_de_marca(marca, re_lab_pegado)
         match = _RE_EXTRAER_PRES.match(marca)
         if match:
             nombre = match.group(1).strip()
@@ -424,6 +521,58 @@ def extraer_presentacion_de_marca(medicamentos: list) -> tuple:
                 m["marca"]        = nombre
                 m["presentacion"] = pres
                 reparados += 1
+
+    return medicamentos, reparados
+
+
+_RE_DOSIS_RESIDUAL = re.compile(
+    r'\s+\d[\d,./]*\s*(?:MG|MCG|G|ML|UI|%|U)\b.*$',
+    re.IGNORECASE
+)
+
+
+def limpiar_dosis_residual_en_marca(medicamentos: list) -> tuple:
+    """
+    Limpia el residuo de dosis que queda pegado a un laboratorio dentro
+    de 'marca' incluso cuando 'presentacion' YA tiene contenido (por eso
+    es una pasada aparte de extraer_presentacion_de_marca, que sólo
+    actúa con presentacion vacía).
+
+    Ocurre cuando otra capa (ej. reparar_presentacion_desplazada) separó
+    correctamente la FORMA hacia 'presentacion' pero dejó la DOSIS
+    pegada al laboratorio en 'marca':
+        marca="CIPROFLOXACINA SANT GALL500 MG"  presentacion="comp.x 10"
+        -> marca="CIPROFLOXACINA SANT GALL"     presentacion sin tocar
+
+    Solo actúa cuando, tras separar el laboratorio pegado (mismo
+    mecanismo que separar_lab_pegado_de_marca), el residuo eliminado es
+    puramente una dosis numérica al final de la marca — nunca toca
+    marcas que terminan en dosis por motivos propios sin laboratorio
+    pegado de por medio, para no arriesgar falsos positivos.
+
+    Retorna el dataset corregido y la cantidad de registros reparados.
+    """
+    re_lab_pegado = _build_re_lab_pegado(medicamentos)
+    if re_lab_pegado is None:
+        return medicamentos, 0
+
+    reparados = 0
+    for m in medicamentos:
+        marca = (m.get("marca") or "").strip()
+        if not marca:
+            continue
+
+        separada = separar_lab_pegado_de_marca(marca, re_lab_pegado)
+        if separada == marca:
+            continue  # no había laboratorio pegado a un dígito
+
+        # Tras separar, si lo que queda después del laboratorio es
+        # exclusivamente una dosis (no una forma farmacéutica completa
+        # ni texto adicional con letras no numéricas), se recorta.
+        sin_dosis = _RE_DOSIS_RESIDUAL.sub('', separada).strip()
+        if sin_dosis != separada and len(sin_dosis) >= 3:
+            m["marca"] = sin_dosis
+            reparados += 1
 
     return medicamentos, reparados
 
@@ -1406,6 +1555,14 @@ def main():
     print("\nReparando presentacion desplazada...")
     medicamentos, n_pres = reparar_presentacion_desplazada(medicamentos)
     print(f"   Reparados: {n_pres}")
+
+    # ── CAPA 5c: limpiar dosis residual pegada a laboratorio en marca ────
+    # Cubre el caso donde la Capa 5b ya separó la forma hacia
+    # 'presentacion' pero dejó la dosis numérica pegada al laboratorio
+    # dentro de 'marca' (ej. "CIPROFLOXACINA SANT GALL500 MG").
+    print("\nLimpiando dosis residual en marca...")
+    medicamentos, n_dosis_residual = limpiar_dosis_residual_en_marca(medicamentos)
+    print(f"   Reparados: {n_dosis_residual}")
 
     # ── CAPA 6: crosswalk PAMI → recuperar droga y corregir laboratorio ───
     print("\nCrosswalk PAMI...")
