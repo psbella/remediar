@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-06-18T21:58:56.955307-03:00",
+  "timestamp": "2026-06-19T05:13:35.731749-03:00",
   "total_registros": 12147,
-  "total_outliers": 247,
+  "total_outliers": 248,
   "outliers": [
     {
       "droga": "abacavir, lamivudina",
@@ -15,6 +15,19 @@
       ],
       "mediana_droga": 393190.99,
       "n_droga": 5
+    },
+    {
+      "droga": "abiraterona,acetato",
+      "marca": "DINOGARED",
+      "presentacion": "250 mg comp.x 120",
+      "laboratorio": "Savant Generic",
+      "precio": 4458857.48,
+      "precio_outlier_tipo": "bajo_iqr",
+      "razones": [
+        "precio $4,458,857.48 < fence_low $4,690,107.89"
+      ],
+      "mediana_droga": 11313593.57,
+      "n_droga": 19
     },
     {
       "droga": "acetilcisteína",
@@ -88,12 +101,12 @@
       "marca": "ALBUMINA SERICA",
       "presentacion": "20% iny.x 10 ml",
       "laboratorio": "Hemoderivados",
-      "precio": 33610.0,
+      "precio": 37817.0,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $33,610.00 < 25% mediana $195,466.65 (n=6)"
+        "precio $37,817.00 < 25% mediana $205,984.73 (n=6)"
       ],
-      "mediana_droga": 195466.65,
+      "mediana_droga": 205984.73,
       "n_droga": 6
     },
     {
@@ -157,9 +170,9 @@
       "precio": 3745.45,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $3,745.45 < 25% mediana $20,963.09 (n=9)"
+        "precio $3,745.45 < 25% mediana $21,382.35 (n=9)"
       ],
-      "mediana_droga": 20963.09,
+      "mediana_droga": 21382.35,
       "n_droga": 9
     },
     {
@@ -290,7 +303,7 @@
       "precio": 26051.35,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $52.10 << mediana_grupo $15,400.15"
+        "ppu $52.10 << mediana_grupo $15,707.63"
       ],
       "mediana_droga": 21926.39,
       "n_droga": 65
@@ -422,9 +435,9 @@
       "precio": 2687.54,
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
-        "precio $2,687.54 < 10% mediana $50,778.57"
+        "precio $2,687.54 < 10% mediana $51,285.72"
       ],
-      "mediana_droga": 50778.57,
+      "mediana_droga": 51285.72,
       "n_droga": 30
     },
     {
@@ -435,9 +448,9 @@
       "precio": 3223.77,
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
-        "precio $3,223.77 < 10% mediana $50,778.57"
+        "precio $3,223.77 < 10% mediana $51,285.72"
       ],
-      "mediana_droga": 50778.57,
+      "mediana_droga": 51285.72,
       "n_droga": 30
     },
     {
@@ -552,9 +565,9 @@
       "precio": 26330.0,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $26,330.00 < 25% mediana $113,669.84 (n=20)"
+        "precio $26,330.00 < 25% mediana $114,806.54 (n=20)"
       ],
-      "mediana_droga": 113669.84,
+      "mediana_droga": 114806.54,
       "n_droga": 20
     },
     {
@@ -601,10 +614,10 @@
       "marca": "CARBOPLATINO VARIFARMA",
       "presentacion": "150 mg iny.liof.f.a.x 1",
       "laboratorio": "Varifarma",
-      "precio": 108411.48,
+      "precio": 110688.12,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $108,411.48 < 25% mediana $446,540.61 (n=20)"
+        "precio $110,688.12 < 25% mediana $446,540.61 (n=20)"
       ],
       "mediana_droga": 446540.61,
       "n_droga": 20
@@ -1085,10 +1098,10 @@
       "marca": "BENADRYL",
       "presentacion": "jbe.x 240 ml",
       "laboratorio": "Elea",
-      "precio": 28371.03,
+      "precio": 28938.45,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $118.21 << mediana_grupo $959.34"
+        "ppu $120.58 << mediana_grupo $959.34"
       ],
       "mediana_droga": 10569.99,
       "n_droga": 16
@@ -1153,10 +1166,10 @@
       "precio": 84458.13,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $84,458.13 < 25% mediana $689,026.58 (n=30)",
-        "ppu $2,111.45 << mediana_grupo $11,287.69"
+        "precio $84,458.13 < 25% mediana $695,799.20 (n=30)",
+        "ppu $2,111.45 << mediana_grupo $11,513.44"
       ],
-      "mediana_droga": 689026.58,
+      "mediana_droga": 695799.2,
       "n_droga": 30
     },
     {
@@ -1167,9 +1180,9 @@
       "precio": 104875.44,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $104,875.44 < 25% mediana $689,026.58 (n=30)"
+        "precio $104,875.44 < 25% mediana $695,799.20 (n=30)"
       ],
-      "mediana_droga": 689026.58,
+      "mediana_droga": 695799.2,
       "n_droga": 30
     },
     {
@@ -1180,9 +1193,9 @@
       "precio": 124823.0,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $124,823.00 < 25% mediana $689,026.58 (n=30)"
+        "precio $124,823.00 < 25% mediana $695,799.20 (n=30)"
       ],
-      "mediana_droga": 689026.58,
+      "mediana_droga": 695799.2,
       "n_droga": 30
     },
     {
@@ -1193,9 +1206,9 @@
       "precio": 98465.47,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $98,465.47 < 25% mediana $689,026.58 (n=30)"
+        "precio $98,465.47 < 25% mediana $695,799.20 (n=30)"
       ],
-      "mediana_droga": 689026.58,
+      "mediana_droga": 695799.2,
       "n_droga": 30
     },
     {
@@ -1242,10 +1255,10 @@
       "marca": "FACTOR VIII ANTIHEMOFILIC",
       "presentacion": "250 ui f.a.x 1+disolv.",
       "laboratorio": "Hemoderivados",
-      "precio": 526355.0,
+      "precio": 542146.0,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $526,355.00 < 25% mediana $3,015,910.28 (n=10)"
+        "precio $542,146.00 < 25% mediana $3,015,910.28 (n=10)"
       ],
       "mediana_droga": 3015910.28,
       "n_droga": 10
@@ -1258,9 +1271,9 @@
       "precio": 3833.2,
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
-        "precio $3,833.20 < 10% mediana $65,114.12"
+        "precio $3,833.20 < 10% mediana $66,416.40"
       ],
-      "mediana_droga": 65114.12,
+      "mediana_droga": 66416.4,
       "n_droga": 9
     },
     {
@@ -1268,12 +1281,12 @@
       "marca": "EPAMIN",
       "presentacion": "liq.x 120 ml",
       "laboratorio": "Elea",
-      "precio": 28950.58,
+      "precio": 29529.59,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $241.25 << mediana_grupo $2,105.82"
+        "ppu $246.08 << mediana_grupo $2,147.94"
       ],
-      "mediana_droga": 65114.12,
+      "mediana_droga": 66416.4,
       "n_droga": 9
     },
     {
@@ -1440,9 +1453,9 @@
       "precio": 98386.99,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $98,386.99 < 25% mediana $475,670.02 (n=6)"
+        "precio $98,386.99 < 25% mediana $480,736.24 (n=6)"
       ],
-      "mediana_droga": 475670.02,
+      "mediana_droga": 480736.24,
       "n_droga": 6
     },
     {
@@ -1625,9 +1638,9 @@
       "precio": 11095.0,
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
-        "precio $11,095.00 < 10% mediana $148,939.30"
+        "precio $11,095.00 < 10% mediana $154,674.97"
       ],
-      "mediana_droga": 148939.3,
+      "mediana_droga": 154674.97,
       "n_droga": 2
     },
     {
@@ -1741,10 +1754,10 @@
       "marca": "LIGNOCAINA GRAY",
       "presentacion": "2% f.a.x 20 ml",
       "laboratorio": "Gray",
-      "precio": 18009.53,
+      "precio": 18369.72,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $9,004.76 << mediana_grupo $337,341.60"
+        "ppu $9,184.86 << mediana_grupo $344,088.43"
       ],
       "mediana_droga": 16558.0,
       "n_droga": 18
@@ -1853,9 +1866,9 @@
       "precio": 7009.0,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $7,009.00 < 25% mediana $34,849.01 (n=36)"
+        "precio $7,009.00 < 25% mediana $34,944.12 (n=36)"
       ],
-      "mediana_droga": 34849.01,
+      "mediana_droga": 34944.12,
       "n_droga": 36
     },
     {
@@ -1868,7 +1881,7 @@
       "razones": [
         "precio $15,840.00 < fence_low $23,158.40"
       ],
-      "mediana_droga": 34849.01,
+      "mediana_droga": 34944.12,
       "n_droga": 36
     },
     {
@@ -1879,9 +1892,9 @@
       "precio": 6335.41,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $6,335.41 < 25% mediana $34,849.01 (n=36)"
+        "precio $6,335.41 < 25% mediana $34,944.12 (n=36)"
       ],
-      "mediana_droga": 34849.01,
+      "mediana_droga": 34944.12,
       "n_droga": 36
     },
     {
@@ -1892,9 +1905,9 @@
       "precio": 21819.0,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $21,819.00 < fence_low $22,307.48"
+        "precio $21,819.00 < fence_low $22,373.35"
       ],
-      "mediana_droga": 23191.71,
+      "mediana_droga": 23408.53,
       "n_droga": 6
     },
     {
@@ -2101,9 +2114,9 @@
       "precio": 5166.79,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $5,166.79 < 25% mediana $36,710.97 (n=9)"
+        "precio $5,166.79 < 25% mediana $37,010.00 (n=9)"
       ],
-      "mediana_droga": 36710.97,
+      "mediana_droga": 37010.0,
       "n_droga": 9
     },
     {
@@ -2189,10 +2202,10 @@
       "marca": "DITROPAN",
       "presentacion": "jbe.x 200 ml",
       "laboratorio": "Elea",
-      "precio": 50899.18,
+      "precio": 51917.16,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $254.50 << mediana_grupo $1,325.05"
+        "ppu $259.59 << mediana_grupo $1,351.55"
       ],
       "mediana_droga": 59009.37,
       "n_droga": 16
@@ -2932,10 +2945,10 @@
       "marca": "LEVAL",
       "presentacion": "20 mg comp.x 4",
       "laboratorio": "Elea",
-      "precio": 53054.34,
+      "precio": 54115.43,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $2,652.72 << mediana_grupo $22,117.83"
+        "ppu $2,705.77 << mediana_grupo $22,355.37"
       ],
       "mediana_droga": 64381.87,
       "n_droga": 72
@@ -2948,9 +2961,9 @@
       "precio": 25930.62,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $25,930.62 < fence_low $28,307.98"
+        "precio $25,930.62 < fence_low $26,721.16"
       ],
-      "mediana_droga": 80673.82,
+      "mediana_droga": 81473.46,
       "n_droga": 20
     },
     {
@@ -3234,10 +3247,10 @@
       "marca": "VARIDRONICO 4 MG",
       "presentacion": "4 mg liof. f.a.x 1+solv.",
       "laboratorio": "Varifarma",
-      "precio": 298588.89,
+      "precio": 304859.26,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $298,588.89 < fence_low $325,426.83"
+        "precio $304,859.26 < fence_low $325,426.83"
       ],
       "mediana_droga": 676592.59,
       "n_droga": 19
