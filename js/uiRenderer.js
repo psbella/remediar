@@ -155,7 +155,11 @@ function renderizarTarjeta(med) {
                     Presentación
                 </span>
                 ${(() => {
-                    const p = parsearPresentacion(med.presentacion);
+                    // Preferir campos pre-parseados del ETL (pres_forma/dosis/unidad/cantidad)
+                    // y caer al parser JS solo si no están disponibles.
+                    const p = (med.pres_forma || med.pres_dosis)
+                        ? { forma: med.pres_forma || null, dosis: med.pres_dosis ? `${med.pres_dosis}${med.pres_unidad ? ' ' + med.pres_unidad : ''}` : null, cantidad: med.pres_cantidad || null }
+                        : parsearPresentacion(med.presentacion);
                     if (!p) return `<span class="celda valor">${escapeHtml(med.presentacion || 'N/A')}</span>`;
                     return `<div class="pres-tabla">
                         ${p.dosis   ? `<span class="pres-chip pres-dosis">${escapeHtml(p.dosis)}</span>` : ''}
