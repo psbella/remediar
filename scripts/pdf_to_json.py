@@ -391,6 +391,7 @@ _FORMAS_FARM = (
     r'COMP|CAPS|CÁPS|CR|GTS|JBE|SOL|SUSP|UNG|GEL|AER|INY|F\.A|LIOF|POMO'
     r'|SOB|OV|GRAG|ENV|COLIRIO|COLIRO|EMULS|AEROSOL'
     r'|BOLSA|VIAL|SPRAY|ESPUMA|LACA|POUCH|JALEA|POTE|FCO|TOALLITAS'
+    r'|PCOMP'   # TRB-Pharma: "TRB PCOMP.rec.x 30" donde P precede COMP
 )
 
 _RE_EXTRAER_PRES = re.compile(
@@ -463,9 +464,17 @@ def _build_re_lab_pegado(medicamentos: list):
 # "NUTRIFLEX OMEGA ESPECIALbolsa x 1250 ml" -> "NUTRIFLEX OMEGA ESPECIAL bolsa x 1250 ml"
 _RE_FORMA_PEGADA = re.compile(
     r'(?<=[A-ZÁÉÍÓÚÑa-záéíóúñ])'
-    r'(bolsa|vial|spray|espuma|laca|pouch|jalea|pote|fco|toallitas'
+    r'(bolsa|vial|spray|espuma|laca|pouch|jalea|pote|fco|toallitas|gel'
     r'|comp\.|caps\.|cáps\.|cr\.|gts\.|jbe\.|sol\.|susp\.|iny\.|aer\.)'
     r'(?=[\sx\d])',
+    re.IGNORECASE,
+)
+
+# Detecta el patrón TOKEN_MAYUSC + mismoToken_minus (ej. GELgel, BOLSAbolsa)
+# para eliminar el duplicado en mayúsculas antes de insertar el espacio.
+_RE_TOKEN_DUPLICADO = re.compile(
+    r'\b(BOLSA|VIAL|SPRAY|ESPUMA|LACA|POUCH|JALEA|POTE|FCO|GEL)'
+    r'(?=\1)',   # lookahead: mismo token inmediatamente después (case-insensitive handled below)
     re.IGNORECASE,
 )
 
@@ -481,7 +490,8 @@ def separar_lab_pegado_de_marca(marca: str, re_lab_pegado) -> str:
     "NUTRIFLEX OMEGA ESPECIALbolsa x 1250 ml"
         -> "NUTRIFLEX OMEGA ESPECIAL bolsa x 1250 ml"
     """
-    nueva = _RE_FORMA_PEGADA.sub(lambda m: ' ' + m.group(1), marca)
+    nueva = _RE_TOKEN_DUPLICADO.sub('', marca)  # eliminar GELgel → gel, BOLSAbolsa → bolsa
+    nueva = _RE_FORMA_PEGADA.sub(lambda m: ' ' + m.group(1), nueva)
     if re_lab_pegado is None:
         return nueva
     return re_lab_pegado.sub(lambda m: m.group(1) + ' ', nueva)
