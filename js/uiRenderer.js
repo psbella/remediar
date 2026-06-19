@@ -1,5 +1,5 @@
 // uiRenderer.js — Renderizado con badges de vigencia y escape seguro.
-import { formatearPrecio, escapeHtml, extraerFiltros, normalizarLaboratorio } from './utils.js';
+import { formatearPrecio, escapeHtml, extraerFiltros, normalizarLaboratorio, parsearPresentacion } from './utils.js';
 
 export function mostrarSkeleton() {
     const el = document.getElementById('resultados');
@@ -154,7 +154,15 @@ function renderizarTarjeta(med) {
                     </svg>
                     Presentación
                 </span>
-                <span class="celda valor">${escapeHtml(med.presentacion || 'N/A')}</span>
+                ${(() => {
+                    const p = parsearPresentacion(med.presentacion);
+                    if (!p) return `<span class="celda valor">${escapeHtml(med.presentacion || 'N/A')}</span>`;
+                    return `<div class="pres-tabla">
+                        ${p.dosis   ? `<span class="pres-chip pres-dosis">${escapeHtml(p.dosis)}</span>` : ''}
+                        ${p.forma   ? `<span class="pres-chip pres-forma">${escapeHtml(p.forma)}</span>` : ''}
+                        ${p.cantidad ? `<span class="pres-chip pres-cant">× ${escapeHtml(p.cantidad)}</span>` : ''}
+                    </div>`;
+                })()}
             </div>
             <div class="fila-precios">
                 <span class="precio-publico">${formatearPrecio(med.precio)}</span>

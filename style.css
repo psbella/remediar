@@ -427,6 +427,39 @@ body {
     text-align: right;
 }
 
+.pres-tabla {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.pres-chip {
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 20px;
+    white-space: nowrap;
+    font-weight: 500;
+}
+
+.pres-dosis {
+    background: #e8f4f4;
+    color: var(--teal-dark);
+    border: 0.5px solid var(--teal-border);
+}
+
+.pres-forma {
+    background: #f5f5f5;
+    color: var(--text-2);
+    border: 0.5px solid #ddd;
+}
+
+.pres-cant {
+    background: #fff8e6;
+    color: #7a5200;
+    border: 0.5px solid #f0d890;
+}
+
 .fila-precios {
     display: flex;
     align-items: center;

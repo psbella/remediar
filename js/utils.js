@@ -99,6 +99,111 @@ export function extraerFiltros(medicamentos) {
     };
 }
 
+// ============================================================
+// PARSEO DE PRESENTACIÓN EN COMPONENTES (dosis / forma / cantidad)
+// ============================================================
+const FORMAS_MAP = {
+    // Comprimidos
+    'comp':              'Comprimidos',
+    'comp.rec':          'Comprimidos recubiertos',
+    'comp. rec':         'Comprimidos recubiertos',
+    'comp.ran':          'Comprimidos ranurados',
+    'comp.rec.ran':      'Comprimidos recubiertos ranurados',
+    'comp.birran':       'Comprimidos biranurados',
+    'comp.mast':         'Comprimidos masticables',
+    'comp.subl':         'Comprimidos sublinguales',
+    'comp.efer':         'Comprimidos efervescentes',
+    'comp.dispers':      'Comprimidos dispersables',
+    'comp.lib.prol':     'Comprimidos liberación prolongada',
+    'comp.rec.ap':       'Comprimidos recubiertos acción prolongada',
+    'comp.disper':       'Comprimidos dispersables',
+    'pcomp':             'Comprimidos',
+    'pcomp.rec':         'Comprimidos recubiertos',
+    'grag':              'Grageas',
+    // Cápsulas
+    'caps':              'Cápsulas',
+    'cáps':              'Cápsulas',
+    'caps.blandas':      'Cápsulas blandas',
+    'cáps.bl':           'Cápsulas blandas',
+    'caps.lib.prol':     'Cápsulas liberación prolongada',
+    // Inyectables
+    'a':                 'Ampolla',
+    'f.a':               'Frasco ampolla',
+    'iny':               'Inyectable',
+    'iny.a':             'Ampolla inyectable',
+    'iny.f.a':           'Frasco ampolla inyectable',
+    'iny.liof.f.a':      'Frasco ampolla liofilizado inyectable',
+    'liof.f.a':          'Frasco ampolla liofilizado',
+    'f.a.liof':          'Frasco ampolla liofilizado',
+    'vial':              'Vial',
+    'iny.vial':          'Vial inyectable',
+    'jga.prell':         'Jeringa prellenada',
+    'lap.prell':         'Lapicera prellenada',
+    // Tópicos
+    'cr':                'Crema',
+    'ung':               'Ungüento',
+    'gel':               'Gel',
+    'loc':               'Loción',
+    'pomo':              'Pomo',
+    'sol.oft':           'Solución oftálmica',
+    'gts.oft':           'Gotas oftálmicas',
+    'gts.óticas':        'Gotas óticas',
+    'colirio':           'Colirio',
+    'pda':               'Parche',
+    // Orales líquidos
+    'jbe':               'Jarabe',
+    'sol':               'Solución',
+    'sol.oral':          'Solución oral',
+    'susp':              'Suspensión',
+    'susp.oral':         'Suspensión oral',
+    'susp.oft':          'Suspensión oftálmica',
+    'gts':               'Gotas',
+    'liq':               'Líquido',
+    // Aerosoles / sprays
+    'aer':               'Aerosol',
+    'spray':             'Spray',
+    'spray nasal':       'Spray nasal',
+    // Otros sólidos
+    'sob':               'Sobres',
+    'sobres':            'Sobres',
+    'ov':                'Óvulos',
+    'env':               'Envase',
+    'pvo':               'Polvo',
+    'emuls':             'Emulsión',
+    'fco':               'Frasco',
+    'fco.a':             'Frasco ampolla',
+    'fco.gotero':        'Frasco gotero',
+    'bolsa':             'Bolsa',
+    'laca':              'Laca',
+    'espuma':            'Espuma',
+    'jalea':             'Jalea',
+    'pote':              'Pote',
+};
+
+export function parsearPresentacion(texto) {
+    if (!texto) return null;
+    const t = texto.trim().toLowerCase();
+
+    // Extraer dosis: "300 mg", "40mg/0.4ml", "0.1%", "15% ", etc.
+    const reDosis = /^([\d.,/]+\s*(?:mg|mcg|g(?!\w)|ml|ui|%|u(?!\w))(?:\/[\d.,]*\s*(?:mg|mcg|g|ml|ui|%))?)\s*/i;
+    const mDosis = t.match(reDosis);
+    const dosis = mDosis ? mDosis[1].trim() : null;
+    const resto = mDosis ? t.slice(mDosis[0].length) : t;
+
+    // Extraer cantidad: "x 30", "x 100 ml", "x 1 x 2ml"
+    const reCant = /\.?x\s*([\d.,]+(?:\s*x\s*[\d.,]+(?:\s*(?:ml|g|l))?)?(?:\s*(?:ml|g|l))?)\s*$/i;
+    const mCant = resto.match(reCant);
+    const cantidad = mCant ? mCant[1].trim() : null;
+    const formaRaw = mCant ? resto.slice(0, resto.length - mCant[0].length).trim() : resto.trim();
+
+    // Normalizar forma: quitar puntos finales, buscar en mapa
+    const formaKey = formaRaw.replace(/\.+$/, '').toLowerCase();
+    const forma = FORMAS_MAP[formaKey] || (formaRaw ? formaRaw.charAt(0).toUpperCase() + formaRaw.slice(1) : null);
+
+    if (!dosis && !forma && !cantidad) return null;
+    return { dosis, forma, cantidad };
+}
+
 // Exponer globalmente para debugging
 if (typeof window !== 'undefined') {
     window.normalizarLaboratorio = normalizarLaboratorio;
