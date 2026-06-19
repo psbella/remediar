@@ -484,6 +484,16 @@ body {
     justify-content: flex-end;
 }
 
+.pami-chip {
+    background: #0e7490;
+    border-radius: 20px;
+    padding: 3px 10px;
+    font-size: 11px;
+    color: #fff;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
 .pami-label {
     font-size: 11px;
     color: var(--text-4);
@@ -998,4 +1008,4 @@ body {
 
 #btnTop svg {
     stroke: white;
-    }
+        }
