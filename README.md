@@ -122,10 +122,12 @@
 | Métrica | Valor |
 |---|---|
 | Registros | ~12.100 |
-| Drogas únicas | ~460 |
+| Drogas únicas | ~1.700 |
 | Landings SEO | 56+ |
 | Tamaño JSON | ~2.5 MB |
 | Tamaño gzip | ~520 KB |
+| Con cobertura PAMI | ~5.900 (49%) |
+| Cobertura parser de presentaciones | 99,5% |
 | Actualizaciones | 2 veces/día (lunes a viernes) |
 
 ---
@@ -360,7 +362,7 @@ El parser aplica correcciones en cascada para resolver los problemas estructural
 | 4 | `reparar_marca_desplazada()` | Cuando `marca` empieza con dígito y `presentacion` está vacía, invierte el desplazamiento |
 | 5 | `extraer_presentacion_de_marca()` | Extrae la presentacion fusionada en el campo marca usando regex de dosis y formas farmacéuticas |
 | 5b | `reparar_presentacion_desplazada()` | Separa presentacion+lab fusionados en el campo lab (3 sub-patrones: 2A, 2B, 2C) |
-| 6 | `crosswalk_pami()` | Cruza contra `data/pami.xlsx` por marca+presentacion: recupera droga vacía, corrige lab, agrega `pami_cobertura` |
+| 6 | `crosswalk_pami()` | Cruza contra `data/pami.xlsx` por marca+presentacion: (1) recupera droga vacía cuando SIAFAR la omite, (2) corrige el laboratorio, (3) normaliza el campo `presentacion` usando el texto del vademécum PAMI cuando hay match, (4) agrega `pami_cobertura` |
 | 7 | `aplicar_droga_fixes()` | Aplica correcciones manuales desde `data/droga_fixes.json` (marca → droga, con soporte para corrección simultánea de marca) |
 
 ---
@@ -422,6 +424,10 @@ jobs:
   "laboratorio": "Pfizer",
   "precio": 9800.50,
   "pami_cobertura": 55,
+  "pres_forma": "COMPRIMIDOS",
+  "pres_dosis": "400",
+  "pres_unidad": "MG",
+  "pres_cantidad": "20",
   "vigencia_score": 100,
   "flags": [],
   "precio_outlier_tipo": null,
@@ -441,6 +447,10 @@ jobs:
 | `laboratorio` | string | Laboratorio fabricante |
 | `precio` | number | PVP en ARS (fuente: SIAFAR) |
 | `pami_cobertura` | number\|null | Porcentaje de cobertura PAMI (ej: 55). Null si no está en el vademécum |
+| `pres_forma` | string\|null | Forma farmacéutica parseada (ej: `"COMPRIMIDOS RECUBIERTOS"`, `"JARABE"`) |
+| `pres_dosis` | string\|null | Dosis numérica (ej: `"400"`, `"500"`) |
+| `pres_unidad` | string\|null | Unidad de la dosis (ej: `"MG"`, `"ML"`, `"UI"`) |
+| `pres_cantidad` | string\|null | Cantidad de unidades (ej: `"20"`, `"100 ml"`) |
 | `vigencia_score` | number | Score de confiabilidad del precio (0-100). < 50 = outlier |
 | `flags` | array | Etiquetas de anomalía (`precio_bajo`, `precio_sospechoso`, `precio_obsoleto`) |
 | `precio_outlier_tipo` | string\|null | Categoría del outlier detectado |
@@ -452,10 +462,11 @@ jobs:
 
 | Archivo | Descripción |
 |---|---|
-| `data/pami.xlsx` | Vademécum PAMI con cobertura por marca+presentacion |
+| `data/pami.xlsx` | Vademécum PAMI. Usado para: (1) cobertura por marca+presentacion, (2) recuperar droga faltante, (3) corregir laboratorio, (4) normalizar el campo `presentacion` |
 | `data/droga_fixes.json` | Correcciones manuales marca→droga para casos no resolubles con regex |
 | `data/blacklist.json` | Registros excluidos manualmente del dataset |
 | `data/outlier_report.json` | Reporte detallado de outliers de la última corrida |
+| `data/presentaciones_debug.csv` | Auditoría del parser: `presentacion_original` vs. campos parseados (`forma`, `dosis`, `unidad`, `cantidad`) |
 
 ### Cómo agregar una corrección a `droga_fixes.json`
 
@@ -518,7 +529,13 @@ CSS optimizado para móviles, tablets y desktop.
 
 ## ✅ Renderizado progresivo
 
-50 resultados iniciales con botón "Ver más" para evitar bloquear el hilo principal.
+300 resultados por render para no bloquear el hilo principal. Sin botón "Ver más" — los outliers (`vigencia_score < 50`) siempre aparecen al final, independientemente del orden seleccionado.
+
+---
+
+## ✅ Filtros sin texto
+
+Seleccionar laboratorio o presentación desde el desplegable muestra resultados aunque el campo de búsqueda esté vacío. El store arranca con el dataset completo y aplica los filtros activos.
 
 ---
 
@@ -860,6 +877,9 @@ const conPami = medicamentos.filter(m => m.pami_cobertura > 0);
 
 // Calcular copago PAMI
 const copago = m => Math.round(m.precio * (1 - m.pami_cobertura / 100));
+
+// Filtrar por forma farmacéutica
+const comprimidos = medicamentos.filter(m => m.pres_forma?.includes('COMPRIMIDOS'));
 ```
 
 ---
@@ -933,8 +953,42 @@ flowchart TD
     C6 --> C7
     C7 --> BL
     BL --> OUT
-    OUT --> JSON
+    OUT --> PRES[Parser de presentaciones]
+    PRES --> JSON
+    JSON --> DEBUG[presentaciones_debug.csv]
 ```
+
+---
+
+## Parser de presentaciones
+
+Después del pipeline de 8 capas, el ETL aplica `_parsear_presentacion()` sobre el campo `presentacion` de cada registro y agrega los resultados como campos estructurados en el JSON de producción.
+
+```mermaid
+flowchart TD
+    P["presentacion: '400 mg comp.rec.x 20'"]
+    P1["Normalizar prefijos: Ad. Ped. Rtd."]
+    P2["Extraer dosis + unidad"]
+    P3["Buscar forma farmacéutica"]
+    P4{"¿Forma encontrada?"}
+    P5["Fallback: scan en cualquier posición"]
+    P6["Extraer cantidad"]
+    P7["pres_forma / pres_dosis / pres_unidad / pres_cantidad"]
+
+    P --> P1 --> P2 --> P3 --> P4
+    P4 -- Sí --> P6
+    P4 -- No --> P5 --> P6
+    P6 --> P7
+```
+
+| Campo generado | Ejemplo |
+|---|---|
+| `pres_forma` | `"COMPRIMIDOS RECUBIERTOS"` |
+| `pres_dosis` | `"400"` |
+| `pres_unidad` | `"MG"` |
+| `pres_cantidad` | `"20"` |
+
+Cobertura actual: **99,5%** (295 casos sin parsear son formas genuinamente ambiguas: sabores de caramelos, kits, dispositivos). El archivo `data/presentaciones_debug.csv` permite auditar los casos no resueltos después de cada corrida.
 
 ---
 
@@ -965,10 +1019,14 @@ flowchart LR
 - Filtros (texto, laboratorio, presentacion, pamiOnly)
 - Ordenamiento
 - Suscripciones
+- Soporte para búsqueda sin texto cuando hay filtros activos
 
 ## uiRenderer.js
 
-- Render tarjetas con badge PAMI (`pami_cobertura`)
+- Render tarjetas con principio activo en mayúsculas
+- Chips de presentación usando `pres_forma` / `pres_dosis` / `pres_unidad` / `pres_cantidad` del JSON (fallback al parser JS)
+- En mobile, chips de presentación debajo del label "Presentación" (`flex-direction: column`)
+- Chip PAMI con formato "Cobertura PAMI 55% · $4.500" (porcentaje + copago estimado)
 - Actualización contextual de dropdowns según resultados
 - Skeleton loaders
 - Mensajes de error/vacío
@@ -1035,9 +1093,11 @@ Del PDF oficial publicado por SIAFAR / COFA dos veces al día.
 
 Un score de 0 a 100 que indica la confiabilidad del precio. Un score < 50 indica que el precio es probable outlier (obsoleto, cero, o estadísticamente anómalo respecto a la mediana de la droga). Las landings SEO y el frontend filtran estos registros automáticamente.
 
-## ¿Qué significa el badge PAMI?
+## ¿Qué significa el chip PAMI?
 
-Muestra el porcentaje de cobertura del medicamento en el vademécum de PAMI y calcula el copago estimado aplicando ese porcentaje sobre el PVP actual de SIAFAR.
+Muestra la cobertura y el copago estimado en un solo chip: **"Cobertura PAMI 55% · $4.500"**.
+
+El copago se calcula como `precio × (1 - cobertura / 100)`.
 
 **Ejemplo:**
 ```
@@ -1082,9 +1142,10 @@ Sí, bajo licencia MIT.
 
 ## Corto plazo
 
+- Filtro por forma farmacéutica en la UI (usando `pres_forma`, ya disponible en el JSON)
+- `medicamentos.pretty.json` con `indent=2` para debug humano
 - Historial de precios
 - IOMA como segunda fuente de crosswalk
-- Normalización de presentaciones en campos estructurados (forma, dosis, unidad, cantidad)
 
 ## Mediano plazo
 
