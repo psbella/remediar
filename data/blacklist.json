@@ -1,14 +1,4 @@
 {
-  "-|amilo,salicilato, asoc.|atomo clasico monodosisenv. x 1 x 10 g|imvi": {
-    "droga": "-",
-    "marca": "AMILO,SALICILATO, ASOC.",
-    "presentacion": "ATOMO CLASICO MONODOSISenv. x 1 x 10 g",
-    "laboratorio": "Imvi",
-    "precio_detectado": 2575.98,
-    "tipo": "bajo_relativo",
-    "motivo": "precio $2,575.98 < 25% mediana $23,672.05 (n=445)",
-    "bloqueado_en": "2026-05-30T18:17"
-  },
   "abacavir|virocavir|300 mg comp.rec.x 60|savant pharma": {
     "droga": "abacavir",
     "marca": "VIROCAVIR",
@@ -519,16 +509,6 @@
     "motivo": "precio $317.00 < minimo $1,800 | precio $317.00 < 10% mediana $19,068.58",
     "bloqueado_en": "2026-05-30T18:32"
   },
-  "-|clindamicina, benzoÃ£Âlo,perÃ£Âxid perclin|cr.x 30 g|fortbenton": {
-    "droga": "-",
-    "marca": "CLINDAMICINA, BENZOÃÂLO,PERÃÂXID PERCLIN",
-    "presentacion": "cr.x 30 g",
-    "laboratorio": "Fortbenton",
-    "precio_detectado": 1376.16,
-    "tipo": "bajo_critico",
-    "motivo": "precio $1,376.16 < minimo $1,800 | precio $1,376.16 < 10% mediana $23,672.05",
-    "bloqueado_en": "2026-05-30T18:32"
-  },
   "clobetasol|perfracort|loc.x 30 ml|fortbenton": {
     "droga": "clobetasol",
     "marca": "PERFRACORT",
@@ -607,16 +587,6 @@
     "precio_detectado": 772.42,
     "tipo": "bajo_critico",
     "motivo": "precio $772.42 < minimo $1,800 | precio $772.42 < 10% mediana $23,766.57",
-    "bloqueado_en": "2026-05-30T18:32"
-  },
-  "-|dexametasona, clorfeniramina vixidone|comp.x 20|siegfried": {
-    "droga": "-",
-    "marca": "DEXAMETASONA, CLORFENIRAMINA VIXIDONE",
-    "presentacion": "comp.x 20",
-    "laboratorio": "Siegfried",
-    "precio_detectado": 2092.51,
-    "tipo": "bajo_critico",
-    "motivo": "precio $2,092.51 < 10% mediana $23,672.05",
     "bloqueado_en": "2026-05-30T18:32"
   },
   "diclofenac, pridinol|diklophar flex|comp.x 10|wunder pharm": {
@@ -899,26 +869,6 @@
     "motivo": "precio $621.61 < minimo $1,800 | precio $621.61 < 10% mediana $7,233.68",
     "bloqueado_en": "2026-05-30T18:32"
   },
-  "-|ibuprofeno|ibuprofeno 600 fecofar 600 mg comp.x 10|fecofar": {
-    "droga": "-",
-    "marca": "IBUPROFENO",
-    "presentacion": "IBUPROFENO 600 FECOFAR 600 mg comp.x 10",
-    "laboratorio": "Fecofar",
-    "precio_detectado": 788.39,
-    "tipo": "bajo_critico",
-    "motivo": "precio $788.39 < minimo $1,800 | precio $788.39 < 10% mediana $23,672.05",
-    "bloqueado_en": "2026-05-30T18:32"
-  },
-  "-|ibuprofeno|ibuprofeno 600 fecofar 600 mg comp.x 20|fecofar": {
-    "droga": "-",
-    "marca": "IBUPROFENO",
-    "presentacion": "IBUPROFENO 600 FECOFAR 600 mg comp.x 20",
-    "laboratorio": "Fecofar",
-    "precio_detectado": 2174.59,
-    "tipo": "bajo_critico",
-    "motivo": "precio $2,174.59 < 10% mediana $23,672.05",
-    "bloqueado_en": "2026-05-30T18:32"
-  },
   "ibuprofeno|sindol pediatrico|env.x 90 ml|microsules arg.": {
     "droga": "ibuprofeno",
     "marca": "SINDOL PEDIATRICO",
@@ -1179,16 +1129,6 @@
     "motivo": "precio $1,654.00 < minimo $1,800 | precio $1,654.00 < 10% mediana $17,274.76",
     "bloqueado_en": "2026-05-30T18:32"
   },
-  "-|lidocaÃ£Âna|lidocaina denver farma 2% viscosa fco.got.x50ml|denver farma": {
-    "droga": "-",
-    "marca": "LIDOCAÃÂNA",
-    "presentacion": "LIDOCAINA DENVER FARMA 2% viscosa fco.got.x50ml",
-    "laboratorio": "Denver Farma",
-    "precio_detectado": 1409.55,
-    "tipo": "bajo_critico",
-    "motivo": "precio $1,409.55 < minimo $1,800 | precio $1,409.55 < 10% mediana $23,672.05",
-    "bloqueado_en": "2026-05-30T18:32"
-  },
   "lidocaÃ£Â­na, asoc.|pomada hadensa|cr.x 15 g|biosintex retai": {
     "droga": "lidocaÃÂ­na, asoc.",
     "marca": "POMADA HADENSA",
@@ -1239,16 +1179,6 @@
     "motivo": "precio $347.50 < minimo $1,800 | precio $347.50 < 10% mediana $30,492.66",
     "bloqueado_en": "2026-05-30T18:32"
   },
-  "-|magnesio,hidrÃ£Âxido|leche de magnesia axar susp.x 240 ml|wunder pharm": {
-    "droga": "-",
-    "marca": "MAGNESIO,HIDRÃÂXIDO",
-    "presentacion": "LECHE DE MAGNESIA AXAR susp.x 240 ml",
-    "laboratorio": "Wunder Pharm",
-    "precio_detectado": 1500,
-    "tipo": "bajo_critico",
-    "motivo": "precio $1,500.00 < minimo $1,800 | precio $1,500.00 < 10% mediana $23,672.05",
-    "bloqueado_en": "2026-05-30T18:32"
-  },
   "melfalano|melfalan varifarma|2 mg comp.x 25|varifarma": {
     "droga": "melfalano",
     "marca": "MELFALAN VARIFARMA",
@@ -1257,16 +1187,6 @@
     "precio_detectado": 76122.72,
     "tipo": "bajo_critico",
     "motivo": "precio $76,122.72 < 10% mediana $1,043,041.86",
-    "bloqueado_en": "2026-05-30T18:32"
-  },
-  "-|meloxicam, pridinol|meloxicam + pridinol teva15/4 mg tabl.x 10|teva argentina": {
-    "droga": "-",
-    "marca": "MELOXICAM, PRIDINOL",
-    "presentacion": "MELOXICAM + PRIDINOL TEVA15/4 mg tabl.x 10",
-    "laboratorio": "Teva argentina",
-    "precio_detectado": 1556.96,
-    "tipo": "bajo_critico",
-    "motivo": "precio $1,556.96 < minimo $1,800 | precio $1,556.96 < 10% mediana $23,672.05",
     "bloqueado_en": "2026-05-30T18:32"
   },
   "metilfenidato|mfd|10 mg comp.x 30|sidus": {
@@ -1549,16 +1469,6 @@
     "motivo": "precio $794.82 < minimo $1,800 | precio $794.82 < 10% mediana $13,540.61",
     "bloqueado_en": "2026-05-30T18:32"
   },
-  "-|paracetamol|paracetamol flash vent-3120 mg comp.mast.x 20|vent 3": {
-    "droga": "-",
-    "marca": "PARACETAMOL",
-    "presentacion": "PARACETAMOL FLASH VENT-3120 mg comp.mast.x 20",
-    "laboratorio": "Vent 3",
-    "precio_detectado": 963.91,
-    "tipo": "bajo_critico",
-    "motivo": "precio $963.91 < minimo $1,800 | precio $963.91 < 10% mediana $23,672.05",
-    "bloqueado_en": "2026-05-30T18:32"
-  },
   "paracetamol|paracetamol te vent-3|sob.x 1 x 5 g|vent 3": {
     "droga": "paracetamol",
     "marca": "PARACETAMOL TE VENT-3",
@@ -1569,26 +1479,6 @@
     "motivo": "precio $410.21 < minimo $1,800 | precio $410.21 < 10% mediana $8,606.98",
     "bloqueado_en": "2026-05-30T18:32"
   },
-  "-|paracetamol, clorfeniramina, a pirigrip|comp.rec.x 16|biosintex retai": {
-    "droga": "-",
-    "marca": "PARACETAMOL, CLORFENIRAMINA, A PIRIGRIP",
-    "presentacion": "comp.rec.x 16",
-    "laboratorio": "Biosintex Retai",
-    "precio_detectado": 419,
-    "tipo": "bajo_critico",
-    "motivo": "precio $419.00 < minimo $1,800 | precio $419.00 < 10% mediana $23,672.05",
-    "bloqueado_en": "2026-05-30T18:32"
-  },
-  "-|paracetamol, clorfeniramina, a pirigrip|comp.rec.x 8|biosintex retai": {
-    "droga": "-",
-    "marca": "PARACETAMOL, CLORFENIRAMINA, A PIRIGRIP",
-    "presentacion": "comp.rec.x 8",
-    "laboratorio": "Biosintex Retai",
-    "precio_detectado": 259,
-    "tipo": "bajo_critico",
-    "motivo": "precio $259.00 < minimo $1,800 | precio $259.00 < 10% mediana $23,672.05",
-    "bloqueado_en": "2026-05-30T18:32"
-  },
   "paracetamol, fenilefrina, asoc|tavinex antigripal|comp.rec.x 16|biosintex retai": {
     "droga": "paracetamol, fenilefrina, asoc",
     "marca": "TAVINEX ANTIGRIPAL",
@@ -1597,16 +1487,6 @@
     "precio_detectado": 450,
     "tipo": "bajo_critico",
     "motivo": "precio $450.00 < minimo $1,800 | precio $450.00 < 10% mediana $8,359.42",
-    "bloqueado_en": "2026-05-30T18:32"
-  },
-  "-|paracetamol, pseudoefedrina, arupediol|comp.x 10|duncan": {
-    "droga": "-",
-    "marca": "PARACETAMOL, PSEUDOEFEDRINA, ARUPEDIOL",
-    "presentacion": "comp.x 10",
-    "laboratorio": "Duncan",
-    "precio_detectado": 2190.13,
-    "tipo": "bajo_critico",
-    "motivo": "precio $2,190.13 < 10% mediana $23,672.05",
     "bloqueado_en": "2026-05-30T18:32"
   },
   "paroxetina|paroxetina lepret|20 mg comp.rec.x 30|pretoria": {
@@ -2059,16 +1939,6 @@
     "motivo": "precio $2,871.18 < 25% mediana $11,761.35 (n=4)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "-|alcohol diclorobencÃ£Âlico, asoc|strepsils plus carameloscaram.x 8 u.|reckitt benckis": {
-    "droga": "-",
-    "marca": "ALCOHOL DICLOROBENCÃÂLICO, ASOC",
-    "presentacion": "STREPSILS PLUS CARAMELOScaram.x 8 u.",
-    "laboratorio": "Reckitt Benckis",
-    "precio_detectado": 5338.41,
-    "tipo": "bajo_relativo",
-    "motivo": "precio $5,338.41 < 25% mediana $23,672.05 (n=445)",
-    "bloqueado_en": "2026-05-30T18:45"
-  },
   "alcohol polivinÃ£Â­lico, asoc.|panoptic lagrimas|sol.oft.x 10 ml|bausch & lomb a": {
     "droga": "alcohol polivinÃÂ­lico, asoc.",
     "marca": "PANOPTIC LAGRIMAS",
@@ -2179,16 +2049,6 @@
     "motivo": "ppu $17.33 << mediana_grupo $321.46",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "-|amoxicilina, ambroxol|grinsil respiratorio nf 500 mg/5 ml susp.x 90 ml|siegfried": {
-    "droga": "-",
-    "marca": "AMOXICILINA, AMBROXOL",
-    "presentacion": "GRINSIL RESPIRATORIO NF 500 mg/5 ml susp.x 90 ml",
-    "laboratorio": "Siegfried",
-    "precio_detectado": 14679.76,
-    "tipo": "inconsistencia_escala",
-    "motivo": "ppu $29.36 << mediana_grupo $290.14",
-    "bloqueado_en": "2026-05-30T18:45"
-  },
   "amoxicilina, clavulÃ£Â¡nico,Ã£Â¡c.|amoxicilina clavulanico r1000 mg comp.x 8|richet|desconocido": {
     "droga": "amoxicilina, clavulÃÂ¡nico,ÃÂ¡c.",
     "marca": "AMOXICILINA CLAVULANICO R1000 MG COMP.X 8",
@@ -2217,16 +2077,6 @@
     "precio_detectado": 4141.94,
     "tipo": "bajo_relativo",
     "motivo": "precio $4,141.94 < 25% mediana $21,200.00 (n=61)",
-    "bloqueado_en": "2026-05-30T18:45"
-  },
-  "-|amoxicilina, clavulÃ£Ânico,Ã£Âc.|amoxicilina clavulanico 7400/57.5 mg susp.x 70 ml|richet": {
-    "droga": "-",
-    "marca": "AMOXICILINA, CLAVULÃÂNICO,ÃÂC.",
-    "presentacion": "AMOXICILINA CLAVULANICO 7400/57.5 mg susp.x 70 ml",
-    "laboratorio": "Richet",
-    "precio_detectado": 16064.02,
-    "tipo": "inconsistencia_escala",
-    "motivo": "ppu $2.17 << mediana_grupo $109.62",
     "bloqueado_en": "2026-05-30T18:45"
   },
   "amoxicilina, clavulÃ£Â¡nico,Ã£Â¡c.|amoxicilina clavulanico r500 mg comp.x 8|richet|desconocido": {
@@ -2377,16 +2227,6 @@
     "precio_detectado": 1555.28,
     "tipo": "bajo_absoluto",
     "motivo": "precio $1,555.28 < minimo $1,800",
-    "bloqueado_en": "2026-05-30T18:45"
-  },
-  "-|betametasona, gentamic., miconbetacort plus cassara cr.dÃ£Ârmica x 25 g|cassarÃ£Â¡|desconocido": {
-    "droga": "-",
-    "marca": "BETAMETASONA, GENTAMIC., MICONBETACORT PLUS CASSARA CR.DÃÂRMICA X 25 G",
-    "presentacion": "CassarÃÂ¡",
-    "laboratorio": "Desconocido",
-    "precio_detectado": 4526.85,
-    "tipo": "bajo_relativo",
-    "motivo": "precio $4,526.85 < 25% mediana $23,672.05 (n=445)",
     "bloqueado_en": "2026-05-30T18:45"
   },
   "bortezomib|biliodim|3.5 mg liof.f.a.x 1|savant generic": {
@@ -2587,16 +2427,6 @@
     "precio_detectado": 5852.23,
     "tipo": "bajo_iqr",
     "motivo": "precio $5,852.23 < fence_low $6,370.00",
-    "bloqueado_en": "2026-05-30T18:45"
-  },
-  "-|ciprofloxacina, hidrocortisona|ciprofloxacina lazar hcgts.Ã£Â³ticas x 5 ml|lazar": {
-    "droga": "-",
-    "marca": "CIPROFLOXACINA, HIDROCORTISONA",
-    "presentacion": "CIPROFLOXACINA LAZAR HCgts.ÃÂ³ticas x 5 ml",
-    "laboratorio": "Lazar",
-    "precio_detectado": 5519.07,
-    "tipo": "bajo_relativo",
-    "motivo": "precio $5,519.07 < 25% mediana $23,672.05 (n=445)",
     "bloqueado_en": "2026-05-30T18:45"
   },
   "cistina, asoc.|lohp 500|500 mg comp.x 30|hlb pharma": {
@@ -3529,36 +3359,6 @@
     "motivo": "precio $6,819,571.90 < fence_low $7,615,122.98",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "-|ibuprofeno|ibuprofeno sant gall frib2% susp.x 90 ml|sant gall": {
-    "droga": "-",
-    "marca": "IBUPROFENO",
-    "presentacion": "IBUPROFENO SANT GALL FRIB2% susp.x 90 ml",
-    "laboratorio": "Sant Gall",
-    "precio_detectado": 4498.64,
-    "tipo": "bajo_relativo",
-    "motivo": "precio $4,498.64 < 25% mediana $23,672.05 (n=445)",
-    "bloqueado_en": "2026-05-30T18:45"
-  },
-  "-|ibuprofeno|ibu evanol forte rapida a400 mg cÃ£Â¡ps.blandas x 10|glaxosmithkline": {
-    "droga": "-",
-    "marca": "IBUPROFENO",
-    "presentacion": "IBU EVANOL FORTE RAPIDA A400 mg cÃÂ¡ps.blandas x 10",
-    "laboratorio": "GlaxoSmithKline",
-    "precio_detectado": 3457,
-    "tipo": "bajo_relativo",
-    "motivo": "precio $3,457.00 < 25% mediana $23,672.05 (n=445)",
-    "bloqueado_en": "2026-05-30T18:45"
-  },
-  "-|ibuprofeno|ibupirac capsula blanda 400 mg cÃ£Â¡ps.blandas x 12|pfizer": {
-    "droga": "-",
-    "marca": "IBUPROFENO",
-    "presentacion": "IBUPIRAC CAPSULA BLANDA 400 mg cÃÂ¡ps.blandas x 12",
-    "laboratorio": "Pfizer",
-    "precio_detectado": 4032.09,
-    "tipo": "bajo_relativo",
-    "motivo": "precio $4,032.09 < 25% mediana $23,672.05 (n=445)",
-    "bloqueado_en": "2026-05-30T18:45"
-  },
   "ibuprofeno|ibumultin v.l.|400 mg comp. x 10|lazar": {
     "droga": "ibuprofeno",
     "marca": "IBUMULTIN V.L.",
@@ -3609,36 +3409,6 @@
     "motivo": "precio $857.05 < minimo $1,800 | precio $857.05 < 25% mediana $7,233.68 (n=117)",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "-|ibuprofeno|ibu evanol rapida accioncÃ£Â¡ps.blandas x 10|glaxosmithkline": {
-    "droga": "-",
-    "marca": "IBUPROFENO",
-    "presentacion": "IBU EVANOL RAPIDA ACCIONcÃÂ¡ps.blandas x 10",
-    "laboratorio": "GlaxoSmithKline",
-    "precio_detectado": 2682,
-    "tipo": "bajo_relativo",
-    "motivo": "precio $2,682.00 < 25% mediana $23,672.05 (n=445)",
-    "bloqueado_en": "2026-05-30T18:45"
-  },
-  "-|ibuprofeno|ibu evanol rapida accioncÃ£Â¡ps.blandas x 20|glaxosmithkline": {
-    "droga": "-",
-    "marca": "IBUPROFENO",
-    "presentacion": "IBU EVANOL RAPIDA ACCIONcÃÂ¡ps.blandas x 20",
-    "laboratorio": "GlaxoSmithKline",
-    "precio_detectado": 5095,
-    "tipo": "bajo_relativo",
-    "motivo": "precio $5,095.00 < 25% mediana $23,672.05 (n=445)",
-    "bloqueado_en": "2026-05-30T18:45"
-  },
-  "-|ibuprofeno|fabogesic 400 rapida accicaps.gelat.blanda x 10|savant consumer": {
-    "droga": "-",
-    "marca": "IBUPROFENO",
-    "presentacion": "FABOGESIC 400 RAPIDA ACCIcaps.gelat.blanda x 10",
-    "laboratorio": "Savant Consumer",
-    "precio_detectado": 3799,
-    "tipo": "bajo_relativo",
-    "motivo": "precio $3,799.00 < 25% mediana $23,672.05 (n=445)",
-    "bloqueado_en": "2026-05-30T18:45"
-  },
   "ibuprofeno|ibupirac 800 mg|comp.x 50|pfizer": {
     "droga": "ibuprofeno",
     "marca": "IBUPIRAC 800 MG",
@@ -3657,26 +3427,6 @@
     "precio_detectado": 1348.73,
     "tipo": "bajo_absoluto",
     "motivo": "precio $1,348.73 < minimo $1,800 | precio $1,348.73 < 25% mediana $7,233.68 (n=117)",
-    "bloqueado_en": "2026-05-30T18:45"
-  },
-  "-|ibuprofeno, cafeÃ£Âna|ibu evanol max rapida acccÃ£Â¡ps.blandas x 10|glaxosmithkline": {
-    "droga": "-",
-    "marca": "IBUPROFENO, CAFEÃÂNA",
-    "presentacion": "IBU EVANOL MAX RAPIDA ACCcÃÂ¡ps.blandas x 10",
-    "laboratorio": "GlaxoSmithKline",
-    "precio_detectado": 4220,
-    "tipo": "bajo_relativo",
-    "motivo": "precio $4,220.00 < 25% mediana $23,672.05 (n=445)",
-    "bloqueado_en": "2026-05-30T18:45"
-  },
-  "-|ibuprofeno, cafeÃ£Âna|ibu evanol plus rapida accÃ£Â¡ps.blandas x 20|glaxosmithkline": {
-    "droga": "-",
-    "marca": "IBUPROFENO, CAFEÃÂNA",
-    "presentacion": "IBU EVANOL PLUS RAPIDA ACcÃÂ¡ps.blandas x 20",
-    "laboratorio": "GlaxoSmithKline",
-    "precio_detectado": 5547,
-    "tipo": "bajo_relativo",
-    "motivo": "precio $5,547.00 < 25% mediana $23,672.05 (n=445)",
     "bloqueado_en": "2026-05-30T18:45"
   },
   "imiquimod|imimore 3.75|cr.sob.x 28 x 250 mg|panalab": {
@@ -4319,26 +4069,6 @@
     "motivo": "ppu $7.85 << mediana_grupo $152.31",
     "bloqueado_en": "2026-05-30T18:45"
   },
-  "-|paracetamol|paracetamol schafer 1 gcomp.ran.x 30|schafer": {
-    "droga": "-",
-    "marca": "PARACETAMOL",
-    "presentacion": "PARACETAMOL SCHAFER 1 Gcomp.ran.x 30",
-    "laboratorio": "Schafer",
-    "precio_detectado": 4790.09,
-    "tipo": "bajo_relativo",
-    "motivo": "precio $4,790.09 < 25% mediana $23,672.05 (n=445)",
-    "bloqueado_en": "2026-05-30T18:45"
-  },
-  "-|paracetamol|paracetamol schafer 500comp.x 30|schafer": {
-    "droga": "-",
-    "marca": "PARACETAMOL",
-    "presentacion": "PARACETAMOL SCHAFER 500comp.x 30",
-    "laboratorio": "Schafer",
-    "precio_detectado": 4753.36,
-    "tipo": "bajo_relativo",
-    "motivo": "precio $4,753.36 < 25% mediana $23,672.05 (n=445) | ppu $158.45 << mediana_grupo $2,000.00",
-    "bloqueado_en": "2026-05-30T18:45"
-  },
   "paracetamol|paracetamol lazar|gts.x 20 ml|lazar": {
     "droga": "paracetamol",
     "marca": "PARACETAMOL LAZAR",
@@ -4347,46 +4077,6 @@
     "precio_detectado": 6351.68,
     "tipo": "inconsistencia_escala",
     "motivo": "ppu $317.58 << mediana_grupo $4,880.43",
-    "bloqueado_en": "2026-05-30T18:45"
-  },
-  "-|paracetamol|mejoral para niÃ¢Â¥os gotasgts.x 20 ml|laboratorio gra": {
-    "droga": "-",
-    "marca": "PARACETAMOL",
-    "presentacion": "MEJORAL PARA NIÃÂ¥OS GOTASgts.x 20 ml",
-    "laboratorio": "Laboratorio Gra",
-    "precio_detectado": 7333.22,
-    "tipo": "inconsistencia_escala",
-    "motivo": "ppu $366.66 << mediana_grupo $2,000.00",
-    "bloqueado_en": "2026-05-30T18:45"
-  },
-  "-|paracetamol, clorfeniramina, a tabcin compuesto|caps.x 12|bayer consumer": {
-    "droga": "-",
-    "marca": "PARACETAMOL, CLORFENIRAMINA, A TABCIN COMPUESTO",
-    "presentacion": "caps.x 12",
-    "laboratorio": "Bayer Consumer",
-    "precio_detectado": 5370,
-    "tipo": "bajo_relativo",
-    "motivo": "precio $5,370.00 < 25% mediana $23,672.05 (n=445)",
-    "bloqueado_en": "2026-05-30T18:45"
-  },
-  "-|paracetamol, fenilefrina, asoc|tavinex plus antigripal comp.rec.x 8|biosintex retai": {
-    "droga": "-",
-    "marca": "PARACETAMOL, FENILEFRINA, ASOC",
-    "presentacion": "TAVINEX PLUS ANTIGRIPAL comp.rec.x 8",
-    "laboratorio": "Biosintex Retai",
-    "precio_detectado": 5438,
-    "tipo": "bajo_relativo",
-    "motivo": "precio $5,438.00 < 25% mediana $23,672.05 (n=445)",
-    "bloqueado_en": "2026-05-30T18:45"
-  },
-  "-|paracetamol, pseudoefedrina, atavinex antigripal nf|comp.rec.x 8|biosintex retai": {
-    "droga": "-",
-    "marca": "PARACETAMOL, PSEUDOEFEDRINA, ATAVINEX ANTIGRIPAL NF",
-    "presentacion": "comp.rec.x 8",
-    "laboratorio": "Biosintex Retai",
-    "precio_detectado": 5557,
-    "tipo": "bajo_relativo",
-    "motivo": "precio $5,557.00 < 25% mediana $23,672.05 (n=445)",
     "bloqueado_en": "2026-05-30T18:45"
   },
   "paricalcitol|palikalex|5 mcg f.a.x 1 ml|rivero": {
@@ -4977,16 +4667,6 @@
     "precio_detectado": 3714.2,
     "tipo": "bajo_relativo",
     "motivo": "precio $3,714.20 < 25% mediana $32,320.10 (n=21)",
-    "bloqueado_en": "2026-05-30T18:45"
-  },
-  "-|soluc.parent/fisiol/glucos/otr|cloruro de sodio 0.9% bpa.plÃ£Â¡st.x 5 ml|b.braun": {
-    "droga": "-",
-    "marca": "SOLUC.PARENT/FISIOL/GLUCOS/OTR",
-    "presentacion": "CLORURO DE SODIO 0.9% BPa.plÃÂ¡st.x 5 ml",
-    "laboratorio": "B.Braun",
-    "precio_detectado": 2807.3,
-    "tipo": "bajo_relativo",
-    "motivo": "precio $2,807.30 < 25% mediana $23,672.05 (n=445)",
     "bloqueado_en": "2026-05-30T18:45"
   },
   "soluc.parent/fisiol/glucos/otr|aditivos parenterales|g15hipert.cl.sod.20%20ml|rivero": {
@@ -5589,16 +5269,6 @@
     "motivo": "precio $266.00 < minimo $1,800 | precio $266.00 < 10% mediana $4,430.03",
     "bloqueado_en": "2026-06-13T03:08"
   },
-  "-|amilo,salicilato, asoc.|atomo clasico monodosisenv. x 1 x 10 g|laboratorio gramon": {
-    "droga": "-",
-    "marca": "AMILO,SALICILATO, ASOC.",
-    "presentacion": "ATOMO CLASICO MONODOSISenv. x 1 x 10 g",
-    "laboratorio": "Laboratorio Gramon",
-    "precio_detectado": 2575.98,
-    "tipo": "bajo_critico",
-    "motivo": "precio $2,575.98 < 10% mediana $27,765.25",
-    "bloqueado_en": "2026-06-13T03:08"
-  },
   "amitriptilina|amitriptilina luar|25 mg comp.rec.x 50|quã­mica luar": {
     "droga": "amitriptilina",
     "marca": "AMITRIPTILINA LUAR",
@@ -5749,16 +5419,6 @@
     "motivo": "precio $1,640.10 < minimo $1,800 | precio $1,640.10 < 10% mediana $22,981.86",
     "bloqueado_en": "2026-06-13T03:08"
   },
-  "-|ibuprofeno|ibu evanol rapida accioncã¡ps.blandas x 10|glaxosmithkline": {
-    "droga": "-",
-    "marca": "IBUPROFENO",
-    "presentacion": "IBU EVANOL RAPIDA ACCIONcÃ¡ps.blandas x 10",
-    "laboratorio": "GlaxoSmithKline",
-    "precio_detectado": 2682,
-    "tipo": "bajo_critico",
-    "motivo": "precio $2,682.00 < 10% mediana $27,765.25",
-    "bloqueado_en": "2026-06-13T03:08"
-  },
   "inosina,monofosfato disã³dico|inokat|sol.oft.esteril x 10 ml|lab internacion": {
     "droga": "inosina,monofosfato disÃ³dico",
     "marca": "INOKAT",
@@ -5809,16 +5469,6 @@
     "motivo": "precio $1,695.40 < minimo $1,800 | precio $1,695.40 < 10% mediana $17,454.76",
     "bloqueado_en": "2026-06-13T03:08"
   },
-  "-|lidocaãna|lidocaina denver farma 2% viscosa fco.got.x50ml|denver farma": {
-    "droga": "-",
-    "marca": "LIDOCAÃNA",
-    "presentacion": "LIDOCAINA DENVER FARMA 2% viscosa fco.got.x50ml",
-    "laboratorio": "Denver Farma",
-    "precio_detectado": 1409.55,
-    "tipo": "bajo_critico",
-    "motivo": "precio $1,409.55 < minimo $1,800 | precio $1,409.55 < 10% mediana $27,765.25",
-    "bloqueado_en": "2026-06-13T03:08"
-  },
   "lidocaã­na, asoc.|pomada hadensa|cr.x 15 g|biosintex retai": {
     "droga": "lidocaÃ­na, asoc.",
     "marca": "POMADA HADENSA",
@@ -5837,16 +5487,6 @@
     "precio_detectado": 347.5,
     "tipo": "bajo_critico",
     "motivo": "precio $347.50 < minimo $1,800 | precio $347.50 < 10% mediana $30,492.66",
-    "bloqueado_en": "2026-06-13T03:08"
-  },
-  "-|magnesio,hidrãxido|leche de magnesia axar susp.x 240 ml|wunder pharm": {
-    "droga": "-",
-    "marca": "MAGNESIO,HIDRÃXIDO",
-    "presentacion": "LECHE DE MAGNESIA AXAR susp.x 240 ml",
-    "laboratorio": "Wunder Pharm",
-    "precio_detectado": 1500,
-    "tipo": "bajo_critico",
-    "motivo": "precio $1,500.00 < minimo $1,800 | precio $1,500.00 < 10% mediana $27,765.25",
     "bloqueado_en": "2026-06-13T03:08"
   },
   "oseltamivir|oseltamivir elea|75 mg cã¡ps.x 10|elea": {
