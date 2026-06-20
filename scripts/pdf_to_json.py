@@ -1762,6 +1762,29 @@ def main():
         r'(\d+[\.,]?\d*)\s*(mg|mcg|µg|g\b|ui|iu|%|meq)',             # "1000 MG" / "1.5%"
         re.IGNORECASE
     )
+    # Número al final del nombre sin unidad: ATORMAX 10, LISOVYR 400, BIOCLAVID 875/125
+    # Excluye B12, B6, etc. y requiere ≥2 dígitos si no hay unidad
+    _RE_DOSIS_NOMBRE = re.compile(
+        r'(?<![A-Za-z\d])(\d+[\.,]?\d*)\s*/\s*(\d+[\.,]?\d*)\s*(?:U\.I\.?|UI|MG|MCG|%)?\s*$|'
+        r'(?<![A-Za-z])(\d+[\.,]?\d*)\s*(U\.I\.?|UI|MG|MCG|%)\s*$|'
+        r'(?<![A-Za-z\d/])(\d{2,})\s*$',
+        re.IGNORECASE
+    )
+    # Categorías donde la dosis no aplica estructuralmente
+    _RE_DROGA_SIN_DOSIS = re.compile(
+        r'\bvacun|antigen|antigripal|vitamina[^s]|multivitamin|'
+        r'anticonceptiv|levonorgestrel|etinil|dienogest|drospirenon|noretisterona|'
+        r'acido folic\b|folico\b|herbal|fitoterapia|preparacion herbaria|'
+        r'hepatalgina|suero oral|solucion de rehidratacion|'
+        r'agua oxigenada|alcohol etilico\b|cloruro de sodio.*0\.9',
+        re.IGNORECASE
+    )
+    _FORMAS_SIN_DOSIS = {
+        'CREMA', 'GEL', 'POMADA', 'SHAMPOO', 'LOCIÓN', 'COLIRIO',
+        'SOLUCIÓN OFTÁLMICA', 'JABÓN LÍQUIDO', 'PASTA DÉRMICA',
+        'ESPUMA', 'TOALLITAS', 'TALQUERA', 'LACA', 'EMULSIÓN',
+        'LOCIÓN ATOMIZADOR', 'POTE',
+    }
     n_enriquecidos = 0
     n_dosis_marca  = 0
     for m in medicamentos:
@@ -1788,6 +1811,28 @@ def main():
                     m['pres_unidad'] = hm.group(5).upper()
                 m['pres_dosis_fuente'] = 'marca'
                 n_dosis_marca += 1
+        # Fallback: dosis al final del nombre de marca (ATORMAX 10, BIOCLAVID 875/125)
+        if not m.get('pres_dosis'):
+            marca = (m.get('marca') or '').strip()
+            hn = _RE_DOSIS_NOMBRE.search(marca)
+            if hn:
+                if hn.group(1) and hn.group(2):   # barra: 875/125
+                    m['pres_dosis']  = f"{hn.group(1)}/{hn.group(2)}"
+                    m['pres_unidad'] = 'MG'
+                elif hn.group(3):                  # con unidad: 1000 U.I.
+                    m['pres_dosis']  = hn.group(3).replace(',', '.')
+                    m['pres_unidad'] = re.sub(r'\.', '', hn.group(4)).upper()
+                else:                              # solo número: ATORMAX 10
+                    m['pres_dosis']  = hn.group(5)
+                    m['pres_unidad'] = 'MG'
+                m['pres_dosis_fuente'] = 'nombre'
+                n_dosis_marca += 1
+        # Marcar categorías donde la dosis no aplica estructuralmente
+        if not m.get('pres_dosis'):
+            droga = (m.get('droga') or '').strip()
+            forma = m.get('pres_forma') or ''
+            if _RE_DROGA_SIN_DOSIS.search(droga) or forma in _FORMAS_SIN_DOSIS:
+                m['pres_dosis_fuente'] = 'no_aplica'
     print(f"   Enriquecidos: {n_enriquecidos}/{len(medicamentos)} ({100*n_enriquecidos/max(len(medicamentos),1):.1f}%)")
     print(f"   Dosis rescatadas de marca: {n_dosis_marca}")
 
