@@ -1315,6 +1315,63 @@ _FORMAS_NORM_PRES = {
     'liof.pvo.vial': 'LIOFILIZADO POLVO VIAL',
     'jbe': 'JARABE',
     'd.jbe': 'JARABE',
+    # Formas añadidas en fix /ml+forma y nuevas (2026-06)
+    'tabl':              'TABLETAS',
+    'tabs':              'TABLETAS',
+    'lapic.prell':       'LAPICERA PRELLENADA',
+    'lapic':             'LAPICERA',
+    'lapiceras prell':   'LAPICERAS PRELLENADAS',
+    'lapiceras':         'LAPICERAS',
+    'lapicera desc':     'LAPICERA DESCARTABLE',
+    'lapicera':          'LAPICERA',
+    'lap.prell':         'LAPICERA PRELLENADA',
+    'autoiny':           'AUTOINYECTOR',
+    'autoinyect':        'AUTOINYECTOR',
+    'autoinyec':         'AUTOINYECTOR',
+    'autoinyect.prell':  'AUTOINYECTOR PRELLENADO',
+    'cart':              'CARTUCHO',
+    'cart.prell':        'CARTUCHO PRELLENADO',
+    'cartucho':          'CARTUCHO',
+    'depot':             'DEPÓSITO',
+    'vial':              'VIAL',
+    'viales':            'VIALES',
+    'fco':               'FRASCO',
+    'apos':              'APÓSITO',
+    'jab.liq':           'JABÓN LÍQUIDO',
+    'jab.sol':           'JABÓN SÓLIDO',
+    'inhalador hfa':     'INHALADOR HFA',
+    'inh':               'INHALADOR',
+    'spr.nasal':         'SPRAY NASAL',
+    'spr':               'SPRAY',
+    'sh':                'SHAMPOO',
+    'shampoo':           'SHAMPOO',
+    'pda':               'POMADA',
+    'emul':              'EMULSIÓN',
+    'emulsión':          'EMULSIÓN',
+    'monods':            'MONODOSIS',
+    'monodosis':         'MONODOSIS',
+    'pomos':             'POMOS',
+    'blis':              'BLÍSTER',
+    'blister':           'BLÍSTER',
+    'dispensador':       'DISPENSADOR',
+    'dispenser':         'DISPENSADOR',
+    'colir':             'COLIRIO',
+    'granul.lp sob':     'GRÁNULOS LP SOBRES',
+    'granul':            'GRÁNULOS',
+    'divids':            'DIVISIBLES',
+    'jgas.prell':        'JERINGAS PRELLENADAS',
+    'jga.prell':         'JERINGA PRELLENADA',
+    'jer.prell':         'JERINGA PRELLENADA',
+    'jga.pr':            'JERINGA PRELLENADA',
+    'j.prell':           'JERINGA PRELLENADA',
+    'iny.prell':         'INYECTABLE PRELLENADO',
+    'iny.a.ol':          'INYECTABLE OLEOSO',
+    'sol.iny':           'SOLUCIÓN INYECTABLE',
+    'parch.matriz':      'PARCHE MATRICIAL',
+    'parch.transd':      'PARCHE TRANSDÉRMICO',
+    'parches transdérmicos': 'PARCHES TRANSDÉRMICOS',
+    'cap.lib.prol':      'CÁPSULAS LIBERACIÓN PROLONGADA',
+    'ap.aplic.desc':     'APLICADOR DESCARTABLE',
     # Formas faltantes detectadas en debug (2024-06)
     'champu': 'CHAMPÚ',
     'sachets': 'SOBRES',
@@ -1380,10 +1437,19 @@ _MODS_PRES = {
 }
 
 _RE_PP  = re.compile(r'^(?:ad|ped|rtd|hm|ap)\.?\s+', re.IGNORECASE)
+# Prefijos que modifican la forma (se conservan como sufijo de forma)
+_RE_PM  = re.compile(r'^(sr|lp|xr|er|mr|flash|niños|naranja|menta|frutal|clásico|clasico|vainilla|frutilla|tutti\s*frutti|limón|limon|forte|plus|duo|max)\s+', re.IGNORECASE)
+_MODS_FORMA = {
+    'sr': 'SR', 'lp': 'LP', 'xr': 'XR', 'er': 'ER', 'mr': 'MR',
+    'flash': 'FLASH', 'niños': 'NIÑOS', 'forte': 'FORTE', 'plus': 'PLUS',
+    'duo': 'DUO', 'max': 'MAX',
+}
 _RE_PD  = re.compile(r'^(\d[\d\.,/]*)\s*')
 _RE_PU  = re.compile(r'^(mg|mcg|ug|g\b|ml|ui|iu|meq|mmol|kcal|%)\s*', re.IGNORECASE)
-_RE_PPR = re.compile(r'^(?:hfa|cfc)\s*', re.IGNORECASE)
+_RE_PPR = re.compile(r'^(?:hfa|cfc|/\d*\.?\d*(?:ml|h|24h))\s*', re.IGNORECASE)
 _RE_PC  = re.compile(r'^(\d[\d\.,]*)\s*(mg|mcg|g)\s*/\s*(\d[\d\.,]*)\s*(ml|g)\s*', re.IGNORECASE)
+_RE_PCT_MID = re.compile(r'^(.*?)(\d+[\.,]?\d*)\s*%\s+', re.IGNORECASE)   # "gel 0.1% " → dosis=0.1, unidad=%
+_RE_CONC_BARE = re.compile(r'^(\d[\d\.,]*)\s*(mg|mcg|g|ui|meq)\s*/\s*(ml|g|dose|dosis|comp|amp)\s*$', re.IGNORECASE)  # "f.a.x 250 mg/ml" tail
 _RE_PKV = re.compile(r'x\s*\d[\d\.,]*\s*(ml|g)\b', re.IGNORECASE)
 _RE_PCO = re.compile(r'\(\d+\+\d+\)')
 _RE_PCA = re.compile(r'x\s*(\d[\d\.,]*)\s*(ds\.?|dosis|ml|g\b|u\.?|unid\.?)?', re.IGNORECASE)
@@ -1398,6 +1464,12 @@ _UNI_MAP = {'mg':'MG','mcg':'MCG','ug':'MCG','g':'G','ml':'ML',
 def _parsear_presentacion(pres: str) -> dict:
     r = {'forma': None, 'dosis': None, 'unidad': None, 'cantidad': None, 'resto': None}
     s = pres.strip().lower()
+    # Capturar modificador de forma antes de strippear prefijos (SR, LP, Flash, Niños, etc.)
+    _mod_forma = None
+    m_mod = _RE_PM.match(s)
+    if m_mod:
+        _mod_forma = _MODS_FORMA.get(m_mod.group(1).lower())  # None si es sabor (naranja, menta…)
+        s = s[m_mod.end():]
     s = _RE_PP.sub('', s).strip()
     m = _RE_PC.match(s)
     if m:
@@ -1415,6 +1487,31 @@ def _parsear_presentacion(pres: str) -> dict:
         if m: r['dosis'] = m.group(1); s = s[m.end():]
         m = _RE_PU.match(s)
         if m: r['unidad'] = _UNI_MAP.get(m.group(1).lower(), m.group(1).upper()); s = s[m.end():]
+    # Patrón "forma N% x cantidad" → ej: "gel 0.1% x 30 g"
+    # El % aparece DESPUÉS de la forma: primero buscamos la forma, luego el %
+    if not r['dosis']:
+        m = re.search(r'(\d+[\.,]?\d*)\s*%(?:\s+|$)', s)
+        if m:
+            r['dosis'] = m.group(1).replace(',', '.')
+            r['unidad'] = '%'
+            s = (s[:m.start()] + s[m.end():]).strip()
+    # Patrón "mg/ml" al final sin cantidad previa → ej: "f.a.x 50 mg/ml"
+    # Solo aplica si la cantidad ya capturada en realidad era la concentración
+    if not r['dosis'] and r['cantidad']:
+        m = re.search(r'(mg|mcg|g|ui|meq)\s*/\s*(ml|g)\s*$', s, re.IGNORECASE)
+        if m:
+            # la cantidad capturada es la dosis, la unidad es mg/ml
+            r['dosis']    = r['cantidad']
+            r['unidad']   = _UNI_MAP.get(m.group(1).lower(), m.group(1).upper()) + '/' + m.group(2).upper()
+            r['cantidad'] = None
+    # Caso "x 250 mg/ml" → cantidad fue capturada pero resto contiene la unidad
+    if not r['dosis'] and r['cantidad'] and r.get('resto'):
+        m = re.match(r'^(mg|mcg|g|ui|meq)\s*/\s*(ml|g)\s*$', (r['resto'] or ''), re.IGNORECASE)
+        if m:
+            r['dosis']    = r['cantidad']
+            r['unidad']   = _UNI_MAP.get(m.group(1).lower(), m.group(1).upper()) + '/' + m.group(2).upper()
+            r['cantidad'] = None
+            r['resto']    = None
     s = _RE_PPR.sub('', s).strip()
     fkr = None
     m = _RE_PF.match(s.strip())
@@ -1463,7 +1560,18 @@ def _parsear_presentacion(pres: str) -> dict:
     if not r['forma'] and not s and r['cantidad']:
         if r['unidad'] == 'ML': r['forma'] = 'LÍQUIDO'
         elif r['unidad'] == 'G': r['forma'] = 'TÓPICO'
+    # Appendear modificador a la forma si corresponde (SR, LP, Flash, Niños…)
+    if _mod_forma and r['forma']:
+        r['forma'] = f"{r['forma']} {_mod_forma}"
     if s: r['resto'] = s
+    # Caso "f.a.x 250 mg/ml" → cantidad capturada pero resto es "mg/ml" (la unidad)
+    if not r['dosis'] and r['cantidad'] and r.get('resto'):
+        m = re.match(r'^(mg|mcg|g|ui|meq)\s*/\s*(ml|g)\s*$', r['resto'], re.IGNORECASE)
+        if m:
+            r['dosis']    = r['cantidad']
+            r['unidad']   = _UNI_MAP.get(m.group(1).lower(), m.group(1).upper()) + '/' + m.group(2).upper()
+            r['cantidad'] = None
+            r['resto']    = None
     return r
 
 
@@ -1649,19 +1757,80 @@ def main():
 
     # ── Promover campos parseados de presentación a cada registro ────────
     print("\nEnriqueciendo registros con campos de presentación...")
+    _RE_DOSIS_MARCA = re.compile(
+        r'(\d+[\.,]?\d*)\s*/\s*(\d+[\.,]?\d*)\s*(mg|mcg|g|ui|%)|'  # "750/15 mg"
+        r'(\d+[\.,]?\d*)\s*(mg|mcg|µg|g\b|ui|iu|%|meq)',             # "1000 MG" / "1.5%"
+        re.IGNORECASE
+    )
     n_enriquecidos = 0
+    n_dosis_marca  = 0
     for m in medicamentos:
         pres = (m.get('presentacion') or '').strip()
         if not pres:
             continue
         r = _parsear_presentacion(pres)
         if r['forma'] or r['dosis']:
-            if r['forma']:   m['pres_forma']   = r['forma']
-            if r['dosis']:   m['pres_dosis']   = r['dosis']
-            if r['unidad']:  m['pres_unidad']  = r['unidad']
-            if r['cantidad']:m['pres_cantidad']= r['cantidad']
+            if r['forma']:    m['pres_forma']    = r['forma']
+            if r['dosis']:    m['pres_dosis']    = r['dosis']
+            if r['unidad']:   m['pres_unidad']   = r['unidad']
+            if r['cantidad']: m['pres_cantidad'] = r['cantidad']
             n_enriquecidos += 1
+        # Fallback: buscar dosis en el nombre de marca si presentacion no la tiene
+        if not m.get('pres_dosis'):
+            marca = (m.get('marca') or '').strip()
+            hm = _RE_DOSIS_MARCA.search(marca)
+            if hm:
+                if hm.group(1) and hm.group(2):  # patrón barra: 750/15 mg
+                    m['pres_dosis']  = f"{hm.group(1)}/{hm.group(2)}"
+                    m['pres_unidad'] = hm.group(3).upper()
+                elif hm.group(4):                 # patrón simple: 1000 MG
+                    m['pres_dosis']  = hm.group(4).replace(',', '.')
+                    m['pres_unidad'] = hm.group(5).upper()
+                m['pres_dosis_fuente'] = 'marca'
+                n_dosis_marca += 1
     print(f"   Enriquecidos: {n_enriquecidos}/{len(medicamentos)} ({100*n_enriquecidos/max(len(medicamentos),1):.1f}%)")
+    print(f"   Dosis rescatadas de marca: {n_dosis_marca}")
+
+    # ── Fallback dosis desde PAMI (marca+forma+cantidad compatibles) ──────
+    _RE_DOSIS_CONC_PAMI = re.compile(r'(\d+[\.,]?\d*)\s*(mg|mcg|µg|ui|iu|%|meq)\b', re.IGNORECASE)
+    _RE_FORMA_PAMI      = re.compile(r'(comp|caps|susp|sol|jbe|gts|cr|gel|ung|pomo|sob|a\b|f\.a|vial|amp)', re.IGNORECASE)
+    _RE_CANT_PAMI       = re.compile(r'x\s*(\d+)', re.IGNORECASE)
+
+    pami_dosis_idx: dict = {}
+    if PAMI_PATH.exists():
+        import pandas as _pd
+        pami_df = _pd.read_excel(PAMI_PATH)
+        pami_df.columns = [c.strip() for c in pami_df.columns]
+        for _, row in pami_df.iterrows():
+            marca_p = str(row['MARCA']).strip().upper()
+            pres_p  = str(row['PRESENTACION']).strip().lower()
+            hit     = _RE_DOSIS_CONC_PAMI.search(pres_p)
+            if hit:
+                pami_dosis_idx.setdefault(marca_p, []).append((pres_p, hit))
+
+    def _forma_compat(ps, pp):
+        f1 = _RE_FORMA_PAMI.search(ps.lower())
+        f2 = _RE_FORMA_PAMI.search(pp.lower())
+        return bool(f1 and f2 and f1.group(1).lower()[:3] == f2.group(1).lower()[:3])
+
+    def _cant_compat(ps, pp):
+        c1 = _RE_CANT_PAMI.search(ps); c2 = _RE_CANT_PAMI.search(pp)
+        return (c1.group(1) == c2.group(1)) if (c1 and c2) else True
+
+    n_dosis_pami = 0
+    for m in medicamentos:
+        if m.get('pres_dosis'):
+            continue
+        marca_up    = (m.get('marca') or '').strip().upper()
+        pres_siafar = (m.get('presentacion') or '').strip().lower()
+        for pres_p, hit in pami_dosis_idx.get(marca_up, []):
+            if _forma_compat(pres_siafar, pres_p) and _cant_compat(pres_siafar, pres_p):
+                m['pres_dosis']        = hit.group(1).replace(',', '.')
+                m['pres_unidad']       = hit.group(2).upper()
+                m['pres_dosis_fuente'] = 'pami'
+                n_dosis_pami += 1
+                break
+    print(f"   Dosis rescatadas de PAMI: {n_dosis_pami}")
 
     ahora_ar  = datetime.now(AR_TZ)
     fecha_str = ahora_ar.strftime("%Y-%m-%d %H:%M:%S")
