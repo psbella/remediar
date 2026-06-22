@@ -9,6 +9,7 @@ import { aplicarFiltros, ordenar } from '../filters.js';
 let state = {
     todos:      [],
     resultados: [],
+    resultadosSinFiltros: [],
 
     filtros: {
         texto:        '',
@@ -42,6 +43,7 @@ function notificar() {
 export function getState()     { return { ...state }; }
 export function getFiltros()   { return { ...state.filtros }; }
 export function getResultados(){ return [...state.resultados]; }
+export function getResultadosSinFiltros(){ return [...state.resultadosSinFiltros]; }
 export function getTodos()     { return [...state.todos]; }
 
 // ── Recalcular resultados ─────────────────────────────────────────────
@@ -58,6 +60,9 @@ function recalcularResultados() {
 
     // 1. Búsqueda: si hay texto usar el índice; si no, partir del dataset completo
     let resultados = hayTexto ? buscar(texto) : [...state.todos];
+
+    // Guardar resultados antes de filtros (para poblar dropdowns)
+    state.resultadosSinFiltros = resultados;
 
     // 2. Filtros adicionales
     resultados = aplicarFiltros(resultados, presentacion, laboratorio, true, soloPami);
@@ -146,4 +151,4 @@ function _extraerFiltros(meds) {
         presentaciones: [...presentaciones].sort(),
         laboratorios:   [...laboratorios].sort(),
     };
-}
+        }
