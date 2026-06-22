@@ -235,82 +235,43 @@ sequenceDiagram
 
 ## Indexación inicial
 
+`searchEngine.js` construye un índice invertido de prefijos sobre `droga`, `marca` y `laboratorio`. Por cada token de 2 o más caracteres se generan todos sus prefijos, mapeados a conjuntos de índices del array de medicamentos.
+
 ```javascript
-function buildSearchIndex(medicamentos) {
-  const drogasSet = new Set();
-  const drogaToIndices = new Map();
-
-  medicamentos.forEach((item, idx) => {
-    const droga = normalizeString(item.droga);
-
-    drogasSet.add(droga);
-
-    if (!drogaToIndices.has(droga)) {
-      drogaToIndices.set(droga, []);
+// Fragmento real de searchEngine.js
+for (const palabra of txt.split(/\s+/)) {
+    for (let k = 2; k <= palabra.length; k++) {
+        const pref = palabra.slice(0, k);
+        if (!indice[pref]) indice[pref] = new Set();
+        indice[pref].add(i);
     }
-
-    drogaToIndices.get(droga).push(idx);
-  });
-
-  return { drogasSet, drogaToIndices };
 }
 ```
 
----
-
-## Debounce
-
-```javascript
-let debounceTimer;
-
-searchInput.addEventListener('input', (e) => {
-  clearTimeout(debounceTimer);
-
-  debounceTimer = setTimeout(() => {
-    performSearch(e.target.value);
-  }, 250);
-});
-```
+La búsqueda realiza una intersección AND entre todos los términos ingresados, de modo que "ibuprofeno bago" solo devuelve registros que contengan ambos tokens.
 
 ---
 
-## Filtrado principal
+## Ranking de relevancia
 
-```javascript
-function performSearch(query, filters) {
-  let results = [...store.rawData];
+Los resultados se ordenan por tres criterios en cascada:
 
-  if (query) {
-    const normalized = normalizeString(query);
+1. **Relevancia textual** — score basado en el campo donde ocurre el match:
 
-    results = results.filter(item =>
-      normalizeString(item.droga).includes(normalized) ||
-      normalizeString(item.laboratorio).includes(normalized)
-    );
-  }
+| Match | Score |
+|---|---|
+| Droga exacta | +100 |
+| Droga empieza con el término | +80 |
+| Droga contiene el término | +50 |
+| Marca exacta | +40 |
+| Marca empieza con el término | +25 |
+| Marca contiene el término | +15 |
+| Laboratorio contiene el término | +5 |
 
-  if (filters.pamiOnly) {
-    results = results.filter(item => item.pami_cobertura > 0);
-  }
+2. **vigencia_score** — productos con precios confiables primero
+3. **precio** — ascendente como desempate final
 
-  if (filters.sortBy === 'price_asc') {
-    results.sort((a, b) => a.precio - b.precio);
-  }
-
-  renderResults(results.slice(0, 50));
-}
-```
-
----
-
-## Complejidades
-
-| Operación | Complejidad | Tiempo estimado |
-|---|---|---|
-| Indexación | O(n) | ~80ms |
-| Búsqueda | O(n) | ~25-50ms |
-| Ordenamiento | O(n log n) | ~60ms |
-| Filtro PAMI | O(n) | ~15ms |
+Los registros con `vigencia_score < 50` siempre van al fondo, independientemente del score de relevancia.
 
 ---
 
@@ -360,8 +321,9 @@ El parser aplica correcciones en cascada para resolver los problemas estructural
 | 2 | `rescatar_laboratorios()` | Recupera `laboratorio="Desconocido"` buscando el lab como sufijo en `presentacion` |
 | 3 | `reparar_denver()` | Denver Farma usa droga+lab como nombre comercial; separa marca y presentacion fusionadas (variantes DENCR., DF) |
 | 4 | `reparar_marca_desplazada()` | Cuando `marca` empieza con dígito y `presentacion` está vacía, invierte el desplazamiento |
-| 5 | `extraer_presentacion_de_marca()` | Extrae la presentacion fusionada en el campo marca usando regex de dosis y formas farmacéuticas |
+| 5 | `extraer_presentacion_de_marca()` | Extrae la presentacion fusionada en el campo marca. Antes de aplicar el regex de corte: (1) separa laboratorios genéricos pegados sin espacio a la dosis (`_build_re_lab_pegado()`, dinámico por dataset); (2) separa formas farmacéuticas pegadas sin espacio al texto previo (`_RE_FORMA_PEGADA`); (3) elimina duplicados de token en mayúscula+minúscula (`_RE_TOKEN_DUPLICADO`, ej. `GELgel → gel`). Cubre `BOLSA`, `VIAL`, `SPRAY`, `GEL`, `PCOMP` y otras formas no estándar del PDF de SIAFAR |
 | 5b | `reparar_presentacion_desplazada()` | Separa presentacion+lab fusionados en el campo lab (3 sub-patrones: 2A, 2B, 2C) |
+| 5c | `limpiar_dosis_residual_en_marca()` | Limpia la dosis numérica que queda pegada al nombre del laboratorio en `marca` cuando la Capa 5b ya separó la forma pero dejó la dosis sin limpiar (ej. `"CIPROFLOXACINA SANT GALL500 MG"` → `"CIPROFLOXACINA SANT GALL"`) |
 | 6 | `crosswalk_pami()` | Cruza contra `data/pami.xlsx` por marca+presentacion: (1) recupera droga vacía cuando SIAFAR la omite, (2) corrige el laboratorio, (3) normaliza el campo `presentacion` usando el texto del vademécum PAMI cuando hay match, (4) agrega `pami_cobertura` |
 | 7 | `aplicar_droga_fixes()` | Aplica correcciones manuales desde `data/droga_fixes.json` (marca → droga, con soporte para corrección simultánea de marca) |
 
@@ -464,7 +426,7 @@ jobs:
 |---|---|
 | `data/pami.xlsx` | Vademécum PAMI. Usado para: (1) cobertura por marca+presentacion, (2) recuperar droga faltante, (3) corregir laboratorio, (4) normalizar el campo `presentacion` |
 | `data/droga_fixes.json` | Correcciones manuales marca→droga para casos no resolubles con regex |
-| `data/blacklist.json` | Registros excluidos manualmente del dataset |
+| `data/blacklist.json` | Registros excluidos manualmente del dataset. Las claves usan el formato `droga\|marca\|presentacion\|laboratorio` en minúsculas. Las entradas con `droga="-"` (resultado del mismo bug de truncamiento del PDF) son inválidas y deben eliminarse — de lo contrario bloquean medicamentos válidos que hoy tienen droga correcta |
 | `data/outlier_report.json` | Reporte detallado de outliers de la última corrida |
 | `data/presentaciones_debug.csv` | Auditoría del parser: `presentacion_original` vs. campos parseados (`forma`, `dosis`, `unidad`, `cantidad`) |
 
@@ -801,6 +763,8 @@ docker run -p 8080:80 remediar
 - No existe backend persistente
 - No se comparte información con terceros
 - Todo el frontend puede auditarse públicamente
+- Content Security Policy estricta declarada en `index.html`: `default-src 'self'`, sin fuentes externas ni iframes
+- `robots.txt` bloquea explícitamente GPTBot y ClaudeBot para proteger el contenido de scrapers de entrenamiento de modelos de lenguaje
 
 ---
 
@@ -935,6 +899,7 @@ flowchart TD
     C4[Capa 4: reparar_marca_desplazada]
     C5[Capa 5: extraer_presentacion_de_marca]
     C5B[Capa 5b: reparar_presentacion_desplazada]
+    C5C[Capa 5c: limpiar_dosis_residual_en_marca]
     C6[Capa 6: crosswalk_pami]
     C7[Capa 7: aplicar_droga_fixes]
     BL[Blacklist]
@@ -949,7 +914,8 @@ flowchart TD
     C3 --> C4
     C4 --> C5
     C5 --> C5B
-    C5B --> C6
+    C5B --> C5C
+    C5C --> C6
     C6 --> C7
     C7 --> BL
     BL --> OUT
@@ -960,7 +926,35 @@ flowchart TD
 
 ---
 
-## Parser de presentaciones
+## Detalle de la Capa 5: extraer_presentacion_de_marca
+
+La Capa 5 es la más compleja del pipeline — antes de aplicar el regex de corte, aplica tres pasos de pre-limpieza para normalizar el campo `marca` cuando trae texto del PDF fusionado sin espacios.
+
+```mermaid
+flowchart TD
+    IN["marca='CARBOPLATINO MICROSULES150 mg iny.f.a.x 1'\npresentacion=''"]
+
+    subgraph PRE["Pre-limpieza (en orden)"]
+        A["1. _RE_TOKEN_DUPLICADO\nElimina token mayúscula duplicado\nGELgel → gel\nBOLSAbolsa → bolsa"]
+        B["2. _RE_FORMA_PEGADA\nInserta espacio antes de forma pegada\nESPECIALbolsa → ESPECIAL bolsa\nBENZOCAINA GELgel → BENZOCAINA gel"]
+        C["3. _build_re_lab_pegado (dinámico)\nInserta espacio entre laboratorio conocido\ny la dosis pegada\nMICROSULES150 → MICROSULES 150"]
+    end
+
+    D{"¿_RE_EXTRAER_PRES\nhace match?"}
+    E["marca = grupo 1\npresentacion = grupo 2"]
+    F["Registro sin cambios\n(caso no resuelto)"]
+
+    IN --> A --> B --> C --> D
+    D -- Sí --> E
+    D -- No --> F
+
+    style PRE fill:#f0f8f0,stroke:#aaa
+```
+
+El regex `_build_re_lab_pegado` se construye dinámicamente en cada corrida a partir de los laboratorios ya presentes en el dataset, usando la última palabra alfabética significativa de cada nombre (ej. `"Microsules Arg."` → `"Microsules"`, `"Delta Farma"` → `"Farma"`). Esto evita mantener una lista hardcodeada.
+
+---
+
 
 Después del pipeline de 8 capas, el ETL aplica `_parsear_presentacion()` sobre el campo `presentacion` de cada registro y agrega los resultados como campos estructurados en el JSON de producción.
 
@@ -1011,37 +1005,170 @@ flowchart LR
 
 ---
 
-# 🧩 Referencia de Componentes Frontend
+## Ciclo de vida de una búsqueda
+
+```mermaid
+sequenceDiagram
+    participant U as 👤 Usuario
+    participant M as main.js
+    participant S as store.js
+    participant SE as searchEngine.js
+    participant F as filters.js
+    participant R as uiRenderer.js
+
+    U->>M: input "ibuprofeno bago"
+    M->>M: debounce 250ms
+    M->>S: setFiltroTexto("ibuprofeno bago")
+
+    S->>SE: buscar("ibuprofeno bago")
+    Note over SE: Normaliza → ["ibuprofeno","bago"]
+    Note over SE: Intersección AND de índices de prefijos
+    Note over SE: Ordena por relevancia + vigencia + precio
+    SE-->>S: resultados ordenados
+
+    S->>F: aplicarFiltros(resultados, presentacion, laboratorio, soloPami)
+    F-->>S: resultados filtrados
+
+    S->>S: notificar()
+    S->>R: suscribirse callback
+
+    R->>R: cargarOpcionesFiltros(resultados)
+    Note over R: Dropdowns muestran solo presentaciones<br/>y laboratorios del resultado actual
+    R->>R: mostrarResultados(resultados)
+    Note over R: parsearPresentacion() si no hay pres_*<br/>renderizarTarjeta() × min(total, 300)
+    R-->>U: Tarjetas con chips de presentación + badge PAMI
+```
+
+---
+
+## Flujo reactivo del store
+
+```mermaid
+flowchart TD
+    subgraph ACCIONES["Acciones"]
+        A1[setFiltroTexto]
+        A2[setFiltroPresentacion]
+        A3[setFiltroLaboratorio]
+        A4[setFiltroOrden]
+        A5[setSoloPami]
+        A6[limpiarFiltros]
+    end
+
+    subgraph RECALC["recalcularResultados()"]
+        R1{"¿hay texto\no filtro activo?"}
+        R2["buscar(texto)\n→ índice invertido"]
+        R3["todos los medicamentos"]
+        R4["aplicarFiltros()"]
+        R5{"orden ≠\n'relevancia'?"}
+        R6["ordenar()"]
+        R7["state.resultados = …"]
+    end
+
+    subgraph UI["UI (suscriptores)"]
+        U1["cargarOpcionesFiltros()"]
+        U2["mostrarResultados()"]
+        U3["mostrarMensajeInicial()"]
+    end
+
+    ACCIONES --> RECALC
+    R1 -- No --> U3
+    R1 -- hayTexto --> R2 --> R4
+    R1 -- soloFiltros --> R3 --> R4
+    R4 --> R5
+    R5 -- Sí --> R6 --> R7
+    R5 -- No --> R7
+    R7 --> notificar
+    notificar --> U1
+    notificar --> U2
+```
+
+---
+
+## Anatomía de un registro
+
+```mermaid
+flowchart LR
+    subgraph SIAFAR["📄 SIAFAR / PDF"]
+        S1[droga]
+        S2[marca]
+        S3[presentacion]
+        S4[laboratorio]
+        S5[precio]
+    end
+
+    subgraph PAMI["📋 pami.xlsx"]
+        P1[pami_cobertura]
+        P2["droga (recuperación)"]
+        P3["laboratorio (corrección)"]
+        P4["presentacion (normalización)"]
+    end
+
+    subgraph PARSER["🔧 _parsear_presentacion()"]
+        PR1[pres_forma]
+        PR2[pres_dosis]
+        PR3[pres_unidad]
+        PR4[pres_cantidad]
+    end
+
+    subgraph OUTLIER["📊 Detección outliers"]
+        O1[vigencia_score]
+        O2[flags]
+        O3[precio_outlier_tipo]
+        O4[outlier_razones]
+    end
+
+    subgraph JSON["📦 medicamentos.json"]
+        J[Registro final]
+    end
+
+    S1 & S2 & S3 & S4 & S5 --> J
+    P1 & P2 & P3 & P4 --> J
+    PR1 & PR2 & PR3 & PR4 --> J
+    O1 & O2 & O3 & O4 --> J
+```
+
+
 
 ## store.js
 
-- Estado global reactivo
-- Filtros (texto, laboratorio, presentacion, pamiOnly)
-- Ordenamiento
-- Suscripciones
-- Soporte para búsqueda sin texto cuando hay filtros activos
+- Estado global reactivo con patrón pub/sub (`suscribirse` / `notificar`)
+- Filtros: texto, laboratorio, presentacion, orden, soloPami
+- Sin texto ni filtros activos → `resultados = []` (muestra mensaje inicial, no lista completa)
+- Con filtros activos y sin texto → parte del dataset completo y aplica filtros
+- Ordenamiento con conciencia de vigencia: `vigencia_score < 50` siempre al fondo
+- Soporte para búsqueda sin texto cuando hay filtros activos (laboratorio, presentacion, PAMI)
 
 ## uiRenderer.js
 
-- Render tarjetas con principio activo en mayúsculas
-- Chips de presentación usando `pres_forma` / `pres_dosis` / `pres_unidad` / `pres_cantidad` del JSON (fallback al parser JS)
-- En mobile, chips de presentación debajo del label "Presentación" (`flex-direction: column`)
+- Render de tarjetas con principio activo en mayúsculas
+- Chips de presentación: usa `pres_forma` / `pres_dosis` / `pres_unidad` / `pres_cantidad` del JSON cuando están disponibles; cae a `parsearPresentacion()` (JS) como fallback
+- En modo PAMI activo, invierte la jerarquía visual: muestra el copago estimado como precio principal y el PVP como referencia secundaria
 - Chip PAMI con formato "Cobertura PAMI 55% · $4.500" (porcentaje + copago estimado)
-- Actualización contextual de dropdowns según resultados
+- Dropdowns contextuales: al buscar un medicamento, los selectores de presentación y laboratorio se actualizan para mostrar solo las opciones disponibles en los resultados actuales
 - Skeleton loaders
 - Mensajes de error/vacío
+- Scroll-to-top automático al superar 300px de scroll
+
+## utils.js
+
+- `normalizar()`: lowercase + quita tildes para búsqueda
+- `formatearPrecio()`: formato ARS con `toLocaleString`
+- `normalizarLaboratorio()`: resuelve laboratorios truncados por el PDF (ej. `"laboratorio gra"` → `"Laboratorio Grafo"`)
+- `parsearPresentacion()`: parser JS de fallback que descompone el string de presentación en `{ dosis, forma, cantidad }`. Cubre 60+ formas farmacéuticas mediante `FORMAS_MAP`. Se usa cuando el JSON no trae los campos `pres_*` pre-calculados por el ETL
+- `extraerFiltros()`: construye los sets de presentaciones y laboratorios válidos para los dropdowns, filtrando valores corruptos
 
 ## dataLoader.js
 
-- Caché con `sessionStorage`
-- Timestamp de vencimiento (4 horas)
-- Refresh manual
+- Caché con `sessionStorage` (clave `remedios_data_v2`)
+- TTL de 4 horas
+- Fetch con `priority: 'high'`
 
 ## searchEngine.js
 
-- Índice en memoria por droga
-- Búsqueda normalizada (sin tildes, lowercase)
-- Filtrado por laboratorio y presentacion
+- Índice invertido de prefijos sobre `droga`, `marca` y `laboratorio`
+- Búsqueda AND multi-término normalizada (sin tildes, lowercase)
+- Ranking por relevancia textual (droga > marca > lab), `vigencia_score` y precio
+- Los registros con `vigencia_score < 50` siempre se degrada al fondo del resultado
 
 ---
 
