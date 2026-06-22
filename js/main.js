@@ -28,10 +28,12 @@ suscribirse((state) => {
         return;
     }
 
-    // Actualizar dropdowns con las opciones disponibles en los resultados actuales
-    // Esto permite que al buscar "ibuprofeno" solo aparezcan las presentaciones
-    // y laboratorios que existen para ese medicamento, no todos los del dataset
-    cargarOpcionesFiltros(resultados.length > 0 ? resultados : todos, filtros);
+    // Dropdowns: contextuales al texto buscado, pero nunca restringidos
+    // por filtros activos — permite saltar entre opciones sin recargar.
+    const baseDropdown = (filtros.presentacion || filtros.laboratorio)
+        ? todos
+        : (resultados.length > 0 ? resultados : todos);
+    cargarOpcionesFiltros(baseDropdown, filtros);
 
     mostrarResultados(resultados, filtros.texto, filtros.soloPami);
 });
