@@ -1,6 +1,5 @@
 // uiRenderer.js — Renderizado con badges de vigencia y escape seguro.
 import { formatearPrecio, escapeHtml, extraerFiltros, normalizarLaboratorio, parsearPresentacion } from './utils.js';
-import { getFiltros } from './core/store.js';
 export function mostrarSkeleton() {
     const el = document.getElementById('resultados');
     if (!el || el.querySelector('.skeleton-card')) return;
@@ -128,7 +127,7 @@ function badgeVigencia(med) {
     </div>`;
 }
 
-function renderizarTarjeta(med) {
+function renderizarTarjeta(med, soloPami = false) {
     const esSosp = (med.vigencia_score ?? 100) < 50;
 
     return `
@@ -170,7 +169,6 @@ function renderizarTarjeta(med) {
             </div>
             <div class="fila-precios">
                 ${(() => {
-                    const { soloPami } = getFiltros();
                     const copago = med.pami_cobertura
                         ? Math.round(med.precio * (1 - med.pami_cobertura / 100))
                         : null;
@@ -190,7 +188,7 @@ function renderizarTarjeta(med) {
         </article>`;
 }
 
-export function mostrarResultados(lista, termino = '') {
+export function mostrarResultados(lista, termino = '', soloPami = false) {
     const cont = document.getElementById('resultados');
     const ctr  = document.getElementById('contador');
     if (!cont) return;
@@ -222,6 +220,6 @@ export function mostrarResultados(lista, termino = '') {
     }
 
     ctr.innerHTML = ctrHtml;
-    cont.innerHTML = lista.slice(0, MAX).map(renderizarTarjeta).join('');
+    cont.innerHTML = lista.slice(0, MAX).map(m => renderizarTarjeta(m, soloPami)).join('');
     _ocultarChip();
 }
