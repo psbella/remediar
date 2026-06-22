@@ -76,10 +76,6 @@ function onFiltroLaboratorioChange() {
 
 function onOrdenChange() {
     setFiltroOrden(document.getElementById('ordenPrecio')?.value || 'relevancia');
-
-    document.getElementById('togglePami')?.addEventListener('change', e => {
-        setSoloPami(e.target.checked);
-    });
 }
 
 function onLimpiar() {
@@ -170,6 +166,7 @@ async function init() {
     document.getElementById('filtroPresentacion')?.addEventListener('change', onFiltroPresentacionChange);
     document.getElementById('filtroLaboratorio')?.addEventListener('change', onFiltroLaboratorioChange);
     document.getElementById('ordenPrecio')?.addEventListener('change', onOrdenChange);
+    document.getElementById('togglePami')?.addEventListener('change', e => setSoloPami(e.target.checked));
 }
 
 init();
