@@ -9,7 +9,7 @@ import {
 import {
     getState, getResultados, getFiltros, getTodos,
     setFiltroTexto, setFiltroPresentacion,
-    setFiltroLaboratorio, setFiltroOrden, limpiarFiltros,
+    setFiltroLaboratorio, setFiltroOrden, setSoloPami, limpiarFiltros,
     setLoading, setError, initStore, suscribirse,
 } from './core/store.js';
 
@@ -76,6 +76,10 @@ function onFiltroLaboratorioChange() {
 
 function onOrdenChange() {
     setFiltroOrden(document.getElementById('ordenPrecio')?.value || 'relevancia');
+
+    document.getElementById('togglePami')?.addEventListener('change', e => {
+        setSoloPami(e.target.checked);
+    });
 }
 
 function onLimpiar() {

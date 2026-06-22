@@ -15,6 +15,7 @@ let state = {
         presentacion: '',
         laboratorio:  '',
         orden:        'relevancia',
+        soloPami:     false,
     },
 
     estaCargando: true,
@@ -45,9 +46,9 @@ export function getTodos()     { return [...state.todos]; }
 
 // ── Recalcular resultados ─────────────────────────────────────────────
 function recalcularResultados() {
-    const { texto, presentacion, laboratorio, orden } = state.filtros;
+    const { texto, presentacion, laboratorio, orden, soloPami } = state.filtros;
     const hayTexto  = texto && texto.trim().length >= 2;
-    const hayFiltro = !!(presentacion || laboratorio);
+    const hayFiltro = !!(presentacion || laboratorio || soloPami);
 
     // Sin texto ni filtro: no mostrar nada (mensaje inicial en UI)
     if (!hayTexto && !hayFiltro) {
@@ -59,7 +60,7 @@ function recalcularResultados() {
     let resultados = hayTexto ? buscar(texto) : [...state.todos];
 
     // 2. Filtros adicionales
-    resultados = aplicarFiltros(resultados, presentacion, laboratorio, true);
+    resultados = aplicarFiltros(resultados, presentacion, laboratorio, true, soloPami);
 
     // 3. Ordenamiento explícito si no es "relevancia"
     if (orden !== 'relevancia') {
@@ -94,6 +95,11 @@ export function setFiltroOrden(orden) {
     notificar();
 }
 
+export function setSoloPami(valor) {
+    state.filtros.soloPami = valor;
+    recalcularResultados();
+    notificar();
+}
 export function limpiarFiltros() {
     state.filtros = { texto: '', presentacion: '', laboratorio: '', orden: 'relevancia' };
     state.resultados = [];

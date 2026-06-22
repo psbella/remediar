@@ -243,6 +243,53 @@ body {
     margin-bottom: 0;
 }
 
+/* ── Toggle PAMI ── */
+.filtro-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: var(--r-md);
+    border: 1.5px solid var(--border);
+    background: var(--white);
+    user-select: none;
+    transition: border-color .15s;
+}
+.filtro-toggle:hover { border-color: var(--teal); }
+.filtro-toggle input { display: none; }
+
+.toggle-track {
+    width: 36px;
+    height: 20px;
+    border-radius: 10px;
+    background: var(--border);
+    position: relative;
+    flex-shrink: 0;
+    transition: background .2s;
+}
+.filtro-toggle input:checked ~ .toggle-track { background: #0e7490; }
+
+.toggle-thumb {
+    position: absolute;
+    top: 2px; left: 2px;
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,.2);
+    transition: transform .2s;
+}
+.filtro-toggle input:checked ~ .toggle-track .toggle-thumb { transform: translateX(16px); }
+
+.toggle-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-2);
+}
+.filtro-toggle input:checked ~ .toggle-label { color: #0e7490; }
+
+
+
 .filtro-row svg.icon-left {
     stroke: var(--teal);
     flex-shrink: 0;
@@ -1008,4 +1055,4 @@ body {
 
 #btnTop svg {
     stroke: white;
-        }
+}

@@ -9,7 +9,7 @@ function esValorCorrupto(valor) {
     return false;
 }
 
-export function aplicarFiltros(lista, presentacion = '', laboratorio = '', mostrarSospechosos = true) {
+export function aplicarFiltros(lista, presentacion = '', laboratorio = '', mostrarSospechosos = true, soloPami = false) {
     let r = [...lista];
     if (presentacion) r = r.filter(m => m.presentacion === presentacion);
     if (laboratorio) {
@@ -18,6 +18,7 @@ export function aplicarFiltros(lista, presentacion = '', laboratorio = '', mostr
             return !esValorCorrupto(lab) && lab === laboratorio;
         });
     }
+    if (soloPami) r = r.filter(m => m.pami_cobertura != null);
     // Opción: ocultar sospechosos al final (ya los ordena buscar(), pero el filtro es explícito)
     if (!mostrarSospechosos) {
         r = r.filter(m => (m.vigencia_score ?? 100) >= 50);
