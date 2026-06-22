@@ -9,7 +9,7 @@ import {
 import {
     getState, getResultados, getFiltros, getTodos,
     setFiltroTexto, setFiltroPresentacion,
-    setFiltroLaboratorio, setFiltroOrden, setSoloPami, limpiarFiltros,
+    setFiltroLaboratorio, setFiltroOrden, setSoloPami, limpiarFiltros, getResultadosSinFiltros,
     setLoading, setError, initStore, suscribirse,
 } from './core/store.js';
 
@@ -28,11 +28,10 @@ suscribirse((state) => {
         return;
     }
 
-    // Dropdowns: contextuales al texto buscado, pero nunca restringidos
-    // por filtros activos — permite saltar entre opciones sin recargar.
-    const baseDropdown = (filtros.presentacion || filtros.laboratorio)
-        ? todos
-        : (resultados.length > 0 ? resultados : todos);
+    // Dropdowns: siempre contextuales al texto buscado pero no al filtro
+    // activo — permite cambiar de opción sin perder el contexto de búsqueda.
+    const sinFiltros = getResultadosSinFiltros();
+    const baseDropdown = sinFiltros.length > 0 ? sinFiltros : todos;
     cargarOpcionesFiltros(baseDropdown, filtros);
 
     mostrarResultados(resultados, filtros.texto, filtros.soloPami);
