@@ -1579,6 +1579,15 @@ def _parsear_presentacion(pres: str) -> dict:
     if _mod_forma and r['forma']:
         r['forma'] = f"{r['forma']} {_mod_forma}"
     if s: r['resto'] = s
+    # Si el string original contiene 'vial' explícito pero la forma capturada es
+    # un modificador (liof, pvo, IV, fco, sol), forzar forma = VIAL
+    _FORMAS_VIAL_OVERRIDE = {
+        'LIOFILIZADO', 'POLVO LIOFILIZADO', 'POLVO', 'FRASCO',
+        'INYECTABLE INTRAVENOSO', 'SOLUCIÓN',
+    }
+    if (r['forma'] in _FORMAS_VIAL_OVERRIDE and
+            re.search(r'\bvial\b', pres.lower())):
+        r['forma'] = 'VIAL'
     # Caso "f.a.x 250 mg/ml" → cantidad capturada pero resto es "mg/ml" (la unidad)
     if not r['dosis'] and r['cantidad'] and r.get('resto'):
         m = re.match(r'^(mg|mcg|g|ui|meq)\s*/\s*(ml|g)\s*$', r['resto'], re.IGNORECASE)
