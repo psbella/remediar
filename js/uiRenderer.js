@@ -1,6 +1,6 @@
 // uiRenderer.js — Renderizado con badges de vigencia y escape seguro.
 import { formatearPrecio, escapeHtml, extraerFiltros, normalizarLaboratorio, parsearPresentacion } from './utils.js';
-
+import { getFiltros } from './core/store.js';
 export function mostrarSkeleton() {
     const el = document.getElementById('resultados');
     if (!el || el.querySelector('.skeleton-card')) return;
@@ -169,11 +169,23 @@ function renderizarTarjeta(med) {
                 })()}
             </div>
             <div class="fila-precios">
-                <span class="precio-publico">${formatearPrecio(med.precio)}</span>
-                ${med.pami_cobertura ? `
-                <div class="pami-info">
-                    <span class="pami-chip">Cobertura PAMI ${med.pami_cobertura}% · ${formatearPrecio(Math.round(med.precio * (1 - med.pami_cobertura / 100)))}</span>
-                </div>` : ''}
+                ${(() => {
+                    const { soloPami } = getFiltros();
+                    const copago = med.pami_cobertura
+                        ? Math.round(med.precio * (1 - med.pami_cobertura / 100))
+                        : null;
+                    if (soloPami && copago != null) {
+                        return `
+                        <span class="precio-publico precio-pami">${formatearPrecio(copago)}</span>
+                        <span class="precio-sin-cobertura">Precio sin cobertura ${formatearPrecio(med.precio)}</span>`;
+                    }
+                    return `
+                    <span class="precio-publico">${formatearPrecio(med.precio)}</span>
+                    ${med.pami_cobertura ? `
+                    <div class="pami-info">
+                        <span class="pami-chip">Cobertura PAMI ${med.pami_cobertura}% · ${formatearPrecio(copago)}</span>
+                    </div>` : ''}`;
+                })()}
             </div>
         </article>`;
 }

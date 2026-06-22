@@ -243,7 +243,18 @@ body {
     margin-bottom: 0;
 }
 
-/* ── Toggle PAMI ── */
+.precio-pami {
+    color: #0e7490 !important;
+}
+
+.precio-sin-cobertura {
+    font-size: 11px;
+    color: var(--text-4);
+    margin-left: 8px;
+    align-self: center;
+}
+
+
 .filtro-toggle {
     display: flex;
     align-items: center;
