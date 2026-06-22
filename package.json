@@ -1,0 +1,12 @@
+{
+  "name": "remediar",
+  "version": "2.0.0",
+  "description": "Buscador de precios de medicamentos en Argentina. Procesa el PDF oficial de SIAFAR/COFA dos veces al día y genera un comparador estático, sin publicidad y sin tracking. Incluye cobertura PAMI.",
+  "homepage": "https://remedi.ar",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/psbella/remediar"
+  },
+  "license": "MIT",
+  "author": "Pablo Bella <pablo.s.bella@gmail.com>"
+}
