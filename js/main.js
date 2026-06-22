@@ -33,7 +33,7 @@ suscribirse((state) => {
     // y laboratorios que existen para ese medicamento, no todos los del dataset
     cargarOpcionesFiltros(resultados.length > 0 ? resultados : todos, filtros);
 
-    mostrarResultados(resultados, filtros.texto);
+    mostrarResultados(resultados, filtros.texto, filtros.soloPami);
 });
 
 // ── Handlers ──────────────────────────────────────────────────────────
