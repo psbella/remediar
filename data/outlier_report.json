@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-22T20:03:25.601126-03:00",
+  "timestamp": "2026-06-23T06:11:53.980077-03:00",
   "total_registros": 12147,
   "total_outliers": 246,
   "outliers": [
@@ -67,7 +67,7 @@
       "razones": [
         "ppu $133.29 << mediana_grupo $821.69"
       ],
-      "mediana_droga": 20996.0,
+      "mediana_droga": 21437.0,
       "n_droga": 35
     },
     {
@@ -80,7 +80,7 @@
       "razones": [
         "ppu $48.77 << mediana_grupo $821.69"
       ],
-      "mediana_droga": 20996.0,
+      "mediana_droga": 21437.0,
       "n_droga": 35
     },
     {
@@ -93,7 +93,7 @@
       "razones": [
         "ppu $83.90 << mediana_grupo $821.69"
       ],
-      "mediana_droga": 20996.0,
+      "mediana_droga": 21437.0,
       "n_droga": 35
     },
     {
@@ -212,7 +212,7 @@
       "razones": [
         "ppu $14.60 << mediana_grupo $103.33"
       ],
-      "mediana_droga": 11138.0,
+      "mediana_droga": 11152.0,
       "n_droga": 107
     },
     {
@@ -225,7 +225,7 @@
       "razones": [
         "ppu $12.57 << mediana_grupo $163.25"
       ],
-      "mediana_droga": 11138.0,
+      "mediana_droga": 11152.0,
       "n_droga": 107
     },
     {
@@ -238,7 +238,7 @@
       "razones": [
         "ppu $15.82 << mediana_grupo $120.00"
       ],
-      "mediana_droga": 11138.0,
+      "mediana_droga": 11152.0,
       "n_droga": 107
     },
     {
@@ -246,12 +246,12 @@
       "marca": "OPTAMOX RESPIRATORIO DUO",
       "presentacion": "susp.x 140 ml",
       "laboratorio": "Roemmers",
-      "precio": 33226.0,
+      "precio": 33924.0,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $237.33 << mediana_grupo $1,424.02"
+        "ppu $242.31 << mediana_grupo $1,453.94"
       ],
-      "mediana_droga": 34888.0,
+      "mediana_droga": 35621.0,
       "n_droga": 2
     },
     {
@@ -276,9 +276,9 @@
       "precio": 10009.55,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $10,009.55 < fence_low $10,762.90"
+        "precio $10,009.55 < fence_low $10,754.00"
       ],
-      "mediana_droga": 16164.39,
+      "mediana_droga": 16336.89,
       "n_droga": 10
     },
     {
@@ -406,10 +406,10 @@
       "marca": "IRAZEM",
       "presentacion": "Sol.oral x 150 ml",
       "laboratorio": "Roemmers",
-      "precio": 46008.0,
+      "precio": 46058.0,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $306.72 << mediana_grupo $3,223.00"
+        "ppu $307.05 << mediana_grupo $3,223.00"
       ],
       "mediana_droga": 32571.17,
       "n_droga": 37
@@ -628,12 +628,12 @@
       "marca": "MUCOLITIC",
       "presentacion": "Inf.jbe.x 100 ml",
       "laboratorio": "Roemmers",
-      "precio": 13819.0,
+      "precio": 14109.0,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $138.19 << mediana_grupo $802.35"
+        "ppu $141.09 << mediana_grupo $819.19"
       ],
-      "mediana_droga": 14665.0,
+      "mediana_droga": 14973.0,
       "n_droga": 5
     },
     {
@@ -1245,9 +1245,9 @@
       "precio": 542146.0,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $542,146.00 < 25% mediana $3,015,910.28 (n=10)"
+        "precio $542,146.00 < 25% mediana $3,068,267.12 (n=10)"
       ],
-      "mediana_droga": 3015910.28,
+      "mediana_droga": 3068267.12,
       "n_droga": 10
     },
     {
@@ -1717,7 +1717,7 @@
       "precio": 10559.48,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $10,559.48 < fence_low $11,131.93"
+        "precio $10,559.48 < fence_low $11,138.08"
       ],
       "mediana_droga": 19814.4,
       "n_droga": 42
@@ -1866,7 +1866,7 @@
       "precio": 15840.0,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $15,840.00 < fence_low $23,158.40"
+        "precio $15,840.00 < fence_low $22,556.15"
       ],
       "mediana_droga": 34944.12,
       "n_droga": 36
@@ -2059,12 +2059,12 @@
       "marca": "NIXORAN",
       "presentacion": "500 mg comp.rec.x 6",
       "laboratorio": "Roemmers",
-      "precio": 13537.0,
+      "precio": 13821.0,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $27.07 << mediana_grupo $3,397.79"
+        "ppu $27.64 << mediana_grupo $3,469.07"
       ],
-      "mediana_droga": 13537.0,
+      "mediana_droga": 13821.0,
       "n_droga": 2
     },
     {
@@ -2490,10 +2490,10 @@
       "marca": "ABAXON",
       "presentacion": "2.5 mg x 30 comp.rec.",
       "laboratorio": "Roemmers",
-      "precio": 69014.0,
+      "precio": 70463.0,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $69,014.00 < fence_low $76,380.37"
+        "precio $70,463.00 < fence_low $76,380.37"
       ],
       "mediana_droga": 111981.76,
       "n_droga": 49
@@ -2825,19 +2825,6 @@
     },
     {
       "droga": "tadalafilo",
-      "marca": "INVICTUS 20",
-      "presentacion": "20 mg comp.rec.x 1",
-      "laboratorio": "Roemmers",
-      "precio": 12962.0,
-      "precio_outlier_tipo": "bajo_relativo",
-      "razones": [
-        "precio $12,962.00 < 25% mediana $64,381.87 (n=72)"
-      ],
-      "mediana_droga": 64381.87,
-      "n_droga": 72
-    },
-    {
-      "droga": "tadalafilo",
       "marca": "VORST 36",
       "presentacion": "20 mg comp.rec.x 1",
       "laboratorio": "Laboratorios Be",
@@ -2845,6 +2832,19 @@
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
         "precio $13,170.95 < 25% mediana $64,381.87 (n=72)"
+      ],
+      "mediana_droga": 64381.87,
+      "n_droga": 72
+    },
+    {
+      "droga": "tadalafilo",
+      "marca": "INVICTUS 20",
+      "presentacion": "20 mg comp.rec.x 1",
+      "laboratorio": "Roemmers",
+      "precio": 13234.0,
+      "precio_outlier_tipo": "bajo_relativo",
+      "razones": [
+        "precio $13,234.00 < 25% mediana $64,381.87 (n=72)"
       ],
       "mediana_droga": 64381.87,
       "n_droga": 72
