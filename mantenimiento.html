@@ -8,7 +8,6 @@
     <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
         :root {
             --teal:       #008B8B;
             --teal-dark:  #005f5f;
@@ -18,7 +17,6 @@
             --text-1:     #111111;
             --text-3:     #555555;
         }
-
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background: var(--bg);
@@ -29,7 +27,6 @@
             justify-content: center;
             padding: 1.5rem;
         }
-
         .card {
             background: #fff;
             border: 1px solid var(--teal-border);
@@ -40,7 +37,6 @@
             text-align: center;
             box-shadow: 0 4px 24px rgba(0,139,139,.08);
         }
-
         .logo {
             display: flex;
             align-items: center;
@@ -48,36 +44,24 @@
             gap: .6rem;
             margin-bottom: 1.75rem;
         }
-
-        .logo img { width: 36px; height: 36px; }
-
         .logo-txt {
             font-size: 1.25rem;
             font-weight: 700;
             color: var(--teal-dark);
             letter-spacing: -.5px;
         }
-
-        .icono {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
         h1 {
             font-size: 1.25rem;
             font-weight: 700;
             color: var(--teal-dark);
             margin-bottom: .6rem;
         }
-
         p {
             font-size: .95rem;
             color: var(--text-3);
             line-height: 1.6;
             margin-bottom: .5rem;
         }
-
         .eta {
             display: inline-block;
             margin-top: 1.25rem;
@@ -89,7 +73,6 @@
             font-size: .85rem;
             font-weight: 500;
         }
-
         .footer-txt {
             margin-top: 2rem;
             font-size: .78rem;
@@ -100,17 +83,41 @@
 <body>
 <div class="card">
     <div class="logo">
-        <img src="img/favicon.svg" alt="remedi.ar">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 71 71" width="36" height="36">
+            <circle cx="35.5" cy="35.5" r="35.5" fill="#00897b"/>
+            <rect x="30" y="18" width="11" height="35" rx="3" fill="#ffffff"/>
+            <rect x="18" y="30" width="35" height="11" rx="3" fill="#ffffff"/>
+            <g transform="translate(51,51) rotate(-45) scale(0.5)">
+                <rect x="-10" y="-10" width="20" height="20" rx="10" fill="#b2dfdb" opacity="0.9"/>
+                <line x1="-10" y1="0" x2="10" y2="0" stroke="#ffffff" stroke-width="2"/>
+            </g>
+        </svg>
         <span class="logo-txt">remedi.ar</span>
     </div>
-
-    <span class="icono">🔧</span>
     <h1>En mantenimiento</h1>
     <p>Estamos haciendo mejoras al sitio.</p>
-
     <span class="eta" id="eta">Volvemos pronto</span>
-
     <p class="footer-txt">remedi.ar · Precios de medicamentos en Argentina</p>
 </div>
+<script>
+    // Opcional: mostrar un contador regresivo.
+    // Configurar VUELVE_EN_MINUTOS para el tiempo estimado.
+    const VUELVE_EN_MINUTOS = 0; // 0 = desactivado
+    if (VUELVE_EN_MINUTOS > 0) {
+        const fin = Date.now() + VUELVE_EN_MINUTOS * 60 * 1000;
+        const eta = document.getElementById('eta');
+        const tick = () => {
+            const resto = Math.max(0, fin - Date.now());
+            const min   = Math.floor(resto / 60000);
+            const seg   = Math.floor((resto % 60000) / 1000);
+            eta.textContent = resto > 0
+                ? `Volvemos en ${min}:${String(seg).padStart(2,'0')}`
+                : 'Recargando...';
+            if (resto <= 0) location.reload();
+        };
+        tick();
+        setInterval(tick, 1000);
+    }
+</script>
 </body>
 </html>
