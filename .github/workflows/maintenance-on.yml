@@ -1,0 +1,24 @@
+# .github/workflows/maintenance-on.yml
+name: 🔴 Activar mantenimiento
+
+on:
+  workflow_dispatch:
+
+jobs:
+  maintenance-on:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Backup y reemplazar index
+        run: |
+          cp index.html index.html.bak
+          cp mantenimiento.html index.html
+
+      - name: Commit y push
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add index.html index.html.bak
+          git commit -m "chore: activate maintenance page"
+          git push
