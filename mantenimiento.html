@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>remedi.ar - En mantenimiento</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --teal:       #008B8B;
+            --teal-dark:  #005f5f;
+            --teal-light: #e6f2f2;
+            --teal-border:#a0c8c8;
+            --bg:         #f0f5f5;
+            --text-1:     #111111;
+            --text-3:     #555555;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg);
+            color: var(--text-1);
+            min-height: 100dvh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid var(--teal-border);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            max-width: 420px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 4px 24px rgba(0,139,139,.08);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: .6rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .logo img { width: 36px; height: 36px; }
+
+        .logo-txt {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--teal-dark);
+            letter-spacing: -.5px;
+        }
+
+        .icono {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        h1 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--teal-dark);
+            margin-bottom: .6rem;
+        }
+
+        p {
+            font-size: .95rem;
+            color: var(--text-3);
+            line-height: 1.6;
+            margin-bottom: .5rem;
+        }
+
+        .eta {
+            display: inline-block;
+            margin-top: 1.25rem;
+            background: var(--teal-light);
+            color: var(--teal-dark);
+            border: 1px solid var(--teal-border);
+            border-radius: 99px;
+            padding: .35rem 1rem;
+            font-size: .85rem;
+            font-weight: 500;
+        }
+
+        .footer-txt {
+            margin-top: 2rem;
+            font-size: .78rem;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+<div class="card">
+    <div class="logo">
+        <img src="img/favicon.svg" alt="remedi.ar">
+        <span class="logo-txt">remedi.ar</span>
+    </div>
+
+    <span class="icono">🔧</span>
+    <h1>En mantenimiento</h1>
+    <p>Estamos haciendo mejoras al sitio.</p>
+    <p>Volvemos en unos minutos.</p>
+
+    <span class="eta" id="eta">Volvemos pronto</span>
+
+    <p class="footer-txt">Precios de medicamentos en Argentina · Sin publicidad · Sin tracking</p>
+</div>
+
+<script>
+    // Opcional: mostrar un contador regresivo.
+    // Configurar VUELVE_EN_MINUTOS para el tiempo estimado.
+    const VUELVE_EN_MINUTOS = 0; // 0 = desactivado
+
+    if (VUELVE_EN_MINUTOS > 0) {
+        const fin = Date.now() + VUELVE_EN_MINUTOS * 60 * 1000;
+        const eta = document.getElementById('eta');
+        const tick = () => {
+            const resto = Math.max(0, fin - Date.now());
+            const min   = Math.floor(resto / 60000);
+            const seg   = Math.floor((resto % 60000) / 1000);
+            eta.textContent = resto > 0
+                ? `Volvemos en ${min}:${String(seg).padStart(2,'0')}`
+                : 'Recargando...';
+            if (resto <= 0) location.reload();
+        };
+        tick();
+        setInterval(tick, 1000);
+    }
+</script>
+</body>
+</html>
