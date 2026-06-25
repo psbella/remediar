@@ -19,8 +19,6 @@ jobs:
           pip install pymupdf pandas openpyxl
       - name: Ejecutar pdf_to_json.py
         run: python scripts/pdf_to_json.py
-      - name: Generar landings + sitemap
-        run: python scripts/generar_landings.py
       - name: Commit y push
         run: |
           git config user.name "github-actions[bot]"
@@ -30,7 +28,6 @@ jobs:
           git add data/droga_fixes.json
           git add data/pami.xlsx
           git add data/presentaciones_debug.csv
-          git add *.html
           git add sitemap.xml
           git commit -m "Actualizar precios $(date +'%Y-%m-%d')" || echo "No changes"
           git push origin main
