@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-06-24T19:48:59.843258-03:00",
+  "timestamp": "2026-06-25T13:03:31.931315-03:00",
   "total_registros": 12147,
-  "total_outliers": 246,
+  "total_outliers": 247,
   "outliers": [
     {
       "droga": "abacavir, lamivudina",
@@ -197,9 +197,9 @@
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
         "precio $67.95 < minimo $1,800",
-        "precio $67.95 < 10% mediana $24,465.42"
+        "precio $67.95 < 10% mediana $24,823.38"
       ],
-      "mediana_droga": 24465.42,
+      "mediana_droga": 24823.38,
       "n_droga": 12
     },
     {
@@ -233,10 +233,10 @@
       "marca": "TRIFAMOX DUO",
       "presentacion": "875 mg comp.x 14",
       "laboratorio": "Bagó",
-      "precio": 13838.45,
+      "precio": 14530.37,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $15.82 << mediana_grupo $120.00"
+        "ppu $16.61 << mediana_grupo $121.52"
       ],
       "mediana_droga": 11152.0,
       "n_droga": 107
@@ -357,9 +357,9 @@
       "precio": 7480.79,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $7,480.79 < 25% mediana $30,212.22 (n=5)"
+        "precio $7,480.79 < 25% mediana $30,816.46 (n=5)"
       ],
-      "mediana_droga": 30212.22,
+      "mediana_droga": 30816.46,
       "n_droga": 5
     },
     {
@@ -367,12 +367,12 @@
       "marca": "TRIFAMOX IBL DUO",
       "presentacion": "875 mg comp.x 14",
       "laboratorio": "Bagó",
-      "precio": 30212.22,
+      "precio": 30816.46,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $34.53 << mediana_grupo $925.59"
+        "ppu $35.22 << mediana_grupo $944.10"
       ],
-      "mediana_droga": 30212.22,
+      "mediana_droga": 30816.46,
       "n_droga": 5
     },
     {
@@ -491,6 +491,19 @@
       ],
       "mediana_droga": 41563.68,
       "n_droga": 8
+    },
+    {
+      "droga": "betahistina",
+      "marca": "MICROSER FORTE",
+      "presentacion": "16 mg comp.x 30",
+      "laboratorio": "Vannier - Grune",
+      "precio": 7591.83,
+      "precio_outlier_tipo": "bajo_relativo",
+      "razones": [
+        "precio $7,591.83 < 25% mediana $30,596.83 (n=31)"
+      ],
+      "mediana_droga": 30596.83,
+      "n_droga": 31
     },
     {
       "droga": "betametasona",
@@ -624,6 +637,19 @@
       "n_droga": 5
     },
     {
+      "droga": "carvedilol",
+      "marca": "DUOBLOC",
+      "presentacion": "12.5 mg comp.x 28",
+      "laboratorio": "Sidus",
+      "precio": 5284.86,
+      "precio_outlier_tipo": "bajo_relativo",
+      "razones": [
+        "precio $5,284.86 < 25% mediana $21,309.33 (n=137)"
+      ],
+      "mediana_droga": 21309.33,
+      "n_droga": 137
+    },
+    {
       "droga": "cáscara sagrada",
       "marca": "CASCARA SAGRADA OLIGOPLEX",
       "presentacion": "comp.x 30",
@@ -654,10 +680,10 @@
       "marca": "VIXCEF",
       "presentacion": "susp.x 30 ml",
       "laboratorio": "Bagó",
-      "precio": 26034.36,
+      "precio": 26555.05,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $26,034.36 < fence_low $32,789.21"
+        "precio $26,555.05 < fence_low $33,444.99"
       ],
       "mediana_droga": 59103.23,
       "n_droga": 6
@@ -693,10 +719,10 @@
       "marca": "CICLOFOSFAMIDA FILAXIS",
       "presentacion": "1000 mg f.a.x 1",
       "laboratorio": "GP Pharm",
-      "precio": 183000.0,
+      "precio": 190000.0,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $183.00 << mediana_grupo $1,349.46"
+        "ppu $190.00 << mediana_grupo $1,401.08"
       ],
       "mediana_droga": 205174.12,
       "n_droga": 8
@@ -802,7 +828,7 @@
       "razones": [
         "ppu $705.14 << mediana_grupo $4,851.25"
       ],
-      "mediana_droga": 15259.96,
+      "mediana_droga": 15592.42,
       "n_droga": 106
     },
     {
@@ -815,7 +841,7 @@
       "razones": [
         "ppu $732.77 << mediana_grupo $10,509.52"
       ],
-      "mediana_droga": 15259.96,
+      "mediana_droga": 15592.42,
       "n_droga": 106
     },
     {
@@ -823,12 +849,12 @@
       "marca": "NEURYL",
       "presentacion": "gts.x 20 ml",
       "laboratorio": "Bagó",
-      "precio": 14969.65,
+      "precio": 15239.1,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $748.48 << mediana_grupo $11,083.13"
+        "ppu $761.96 << mediana_grupo $11,193.96"
       ],
-      "mediana_droga": 15259.96,
+      "mediana_droga": 15592.42,
       "n_droga": 106
     },
     {
@@ -1059,10 +1085,10 @@
       "marca": "DIOXAFLEX B12",
       "presentacion": "comp.x 20",
       "laboratorio": "Bagó",
-      "precio": 30809.32,
+      "precio": 31359.27,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $1,540.47 << mediana_grupo $11,873.68"
+        "ppu $1,567.96 << mediana_grupo $12,051.78"
       ],
       "mediana_droga": 31850.52,
       "n_droga": 39
@@ -1203,10 +1229,10 @@
       "marca": "HEMAX",
       "presentacion": "2000 UI f.a. x 1 x 1 ml",
       "laboratorio": "Biosidus S.A.U.",
-      "precio": 37099.69,
+      "precio": 37878.78,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $18.55 << mediana_grupo $231.59"
+        "ppu $18.94 << mediana_grupo $237.34"
       ],
       "mediana_droga": 50383.43,
       "n_droga": 23
@@ -1710,19 +1736,6 @@
       "n_droga": 9
     },
     {
-      "droga": "levofloxacina",
-      "marca": "FARMBIOTIC",
-      "presentacion": "500 mg comp.x 7",
-      "laboratorio": "HLB Pharma",
-      "precio": 10559.48,
-      "precio_outlier_tipo": "bajo_iqr",
-      "razones": [
-        "precio $10,559.48 < fence_low $11,138.08"
-      ],
-      "mediana_droga": 19884.17,
-      "n_droga": 42
-    },
-    {
       "droga": "lidocaína",
       "marca": "LIDOCAINA",
       "presentacion": "1% s/epi.a.x 5 ml",
@@ -1853,9 +1866,9 @@
       "precio": 7009.0,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $7,009.00 < 25% mediana $34,944.12 (n=36)"
+        "precio $7,009.00 < 25% mediana $35,025.38 (n=36)"
       ],
-      "mediana_droga": 34944.12,
+      "mediana_droga": 35025.38,
       "n_droga": 36
     },
     {
@@ -1866,9 +1879,9 @@
       "precio": 15840.0,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $15,840.00 < fence_low $22,556.15"
+        "precio $15,840.00 < fence_low $21,778.92"
       ],
-      "mediana_droga": 34944.12,
+      "mediana_droga": 35025.38,
       "n_droga": 36
     },
     {
@@ -1879,9 +1892,9 @@
       "precio": 6335.41,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $6,335.41 < 25% mediana $34,944.12 (n=36)"
+        "precio $6,335.41 < 25% mediana $35,025.38 (n=36)"
       ],
-      "mediana_droga": 34944.12,
+      "mediana_droga": 35025.38,
       "n_droga": 36
     },
     {
@@ -2324,9 +2337,9 @@
       "precio": 22575.9,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $22,575.90 < 25% mediana $92,754.27 (n=28)"
+        "precio $22,575.90 < 25% mediana $93,730.08 (n=28)"
       ],
-      "mediana_droga": 92754.27,
+      "mediana_droga": 93730.08,
       "n_droga": 28
     },
     {
@@ -2337,9 +2350,9 @@
       "precio": 10577.22,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $10,577.22 < 25% mediana $42,569.43 (n=112)"
+        "precio $10,577.22 < 25% mediana $42,920.31 (n=112)"
       ],
-      "mediana_droga": 42569.43,
+      "mediana_droga": 42920.31,
       "n_droga": 112
     },
     {
@@ -2430,7 +2443,7 @@
       "razones": [
         "precio $53,376.08 < fence_low $76,380.37"
       ],
-      "mediana_droga": 111981.76,
+      "mediana_droga": 112572.02,
       "n_droga": 49
     },
     {
@@ -2443,7 +2456,7 @@
       "razones": [
         "precio $53,359.00 < fence_low $76,380.37"
       ],
-      "mediana_droga": 111981.76,
+      "mediana_droga": 112572.02,
       "n_droga": 49
     },
     {
@@ -2456,7 +2469,7 @@
       "razones": [
         "precio $54,729.86 < fence_low $76,380.37"
       ],
-      "mediana_droga": 111981.76,
+      "mediana_droga": 112572.02,
       "n_droga": 49
     },
     {
@@ -2469,7 +2482,7 @@
       "razones": [
         "precio $58,547.44 < fence_low $76,380.37"
       ],
-      "mediana_droga": 111981.76,
+      "mediana_droga": 112572.02,
       "n_droga": 49
     },
     {
@@ -2482,7 +2495,7 @@
       "razones": [
         "precio $65,234.59 < fence_low $76,380.37"
       ],
-      "mediana_droga": 111981.76,
+      "mediana_droga": 112572.02,
       "n_droga": 49
     },
     {
@@ -2495,7 +2508,7 @@
       "razones": [
         "precio $70,463.00 < fence_low $76,380.37"
       ],
-      "mediana_droga": 111981.76,
+      "mediana_droga": 112572.02,
       "n_droga": 49
     },
     {
@@ -2508,7 +2521,7 @@
       "razones": [
         "precio $58,943.18 < fence_low $76,380.37"
       ],
-      "mediana_droga": 111981.76,
+      "mediana_droga": 112572.02,
       "n_droga": 49
     },
     {
@@ -2854,10 +2867,10 @@
       "marca": "DROTAQ",
       "presentacion": "20 mg comp.rec.x 1",
       "laboratorio": "Baliarda",
-      "precio": 13329.65,
+      "precio": 13609.57,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $13,329.65 < 25% mediana $64,381.87 (n=72)"
+        "precio $13,609.57 < 25% mediana $64,381.87 (n=72)"
       ],
       "mediana_droga": 64381.87,
       "n_droga": 72
@@ -2937,7 +2950,7 @@
       "razones": [
         "precio $25,930.62 < fence_low $28,333.96"
       ],
-      "mediana_droga": 81473.46,
+      "mediana_droga": 82043.15,
       "n_droga": 20
     },
     {
@@ -2958,10 +2971,10 @@
       "marca": "DRALITEM",
       "presentacion": "100 mg caps.x 5",
       "laboratorio": "Raffo",
-      "precio": 753275.47,
+      "precio": 769094.26,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $753,275.47 < 25% mediana $3,206,084.95 (n=34)"
+        "precio $769,094.26 < 25% mediana $3,206,084.95 (n=34)"
       ],
       "mediana_droga": 3206084.95,
       "n_droga": 34
@@ -3168,12 +3181,12 @@
       "marca": "ABNOBA VISCUM FRAXINI",
       "presentacion": "20 mg iny.a.x 8",
       "laboratorio": "GP Pharm",
-      "precio": 420393.24,
+      "precio": 429221.25,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $21,019.66 << mediana_grupo $115,608.14"
+        "ppu $21,461.06 << mediana_grupo $118,035.84"
       ],
-      "mediana_droga": 420393.24,
+      "mediana_droga": 429221.25,
       "n_droga": 4
     },
     {
@@ -3211,9 +3224,9 @@
       "precio": 99561.0,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $99,561.00 < 25% mediana $676,592.59 (n=19)"
+        "precio $99,561.00 < 25% mediana $679,271.58 (n=19)"
       ],
-      "mediana_droga": 676592.59,
+      "mediana_droga": 679271.58,
       "n_droga": 19
     },
     {
@@ -3226,7 +3239,7 @@
       "razones": [
         "precio $304,859.26 < fence_low $325,426.83"
       ],
-      "mediana_droga": 676592.59,
+      "mediana_droga": 679271.58,
       "n_droga": 19
     }
   ]
