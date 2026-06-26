@@ -34,11 +34,21 @@
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
-      "name": "Precios de Remedios Argentina",
+      "name": "remedi.ar",
+      "description": "Buscador gratuito de precios de medicamentos en Argentina. Datos oficiales actualizados dos veces por día. Incluye cobertura PAMI.",
       "url": "https://remedi.ar/",
+      "inLanguage": "es-AR",
+      "publisher": {
+        "@type": "Organization",
+        "name": "remedi.ar",
+        "url": "https://remedi.ar/"
+      },
       "potentialAction": {
         "@type": "SearchAction",
-        "target": "https://remedi.ar/?q={search_term_string}",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://remedi.ar/?q={search_term_string}"
+        },
         "query-input": "required name=search_term_string"
       }
     }
@@ -160,34 +170,80 @@
 
             <p>Los precios de medicamentos en Argentina son públicos, pero no son accesibles. Están publicados en documentos oficiales de cientos de páginas que ningún ciudadano común puede consultar fácilmente. remedi.ar procesa esa información automáticamente, dos veces por día, y la presenta de forma clara, gratuita y sin intermediarios.</p>
 
+            <!-- Franja de estadísticas -->
+            <div class="inst-stats">
+                <div class="inst-stat">
+                    <span class="inst-stat-num">~12.000</span>
+                    <span class="inst-stat-label">medicamentos</span>
+                </div>
+                <div class="inst-stat-sep"></div>
+                <div class="inst-stat">
+                    <span class="inst-stat-num">~1.500</span>
+                    <span class="inst-stat-label">principios activos</span>
+                </div>
+                <div class="inst-stat-sep"></div>
+                <div class="inst-stat">
+                    <span class="inst-stat-num">2×</span>
+                    <span class="inst-stat-label">actualización diaria</span>
+                </div>
+                <div class="inst-stat-sep"></div>
+                <div class="inst-stat">
+                    <span class="inst-stat-num">0</span>
+                    <span class="inst-stat-label">publicidades</span>
+                </div>
+            </div>
+
+            <!-- Divisor -->
+            <div class="inst-divider">
+                <span>Por qué remedi.ar</span>
+            </div>
+
             <div class="institucional-grid">
 
                 <div class="institucional-bloque">
+                    <div class="inst-icon">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
+                    </div>
                     <h3>Datos oficiales, siempre actualizados</h3>
                     <p>Todos los precios provienen de fuentes oficiales y reflejan los valores de venta al público vigentes en farmacias de todo el país. El catálogo incluye más de 12.000 productos, 1.500 principios activos, genéricos y marcas comerciales.</p>
                 </div>
 
                 <div class="institucional-bloque">
+                    <div class="inst-icon">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
                     <h3>Cobertura PAMI integrada</h3>
                     <p>Para los afiliados al PAMI, remedi.ar muestra el porcentaje de cobertura y el copago estimado para cada medicamento incluido en el vademécum, calculado sobre el precio vigente del día.</p>
                 </div>
 
                 <div class="institucional-bloque">
+                    <div class="inst-icon">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    </div>
                     <h3>Precios filtrados y verificados</h3>
                     <p>remedi.ar detecta automáticamente medicamentos con precios desactualizados o estadísticamente anómalos y los advierte claramente, sin ocultarlos ni equipararlos con información vigente.</p>
                 </div>
 
                 <div class="institucional-bloque">
+                    <div class="inst-icon">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
+                    </div>
                     <h3>Sin publicidad ni posicionamiento pagado</h3>
                     <p>Ningún laboratorio puede pagar para aparecer primero. Los resultados se ordenan por relevancia y vigencia del precio, no por intereses comerciales.</p>
                 </div>
 
                 <div class="institucional-bloque">
+                    <div class="inst-icon">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    </div>
                     <h3>Búsqueda inteligente</h3>
                     <p>Buscá por nombre comercial, principio activo o laboratorio. Los resultados se adaptan a lo que escribís sin necesidad de coincidir exactamente con el listado oficial.</p>
                 </div>
 
                 <div class="institucional-bloque">
+                    <div class="inst-icon">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                    </div>
                     <h3>Código abierto y auditable</h3>
                     <p>Todo el código de remedi.ar es público en <a href="https://github.com/psbella/remediar" target="_blank" rel="noopener">GitHub</a>. Cualquier persona puede verificar cómo obtenemos los datos, cómo los procesamos y cómo los mostramos.</p>
                 </div>
