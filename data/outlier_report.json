@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-06-26T19:47:18.837928-03:00",
+  "timestamp": "2026-06-27T06:04:23.391871-03:00",
   "total_registros": 12147,
-  "total_outliers": 248,
+  "total_outliers": 249,
   "outliers": [
     {
       "droga": "abacavir, lamivudina",
@@ -385,7 +385,7 @@
       "razones": [
         "ppu $2,110.29 << mediana_grupo $32,709.51"
       ],
-      "mediana_droga": 138217.98,
+      "mediana_droga": 139639.63,
       "n_droga": 16
     },
     {
@@ -422,9 +422,9 @@
       "precio": 2687.54,
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
-        "precio $2,687.54 < 10% mediana $51,285.72"
+        "precio $2,687.54 < 10% mediana $51,819.57"
       ],
-      "mediana_droga": 51285.72,
+      "mediana_droga": 51819.57,
       "n_droga": 30
     },
     {
@@ -435,9 +435,9 @@
       "precio": 3223.77,
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
-        "precio $3,223.77 < 10% mediana $51,285.72"
+        "precio $3,223.77 < 10% mediana $51,819.57"
       ],
-      "mediana_droga": 51285.72,
+      "mediana_droga": 51819.57,
       "n_droga": 30
     },
     {
@@ -774,9 +774,9 @@
       "precio": 6037.96,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $6,037.96 < 25% mediana $27,047.07 (n=66)"
+        "precio $6,037.96 < 25% mediana $27,277.38 (n=66)"
       ],
-      "mediana_droga": 27047.07,
+      "mediana_droga": 27277.38,
       "n_droga": 66
     },
     {
@@ -787,9 +787,9 @@
       "precio": 5734.16,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $5,734.16 < 25% mediana $27,047.07 (n=66)"
+        "precio $5,734.16 < 25% mediana $27,277.38 (n=66)"
       ],
-      "mediana_droga": 27047.07,
+      "mediana_droga": 27277.38,
       "n_droga": 66
     },
     {
@@ -1385,10 +1385,10 @@
       "marca": "LIFECELL",
       "presentacion": "150UIf.a.liof.x1+solv.x1",
       "laboratorio": "Eurofarma",
-      "precio": 291311.17,
+      "precio": 297428.7,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $291,311.17 < 25% mediana $1,633,960.02 (n=6)"
+        "precio $297,428.70 < 25% mediana $1,633,960.02 (n=6)"
       ],
       "mediana_droga": 1633960.02,
       "n_droga": 6
@@ -1732,8 +1732,21 @@
       "razones": [
         "precio $23,842.04 < fence_low $26,016.67"
       ],
-      "mediana_droga": 32533.78,
+      "mediana_droga": 34160.47,
       "n_droga": 7
+    },
+    {
+      "droga": "latanoprost, timolol",
+      "marca": "LATIMODORF",
+      "presentacion": "gts.oft.x 2.5 ml",
+      "laboratorio": "PharmaDorf",
+      "precio": 33557.95,
+      "precio_outlier_tipo": "bajo_iqr",
+      "razones": [
+        "precio $33,557.95 < fence_low $33,570.56"
+      ],
+      "mediana_droga": 37792.52,
+      "n_droga": 6
     },
     {
       "droga": "leucovorina",
@@ -2454,7 +2467,7 @@
       "precio": 53376.08,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $53,376.08 < fence_low $76,380.37"
+        "precio $53,376.08 < fence_low $74,987.00"
       ],
       "mediana_droga": 112610.54,
       "n_droga": 49
@@ -2467,7 +2480,7 @@
       "precio": 53359.0,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $53,359.00 < fence_low $76,380.37"
+        "precio $53,359.00 < fence_low $74,987.00"
       ],
       "mediana_droga": 112610.54,
       "n_droga": 49
@@ -2480,7 +2493,7 @@
       "precio": 54729.86,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $54,729.86 < fence_low $76,380.37"
+        "precio $54,729.86 < fence_low $74,987.00"
       ],
       "mediana_droga": 112610.54,
       "n_droga": 49
@@ -2493,7 +2506,7 @@
       "precio": 58547.44,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $58,547.44 < fence_low $76,380.37"
+        "precio $58,547.44 < fence_low $74,987.00"
       ],
       "mediana_droga": 112610.54,
       "n_droga": 49
@@ -2506,7 +2519,7 @@
       "precio": 65234.59,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $65,234.59 < fence_low $76,380.37"
+        "precio $65,234.59 < fence_low $74,987.00"
       ],
       "mediana_droga": 112610.54,
       "n_droga": 49
@@ -2519,7 +2532,7 @@
       "precio": 70463.0,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $70,463.00 < fence_low $76,380.37"
+        "precio $70,463.00 < fence_low $74,987.00"
       ],
       "mediana_droga": 112610.54,
       "n_droga": 49
@@ -2532,7 +2545,7 @@
       "precio": 58943.18,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $58,943.18 < fence_low $76,380.37"
+        "precio $58,943.18 < fence_low $74,987.00"
       ],
       "mediana_droga": 112610.54,
       "n_droga": 49
@@ -2833,7 +2846,7 @@
       "razones": [
         "ppu $1,104.75 << mediana_grupo $11,391.69"
       ],
-      "mediana_droga": 64661.58,
+      "mediana_droga": 65426.22,
       "n_droga": 72
     },
     {
@@ -2844,9 +2857,9 @@
       "precio": 12413.91,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $12,413.91 < 25% mediana $64,661.58 (n=72)"
+        "precio $12,413.91 < 25% mediana $65,426.22 (n=72)"
       ],
-      "mediana_droga": 64661.58,
+      "mediana_droga": 65426.22,
       "n_droga": 72
     },
     {
@@ -2857,9 +2870,9 @@
       "precio": 13170.95,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $13,170.95 < 25% mediana $64,661.58 (n=72)"
+        "precio $13,170.95 < 25% mediana $65,426.22 (n=72)"
       ],
-      "mediana_droga": 64661.58,
+      "mediana_droga": 65426.22,
       "n_droga": 72
     },
     {
@@ -2870,9 +2883,9 @@
       "precio": 13234.0,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $13,234.00 < 25% mediana $64,661.58 (n=72)"
+        "precio $13,234.00 < 25% mediana $65,426.22 (n=72)"
       ],
-      "mediana_droga": 64661.58,
+      "mediana_droga": 65426.22,
       "n_droga": 72
     },
     {
@@ -2883,9 +2896,9 @@
       "precio": 13609.57,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $13,609.57 < 25% mediana $64,661.58 (n=72)"
+        "precio $13,609.57 < 25% mediana $65,426.22 (n=72)"
       ],
-      "mediana_droga": 64661.58,
+      "mediana_droga": 65426.22,
       "n_droga": 72
     },
     {
@@ -2896,9 +2909,9 @@
       "precio": 13600.0,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $13,600.00 < 25% mediana $64,661.58 (n=72)"
+        "precio $13,600.00 < 25% mediana $65,426.22 (n=72)"
       ],
-      "mediana_droga": 64661.58,
+      "mediana_droga": 65426.22,
       "n_droga": 72
     },
     {
@@ -2909,9 +2922,9 @@
       "precio": 11000.0,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $11,000.00 < 25% mediana $64,661.58 (n=72)"
+        "precio $11,000.00 < 25% mediana $65,426.22 (n=72)"
       ],
-      "mediana_droga": 64661.58,
+      "mediana_droga": 65426.22,
       "n_droga": 72
     },
     {
@@ -2924,7 +2937,7 @@
       "razones": [
         "ppu $849.54 << mediana_grupo $11,737.72"
       ],
-      "mediana_droga": 64661.58,
+      "mediana_droga": 65426.22,
       "n_droga": 72
     },
     {
@@ -2937,7 +2950,7 @@
       "razones": [
         "ppu $1,745.29 << mediana_grupo $11,737.72"
       ],
-      "mediana_droga": 64661.58,
+      "mediana_droga": 65426.22,
       "n_droga": 72
     },
     {
@@ -2950,7 +2963,7 @@
       "razones": [
         "ppu $2,705.77 << mediana_grupo $22,355.37"
       ],
-      "mediana_droga": 64661.58,
+      "mediana_droga": 65426.22,
       "n_droga": 72
     },
     {
@@ -3053,9 +3066,9 @@
       "precio_outlier_tipo": "bajo_absoluto",
       "razones": [
         "precio $1,375.04 < minimo $1,800",
-        "precio $1,375.04 < 25% mediana $7,228.48 (n=9)"
+        "precio $1,375.04 < 25% mediana $7,380.27 (n=9)"
       ],
-      "mediana_droga": 7228.48,
+      "mediana_droga": 7380.27,
       "n_droga": 9
     },
     {
