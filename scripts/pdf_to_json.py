@@ -1917,9 +1917,10 @@ def main():
     MEDICAMENTOS_PATH.parent.mkdir(parents=True, exist_ok=True)
     with open(MEDICAMENTOS_PATH, 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, separators=(',', ':'))
-
+    PRETTY_PATH = BASE / "data" / "medicamentos.pretty.json"
+    with open(PRETTY_PATH, 'w', encoding='utf-8') as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
     print(f"\nGuardado: {MEDICAMENTOS_PATH}")
     print(f"Total: {len(medicamentos)} | Excluidos (blacklist): {n_bl} | Fecha: {fecha_str}")
-
 if __name__ == "__main__":
     main()

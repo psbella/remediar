@@ -25,6 +25,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "actions@github.com"
           git add data/medicamentos.json
+          git add data/medicamentos.pretty.json
           git add data/outlier_report.json
           git add data/droga_fixes.json
           git add data/pami.xlsx
