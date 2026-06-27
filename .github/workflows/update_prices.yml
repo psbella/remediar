@@ -20,14 +20,15 @@ jobs:
       - name: Ejecutar pdf_to_json.py
         run: python scripts/pdf_to_json.py
       - name: Commit y push
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "actions@github.com"
-          git add data/medicamentos.json
-          git add data/medicamentos.pretty.json
-          git add data/outlier_report.json
-          git add data/droga_fixes.json
-          git add data/pami.xlsx
-          git add data/presentaciones_debug.csv
-          git commit -m "Actualizar precios $(date +'%Y-%m-%d')" || echo "No changes"
-          git push origin main
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "actions@github.com"
+        git add data/medicamentos.json
+        git add data/medicamentos.pretty.json
+        git add data/outlier_report.json
+        git add data/droga_fixes.json
+        git add data/pami.xlsx
+        git add data/presentaciones_debug.csv
+        git commit -m "Actualizar precios $(date +'%Y-%m-%d')" || echo "No changes"
+        git pull --rebase origin main
+        git push origin main
