@@ -80,8 +80,16 @@ def cargar_blacklist():
     if BLACKLIST_PATH.exists():
         with open(BLACKLIST_PATH, encoding='utf-8') as f:
             bl = json.load(f)
-        print(f"   Lista negra: {len(bl)} entradas cargadas")
-        return bl
+        # Corregir doble encoding en claves (latin-1 interpretado como utf-8)
+        fixed = {}
+        for key, val in bl.items():
+            try:
+                fixed_key = key.encode('latin-1').decode('utf-8')
+            except (UnicodeDecodeError, UnicodeEncodeError):
+                fixed_key = key
+            fixed[fixed_key] = val
+        print(f"   Lista negra: {len(fixed)} entradas cargadas")
+        return fixed
     print("   Lista negra: no encontrada, se usara vacia")
     return {}
 
