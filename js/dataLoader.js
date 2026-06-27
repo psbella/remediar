@@ -1,6 +1,6 @@
 // dataLoader.js — Carga con cache y compresión
 const CACHE_KEY = 'remedios_data_v2';
-const CACHE_TTL_MS = 4 * 60 * 60 * 1000; // 4 horas
+const CACHE_TTL_MS = 2 * 60 * 60 * 1000; // 2 horas
 
 export async function cargarDatos() {
     // Intentar cache en sessionStorage (sin IndexedDB ni localStorage)
