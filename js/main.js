@@ -5,7 +5,7 @@ import { aplicarFiltros, ordenar }               from './filters.js';
 import {
     mostrarSkeleton, mostrarMensajeInicial, mostrarError,
     mostrarResultados, cargarOpcionesFiltros, actualizarFechaEnFooter,
-} from './uiRenderer.js?v=2';
+} from './uiRenderer.js';
 import {
     getState, getResultados, getFiltros, getTodos,
     setFiltroTexto, setFiltroPresentacion,
