@@ -14,7 +14,6 @@ jobs:
   with:
     python-version: '3.11'
     cache: 'pip'
-
 - name: Instalar dependencias
   run: |
     python -m pip install --upgrade pip
