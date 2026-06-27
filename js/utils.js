@@ -20,7 +20,8 @@ export function escapeHtml(str) {
         .replace(/&/g, '&amp;')
         .replace(/</g, '&lt;')
         .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;');
+        .replace(/"/g, '&quot;')
+		.replace(/'/g, '&#039;');;
 }
 
 export function calcularAhorroPami(pub, pami) {
