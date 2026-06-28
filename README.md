@@ -6,7 +6,7 @@
 
 <p align="center">
   <strong>Buscador de precios de medicamentos en Argentina</strong><br>
-  <em>Sistema open source que procesa datos oficiales de SIAFAR/COFA y genera un comparador de precios con actualización automática dos veces al día.</em>
+  <em>Sistema open source que procesa datos oficiales de SIAFAR/COFA/PAMI y genera un comparador de precios con actualización automática dos veces al día.</em>
 </p>
 
 <p align="center">
