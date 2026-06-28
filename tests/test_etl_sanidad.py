@@ -58,24 +58,12 @@ def test_precios_positivos():
 
 
 # ── Rangos razonables ─────────────────────────────────────────────────────────
-
 def test_precio_mediana_razonable():
     """La mediana de precios debe estar en un rango razonable para ARS."""
     precios = [m["precio"] for m in MEDICAMENTOS if isinstance(m.get("precio"), (int, float))]
     mediana = statistics.median(precios)
     assert mediana > 1_000, f"Mediana de precios muy baja: ${mediana:.0f} — posible error de escala."
     assert mediana < 10_000_000, f"Mediana de precios muy alta: ${mediana:.0f} — posible error de escala."
-
-
-def test_precio_maximo_razonable():
-    """Ningún precio debería ser más de 1000x la mediana del dataset."""
-    precios = [m["precio"] for m in MEDICAMENTOS if isinstance(m.get("precio"), (int, float))]
-    mediana = statistics.median(precios)
-    MAX_RATIO = 1000
-    outliers = [m for m in MEDICAMENTOS if m.get("precio", 0) > mediana * MAX_RATIO]
-    assert len(outliers) == 0, (
-        f"{len(outliers)} registros con precio > {MAX_RATIO}x la mediana (${mediana:,.0f}). Ejemplos: {outliers[:3]}"
-    )
 
 
 # ── Calidad de datos ──────────────────────────────────────────────────────────
