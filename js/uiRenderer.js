@@ -1,5 +1,6 @@
 // uiRenderer.js — Renderizado con badges de vigencia y escape seguro.
 import { formatearPrecio, escapeHtml, extraerFiltros, normalizarLaboratorio, parsearPresentacion } from './utils.js';
+
 export function mostrarSkeleton() {
     const el = document.getElementById('resultados');
     if (!el || el.querySelector('.skeleton-card')) return;
@@ -97,39 +98,86 @@ function _ocultarChip() {
     document.getElementById('sortChip')?.classList.remove('visible');
 }
 
-function badgeVigencia(med) {
-    const flags = med.flags || [];
-    const score = med.vigencia_score ?? 100;
-
-    if (score >= 70 && flags.length === 0) return '';
-
-    let msg = '';
-    let cls = '';
-
-    if (flags.includes('precio_obsoleto') && score < 50) {
-        msg = '⚠ Precio posiblemente desactualizado';
-        cls = 'badge-sospechoso';
-    } else if (flags.includes('precio_bajo') && score < 50) {
-        msg = '⚠ Precio bajo - verificar';
-        cls = 'badge-sospechoso';
-    } else if (flags.includes('precio_bajo')) {
-        msg = '⚠ Precio bajo';
-        cls = 'badge-verificar';
-    } else if (flags.includes('precio_sospechoso')) {
-        msg = '⚠ Precio a verificar';
-        cls = 'badge-verificar';
-    } else {
-        return '';
-    }
-
-    return `<div class="vigencia-badge ${escapeHtml(cls)}" title="Score: ${score}/100 — Flags: ${escapeHtml(flags.join(', '))}">
-        ${escapeHtml(msg)}
-    </div>`;
+// ── Hash de medicamento para compartir ────────────────────────────────
+export function hashMedicamento(med) {
+    const slug = s => (s || '').toLowerCase()
+        .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+        .replace(/\s+/g, '-')
+        .replace(/[^a-z0-9-]/g, '');
+    return `${slug(med.droga)}--${slug(med.marca)}--${slug(med.laboratorio)}--${slug(med.presentacion)}`;
 }
 
+export function buscarPorHash(todos, hash) {
+    return todos.find(m => hashMedicamento(m) === hash) || null;
+}
+
+// ── Compartir ─────────────────────────────────────────────────────────
+export async function compartirMedicamento(med) {
+    const hash = hashMedicamento(med);
+    const url  = `${location.origin}${location.pathname}#${hash}`;
+    const text = `${med.marca} (${med.droga}) — ${formatearPrecio(med.precio)} | remedi.ar`;
+
+    // Tracker GA4
+    if (typeof gtag === 'function') {
+        gtag('event', 'share', {
+            method: navigator.share ? 'native' : 'clipboard',
+            content_type: 'medicamento',
+            item_id: `${med.droga}--${med.marca}`,
+        });
+    }
+
+    if (navigator.share) {
+        try {
+            await navigator.share({ title: med.marca, text, url });
+            return;
+        } catch (e) {
+            if (e.name === 'AbortError') return;
+        }
+    }
+
+    try {
+        await navigator.clipboard.writeText(url);
+        _mostrarToast('¡Link copiado!');
+    } catch {
+        _mostrarToast('No se pudo copiar el link');
+    }
+}
+
+function _mostrarToast(msg) {
+    let toast = document.getElementById('share-toast');
+    if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'share-toast';
+        document.body.appendChild(toast);
+    }
+    toast.textContent = msg;
+    toast.classList.add('visible');
+    clearTimeout(toast._timeout);
+    toast._timeout = setTimeout(() => toast.classList.remove('visible'), 2000);
+}
+
+// ── SVG íconos ────────────────────────────────────────────────────────
+const SVG_SHARE = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+    <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+</svg>`;
+
+const SVG_COPY = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+</svg>`;
+
+function renderBotonCompartir() {
+    const tieneShare = !!navigator.share;
+    const icono = tieneShare ? SVG_SHARE : SVG_COPY;
+    const texto = tieneShare ? 'Compartir' : 'Copiar link';
+    return `<button class="btn-compartir" aria-label="Compartir medicamento">
+        ${icono}<span>${texto}</span>
+    </button>`;
+}
+
+// ── Presentación y precios ────────────────────────────────────────────
 function renderPresentacion(med) {
-    // Preferir campos pre-parseados del ETL (pres_forma/dosis/unidad/cantidad)
-    // y caer al parser JS solo si no están disponibles.
     const p = (med.pres_forma || med.pres_dosis)
         ? { forma: med.pres_forma || null, dosis: med.pres_dosis ? `${med.pres_dosis}${med.pres_unidad ? ' ' + med.pres_unidad : ''}` : null, cantidad: med.pres_cantidad || null }
         : parsearPresentacion(med.presentacion);
@@ -158,15 +206,22 @@ function renderPrecios(med, soloPami) {
     </div>` : ''}`;
 }
 
-function renderizarTarjeta(med, soloPami = false) {
+// ── Tarjeta ───────────────────────────────────────────────────────────
+function renderizarTarjeta(med, soloPami = false, destacada = false) {
     const esSosp = (med.vigencia_score ?? 100) < 50;
+    const clases = [
+        'tarjeta',
+        esSosp    ? 'tarjeta-sospechosa' : '',
+        destacada ? 'tarjeta-destacada'  : '',
+    ].filter(Boolean).join(' ');
 
     return `
-        <article class="tarjeta${esSosp ? ' tarjeta-sospechosa' : ''}">
+        <article class="${clases}" data-hash="${escapeHtml(hashMedicamento(med))}">
+            ${destacada ? '<div class="badge-compartida">Producto compartido</div>' : ''}
             ${badgeVigencia(med)}
             <div class="tarjeta-header">
                 <h3 class="marca-tarjeta">${escapeHtml(med.marca || 'N/A')}</h3>
-                <span class="laboratorio-badge">${escapeHtml(normalizarLaboratorio(med.laboratorio) || "N/A")}</span>
+                <span class="laboratorio-badge">${escapeHtml(normalizarLaboratorio(med.laboratorio) || 'N/A')}</span>
             </div>
             <div class="fila-tabla">
                 <span class="celda etiqueta">
@@ -189,15 +244,19 @@ function renderizarTarjeta(med, soloPami = false) {
             <div class="fila-precios">
                 ${renderPrecios(med, soloPami)}
             </div>
+            <div class="tarjeta-footer">
+                ${renderBotonCompartir()}
+            </div>
         </article>`;
 }
 
-export function mostrarResultados(lista, termino = '', soloPami = false) {
+// ── Render principal ──────────────────────────────────────────────────
+export function mostrarResultados(lista, termino = '', soloPami = false, medDestacada = null) {
     const cont = document.getElementById('resultados');
     const ctr  = document.getElementById('contador');
     if (!cont) return;
 
-    if (!lista?.length) {
+    if (!lista?.length && !medDestacada) {
         cont.innerHTML = `
             <div class="mensaje-inicial">
                 <svg width="32" height="32" fill="none" stroke="#c8d8d8" stroke-width="1.5" viewBox="0 0 24 24">
@@ -210,10 +269,10 @@ export function mostrarResultados(lista, termino = '', soloPami = false) {
         return;
     }
 
-    const MAX    = 300;
-    const total  = lista.length;
+    const MAX       = 300;
+    const total     = lista.length;
     const suspCount = lista.filter(m => (m.vigencia_score ?? 100) < 50).length;
-    const unidad = total === 1 ? 'resultado' : 'resultados';
+    const unidad    = total === 1 ? 'resultado' : 'resultados';
 
     let ctrHtml = total > MAX
         ? `<strong>${total.toLocaleString('es-AR')} ${unidad}</strong> (mostrando los primeros ${MAX})`
@@ -224,6 +283,46 @@ export function mostrarResultados(lista, termino = '', soloPami = false) {
     }
 
     ctr.innerHTML = ctrHtml;
-    cont.innerHTML = lista.slice(0, MAX).map(m => renderizarTarjeta(m, soloPami)).join('');
+
+    const hashDest    = medDestacada ? hashMedicamento(medDestacada) : null;
+    const similares   = hashDest ? lista.filter(m => hashMedicamento(m) !== hashDest) : lista;
+    const htmlDest    = medDestacada ? renderizarTarjeta(medDestacada, soloPami, true) : '';
+    const separador   = medDestacada && similares.length
+        ? '<div class="separador-similares"><span>Productos similares</span></div>'
+        : '';
+
+    cont.innerHTML = htmlDest + separador + similares.slice(0, MAX).map(m => renderizarTarjeta(m, soloPami)).join('');
+
     _ocultarChip();
+}
+
+// Badge vigencia (definición movida después de las funciones que la usan)
+function badgeVigencia(med) {
+    const flags = med.flags || [];
+    const score = med.vigencia_score ?? 100;
+
+    if (score >= 70 && flags.length === 0) return '';
+
+    let msg = '';
+    let cls = '';
+
+    if (flags.includes('precio_obsoleto') && score < 50) {
+        msg = '⚠ Precio posiblemente desactualizado';
+        cls = 'badge-sospechoso';
+    } else if (flags.includes('precio_bajo') && score < 50) {
+        msg = '⚠ Precio bajo - verificar';
+        cls = 'badge-sospechoso';
+    } else if (flags.includes('precio_bajo')) {
+        msg = '⚠ Precio bajo';
+        cls = 'badge-verificar';
+    } else if (flags.includes('precio_sospechoso')) {
+        msg = '⚠ Precio a verificar';
+        cls = 'badge-verificar';
+    } else {
+        return '';
+    }
+
+    return `<div class="vigencia-badge ${escapeHtml(cls)}" title="Score: ${score}/100 — Flags: ${escapeHtml(flags.join(', '))}">
+        ${escapeHtml(msg)}
+    </div>`;
 }

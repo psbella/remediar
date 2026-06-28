@@ -5,6 +5,7 @@ import { aplicarFiltros, ordenar }               from './filters.js';
 import {
     mostrarSkeleton, mostrarMensajeInicial, mostrarError,
     mostrarResultados, cargarOpcionesFiltros, actualizarFechaEnFooter,
+    hashMedicamento, buscarPorHash, compartirMedicamento,
 } from './uiRenderer.js';
 import {
     getState, getResultados, getFiltros, getTodos,
@@ -13,8 +14,9 @@ import {
     setLoading, setError, initStore, suscribirse,
 } from './core/store.js';
 
-let todos   = [];
-let timeout = null;
+let todos         = [];
+let timeout       = null;
+let medDestacada  = null;  // medicamento llegado por hash en URL
 
 // ── Suscripción al store ───────────────────────────────────────────────
 suscribirse((state) => {
@@ -23,18 +25,16 @@ suscribirse((state) => {
     const hayTexto  = filtros.texto && filtros.texto.trim().length >= 2;
     const hayFiltro = !!(filtros.presentacion || filtros.laboratorio);
 
-    if (!hayTexto && !hayFiltro) {
+    if (!hayTexto && !hayFiltro && !medDestacada) {
         mostrarMensajeInicial();
         return;
     }
 
-    // Dropdowns: siempre contextuales al texto buscado pero no al filtro
-    // activo — permite cambiar de opción sin perder el contexto de búsqueda.
-    const sinFiltros = getResultadosSinFiltros();
-    const baseDropdown = sinFiltros.length > 0 ? sinFiltros : todos;
+    const sinFiltros    = getResultadosSinFiltros();
+    const baseDropdown  = sinFiltros.length > 0 ? sinFiltros : todos;
     cargarOpcionesFiltros(baseDropdown, filtros);
 
-    mostrarResultados(resultados, filtros.texto, filtros.soloPami);
+    mostrarResultados(resultados, filtros.texto, filtros.soloPami, medDestacada);
 });
 
 // ── Handlers ──────────────────────────────────────────────────────────
@@ -42,19 +42,19 @@ function onInput() {
     clearTimeout(timeout);
     const q = document.getElementById('buscador').value.trim();
 
-    // Mostrar/ocultar botón limpiar
     const btnLimpiar = document.getElementById('btnLimpiar');
     if (btnLimpiar) btnLimpiar.style.display = q ? 'flex' : 'none';
 
     if (!q || q.length < 2) {
         const hayFiltro = !!(document.getElementById('filtroPresentacion')?.value || document.getElementById('filtroLaboratorio')?.value);
-        if (!hayFiltro) mostrarMensajeInicial();
+        if (!hayFiltro && !medDestacada) mostrarMensajeInicial();
         setFiltroTexto('');
         _actualizarURL('');
         return;
     }
 
     timeout = setTimeout(() => {
+        medDestacada = null;  // nueva búsqueda limpia la destacada
         setFiltroTexto(q);
         _actualizarURL(q);
     }, 250);
@@ -63,6 +63,7 @@ function onInput() {
 function onBuscar() {
     clearTimeout(timeout);
     const q = document.getElementById('buscador').value.trim();
+    medDestacada = null;
     setFiltroTexto(q);
     _actualizarURL(q);
 }
@@ -85,17 +86,38 @@ function onLimpiar() {
     const sel = document.getElementById('ordenPrecio');
     if (sel) sel.value = 'relevancia';
 
+    medDestacada = null;
+    history.replaceState(null, '', location.pathname + location.search.replace(/[?&]?q=[^&]*/g, ''));
+    location.hash = '';
+
     limpiarFiltros();
     mostrarMensajeInicial();
     cargarOpcionesFiltros(getTodos());
     _actualizarURL('');
 
-    // Ocultar botón limpiar
     const btnLimpiar = document.getElementById('btnLimpiar');
     if (btnLimpiar) btnLimpiar.style.display = 'none';
 
-    // Foco al buscador
     document.getElementById('buscador')?.focus();
+}
+
+// ── Compartir: escuchar evento delegado desde uiRenderer ──────────────
+function _initCompartir() {
+    document.getElementById('resultados')?.addEventListener('compartir-med', async (e) => {
+        const { hash } = e.detail;
+        const med = todos.find(m => hashMedicamento(m) === hash);
+        if (med) await compartirMedicamento(med);
+    });
+
+    // Delegación directa como fallback (click en btn-compartir)
+    document.getElementById('resultados')?.addEventListener('click', async (e) => {
+        const btn = e.target.closest('.btn-compartir');
+        if (!btn) return;
+        const article = btn.closest('article[data-hash]');
+        if (!article) return;
+        const med = todos.find(m => hashMedicamento(m) === article.dataset.hash);
+        if (med) await compartirMedicamento(med);
+    });
 }
 
 // ── Persistencia URL ──────────────────────────────────────────────────
@@ -106,14 +128,20 @@ function _actualizarURL(q) {
     history.replaceState(null, '', url.toString());
 }
 
+// ── Hash en URL: medicamento compartido ──────────────────────────────
+function _resolverHash() {
+    const hash = location.hash.slice(1); // quitar el #
+    if (!hash || !hash.includes('--')) return null;
+    return buscarPorHash(todos, hash);
+}
+
 // ── Botón scroll-to-top ───────────────────────────────────────────────
 function _initScrollTop() {
-    // Inyectar botón si no existe en el HTML
     let btn = document.getElementById('btnTop');
     if (!btn) {
         btn = document.createElement('button');
-        btn.id          = 'btnTop';
-        btn.innerHTML   = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>`;
+        btn.id        = 'btnTop';
+        btn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>`;
         btn.setAttribute('aria-label', 'Volver arriba');
         document.body.appendChild(btn);
     }
@@ -139,13 +167,22 @@ async function init() {
         cargarOpcionesFiltros(todos);
         actualizarFechaEnFooter(data.fecha);
 
-        // Restaurar búsqueda desde URL
-        const q = new URLSearchParams(window.location.search).get('q');
-        if (q && q.length >= 2) {
-            document.getElementById('buscador').value = q;
-            setFiltroTexto(q);
+        // Resolver hash (medicamento compartido) primero
+        medDestacada = _resolverHash();
+
+        if (medDestacada) {
+            // Buscar productos similares por droga
+            setFiltroTexto(medDestacada.droga);
+            document.getElementById('buscador').value = medDestacada.droga;
         } else {
-            mostrarMensajeInicial();
+            // Restaurar búsqueda desde URL
+            const q = new URLSearchParams(window.location.search).get('q');
+            if (q && q.length >= 2) {
+                document.getElementById('buscador').value = q;
+                setFiltroTexto(q);
+            } else {
+                mostrarMensajeInicial();
+            }
         }
 
         setLoading(false);
@@ -168,11 +205,12 @@ async function init() {
     document.getElementById('filtroLaboratorio')?.addEventListener('change', onFiltroLaboratorioChange);
     document.getElementById('ordenPrecio')?.addEventListener('change', onOrdenChange);
     document.getElementById('togglePami')?.addEventListener('change', e => setSoloPami(e.target.checked));
+
+    _initCompartir();
 }
 
 init();
 
-// Forzar recarga cuando la página se recupera del bfcache
 window.addEventListener('pageshow', (event) => {
     if (event.persisted) {
         console.log('Página restaurada desde bfcache, recargando...');
