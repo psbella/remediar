@@ -69,7 +69,7 @@ def test_precio_mediana_razonable():
 
 def test_precio_maximo_razonable():
     """Ningún precio debería superar un umbral absoluto."""
-    MAX_PRECIO = 50_000_000  # $50M ARS
+    MAX_PRECIO = 500_000_000  # $500M ARS — medicamentos de alto costo incluidos
     outliers = [m for m in MEDICAMENTOS if m.get("precio", 0) > MAX_PRECIO]
     assert len(outliers) == 0, (
         f"{len(outliers)} registros con precio > ${MAX_PRECIO:,}. Ejemplos: {outliers[:3]}"
