@@ -126,6 +126,7 @@
 | Entradas en blacklist | 569 |
 | Cobertura parser de presentaciones | ~99.5% |
 | Actualizaciones | 2 veces/día (lunes a viernes) |
+| Tests de sanidad | 12 checks automáticos post-ETL |
 
 ---
 
@@ -287,6 +288,7 @@ flowchart TD
     FP[📋 Generar medicamentos.pretty.json]
     R[📋 Generar outlier_report.json]
     CSV[🔬 Generar presentaciones_debug.csv]
+    T[🧪 Tests de sanidad pytest]
     H[📤 Commit automático]
     I[🚀 Cloudflare Pages actualizado]
 
@@ -300,7 +302,8 @@ flowchart TD
     E --> FP
     E --> R
     E --> CSV
-    F --> H
+    F --> T
+    T --> H
     FP --> H
     R --> H
     CSV --> H
@@ -352,6 +355,9 @@ jobs:
       - run: pip install -r requirements.txt
 
       - run: python scripts/pdf_to_json.py
+
+      - name: Verificar sanidad del output
+        run: pytest tests/ -v
 
       - name: Commit y push
         run: |
@@ -490,6 +496,31 @@ Service Worker con estrategia network-first para datos y cache-first para assets
 
 CSP via header HTTP (no meta tag) con hash SHA256 del script inline de GA. `X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy` y `Access-Control-Allow-Origin: *` para el JSON público.
 
+## ✅ Tests de sanidad automáticos
+
+12 tests pytest corren después de cada actualización del ETL y antes del commit. Si alguno falla, el workflow se detiene y el sitio sigue sirviendo los datos anteriores.
+
+```
+============================= test session starts ==============================
+platform linux -- Python 3.11.15, pytest-9.1.1, pluggy-1.6.0
+collected 12 items
+
+tests/test_etl_sanidad.py::test_cantidad_minima PASSED                   [  8%]
+tests/test_etl_sanidad.py::test_cantidad_maxima PASSED                   [ 16%]
+tests/test_etl_sanidad.py::test_campos_presentes PASSED                  [ 25%]
+tests/test_etl_sanidad.py::test_precios_positivos PASSED                 [ 33%]
+tests/test_etl_sanidad.py::test_precio_mediana_razonable PASSED          [ 41%]
+tests/test_etl_sanidad.py::test_drogas_vacias PASSED                     [ 50%]
+tests/test_etl_sanidad.py::test_laboratorios_desconocidos PASSED         [ 58%]
+tests/test_etl_sanidad.py::test_marcas_vacias PASSED                     [ 66%]
+tests/test_etl_sanidad.py::test_vigencia_score_rango PASSED              [ 75%]
+tests/test_etl_sanidad.py::test_pami_cobertura_rango PASSED              [ 83%]
+tests/test_etl_sanidad.py::test_estructura_raiz PASSED                   [ 91%]
+tests/test_etl_sanidad.py::test_fecha_presente PASSED                    [100%]
+
+12 passed in 0.21s
+```
+
 ---
 
 # ⏱️ Tiempos de Respuesta
@@ -606,6 +637,10 @@ remediar/
 ├── scripts/
 │   └── pdf_to_json.py
 │
+├── tests/
+│   ├── conftest.py
+│   └── test_etl_sanidad.py
+│
 └── .github/workflows/
     ├── update_prices.yml
     ├── maintenance-on.yml
@@ -625,6 +660,7 @@ remediar/
 | Crosswalk PAMI | pandas + openpyxl |
 | Datos | JSON estático |
 | CI/CD | GitHub Actions |
+| Testing | pytest |
 | Hosting | Cloudflare Pages + GitHub Pages |
 | SEO | JSON-LD + Open Graph + Twitter Cards |
 | Caché | sessionStorage (TTL 2h) + Service Worker |
@@ -685,6 +721,12 @@ pip install -r requirements.txt
 python scripts/pdf_to_json.py
 ```
 
+## Ejecutar los tests
+
+```bash
+pytest tests/ -v
+```
+
 ## Docker
 
 ```dockerfile
@@ -704,6 +746,7 @@ docker run -p 8080:80 remediar
 | Script | Función |
 |---|---|
 | `scripts/pdf_to_json.py` | Descarga PDF; aplica pipeline de 8+ capas de normalización; crosswalk con PAMI; aplica blacklist; detecta outliers; genera `medicamentos.json`, `medicamentos.pretty.json`, `outlier_report.json` y `presentaciones_debug.csv` |
+| `tests/test_etl_sanidad.py` | 12 tests de sanidad sobre el output del ETL: cantidad de registros, campos obligatorios, rangos de precios, calidad de datos y estructura del JSON |
 
 ---
 
@@ -850,6 +893,7 @@ flowchart TD
     BL[Blacklist 569 entradas]
     OUT[Detección de outliers IQR]
     PRES[Parser de presentaciones]
+    T[🧪 pytest 12 tests]
     JSON[medicamentos.json]
     PRETTY[medicamentos.pretty.json]
     DEBUG[presentaciones_debug.csv]
@@ -869,7 +913,8 @@ flowchart TD
     C7 --> BL
     BL --> OUT
     OUT --> PRES
-    PRES --> JSON
+    PRES --> T
+    T --> JSON
     JSON --> PRETTY
     PRES --> DEBUG
     OUT --> REPORT
@@ -964,7 +1009,7 @@ sequenceDiagram
     R->>R: cargarOpcionesFiltros(resultados)
     Note over R: Dropdowns muestran solo opciones del resultado actual
     R->>R: mostrarResultados(resultados)
-    Note over R: parsearPresentacion() si no hay pres_*
+    Note over R: renderPresentacion() y renderPrecios() — funciones nombradas
     R-->>U: Tarjetas con chips de presentación + badge PAMI
 ```
 
@@ -1076,6 +1121,7 @@ flowchart LR
 - Chip PAMI con formato "Cobertura PAMI 55% · $4.500"
 - Skeleton loaders + mensajes de error/vacío
 - Scroll-to-top automático al superar 300px de scroll
+- Renderizado modular: `renderPresentacion(med)` y `renderPrecios(med, soloPami)` son funciones nombradas — sin IIFEs anónimas en template literals
 
 ## utils.js
 
@@ -1136,7 +1182,7 @@ flowchart LR
 
 | Workflow | Trigger | Función |
 |---|---|---|
-| `update_prices.yml` | Cron `30 13,21 * * 1-5` + manual | ETL principal: descarga PDF, genera JSON, hace commit |
+| `update_prices.yml` | Cron `30 13,21 * * 1-5` + manual | ETL principal: descarga PDF, genera JSON, corre tests, hace commit |
 | `maintenance-on.yml` | Manual | Reemplaza `index.html` con página de mantenimiento |
 | `maintenance-off.yml` | Manual | Restaura `index.html` desde backup |
 
@@ -1149,6 +1195,7 @@ flowchart LR
 | Dependencias | Ver `requirements.txt` |
 | Trigger manual | Sí (`workflow_dispatch`) |
 | Pull antes de push | Sí (`git pull --rebase`) |
+| Tests | pytest antes de cada commit |
 
 ---
 
@@ -1203,17 +1250,19 @@ Sí, bajo licencia MIT. El endpoint está habilitado con `Access-Control-Allow-O
 | Precios de SIAFAR en ARS | Con la inflación argentina, los precios pueden quedar desactualizados entre corridas. El `vigencia_score` ayuda a identificar los registros más sospechosos. |
 | PDF de SIAFAR sin esquema fijo | Distintos laboratorios aplican su propia semántica al PDF. El pipeline de 8+ capas resuelve los patrones conocidos; pueden aparecer casos nuevos en futuras corridas. |
 | SSL de SIAFAR | El servidor de SIAFAR tiene un certificado con chain incompleta. La verificación SSL usa `certifi` como CA bundle. |
+
 ---
 
 # 🗺️ Roadmap
 
 ## Corto plazo
 
+- ~~Corrección de verificación SSL en descarga de SIAFAR~~ ✅
+- ~~Tests automatizados del ETL~~ ✅
+- ~~Refactor IIFEs en uiRenderer.js~~ ✅
 - Filtro por forma farmacéutica en la UI (usando `pres_forma`, ya disponible en el JSON)
 - Historial de precios
-- Corrección de verificación SSL en descarga de SIAFAR (bundlear CA)
-- Corrección de verificación SSL en descarga de SIAFAR (bundlear CA)
-  
+
 ## Mediano plazo
 
 - IOMA como segunda fuente de crosswalk
