@@ -13,9 +13,8 @@ from datetime import datetime, timezone, timedelta
 
 AR_TZ = timezone(timedelta(hours=-3))
 
-ssl_context = ssl.create_default_context()
-ssl_context.check_hostname = False
-ssl_context.verify_mode   = ssl.CERT_NONE
+import certifi
+ssl_context = ssl.create_default_context(cafile=certifi.where())
 
 import fitz
 
