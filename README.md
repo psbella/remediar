@@ -1202,8 +1202,7 @@ Sí, bajo licencia MIT. El endpoint está habilitado con `Access-Control-Allow-O
 | `pami_cobertura` es aproximado | El porcentaje proviene del vademécum PAMI (que se actualiza con menor frecuencia) aplicado sobre el PVP actual de SIAFAR. El copago real puede diferir. |
 | Precios de SIAFAR en ARS | Con la inflación argentina, los precios pueden quedar desactualizados entre corridas. El `vigencia_score` ayuda a identificar los registros más sospechosos. |
 | PDF de SIAFAR sin esquema fijo | Distintos laboratorios aplican su propia semántica al PDF. El pipeline de 8+ capas resuelve los patrones conocidos; pueden aparecer casos nuevos en futuras corridas. |
-| SSL de SIAFAR | El servidor de SIAFAR tiene un certificado con chain incompleta. La descarga funciona correctamente pero la verificación SSL está deshabilitada temporalmente. |
-
+| SSL de SIAFAR | El servidor de SIAFAR tiene un certificado con chain incompleta. La verificación SSL usa `certifi` como CA bundle. |
 ---
 
 # 🗺️ Roadmap
@@ -1213,7 +1212,8 @@ Sí, bajo licencia MIT. El endpoint está habilitado con `Access-Control-Allow-O
 - Filtro por forma farmacéutica en la UI (usando `pres_forma`, ya disponible en el JSON)
 - Historial de precios
 - Corrección de verificación SSL en descarga de SIAFAR (bundlear CA)
-
+- Corrección de verificación SSL en descarga de SIAFAR (bundlear CA)
+  
 ## Mediano plazo
 
 - IOMA como segunda fuente de crosswalk
