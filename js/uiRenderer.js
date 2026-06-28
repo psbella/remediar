@@ -127,6 +127,37 @@ function badgeVigencia(med) {
     </div>`;
 }
 
+function renderPresentacion(med) {
+    // Preferir campos pre-parseados del ETL (pres_forma/dosis/unidad/cantidad)
+    // y caer al parser JS solo si no están disponibles.
+    const p = (med.pres_forma || med.pres_dosis)
+        ? { forma: med.pres_forma || null, dosis: med.pres_dosis ? `${med.pres_dosis}${med.pres_unidad ? ' ' + med.pres_unidad : ''}` : null, cantidad: med.pres_cantidad || null }
+        : parsearPresentacion(med.presentacion);
+    if (!p) return `<span class="celda valor">${escapeHtml(med.presentacion || 'N/A')}</span>`;
+    return `<div class="pres-tabla">
+        ${p.dosis    ? `<span class="pres-chip pres-dosis">${escapeHtml(p.dosis)}</span>` : ''}
+        ${p.forma    ? `<span class="pres-chip pres-forma">${escapeHtml(p.forma)}</span>` : ''}
+        ${p.cantidad ? `<span class="pres-chip pres-cant">× ${escapeHtml(p.cantidad)}</span>` : ''}
+    </div>`;
+}
+
+function renderPrecios(med, soloPami) {
+    const copago = med.pami_cobertura
+        ? Math.round(med.precio * (1 - med.pami_cobertura / 100))
+        : null;
+    if (soloPami && copago != null) {
+        return `
+        <span class="precio-publico precio-pami">${formatearPrecio(copago)}</span>
+        <span class="precio-sin-cobertura">Precio sin cobertura ${formatearPrecio(med.precio)}</span>`;
+    }
+    return `
+    <span class="precio-publico">${formatearPrecio(med.precio)}</span>
+    ${med.pami_cobertura ? `
+    <div class="pami-info">
+        <span class="pami-chip">Cobertura PAMI ${med.pami_cobertura}% · ${formatearPrecio(copago)}</span>
+    </div>` : ''}`;
+}
+
 function renderizarTarjeta(med, soloPami = false) {
     const esSosp = (med.vigencia_score ?? 100) < 50;
 
@@ -153,37 +184,10 @@ function renderizarTarjeta(med, soloPami = false) {
                     </svg>
                     Presentación
                 </span>
-                ${(() => {
-                    // Preferir campos pre-parseados del ETL (pres_forma/dosis/unidad/cantidad)
-                    // y caer al parser JS solo si no están disponibles.
-                    const p = (med.pres_forma || med.pres_dosis)
-                        ? { forma: med.pres_forma || null, dosis: med.pres_dosis ? `${med.pres_dosis}${med.pres_unidad ? ' ' + med.pres_unidad : ''}` : null, cantidad: med.pres_cantidad || null }
-                        : parsearPresentacion(med.presentacion);
-                    if (!p) return `<span class="celda valor">${escapeHtml(med.presentacion || 'N/A')}</span>`;
-                    return `<div class="pres-tabla">
-                        ${p.dosis   ? `<span class="pres-chip pres-dosis">${escapeHtml(p.dosis)}</span>` : ''}
-                        ${p.forma   ? `<span class="pres-chip pres-forma">${escapeHtml(p.forma)}</span>` : ''}
-                        ${p.cantidad ? `<span class="pres-chip pres-cant">× ${escapeHtml(p.cantidad)}</span>` : ''}
-                    </div>`;
-                })()}
+                ${renderPresentacion(med)}
             </div>
             <div class="fila-precios">
-                ${(() => {
-                    const copago = med.pami_cobertura
-                        ? Math.round(med.precio * (1 - med.pami_cobertura / 100))
-                        : null;
-                    if (soloPami && copago != null) {
-                        return `
-                        <span class="precio-publico precio-pami">${formatearPrecio(copago)}</span>
-                        <span class="precio-sin-cobertura">Precio sin cobertura ${formatearPrecio(med.precio)}</span>`;
-                    }
-                    return `
-                    <span class="precio-publico">${formatearPrecio(med.precio)}</span>
-                    ${med.pami_cobertura ? `
-                    <div class="pami-info">
-                        <span class="pami-chip">Cobertura PAMI ${med.pami_cobertura}% · ${formatearPrecio(copago)}</span>
-                    </div>` : ''}`;
-                })()}
+                ${renderPrecios(med, soloPami)}
             </div>
         </article>`;
 }
