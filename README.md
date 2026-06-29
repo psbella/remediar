@@ -359,6 +359,15 @@ jobs:
       - name: Verificar sanidad del output
         run: pytest tests/ -v
 
+      - name: Snapshot semanal (solo viernes)
+        if: github.event_name == 'schedule'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ "$(date +%u)" = "5" ]; then
+            python scripts/snapshot_semanal.py
+          fi
+
       - name: Commit y push
         run: |
           git config user.name "github-actions[bot]"
@@ -495,6 +504,10 @@ Service Worker con estrategia network-first para datos y cache-first para assets
 ## ✅ Seguridad en headers HTTP
 
 CSP via header HTTP (no meta tag) con hash SHA256 del script inline de GA. `X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy` y `Access-Control-Allow-Origin: *` para el JSON público.
+
+## ✅ Compartir medicamentos
+
+Cada tarjeta tiene un botón "Compartir" que abre el menú nativo en mobile o copia el link al portapapeles en desktop. Cada medicamento tiene una URL única con hash (`remedi.ar/#droga--marca--laboratorio--presentacion`). Al abrir un link compartido, el medicamento aparece destacado arriba con glow teal y productos similares debajo. Los eventos de compartir se registran en GA4.
 
 ## ✅ Tests de sanidad automáticos
 
@@ -635,7 +648,8 @@ remediar/
 │   └── pami.xlsx
 │
 ├── scripts/
-│   └── pdf_to_json.py
+│   ├── pdf_to_json.py
+│   └── snapshot_semanal.py
 │
 ├── tests/
 │   ├── conftest.py
@@ -746,6 +760,7 @@ docker run -p 8080:80 remediar
 | Script | Función |
 |---|---|
 | `scripts/pdf_to_json.py` | Descarga PDF; aplica pipeline de 8+ capas de normalización; crosswalk con PAMI; aplica blacklist; detecta outliers; genera `medicamentos.json`, `medicamentos.pretty.json`, `outlier_report.json` y `presentaciones_debug.csv` |
+| `scripts/snapshot_semanal.py` | Genera un CSV con los precios confiables (`vigencia_score ≥ 50`) de la semana y lo sube como asset a la release mensual de GitHub (`historial-YYYY-MM`). Se ejecuta automáticamente cada viernes. |
 | `tests/test_etl_sanidad.py` | 12 tests de sanidad sobre el output del ETL: cantidad de registros, campos obligatorios, rangos de precios, calidad de datos y estructura del JSON |
 
 ---
@@ -1122,6 +1137,10 @@ flowchart LR
 - Skeleton loaders + mensajes de error/vacío
 - Scroll-to-top automático al superar 300px de scroll
 - Renderizado modular: `renderPresentacion(med)` y `renderPrecios(med, soloPami)` son funciones nombradas — sin IIFEs anónimas en template literals
+- `hashMedicamento(med)`: genera hash único por medicamento (`droga--marca--laboratorio--presentacion`) para deep links
+- `compartirMedicamento(med)`: `navigator.share` en mobile, fallback a clipboard en desktop, con evento GA4
+- Tarjeta destacada con glow teal permanente y badge "Producto compartido" al abrir un link compartido
+- Separador "Productos similares" entre la tarjeta destacada y los resultados por droga
 
 ## utils.js
 
@@ -1196,6 +1215,7 @@ flowchart LR
 | Trigger manual | Sí (`workflow_dispatch`) |
 | Pull antes de push | Sí (`git pull --rebase`) |
 | Tests | pytest antes de cada commit |
+| Snapshot semanal | Viernes — CSV subido a GitHub Releases (`historial-YYYY-MM`) |
 
 ---
 
@@ -1239,6 +1259,14 @@ No. Usamos Google Analytics en modo anónimo para entender el uso del sitio.
 
 Sí, bajo licencia MIT. El endpoint está habilitado con `Access-Control-Allow-Origin: *`.
 
+## ¿Cómo funciona el link para compartir un medicamento?
+
+Cada medicamento tiene una URL única con hash: `remedi.ar/#droga--marca--laboratorio--presentacion`. Al abrirlo, la app muestra ese medicamento destacado arriba y productos similares debajo. El botón "Compartir" en cada tarjeta abre el menú nativo en mobile o copia el link en desktop.
+
+## ¿Hay historial de precios?
+
+Sí, desde el primer viernes de implementación. Cada viernes se genera un snapshot CSV con los precios confiables de la semana y se sube como asset a la release mensual de GitHub (`historial-YYYY-MM`). Los snapshots están disponibles públicamente en la sección [Releases](https://github.com/psbella/remediar/releases) del repositorio.
+
 ---
 
 # ⚠️ Limitaciones conocidas
@@ -1260,8 +1288,10 @@ Sí, bajo licencia MIT. El endpoint está habilitado con `Access-Control-Allow-O
 - ~~Corrección de verificación SSL en descarga de SIAFAR~~ ✅
 - ~~Tests automatizados del ETL~~ ✅
 - ~~Refactor IIFEs en uiRenderer.js~~ ✅
+- ~~Compartir medicamentos con deep link~~ ✅
+- ~~Snapshots semanales de precios en GitHub Releases~~ ✅
 - Filtro por forma farmacéutica en la UI (usando `pres_forma`, ya disponible en el JSON)
-- Historial de precios
+- Historial de precios (visualización en frontend)
 
 ## Mediano plazo
 
