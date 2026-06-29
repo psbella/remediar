@@ -16,25 +16,29 @@
 
 ---
 
-<p align="center">
-
+<p align="left">
+<!-- Versión -->
+<img src="https://img.shields.io/badge/version-2.1.0-00897b">
+<img src="https://img.shields.io/github/v/release/psbella/remediar">
+<img src="https://img.shields.io/github/actions/workflow/status/psbella/remediar/update_prices.yml?label=ETL&logo=github-actions&logoColor=white">
+<br>
 <!-- Hosting & License -->
 <img src="https://img.shields.io/badge/hosted-Cloudflare%20Pages-F38020?logo=cloudflare&logoColor=white">
 <img src="https://img.shields.io/badge/License-MIT-blue.svg">
 <img src="https://img.shields.io/github/repo-size/psbella/remediar">
 <img src="https://img.shields.io/github/last-commit/psbella/remediar">
 <img src="https://img.shields.io/github/issues-raw/psbella/remediar">
-
+<img src="https://img.shields.io/badge/Backup-GitHub%20Pages-181717?logo=github">
 <br>
-
 <!-- Valores -->
 <img src="https://img.shields.io/badge/Open_Source-Yes-brightgreen">
 <img src="https://img.shields.io/badge/Ads-No-red">
 <img src="https://img.shields.io/badge/Tracking-No-red">
 <img src="https://img.shields.io/badge/Privacy_First-Yes-success">
-
+<img src="https://img.shields.io/badge/PRs-Welcome-brightgreen">
+<img src="https://img.shields.io/badge/lang-es--AR-lightgrey">
+<img src="https://img.shields.io/badge/país-Argentina-74ACDF">
 <br>
-
 <!-- Frontend -->
 <img src="https://img.shields.io/badge/Responsive-Yes-brightgreen">
 <img src="https://img.shields.io/badge/Mobile_First-Yes-brightgreen">
@@ -43,29 +47,34 @@
 <img src="https://img.shields.io/badge/Lighthouse-94%2F100-success">
 <img src="https://img.shields.io/badge/dependencies-0-success">
 <img src="https://img.shields.io/badge/Static_Site-Yes-blue">
-
 <br>
-
 <!-- Tecnologías -->
 <img src="https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white">
 <img src="https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white">
 <img src="https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?logo=javascript&logoColor=black">
 <img src="https://img.shields.io/badge/JSON-000000?logo=json&logoColor=white">
 <img src="https://img.shields.io/badge/SVG-FF9800?logo=svg&logoColor=white">
-
 <br>
-
 <!-- Backend / Automation -->
 <img src="https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white">
 <img src="https://img.shields.io/badge/PyMuPDF-ee0000?logo=pypi&logoColor=white">
 <img src="https://img.shields.io/badge/pandas-150458?logo=pandas&logoColor=white">
 <img src="https://img.shields.io/badge/GitHub_Actions-2088FF?logo=github-actions">
-
+<img src="https://img.shields.io/badge/tests-pytest-0A9EDC?logo=pytest&logoColor=white">
+<img src="https://img.shields.io/badge/SSL-certifi-00897b">
+<img src="https://img.shields.io/badge/Analytics-GA4-E37400?logo=googleanalytics&logoColor=white">
 <br>
-
+<!-- Datos -->
+<img src="https://img.shields.io/badge/Fuente-SIAFAR%2FCOFA-blue">
+<img src="https://img.shields.io/badge/PAMI-Crosswalk-00897b">
+<img src="https://img.shields.io/badge/CSP-SHA256-success">
+<br>
 <!-- Diagramas -->
 <img src="https://img.shields.io/badge/diagrams-Mermaid-ff3670?logo=mermaid&logoColor=white">
-
+<br>
+<!-- Features -->
+<img src="https://img.shields.io/badge/Historial-GitHub%20Releases-181717?logo=github">
+<img src="https://img.shields.io/badge/Share-Deep%20Link-00897b">
 </p>
 
 ---
