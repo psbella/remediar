@@ -20,6 +20,17 @@ jobs:
         run: python scripts/pdf_to_json.py
       - name: Verificar sanidad del output
         run: pytest tests/ -v
+      - name: Snapshot semanal (solo viernes)
+        if: github.event_name == 'schedule'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ "$(date +%u)" = "5" ]; then
+            echo "Viernes detectado — generando snapshot semanal..."
+            python scripts/snapshot_semanal.py
+          else
+            echo "No es viernes, saltando snapshot."
+          fi
       - name: Commit y push
         run: |
           git config user.name "github-actions[bot]"
