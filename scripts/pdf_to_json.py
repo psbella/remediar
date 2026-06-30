@@ -6,6 +6,8 @@ import json
 import sys
 import statistics
 import urllib.request
+import urllib.error
+import time
 import ssl
 from collections import defaultdict
 from pathlib import Path
@@ -1638,9 +1640,25 @@ def main():
     pdf_url = "https://siafar.com/precios/pdf/"
     print(f"Descargando: {pdf_url}")
 
-    req = urllib.request.Request(pdf_url, headers={"User-Agent": "Mozilla/5.0"})
-    with urllib.request.urlopen(req, timeout=30, context=ssl_context) as r:
-        pdf_bytes = r.read()
+    MAX_REINTENTOS = 3
+    BACKOFF_SEGUNDOS = 60
+    pdf_bytes = None
+
+    for intento in range(1, MAX_REINTENTOS + 1):
+        try:
+            req = urllib.request.Request(pdf_url, headers={"User-Agent": "Mozilla/5.0"})
+            with urllib.request.urlopen(req, timeout=30, context=ssl_context) as r:
+                pdf_bytes = r.read()
+            break
+        except (urllib.error.URLError, TimeoutError, ConnectionError) as e:
+            print(f"   Intento {intento}/{MAX_REINTENTOS} fallido: {e}")
+            if intento < MAX_REINTENTOS:
+                print(f"   Reintentando en {BACKOFF_SEGUNDOS}s...")
+                time.sleep(BACKOFF_SEGUNDOS)
+            else:
+                print("   ERROR: no se pudo descargar el PDF tras todos los reintentos.")
+                sys.exit(1)
+
     print(f"Tamano: {len(pdf_bytes)} bytes")
 
     doc          = fitz.open(stream=pdf_bytes, filetype="pdf")
