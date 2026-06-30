@@ -1916,7 +1916,8 @@ def main():
     MEDICAMENTOS_PATH.parent.mkdir(parents=True, exist_ok=True)
     with open(MEDICAMENTOS_PATH, 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, separators=(',', ':'))
-    PRETTY_PATH = BASE / "data" / "medicamentos.pretty.json"
+    PRETTY_PATH = BASE / ".debug" / "medicamentos.pretty.json"
+    PRETTY_PATH.parent.mkdir(parents=True, exist_ok=True)
     with open(PRETTY_PATH, 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
     print(f"\nGuardado: {MEDICAMENTOS_PATH}")
