@@ -1,0 +1,164 @@
+# Changelog
+
+Todos los cambios notables de remedi.ar se documentan en este archivo.
+
+El formato está basado en [Keep a Changelog](https://keepachangelog.com/es/1.0.0/) y el proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+---
+
+## [2.1.0] - 2026-06-29
+
+### ✨ Añadido
+- Botón "Compartir" en cada tarjeta — menú nativo en mobile, copia al portapapeles en desktop
+- Deep links por medicamento: URL única con hash `remedi.ar/#droga--marca--laboratorio--presentacion`
+- Tarjeta destacada con glow teal y badge "Producto compartido" al abrir un link compartido
+- Separador "Productos similares" entre tarjeta destacada y resultados por droga
+- Hover glow en todas las tarjetas (desktop) y tap glow en mobile
+- Evento `share` en GA4 con método (`native` / `clipboard`) e `item_id`
+- Snapshot semanal de precios cada viernes en GitHub Releases (`historial-YYYY-MM`)
+- `scripts/snapshot_semanal.py` — genera CSV con precios confiables (`vigencia_score ≥ 50`) y sube a GitHub Releases via API
+- Badges de versión, estado del ETL, pytest, SSL, GA4, SIAFAR/COFA, PAMI, CSP, historial, share, idioma y país en README
+
+### 🔧 Modificado
+- `uiRenderer.js` — `renderPresentacion()` y `renderPrecios()` extraídos como funciones nombradas (sin IIFEs)
+- `main.js` — soporte de hash en URL al cargar, manejo de medicamento destacado
+- `style.css` — estilos de hover glow, tarjeta destacada, botón compartir y toast
+- `update_prices.yml` — step de snapshot semanal los viernes
+- README — badges reorganizados a la izquierda, secciones de compartir y snapshot
+
+---
+
+## [2.0.5] - 2026-06-28
+
+### 🐛 Corregido
+- Doble encoding UTF-8 en claves de `blacklist.json` — medicamentos con acentos no estaban siendo filtrados
+- Query string `?v=2` inconsistente en importación de `uiRenderer.js` impedía cacheo del Service Worker
+- `</footer>` sin apertura en `index.html`
+- `git add index.html.bak` en `maintenance-off.yml` sobre archivo ya borrado
+- Indentación YAML rota en `update_prices.yml`
+- Escape de comilla simple faltante en `escapeHtml()` de `utils.js`
+
+### ✨ Añadido
+- `Access-Control-Allow-Origin: *` en `_headers` para el JSON público
+- CSP movido de meta tag a header HTTP con hash SHA256 del script inline de GA
+- Caché de dependencias pip (`cache: 'pip'`) en `setup-python@v5`
+- `requirements.txt` al repositorio
+- Íconos PNG 192×192 y 512×512 generados y agregados al manifest PWA
+- `medicamentos.pretty.json` con `indent=2` generado en cada run
+- 12 tests de sanidad con pytest (`tests/test_etl_sanidad.py`)
+- `tests/conftest.py` — genera `debug_update_failed.txt` si algún test falla
+- SSL reemplazado por `certifi` en descarga del PDF de SIAFAR
+- Service Worker bumpeado a `remediar-v3`
+- Bloque de auto-instalación de pymupdf eliminado del ETL
+
+### ⚡ Mejorado
+- TTL de caché de datos reducido de 4 a 2 horas
+- README completamente reescrito con diagramas Mermaid, referencia de componentes y documentación de workflows
+
+---
+
+## [2.0.0] - 2026-06-22
+
+### ✨ Añadido
+- Toggle "Solo PAMI" en filtros con chip de cobertura y copago estimado
+- Modo precio PAMI: muestra copago como precio principal y PVP como referencia
+- `store.js` — estado centralizado con patrón pub/sub
+- `getResultadosSinFiltros()` para dropdowns contextuales correctos
+- Panel admin de outliers con lista negra
+- Normalización de laboratorios truncados en frontend (`normalizarLaboratorio()`)
+- Open Graph y Twitter Cards en `index.html`
+- Service Worker y Web App Manifest (PWA)
+- Sitemap.xml generado automáticamente
+- Página de mantenimiento con countdown y workflows `maintenance-on/off`
+- `og-image.png` para shares en redes sociales
+- `package.json` con metadatos del proyecto
+- Workflow de precios con horario `30 13,21 * * 1-5` (10:30 y 18:30 AR)
+
+### 🔧 Modificado
+- Layout de resultados migrado de grid a flex
+- Ancho máximo del contenedor ampliado a 1024px
+- robots.txt simplificado con crawl-delay para bots agresivos
+- README actualizado con arquitectura real del frontend y ETL
+
+---
+
+## [Sin versión formal] - 2026-06-15 a 2026-06-21
+
+### ETL — Parser de presentaciones
+- Chips de presentación (`pres_forma`, `pres_dosis`, `pres_unidad`, `pres_cantidad`)
+- `presentaciones_debug.csv` generado en cada run
+- Parser de formas farmacéuticas con 60+ entradas en `FORMAS_MAP`
+- Soporte de formas vaginales, viales y formas especiales
+- Extracción de dosis desde nombre de marca (`pres_*` rescatados de marca)
+- Fallback de dosis desde PAMI
+
+### ETL — Correcciones de estructura del PDF
+- Capa 5: `extraer_presentacion_de_marca()` con pre-limpieza en 3 pasos
+- Capa 5b: `reparar_presentacion_desplazada()` con 3 sub-patrones
+- Capa 5c: `limpiar_dosis_residual_en_marca()`
+- `_build_re_lab_pegado()` dinámico por dataset
+- `_RE_FORMA_PEGADA` y `_RE_TOKEN_DUPLICADO`
+- Revert de pipeline modular — vuelta a script monolítico
+
+### Frontend
+- Filtrado sin texto de búsqueda (solo por dropdowns)
+- Dropdowns contextuales actualizados según resultados actuales
+- Chips de presentación en tarjetas
+
+---
+
+## [Sin versión formal] - 2026-06-04 a 2026-06-14
+
+### ETL — Pipeline de normalización
+- Capa 0: `reparar_droga_faltante()` — 461 registros con droga+marca fusionadas
+- Capa 3: `reparar_denver()` — Denver Farma con marca+presentacion fusionadas
+- Capa 4: `reparar_marca_desplazada()` — marca con dígito inicial
+- Capa 6: `crosswalk_pami()` — cruce con `data/pami.xlsx`
+- Capa 7: `aplicar_droga_fixes()` — correcciones manuales desde `droga_fixes.json`
+- Blacklist de precios obsoletos (`data/blacklist.json`)
+- Detección de outliers con IQR + `vigencia_score` (0-100)
+- `outlier_report.json` generado en cada run
+- `data/pami.xlsx` — vademécum PAMI para crosswalk
+- `data/droga_fixes.json` — correcciones manuales editables
+
+### ETL — Correcciones menores
+- Capa 2: `rescatar_laboratorios()` — lab "Desconocido" recuperado desde presentacion
+- PR fixes de laboratorios desplazados, Denver Farma, presentación desplazada
+
+### Frontend
+- Cobertura PAMI en tarjetas (`pami_cobertura`)
+- Botón limpiar búsqueda
+- `btn-limpiar` con estilos
+
+---
+
+## [Sin versión formal] - 2026-05-27 a 2026-06-03
+
+### Inicio del proyecto
+- Commit inicial con refactor completo
+- Parser PDF con PyMuPDF (reemplazó tabula-py y Camelot)
+- Script directo PDF → JSON (sin CSV intermedio)
+- Workflow GitHub Actions con cron
+- CNAME para dominio `remedi.ar`
+- Cloudflare Pages como hosting principal, GitHub Pages como backup
+- `_headers` con headers de seguridad y estrategia de caché
+- SEO básico: meta tags, JSON-LD, BreadcrumbList
+- Landings SEO por principio activo (luego eliminadas)
+- Sitemap.xml
+- `privacidad.html` y `terminos.html`
+- `index.html` SPA con búsqueda, filtros y ordenamiento
+- Índice invertido de prefijos en `searchEngine.js`
+- Ranking por relevancia + vigencia + precio
+- Debounce de 250ms en búsqueda
+- `sessionStorage` con TTL para caché de datos
+
+---
+
+## Próximos pasos
+
+- Filtro por forma farmacéutica en la UI (`pres_forma`)
+- Visualización de historial de precios en el frontend
+- Integración con API REST de ANMAT (trámite en curso — respuesta esperada 10/07/2026)
+- IOMA como segunda fuente de crosswalk (pendiente acceso al dataset)
+- Dashboard estadístico de variación de precios
+- Instagram con contenido generado automáticamente
