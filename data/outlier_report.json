@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-29T19:38:28.978286-03:00",
+  "timestamp": "2026-06-30T06:51:48.850539-03:00",
   "total_registros": 12147,
   "total_outliers": 249,
   "outliers": [
@@ -38,9 +38,9 @@
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
         "precio $1,433.00 < minimo $1,800",
-        "precio $1,433.00 < 10% mediana $16,575.57"
+        "precio $1,433.00 < 10% mediana $16,692.48"
       ],
-      "mediana_droga": 16575.57,
+      "mediana_droga": 16692.48,
       "n_droga": 30
     },
     {
@@ -52,9 +52,9 @@
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
         "precio $1,122.00 < minimo $1,800",
-        "precio $1,122.00 < 10% mediana $16,575.57"
+        "precio $1,122.00 < 10% mediana $16,692.48"
       ],
-      "mediana_droga": 16575.57,
+      "mediana_droga": 16692.48,
       "n_droga": 30
     },
     {
@@ -187,6 +187,19 @@
       ],
       "mediana_droga": 11331.4,
       "n_droga": 4
+    },
+    {
+      "droga": "aminoácidos, vit.b12",
+      "marca": "TANVIMIL AMINOACIDOS",
+      "presentacion": "comp.rec.x 30",
+      "laboratorio": "Raymos-Megalabs",
+      "precio": 9895.78,
+      "precio_outlier_tipo": "bajo_relativo",
+      "razones": [
+        "precio $9,895.78 < 25% mediana $39,628.10 (n=5)"
+      ],
+      "mediana_droga": 39628.1,
+      "n_droga": 5
     },
     {
       "droga": "amitriptilina",
@@ -445,10 +458,10 @@
       "marca": "TREXBIOTIC",
       "presentacion": "500 mg comp.rec.x 6",
       "laboratorio": "Casasco",
-      "precio": 23312.81,
+      "precio": 23802.39,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $46.63 << mediana_grupo $859.42"
+        "ppu $47.60 << mediana_grupo $877.47"
       ],
       "mediana_droga": 19663.97,
       "n_droga": 67
@@ -458,12 +471,12 @@
       "marca": "ERNEX",
       "presentacion": "liq.x 120 ml",
       "laboratorio": "Casasco",
-      "precio": 16447.02,
+      "precio": 16726.61,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $137.06 << mediana_grupo $902.47"
+        "ppu $139.39 << mediana_grupo $917.81"
       ],
-      "mediana_droga": 16447.02,
+      "mediana_droga": 16726.61,
       "n_droga": 5
     },
     {
@@ -685,7 +698,7 @@
       "razones": [
         "precio $26,555.05 < fence_low $33,444.99"
       ],
-      "mediana_droga": 59103.23,
+      "mediana_droga": 59545.75,
       "n_droga": 6
     },
     {
@@ -750,7 +763,7 @@
       "razones": [
         "ppu $32.29 << mediana_grupo $1,117.39"
       ],
-      "mediana_droga": 18367.26,
+      "mediana_droga": 18548.42,
       "n_droga": 44
     },
     {
@@ -802,7 +815,7 @@
       "razones": [
         "ppu $29.19 << mediana_grupo $162.72"
       ],
-      "mediana_droga": 20957.37,
+      "mediana_droga": 21138.48,
       "n_droga": 20
     },
     {
@@ -836,10 +849,10 @@
       "marca": "QUAZEMIC",
       "presentacion": "gts.x 20 ml",
       "laboratorio": "Casasco",
-      "precio": 14655.39,
+      "precio": 14889.88,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $732.77 << mediana_grupo $10,509.52"
+        "ppu $744.49 << mediana_grupo $10,677.67"
       ],
       "mediana_droga": 15628.77,
       "n_droga": 106
@@ -1107,19 +1120,6 @@
       "n_droga": 16
     },
     {
-      "droga": "dimetil fumarato",
-      "marca": "LIXERAL",
-      "presentacion": "120 mg cáps.x 14",
-      "laboratorio": "Casasco",
-      "precio": 1676706.98,
-      "precio_outlier_tipo": "bajo_relativo",
-      "razones": [
-        "precio $1,676,706.98 < 25% mediana $6,709,504.90 (n=11)"
-      ],
-      "mediana_droga": 6709504.9,
-      "n_droga": 11
-    },
-    {
       "droga": "diosmina, hesperidina micronizada",
       "marca": "NIKZON",
       "presentacion": "500 mg comp.rec.x 30",
@@ -1127,9 +1127,9 @@
       "precio": 14109.64,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $14,109.64 < 25% mediana $57,316.76 (n=36)"
+        "precio $14,109.64 < 25% mediana $57,354.15 (n=36)"
       ],
-      "mediana_droga": 57316.76,
+      "mediana_droga": 57354.15,
       "n_droga": 36
     },
     {
@@ -1166,7 +1166,7 @@
       "precio": 22200.42,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $111.00 << mediana_grupo $921.89"
+        "ppu $111.00 << mediana_grupo $940.33"
       ],
       "mediana_droga": 12344.49,
       "n_droga": 20
@@ -1179,9 +1179,9 @@
       "precio": 3548.0,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $3,548.00 < 25% mediana $14,237.20 (n=95)"
+        "precio $3,548.00 < 25% mediana $14,274.44 (n=95)"
       ],
-      "mediana_droga": 14237.2,
+      "mediana_droga": 14274.44,
       "n_droga": 95
     },
     {
@@ -1502,12 +1502,12 @@
       "marca": "BUSCAPINA",
       "presentacion": "grag.x 20",
       "laboratorio": "Opella Healthca",
-      "precio": 12000.0,
+      "precio": 12252.0,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $600.00 << mediana_grupo $3,535.44"
+        "ppu $612.60 << mediana_grupo $3,606.30"
       ],
-      "mediana_droga": 12920.0,
+      "mediana_droga": 13191.32,
       "n_droga": 5
     },
     {
@@ -1589,6 +1589,19 @@
       ],
       "mediana_droga": 7921.07,
       "n_droga": 125
+    },
+    {
+      "droga": "imatinib",
+      "marca": "MESINIB",
+      "presentacion": "400 mg comp.rec.x 30",
+      "laboratorio": "Varifarma",
+      "precio": 2223757.68,
+      "precio_outlier_tipo": "bajo_iqr",
+      "razones": [
+        "precio $2,223,757.68 < fence_low $2,361,097.37"
+      ],
+      "mediana_droga": 8671356.02,
+      "n_droga": 26
     },
     {
       "droga": "inosina,monofosfato disódico",
@@ -1854,7 +1867,7 @@
       "razones": [
         "ppu $183.86 << mediana_grupo $1,052.33"
       ],
-      "mediana_droga": 10932.67,
+      "mediana_droga": 11046.42,
       "n_droga": 14
     },
     {
@@ -1892,9 +1905,9 @@
       "precio": 7009.0,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $7,009.00 < 25% mediana $35,278.82 (n=36)"
+        "precio $7,009.00 < 25% mediana $35,545.99 (n=36)"
       ],
-      "mediana_droga": 35278.82,
+      "mediana_droga": 35545.99,
       "n_droga": 36
     },
     {
@@ -1905,9 +1918,9 @@
       "precio": 15840.0,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $15,840.00 < fence_low $22,206.32"
+        "precio $15,840.00 < fence_low $22,638.72"
       ],
-      "mediana_droga": 35278.82,
+      "mediana_droga": 35545.99,
       "n_droga": 36
     },
     {
@@ -1918,9 +1931,9 @@
       "precio": 6335.41,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $6,335.41 < 25% mediana $35,278.82 (n=36)"
+        "precio $6,335.41 < 25% mediana $35,545.99 (n=36)"
       ],
-      "mediana_droga": 35278.82,
+      "mediana_droga": 35545.99,
       "n_droga": 36
     },
     {
@@ -2066,19 +2079,6 @@
       ],
       "mediana_droga": 219329.61,
       "n_droga": 42
-    },
-    {
-      "droga": "metoclopramida",
-      "marca": "RUPEMET",
-      "presentacion": "10 mg a.x 3 x 2 ml",
-      "laboratorio": "Duncan",
-      "precio": 3092.26,
-      "precio_outlier_tipo": "bajo_iqr",
-      "razones": [
-        "precio $3,092.26 < fence_low $3,471.60"
-      ],
-      "mediana_droga": 9313.99,
-      "n_droga": 24
     },
     {
       "droga": "nistatina",
@@ -2350,9 +2350,9 @@
       "precio": 12616.77,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $12,616.77 < 25% mediana $51,755.57 (n=3)"
+        "precio $12,616.77 < 25% mediana $52,635.42 (n=3)"
       ],
-      "mediana_droga": 51755.57,
+      "mediana_droga": 52635.42,
       "n_droga": 3
     },
     {
@@ -2363,9 +2363,9 @@
       "precio": 22575.9,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $22,575.90 < 25% mediana $93,730.08 (n=28)"
+        "precio $22,575.90 < 25% mediana $94,702.11 (n=28)"
       ],
-      "mediana_droga": 93730.08,
+      "mediana_droga": 94702.11,
       "n_droga": 28
     },
     {
@@ -2412,10 +2412,10 @@
       "marca": "RISPERIN",
       "presentacion": "1mg/ml sol.oral x 30 ml",
       "laboratorio": "Gador",
-      "precio": 34628.46,
+      "precio": 35147.88,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $1,154.28 << mediana_grupo $16,427.62"
+        "ppu $1,171.60 << mediana_grupo $16,674.03"
       ],
       "mediana_droga": 40802.99,
       "n_droga": 58
@@ -2464,12 +2464,12 @@
       "marca": "REMEXAL",
       "presentacion": "10 mg comp.rec.x 10",
       "laboratorio": "Casasco",
-      "precio": 53376.08,
+      "precio": 53803.09,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $53,376.08 < fence_low $74,987.00"
+        "precio $53,803.09 < fence_low $76,903.15"
       ],
-      "mediana_droga": 112610.54,
+      "mediana_droga": 112754.49,
       "n_droga": 49
     },
     {
@@ -2480,9 +2480,9 @@
       "precio": 53359.0,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $53,359.00 < fence_low $74,987.00"
+        "precio $53,359.00 < fence_low $76,903.15"
       ],
-      "mediana_droga": 112610.54,
+      "mediana_droga": 112754.49,
       "n_droga": 49
     },
     {
@@ -2493,9 +2493,9 @@
       "precio": 54729.86,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $54,729.86 < fence_low $74,987.00"
+        "precio $54,729.86 < fence_low $76,903.15"
       ],
-      "mediana_droga": 112610.54,
+      "mediana_droga": 112754.49,
       "n_droga": 49
     },
     {
@@ -2506,9 +2506,9 @@
       "precio": 58547.44,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $58,547.44 < fence_low $74,987.00"
+        "precio $58,547.44 < fence_low $76,903.15"
       ],
-      "mediana_droga": 112610.54,
+      "mediana_droga": 112754.49,
       "n_droga": 49
     },
     {
@@ -2519,9 +2519,9 @@
       "precio": 65234.59,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $65,234.59 < fence_low $74,987.00"
+        "precio $65,234.59 < fence_low $76,903.15"
       ],
-      "mediana_droga": 112610.54,
+      "mediana_droga": 112754.49,
       "n_droga": 49
     },
     {
@@ -2532,9 +2532,9 @@
       "precio": 70463.0,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $70,463.00 < fence_low $74,987.00"
+        "precio $70,463.00 < fence_low $76,903.15"
       ],
-      "mediana_droga": 112610.54,
+      "mediana_droga": 112754.49,
       "n_droga": 49
     },
     {
@@ -2545,9 +2545,9 @@
       "precio": 58943.18,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $58,943.18 < fence_low $74,987.00"
+        "precio $58,943.18 < fence_low $76,903.15"
       ],
-      "mediana_droga": 112610.54,
+      "mediana_droga": 112754.49,
       "n_droga": 49
     },
     {
@@ -2818,9 +2818,9 @@
       "precio": 100270.31,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $100,270.31 < 25% mediana $493,983.83 (n=18)"
+        "precio $100,270.31 < 25% mediana $497,965.53 (n=18)"
       ],
-      "mediana_droga": 493983.83,
+      "mediana_droga": 497965.53,
       "n_droga": 18
     },
     {
@@ -2831,9 +2831,9 @@
       "precio": 114603.03,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $114,603.03 < 25% mediana $493,983.83 (n=18)"
+        "precio $114,603.03 < 25% mediana $497,965.53 (n=18)"
       ],
-      "mediana_droga": 493983.83,
+      "mediana_droga": 497965.53,
       "n_droga": 18
     },
     {
@@ -2974,7 +2974,7 @@
       "precio": 25930.62,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $25,930.62 < fence_low $28,333.96"
+        "precio $25,930.62 < fence_low $28,210.23"
       ],
       "mediana_droga": 82043.15,
       "n_droga": 20
@@ -3079,9 +3079,9 @@
       "precio": 25177.52,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $25,177.52 < 25% mediana $105,249.42 (n=8)"
+        "precio $25,177.52 < 25% mediana $106,282.84 (n=8)"
       ],
-      "mediana_droga": 105249.42,
+      "mediana_droga": 106282.84,
       "n_droga": 8
     },
     {
@@ -3170,10 +3170,10 @@
       "precio": 7697.03,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $7,697.03 < 25% mediana $35,415.56 (n=60)",
-        "ppu $24.05 << mediana_grupo $218.71"
+        "precio $7,697.03 < 25% mediana $35,868.96 (n=60)",
+        "ppu $24.05 << mediana_grupo $223.30"
       ],
-      "mediana_droga": 35415.56,
+      "mediana_droga": 35868.96,
       "n_droga": 60
     },
     {
@@ -3237,7 +3237,7 @@
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
         "precio $2,671.00 < 25% mediana $19,394.43 (n=30)",
-        "ppu $8.90 << mediana_grupo $110.67"
+        "ppu $8.90 << mediana_grupo $112.88"
       ],
       "mediana_droga": 19394.43,
       "n_droga": 30
@@ -3250,9 +3250,9 @@
       "precio": 99561.0,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $99,561.00 < 25% mediana $679,271.58 (n=19)"
+        "precio $99,561.00 < 25% mediana $690,801.03 (n=19)"
       ],
-      "mediana_droga": 679271.58,
+      "mediana_droga": 690801.03,
       "n_droga": 19
     },
     {
@@ -3265,7 +3265,7 @@
       "razones": [
         "precio $304,859.26 < fence_low $325,426.83"
       ],
-      "mediana_droga": 679271.58,
+      "mediana_droga": 690801.03,
       "n_droga": 19
     }
   ]
