@@ -1358,3 +1358,20 @@ body {
     background: var(--teal);
     color: white;
 }
+
+.btn-reintentar {
+    margin-top: 12px;
+    background: var(--teal);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.btn-reintentar:hover {
+    background: var(--teal-darker);
+}

@@ -3,3 +3,4 @@ __pycache__/
 *.pyo
 .env
 tests/debug_update_failed.txt
+.debug/
