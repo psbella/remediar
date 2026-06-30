@@ -37,6 +37,7 @@ export function mostrarError(msg) {
                 <line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
             </svg>
             <p>${escapeHtml(msg)}</p>
+            <button id="btnReintentar" class="btn-reintentar">Reintentar</button>
         </div>`;
     document.getElementById('contador').innerHTML = '';
     _ocultarChip();
