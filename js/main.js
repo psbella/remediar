@@ -209,7 +209,27 @@ async function init() {
     _initCompartir();
 }
 
-init();
+init()
+// PWA install prompt
+    let deferredPrompt = null;
+    window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        document.getElementById('btnInstalarApp').style.display = 'inline-flex';
+    });
+
+    document.getElementById('btnInstalarApp')?.addEventListener('click', async () => {
+        if (!deferredPrompt) return;
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        deferredPrompt = null;
+        document.getElementById('btnInstalarApp').style.display = 'none';
+    });
+
+    window.addEventListener('appinstalled', () => {
+        document.getElementById('btnInstalarApp').style.display = 'none';
+        deferredPrompt = null;
+    });
 
 window.addEventListener('pageshow', (event) => {
     if (event.persisted) {
