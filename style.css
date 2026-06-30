@@ -1337,3 +1337,24 @@ body {
     opacity: 1;
     transform: translateX(-50%) translateY(0);
 }
+
+.footer-install-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--teal-light);
+    color: var(--teal-darker);
+    border: 1px solid var(--teal);
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 8px 0;
+    transition: background 0.15s;
+}
+
+.footer-install-badge:hover {
+    background: var(--teal);
+    color: white;
+}
