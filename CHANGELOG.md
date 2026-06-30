@@ -6,6 +6,22 @@ El formato está basado en [Keep a Changelog](https://keepachangelog.com/es/1.0.
 
 ---
 
+## [2.1.1] - 2026-06-29
+
+### 🐛 Corregido
+- Service Worker registrado en `index.html` — PWA operativa
+- `limpiarFiltros()` ahora resetea `soloPami` correctamente
+- Eliminado `window.normalizarLaboratorio` del namespace global en producción
+- Doble `;;` en `utils.js` línea 24
+- `admin.html` con `noindex, nofollow` para evitar indexación
+- `bfcache`: reemplazado `location.reload()` por invalidación de caché por timestamp
+- Badge de instalación PWA en footer con `beforeinstallprompt`
+
+### ✨ Añadido
+- `.gitignore` con `__pycache__/`, `*.pyc`, `.env`, `tests/debug_update_failed.txt`
+
+---
+
 ## [2.1.0] - 2026-06-29
 
 ### ✨ Añadido
