@@ -106,7 +106,7 @@ export function setSoloPami(valor) {
     notificar();
 }
 export function limpiarFiltros() {
-    state.filtros = { texto: '', presentacion: '', laboratorio: '', orden: 'relevancia' };
+state.filtros = { texto: '', presentacion: '', laboratorio: '', orden: 'relevancia', soloPami: false };
     state.resultados = [];
     notificar();
 }

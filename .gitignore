@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+*.pyo
+.env
+tests/debug_update_failed.txt
