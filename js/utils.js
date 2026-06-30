@@ -21,7 +21,7 @@ export function escapeHtml(str) {
         .replace(/</g, '&lt;')
         .replace(/>/g, '&gt;')
         .replace(/"/g, '&quot;')
-		.replace(/'/g, '&#039;');;
+		.replace(/'/g, '&#039;');
 }
 
 export function calcularAhorroPami(pub, pami) {
@@ -224,9 +224,4 @@ export function parsearPresentacion(texto) {
 
     if (!dosis && !forma && !cantidad) return null;
     return { dosis, forma, cantidad };
-}
-
-// Exponer globalmente para debugging
-if (typeof window !== 'undefined') {
-    window.normalizarLaboratorio = normalizarLaboratorio;
 }
