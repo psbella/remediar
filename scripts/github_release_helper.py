@@ -73,7 +73,14 @@ def asset_existe(release: dict, nombre_asset: str) -> dict | None:
 
 
 def eliminar_asset(asset_id: int) -> None:
-    api("DELETE", f"/repos/{REPO}/releases/assets/{asset_id}")
+    url = f"{API_BASE}/repos/{REPO}/releases/assets/{asset_id}"
+    req = urllib.request.Request(url, method="DELETE", headers=_headers())
+    try:
+        with urllib.request.urlopen(req) as r:
+            pass  # 204 No Content — sin cuerpo
+    except urllib.error.HTTPError as e:
+        if e.code != 204:
+            raise RuntimeError(f"GitHub API DELETE assets/{asset_id} → {e.code}")
 
 
 def subir_o_reemplazar_asset(release: dict, nombre: str, contenido: bytes, content_type: str) -> dict:
