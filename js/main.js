@@ -233,7 +233,13 @@ init()
 
 window.addEventListener('pageshow', (event) => {
     if (event.persisted) {
-        console.log('Página restaurada desde bfcache, recargando...');
-        location.reload();
+        const cache = sessionStorage.getItem('remedios_data_v2');
+        if (cache) {
+            const { timestamp } = JSON.parse(cache);
+            const edad = Date.now() - timestamp;
+            if (edad > 2 * 60 * 60 * 1000) {
+                sessionStorage.removeItem('remedios_data_v2');
+            }
+        }
     }
 });
