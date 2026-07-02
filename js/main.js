@@ -12,9 +12,8 @@ import {
     setFiltroTexto, setFiltroPresentacion,
     setFiltroLaboratorio, setFiltroOrden, setSoloPami, limpiarFiltros, getResultadosSinFiltros,
     setLoading, setError, initStore, suscribirse,
-} from './core/store.js';
+} from './store.js';
 
-let todos         = [];
 let timeout       = null;
 let medDestacada  = null;  // medicamento llegado por hash en URL
 
@@ -31,7 +30,7 @@ suscribirse((state) => {
     }
 
     const sinFiltros    = getResultadosSinFiltros();
-    const baseDropdown  = sinFiltros.length > 0 ? sinFiltros : todos;
+    const baseDropdown  = sinFiltros.length > 0 ? sinFiltros : getTodos();
     cargarOpcionesFiltros(baseDropdown, filtros);
 
     mostrarResultados(resultados, filtros.texto, filtros.soloPami, medDestacada);
@@ -85,6 +84,8 @@ function onLimpiar() {
     ids.forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
     const sel = document.getElementById('ordenPrecio');
     if (sel) sel.value = 'relevancia';
+    const togglePami = document.getElementById('togglePami');
+    if (togglePami) togglePami.checked = false;
 
     medDestacada = null;
     history.replaceState(null, '', location.pathname + location.search.replace(/[?&]?q=[^&]*/g, ''));
@@ -105,7 +106,7 @@ function onLimpiar() {
 function _initCompartir() {
     document.getElementById('resultados')?.addEventListener('compartir-med', async (e) => {
         const { hash } = e.detail;
-        const med = todos.find(m => hashMedicamento(m) === hash);
+        const med = getTodos().find(m => hashMedicamento(m) === hash);
         if (med) await compartirMedicamento(med);
     });
 
@@ -115,7 +116,7 @@ function _initCompartir() {
         if (!btn) return;
         const article = btn.closest('article[data-hash]');
         if (!article) return;
-        const med = todos.find(m => hashMedicamento(m) === article.dataset.hash);
+        const med = getTodos().find(m => hashMedicamento(m) === article.dataset.hash);
         if (med) await compartirMedicamento(med);
     });
 }
@@ -132,7 +133,7 @@ function _actualizarURL(q) {
 function _resolverHash() {
     const hash = location.hash.slice(1); // quitar el #
     if (!hash || !hash.includes('--')) return null;
-    return buscarPorHash(todos, hash);
+    return buscarPorHash(getTodos(), hash);
 }
 
 // ── Botón scroll-to-top ───────────────────────────────────────────────
@@ -161,10 +162,10 @@ async function init() {
 
     try {
         const data = await cargarDatos();
-        todos = data.medicamentos || [];
-        construirIndice(todos);
-        initStore(todos);
-        cargarOpcionesFiltros(todos);
+        const medicamentos = data.medicamentos || [];
+        construirIndice(medicamentos);
+        initStore(medicamentos);
+        cargarOpcionesFiltros(medicamentos);
         actualizarFechaEnFooter(data.fecha);
 
         // Resolver hash (medicamento compartido) primero
