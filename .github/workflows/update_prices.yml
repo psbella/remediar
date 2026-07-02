@@ -45,11 +45,7 @@ jobs:
           git config user.email "actions@github.com"
           git add data/medicamentos.json
           git add data/outlier_report.json
-          git add data/droga_fixes.json
           git add data/presentaciones_debug.csv
-          if ! git diff --quiet data/pami.xlsx; then
-            git add data/pami.xlsx
-          fi
           git commit -m "Actualizar precios $(date +'%Y-%m-%d')" || echo "No changes"
           git pull --rebase origin main
           git push origin main
