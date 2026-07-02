@@ -1,9 +1,9 @@
-// js/core/store.js — Estado Centralizado.
+// js/store.js — Estado Centralizado.
 // Usa searchEngine para búsqueda real (índice invertido + ranking).
 // Sin texto → resultados vacíos (mensaje inicial), no lista completa.
 
-import { buscar } from '../searchEngine.js';
-import { aplicarFiltros, ordenar } from '../filters.js';
+import { buscar } from './searchEngine.js';
+import { aplicarFiltros, ordenar } from './filters.js';
 
 // ── Estado inicial ────────────────────────────────────────────────────
 let state = {

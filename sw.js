@@ -11,7 +11,7 @@ const CACHE_STATIC = [
     '/img/icon-512.png',
     '/img/og-image.png',
     '/js/main.js',
-    '/js/core/store.js',
+    '/js/store.js',
     '/js/dataLoader.js',
     '/js/filters.js',
     '/js/searchEngine.js',
