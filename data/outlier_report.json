@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-01T19:49:50.162875-03:00",
+  "timestamp": "2026-07-02T05:00:08.423384-03:00",
   "total_registros": 12147,
   "total_outliers": 248,
   "outliers": [
@@ -737,7 +737,7 @@
       "razones": [
         "ppu $190.00 << mediana_grupo $1,401.08"
       ],
-      "mediana_droga": 205174.12,
+      "mediana_droga": 217256.03,
       "n_droga": 8
     },
     {
@@ -1411,10 +1411,10 @@
       "marca": "NABIGEM",
       "presentacion": "200 mg f.a.iny.liof.x 1",
       "laboratorio": "Microsules Arg.",
-      "precio": 189665.92,
+      "precio": 193459.24,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $189,665.92 < 25% mediana $987,692.00 (n=19)"
+        "precio $193,459.24 < 25% mediana $987,692.00 (n=19)"
       ],
       "mediana_droga": 987692.0,
       "n_droga": 19
@@ -1600,7 +1600,7 @@
       "razones": [
         "precio $2,223,757.68 < fence_low $2,361,097.37"
       ],
-      "mediana_droga": 8671356.02,
+      "mediana_droga": 8787232.41,
       "n_droga": 26
     },
     {
@@ -2238,15 +2238,28 @@
     },
     {
       "droga": "paclitaxel",
+      "marca": "PACLITAXEL IMA",
+      "presentacion": "30 mg sol.iny.x 1",
+      "laboratorio": "IMA",
+      "precio": 326131.94,
+      "precio_outlier_tipo": "bajo_relativo",
+      "razones": [
+        "precio $326,131.94 < 25% mediana $1,305,885.13 (n=50)"
+      ],
+      "mediana_droga": 1305885.13,
+      "n_droga": 50
+    },
+    {
+      "droga": "paclitaxel",
       "marca": "PACLINOVA",
       "presentacion": "30 mg vial x 1 x 5 ml",
       "laboratorio": "Elea",
       "precio": 293175.49,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $293,175.49 < 25% mediana $1,273,595.86 (n=50)"
+        "precio $293,175.49 < 25% mediana $1,305,885.13 (n=50)"
       ],
-      "mediana_droga": 1273595.86,
+      "mediana_droga": 1305885.13,
       "n_droga": 50
     },
     {
@@ -2454,7 +2467,7 @@
       "precio": 53803.09,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $53,803.09 < fence_low $76,903.15"
+        "precio $53,803.09 < fence_low $74,894.13"
       ],
       "mediana_droga": 112754.49,
       "n_droga": 49
@@ -2467,7 +2480,7 @@
       "precio": 53359.0,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $53,359.00 < fence_low $76,903.15"
+        "precio $53,359.00 < fence_low $74,894.13"
       ],
       "mediana_droga": 112754.49,
       "n_droga": 49
@@ -2480,7 +2493,7 @@
       "precio": 54729.86,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $54,729.86 < fence_low $76,903.15"
+        "precio $54,729.86 < fence_low $74,894.13"
       ],
       "mediana_droga": 112754.49,
       "n_droga": 49
@@ -2493,7 +2506,7 @@
       "precio": 58547.44,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $58,547.44 < fence_low $76,903.15"
+        "precio $58,547.44 < fence_low $74,894.13"
       ],
       "mediana_droga": 112754.49,
       "n_droga": 49
@@ -2506,7 +2519,7 @@
       "precio": 65234.59,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $65,234.59 < fence_low $76,903.15"
+        "precio $65,234.59 < fence_low $74,894.13"
       ],
       "mediana_droga": 112754.49,
       "n_droga": 49
@@ -2519,7 +2532,7 @@
       "precio": 70463.0,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $70,463.00 < fence_low $76,903.15"
+        "precio $70,463.00 < fence_low $74,894.13"
       ],
       "mediana_droga": 112754.49,
       "n_droga": 49
@@ -2532,7 +2545,7 @@
       "precio": 58943.18,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $58,943.18 < fence_low $76,903.15"
+        "precio $58,943.18 < fence_low $74,894.13"
       ],
       "mediana_droga": 112754.49,
       "n_droga": 49
@@ -3238,19 +3251,6 @@
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
         "precio $99,561.00 < 25% mediana $690,801.03 (n=19)"
-      ],
-      "mediana_droga": 690801.03,
-      "n_droga": 19
-    },
-    {
-      "droga": "zoledrónico,ác.",
-      "marca": "VARIDRONICO 4 MG",
-      "presentacion": "4 mg liof. f.a.x 1+solv.",
-      "laboratorio": "Varifarma",
-      "precio": 304859.26,
-      "precio_outlier_tipo": "bajo_iqr",
-      "razones": [
-        "precio $304,859.26 < fence_low $325,426.83"
       ],
       "mediana_droga": 690801.03,
       "n_droga": 19
