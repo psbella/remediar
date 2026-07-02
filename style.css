@@ -1,5 +1,24 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* Skip navigation link (accesibilidad de teclado) */
+.skip-link {
+    position: absolute;
+    top: -60px;
+    left: 8px;
+    background: var(--teal-darker);
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: var(--r-sm);
+    z-index: 2000;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: top 0.15s ease;
+}
+.skip-link:focus {
+    top: 8px;
+}
+
 /* Paleta y tokens */
 :root {
     --teal: #008B8B;
