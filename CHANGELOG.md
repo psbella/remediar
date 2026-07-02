@@ -8,20 +8,22 @@ El formato está basado en [Keep a Changelog](https://keepachangelog.com/es/1.0.
 
 ## [2.1.2] - 2026-07-01
 
-### 🔒 Seguridad
-- `connect-src` de la CSP ahora incluye `https://www.googletagmanager.com`, además de `google-analytics.com` — gtag.js puede hacer llamadas de red a ambos dominios en runtime
-
 ### 🐛 Corregido
 - Badge de versión del README desincronizado con `package.json` (2.1.0 → 2.1.1)
 - `import urllib.parse` duplicado en `snapshot_semanal.py` — consolidado en el bloque de imports del módulo
 - `update_prices.yml` agregaba `data/pami.xlsx` y `data/droga_fixes.json` al commit en cada corrida aunque el ETL nunca los modifica (son archivos de solo lectura para el pipeline)
+- `<nav class="footer-links">` estaba duplicado (dos aperturas, un cierre) — HTML inválido que además creaba un landmark de navegación repetido para lectores de pantalla
+
+### 🔒 Seguridad
+- `connect-src` de la CSP ahora incluye `https://www.googletagmanager.com`, además de `google-analytics.com` — gtag.js puede hacer llamadas de red a ambos dominios en runtime
+
+### ♿ Mejorado
+- `aria-hidden="true"` en los 21 SVGs decorativos de `index.html` (todos acompañan texto visible o labels ya existentes; se excluyó el sprite de `<symbol>`, ya oculto por `display:none`)
+- `prefers-reduced-motion: reduce` en `@keyframes pulse` del `update-pill`, para respetar la preferencia de accesibilidad del sistema operativo
 
 ### 🧹 Eliminado
 - `setTodos()` en `store.js` — alias sin ninguna referencia en el repo
 - `ordenarPorPrecio()` en `filters.js` — alias legacy sin ninguna referencia en el repo
-
-### ♿ Mejorado
-- `prefers-reduced-motion: reduce` en `@keyframes pulse` del `update-pill`, para respetar la preferencia de accesibilidad del sistema operativo
 
 ---
 

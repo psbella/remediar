@@ -107,14 +107,14 @@
                     <span style="font-size:9px;font-weight:normal;">Última actualización</span>
                     <span id="fecha-actualizacion" style="font-size:10px;font-weight:500;">Cargando...</span>
                 </div>
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
             </div>
         </div>
     </header>
 
     <main>
         <div class="busqueda-section">
-            <svg width="20" height="20"><use href="#ic-search"/></svg>
+            <svg width="20" height="20" aria-hidden="true"><use href="#ic-search"/></svg>
             <input
                 type="search"
                 id="buscador"
@@ -124,37 +124,37 @@
                 aria-label="Buscar medicamento"
             >
             <button id="btnBuscar" aria-label="Buscar">
-                <svg width="16" height="16"><use href="#ic-search"/></svg>
+                <svg width="16" height="16" aria-hidden="true"><use href="#ic-search"/></svg>
                 Buscar
             </button>
             <button id="btnLimpiar" class="btn-limpiar" aria-label="Limpiar búsqueda" style="display:none">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
             </button>
         </div>
 
         <section class="filtros-section" aria-label="Filtros">
             <div class="filtro-row">
-                <svg class="icon-left" width="16" height="16"><use href="#ic-list"/></svg>
+                <svg class="icon-left" width="16" height="16" aria-hidden="true"><use href="#ic-list"/></svg>
                 <select id="filtroPresentacion" aria-label="Filtrar por presentación">
                     <option value="">Presentación: Todas</option>
                 </select>
-                <svg class="icon-right" width="14" height="14"><use href="#ic-chevron"/></svg>
+                <svg class="icon-right" width="14" height="14" aria-hidden="true"><use href="#ic-chevron"/></svg>
             </div>
             <div class="filtro-row">
-                <svg class="icon-left" width="16" height="16"><use href="#ic-factory"/></svg>
+                <svg class="icon-left" width="16" height="16" aria-hidden="true"><use href="#ic-factory"/></svg>
                 <select id="filtroLaboratorio" aria-label="Filtrar por laboratorio">
                     <option value="">Laboratorio: Todos</option>
                 </select>
-                <svg class="icon-right" width="14" height="14"><use href="#ic-chevron"/></svg>
+                <svg class="icon-right" width="14" height="14" aria-hidden="true"><use href="#ic-chevron"/></svg>
             </div>
             <div class="filtro-row">
-                <svg class="icon-left" width="16" height="16"><use href="#ic-sort"/></svg>
+                <svg class="icon-left" width="16" height="16" aria-hidden="true"><use href="#ic-sort"/></svg>
                 <select id="ordenPrecio" aria-label="Ordenar resultados">
                     <option value="relevancia" selected>Relevancia + vigencia</option>
                     <option value="precio_asc">Menor precio primero</option>
                     <option value="precio_desc">Mayor precio primero</option>
                 </select>
-                <svg class="icon-right" width="14" height="14"><use href="#ic-chevron"/></svg>
+                <svg class="icon-right" width="14" height="14" aria-hidden="true"><use href="#ic-chevron"/></svg>
             </div>
             <label class="filtro-toggle" id="togglePamiLabel">
                 <input type="checkbox" id="togglePami" aria-label="Mostrar solo medicamentos con cobertura PAMI">
@@ -211,7 +211,7 @@
 
                 <div class="institucional-bloque">
                     <div class="inst-icon">
-                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 12l2 2 4-4"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
                     </div>
                     <h3>Datos oficiales, siempre actualizados</h3>
                     <p>Todos los precios provienen de fuentes oficiales y reflejan los valores de venta al público vigentes en farmacias de todo el país. El catálogo incluye más de 12.000 productos, 1.500 principios activos, genéricos y marcas comerciales.</p>
@@ -219,7 +219,7 @@
 
                 <div class="institucional-bloque">
                     <div class="inst-icon">
-                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                     </div>
                     <h3>Cobertura PAMI integrada</h3>
                     <p>Para los afiliados al PAMI, remedi.ar muestra el porcentaje de cobertura y el copago estimado para cada medicamento incluido en el vademécum, calculado sobre el precio vigente del día.</p>
@@ -227,7 +227,7 @@
 
                 <div class="institucional-bloque">
                     <div class="inst-icon">
-                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
                     </div>
                     <h3>Precios filtrados y verificados</h3>
                     <p>remedi.ar detecta automáticamente medicamentos con precios desactualizados o estadísticamente anómalos y los advierte claramente, sin ocultarlos ni equipararlos con información vigente.</p>
@@ -235,7 +235,7 @@
 
                 <div class="institucional-bloque">
                     <div class="inst-icon">
-                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
                     </div>
                     <h3>Sin publicidad ni posicionamiento pagado</h3>
                     <p>Ningún laboratorio puede pagar para aparecer primero. Los resultados se ordenan por relevancia y vigencia del precio, no por intereses comerciales.</p>
@@ -243,7 +243,7 @@
 
                 <div class="institucional-bloque">
                     <div class="inst-icon">
-                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
                     </div>
                     <h3>Búsqueda inteligente</h3>
                     <p>Buscá por nombre comercial, principio activo o laboratorio. Los resultados se adaptan a lo que escribís sin necesidad de coincidir exactamente con el listado oficial.</p>
@@ -251,7 +251,7 @@
 
                 <div class="institucional-bloque">
                     <div class="inst-icon">
-                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
                     </div>
                     <h3>Código abierto y auditable</h3>
                     <p>Todo el código de remedi.ar es público en <a href="https://github.com/psbella/remediar" target="_blank" rel="noopener">GitHub</a>. Cualquier persona puede verificar cómo obtenemos los datos, cómo los procesamos y cómo los mostramos.</p>
@@ -275,11 +275,11 @@
             <a href="https://datos.pami.org.ar/dataset/medicamentos-para-afiliados" target="_blank" rel="noopener">PAMI</a>
         </div>
         <div class="footer-aviso">
-            <svg width="14" height="14"><use href="#ic-info"/></svg>
+            <svg width="14" height="14" aria-hidden="true"><use href="#ic-info"/></svg>
             <span><strong>Aviso médico:</strong> Esta información no reemplaza la consulta con un profesional de la salud. Verificá precios en tu farmacia.</span>
         </div>
         <button id="btnInstalarApp" class="footer-install-badge" style="display:none">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
                 <line x1="12" y1="18" x2="12" y2="18.01"/>
                 <polyline points="8 12 12 16 16 12"/>
@@ -288,10 +288,9 @@
             Disponible como app
         </button>
         <nav class="footer-links">
-        <nav class="footer-links">
-            <a href="privacidad.html"><svg width="13" height="13"><use href="#ic-shield"/></svg>Privacidad</a>
-            <a href="terminos.html"><svg width="13" height="13"><use href="#ic-file"/></svg>Términos</a>
-            <a href="mailto:pablo.s.bella@gmail.com?subject=remedi.ar%20-%20Consulta"><svg width="13" height="13"><use href="#ic-mail"/></svg>Contacto</a>
+            <a href="privacidad.html"><svg width="13" height="13" aria-hidden="true"><use href="#ic-shield"/></svg>Privacidad</a>
+            <a href="terminos.html"><svg width="13" height="13" aria-hidden="true"><use href="#ic-file"/></svg>Términos</a>
+            <a href="mailto:pablo.s.bella@gmail.com?subject=remedi.ar%20-%20Consulta"><svg width="13" height="13" aria-hidden="true"><use href="#ic-mail"/></svg>Contacto</a>
         </nav>
     </footer>
 
