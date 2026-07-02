@@ -51,11 +51,6 @@ export function ordenar(lista, modo = 'relevancia') {
     });
 }
 
-// Compat: alias para el modo legacy
-export function ordenarPorPrecio(lista, direccion = 'asc') {
-    return ordenar(lista, direccion === 'asc' ? 'precio_asc' : 'precio_desc');
-}
-
 export function obtenerLaboratoriosValidos(lista) {
     const labs = new Set();
     lista.forEach(m => {

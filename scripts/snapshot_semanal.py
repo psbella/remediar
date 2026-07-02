@@ -16,6 +16,7 @@ import os
 import sys
 import urllib.request
 import urllib.error
+import urllib.parse
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
@@ -133,8 +134,6 @@ def asset_existe(release: dict, nombre_asset: str) -> bool:
 
 
 def main():
-    import urllib.parse  # noqa: F401 (usado en _api_upload)
-
     if not GITHUB_TOKEN:
         print("ERROR: GITHUB_TOKEN no disponible.")
         sys.exit(1)
@@ -161,5 +160,4 @@ def main():
 
 
 if __name__ == "__main__":
-    import urllib.parse
     main()

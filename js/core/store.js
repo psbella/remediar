@@ -131,13 +131,6 @@ export function initStore(medicamentos) {
     notificar();
 }
 
-// Alias para compatibilidad con main.js
-export function setTodos(medicamentos) {
-    state.todos = medicamentos;
-    state.filtrosDisponibles = _extraerFiltros(medicamentos);
-    recalcularResultados();
-    notificar();
-}
 
 // ── Privado ───────────────────────────────────────────────────────────
 function _extraerFiltros(meds) {
