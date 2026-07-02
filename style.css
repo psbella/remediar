@@ -98,10 +98,13 @@ body {
     100% { opacity: 1; transform: scale(1); }
 }
 
+<<<<<<< HEAD
 @media (prefers-reduced-motion: reduce) {
     .update-pill-dot { animation: none; }
 }
 
+=======
+>>>>>>> bc932f573d3e767b09058fb27b2578fb76144bfe
 /* Búsqueda */
 .busqueda-section {
     background: var(--white);
