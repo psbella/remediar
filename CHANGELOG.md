@@ -6,6 +6,21 @@ El formato está basado en [Keep a Changelog](https://keepachangelog.com/es/1.0.
 
 ---
 
+## [2.1.2] - 2026-07-01
+
+### 🐛 Corregido
+- Badge de versión del README desincronizado con `package.json` (2.1.0 → 2.1.1)
+- `import urllib.parse` duplicado en `snapshot_semanal.py` — consolidado en el bloque de imports del módulo
+
+### 🧹 Eliminado
+- `setTodos()` en `store.js` — alias sin ninguna referencia en el repo
+- `ordenarPorPrecio()` en `filters.js` — alias legacy sin ninguna referencia en el repo
+
+### ♿ Mejorado
+- `prefers-reduced-motion: reduce` en `@keyframes pulse` del `update-pill`, para respetar la preferencia de accesibilidad del sistema operativo
+
+---
+
 ## [2.1.1] - 2026-06-29
 
 ### 🐛 Corregido
