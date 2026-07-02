@@ -3,7 +3,7 @@
   X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), microphone=(), camera=()
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-MVTN6Sw4i5Kl2lg2S1/S+evZQ3ClwdQGKNnToH573jI=' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://www.google-analytics.com; font-src 'self';
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-MVTN6Sw4i5Kl2lg2S1/S+evZQ3ClwdQGKNnToH573jI=' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com; font-src 'self';
 
 /data/medicamentos.json
   Content-Type: application/json; charset=utf-8
