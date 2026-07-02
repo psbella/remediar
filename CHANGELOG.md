@@ -3,7 +3,18 @@
 Todos los cambios notables de remedi.ar se documentan en este archivo.
 
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/es/1.0.0/) y el proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+---
+## [2.1.3] - 2026-07-02
 
+### 🐛 Corregido
+- `update_prices.yml` seguía agregando `data/pami.xlsx` y `data/droga_fixes.json`
+  al commit en cada corrida pese a que el changelog de 2.1.2 ya lo daba por
+  resuelto — el cambio no había quedado aplicado en el YAML. Ahora ninguno
+  de los dos se toca en el paso de commit.
+
+### 🔒 Seguridad
+- Bloque `permissions: contents: write` explícito en `update_prices.yml`
+  (hallazgo de CodeQL: el workflow no limitaba los permisos del `GITHUB_TOKEN`).
 ---
 
 ## [2.1.2] - 2026-07-01
