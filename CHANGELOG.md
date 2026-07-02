@@ -6,13 +6,17 @@ El formato está basado en [Keep a Changelog](https://keepachangelog.com/es/1.0.
 
 ---
 
-## [2.1.3] - 2026-07-02
+## [2.1.4] - 2026-07-02
 
 ### 🐛 Corregido
 - `update_prices.yml` seguía agregando `data/pami.xlsx` y `data/droga_fixes.json` al commit en cada corrida pese a que la entrada 2.1.2 de este changelog ya lo daba por resuelto — el cambio no había quedado aplicado en el YAML. Ahora ninguno de los dos se toca en el paso de commit.
 
 ### 🔒 Seguridad
 - Bloque `permissions: contents: write` explícito en `update_prices.yml` (hallazgo de CodeQL: el workflow no limitaba los permisos del `GITHUB_TOKEN`).
+
+### ⚡ Mejorado
+- `_build_re_lab_pegado()` ya no se reconstruye dos veces sobre el dataset completo en `pdf_to_json.py` — se cachea una sola vez y se reutiliza entre `extraer_presentacion_de_marca()` y `limpiar_dosis_residual_en_marca()`.
+- Reemplazado `iterrows()` por `to_dict('records')`/`itertuples()` en los dos loops del crosswalk PAMI (`_build_pami_index()` y el fallback de dosis desde nombre de marca).
 
 ### 📝 Documentado retroactivamente
 - `data/pami.xlsx` no se versiona en git desde algún punto entre 2.1.0 y 2.1.2 (fecha exacta no registrada en este changelog): se descarga fresco en cada corrida del ETL desde el portal de datos abiertos de PAMI (CKAN), con retry y backoff (`_descargar_pami()` en `pdf_to_json.py`), y está listado en `.gitignore`. Si la descarga falla, el crosswalk PAMI se omite sin bloquear el resto del pipeline. Esto corresponde al ítem de roadmap de la auditoría técnica "migrar pami.xlsx fuera de git → URL de descarga directa desde PAMI en cada corrida del ETL", que en los hechos ya estaba resuelto pero nunca quedó asentado acá.
@@ -26,7 +30,7 @@ El formato está basado en [Keep a Changelog](https://keepachangelog.com/es/1.0.
 - `import urllib.parse` duplicado en `snapshot_semanal.py` — consolidado en el bloque de imports del módulo
 - `<nav class="footer-links">` estaba duplicado (dos aperturas, un cierre) — HTML inválido que además creaba un landmark de navegación repetido para lectores de pantalla
 
-> ⚠️ **Nota de corrección (agregada 2026-07-02):** este release originalmente incluía un ítem "`update_prices.yml` agregaba `data/pami.xlsx` y `data/droga_fixes.json` al commit... (Corregido)" que resultó no estar aplicado en el código. Se movió a la entrada 2.1.3, que es donde el fix realmente se aplicó.
+> ⚠️ **Nota de corrección (agregada 2026-07-02):** este release originalmente incluía un ítem "`update_prices.yml` agregaba `data/pami.xlsx` y `data/droga_fixes.json` al commit... (Corregido)" que resultó no estar aplicado en el código. Se movió a la entrada 2.1.4, que es donde el fix realmente se aplicó.
 
 ### 🔒 Seguridad
 - `connect-src` de la CSP ahora incluye `https://www.googletagmanager.com`, además de `google-analytics.com` — gtag.js puede hacer llamadas de red a ambos dominios en runtime
