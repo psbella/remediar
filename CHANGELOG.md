@@ -6,6 +6,26 @@ El formato está basado en [Keep a Changelog](https://keepachangelog.com/es/1.0.
 
 ---
 
+## [2.1.5] - 2026-07-02
+
+### 🐛 Corregido
+- `onLimpiar()` no reseteaba el checkbox visual de `#togglePami` — el estado interno del store sí se resetea vía `limpiarFiltros()`, pero el DOM quedaba desincronizado. Variante del bug C2 original, ahora del lado de la UI en vez del store
+- Badge de versión del README y `package.json` desincronizados con el CHANGELOG (2.1.2 vs 2.1.4 real) — mismo problema que ya se había corregido en la 2.1.2, volvió a colarse
+
+### 🧹 Eliminado
+- Variable de módulo `todos` en `main.js`, que duplicaba `state.todos` del store — reemplazada por `getTodos()` en los 5 lugares donde se leía
+
+### ♻️ Refactor
+- `js/core/store.js` → `js/store.js` — la carpeta `core/` solo contenía ese archivo, anticipaba una estructura que nunca se materializó. Actualizado el import en `main.js` y la ruta cacheada en `sw.js`
+
+### ♿ Mejorado
+- Skip navigation link ("Saltar al contenido principal") — oculto por defecto, visible al recibir foco de teclado, salta a `#main-content`
+
+### 🔒 Seguridad
+- `admin.html` ya no carga Google Fonts externas — reemplazadas por system font stacks equivalentes, sin request externa y consistente con la CSP `font-src 'self'`
+
+---
+
 ## [2.1.4] - 2026-07-02
 
 ### 🐛 Corregido

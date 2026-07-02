@@ -18,7 +18,7 @@
 
 <p align="left">
 <!-- Versión -->
-<img src="https://img.shields.io/badge/version-2.1.2-00897b">
+<img src="https://img.shields.io/badge/version-2.1.5-00897b">
 <img src="https://img.shields.io/github/v/release/psbella/remediar">
 <img src="https://img.shields.io/github/actions/workflow/status/psbella/remediar/update_prices.yml?label=ETL&logo=github-actions&logoColor=white">
 <br>
