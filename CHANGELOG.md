@@ -11,6 +11,7 @@ El formato está basado en [Keep a Changelog](https://keepachangelog.com/es/1.0.
 ### 🐛 Corregido
 - Badge de versión del README desincronizado con `package.json` (2.1.0 → 2.1.1)
 - `import urllib.parse` duplicado en `snapshot_semanal.py` — consolidado en el bloque de imports del módulo
+- `update_prices.yml` agregaba `data/pami.xlsx` y `data/droga_fixes.json` al commit en cada corrida aunque el ETL nunca los modifica (son archivos de solo lectura para el pipeline)
 
 ### 🧹 Eliminado
 - `setTodos()` en `store.js` — alias sin ninguna referencia en el repo
