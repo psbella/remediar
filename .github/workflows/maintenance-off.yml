@@ -4,6 +4,9 @@ name: 🟢 Desactivar mantenimiento
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   maintenance-off:
     runs-on: ubuntu-latest
