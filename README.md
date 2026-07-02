@@ -149,7 +149,7 @@ El sistema se compone de tres capas principales:
 - Se descarga el PDF oficial desde SIAFAR / COFA
 - Python extrae y normaliza los registros mediante un pipeline de 8+ capas
 - Se cruzan los datos con el vademécum de PAMI para enriquecer cobertura
-- Se genera `medicamentos.json` y `medicamentos.pretty.json`
+- Se genera `medicamentos.json`
 
 ---
 
@@ -294,7 +294,6 @@ flowchart TD
     BL[🛡️ Aplicar blacklist]
     E[🔍 Detectar outliers]
     F[💾 Generar medicamentos.json]
-    FP[📋 Generar medicamentos.pretty.json]
     R[📋 Generar outlier_report.json]
     CSV[🔬 Generar presentaciones_debug.csv]
     T[🧪 Tests de sanidad pytest]
@@ -308,12 +307,10 @@ flowchart TD
     N1 --> BL
     BL --> E
     E --> F
-    E --> FP
     E --> R
     E --> CSV
     F --> T
     T --> H
-    FP --> H
     R --> H
     CSV --> H
     H --> I
@@ -335,7 +332,7 @@ El parser aplica correcciones en cascada para resolver los problemas estructural
 | 5 | `extraer_presentacion_de_marca()` | Extrae la presentacion fusionada en el campo marca. Antes del regex de corte: (1) separa laboratorios pegados sin espacio (`_build_re_lab_pegado()`, dinámico por dataset); (2) separa formas farmacéuticas pegadas (`_RE_FORMA_PEGADA`); (3) elimina duplicados mayúscula+minúscula (`_RE_TOKEN_DUPLICADO`) |
 | 5b | `reparar_presentacion_desplazada()` | Separa presentacion+lab fusionados en el campo lab (3 sub-patrones: 2A, 2B, 2C) |
 | 5c | `limpiar_dosis_residual_en_marca()` | Limpia la dosis numérica que queda pegada al nombre del laboratorio en `marca` |
-| 6 | `crosswalk_pami()` | Cruza contra `data/pami.xlsx`: recupera droga vacía, corrige laboratorio, normaliza `presentacion`, agrega `pami_cobertura` |
+| 6 | `crosswalk_pami()` | Cruza contra el vademécum de PAMI (descargado en cada corrida desde la API pública de datos abiertos, ver más abajo): recupera droga vacía, corrige laboratorio, normaliza `presentacion`, agrega `pami_cobertura` |
 | 7 | `aplicar_droga_fixes()` | Aplica correcciones manuales desde `data/droga_fixes.json` |
 
 ---
@@ -382,10 +379,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "actions@github.com"
           git add data/medicamentos.json
-          git add data/medicamentos.pretty.json
           git add data/outlier_report.json
-          git add data/droga_fixes.json
-          git add data/pami.xlsx
           git add data/presentaciones_debug.csv
           git commit -m "Actualizar precios $(date +'%Y-%m-%d')" || echo "No changes"
           git pull --rebase origin main
@@ -444,12 +438,12 @@ jobs:
 
 | Archivo | Descripción |
 |---|---|
-| `data/pami.xlsx` | Vademécum PAMI. Usado para: (1) cobertura por marca+presentacion, (2) recuperar droga faltante, (3) corregir laboratorio, (4) normalizar el campo `presentacion` |
+| `data/pami.xlsx` | Vademécum PAMI, descargado automáticamente en cada corrida desde la [API de datos abiertos de PAMI](https://datos.pami.org.ar/dataset/medicamentos-para-afiliados) (no se versiona en git). Usado para: (1) cobertura por marca+presentacion, (2) recuperar droga faltante, (3) corregir laboratorio, (4) normalizar el campo `presentacion` |
 | `data/droga_fixes.json` | Correcciones manuales marca→droga para casos no resolubles con regex |
 | `data/blacklist.json` | 569 registros excluidos manualmente. Las claves usan el formato `droga\|marca\|presentacion\|laboratorio` en minúsculas |
 | `data/outlier_report.json` | Reporte detallado de outliers de la última corrida |
 | `data/presentaciones_debug.csv` | Auditoría del parser: `presentacion_original` vs. campos parseados (`forma`, `dosis`, `unidad`, `cantidad`) |
-| `data/medicamentos.pretty.json` | Versión formateada con `indent=2` del dataset, para debug humano |
+| `.debug/medicamentos.pretty.json` | Versión formateada con `indent=2` del dataset, solo para debug local — **no se publica** en el sitio ni se versiona en git |
 
 ### Cómo agregar una corrección a `droga_fixes.json`
 
@@ -574,11 +568,11 @@ flowchart LR
 
     subgraph THREE["🐍 ETL Python"]
         E["pdf_to_json.py\n8+ capas normalización"]
-        G["📊 medicamentos.json\nmedicamentos.pretty.json"]
+        G["📊 medicamentos.json"]
     end
 
     subgraph REF["📋 REFERENCIA"]
-        H["pami.xlsx"]
+        H["Vademécum PAMI\n(API, descarga en runtime)"]
         I["droga_fixes.json"]
         J["blacklist.json (569)"]
     end
@@ -629,6 +623,7 @@ remediar/
 ├── README.md
 ├── _headers
 ├── .nojekyll
+├── .gitignore
 │
 ├── img/
 │   ├── favicon.svg
@@ -639,22 +634,20 @@ remediar/
 │
 ├── js/
 │   ├── main.js
+│   ├── store.js
 │   ├── dataLoader.js
 │   ├── filters.js
 │   ├── searchEngine.js
 │   ├── uiRenderer.js
-│   ├── utils.js
-│   └── core/
-│       └── store.js
+│   └── utils.js
 │
 ├── data/
 │   ├── medicamentos.json
-│   ├── medicamentos.pretty.json
 │   ├── outlier_report.json
 │   ├── presentaciones_debug.csv
 │   ├── blacklist.json
 │   ├── droga_fixes.json
-│   └── pami.xlsx
+│   └── pami.xlsx          # descargado en runtime, no versionado
 │
 ├── scripts/
 │   ├── pdf_to_json.py
@@ -768,7 +761,7 @@ docker run -p 8080:80 remediar
 
 | Script | Función |
 |---|---|
-| `scripts/pdf_to_json.py` | Descarga PDF; aplica pipeline de 8+ capas de normalización; crosswalk con PAMI; aplica blacklist; detecta outliers; genera `medicamentos.json`, `medicamentos.pretty.json`, `outlier_report.json` y `presentaciones_debug.csv` |
+| `scripts/pdf_to_json.py` | Descarga PDF; descarga el vademécum PAMI vigente desde su API de datos abiertos; aplica pipeline de 8+ capas de normalización; crosswalk con PAMI; aplica blacklist; detecta outliers; genera `medicamentos.json`, `outlier_report.json` y `presentaciones_debug.csv` |
 | `scripts/snapshot_semanal.py` | Genera un CSV con los precios confiables (`vigencia_score ≥ 50`) de la semana y lo sube como asset a la release mensual de GitHub (`historial-YYYY-MM`). Se ejecuta automáticamente cada viernes. |
 | `tests/test_etl_sanidad.py` | 12 tests de sanidad sobre el output del ETL: cantidad de registros, campos obligatorios, rangos de precios, calidad de datos y estructura del JSON |
 
@@ -837,7 +830,6 @@ El JSON de medicamentos es público y accesible libremente bajo licencia MIT.
 |---|---|
 | GET | https://remedi.ar/data/medicamentos.json |
 | GET | https://raw.githubusercontent.com/psbella/remediar/main/data/medicamentos.json |
-| GET (legible) | https://remedi.ar/data/medicamentos.pretty.json |
 
 ## JavaScript
 
@@ -919,7 +911,6 @@ flowchart TD
     PRES[Parser de presentaciones]
     T[🧪 pytest 12 tests]
     JSON[medicamentos.json]
-    PRETTY[medicamentos.pretty.json]
     DEBUG[presentaciones_debug.csv]
     REPORT[outlier_report.json]
 
@@ -939,7 +930,6 @@ flowchart TD
     OUT --> PRES
     PRES --> T
     T --> JSON
-    JSON --> PRETTY
     PRES --> DEBUG
     OUT --> REPORT
 ```
@@ -1094,7 +1084,7 @@ flowchart LR
         S5[precio]
     end
 
-    subgraph PAMI["📋 pami.xlsx"]
+    subgraph PAMI["📋 Vademécum PAMI (API)"]
         P1[pami_cobertura]
         P2["droga (recuperación)"]
         P3["laboratorio (corrección)"]
@@ -1187,22 +1177,25 @@ flowchart LR
 
 ```css
 :root {
-  --teal:        #00bfa5;
-  --teal-light:  #e0f7f4;
-  --teal-darker: #00897b;
-  --text-1:      #1a2e2e;
-  --text-4:      #7a9696;
-  --border-radius: 12px;
+  --teal:          #008B8B;
+  --teal-dark:     #005f5f;
+  --teal-darker:   #003f3f;
+  --teal-light:    #e6f2f2;
+  --teal-accent:   #0e7490;
+  --text-1:        #111111;
+  --text-4:        #777777;
+  --r-sm: 8px; --r-md: 12px; --r-lg: 16px;
 }
 ```
 
 ## Responsive
 
+Un único breakpoint mobile-first en `600px` — no hay un nivel intermedio de tablet separado, el layout de mobile se extiende hasta desktop.
+
 | Breakpoint | Tamaño |
 |---|---|
-| Mobile | < 640px |
-| Tablet | 641px - 1024px |
-| Desktop | > 1024px |
+| Mobile | ≤ 600px |
+| Desktop | > 600px |
 
 ---
 
@@ -1304,9 +1297,11 @@ Sí, desde el primer viernes de implementación. Cada viernes se genera un snaps
 
 ## Mediano plazo
 
+- Integración con API REST de ANMAT (trámite en curso — respuesta esperada 10/07/2026)
 - IOMA como segunda fuente de crosswalk
 - API REST pública documentada
 - Dashboard estadístico de variación de precios
+- Instagram con contenido generado automáticamente
 
 ## Largo plazo
 
@@ -1337,7 +1332,6 @@ Datos proporcionados por [SIAFAR / COFA](https://siafar.com/precios/pdf/). Cober
 | Repositorio | https://github.com/psbella/remediar |
 | Actions / CI | https://github.com/psbella/remediar/actions |
 | medicamentos.json | https://remedi.ar/data/medicamentos.json |
-| medicamentos.pretty.json | https://remedi.ar/data/medicamentos.pretty.json |
 | Sitemap | https://remedi.ar/sitemap.xml |
 | Política de privacidad | https://remedi.ar/privacidad.html |
 | Términos y condiciones | https://remedi.ar/terminos.html |
