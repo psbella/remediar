@@ -241,15 +241,44 @@ def aplicar_droga_fixes(medicamentos: list) -> tuple:
 #   2. solo marca (cuando presentacion vacía) → recupera droga solo si es
 #      unívoca (todas las filas PAMI para esa marca tienen la misma droga)
 #
-# El archivo de PAMI se descarga en cada run desde la ruta configurada.
-# Si no está disponible, la función es un no-op con aviso.
+# El archivo de PAMI se descarga en cada run desde el portal de datos abiertos
+# de PAMI (CKAN). No se versiona en git: PAMI_PATH es un archivo temporal de
+# la corrida (ver .gitignore). Si la descarga falla, la función es un no-op
+# con aviso — el crosswalk PAMI es un enriquecimiento opcional, no bloqueante.
 
 PAMI_PATH = BASE / "data" / "pami.xlsx"
+PAMI_RESOURCE_ID = "92ad6862-af8e-4047-b2cb-4bfef705feb3"
+PAMI_API_URL = f"https://datos.pami.org.ar/api/3/action/resource_show?id={PAMI_RESOURCE_ID}"
+
+def _descargar_pami(max_reintentos=3, backoff_segundos=30) -> bool:
+    """Descarga el vademécum PAMI vigente a PAMI_PATH. Devuelve True si tuvo éxito."""
+    for intento in range(1, max_reintentos + 1):
+        try:
+            req = urllib.request.Request(PAMI_API_URL, headers={"User-Agent": "Mozilla/5.0"})
+            with urllib.request.urlopen(req, timeout=30, context=ssl_context) as r:
+                meta = json.loads(r.read())
+            download_url = meta["result"]["url"]
+
+            req = urllib.request.Request(download_url, headers={"User-Agent": "Mozilla/5.0"})
+            with urllib.request.urlopen(req, timeout=60, context=ssl_context) as r:
+                xlsx_bytes = r.read()
+
+            PAMI_PATH.parent.mkdir(parents=True, exist_ok=True)
+            PAMI_PATH.write_bytes(xlsx_bytes)
+            print(f"   PAMI: descargado ({len(xlsx_bytes)} bytes) desde {download_url.split('/')[-1]}")
+            return True
+        except (urllib.error.URLError, TimeoutError, ConnectionError, KeyError, ValueError) as e:
+            print(f"   PAMI: intento {intento}/{max_reintentos} fallido ({e})")
+            if intento < max_reintentos:
+                time.sleep(backoff_segundos)
+    print("   PAMI: no se pudo descargar el vademécum tras todos los reintentos — se omite el crosswalk.")
+    return False
 
 def _build_pami_index():
     """Carga el vademécum PAMI y construye índices por marca+pres y por marca."""
     if not PAMI_PATH.exists():
-        return None, None
+        if not _descargar_pami():
+            return None, None
 
     try:
         import openpyxl  # noqa: F401
@@ -267,7 +296,12 @@ def _build_pami_index():
     by_marca_pres = {}
     by_marca      = {}
 
-    for _, row in df.iterrows():
+    # to_dict('records') convierte el DataFrame completo a una lista de
+    # dicts en una sola operación vectorizada, en vez de reconstruir una
+    # Series por fila como hace iterrows(). Los dicts resultantes soportan
+    # el mismo acceso .get()/['clave'] que usa crosswalk_pami() más abajo,
+    # así que no hace falta tocar el código que consume estos índices.
+    for row in df.to_dict('records'):
         mk   = _norm(row.get('MARCA', ''))
         pres = _norm(row.get('PRESENTACION', ''))
         key  = (mk, pres)
@@ -501,7 +535,7 @@ def separar_lab_pegado_de_marca(marca: str, re_lab_pegado) -> str:
     return re_lab_pegado.sub(lambda m: m.group(1) + ' ', nueva)
 
 
-def extraer_presentacion_de_marca(medicamentos: list) -> tuple:
+def extraer_presentacion_de_marca(medicamentos: list, re_lab_pegado=None) -> tuple:
     """
     Para registros con presentacion vacía, intenta extraer la presentacion
     desde el campo marca cuando ambos campos quedaron fusionados.
@@ -514,9 +548,17 @@ def extraer_presentacion_de_marca(medicamentos: list) -> tuple:
     Solo actúa cuando el nombre resultante tiene al menos 3 caracteres
     y no empieza con dígito (descarta falsos positivos).
 
+    re_lab_pegado: regex precompilado (ver _build_re_lab_pegado). Si no
+    se pasa, se construye acá — se acepta como parámetro para poder
+    reutilizar el mismo regex entre esta función y
+    limpiar_dosis_residual_en_marca() sin reconstruirlo dos veces sobre
+    el dataset completo (ambas dependen solo del campo 'laboratorio',
+    que ninguna de las dos modifica).
+
     Retorna el dataset corregido y la cantidad de registros reparados.
     """
-    re_lab_pegado = _build_re_lab_pegado(medicamentos)
+    if re_lab_pegado is None:
+        re_lab_pegado = _build_re_lab_pegado(medicamentos)
 
     reparados = 0
     for m in medicamentos:
@@ -545,7 +587,7 @@ _RE_DOSIS_RESIDUAL = re.compile(
 )
 
 
-def limpiar_dosis_residual_en_marca(medicamentos: list) -> tuple:
+def limpiar_dosis_residual_en_marca(medicamentos: list, re_lab_pegado=None) -> tuple:
     """
     Limpia el residuo de dosis que queda pegado a un laboratorio dentro
     de 'marca' incluso cuando 'presentacion' YA tiene contenido (por eso
@@ -564,9 +606,13 @@ def limpiar_dosis_residual_en_marca(medicamentos: list) -> tuple:
     marcas que terminan en dosis por motivos propios sin laboratorio
     pegado de por medio, para no arriesgar falsos positivos.
 
+    re_lab_pegado: regex precompilado (ver _build_re_lab_pegado). Si no
+    se pasa, se construye acá — ver nota en extraer_presentacion_de_marca().
+
     Retorna el dataset corregido y la cantidad de registros reparados.
     """
-    re_lab_pegado = _build_re_lab_pegado(medicamentos)
+    if re_lab_pegado is None:
+        re_lab_pegado = _build_re_lab_pegado(medicamentos)
     if re_lab_pegado is None:
         return medicamentos, 0
 
@@ -1763,7 +1809,12 @@ def main():
 
     # ── CAPA 5: extraer presentacion fusionada en marca ───────────────────
     print("\nExtrayendo presentacion de marca fusionada...")
-    medicamentos, n_extrac = extraer_presentacion_de_marca(medicamentos)
+    # re_lab_pegado se construye una sola vez acá y se reutiliza en la
+    # Capa 5c: depende solo del campo 'laboratorio', que ni esta capa ni
+    # la 5b lo modifican con valores nuevos (ver docstring de
+    # extraer_presentacion_de_marca).
+    re_lab_pegado = _build_re_lab_pegado(medicamentos)
+    medicamentos, n_extrac = extraer_presentacion_de_marca(medicamentos, re_lab_pegado)
     print(f"   Reparados: {n_extrac}")
 
     # ── CAPA 5b: reparar presentacion desplazada al campo lab ────────────
@@ -1776,7 +1827,7 @@ def main():
     # 'presentacion' pero dejó la dosis numérica pegada al laboratorio
     # dentro de 'marca' (ej. "CIPROFLOXACINA SANT GALL500 MG").
     print("\nLimpiando dosis residual en marca...")
-    medicamentos, n_dosis_residual = limpiar_dosis_residual_en_marca(medicamentos)
+    medicamentos, n_dosis_residual = limpiar_dosis_residual_en_marca(medicamentos, re_lab_pegado)
     print(f"   Reparados: {n_dosis_residual}")
 
     # ── CAPA 6: crosswalk PAMI → recuperar droga y corregir laboratorio ───
@@ -1890,9 +1941,9 @@ def main():
         import pandas as _pd
         pami_df = _pd.read_excel(PAMI_PATH)
         pami_df.columns = [c.strip() for c in pami_df.columns]
-        for _, row in pami_df.iterrows():
-            marca_p = str(row['MARCA']).strip().upper()
-            pres_p  = str(row['PRESENTACION']).strip().lower()
+        for row in pami_df.itertuples(index=False):
+            marca_p = str(getattr(row, 'MARCA', '')).strip().upper()
+            pres_p  = str(getattr(row, 'PRESENTACION', '')).strip().lower()
             hit     = _RE_DOSIS_CONC_PAMI.search(pres_p)
             if hit:
                 pami_dosis_idx.setdefault(marca_p, []).append((pres_p, hit))
