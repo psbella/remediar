@@ -276,8 +276,15 @@ def _descargar_pami(max_reintentos=3, backoff_segundos=30) -> bool:
 
 def _build_pami_index():
     """Carga el vademécum PAMI y construye índices por marca+pres y por marca."""
-    if not PAMI_PATH.exists():
-        if not _descargar_pami():
+    # Siempre se intenta la descarga fresca — no alcanza con chequear si
+    # PAMI_PATH ya existe, porque en GitHub Actions el checkout trae el
+    # archivo del último commit en el que se haya versionado (p.ej. antes
+    # de migrar a descarga dinámica), y ese archivo nunca se actualizaría.
+    habia_archivo_previo = PAMI_PATH.exists()
+    if not _descargar_pami():
+        if habia_archivo_previo:
+            print("   PAMI: se usa el archivo existente en disco como fallback (puede estar desactualizado).")
+        else:
             return None, None
 
     try:
