@@ -332,7 +332,7 @@ def crosswalk_pami(medicamentos: list) -> tuple:
     def _norm(s):
         return _re.sub(r'\s+', ' ', str(s or '').strip().upper())
 
-    stats = {'match_exacto': 0, 'droga_recuperada': 0, 'lab_corregido': 0, 'pami_cobertura': 0}
+    stats = {'match_exacto': 0, 'droga_recuperada': 0, 'lab_corregido': 0, 'pami_cobertura': 0, 'pami_cobertura_invalida': 0}
 
     by_marca_pres, by_marca = _build_pami_index()
     if by_marca_pres is None:
@@ -360,8 +360,12 @@ def crosswalk_pami(medicamentos: list) -> tuple:
             cobertura_raw = str(row.get('COBERTURA', '') or '')
             if cobertura_raw.strip().endswith('%'):
                 try:
-                    m['pami_cobertura'] = int(cobertura_raw.strip().rstrip('%'))
-                    stats['pami_cobertura'] += 1
+                    cobertura = int(cobertura_raw.strip().rstrip('%'))
+                    if 0 <= cobertura <= 100:
+                        m['pami_cobertura'] = cobertura
+                        stats['pami_cobertura'] += 1
+                    else:
+                        stats['pami_cobertura_invalida'] += 1
                 except ValueError:
                     pass
 
@@ -1843,6 +1847,8 @@ def main():
     print(f"   Matches exactos: {stats_pami['match_exacto']} | "
           f"Drogas recuperadas: {stats_pami['droga_recuperada']} | "
           f"Labs corregidos: {stats_pami['lab_corregido']}")
+    if stats_pami['pami_cobertura_invalida'] > 0:
+        print(f"   ⚠️  Coberturas PAMI fuera de rango (0-100%) descartadas: {stats_pami['pami_cobertura_invalida']}")
 
     # ── CAPA 7: fixes manuales de droga ──────────────────────────────────
     print("\nAplicando fixes manuales de droga...")
