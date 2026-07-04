@@ -116,10 +116,13 @@
 
 # ✨ Demo en Vivo
 
+## ✨ Demo en Vivo
+
 | Entorno | URL | Propósito |
 |---|---|---|
-| Cloudflare Pages | https://remedi.ar | Producción principal |
-| GitHub Pages | https://psbella.github.io/remediar/ | Respaldo |
+| GitHub Pages (dominio propio, DNS en Cloudflare) | [remedi.ar](https://remedi.ar) | Producción — alojado en GitHub |
+| GitHub Pages (dominio por defecto) | [psbella.github.io/remediar](https://psbella.github.io/remediar/) | Mirror/respaldo |
+| Cloudflare Workers | [remediar.pablo-s-bella.workers.dev](https://remediar.pablo-s-bella.workers.dev/) | Mirror/respaldo |
 
 ---
 
