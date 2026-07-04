@@ -863,6 +863,12 @@ con_pami = meds[meds['pami_cobertura'].notna()]
 
 # 👥 Guía de Contribución
 
+## Reportar un problema
+
+- **¿Un precio, laboratorio o cobertura PAMI están mal?** Abrí un issue con el template ["🩺 Precio o dato incorrecto"](.github/ISSUE_TEMPLATE/dato_incorrecto.md) — es el tipo de reporte más útil para este proyecto.
+- **¿Algo no funciona en la web?** Usá el template ["🐛 Bug del sitio"](.github/ISSUE_TEMPLATE/bug.md).
+- **¿Una idea o mejora?** Template ["💡 Idea o mejora"](.github/ISSUE_TEMPLATE/idea.md) — revisá primero el [Roadmap](#️-roadmap) por si ya está anotado.
+
 ## Flujo
 
 ```bash
@@ -871,8 +877,10 @@ git checkout -b feature/nueva-funcion
 # hacer cambios
 git commit -m "feat: descripción del cambio"
 git push origin feature/nueva-funcion
-# abrir Pull Request
+# abrir Pull Request (se completa solo con el template del repo)
 ```
+
+Antes de abrir el PR: si tocaste el ETL, corré `pytest tests/` y confirmá que pasen los 12 tests de sanidad; si tocaste JS/CSS/HTML, probá el cambio en el navegador, no alcanza con leer el diff.
 
 ## Convenciones de commits
 
@@ -884,6 +892,10 @@ git push origin feature/nueva-funcion
 | `perf` | Performance |
 | `chore` | Mantenimiento / limpieza |
 | `security` | Cambios de seguridad |
+
+## Sobre la rama `main`
+
+`main` no tiene branch protection activa. Es una decisión consciente: el repo tiene un solo colaborador con acceso de escritura, y GitHub no permite eximir al bot de `github-actions` de las reglas de protección en cuentas personales — activarla hubiera roto el workflow automático que pushea 2 veces al día. Si en algún momento se suma otro colaborador con acceso de escritura, esto se reevalúa.
 
 ---
 
@@ -1206,6 +1218,8 @@ Un único breakpoint mobile-first en `600px` — no hay un nivel intermedio de t
 | `update_prices.yml` | Cron `30 13,21 * * 1-5` + manual | ETL principal: descarga PDF, genera JSON, corre tests, hace commit |
 | `maintenance-on.yml` | Manual | Reemplaza `index.html` con página de mantenimiento |
 | `maintenance-off.yml` | Manual | Restaura `index.html` desde backup |
+| `codeql.yml` | Push/PR a `main` + cron semanal (lunes 06:00 UTC) | Análisis estático de seguridad (CodeQL) sobre JS y Python |
+| `dependabot.yml` (config, no workflow) | Semanal | Propone actualizaciones de `requirements.txt` y de las actions usadas en los workflows |
 
 | Parámetro | Valor |
 |---|---|

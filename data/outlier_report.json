@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-07-02T19:40:39.138891-03:00",
+  "timestamp": "2026-07-03T19:37:25.502819-03:00",
   "total_registros": 13377,
-  "total_outliers": 287,
+  "total_outliers": 288,
   "outliers": [
     {
       "droga": "abacavir, lamivudina",
@@ -26,7 +26,7 @@
       "razones": [
         "precio $4,458,857.48 < fence_low $5,459,504.04"
       ],
-      "mediana_droga": 11361920.71,
+      "mediana_droga": 11422226.71,
       "n_droga": 20
     },
     {
@@ -721,12 +721,12 @@
       "marca": "CASCARA SAGRADA OLIGOPLEX",
       "presentacion": "comp.x 30",
       "laboratorio": "Dr.Madaus",
-      "precio": 7390.0,
+      "precio": 7450.0,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $246.33 << mediana_grupo $1,398.14"
+        "ppu $248.33 << mediana_grupo $1,407.17"
       ],
-      "mediana_droga": 29194.5,
+      "mediana_droga": 29385.0,
       "n_droga": 2
     },
     {
@@ -1209,7 +1209,7 @@
       "razones": [
         "ppu $120.58 << mediana_grupo $959.34"
       ],
-      "mediana_droga": 10447.0,
+      "mediana_droga": 10692.99,
       "n_droga": 17
     },
     {
@@ -1217,10 +1217,10 @@
       "marca": "NIKZON",
       "presentacion": "500 mg comp.rec.x 30",
       "laboratorio": "Genomma Lab.",
-      "precio": 14109.64,
+      "precio": 14462.38,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $14,109.64 < 25% mediana $58,512.84 (n=38)"
+        "precio $14,462.38 < 25% mediana $58,512.84 (n=38)"
       ],
       "mediana_droga": 58512.84,
       "n_droga": 38
@@ -1276,6 +1276,19 @@
       ],
       "mediana_droga": 12344.49,
       "n_droga": 22
+    },
+    {
+      "droga": "empagliflozina",
+      "marca": "BECIADIC",
+      "presentacion": "10mg comp.x 30",
+      "laboratorio": "Denver Farma",
+      "precio": 73800.0,
+      "precio_outlier_tipo": "bajo_iqr",
+      "razones": [
+        "precio $73,800.00 < fence_low $74,971.78"
+      ],
+      "mediana_droga": 98909.35,
+      "n_droga": 20
     },
     {
       "droga": "enoxaparina sódica",
@@ -1456,9 +1469,9 @@
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
         "precio $1,772.73 < minimo $1,800",
-        "precio $1,772.73 < 10% mediana $34,200.66"
+        "precio $1,772.73 < 10% mediana $34,631.82"
       ],
-      "mediana_droga": 34200.66,
+      "mediana_droga": 34631.82,
       "n_droga": 25
     },
     {
@@ -1534,7 +1547,7 @@
       "precio": 3829696.53,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $3,829,696.53 < fence_low $4,433,566.44"
+        "precio $3,829,696.53 < fence_low $4,314,286.71"
       ],
       "mediana_droga": 5314331.05,
       "n_droga": 10
@@ -1700,10 +1713,10 @@
       "marca": "IBU 400",
       "presentacion": "400 mg comp.x 10",
       "laboratorio": "Genomma Lab.",
-      "precio": 2659.61,
+      "precio": 2726.1,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $6.65 << mediana_grupo $131.72"
+        "ppu $6.82 << mediana_grupo $135.01"
       ],
       "mediana_droga": 8110.0,
       "n_droga": 151
@@ -3058,9 +3071,9 @@
       "precio": 7945.13,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $7,945.13 < 25% mediana $33,532.53 (n=23)"
+        "precio $7,945.13 < 25% mediana $34,706.17 (n=23)"
       ],
-      "mediana_droga": 33532.53,
+      "mediana_droga": 34706.17,
       "n_droga": 23
     },
     {
@@ -3071,9 +3084,9 @@
       "precio": 6853.59,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $6,853.59 < 25% mediana $33,532.53 (n=23)"
+        "precio $6,853.59 < 25% mediana $34,706.17 (n=23)"
       ],
-      "mediana_droga": 33532.53,
+      "mediana_droga": 34706.17,
       "n_droga": 23
     },
     {
@@ -3341,10 +3354,10 @@
       "marca": "MOMENTUM",
       "presentacion": "20 mg comp.rec.x 2",
       "laboratorio": "Panalab",
-      "precio": 20461.88,
+      "precio": 20871.12,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $1,023.09 << mediana_grupo $7,504.42"
+        "ppu $1,043.56 << mediana_grupo $7,710.04"
       ],
       "mediana_droga": 65929.84,
       "n_droga": 81
@@ -3524,10 +3537,10 @@
       "marca": "RADINA",
       "presentacion": "gts.oft.x 5 ml",
       "laboratorio": "Valmax",
-      "precio": 8950.0,
+      "precio": 9000.0,
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
-        "precio $8,950.00 < 10% mediana $11,513,008.96"
+        "precio $9,000.00 < 10% mediana $11,513,008.96"
       ],
       "mediana_droga": 11513008.96,
       "n_droga": 16
