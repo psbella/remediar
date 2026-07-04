@@ -1,10 +1,10 @@
-# Config del Worker "remedios" — espejo estático de remedi.ar.
+# Config del Worker "remediar" — espejo estático de remedi.ar.
 # Worker sin lógica dinámica: solo sirve los mismos archivos que
 # publica GitHub Pages / Cloudflare Pages (producción principal).
 #
 # Deploy: npx wrangler deploy
 
-name = "remedios"
+name = "remediar"
 compatibility_date = "2026-07-04"
 
 [assets]
