@@ -116,8 +116,6 @@
 
 # ✨ Demo en Vivo
 
-## ✨ Demo en Vivo
-
 | Entorno | URL | Propósito |
 |---|---|---|
 | GitHub Pages (dominio propio, DNS en Cloudflare) | [remedi.ar](https://remedi.ar) | Producción — alojado en GitHub |
