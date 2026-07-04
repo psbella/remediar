@@ -7,6 +7,7 @@
 scripts/
 tests/
 node_modules/
+.wrangler/
 
 # Específico de GitHub Pages, no aplica a un Worker
 CNAME
