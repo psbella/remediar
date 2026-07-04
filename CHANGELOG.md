@@ -15,6 +15,8 @@ El formato está basado en [Keep a Changelog](https://keepachangelog.com/es/1.0.
   (el fetch a `medicamentos.json` desde `main.js`). El bloqueo previo
   probablemente resultaba en indexación de una página sin contenido
   de producto.
+  ### 📝 Documentado
+- `SECURITY.md` — política de reporte de vulnerabilidades y canal de contacto directo.
 
 ---
 
