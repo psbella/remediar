@@ -1,0 +1,23 @@
+# Archivos de gestión del repo que no son parte del sitio público.
+# Mismo espíritu que .gitignore, pero para lo que Wrangler sube
+# como assets del Worker.
+
+.git/
+.github/
+scripts/
+tests/
+node_modules/
+
+# Específico de GitHub Pages, no aplica a un Worker
+CNAME
+.nojekyll
+
+# Meta del repo, no contenido del sitio
+README.md
+CHANGELOG.md
+LICENSE
+package.json
+requirements.txt
+.gitignore
+wrangler.toml
+.assetsignore
