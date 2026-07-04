@@ -4,17 +4,11 @@ Todos los cambios notables de remedi.ar se documentan en este archivo.
 
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/es/1.0.0/) y el proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2.1.5] - 2026-07-04
+## [2.1.6] - 2026-07-04
 
 ### 🔒 Seguridad
-- Bloque `permissions: contents: write` explícito en `maintenance-on.yml` —
-  quedó afuera cuando se aplicó el mismo fix a `update_prices.yml` y
-  `maintenance-off.yml` en la 2.1.4. Cierra el último de los tres workflows
-  sin permisos acotados del `GITHUB_TOKEN`.
-  
-  - Se versiona `.github/workflows/codeql.yml` (antes CodeQL corría vía
-  configuración de la pestaña Security sin quedar reflejado en el código
-  del repo). Cubre JS, Python y los propios workflows de Actions.
+- Bloque `permissions: contents: write` explícito en `maintenance-on.yml` — quedó afuera cuando se aplicó el mismo fix a `update_prices.yml` y `maintenance-off.yml` en la 2.1.4. Cierra el último de los tres workflows sin permisos acotados del `GITHUB_TOKEN`.
+- Se versiona `.github/workflows/codeql.yml` (antes CodeQL corría vía configuración de la pestaña Security sin quedar reflejado en el código del repo). Cubre JS, Python y los propios workflows de Actions.
 
 ---
 
