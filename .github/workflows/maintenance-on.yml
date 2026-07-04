@@ -4,6 +4,9 @@ name: 🔴 Activar mantenimiento
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   maintenance-on:
     runs-on: ubuntu-latest
