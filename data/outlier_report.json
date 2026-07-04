@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-07-03T19:37:25.502819-03:00",
+  "timestamp": "2026-07-04T05:25:45.417894-03:00",
   "total_registros": 13377,
-  "total_outliers": 288,
+  "total_outliers": 287,
   "outliers": [
     {
       "droga": "abacavir, lamivudina",
@@ -737,9 +737,9 @@
       "precio": 6720.33,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $6,720.33 < 25% mediana $28,019.68 (n=5)"
+        "precio $6,720.33 < 25% mediana $28,608.09 (n=5)"
       ],
-      "mediana_droga": 28019.68,
+      "mediana_droga": 28608.09,
       "n_droga": 5
     },
     {
@@ -1050,9 +1050,9 @@
       "precio": 2128.08,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $2,128.08 < 25% mediana $18,118.12 (n=5)"
+        "precio $2,128.08 < 25% mediana $18,308.37 (n=5)"
       ],
-      "mediana_droga": 18118.12,
+      "mediana_droga": 18308.37,
       "n_droga": 5
     },
     {
@@ -2887,7 +2887,7 @@
       "precio": 52210.08,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $52,210.08 < fence_low $57,205.87"
+        "precio $52,210.08 < fence_low $54,117.08"
       ],
       "mediana_droga": 111517.49,
       "n_droga": 54
@@ -2900,7 +2900,7 @@
       "precio": 53803.09,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $53,803.09 < fence_low $57,205.87"
+        "precio $53,803.09 < fence_low $54,117.08"
       ],
       "mediana_droga": 111517.49,
       "n_droga": 54
@@ -2913,20 +2913,7 @@
       "precio": 53359.0,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $53,359.00 < fence_low $57,205.87"
-      ],
-      "mediana_droga": 111517.49,
-      "n_droga": 54
-    },
-    {
-      "droga": "rivaroxabán",
-      "marca": "XAROBAN",
-      "presentacion": "10 mg x 10 comp.rec.",
-      "laboratorio": "Raffo",
-      "precio": 54729.86,
-      "precio_outlier_tipo": "bajo_iqr",
-      "razones": [
-        "precio $54,729.86 < fence_low $57,205.87"
+        "precio $53,359.00 < fence_low $54,117.08"
       ],
       "mediana_droga": 111517.49,
       "n_droga": 54
@@ -3658,9 +3645,9 @@
       "precio": 26091.16,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $434.85 << mediana_grupo $2,527.93"
+        "ppu $434.85 << mediana_grupo $2,540.29"
       ],
-      "mediana_droga": 30701.08,
+      "mediana_droga": 31071.86,
       "n_droga": 4
     },
     {
