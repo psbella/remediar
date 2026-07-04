@@ -1,6 +1,4 @@
 User-agent: *
-Disallow: /data/
-Disallow: /js/
 Disallow: /scripts/
 Disallow: /logs/
 Sitemap: https://remedi.ar/sitemap.xml

@@ -9,6 +9,12 @@ El formato está basado en [Keep a Changelog](https://keepachangelog.com/es/1.0.
 ### 🔒 Seguridad
 - Bloque `permissions: contents: write` explícito en `maintenance-on.yml` — quedó afuera cuando se aplicó el mismo fix a `update_prices.yml` y `maintenance-off.yml` en la 2.1.4. Cierra el último de los tres workflows sin permisos acotados del `GITHUB_TOKEN`.
 - Se versiona `.github/workflows/codeql.yml` (antes CodeQL corría vía configuración de la pestaña Security sin quedar reflejado en el código del repo). Cubre JS, Python y los propios workflows de Actions.
+### 🔍 SEO
+- `robots.txt` ya no bloquea `/data/` ni `/js/` — esos paths son
+  necesarios para que Googlebot renderice el contenido real del sitio
+  (el fetch a `medicamentos.json` desde `main.js`). El bloqueo previo
+  probablemente resultaba en indexación de una página sin contenido
+  de producto.
 
 ---
 
