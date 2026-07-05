@@ -4,6 +4,37 @@ Todos los cambios notables de remedi.ar se documentan en este archivo.
 
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/es/1.0.0/) y el proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.1.7] - 2026-07-05
+
+### ✨ Agregado
+- Deduplicación de registros exactos del PDF de SIAFAR antes de las capas de reparación del ETL.
+
+### 🐛 Corregido
+- `js/main.js`: el listener de `pageshow` leía `timestamp` en vez de `ts` del cache en `sessionStorage` — la limpieza de cache vieja al volver con el botón "atrás" nunca se ejecutaba.
+- `.gitignore`: línea `data/pami.xlsx.wrangler/` era dos patrones concatenados sin salto de línea — ninguno de los dos se aplicaba. Separados correctamente.
+- `snapshot_semanal.py`: agrega timeout (30s) y manejo explícito de rate limit / errores de red en las llamadas a la API de GitHub — antes podían colgarse sin límite propio ni mensaje claro.
+
+### ♻️ Refactor
+- Unificadas `esValorCorrupto` (`filters.js`) y `esLaboratorioCorrupto` (`utils.js`) en una sola función — evita que las dos heurísticas diverjan con el tiempo.
+
+### 🧹 Eliminado
+- `pami.xlsx` y `scripts/__pycache__/` destrackeados de git (ya estaban en `.gitignore`, pero seguían en el índice desde antes de esa regla).
+
+### 🔒 Seguridad
+- Confirmado: `remedi.ar` y `www.remedi.ar` (GitHub Pages, fuente de verdad) entregan CSP, `X-Frame-Options: DENY` y el resto de los headers de seguridad vía Cloudflare Response Header Transform Rules, con ambos hosts en modo Proxied. Antes dependían de `_headers`, que GitHub Pages nunca procesó. Verificado en producción con `curl -I`.
+- `Strict-Transport-Security: max-age=31536000` sumado a `_headers`.
+
+### ♿ Accesibilidad
+- Contraste de texto teal corregido a `--teal-dark` en 7 selectores de `style.css` — cumple WCAG AA (antes ~3.54:1, insuficiente).
+
+### ⚙️ CI/CD
+- `timeout-minutes` y `concurrency` en los 4 workflows — antes ninguno tenía límite de tiempo ni protección contra corridas superpuestas.
+
+### 📝 Documentado
+- README y `_headers`: se documenta que los headers de seguridad de producción se manejan vía Cloudflare, no vía `_headers` (exclusivo del mirror de Workers).
+
+---
+
 ## [2.1.6] - 2026-07-04
 
 ### 🔒 Seguridad
