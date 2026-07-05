@@ -4,4 +4,4 @@ __pycache__/
 .env
 tests/debug_update_failed.txt
 .debug/
-data/pami.xlsx
+data/pami.xlsx.wrangler/
