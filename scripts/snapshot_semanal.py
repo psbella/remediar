@@ -86,11 +86,20 @@ def _api(method: str, path: str, body: dict | None = None) -> dict:
         }
     )
     try:
-        with urllib.request.urlopen(req) as r:
+        with urllib.request.urlopen(req, timeout=30) as r:
             return json.loads(r.read())
     except urllib.error.HTTPError as e:
-        body = e.read().decode()
-        raise RuntimeError(f"GitHub API {method} {path} → {e.code}: {body}")
+        cuerpo = e.read().decode()
+        restante = e.headers.get("X-RateLimit-Remaining")
+        if e.code in (403, 429) and restante == "0":
+            reset = e.headers.get("X-RateLimit-Reset")
+            raise RuntimeError(
+                f"GitHub API rate limit agotado (reset epoch={reset}). "
+                f"{method} {path} → {e.code}: {cuerpo}"
+            )
+        raise RuntimeError(f"GitHub API {method} {path} → {e.code}: {cuerpo}")
+    except urllib.error.URLError as e:
+        raise RuntimeError(f"GitHub API {method} {path} → sin respuesta (timeout/red): {e}")
 
 
 def _api_upload(upload_url: str, nombre: str, contenido: bytes) -> dict:
@@ -107,8 +116,14 @@ def _api_upload(upload_url: str, nombre: str, contenido: bytes) -> dict:
             "User-Agent":    "remediar-snapshot",
         }
     )
-    with urllib.request.urlopen(req) as r:
-        return json.loads(r.read())
+    try:
+        with urllib.request.urlopen(req, timeout=30) as r:
+            return json.loads(r.read())
+    except urllib.error.HTTPError as e:
+        cuerpo = e.read().decode()
+        raise RuntimeError(f"GitHub API upload → {e.code}: {cuerpo}")
+    except urllib.error.URLError as e:
+        raise RuntimeError(f"GitHub API upload → sin respuesta (timeout/red): {e}")
 
 
 def obtener_o_crear_release(tag: str, nombre: str) -> dict:
