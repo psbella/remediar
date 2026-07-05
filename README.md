@@ -122,6 +122,10 @@
 | GitHub Pages (dominio por defecto) | [psbella.github.io/remediar](https://psbella.github.io/remediar/) | Mirror/respaldo |
 | Cloudflare Workers | [remediar.pablo-s-bella.workers.dev](https://remediar.pablo-s-bella.workers.dev/) | Mirror/respaldo |
 
+> **Headers de seguridad:** `remedi.ar` y `www.remedi.ar` están proxied (nube naranja) en Cloudflare, con GitHub Pages como origen. La CSP, `X-Frame-Options` y el resto de los headers de seguridad se aplican vía **Cloudflare Response Header Transform Rules** (dashboard), no desde el archivo `_headers` del repo — ese archivo solo lo procesa el mirror de Workers. Ver [`_headers`](./_headers) para el detalle de los valores replicados.
+
+---
+
 ---
 
 # 📊 Dataset actual
