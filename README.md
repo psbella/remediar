@@ -23,12 +23,12 @@
 <img src="https://img.shields.io/github/actions/workflow/status/psbella/remediar/update_prices.yml?label=ETL&logo=github-actions&logoColor=white">
 <br>
 <!-- Hosting & License -->
-<img src="https://img.shields.io/badge/hosted-Cloudflare%20Pages-F38020?logo=cloudflare&logoColor=white">
+<img src="https://img.shields.io/badge/hosted-GitHub%20Pages-181717?logo=github">
 <img src="https://img.shields.io/badge/License-MIT-blue.svg">
 <img src="https://img.shields.io/github/repo-size/psbella/remediar">
 <img src="https://img.shields.io/github/last-commit/psbella/remediar">
 <img src="https://img.shields.io/github/issues-raw/psbella/remediar">
-<img src="https://img.shields.io/badge/Backup-GitHub%20Pages-181717?logo=github">
+<img src="https://img.shields.io/badge/Proxy-Cloudflare-F38020?logo=cloudflare&logoColor=white">
 <br>
 <!-- Valores -->
 <img src="https://img.shields.io/badge/Open_Source-Yes-brightgreen">
@@ -161,8 +161,9 @@ El sistema se compone de tres capas principales:
 ## 2️⃣ Distribución
 
 - El proyecto es 100% estático
-- Cloudflare Pages distribuye el contenido globalmente mediante CDN
-- GitHub Pages funciona como backup
+- GitHub Pages sirve el contenido como origen (dominio propio `remedi.ar` vía DNS de Cloudflare, y el dominio por defecto `psbella.github.io/remediar`)
+- Cloudflare actúa como proxy delante de `remedi.ar`/`www.remedi.ar`: CDN, TLS, y una Transform Rule que inyecta los headers de seguridad (GitHub Pages no soporta headers custom)
+- Un mirror adicional corre en Cloudflare Workers (`remediar.pablo-s-bella.workers.dev`), sirviendo los mismos assets estáticos de forma independiente
 - No existe backend persistente ni base de datos
 
 ---
@@ -303,7 +304,7 @@ flowchart TD
     CSV[🔬 Generar presentaciones_debug.csv]
     T[🧪 Tests de sanidad pytest]
     H[📤 Commit automático]
-    I[🚀 Cloudflare Pages actualizado]
+    I[🚀 GitHub Pages actualizado, servido vía proxy de Cloudflare]
 
     A --> B
     B --> C
@@ -590,8 +591,8 @@ flowchart LR
     end
 
     subgraph SEVEN["☁️ HOSTING"]
-        Q["GitHub Pages\n(backup)"]
-        R["Cloudflare Pages\n(producción)"]
+        Q["GitHub Pages\n(origen real)"]
+        R["Cloudflare\n(proxy + headers de seguridad)"]
     end
 
     A --> B
@@ -682,7 +683,7 @@ remediar/
 | Datos | JSON estático |
 | CI/CD | GitHub Actions |
 | Testing | pytest |
-| Hosting | Cloudflare Pages + GitHub Pages |
+| Hosting | GitHub Pages (origen) + Cloudflare (proxy/DNS) + Cloudflare Workers (mirror) |
 | SEO | JSON-LD + Open Graph + Twitter Cards |
 | Caché | sessionStorage (TTL 2h) + Service Worker |
 | Seguridad | CSP via header HTTP + SHA256 hash |
@@ -710,12 +711,12 @@ remediar/
 
 El PDF de SIAFAR no tiene un esquema tabular estricto. Distintos laboratorios omiten campos, fusionan droga+marca sin separador, o desplazan la presentación al campo laboratorio. Las capas se aplican en cascada de menor a mayor complejidad, garantizando que cada corrección no interfiera con las anteriores.
 
-## ¿Por qué Cloudflare Pages?
+## ¿Por qué GitHub Pages + Cloudflare como proxy?
 
-- CDN global con excelente latencia en Argentina
-- Deploy automático en cada push
-- HTTPS gratuito
-- Soporte nativo de `_headers` para headers HTTP personalizados
+- GitHub Pages es gratuito, confiable, y ya aloja el repo — cero infraestructura extra que mantener
+- **Importante**: GitHub Pages **no soporta un archivo `_headers`** para headers HTTP personalizados (esa convención es de Cloudflare Pages/Netlify, no de GitHub Pages). El archivo [`_headers`](./_headers) del repo documenta los valores deseados, pero quien los aplica de verdad en `remedi.ar`/`www.remedi.ar` es una **Cloudflare Response Header Transform Rule**, configurada en el dashboard (no en el repo) — ver la nota en la sección de Arquitectura
+- Cloudflare como proxy (nube naranja) suma CDN global, HTTPS gestionado, y la posibilidad de inyectar esos headers sin tocar el origen
+- El mirror en Cloudflare Workers (`remediar.pablo-s-bella.workers.dev`) sirve como respaldo independiente: al ser Workers Static Assets, sí procesa el `_headers` del repo nativamente, así que ese archivo no queda del todo huérfano
 
 ---
 
@@ -1347,7 +1348,8 @@ Datos proporcionados por [SIAFAR / COFA](https://siafar.com/precios/pdf/). Cober
 | Recurso | URL |
 |---|---|
 | Producción | https://remedi.ar |
-| GitHub Pages | https://psbella.github.io/remediar/ |
+| GitHub Pages (dominio por defecto) | https://psbella.github.io/remediar/ |
+| Mirror (Cloudflare Workers) | https://remediar.pablo-s-bella.workers.dev/ |
 | Repositorio | https://github.com/psbella/remediar |
 | Actions / CI | https://github.com/psbella/remediar/actions |
 | medicamentos.json | https://remedi.ar/data/medicamentos.json |

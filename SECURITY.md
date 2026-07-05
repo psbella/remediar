@@ -48,7 +48,7 @@ Incluí, en la medida de lo posible:
 
 ## Alcance fuera de este repositorio
 
-Si el reporte involucra la infraestructura de hosting (Cloudflare Pages, GitHub Pages)
-o servicios de terceros integrados (Google Analytics/Tag Manager), por favor reportalo
-directamente al proveedor correspondiente además de avisarme a mí si el proyecto se ve
-afectado.
+Si el reporte involucra la infraestructura de hosting (GitHub Pages, Cloudflare como
+proxy/DNS, o el mirror en Cloudflare Workers) o servicios de terceros integrados
+(Google Analytics/Tag Manager), por favor reportalo directamente al proveedor
+correspondiente además de avisarme a mí si el proyecto se ve afectado.
