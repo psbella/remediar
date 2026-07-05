@@ -1793,6 +1793,22 @@ def main():
         print("No se extrajo ningun medicamento")
         sys.exit(1)
 
+    # ── Deduplicación de registros exactos ─────────────────────────────────
+    # El PDF a veces repite la misma línea completa (droga+marca+presentación+
+    # laboratorio+precio idénticos) — se descartan antes de correr las capas
+    # de reparación, que de otro modo procesarían el mismo registro dos veces.
+    n_antes_dedup = len(medicamentos)
+    vistos = set()
+    medicamentos_dedup = []
+    for m in medicamentos:
+        clave = (m['droga'], m['marca'], m['presentacion'], m['laboratorio'], m['precio'])
+        if clave not in vistos:
+            vistos.add(clave)
+            medicamentos_dedup.append(m)
+    medicamentos = medicamentos_dedup
+    n_duplicados = n_antes_dedup - len(medicamentos)
+    print(f"Duplicados exactos eliminados: {n_duplicados}")
+
     # ── CAPA 0: cargar fixes y reparar registros con droga faltante ───────
     fixes_droga = {}
     if DROGA_FIXES_PATH.exists():
