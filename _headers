@@ -1,3 +1,11 @@
+# ℹ️ Este archivo solo lo procesa el mirror de Cloudflare Workers
+# (remediar.pablo-s-bella.workers.dev). GitHub Pages —fuente de verdad
+# de producción para remedi.ar y www.remedi.ar— no lee _headers.
+# Los headers de seguridad reales de producción se aplican vía
+# Cloudflare Response Header Transform Rules (dashboard, ambos hosts
+# en modo Proxied), no desde este archivo. Verificado con curl -I
+# contra remedi.ar y www.remedi.ar — ver CHANGELOG.
+
 /*
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
