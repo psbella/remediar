@@ -231,7 +231,7 @@ function renderizarTarjeta(med, soloPami = false, destacada = false) {
                     </svg>
                     Principio activo
                 </span>
-                <span class="celda valor" style="text-transform:uppercase">${escapeHtml(med.droga || 'N/A')}</span>
+                <span class="celda valor uppercase">${escapeHtml(med.droga || 'N/A')}</span>
             </div>
             <div class="fila-tabla fila-presentacion">
                 <span class="celda etiqueta">
