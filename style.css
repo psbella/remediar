@@ -786,3 +786,25 @@ body {
     .tabla-precios tbody tr:hover td:first-child { background: #f7fbfb; }
     .tabla-precios tbody tr td:first-child { background: white; }
 }
+
+/* ── Clases agregadas para eliminar estilos inline (CSP style-src sin unsafe-inline) ── */
+.hidden {
+  display: none;
+}
+.update-pill-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+.update-pill-label {
+  font-size: 9px;
+  font-weight: normal;
+}
+.update-pill-value {
+  font-size: 10px;
+  font-weight: 500;
+}
+
+/* ── Override para páginas legales (privacidad.html, terminos.html) ── */
+.legal-header { border-bottom: 1px solid var(--border); margin-bottom: 0; }
+.legal-header .header-texto h1 { font-size: 18px; }

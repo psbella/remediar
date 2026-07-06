@@ -67,7 +67,7 @@
 <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 <div class="container">
 
-    <div style="display:none">
+    <div class="hidden">
       <svg xmlns="http://www.w3.org/2000/svg">
         <symbol id="ic-search"  viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="10" cy="10" r="7"/><line x1="15" y1="15" x2="21" y2="21"/></symbol>
         <symbol id="ic-pill" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -104,9 +104,9 @@
         <div class="header-right">
             <div class="update-pill">
                 <span class="update-pill-dot"></span>
-                <div style="display:flex;flex-direction:column;line-height:1.2;">
-                    <span style="font-size:9px;font-weight:normal;">Última actualización</span>
-                    <span id="fecha-actualizacion" style="font-size:10px;font-weight:500;">Cargando...</span>
+                <div class="update-pill-info">
+                    <span class="update-pill-label">Última actualización</span>
+                    <span id="fecha-actualizacion" class="update-pill-value">Cargando...</span>
                 </div>
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
             </div>
@@ -128,7 +128,7 @@
                 <svg width="16" height="16" aria-hidden="true"><use href="#ic-search"/></svg>
                 Buscar
             </button>
-            <button id="btnLimpiar" class="btn-limpiar" aria-label="Limpiar búsqueda" style="display:none">
+            <button id="btnLimpiar" class="btn-limpiar hidden" aria-label="Limpiar búsqueda">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
             </button>
         </div>
@@ -291,7 +291,7 @@
             <svg width="14" height="14" aria-hidden="true"><use href="#ic-info"/></svg>
             <span><strong>Aviso médico:</strong> Esta información no reemplaza la consulta con un profesional de la salud. Verificá precios en tu farmacia.</span>
         </div>
-        <button id="btnInstalarApp" class="footer-install-badge" style="display:none">
+        <button id="btnInstalarApp" class="footer-install-badge hidden">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
                 <line x1="12" y1="18" x2="12" y2="18.01"/>

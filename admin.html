@@ -5,340 +5,7 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Admin — Precios Outliers · remedi.ar</title>
-<style>
-  :root {
-    --bg:       #0f1117;
-    --surface:  #181c27;
-    --border:   #252a38;
-    --accent:   #f0c040;
-    --red:      #e05252;
-    --green:    #52c48a;
-    --blue:     #5294e0;
-    --muted:    #6b7280;
-    --text:     #e8eaf0;
-    --text-dim: #9ca3af;
-    --mono:     ui-monospace, 'SF Mono', 'Cascadia Code', 'Roboto Mono', Consolas, 'Liberation Mono', Menlo, monospace;
-    --sans:     system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    font-family: var(--sans);
-    background: var(--bg);
-    color: var(--text);
-    min-height: 100vh;
-    line-height: 1.5;
-  }
-
-  /* ── Header ── */
-  header {
-    border-bottom: 1px solid var(--border);
-    padding: 0 2rem;
-    height: 56px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: sticky;
-    top: 0;
-    background: var(--bg);
-    z-index: 100;
-  }
-  .logo {
-    font-family: var(--mono);
-    font-size: .85rem;
-    font-weight: 600;
-    color: var(--accent);
-    letter-spacing: .05em;
-  }
-  .logo span { color: var(--muted); font-weight: 400; }
-  #status-bar {
-    font-family: var(--mono);
-    font-size: .75rem;
-    color: var(--muted);
-    display: flex;
-    align-items: center;
-    gap: .5rem;
-  }
-  .dot {
-    width: 7px; height: 7px;
-    border-radius: 50%;
-    background: var(--muted);
-  }
-  .dot.ok  { background: var(--green); box-shadow: 0 0 6px var(--green); }
-  .dot.err { background: var(--red);   box-shadow: 0 0 6px var(--red); }
-
-  /* ── Layout ── */
-  .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
-
-  /* ── Auth gate ── */
-  #auth-gate {
-    max-width: 420px;
-    margin: 8vh auto 0;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 2rem;
-  }
-  #auth-gate h2 {
-    font-family: var(--mono);
-    font-size: 1rem;
-    color: var(--accent);
-    margin-bottom: 1.5rem;
-  }
-  .field { margin-bottom: 1rem; }
-  .field label {
-    display: block;
-    font-size: .75rem;
-    color: var(--muted);
-    font-family: var(--mono);
-    margin-bottom: .4rem;
-    letter-spacing: .05em;
-    text-transform: uppercase;
-  }
-  .field input {
-    width: 100%;
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: .55rem .75rem;
-    color: var(--text);
-    font-family: var(--mono);
-    font-size: .85rem;
-    outline: none;
-    transition: border-color .15s;
-  }
-  .field input:focus { border-color: var(--accent); }
-  .field small { display: block; font-size: .7rem; color: var(--muted); margin-top: .35rem; }
-
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: .4rem;
-    padding: .5rem 1.1rem;
-    border-radius: 4px;
-    border: none;
-    font-family: var(--mono);
-    font-size: .8rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all .15s;
-    letter-spacing: .03em;
-  }
-  .btn-primary { background: var(--accent); color: #111; }
-  .btn-primary:hover { filter: brightness(1.1); }
-  .btn-danger  { background: transparent; border: 1px solid var(--red); color: var(--red); }
-  .btn-danger:hover  { background: var(--red); color: #fff; }
-  .btn-ghost   { background: transparent; border: 1px solid var(--border); color: var(--text-dim); }
-  .btn-ghost:hover   { border-color: var(--text-dim); color: var(--text); }
-  .btn-sm { padding: .3rem .7rem; font-size: .72rem; }
-  .btn:disabled { opacity: .4; cursor: not-allowed; }
-
-  /* ── Stats bar ── */
-  .stats-bar {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-    margin-bottom: 2rem;
-  }
-  .stat-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 1rem 1.25rem;
-  }
-  .stat-card .label {
-    font-size: .7rem;
-    font-family: var(--mono);
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: .07em;
-    margin-bottom: .3rem;
-  }
-  .stat-card .value {
-    font-family: var(--mono);
-    font-size: 1.6rem;
-    font-weight: 600;
-    color: var(--text);
-  }
-  .stat-card .value.accent { color: var(--accent); }
-  .stat-card .value.red    { color: var(--red); }
-  .stat-card .value.green  { color: var(--green); }
-
-  /* ── Toolbar ── */
-  .toolbar {
-    display: flex;
-    align-items: center;
-    gap: .75rem;
-    margin-bottom: 1.25rem;
-    flex-wrap: wrap;
-  }
-  .toolbar-title {
-    font-family: var(--mono);
-    font-size: .8rem;
-    color: var(--muted);
-    margin-right: auto;
-  }
-  .filter-tabs {
-    display: flex;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    overflow: hidden;
-  }
-  .filter-tab {
-    padding: .35rem .85rem;
-    font-family: var(--mono);
-    font-size: .72rem;
-    cursor: pointer;
-    color: var(--muted);
-    border: none;
-    background: transparent;
-    transition: all .15s;
-    letter-spacing: .03em;
-  }
-  .filter-tab:hover { color: var(--text); }
-  .filter-tab.active { background: var(--accent); color: #111; font-weight: 600; }
-
-  /* ── Table ── */
-  .table-wrap {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    overflow: hidden;
-  }
-  table { width: 100%; border-collapse: collapse; }
-  thead { background: #13161f; }
-  th {
-    padding: .65rem 1rem;
-    text-align: left;
-    font-family: var(--mono);
-    font-size: .68rem;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: .08em;
-    font-weight: 600;
-    border-bottom: 1px solid var(--border);
-    white-space: nowrap;
-  }
-  th:first-child { width: 2.5rem; }
-  td {
-    padding: .7rem 1rem;
-    font-size: .82rem;
-    border-bottom: 1px solid #1e2230;
-    vertical-align: middle;
-  }
-  tr:last-child td { border-bottom: none; }
-  tr:hover td { background: #1c2033; }
-  tr.blacklisted td { opacity: .45; }
-  tr.blacklisted td .marca { text-decoration: line-through; }
-
-  .marca { font-weight: 600; color: var(--text); }
-  .droga { font-size: .75rem; color: var(--text-dim); margin-top: .1rem; }
-  .lab   { font-size: .75rem; color: var(--muted); }
-
-  .precio {
-    font-family: var(--mono);
-    font-weight: 600;
-    color: var(--red);
-    font-size: .85rem;
-  }
-  .precio-mediana {
-    font-family: var(--mono);
-    font-size: .72rem;
-    color: var(--muted);
-    margin-top: .1rem;
-  }
-  .ratio {
-    font-family: var(--mono);
-    font-size: .75rem;
-    padding: .15rem .45rem;
-    border-radius: 3px;
-    white-space: nowrap;
-  }
-  .ratio.critico  { background: rgba(224,82,82,.15);  color: var(--red); }
-  .ratio.sospecho { background: rgba(240,192,64,.12); color: var(--accent); }
-  .ratio.ok       { background: rgba(82,196,138,.1);  color: var(--green); }
-
-  .tipo-badge {
-    font-family: var(--mono);
-    font-size: .65rem;
-    padding: .12rem .4rem;
-    border-radius: 3px;
-    border: 1px solid;
-    white-space: nowrap;
-  }
-  .tipo-bajo_absoluto   { border-color: #5294e033; color: var(--blue); }
-  .tipo-bajo_critico    { border-color: #e0525233; color: var(--red); }
-  .tipo-bajo_relativo   { border-color: #f0c04033; color: var(--accent); }
-  .tipo-bajo_iqr        { border-color: #9ca3af33; color: var(--muted); }
-  .tipo-inconsistencia_escala { border-color: #9c70e033; color: #b370e0; }
-
-  .blacklist-badge {
-    font-family: var(--mono);
-    font-size: .65rem;
-    padding: .1rem .4rem;
-    border-radius: 3px;
-    background: rgba(224,82,82,.15);
-    color: var(--red);
-    border: 1px solid rgba(224,82,82,.3);
-  }
-
-  /* ── Checkbox ── */
-  input[type=checkbox] {
-    accent-color: var(--accent);
-    width: 14px; height: 14px;
-    cursor: pointer;
-  }
-
-  /* ── Empty / loading states ── */
-  .empty {
-    padding: 4rem 2rem;
-    text-align: center;
-    color: var(--muted);
-    font-family: var(--mono);
-    font-size: .85rem;
-  }
-  .spinner {
-    display: inline-block;
-    width: 20px; height: 20px;
-    border: 2px solid var(--border);
-    border-top-color: var(--accent);
-    border-radius: 50%;
-    animation: spin .7s linear infinite;
-    margin-bottom: .75rem;
-  }
-  @keyframes spin { to { transform: rotate(360deg); } }
-
-  /* ── Toast ── */
-  #toast {
-    position: fixed;
-    bottom: 1.5rem;
-    right: 1.5rem;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: .75rem 1.25rem;
-    font-family: var(--mono);
-    font-size: .78rem;
-    color: var(--text);
-    opacity: 0;
-    transform: translateY(8px);
-    transition: all .2s;
-    z-index: 999;
-    max-width: 340px;
-  }
-  #toast.show { opacity: 1; transform: translateY(0); }
-  #toast.success { border-color: var(--green); color: var(--green); }
-  #toast.error   { border-color: var(--red);   color: var(--red); }
-
-  /* ── Responsive ── */
-  @media (max-width: 768px) {
-    .stats-bar { grid-template-columns: repeat(2, 1fr); }
-    .container { padding: 1rem; }
-    header { padding: 0 1rem; }
-  }
-</style>
+<link rel="stylesheet" href="admin.css">
 </head>
 <body>
 
@@ -363,13 +30,13 @@
     <input type="text" id="branch-input" value="main">
   </div>
   <button class="btn btn-primary" onclick="conectar()">Conectar →</button>
-  <p style="margin-top:1rem;font-size:.72rem;color:var(--muted);">
+  <p class="disclaimer-footer">
     El token se guarda solo en memoria, no se persiste en ningún lado.
   </p>
 </div>
 
 <!-- PANEL PRINCIPAL -->
-<div id="main-panel" style="display:none">
+<div id="main-panel" class="hidden">
   <div class="container">
 
     <!-- Stats -->
@@ -388,7 +55,7 @@
       </div>
       <div class="stat-card">
         <div class="label">Última actualización</div>
-        <div class="value" style="font-size:1rem" id="stat-fecha">—</div>
+        <div class="value small" id="stat-fecha">—</div>
       </div>
     </div>
 
@@ -599,20 +266,20 @@ function renderTabla() {
         <div class="droga">${o.droga || '—'}</div>
         <div class="lab">${o.laboratorio || '—'}</div>
       </td>
-      <td style="font-size:.78rem;color:var(--text-dim);max-width:180px">${o.presentacion || '—'}</td>
+      <td class="td-presentacion">${o.presentacion || '—'}</td>
       <td>
         <div class="precio">${formatPrecio(o.precio)}</div>
       </td>
       <td>
         <div class="precio-mediana">${formatPrecio(o.mediana_droga)}</div>
-        <div style="font-size:.68rem;color:var(--muted)">${o.n_droga || '?'} registros</div>
+        <div class="n-droga-count">${o.n_droga || '?'} registros</div>
       </td>
       <td><span class="ratio ${ratioCls}">${ratio}</span></td>
       <td><span class="tipo-badge tipo-${o.precio_outlier_tipo || ''}">${o.precio_outlier_tipo || '—'}</span></td>
       <td>
         ${enBL
           ? `<span class="blacklist-badge">bloqueado</span>
-             <button class="btn btn-ghost btn-sm" style="margin-top:.3rem" onclick="quitarDeBlacklist('${key}')">desbloquear</button>`
+             <button class="btn btn-ghost btn-sm mt-sm" onclick="quitarDeBlacklist('${key}')">desbloquear</button>`
           : `<button class="btn btn-danger btn-sm" onclick="bloquearUno('${key}', '${(o.marca||'').replace(/'/g,"\\'")}')">⛔ bloquear</button>`
         }
       </td>
