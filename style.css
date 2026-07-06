@@ -433,6 +433,7 @@ body {
 .celda.etiqueta svg { stroke: #bbb; }
 .celda.valor { font-size: 13px; color: var(--text-2); text-align: right; }
 .celda.valor.uppercase { text-transform: uppercase; }
+.celda.valor.uppercase { text-transform: uppercase; }
 
 .pres-tabla { display: flex; gap: 5px; flex-wrap: wrap; justify-content: flex-end; }
 .pres-chip { font-size: 12px; padding: 2px 8px; border-radius: 20px; white-space: nowrap; font-weight: 500; }
