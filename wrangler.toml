@@ -1,6 +1,6 @@
 # Config del Worker "remediar" — espejo estático de remedi.ar.
 # Worker sin lógica dinámica: solo sirve los mismos archivos que
-# publica GitHub Pages / Cloudflare Pages (producción principal).
+# publica GitHub Pages (origen real, proxied por Cloudflare).
 #
 # Deploy: npx wrangler deploy
 
