@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-07-06T19:49:41.005243-03:00",
+  "timestamp": "2026-07-07T13:04:53.469851-03:00",
   "total_registros": 13375,
-  "total_outliers": 287,
+  "total_outliers": 288,
   "outliers": [
     {
       "droga": "abacavir, lamivudina",
@@ -196,9 +196,9 @@
       "precio": 2575.98,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $2,575.98 < 25% mediana $15,300.56 (n=6)"
+        "precio $2,575.98 < 25% mediana $15,581.45 (n=6)"
       ],
-      "mediana_droga": 15300.56,
+      "mediana_droga": 15581.45,
       "n_droga": 6
     },
     {
@@ -504,6 +504,19 @@
       ],
       "mediana_droga": 3285161.64,
       "n_droga": 19
+    },
+    {
+      "droga": "benzocaína",
+      "marca": "BENZOCAINA GEL TOPICO",
+      "presentacion": "gel tópico x 15 g",
+      "laboratorio": "Vannier",
+      "precio": 8100.0,
+      "precio_outlier_tipo": "bajo_iqr",
+      "razones": [
+        "precio $8,100.00 < fence_low $8,842.49"
+      ],
+      "mediana_droga": 13145.9,
+      "n_droga": 7
     },
     {
       "droga": "benzoílo,peróxido",
@@ -946,9 +959,9 @@
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
         "precio $775.39 < minimo $1,800",
-        "precio $775.39 < 10% mediana $16,991.22"
+        "precio $775.39 < 10% mediana $17,249.45"
       ],
-      "mediana_droga": 16991.22,
+      "mediana_droga": 17249.45,
       "n_droga": 6
     },
     {
@@ -1484,7 +1497,7 @@
       "razones": [
         "ppu $83.18 << mediana_grupo $463.44"
       ],
-      "mediana_droga": 22280.79,
+      "mediana_droga": 22498.31,
       "n_droga": 68
     },
     {
@@ -2743,9 +2756,9 @@
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
         "precio $225.15 < minimo $1,800",
-        "precio $225.15 < 10% mediana $9,389.05"
+        "precio $225.15 < 10% mediana $9,565.30"
       ],
-      "mediana_droga": 9389.05,
+      "mediana_droga": 9565.3,
       "n_droga": 2
     },
     {
