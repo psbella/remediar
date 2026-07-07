@@ -521,59 +521,25 @@ Cada tarjeta tiene un botón "Compartir" que abre el menú nativo en mobile o co
 ## ✅ Tests de sanidad automáticos
 
 13 tests pytest corren después de cada actualización del ETL y antes del commit. Si alguno falla, el workflow se detiene y el sitio sigue sirviendo los datos anteriores. 12 validan umbrales de calidad de negocio (cantidad de registros, % de campos vacíos, rango de precios); el 13° (`test_schema.py`) valida el contrato estructural completo del JSON contra un [JSON Schema versionado](./tests/medicamentos.schema.json) — si el ETL cambia la forma del output, este test avisa hasta que el schema se actualice a propósito.
-pasame todoOrchestrated unified script with integrated verification safeguardsOrchestrated unified script with integrated verification safeguardsDale, todo junto en un solo bloque, con los mismos chequeos de seguridad de antes (set -e, así si algo falla se corta ahí y no sigue de largo):
-bashcd ~/remediar
-git pull origin main
-
-set -e
-
-cat > tests/medicamentos.schema.json << 'EOF'
-{
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "medicamentos.json",
-  "description": "Schema formal del dataset publicado por remedi.ar. Si el ETL agrega/renombra un campo, este archivo debe actualizarse en el mismo commit.",
-  "type": "object",
-  "required": ["fecha", "fuente", "total", "blacklisted", "medicamentos"],
-  "additionalProperties": false,
-  "properties": {
-    "fecha": { "type": "string" },
-    "fuente": { "type": "string" },
-    "total": { "type": "integer", "minimum": 0 },
-    "blacklisted": { "type": "integer", "minimum": 0 },
-    "medicamentos": {
-      "type": "array",
-      "items": { "$ref": "#/$defs/medicamento" }
-    }
-  },
-  "$defs": {
-    "medicamento": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "droga", "marca", "presentacion", "laboratorio", "precio",
-        "vigencia_score", "flags", "precio_outlier_tipo", "outlier_razones"
-      ],
-      "properties": {
-        "droga":               { "type": "string" },
-        "marca":               { "type": "string" },
-        "presentacion":        { "type": "string" },
-        "laboratorio":         { "type": "string" },
-        "precio":              { "type": "number", "exclusiveMinimum": 0 },
-        "vigencia_score":      { "type": "integer", "minimum": 0, "maximum": 100 },
-        "flags":               { "type": "array", "items": { "type": "string" } },
-        "precio_outlier_tipo": { "type": ["string", "null"] },
-        "outlier_razones":     { "type": "array", "items": { "type": "string" } },
-        "pres_forma":          { "type": "string" },
-        "pres_dosis":          { "type": "string" },
-        "pres_unidad":         { "type": "string" },
-        "pres_cantidad":       { "type": "string" },
-        "pres_dosis_fuente":   { "type": "string" },
-        "pami_cobertura":      { "type": "integer", "minimum": 0, "maximum": 100 }
-      }
-    }
-  }
-}
-
+```
+============================= test session starts ==============================
+platform linux -- Python 3.11.15, pytest-9.1.1, pluggy-1.6.0
+collected 13 items
+tests/test_etl_sanidad.py::test_cantidad_minima PASSED                   [  7%]
+tests/test_etl_sanidad.py::test_cantidad_maxima PASSED                   [ 15%]
+tests/test_etl_sanidad.py::test_campos_presentes PASSED                  [ 23%]
+tests/test_etl_sanidad.py::test_precios_positivos PASSED                 [ 30%]
+tests/test_etl_sanidad.py::test_precio_mediana_razonable PASSED          [ 38%]
+tests/test_etl_sanidad.py::test_drogas_vacias PASSED                     [ 46%]
+tests/test_etl_sanidad.py::test_laboratorios_desconocidos PASSED         [ 53%]
+tests/test_etl_sanidad.py::test_marcas_vacias PASSED                     [ 61%]
+tests/test_etl_sanidad.py::test_vigencia_score_rango PASSED              [ 69%]
+tests/test_etl_sanidad.py::test_pami_cobertura_rango PASSED              [ 76%]
+tests/test_etl_sanidad.py::test_estructura_raiz PASSED                   [ 84%]
+tests/test_etl_sanidad.py::test_fecha_presente PASSED                    [ 92%]
+tests/test_schema.py::test_schema_valido PASSED                          [100%]
+13 passed in 1.79s
+```
 ---
 
 # ⏱️ Tiempos de Respuesta
