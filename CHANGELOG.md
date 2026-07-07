@@ -4,6 +4,21 @@ Todos los cambios notables de remedi.ar se documentan en este archivo.
 
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/es/1.0.0/) y el proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.1.8] - 2026-07-07
+
+### 🔒 Seguridad
+- CSP: `style-src` sin `unsafe-inline` — cierra el ítem M1, pendiente desde el inicio de la auditoría técnica. Se migraron los 12 `style="..."` inline de `index.html`/`admin.html` a clases CSS, y los bloques `<style>` embebidos de `admin.html` y `mantenimiento.html` se movieron a `admin.css`/`mantenimiento.css` nuevos. Un `style=` generado dinámicamente en `js/uiRenderer.js` (dentro de un template literal) se escapó del primer pase y se corrigió al detectarse en la consola del navegador en producción.
+- Actualizada la Response Header Transform Rule de Cloudflare con la CSP sin `unsafe-inline` (cambio de dashboard, no versionado en el repo).
+- Desactivado Cloudflare Web Analytics (no se usaba; generaba un bloqueo de CSP en consola por `static.cloudflareinsights.com`).
+
+### ✨ Agregado
+- Validación formal de schema (`tests/test_schema.py` + `tests/medicamentos.schema.json`) para `medicamentos.json` — valida el contrato estructural (claves, tipos, opcionalidad), separado de los umbrales de calidad de negocio que ya cubre `test_etl_sanidad.py`. `additionalProperties: false` a propósito: si el ETL cambia la forma del output, el test avisa hasta que el schema se actualice también.
+
+### 📝 Documentado
+- README: cuenta de tests actualizada de 12 a 13, con la salida de ejemplo real.
+
+---
+
 ## [2.1.7] - 2026-07-05
 
 ### ✨ Agregado
