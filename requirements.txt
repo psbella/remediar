@@ -3,3 +3,4 @@ pandas
 openpyxl
 certifi
 pytest
+jsonschema

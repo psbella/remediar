@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "medicamentos.json",
+  "description": "Schema formal del dataset publicado por remedi.ar. Si el ETL agrega/renombra un campo, este archivo debe actualizarse en el mismo commit.",
+  "type": "object",
+  "required": ["fecha", "fuente", "total", "blacklisted", "medicamentos"],
+  "additionalProperties": false,
+  "properties": {
+    "fecha": { "type": "string" },
+    "fuente": { "type": "string" },
+    "total": { "type": "integer", "minimum": 0 },
+    "blacklisted": { "type": "integer", "minimum": 0 },
+    "medicamentos": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/medicamento" }
+    }
+  },
+  "$defs": {
+    "medicamento": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "droga", "marca", "presentacion", "laboratorio", "precio",
+        "vigencia_score", "flags", "precio_outlier_tipo", "outlier_razones"
+      ],
+      "properties": {
+        "droga":               { "type": "string" },
+        "marca":               { "type": "string" },
+        "presentacion":        { "type": "string" },
+        "laboratorio":         { "type": "string" },
+        "precio":              { "type": "number", "exclusiveMinimum": 0 },
+        "vigencia_score":      { "type": "integer", "minimum": 0, "maximum": 100 },
+        "flags":               { "type": "array", "items": { "type": "string" } },
+        "precio_outlier_tipo": { "type": ["string", "null"] },
+        "outlier_razones":     { "type": "array", "items": { "type": "string" } },
+        "pres_forma":          { "type": "string" },
+        "pres_dosis":          { "type": "string" },
+        "pres_unidad":         { "type": "string" },
+        "pres_cantidad":       { "type": "string" },
+        "pres_dosis_fuente":   { "type": "string" },
+        "pami_cobertura":      { "type": "integer", "minimum": 0, "maximum": 100 }
+      }
+    }
+  }
+}
