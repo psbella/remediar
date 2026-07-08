@@ -512,7 +512,7 @@ Service Worker con estrategia network-first para datos y cache-first para assets
 
 ## ✅ Seguridad en headers HTTP
 
-CSP via header HTTP (no meta tag) con hash SHA256 del script inline de GA. `style-src` sin `unsafe-inline` (estilos migrados a CSS externo). `X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy` y `Access-Control-Allow-Origin: *` para el JSON público.
+CSP via header HTTP (no meta tag) con hash SHA256 del script inline de GA. `style-src` sin `unsafe-inline` (estilos migrados a CSS externo). `X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy` y `Access-Control-Allow-Origin: *` para el JSON público. ⚠️ En producción (`remedi.ar`/`www.remedi.ar`) estos headers los aplica una Cloudflare Response Header Transform Rule, no el archivo `_headers` del repo — [ver por qué](#por-qué-github-pages--cloudflare-como-proxy).
 
 ## ✅ Compartir medicamentos
 
