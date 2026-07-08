@@ -60,15 +60,21 @@ body {
 
 .container { max-width: 1024px; margin: 0 auto; padding: 0 16px; }
 
-/* Header */
+/* Header — ocupa todo el ancho de pantalla (bleed contra el padding del body);
+   .header-inner centra el contenido alineado con el resto de la página */
 .header {
     background: var(--teal);
-    border-radius: var(--r-lg);
-    padding: 18px 24px;
+    margin: -20px -20px 16px -20px;
+    padding: 18px 0;
+}
+
+.header-inner {
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 0 24px;
     display: flex;
     align-items: center;
     gap: 16px;
-    margin-bottom: 16px;
 }
 
 .header-logo-circle {
@@ -538,7 +544,7 @@ body {
 
 /* Sección institucional (landing) */
 .institucional { background: var(--bg); border-top: 1px solid var(--border); padding: 56px 24px 48px; margin-top: 48px; }
-.institucional-inner { max-width: 860px; margin: 0 auto; }
+.institucional-inner { max-width: 960px; margin: 0 auto; }
 .institucional-intro { font-size: 16px; color: var(--text-1); line-height: 1.7; margin-bottom: 16px; }
 .institucional-inner > p { font-size: 14px; color: var(--text-3); line-height: 1.75; margin-bottom: 36px; }
 
@@ -644,7 +650,7 @@ body {
 .footer-install-badge:hover { background: var(--teal); color: white; }
 
 /* Páginas legales */
-.legal-container { max-width: 860px; margin: 0 auto; background: var(--white); border-radius: var(--r-lg); padding: 40px; border: 0.5px solid var(--border); }
+.legal-container { max-width: 960px; margin: 0 auto; background: var(--white); border-radius: var(--r-lg); padding: 40px; border: 0.5px solid var(--border); }
 .legal-container h1 { font-size: 1.8rem; font-weight: 500; color: var(--teal-dark); margin-bottom: 6px; }
 .legal-container .fecha { font-size: 13px; color: var(--text-4); margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--line-faint); }
 .legal-container .resumen {
@@ -753,7 +759,8 @@ body {
     .fila-presentacion .pres-tabla { justify-content: flex-start; }
 
     body { padding: 12px; }
-    .header { padding: 14px 16px; gap: 12px; }
+    .header { margin: -12px -12px 16px -12px; padding: 14px 0; }
+    .header-inner { padding: 0 16px; gap: 12px; }
     .header-texto h1 { font-size: 15px; }
     .update-pill { display: none; }
 
