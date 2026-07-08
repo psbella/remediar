@@ -326,20 +326,22 @@ flowchart TD
 
 ## Pipeline de normalización (8+ capas)
 
-El parser aplica correcciones en cascada para resolver los problemas estructurales del PDF de SIAFAR:
+El parser aplica correcciones en cascada para resolver los problemas estructurales del PDF de SIAFAR. Desde la modularización del ETL, cada capa vive en su propio módulo bajo `scripts/etl/`; `pdf_to_json.py` quedó como orquestador que las encadena en el mismo orden:
 
-| Capa | Función | Descripción |
-|---|---|---|
-| 0 | `reparar_droga_faltante()` | Cuando el PDF omite la línea del principio activo, todos los campos se desplazan. Separa droga+marca fusionadas usando un diccionario de prefijos truncados |
-| 1 | Detección en parse | Detecta registros con 4 campos en lugar de 5 durante la extracción del PDF |
-| 2 | `rescatar_laboratorios()` | Recupera `laboratorio="Desconocido"` buscando el lab como sufijo en `presentacion` |
-| 3 | `reparar_denver()` | Denver Farma usa droga+lab como nombre comercial; separa marca y presentacion fusionadas (variantes DENCR., DF) |
-| 4 | `reparar_marca_desplazada()` | Cuando `marca` empieza con dígito y `presentacion` está vacía, invierte el desplazamiento |
-| 5 | `extraer_presentacion_de_marca()` | Extrae la presentacion fusionada en el campo marca. Antes del regex de corte: (1) separa laboratorios pegados sin espacio (`_build_re_lab_pegado()`, dinámico por dataset); (2) separa formas farmacéuticas pegadas (`_RE_FORMA_PEGADA`); (3) elimina duplicados mayúscula+minúscula (`_RE_TOKEN_DUPLICADO`) |
-| 5b | `reparar_presentacion_desplazada()` | Separa presentacion+lab fusionados en el campo lab (3 sub-patrones: 2A, 2B, 2C) |
-| 5c | `limpiar_dosis_residual_en_marca()` | Limpia la dosis numérica que queda pegada al nombre del laboratorio en `marca` |
-| 6 | `crosswalk_pami()` | Cruza contra el vademécum de PAMI (descargado en cada corrida desde la API pública de datos abiertos, ver más abajo): recupera droga vacía, corrige laboratorio, normaliza `presentacion`, agrega `pami_cobertura` |
-| 7 | `aplicar_droga_fixes()` | Aplica correcciones manuales desde `data/droga_fixes.json` |
+| Capa | Función | Módulo | Descripción |
+|---|---|---|---|
+| 0 | `reparar_droga_faltante()` | `etl/droga_fixes.py` | Cuando el PDF omite la línea del principio activo, todos los campos se desplazan. Separa droga+marca fusionadas usando un diccionario de prefijos truncados |
+| 1 | Detección en parse | `etl/parser.py` | Detecta registros con 4 campos en lugar de 5 durante la extracción del PDF |
+| 2 | `rescatar_laboratorios()` | `etl/reparaciones.py` | Recupera `laboratorio="Desconocido"` buscando el lab como sufijo en `presentacion` |
+| 3 | `reparar_denver()` | `etl/reparaciones.py` | Denver Farma usa droga+lab como nombre comercial; separa marca y presentacion fusionadas (variantes DENCR., DF) |
+| 4 | `reparar_marca_desplazada()` | `etl/reparaciones.py` | Cuando `marca` empieza con dígito y `presentacion` está vacía, invierte el desplazamiento |
+| 5 | `extraer_presentacion_de_marca()` | `etl/presentacion.py` | Extrae la presentacion fusionada en el campo marca. Antes del regex de corte: (1) separa laboratorios pegados sin espacio (`_build_re_lab_pegado()`, dinámico por dataset); (2) separa formas farmacéuticas pegadas (`_RE_FORMA_PEGADA`); (3) elimina duplicados mayúscula+minúscula (`_RE_TOKEN_DUPLICADO`) |
+| 5b | `reparar_presentacion_desplazada()` | `etl/reparaciones.py` | Separa presentacion+lab fusionados en el campo lab (3 sub-patrones: 2A, 2B, 2C) |
+| 5c | `limpiar_dosis_residual_en_marca()` | `etl/presentacion.py` | Limpia la dosis numérica que queda pegada al nombre del laboratorio en `marca` |
+| 6 | `crosswalk_pami()` | `etl/pami.py` | Cruza contra el vademécum de PAMI (descargado en cada corrida desde la API pública de datos abiertos, ver más abajo): recupera droga vacía, corrige laboratorio, normaliza `presentacion`, agrega `pami_cobertura` |
+| 7 | `aplicar_droga_fixes()` | `etl/droga_fixes.py` | Aplica correcciones manuales desde `data/droga_fixes.json` |
+
+Además, `etl/outliers.py` calcula estadísticas por droga y vigencia, y `etl/enriquecimiento.py` promueve los campos de presentación parseada (forma/dosis/unidad/cantidad) a cada registro con fallbacks de rescate desde marca y PAMI.
 
 ---
 
@@ -388,8 +390,8 @@ jobs:
           git add data/outlier_report.json
           git add data/presentaciones_debug.csv
           git commit -m "Actualizar precios $(date +'%Y-%m-%d')" || echo "No changes"
-          git pull --rebase origin main
-          git push origin main
+          git pull --rebase origin "${{ github.ref_name }}"
+          git push origin "HEAD:${{ github.ref_name }}"
 ```
 
 ---
@@ -653,15 +655,31 @@ remediar/
 │   └── pami.xlsx          # descargado en runtime, no versionado
 │
 ├── scripts/
-│   ├── pdf_to_json.py
+│   ├── pdf_to_json.py      # orquestador: encadena las capas de etl/
+│   ├── etl/
+│   │   ├── config.py           # constantes y paths compartidos
+│   │   ├── utils.py            # limpieza/validación de precios
+│   │   ├── blacklist.py        # carga y filtrado de lista negra
+│   │   ├── parser.py           # descarga y parseo del PDF, deduplicación
+│   │   ├── reparaciones.py     # Denver, marca/presentación desplazada, rescate labs
+│   │   ├── droga_fixes.py      # fixes manuales + droga faltante (capa 0)
+│   │   ├── pami.py             # crosswalk vademécum PAMI
+│   │   ├── presentacion.py     # extracción/parseo de presentaciones + debug CSV
+│   │   ├── outliers.py         # detección de outliers y cálculo de vigencia
+│   │   └── enriquecimiento.py  # enriquecimiento de dosis (marca/PAMI)
+│   ├── subir_debug.py
+│   ├── github_release_helper.py
 │   └── snapshot_semanal.py
 │
 ├── tests/
 │   ├── conftest.py
-│   └── test_etl_sanidad.py
+│   ├── test_etl_sanidad.py
+│   ├── test_schema.py
+│   └── medicamentos.schema.json
 │
 └── .github/workflows/
     ├── update_prices.yml
+    ├── codeql.yml
     ├── maintenance-on.yml
     └── maintenance-off.yml
 ```
@@ -764,9 +782,13 @@ docker run -p 8080:80 remediar
 
 | Script | Función |
 |---|---|
-| `scripts/pdf_to_json.py` | Descarga PDF; descarga el vademécum PAMI vigente desde su API de datos abiertos; aplica pipeline de 8+ capas de normalización; crosswalk con PAMI; aplica blacklist; detecta outliers; genera `medicamentos.json`, `outlier_report.json` y `presentaciones_debug.csv` |
+| `scripts/pdf_to_json.py` | Orquestador del ETL: descarga el PDF, descarga el vademécum PAMI vigente desde su API de datos abiertos, encadena las capas de `scripts/etl/` en orden, aplica blacklist, detecta outliers, y genera `medicamentos.json`, `outlier_report.json` y `presentaciones_debug.csv` |
+| `scripts/etl/` | Paquete con cada capa del pipeline separada por responsabilidad (`config`, `utils`, `blacklist`, `parser`, `reparaciones`, `droga_fixes`, `pami`, `presentacion`, `outliers`, `enriquecimiento`) — ver tabla de "Pipeline de normalización" más arriba |
+| `scripts/subir_debug.py` | Sube `medicamentos.pretty.json` (versión legible del output) como asset a la release `debug-latest` de GitHub, para inspección manual |
+| `scripts/github_release_helper.py` | Helpers compartidos para crear/actualizar releases y assets de GitHub desde los otros scripts |
 | `scripts/snapshot_semanal.py` | Genera un CSV con los precios confiables (`vigencia_score ≥ 50`) de la semana y lo sube como asset a la release mensual de GitHub (`historial-YYYY-MM`). Se ejecuta automáticamente cada viernes. |
 | `tests/test_etl_sanidad.py` | 12 tests de sanidad sobre el output del ETL: cantidad de registros, campos obligatorios, rangos de precios, calidad de datos y estructura del JSON |
+| `tests/test_schema.py` | Valida `medicamentos.json` contra `tests/medicamentos.schema.json` (JSON Schema) |
 
 ---
 
