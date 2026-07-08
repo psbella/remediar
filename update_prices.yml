@@ -1,0 +1,56 @@
+name: 🔃 Actualizar precios
+on:
+  schedule:
+    - cron: '30 13,21 * * 1-5'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: repo-main-write
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      - name: Instalar dependencias
+        run: pip install -r requirements.txt
+      - name: Ejecutar pdf_to_json.py
+        run: python scripts/pdf_to_json.py
+      - name: Subir debug a GitHub Releases
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/subir_debug.py
+      - name: Verificar sanidad del output
+        run: pytest tests/ -v
+      - name: Snapshot semanal (solo viernes)
+        if: github.event_name == 'schedule'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ "$(date +%u)" = "5" ]; then
+            echo "Viernes detectado — generando snapshot semanal..."
+            python scripts/snapshot_semanal.py
+          else
+            echo "No es viernes, saltando snapshot."
+          fi
+      - name: Commit y push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "actions@github.com"
+          git add data/medicamentos.json
+          git add data/outlier_report.json
+          git add data/presentaciones_debug.csv
+          git commit -m "Actualizar precios $(date +'%Y-%m-%d')" || echo "No changes"
+          git pull --rebase origin "${{ github.ref_name }}"
+          git push origin "HEAD:${{ github.ref_name }}"
