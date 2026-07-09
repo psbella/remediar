@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-07-08T19:35:32.522798-03:00",
+  "timestamp": "2026-07-09T13:13:32.007106-03:00",
   "total_registros": 13375,
-  "total_outliers": 284,
+  "total_outliers": 285,
   "outliers": [
     {
       "droga": "abacavir, lamivudina",
@@ -2050,9 +2050,9 @@
       "precio": 7187.57,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $7,187.57 < 25% mediana $30,918.00 (n=82)"
+        "precio $7,187.57 < 25% mediana $31,110.57 (n=82)"
       ],
-      "mediana_droga": 30918.0,
+      "mediana_droga": 31110.57,
       "n_droga": 82
     },
     {
@@ -2064,9 +2064,9 @@
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
         "precio $347.50 < minimo $1,800",
-        "precio $347.50 < 10% mediana $30,918.00"
+        "precio $347.50 < 10% mediana $31,110.57"
       ],
-      "mediana_droga": 30918.0,
+      "mediana_droga": 31110.57,
       "n_droga": 82
     },
     {
@@ -3374,6 +3374,19 @@
       ],
       "mediana_droga": 65929.84,
       "n_droga": 81
+    },
+    {
+      "droga": "telmisartán",
+      "marca": "MITEX",
+      "presentacion": "40 mg comp.x 28",
+      "laboratorio": "Eczane",
+      "precio": 25930.62,
+      "precio_outlier_tipo": "bajo_iqr",
+      "razones": [
+        "precio $25,930.62 < fence_low $27,553.46"
+      ],
+      "mediana_droga": 82864.18,
+      "n_droga": 28
     },
     {
       "droga": "temozolomida",
