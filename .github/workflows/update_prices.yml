@@ -52,5 +52,5 @@ jobs:
           git add data/outlier_report.json
           git add data/presentaciones_debug.csv
           git commit -m "Actualizar precios $(date +'%Y-%m-%d')" || echo "No changes"
-          git pull --rebase origin main
-          git push origin main
+          git pull --rebase origin "${{ github.ref_name }}"
+          git push origin "HEAD:${{ github.ref_name }}"
