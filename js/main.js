@@ -248,3 +248,17 @@ window.addEventListener('pageshow', (event) => {
         }
     }
 });
+async function cargarVersionFooter() {
+    const el = document.getElementById('footer-version');
+    if (!el) return;
+    try {
+        const res = await fetch('package.json', { cache: 'no-cache' });
+        if (!res.ok) throw new Error('no ok');
+        const pkg = await res.json();
+        el.textContent = 'v' + pkg.version;
+    } catch {
+        el.remove();
+    }
+}
+
+cargarVersionFooter();
