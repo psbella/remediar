@@ -600,7 +600,9 @@ body {
 .footer-fuentes { text-align: center; font-size: 12px; color: var(--text-3); }
 .footer-fuentes a { color: var(--teal-dark); text-decoration: none; }
 .footer-fuentes a:hover { text-decoration: underline; }
-.footer-legal { text-align: center; font-size: 12px; color: var(--text-3); }
+.footer-legal { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; row-gap: 4px; text-align: center; font-size: 12px; color: var(--text-3); }
+.footer-legal a { color: var(--teal-dark); text-decoration: none; }
+.footer-legal a:hover { text-decoration: underline; }
 .footer-sep { margin: 0 6px; color: var(--text-5); }
 
 .footer-aviso {
