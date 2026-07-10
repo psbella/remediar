@@ -11,7 +11,7 @@ import urllib.error
 import urllib.parse
 
 GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "")
-REPO         = "psbella/remediar"
+REPO         = os.environ.get("GITHUB_REPOSITORY", "psbella/remediar")
 API_BASE     = "https://api.github.com"
 
 
