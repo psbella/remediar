@@ -932,6 +932,10 @@ Antes de abrir el PR: si tocaste el ETL, corré `pytest tests/` y confirmá que 
 
 `main` no tiene branch protection activa. Es una decisión consciente: el repo tiene un solo colaborador con acceso de escritura, y GitHub no permite eximir al bot de `github-actions` de las reglas de protección en cuentas personales — activarla hubiera roto el workflow automático que pushea 2 veces al día. Si en algún momento se suma otro colaborador con acceso de escritura, esto se reevalúa.
 
+## ⚠️ Ojo con el Service Worker al tocar assets estáticos
+
+Si modificás `index.html`, `style.css` o cualquier archivo en `js/`, **acordate de bumpear `CACHE_NAME` en `sw.js`** (ej. `remediar-v5` → `remediar-v6`). Esos archivos están precacheados por el Service Worker (`CACHE_STATIC`), así que sin el bump los usuarios que ya visitaron el sitio van a seguir viendo la versión vieja indefinidamente, sin ningún error visible — simplemente no se actualiza nada hasta que el navegador decida revalidar el cache por su cuenta.
+
 ---
 
 # 📊 Diagramas de Flujo Detallados
@@ -1362,7 +1366,7 @@ Sí, desde el primer viernes de implementación. Cada viernes se genera un snaps
 
 # 📄 Licencia
 
-MIT License. Uso libre para proyectos personales y comerciales con atribución.
+[MIT License](https://opensource.org/license/mit). Uso libre para proyectos personales y comerciales con atribución. Texto completo en [`LICENSE`](./LICENSE).
 
 ---
 
