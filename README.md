@@ -673,7 +673,9 @@ remediar/
 │
 ├── tests/
 │   ├── conftest.py
-│   └── test_etl_sanidad.py
+│   ├── test_etl_sanidad.py
+│   ├── test_schema.py
+│   └── medicamentos.schema.json
 │
 └── .github/workflows/
     ├── update_prices.yml
@@ -913,7 +915,7 @@ git push origin feature/nueva-funcion
 # abrir Pull Request (se completa solo con el template del repo)
 ```
 
-Antes de abrir el PR: si tocaste el ETL, corré `pytest tests/` y confirmá que pasen los 12 tests de sanidad; si tocaste JS/CSS/HTML, probá el cambio en el navegador, no alcanza con leer el diff.
+Antes de abrir el PR: si tocaste el ETL, corré `pytest tests/` y confirmá que pasen los 13 tests (12 de sanidad + el de schema); si tocaste JS/CSS/HTML, probá el cambio en el navegador, no alcanza con leer el diff.
 
 ## Convenciones de commits
 
@@ -954,7 +956,7 @@ flowchart TD
     BL[Blacklist 569 entradas]
     OUT[Detección de outliers IQR]
     PRES[Parser de presentaciones]
-    T[🧪 pytest 12 tests]
+    T[🧪 pytest 13 tests]
     JSON[medicamentos.json]
     DEBUG[presentaciones_debug.csv]
     REPORT[outlier_report.json]
