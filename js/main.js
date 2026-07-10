@@ -262,6 +262,3 @@ async function cargarVersionFooter() {
 }
 
 cargarVersionFooter();
-
-const elAnio = document.getElementById('footer-year');
-if (elAnio) elAnio.textContent = new Date().getFullYear();
