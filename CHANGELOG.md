@@ -4,6 +4,20 @@ Todos los cambios notables de remedi.ar se documentan en este archivo.
 
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/es/1.0.0/) y el proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.1.9] - 2026-07-10
+
+### ♻️ Refactor
+- `pdf_to_json.py` modularizado: de 2024 a 138 líneas. La lógica se movió a 10 módulos nuevos en `scripts/etl/` (`config`, `parser`, `blacklist`, `reparaciones`, `droga_fixes`, `pami`, `presentacion`, `outliers`, `enriquecimiento`, `utils`) — `pdf_to_json.py` ahora solo orquesta el orden de ejecución.
+
+### 🐛 Corregido
+- `scripts/github_release_helper.py`: corrige referencia de repo.
+- `style.css`: elimina declaración duplicada de `.celda.valor.uppercase`.
+
+### 📝 Documentado
+- README actualizado con la nueva estructura de `scripts/etl/` (diagrama, tabla de funciones, árbol de archivos).
+
+---
+
 ## [2.1.8] - 2026-07-07
 
 ### 🔒 Seguridad
