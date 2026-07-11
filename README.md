@@ -18,7 +18,7 @@
 
 <p align="left">
 <!-- Versión -->
-<img src="https://img.shields.io/badge/version-2.1.8-00897b">
+<img src="https://img.shields.io/badge/version-2.1.9-00897b">
 <img src="https://img.shields.io/github/v/release/psbella/remediar">
 <img src="https://img.shields.io/github/actions/workflow/status/psbella/remediar/update_prices.yml?label=ETL&logo=github-actions&logoColor=white">
 <br>
@@ -341,6 +341,8 @@ El parser aplica correcciones en cascada para resolver los problemas estructural
 | 6 | `crosswalk_pami()` | Cruza contra el vademécum de PAMI (descargado en cada corrida desde la API pública de datos abiertos, ver más abajo): recupera droga vacía, corrige laboratorio, normaliza `presentacion`, agrega `pami_cobertura` |
 | 7 | `aplicar_droga_fixes()` | Aplica correcciones manuales desde `data/droga_fixes.json` |
 
+> Cada una de estas funciones vive en su propio módulo dentro de `scripts/etl/` (ver [Paquete `scripts/etl/`](#paquete-scriptsetl-capas-de-normalización)); `pdf_to_json.py` solo orquesta el orden de ejecución.
+
 ---
 
 ## Workflow GitHub Actions
@@ -570,7 +572,8 @@ flowchart LR
     end
 
     subgraph THREE["🐍 ETL Python"]
-        E["pdf_to_json.py\n8+ capas normalización"]
+        E["pdf_to_json.py\n(orquestador)"]
+        E2["scripts/etl/\n8+ capas normalización\nen módulos independientes"]
         G["📊 medicamentos.json"]
     end
 
@@ -596,10 +599,11 @@ flowchart LR
     B --> C
     D --> C
     C --> E
-    H --> E
-    I --> E
-    J --> E
-    E --> G
+    E --> E2
+    H --> E2
+    I --> E2
+    J --> E2
+    E2 --> G
     G --> K
     K --> L
     L --> M
@@ -653,12 +657,25 @@ remediar/
 │   └── pami.xlsx          # descargado en runtime, no versionado
 │
 ├── scripts/
-│   ├── pdf_to_json.py
+│   ├── pdf_to_json.py       # orquestador: encadena las capas de etl/
+│   ├── etl/
+│   │   ├── config.py            # constantes y paths compartidos
+│   │   ├── parser.py             # descarga del PDF y parseo a lista de medicamentos
+│   │   ├── reparaciones.py       # capas de reparación de campos mal parseados
+│   │   ├── droga_fixes.py        # fixes manuales + reparación de droga faltante
+│   │   ├── presentacion.py       # extracción/parseo/debug de presentaciones
+│   │   ├── pami.py               # crosswalk contra el vademécum PAMI
+│   │   ├── blacklist.py          # carga y filtrado de la lista negra
+│   │   ├── outliers.py           # detección de outliers y cálculo de vigencia
+│   │   ├── enriquecimiento.py    # enriquecimiento de campos de presentación/dosis
+│   │   └── utils.py              # helpers de parseo/limpieza básicos
 │   └── snapshot_semanal.py
 │
 ├── tests/
 │   ├── conftest.py
-│   └── test_etl_sanidad.py
+│   ├── test_etl_sanidad.py
+│   ├── test_schema.py
+│   └── medicamentos.schema.json
 │
 └── .github/workflows/
     ├── update_prices.yml
@@ -764,9 +781,24 @@ docker run -p 8080:80 remediar
 
 | Script | Función |
 |---|---|
-| `scripts/pdf_to_json.py` | Descarga PDF; descarga el vademécum PAMI vigente desde su API de datos abiertos; aplica pipeline de 8+ capas de normalización; crosswalk con PAMI; aplica blacklist; detecta outliers; genera `medicamentos.json`, `outlier_report.json` y `presentaciones_debug.csv` |
+| `scripts/pdf_to_json.py` | Orquestador: encadena las capas de `scripts/etl/` en orden y persiste `medicamentos.json`, `outlier_report.json` y `presentaciones_debug.csv`. Ya no contiene la lógica de las capas — solo el flujo. |
 | `scripts/snapshot_semanal.py` | Genera un CSV con los precios confiables (`vigencia_score ≥ 50`) de la semana y lo sube como asset a la release mensual de GitHub (`historial-YYYY-MM`). Se ejecuta automáticamente cada viernes. |
 | `tests/test_etl_sanidad.py` | 12 tests de sanidad sobre el output del ETL: cantidad de registros, campos obligatorios, rangos de precios, calidad de datos y estructura del JSON |
+
+### Paquete `scripts/etl/` (capas de normalización)
+
+| Módulo | Función |
+|---|---|
+| `etl/config.py` | Constantes y paths compartidos por todos los módulos del ETL |
+| `etl/parser.py` | Descarga del PDF de SIAFAR, parseo a lista de medicamentos y deduplicación de registros exactos |
+| `etl/reparaciones.py` | Capas de reparación de campos mal parseados desde el PDF (laboratorios desplazados, fusiones Denver Farma, marca desplazada, presentación desplazada) |
+| `etl/droga_fixes.py` | Fixes manuales de droga y reparación de registros con droga faltante |
+| `etl/presentacion.py` | Extracción de presentación fusionada en marca, limpieza de dosis residual y generación del debug de presentaciones |
+| `etl/pami.py` | Crosswalk contra el vademécum PAMI vigente para recuperar droga y corregir laboratorio |
+| `etl/blacklist.py` | Carga y filtrado de la lista negra de medicamentos |
+| `etl/outliers.py` | Detección de precios outlier/obsoletos y cálculo de vigencia |
+| `etl/enriquecimiento.py` | Enriquecimiento de registros con campos de presentación y dosis |
+| `etl/utils.py` | Helpers de parseo y limpieza básicos |
 
 ---
 
@@ -883,7 +915,7 @@ git push origin feature/nueva-funcion
 # abrir Pull Request (se completa solo con el template del repo)
 ```
 
-Antes de abrir el PR: si tocaste el ETL, corré `pytest tests/` y confirmá que pasen los 12 tests de sanidad; si tocaste JS/CSS/HTML, probá el cambio en el navegador, no alcanza con leer el diff.
+Antes de abrir el PR: si tocaste el ETL, corré `pytest tests/` y confirmá que pasen los 13 tests (12 de sanidad + el de schema); si tocaste JS/CSS/HTML, probá el cambio en el navegador, no alcanza con leer el diff.
 
 ## Convenciones de commits
 
@@ -899,6 +931,10 @@ Antes de abrir el PR: si tocaste el ETL, corré `pytest tests/` y confirmá que 
 ## Sobre la rama `main`
 
 `main` no tiene branch protection activa. Es una decisión consciente: el repo tiene un solo colaborador con acceso de escritura, y GitHub no permite eximir al bot de `github-actions` de las reglas de protección en cuentas personales — activarla hubiera roto el workflow automático que pushea 2 veces al día. Si en algún momento se suma otro colaborador con acceso de escritura, esto se reevalúa.
+
+## ⚠️ Ojo con el Service Worker al tocar assets estáticos
+
+Si modificás `index.html`, `style.css` o cualquier archivo en `js/`, **acordate de bumpear `CACHE_NAME` en `sw.js`** (ej. `remediar-v5` → `remediar-v6`). Esos archivos están precacheados por el Service Worker (`CACHE_STATIC`), así que sin el bump los usuarios que ya visitaron el sitio van a seguir viendo la versión vieja indefinidamente, sin ningún error visible — simplemente no se actualiza nada hasta que el navegador decida revalidar el cache por su cuenta.
 
 ---
 
@@ -924,7 +960,7 @@ flowchart TD
     BL[Blacklist 569 entradas]
     OUT[Detección de outliers IQR]
     PRES[Parser de presentaciones]
-    T[🧪 pytest 12 tests]
+    T[🧪 pytest 13 tests]
     JSON[medicamentos.json]
     DEBUG[presentaciones_debug.csv]
     REPORT[outlier_report.json]
@@ -1330,7 +1366,7 @@ Sí, desde el primer viernes de implementación. Cada viernes se genera un snaps
 
 # 📄 Licencia
 
-MIT License. Uso libre para proyectos personales y comerciales con atribución.
+[MIT License](https://opensource.org/license/mit). Uso libre para proyectos personales y comerciales con atribución. Texto completo en [`LICENSE`](./LICENSE).
 
 ---
 

@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-07-07T19:40:11.584307-03:00",
+  "timestamp": "2026-07-10T19:34:08.160662-03:00",
   "total_registros": 13375,
-  "total_outliers": 288,
+  "total_outliers": 285,
   "outliers": [
     {
       "droga": "abacavir, lamivudina",
@@ -26,7 +26,7 @@
       "razones": [
         "precio $4,458,857.48 < fence_low $5,459,504.04"
       ],
-      "mediana_droga": 11422226.71,
+      "mediana_droga": 11572362.2,
       "n_droga": 20
     },
     {
@@ -908,7 +908,7 @@
       "razones": [
         "precio $1,376.16 < minimo $1,800"
       ],
-      "mediana_droga": 11248.5,
+      "mediana_droga": 11470.27,
       "n_droga": 2
     },
     {
@@ -1396,19 +1396,6 @@
       "n_droga": 68
     },
     {
-      "droga": "everolimus",
-      "marca": "CERTICAN",
-      "presentacion": "0.75 mg comp.x 60",
-      "laboratorio": "Novartis",
-      "precio": 2589760.68,
-      "precio_outlier_tipo": "bajo_relativo",
-      "razones": [
-        "precio $2,589,760.68 < 25% mediana $10,375,423.68 (n=11)"
-      ],
-      "mediana_droga": 10375423.68,
-      "n_droga": 11
-    },
-    {
       "droga": "factor viii",
       "marca": "FACTOR VIII ANTIHEMOFILIC",
       "presentacion": "250 ui f.a.x 1+disolv.",
@@ -1562,21 +1549,8 @@
       "razones": [
         "precio $3,829,696.53 < fence_low $4,314,286.71"
       ],
-      "mediana_droga": 5314331.05,
+      "mediana_droga": 5440496.88,
       "n_droga": 10
-    },
-    {
-      "droga": "fusídico,ác.",
-      "marca": "FUSITOP",
-      "presentacion": "cr.x 15 g",
-      "laboratorio": "HLB Pharma",
-      "precio": 7371.38,
-      "precio_outlier_tipo": "bajo_iqr",
-      "razones": [
-        "precio $7,371.38 < fence_low $7,458.68"
-      ],
-      "mediana_droga": 14580.0,
-      "n_droga": 7
     },
     {
       "droga": "gemcitabina",
@@ -1609,10 +1583,10 @@
       "marca": "GEMCITABINA IMA",
       "presentacion": "200 mg pvo.liof.x 1",
       "laboratorio": "IMA",
-      "precio": 206755.91,
+      "precio": 217507.21,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $206,755.91 < 25% mediana $987,692.00 (n=19)"
+        "precio $217,507.21 < 25% mediana $987,692.00 (n=19)"
       ],
       "mediana_droga": 987692.0,
       "n_droga": 19
@@ -1813,19 +1787,6 @@
       ],
       "mediana_droga": 8110.0,
       "n_droga": 151
-    },
-    {
-      "droga": "imatinib",
-      "marca": "MESINIB",
-      "presentacion": "400 mg comp.rec.x 30",
-      "laboratorio": "Varifarma",
-      "precio": 2223757.68,
-      "precio_outlier_tipo": "bajo_iqr",
-      "razones": [
-        "precio $2,223,757.68 < fence_low $2,361,097.37"
-      ],
-      "mediana_droga": 8787232.41,
-      "n_droga": 26
     },
     {
       "droga": "inmunoglobulina humana",
@@ -2089,9 +2050,9 @@
       "precio": 7187.57,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $7,187.57 < 25% mediana $30,918.00 (n=82)"
+        "precio $7,187.57 < 25% mediana $31,110.57 (n=82)"
       ],
-      "mediana_droga": 30918.0,
+      "mediana_droga": 31110.57,
       "n_droga": 82
     },
     {
@@ -2103,9 +2064,9 @@
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
         "precio $347.50 < minimo $1,800",
-        "precio $347.50 < 10% mediana $30,918.00"
+        "precio $347.50 < 10% mediana $31,110.57"
       ],
-      "mediana_droga": 30918.0,
+      "mediana_droga": 31110.57,
       "n_droga": 82
     },
     {
@@ -2364,9 +2325,9 @@
       "precio": 1892626.6,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $1,892,626.60 < 25% mediana $8,159,316.88 (n=20)"
+        "precio $1,892,626.60 < 25% mediana $8,367,220.57 (n=20)"
       ],
-      "mediana_droga": 8159316.88,
+      "mediana_droga": 8367220.57,
       "n_droga": 20
     },
     {
@@ -2442,9 +2403,9 @@
       "precio": 5166.79,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $5,166.79 < 25% mediana $37,088.34 (n=11)"
+        "precio $5,166.79 < 25% mediana $37,117.99 (n=11)"
       ],
-      "mediana_droga": 37088.34,
+      "mediana_droga": 37117.99,
       "n_droga": 11
     },
     {
@@ -2550,19 +2511,6 @@
       ],
       "mediana_droga": 136309.08,
       "n_droga": 7
-    },
-    {
-      "droga": "paclitaxel",
-      "marca": "PACLITAXEL IMA",
-      "presentacion": "30 mg sol.iny.x 1",
-      "laboratorio": "IMA",
-      "precio": 326131.94,
-      "precio_outlier_tipo": "bajo_relativo",
-      "razones": [
-        "precio $326,131.94 < 25% mediana $1,305,885.13 (n=50)"
-      ],
-      "mediana_droga": 1305885.13,
-      "n_droga": 50
     },
     {
       "droga": "paclitaxel",
@@ -2939,7 +2887,7 @@
       "precio": 10560.0,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $10,560.00 < fence_low $17,767.03"
+        "precio $10,560.00 < fence_low $18,538.75"
       ],
       "mediana_droga": 24278.0,
       "n_droga": 8
@@ -3428,6 +3376,19 @@
       "n_droga": 81
     },
     {
+      "droga": "telmisartán",
+      "marca": "MITEX",
+      "presentacion": "40 mg comp.x 28",
+      "laboratorio": "Eczane",
+      "precio": 25930.62,
+      "precio_outlier_tipo": "bajo_iqr",
+      "razones": [
+        "precio $25,930.62 < fence_low $27,553.46"
+      ],
+      "mediana_droga": 82864.18,
+      "n_droga": 28
+    },
+    {
       "droga": "temozolomida",
       "marca": "VARIZOLAMIDA",
       "presentacion": "100 mg caps.x 5",
@@ -3645,9 +3606,9 @@
       "precio": 6804.97,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $6,804.97 < 25% mediana $29,033.07 (n=9)"
+        "precio $6,804.97 < 25% mediana $29,642.76 (n=9)"
       ],
-      "mediana_droga": 29033.07,
+      "mediana_droga": 29642.76,
       "n_droga": 9
     },
     {

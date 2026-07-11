@@ -24,7 +24,7 @@ AR_TZ        = timezone(timedelta(hours=-3))
 BASE         = Path(__file__).parent.parent
 DATOS_PATH   = BASE / "data" / "medicamentos.json"
 GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "")
-REPO         = "psbella/remediar"
+REPO         = os.environ.get("GITHUB_REPOSITORY", "psbella/remediar")
 API_BASE     = "https://api.github.com"
 
 CAMPOS_CSV = ["fecha", "droga", "marca", "laboratorio", "presentacion", "precio", "pami_cobertura"]
