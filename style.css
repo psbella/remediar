@@ -576,7 +576,6 @@ body {
 }
 .inst-divider::before,
 .inst-divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-.inst-divider h2 { margin: 0; font-size: inherit; font-weight: inherit; color: inherit; text-transform: inherit; letter-spacing: inherit; white-space: nowrap; }
 
 .inst-icon {
     width: 36px;
@@ -653,7 +652,7 @@ body {
 .footer-install-badge:hover { background: var(--teal); color: white; }
 
 /* Páginas legales */
-=======
+.legal-container { max-width: 1024px; margin: 0 auto; background: var(--white); border-radius: var(--r-lg); padding: 40px; border: 0.5px solid var(--border); }
 .legal-container h1 { font-size: 1.8rem; font-weight: 500; color: var(--teal-dark); margin-bottom: 6px; }
 .legal-container .fecha { font-size: 13px; color: var(--text-4); margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--line-faint); }
 .legal-container .resumen {
