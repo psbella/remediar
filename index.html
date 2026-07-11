@@ -3,49 +3,321 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>remedi.ar - En mantenimiento</title>
-    <meta name="robots" content="noindex, nofollow">
+    <title>remedi.ar - Precios de medicamentos en Argentina</title>
+
+
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+    <link rel="canonical" href="https://remedi.ar/">
+    <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
-<link rel="stylesheet" href="mantenimiento.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="description" content="Precios al público de medicamentos en Argentina, actualizados las 24 horas. Incluye precios con descuento para afiliados PAMI. Gratis, sin publicidad.">
+    <meta property="og:title" content="remedi.ar - Precios de medicamentos en Argentina">
+    <meta property="og:description" content="Precios al público de medicamentos en Argentina, actualizados las 24 horas. Incluye precios con descuento para afiliados PAMI. Gratis, sin publicidad.">
+    <meta property="og:url" content="https://remedi.ar/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_AR">
+    <meta property="og:image" content="https://remedi.ar/img/og-image.png">
+    <meta property="og:image:secure_url" content="https://remedi.ar/img/og-image.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="remedi.ar - Precios de medicamentos en Argentina">
+    <meta name="twitter:description" content="Precios al público de medicamentos en Argentina, actualizados las 24 horas. Incluye precios con descuento para afiliados PAMI. Gratis, sin publicidad.">
+    <meta name="twitter:image" content="https://remedi.ar/img/og-image.png">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "remedi.ar",
+      "description": "Buscador gratuito de precios de medicamentos en Argentina. Datos oficiales actualizados dos veces por día. Incluye cobertura PAMI.",
+      "url": "https://remedi.ar/",
+      "inLanguage": "es-AR",
+      "publisher": {
+        "@type": "Organization",
+        "name": "remedi.ar",
+        "url": "https://remedi.ar/"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://remedi.ar/?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <!-- Google Analytics -->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9YFWN54197"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9YFWN54197');
+</script>
 </head>
 <body>
-<div class="card">
-    <div class="logo">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 71 71" width="36" height="36">
-            <circle cx="35.5" cy="35.5" r="35.5" fill="#00897b"/>
-            <rect x="30" y="18" width="11" height="35" rx="3" fill="#ffffff"/>
-            <rect x="18" y="30" width="35" height="11" rx="3" fill="#ffffff"/>
-            <g transform="translate(51,51) rotate(-45) scale(0.5)">
-                <rect x="-10" y="-10" width="20" height="20" rx="10" fill="#b2dfdb" opacity="0.9"/>
-                <line x1="-10" y1="0" x2="10" y2="0" stroke="#ffffff" stroke-width="2"/>
-            </g>
-        </svg>
-        <span class="logo-txt">remedi.ar</span>
+<a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+<div class="container">
+
+    <div class="hidden">
+      <svg xmlns="http://www.w3.org/2000/svg">
+        <symbol id="ic-search"  viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="10" cy="10" r="7"/><line x1="15" y1="15" x2="21" y2="21"/></symbol>
+        <symbol id="ic-pill" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+		<path d="M12 3a5 5 0 0 1 5 5v8a5 5 0 0 1-10 0V8a5 5 0 0 1 5-5z"/>
+		<line x1="7" y1="12" x2="17" y2="12" stroke-width="1.5"/>
+		<path d="M9 8.5a3 3 0 0 1 6 0" stroke-width="1.2" stroke-dasharray="2 1.5"/>
+		</symbol>
+        <symbol id="ic-clock"   viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+        <symbol id="ic-list"    viewBox="0 0 24 24" fill="none" stroke-width="2"><line x1="9" y1="6" x2="20" y2="6"/><line x1="9" y1="12" x2="20" y2="12"/><line x1="9" y1="18" x2="20" y2="18"/><circle cx="4" cy="6" r="1" fill="currentColor"/><circle cx="4" cy="12" r="1" fill="currentColor"/><circle cx="4" cy="18" r="1" fill="currentColor"/></symbol>
+        <symbol id="ic-factory" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+		<rect x="3" y="5" width="18" height="16" rx="1"/>
+		<line x1="2" y1="21" x2="22" y2="21"/>
+		<line x1="3" y1="10" x2="21" y2="10"/>
+		<line x1="12" y1="13" x2="12" y2="18"/>
+		<line x1="9.5" y1="15.5" x2="14.5" y2="15.5"/>
+		</symbol>
+        <symbol id="ic-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="6 9 12 15 18 9"/></symbol>
+        <symbol id="ic-sort"    viewBox="0 0 24 24" fill="none" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="6" y1="12" x2="18" y2="12"/><line x1="9" y1="18" x2="15" y2="18"/></symbol>
+        <symbol id="ic-info"    viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></symbol>
+        <symbol id="ic-shield"  viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></symbol>
+        <symbol id="ic-file"    viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></symbol>
+        <symbol id="ic-mail"    viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></symbol>
+      </svg>
     </div>
-    <h1>En mantenimiento</h1>
-    <p>Estamos haciendo mejoras al sitio.</p>
-    <span class="eta" id="eta">Volvemos pronto</span>
-    <p class="footer-txt">remedi.ar · Precios de medicamentos en Argentina</p>
+
+    <header class="header">
+        <div class="header-logo-circle">
+            <img src="img/favicon.svg" alt="remedi.ar" width="38" height="38">
+        </div>
+        <div class="header-texto">
+            <h1>remedi.ar - Precios de medicamentos</h1>
+
+        </div>
+        <div class="header-right">
+            <div class="update-pill">
+                <span class="update-pill-dot"></span>
+                <div class="update-pill-info">
+                    <span class="update-pill-label">Última actualización</span>
+                    <span id="fecha-actualizacion" class="update-pill-value">Cargando...</span>
+                </div>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <div class="busqueda-section">
+            <svg width="20" height="20" aria-hidden="true"><use href="#ic-search"/></svg>
+            <input
+                type="search"
+                id="buscador"
+                placeholder="Buscá por nombre, principio activo o laboratorio..."
+                autocomplete="off"
+                spellcheck="false"
+                aria-label="Buscar medicamento"
+            >
+            <button id="btnBuscar" aria-label="Buscar">
+                <svg width="16" height="16" aria-hidden="true"><use href="#ic-search"/></svg>
+                Buscar
+            </button>
+            <button id="btnLimpiar" class="btn-limpiar hidden" aria-label="Limpiar búsqueda">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+        </div>
+
+        <section class="filtros-section" aria-label="Filtros">
+            <div class="filtro-row">
+                <svg class="icon-left" width="16" height="16" aria-hidden="true"><use href="#ic-list"/></svg>
+                <select id="filtroPresentacion" aria-label="Filtrar por presentación">
+                    <option value="">Presentación: Todas</option>
+                </select>
+                <svg class="icon-right" width="14" height="14" aria-hidden="true"><use href="#ic-chevron"/></svg>
+            </div>
+            <div class="filtro-row">
+                <svg class="icon-left" width="16" height="16" aria-hidden="true"><use href="#ic-factory"/></svg>
+                <select id="filtroLaboratorio" aria-label="Filtrar por laboratorio">
+                    <option value="">Laboratorio: Todos</option>
+                </select>
+                <svg class="icon-right" width="14" height="14" aria-hidden="true"><use href="#ic-chevron"/></svg>
+            </div>
+            <div class="filtro-row">
+                <svg class="icon-left" width="16" height="16" aria-hidden="true"><use href="#ic-sort"/></svg>
+                <select id="ordenPrecio" aria-label="Ordenar resultados">
+                    <option value="relevancia" selected>Relevancia + vigencia</option>
+                    <option value="precio_asc">Menor precio primero</option>
+                    <option value="precio_desc">Mayor precio primero</option>
+                </select>
+                <svg class="icon-right" width="14" height="14" aria-hidden="true"><use href="#ic-chevron"/></svg>
+            </div>
+            <label class="filtro-toggle" id="togglePamiLabel">
+                <input type="checkbox" id="togglePami" aria-label="Mostrar solo medicamentos con cobertura PAMI">
+                <span class="toggle-track">
+                    <span class="toggle-thumb"></span>
+                </span>
+                <span class="toggle-label">Solo con cobertura PAMI</span>
+            </label>
+        </section>
+
+        <div class="results-header">
+            <div id="contador" class="contador" role="status" aria-live="polite"></div>
+        </div>
+
+        <div id="resultados" class="resultados" role="region" aria-label="Resultados"></div>
+    </main>
+
+    <section class="institucional" aria-label="Acerca de remedi.ar">
+  <div class="institucional-inner">
+
+    <p class="institucional-intro">
+      <strong>remedi.ar</strong> es una plataforma de acceso a información que tiene como objetivo simplificar la consulta del precio de los medicamentos en Argentina.
+    </p>
+
+    <p>
+      Aunque los precios de los medicamentos son información pública, se encuentran distribuidos en múltiples fuentes oficiales, generalmente en documentos extensos y de difícil navegación para el usuario final. Esto dificulta su consulta cotidiana y limita su accesibilidad.
+    </p>
+
+    <p>
+      <strong>remedi.ar</strong> resuelve este problema mediante el procesamiento automatizado de datos públicos, organizándolos y estructurándolos en una interfaz centralizada, clara y fácil de usar. La plataforma convierte información compleja en un sistema de búsqueda accesible, pensado tanto para usuarios particulares como para profesionales que requieren consultas rápidas y precisas.
+    </p>
+
+    <p>
+      El objetivo es ofrecer una experiencia transparente, eficiente y sin intermediarios, mejorando el acceso a información esencial dentro del sistema de salud.
+    </p>
+
+            <!-- Franja de estadísticas -->
+            <div class="inst-stats">
+                <div class="inst-stat">
+                    <span class="inst-stat-num">~12.000</span>
+                    <span class="inst-stat-label">medicamentos</span>
+                </div>
+                <div class="inst-stat-sep"></div>
+                <div class="inst-stat">
+                    <span class="inst-stat-num">~1.500</span>
+                    <span class="inst-stat-label">principios activos</span>
+                </div>
+                <div class="inst-stat-sep"></div>
+                <div class="inst-stat">
+                    <span class="inst-stat-num">2×</span>
+                    <span class="inst-stat-label">actualización diaria</span>
+                </div>
+                <div class="inst-stat-sep"></div>
+                <div class="inst-stat">
+                    <span class="inst-stat-num">0</span>
+                    <span class="inst-stat-label">publicidades</span>
+                </div>
+            </div>
+
+            <!-- Divisor -->
+            <div class="inst-divider">
+                <span>Por qué remedi.ar</span>
+            </div>
+
+            <div class="institucional-grid">
+
+                <div class="institucional-bloque">
+                    <div class="inst-icon">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 12l2 2 4-4"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
+                    </div>
+                    <h3>Datos oficiales, siempre actualizados</h3>
+                    <p>Todos los precios provienen de fuentes oficiales y reflejan los valores de venta al público vigentes en farmacias de todo el país. El catálogo incluye más de 12.000 productos, 1.500 principios activos, genéricos y marcas comerciales.</p>
+                </div>
+
+                <div class="institucional-bloque">
+                    <div class="inst-icon">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <h3>Cobertura PAMI integrada</h3>
+                    <p>Para los afiliados al PAMI, remedi.ar muestra el porcentaje de cobertura y el copago estimado para cada medicamento incluido en el vademécum, calculado sobre el precio vigente del día.</p>
+                </div>
+
+                <div class="institucional-bloque">
+                    <div class="inst-icon">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    </div>
+                    <h3>Precios filtrados y verificados</h3>
+                    <p>remedi.ar detecta automáticamente medicamentos con precios desactualizados o estadísticamente anómalos y los advierte claramente, sin ocultarlos ni equipararlos con información vigente.</p>
+                </div>
+
+                <div class="institucional-bloque">
+                    <div class="inst-icon">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
+                    </div>
+                    <h3>Sin publicidad ni posicionamiento pagado</h3>
+                    <p>Ningún laboratorio puede pagar para aparecer primero. Los resultados se ordenan por relevancia y vigencia del precio, no por intereses comerciales.</p>
+                </div>
+
+                <div class="institucional-bloque">
+                    <div class="inst-icon">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    </div>
+                    <h3>Búsqueda inteligente</h3>
+                    <p>Buscá por nombre comercial, principio activo o laboratorio. Los resultados se adaptan a lo que escribís sin necesidad de coincidir exactamente con el listado oficial.</p>
+                </div>
+
+                <div class="institucional-bloque">
+                    <div class="inst-icon">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                    </div>
+                    <h3>Código abierto y auditable</h3>
+                    <p>Todo el código de remedi.ar es público en <a href="https://github.com/psbella/remediar" target="_blank" rel="noopener">GitHub</a>. Cualquier persona puede verificar cómo obtenemos los datos, cómo los procesamos y cómo los mostramos.</p>
+                </div>
+
+            </div>
+
+            <p class="institucional-cierre"><strong>remedi.ar</strong> no tiene publicidad, no vende datos y no recibe financiamiento de laboratorios ni de ningún actor del sistema de salud. Es un proyecto independiente y sin fines de lucro. Usamos Google Analytics de forma anónima para entender cómo se usa el sitio y mejorarlo
+			<strong>Creemos que saber el precio de un medicamento es un derecho, no un privilegio.</strong></p>
+        </div>
+    </section>
+
+<footer>
+        <div class="footer-update">
+            <span>Última actualización: <strong id="fecha-actualizacion-footer">Cargando...</strong></span>
+        </div>
+        <div class="footer-fuentes">
+            Fuente de datos:
+            <a href="https://siafar.com/precios/pdf/" target="_blank" rel="noopener">SIAFAR / COFA</a>
+            <span class="footer-sep">|</span>
+            <a href="https://datos.pami.org.ar/dataset/medicamentos-para-afiliados" target="_blank" rel="noopener">PAMI</a>
+        </div>
+        <div class="footer-aviso">
+            <svg width="14" height="14" aria-hidden="true"><use href="#ic-info"/></svg>
+            <span><strong>Aviso médico:</strong> Esta información no reemplaza la consulta con un profesional de la salud. Verificá precios en tu farmacia.</span>
+        </div>
+        <button id="btnInstalarApp" class="footer-install-badge hidden">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                <line x1="12" y1="18" x2="12" y2="18.01"/>
+                <polyline points="8 12 12 16 16 12"/>
+                <line x1="12" y1="8" x2="12" y2="16"/>
+            </svg>
+            Disponible como app
+        </button>
+        <div class="footer-legal">
+            <a href="https://opensource.org/license/mit" target="_blank" rel="noopener">Licencia MIT</a>
+            <span class="footer-sep">|</span>
+            <span id="footer-version"></span>
+        </div>
+        <nav class="footer-links">
+            <a href="privacidad.html"><svg width="13" height="13" aria-hidden="true"><use href="#ic-shield"/></svg>Privacidad</a>
+            <a href="terminos.html"><svg width="13" height="13" aria-hidden="true"><use href="#ic-file"/></svg>Términos</a>
+            <a href="mailto:pablo.s.bella@gmail.com?subject=remedi.ar%20-%20Consulta"><svg width="13" height="13" aria-hidden="true"><use href="#ic-mail"/></svg>Contacto</a>
+        </nav>
+    </footer>
+
 </div>
 <script>
-    // Opcional: mostrar un contador regresivo.
-    // Configurar VUELVE_EN_MINUTOS para el tiempo estimado.
-    const VUELVE_EN_MINUTOS = 0; // 0 = desactivado
-    if (VUELVE_EN_MINUTOS > 0) {
-        const fin = Date.now() + VUELVE_EN_MINUTOS * 60 * 1000;
-        const eta = document.getElementById('eta');
-        const tick = () => {
-            const resto = Math.max(0, fin - Date.now());
-            const min   = Math.floor(resto / 60000);
-            const seg   = Math.floor((resto % 60000) / 1000);
-            eta.textContent = resto > 0
-                ? `Volvemos en ${min}:${String(seg).padStart(2,'0')}`
-                : 'Recargando...';
-            if (resto <= 0) location.reload();
-        };
-        tick();
-        setInterval(tick, 1000);
-    }
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js');
+  }
 </script>
+<script type="module" src="js/main.js"></script>
 </body>
-</html>
+		</html>
