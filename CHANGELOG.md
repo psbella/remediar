@@ -4,6 +4,16 @@ Todos los cambios notables de remedi.ar se documentan en este archivo.
 
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/es/1.0.0/) y el proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+### ✨ Agregado
+- Footer: link a la licencia MIT (`opensource.org/license/mit`) y número de versión, leído dinámicamente desde `package.json`.
+
+### 🐛 Corregido
+- `style.css`: contraste de `--text-5` (#999999 → #6c6c6c) para cumplir WCAG AA en placeholder del buscador e íconos de filtros/footer.
+- `style.css`: elimina otra reaparición de la declaración duplicada de `.celda.valor.uppercase`.
+- `sw.js`: bump de `CACHE_NAME` (v3 → v6) para forzar actualización de assets estáticos cacheados.
+
+---
+
 ## [2.1.9] - 2026-07-10
 
 ### ♻️ Refactor
