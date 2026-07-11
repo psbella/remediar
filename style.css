@@ -576,6 +576,7 @@ body {
 }
 .inst-divider::before,
 .inst-divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.inst-divider h2 { margin: 0; font-size: inherit; font-weight: inherit; color: inherit; text-transform: inherit; letter-spacing: inherit; white-space: nowrap; }
 
 .inst-icon {
     width: 36px;
