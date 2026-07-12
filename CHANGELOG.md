@@ -4,6 +4,23 @@ Todos los cambios notables de remedi.ar se documentan en este archivo.
 
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/es/1.0.0/) y el proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.1] - 2026-07-12
+
+### ✨ Agregado
+- 15 tests unitarios nuevos para las funciones puras de `scripts/etl/` (`utils`, `blacklist`, `outliers`, `droga_fixes`, `reparaciones`, `parser`) en `tests/test_etl_modulos.py` — 28 tests en total. Complementan a `test_etl_sanidad.py`/`test_schema.py`, que solo validan el JSON final agregado.
+- Ruff (`pyproject.toml`) y ESLint (`eslint.config.js`) configurados — set inicial pragmático (errores reales, no preferencias de estilo), sin bloquear CI todavía.
+
+### 🐛 Corregido
+- `scripts/etl/presentacion.py`: `'pda'` estaba definido dos veces en `_FORMAS_NORM_PRES` (`PARCHE` y `POMADA`) — la segunda definición ganaba en silencio. Se confirma que `POMADA` es el valor correcto y se elimina la entrada muerta.
+- `js/store.js`: indentación incorrecta en el cierre de `_extraerFiltros` (8 espacios de más).
+
+### 📝 Documentado
+- `## [2.2.0]` le faltaba el encabezado de versión en este archivo — el contenido (footer con versión dinámica, contraste WCAG, bump de `CACHE_NAME`) quedó flotando sin sección. Se corrige.
+
+---
+
+## [2.2.0] - 2026-07-11
+
 ### ✨ Agregado
 - Footer: link a la licencia MIT (`opensource.org/license/mit`) y número de versión, leído dinámicamente desde `package.json`.
 
