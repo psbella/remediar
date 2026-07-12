@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-10T19:34:08.160662-03:00",
+  "timestamp": "2026-07-12T14:36:16.483434-03:00",
   "total_registros": 13375,
   "total_outliers": 285,
   "outliers": [
@@ -669,9 +669,9 @@
       "precio": 110688.12,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $110,688.12 < 25% mediana $448,189.67 (n=22)"
+        "precio $110,688.12 < 25% mediana $452,810.17 (n=22)"
       ],
-      "mediana_droga": 448189.67,
+      "mediana_droga": 452810.17,
       "n_droga": 22
     },
     {
@@ -1549,7 +1549,7 @@
       "razones": [
         "precio $3,829,696.53 < fence_low $4,314,286.71"
       ],
-      "mediana_droga": 5440496.88,
+      "mediana_droga": 5494427.38,
       "n_droga": 10
     },
     {
@@ -1560,9 +1560,9 @@
       "precio": 193459.24,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $193,459.24 < 25% mediana $987,692.00 (n=19)"
+        "precio $193,459.24 < 25% mediana $1,007,446.00 (n=19)"
       ],
-      "mediana_droga": 987692.0,
+      "mediana_droga": 1007446.0,
       "n_droga": 19
     },
     {
@@ -1575,7 +1575,7 @@
       "razones": [
         "ppu $3,705.54 << mediana_grupo $1,813,337.15"
       ],
-      "mediana_droga": 987692.0,
+      "mediana_droga": 1007446.0,
       "n_droga": 19
     },
     {
@@ -1586,9 +1586,9 @@
       "precio": 217507.21,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $217,507.21 < 25% mediana $987,692.00 (n=19)"
+        "precio $217,507.21 < 25% mediana $1,007,446.00 (n=19)"
       ],
-      "mediana_droga": 987692.0,
+      "mediana_droga": 1007446.0,
       "n_droga": 19
     },
     {
@@ -1651,9 +1651,9 @@
       "precio": 98386.99,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $98,386.99 < 25% mediana $480,736.24 (n=6)"
+        "precio $98,386.99 < 25% mediana $485,424.74 (n=6)"
       ],
-      "mediana_droga": 480736.24,
+      "mediana_droga": 485424.74,
       "n_droga": 6
     },
     {
@@ -2205,10 +2205,10 @@
       "marca": "SALOFALK",
       "presentacion": "500 mg comp.x 100",
       "laboratorio": "LKM",
-      "precio": 367456.37,
+      "precio": 374805.49,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $734.91 << mediana_grupo $253,018.56"
+        "ppu $749.61 << mediana_grupo $258,078.93"
       ],
       "mediana_droga": 233070.25,
       "n_droga": 43
@@ -2244,10 +2244,10 @@
       "marca": "SALOFALK",
       "presentacion": "500 mg sup.x 30",
       "laboratorio": "LKM",
-      "precio": 192045.91,
+      "precio": 195886.83,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $384.09 << mediana_grupo $253,018.56"
+        "ppu $391.77 << mediana_grupo $258,078.93"
       ],
       "mediana_droga": 233070.25,
       "n_droga": 43
@@ -2533,7 +2533,7 @@
       "precio": 5484732.0,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $5,484,732.00 < fence_low $6,831,432.81"
+        "precio $5,484,732.00 < fence_low $6,740,028.17"
       ],
       "mediana_droga": 9096372.79,
       "n_droga": 36
@@ -2546,7 +2546,7 @@
       "precio": 6660555.08,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $6,660,555.08 < fence_low $6,831,432.81"
+        "precio $6,660,555.08 < fence_low $6,740,028.17"
       ],
       "mediana_droga": 9096372.79,
       "n_droga": 36
@@ -2559,7 +2559,7 @@
       "precio": 5484732.0,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $5,484,732.00 < fence_low $6,831,432.81"
+        "precio $5,484,732.00 < fence_low $6,740,028.17"
       ],
       "mediana_droga": 9096372.79,
       "n_droga": 36
@@ -2572,7 +2572,7 @@
       "precio": 6660555.08,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $6,660,555.08 < fence_low $6,831,432.81"
+        "precio $6,660,555.08 < fence_low $6,740,028.17"
       ],
       "mediana_droga": 9096372.79,
       "n_droga": 36
@@ -2585,7 +2585,7 @@
       "precio": 5484732.0,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $5,484,732.00 < fence_low $6,831,432.81"
+        "precio $5,484,732.00 < fence_low $6,740,028.17"
       ],
       "mediana_droga": 9096372.79,
       "n_droga": 36
@@ -2598,7 +2598,7 @@
       "precio": 6660555.08,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $6,660,555.08 < fence_low $6,831,432.81"
+        "precio $6,660,555.08 < fence_low $6,740,028.17"
       ],
       "mediana_droga": 9096372.79,
       "n_droga": 36
