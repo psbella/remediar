@@ -1,0 +1,30 @@
+export default [
+  {
+    files: ["js/**/*.js"],
+    languageOptions: {
+      ecmaVersion: "latest",
+      sourceType: "module",
+      globals: {
+        window: "readonly",
+        document: "readonly",
+        sessionStorage: "readonly",
+        fetch: "readonly",
+        navigator: "readonly",
+        history: "readonly",
+        location: "readonly",
+        URL: "readonly",
+        URLSearchParams: "readonly",
+        console: "readonly",
+        setTimeout: "readonly",
+        clearTimeout: "readonly",
+        gtag: "readonly",
+      },
+    },
+    rules: {
+      "no-undef": "error",
+      "no-unused-vars": "warn",
+      "eqeqeq": "error",
+      "no-var": "error",
+    },
+  },
+];
