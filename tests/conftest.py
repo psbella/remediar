@@ -4,7 +4,10 @@ Si algún test falla, genera tests/debug_update_failed.txt
 con el detalle de todos los fallos para facilitar el diagnóstico.
 """
 import pytest
+import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
 
 DEBUG_PATH = Path(__file__).parent / "debug_update_failed.txt"
 
