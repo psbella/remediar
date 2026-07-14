@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-07-13T19:30:56.572957-03:00",
+  "timestamp": "2026-07-14T12:10:03.458119-03:00",
   "total_registros": 13375,
-  "total_outliers": 285,
+  "total_outliers": 281,
   "outliers": [
     {
       "droga": "abacavir, lamivudina",
@@ -24,7 +24,7 @@
       "precio": 4458857.48,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $4,458,857.48 < fence_low $5,459,504.04"
+        "precio $4,458,857.48 < fence_low $5,592,597.99"
       ],
       "mediana_droga": 11572362.2,
       "n_droga": 20
@@ -830,7 +830,7 @@
       "razones": [
         "ppu $32.29 << mediana_grupo $1,117.39"
       ],
-      "mediana_droga": 18756.92,
+      "mediana_droga": 18851.92,
       "n_droga": 46
     },
     {
@@ -1396,6 +1396,19 @@
       "n_droga": 68
     },
     {
+      "droga": "everolimus",
+      "marca": "CERTICAN",
+      "presentacion": "0.75 mg comp.x 60",
+      "laboratorio": "Novartis",
+      "precio": 2638966.13,
+      "precio_outlier_tipo": "bajo_relativo",
+      "razones": [
+        "precio $2,638,966.13 < 25% mediana $10,603,683.01 (n=11)"
+      ],
+      "mediana_droga": 10603683.01,
+      "n_droga": 11
+    },
+    {
       "droga": "factor viii",
       "marca": "FACTOR VIII ANTIHEMOFILIC",
       "presentacion": "250 ui f.a.x 1+disolv.",
@@ -1683,19 +1696,6 @@
       "n_droga": 5
     },
     {
-      "droga": "ibrutinib",
-      "marca": "BROCABE",
-      "presentacion": "140 mg comp.x 30",
-      "laboratorio": "Elea",
-      "precio": 5891832.71,
-      "precio_outlier_tipo": "bajo_iqr",
-      "razones": [
-        "precio $5,891,832.71 < fence_low $5,971,406.03"
-      ],
-      "mediana_droga": 20854071.23,
-      "n_droga": 27
-    },
-    {
       "droga": "ibuprofeno",
       "marca": "IBU 400",
       "presentacion": "400 mg comp.x 10",
@@ -1859,12 +1859,12 @@
       "marca": "ISOPROTERENOL",
       "presentacion": "a.x 5 ml",
       "laboratorio": "Scott-Cassará",
-      "precio": 11095.0,
+      "precio": 11203.0,
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
-        "precio $11,095.00 < 10% mediana $154,674.97"
+        "precio $11,203.00 < 10% mediana $154,728.97"
       ],
-      "mediana_droga": 154674.97,
+      "mediana_droga": 154728.97,
       "n_droga": 2
     },
     {
@@ -1951,13 +1951,13 @@
       "marca": "LIDOCAINA",
       "presentacion": "1% s/epi.a.x 5 ml",
       "laboratorio": "Scott-Cassará",
-      "precio": 1686.4,
+      "precio": 1716.1,
       "precio_outlier_tipo": "bajo_absoluto",
       "razones": [
-        "precio $1,686.40 < minimo $1,800",
-        "precio $1,686.40 < 25% mediana $16,558.00 (n=18)"
+        "precio $1,716.10 < minimo $1,800",
+        "precio $1,716.10 < 25% mediana $16,900.00 (n=18)"
       ],
-      "mediana_droga": 16558.0,
+      "mediana_droga": 16900.0,
       "n_droga": 18
     },
     {
@@ -1970,7 +1970,7 @@
       "razones": [
         "ppu $9,184.86 << mediana_grupo $344,088.43"
       ],
-      "mediana_droga": 16558.0,
+      "mediana_droga": 16900.0,
       "n_droga": 18
     },
     {
@@ -1978,14 +1978,14 @@
       "marca": "LIDOCAINA",
       "presentacion": "2% s/epi.a.x 5 ml",
       "laboratorio": "Scott-Cassará",
-      "precio": 1695.4,
+      "precio": 1726.0,
       "precio_outlier_tipo": "bajo_absoluto",
       "razones": [
-        "precio $1,695.40 < minimo $1,800",
-        "precio $1,695.40 < 25% mediana $16,558.00 (n=18)",
-        "ppu $847.70 << mediana_grupo $5,068.20"
+        "precio $1,726.00 < minimo $1,800",
+        "precio $1,726.00 < 25% mediana $16,900.00 (n=18)",
+        "ppu $863.00 << mediana_grupo $5,173.05"
       ],
-      "mediana_droga": 16558.0,
+      "mediana_droga": 16900.0,
       "n_droga": 18
     },
     {
@@ -1997,9 +1997,9 @@
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
         "precio $1,409.55 < minimo $1,800",
-        "precio $1,409.55 < 10% mediana $16,558.00"
+        "precio $1,409.55 < 10% mediana $16,900.00"
       ],
-      "mediana_droga": 16558.0,
+      "mediana_droga": 16900.0,
       "n_droga": 18
     },
     {
@@ -2087,10 +2087,10 @@
       "marca": "PRISONIL D",
       "presentacion": "50/12.5 mg comp.rec.x 15",
       "laboratorio": "Lepetit",
-      "precio": 15840.0,
+      "precio": 16190.0,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $15,840.00 < fence_low $22,638.72"
+        "precio $16,190.00 < fence_low $23,513.72"
       ],
       "mediana_droga": 35545.99,
       "n_droga": 36
@@ -2116,7 +2116,7 @@
       "precio": 5019753.62,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $5,019,753.62 < fence_low $5,214,715.84"
+        "precio $5,019,753.62 < fence_low $5,265,241.04"
       ],
       "mediana_droga": 7420724.83,
       "n_droga": 10
@@ -2286,9 +2286,9 @@
       "precio": 3507.09,
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
-        "precio $3,507.09 < 10% mediana $69,460.00"
+        "precio $3,507.09 < 10% mediana $73,980.00"
       ],
-      "mediana_droga": 69460.0,
+      "mediana_droga": 73980.0,
       "n_droga": 7
     },
     {
@@ -2322,10 +2322,10 @@
       "marca": "NOVOTINIB",
       "presentacion": "50 mg cáps.x 120",
       "laboratorio": "Elea",
-      "precio": 1892626.6,
+      "precio": 1934264.39,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $1,892,626.60 < 25% mediana $8,367,220.57 (n=20)"
+        "precio $1,934,264.39 < 25% mediana $8,367,220.57 (n=20)"
       ],
       "mediana_droga": 8367220.57,
       "n_droga": 20
@@ -2416,22 +2416,9 @@
       "precio": 3749.22,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $3,749.22 < 25% mediana $15,484.24 (n=80)"
+        "precio $3,749.22 < 25% mediana $15,576.15 (n=80)"
       ],
-      "mediana_droga": 15484.24,
-      "n_droga": 80
-    },
-    {
-      "droga": "omeprazol",
-      "marca": "OMEFORT",
-      "presentacion": "20 mg caps.x 14",
-      "laboratorio": "Eczane",
-      "precio": 3861.01,
-      "precio_outlier_tipo": "bajo_relativo",
-      "razones": [
-        "precio $3,861.01 < 25% mediana $15,484.24 (n=80)"
-      ],
-      "mediana_droga": 15484.24,
+      "mediana_droga": 15576.15,
       "n_droga": 80
     },
     {
@@ -2442,9 +2429,9 @@
       "precio": 3750.0,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $3,750.00 < 25% mediana $15,484.24 (n=80)"
+        "precio $3,750.00 < 25% mediana $15,576.15 (n=80)"
       ],
-      "mediana_droga": 15484.24,
+      "mediana_droga": 15576.15,
       "n_droga": 80
     },
     {
@@ -2455,9 +2442,9 @@
       "precio": 3750.0,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $3,750.00 < 25% mediana $15,484.24 (n=80)"
+        "precio $3,750.00 < 25% mediana $15,576.15 (n=80)"
       ],
-      "mediana_droga": 15484.24,
+      "mediana_droga": 15576.15,
       "n_droga": 80
     },
     {
@@ -2517,10 +2504,10 @@
       "marca": "PACLINOVA",
       "presentacion": "30 mg vial x 1 x 5 ml",
       "laboratorio": "Elea",
-      "precio": 293175.49,
+      "precio": 299625.36,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $293,175.49 < 25% mediana $1,305,885.13 (n=50)"
+        "precio $299,625.36 < 25% mediana $1,305,885.13 (n=50)"
       ],
       "mediana_droga": 1305885.13,
       "n_droga": 50
@@ -2535,20 +2522,7 @@
       "razones": [
         "precio $5,484,732.00 < fence_low $6,740,028.17"
       ],
-      "mediana_droga": 9096372.79,
-      "n_droga": 36
-    },
-    {
-      "droga": "palbociclib",
-      "marca": "IPALXANE",
-      "presentacion": "100 mg cáps.x 21",
-      "laboratorio": "Eczane",
-      "precio": 6660555.08,
-      "precio_outlier_tipo": "bajo_iqr",
-      "razones": [
-        "precio $6,660,555.08 < fence_low $6,740,028.17"
-      ],
-      "mediana_droga": 9096372.79,
+      "mediana_droga": 9174510.55,
       "n_droga": 36
     },
     {
@@ -2561,20 +2535,7 @@
       "razones": [
         "precio $5,484,732.00 < fence_low $6,740,028.17"
       ],
-      "mediana_droga": 9096372.79,
-      "n_droga": 36
-    },
-    {
-      "droga": "palbociclib",
-      "marca": "IPALXANE",
-      "presentacion": "125 mg cáps.x 21",
-      "laboratorio": "Eczane",
-      "precio": 6660555.08,
-      "precio_outlier_tipo": "bajo_iqr",
-      "razones": [
-        "precio $6,660,555.08 < fence_low $6,740,028.17"
-      ],
-      "mediana_droga": 9096372.79,
+      "mediana_droga": 9174510.55,
       "n_droga": 36
     },
     {
@@ -2587,20 +2548,7 @@
       "razones": [
         "precio $5,484,732.00 < fence_low $6,740,028.17"
       ],
-      "mediana_droga": 9096372.79,
-      "n_droga": 36
-    },
-    {
-      "droga": "palbociclib",
-      "marca": "IPALXANE",
-      "presentacion": "75 mg cáps.x 21",
-      "laboratorio": "Eczane",
-      "precio": 6660555.08,
-      "precio_outlier_tipo": "bajo_iqr",
-      "razones": [
-        "precio $6,660,555.08 < fence_low $6,740,028.17"
-      ],
-      "mediana_droga": 9096372.79,
+      "mediana_droga": 9174510.55,
       "n_droga": 36
     },
     {
@@ -2608,12 +2556,12 @@
       "marca": "PANCURON",
       "presentacion": "4 mg a.x 1 x 2 ml",
       "laboratorio": "Scott-Cassará",
-      "precio": 6325.0,
+      "precio": 6442.0,
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
-        "precio $6,325.00 < 10% mediana $144,584.56"
+        "precio $6,442.00 < 10% mediana $144,643.06"
       ],
-      "mediana_droga": 144584.56,
+      "mediana_droga": 144643.06,
       "n_droga": 2
     },
     {
@@ -3357,7 +3305,7 @@
       "precio": 54115.43,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $2,705.77 << mediana_grupo $22,355.37"
+        "ppu $2,705.77 << mediana_grupo $22,580.67"
       ],
       "mediana_droga": 65929.84,
       "n_droga": 81
@@ -3380,10 +3328,10 @@
       "marca": "MITEX",
       "presentacion": "40 mg comp.x 28",
       "laboratorio": "Eczane",
-      "precio": 25930.62,
+      "precio": 26475.17,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $25,930.62 < fence_low $27,553.46"
+        "precio $26,475.17 < fence_low $27,553.46"
       ],
       "mediana_droga": 82864.18,
       "n_droga": 28
@@ -3419,10 +3367,10 @@
       "marca": "TEMONOVA 20",
       "presentacion": "20 mg caps.x 5",
       "laboratorio": "Elea",
-      "precio": 360600.73,
+      "precio": 368533.94,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $360,600.73 < 25% mediana $3,206,084.95 (n=34)"
+        "precio $368,533.94 < 25% mediana $3,206,084.95 (n=34)"
       ],
       "mediana_droga": 3206084.95,
       "n_droga": 34
