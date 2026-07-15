@@ -305,7 +305,7 @@ _FORMAS_NORM_PRES = {
     'gel': 'GEL', 'ung': 'UNGÜENTO', 'pomo': 'POMO', 'jalea': 'JALEA',
     'lot': 'LOCIÓN', 'loc': 'LOCIÓN', 'emuls': 'EMULSIÓN',
     'xamp': 'CHAMPÚ', 'shamp': 'CHAMPÚ',
-    'roll-on': 'ROLL-ON', 'pda': 'PARCHE', 'parche': 'PARCHE',
+    'roll-on': 'ROLL-ON', 'parche': 'PARCHE',
     'aer.bronq': 'AEROSOL BRONQUIAL', 'aer': 'AEROSOL', 'aerosol': 'AEROSOL',
     'inhal': 'INHALADOR', 'spray': 'SPRAY', 'nasal': 'SPRAY NASAL', 'puff': 'PUFF',
     'ov.vag': 'ÓVULOS VAGINALES', 'óv.vag': 'ÓVULOS VAGINALES',

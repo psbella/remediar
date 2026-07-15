@@ -18,7 +18,7 @@
 
 <p align="left">
 <!-- Versión -->
-<img src="https://img.shields.io/badge/version-2.2.1-00897b">
+<img src="https://img.shields.io/badge/version-2.2.2-00897b">
 <img src="https://img.shields.io/github/v/release/psbella/remediar">
 <img src="https://img.shields.io/github/actions/workflow/status/psbella/remediar/update_prices.yml?label=ETL&logo=github-actions&logoColor=white">
 <br>
@@ -140,7 +140,7 @@
 | Entradas en blacklist | 569 |
 | Cobertura parser de presentaciones | ~99.5% |
 | Actualizaciones | 2 veces/día (lunes a viernes) |
-| Tests de sanidad | 13 checks automáticos post-ETL |
+| Tests de sanidad | 28 checks automáticos post-ETL |
 
 ---
 
@@ -522,7 +522,7 @@ Cada tarjeta tiene un botón "Compartir" que abre el menú nativo en mobile o co
 
 ## ✅ Tests de sanidad automáticos
 
-13 tests pytest corren después de cada actualización del ETL y antes del commit. Si alguno falla, el workflow se detiene y el sitio sigue sirviendo los datos anteriores. 12 validan umbrales de calidad de negocio (cantidad de registros, % de campos vacíos, rango de precios); el 13° (`test_schema.py`) valida el contrato estructural completo del JSON contra un [JSON Schema versionado](./tests/medicamentos.schema.json) — si el ETL cambia la forma del output, este test avisa hasta que el schema se actualice a propósito.
+28 tests pytest corren después de cada actualización del ETL y antes del commit. Si alguno falla, el workflow se detiene y el sitio sigue sirviendo los datos anteriores. 12 validan umbrales de calidad de negocio (cantidad de registros, % de campos vacíos, rango de precios), 1 valida el contrato estructural completo del JSON contra un [JSON Schema versionado](./tests/medicamentos.schema.json), y 15 son tests unitarios de las funciones puras de scripts/etl/ — si el ETL cambia la forma del output o rompe una función de reparación, alguno de estos avisa.
 ```
 ============================= test session starts ==============================
 platform linux -- Python 3.11.15, pytest-9.1.1, pluggy-1.6.0
@@ -915,7 +915,7 @@ git push origin feature/nueva-funcion
 # abrir Pull Request (se completa solo con el template del repo)
 ```
 
-Antes de abrir el PR: si tocaste el ETL, corré `pytest tests/` y confirmá que pasen los 13 tests (12 de sanidad + el de schema); si tocaste JS/CSS/HTML, probá el cambio en el navegador, no alcanza con leer el diff.
+Antes de abrir el PR: si tocaste el ETL, corré `pytest tests/` y confirmá que pasen los 28 tests (12 de sanidad + 1 de schema + 15 unitarios de scripts/etl/); si tocaste JS/CSS/HTML, probá el cambio en el navegador, no alcanza con leer el diff.
 
 ## Convenciones de commits
 
@@ -960,7 +960,7 @@ flowchart TD
     BL[Blacklist 569 entradas]
     OUT[Detección de outliers IQR]
     PRES[Parser de presentaciones]
-    T[🧪 pytest 13 tests]
+    T[🧪 pytest 28 tests]
     JSON[medicamentos.json]
     DEBUG[presentaciones_debug.csv]
     REPORT[outlier_report.json]

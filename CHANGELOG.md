@@ -4,6 +4,12 @@ Todos los cambios notables de remedi.ar se documentan en este archivo.
 
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/es/1.0.0/) y el proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.2] - 2026-07-14
+
+### 🐛 Corregido
+- Los fixes que el CHANGELOG de la 2.2.1 declaraba (duplicado de `'pda'` en `presentacion.py`, indentación de `js/store.js`, `"type": "module"` en `package.json`) nunca se aplicaron al código real — quedaron documentados pero no commiteados. Se aplican ahora de verdad, con verificación explícita línea por línea antes de cada commit.
+- README: corregido el conteo de tests de "13" a "28" en varios lugares, que habían quedado desactualizados desde que se agregaron los 15 tests unitarios del ETL modular.
+
 ## [2.2.1] - 2026-07-12
 
 ### ✨ Agregado

@@ -144,4 +144,4 @@ function _extraerFiltros(meds) {
         presentaciones: [...presentaciones].sort(),
         laboratorios:   [...laboratorios].sort(),
     };
-        }
+}
