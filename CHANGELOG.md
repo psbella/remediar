@@ -4,6 +4,12 @@ Todos los cambios notables de remedi.ar se documentan en este archivo.
 
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/es/1.0.0/) y el proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.3] - 2026-07-16
+
+### 🐛 Corregido
+- `scripts/etl/presentacion.py`: quedaban 15 claves duplicadas más en `_FORMAS_NORM_PRES` además de `'pda'` (`vial`, `fco`, `jbe`, `sol.iny`, `iny.liof`, `polv.p/susp.oral`, `caram`, `colir`, `ap.aplic.desc`, `autoinyect.prell`, `jga.prell`, `jga.pr`, `jer.prell`, `lap.prell`, `viales`) — todas con el mismo valor en ambas definiciones, detectadas con Ruff (`F601`) y no por revisión manual. Se elimina la entrada redundante en cada caso; el valor efectivo no cambia.
+- Publicado el release de GitHub correspondiente a la 2.2.2, que había quedado documentada en este CHANGELOG y en `package.json` pero nunca tageada ni publicada como release.
+
 ## [2.2.2] - 2026-07-14
 
 ### 🐛 Corregido
