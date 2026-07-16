@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-07-15T19:32:40.535770-03:00",
-  "total_registros": 13375,
+  "timestamp": "2026-07-16T05:03:47.257110-03:00",
+  "total_registros": 13376,
   "total_outliers": 282,
   "outliers": [
     {
@@ -24,7 +24,7 @@
       "precio": 4458857.48,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $4,458,857.48 < fence_low $5,579,542.35"
+        "precio $4,458,857.48 < fence_low $5,486,515.76"
       ],
       "mediana_droga": 11573421.64,
       "n_droga": 20
@@ -225,7 +225,7 @@
       "razones": [
         "ppu $14.60 << mediana_grupo $103.33"
       ],
-      "mediana_droga": 11283.24,
+      "mediana_droga": 11299.05,
       "n_droga": 116
     },
     {
@@ -233,12 +233,12 @@
       "marca": "AMOXI DUO MAR",
       "presentacion": "875 mg comp. x 14",
       "laboratorio": "Mar",
-      "precio": 11000.0,
+      "precio": 11165.0,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $12.57 << mediana_grupo $163.25"
+        "ppu $12.76 << mediana_grupo $165.70"
       ],
-      "mediana_droga": 11283.24,
+      "mediana_droga": 11299.05,
       "n_droga": 116
     },
     {
@@ -251,7 +251,7 @@
       "razones": [
         "ppu $16.61 << mediana_grupo $121.52"
       ],
-      "mediana_droga": 11283.24,
+      "mediana_droga": 11299.05,
       "n_droga": 116
     },
     {
@@ -1034,10 +1034,10 @@
       "marca": "DESLORAMAR",
       "presentacion": "susp.fco.x 60 ml",
       "laboratorio": "Mar",
-      "precio": 10420.0,
+      "precio": 10580.0,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $173.67 << mediana_grupo $1,245.00"
+        "ppu $176.33 << mediana_grupo $1,264.00"
       ],
       "mediana_droga": 12159.69,
       "n_droga": 24
@@ -1047,10 +1047,10 @@
       "marca": "DESLORAMAR CORT",
       "presentacion": "susp.fco.x 60 ml",
       "laboratorio": "Mar",
-      "precio": 11560.0,
+      "precio": 11735.0,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $192.67 << mediana_grupo $1,169.33"
+        "ppu $195.58 << mediana_grupo $1,187.79"
       ],
       "mediana_droga": 13007.1,
       "n_droga": 12
@@ -1455,9 +1455,9 @@
       "precio": 11286.79,
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
-        "precio $11,286.79 < 10% mediana $233,814.23"
+        "precio $11,286.79 < 10% mediana $235,616.66"
       ],
-      "mediana_droga": 233814.23,
+      "mediana_droga": 235616.66,
       "n_droga": 8
     },
     {
@@ -1468,9 +1468,9 @@
       "precio": 32549.62,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $32,549.62 < 25% mediana $233,814.23 (n=8)"
+        "precio $32,549.62 < 25% mediana $235,616.66 (n=8)"
       ],
-      "mediana_droga": 233814.23,
+      "mediana_droga": 235616.66,
       "n_droga": 8
     },
     {
@@ -1609,12 +1609,12 @@
       "marca": "TREMFYA",
       "presentacion": "100 mg/ml autoiny. x 1",
       "laboratorio": "Janssen-Cilag",
-      "precio": 10159919.83,
+      "precio": 10373278.15,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $101,599.20 << mediana_grupo $14,833,484.04"
+        "ppu $103,732.78 << mediana_grupo $15,144,987.20"
       ],
-      "mediana_droga": 14833484.04,
+      "mediana_droga": 15144987.2,
       "n_droga": 3
     },
     {
@@ -1823,9 +1823,9 @@
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
         "precio $1,341.02 < minimo $1,800",
-        "precio $1,341.02 < 10% mediana $19,681.53"
+        "precio $1,341.02 < 10% mediana $20,045.51"
       ],
-      "mediana_droga": 19681.53,
+      "mediana_droga": 20045.51,
       "n_droga": 2
     },
     {
@@ -1941,7 +1941,7 @@
       "precio": 23842.04,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $23,842.04 < fence_low $27,127.89"
+        "precio $23,842.04 < fence_low $26,626.72"
       ],
       "mediana_droga": 34208.24,
       "n_droga": 8
@@ -2767,10 +2767,10 @@
       "marca": "RISPERDAL",
       "presentacion": "sol.oral x 100 ml",
       "laboratorio": "Janssen-Cilag",
-      "precio": 185270.32,
+      "precio": 188790.46,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $1,852.70 << mediana_grupo $28,954.88"
+        "ppu $1,887.90 << mediana_grupo $29,505.03"
       ],
       "mediana_droga": 41175.26,
       "n_droga": 58
@@ -2780,10 +2780,10 @@
       "marca": "RISPERDAL",
       "presentacion": "sol.oral x 30 ml",
       "laboratorio": "Janssen-Cilag",
-      "precio": 62260.33,
+      "precio": 63443.28,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $2,075.34 << mediana_grupo $28,954.88"
+        "ppu $2,114.78 << mediana_grupo $29,505.03"
       ],
       "mediana_droga": 41175.26,
       "n_droga": 58
@@ -3472,10 +3472,10 @@
       "marca": "SUTOBRAX",
       "presentacion": "sol.oft.x 5 ml",
       "laboratorio": "Mar",
-      "precio": 10180.0,
+      "precio": 10330.0,
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
-        "precio $10,180.00 < 10% mediana $11,513,008.96"
+        "precio $10,330.00 < 10% mediana $11,513,008.96"
       ],
       "mediana_droga": 11513008.96,
       "n_droga": 16
