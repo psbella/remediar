@@ -1,0 +1,164 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 6b6d70a..9809938 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -4,6 +4,18 @@ Todos los cambios notables de remedi.ar se documentan en este archivo.
+ 
+ El formato está basado en [Keep a Changelog](https://keepachangelog.com/es/1.0.0/) y el proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+ 
++## [2.2.4] - 2026-07-17
++
++### 🐛 Corregido
++- `_headers`/README: el hash SHA-256 del CSP no coincidía con ningún script inline real de `index.html` — cubría un solo hash cuando en realidad hay dos scripts inline ejecutables (config de Google Analytics y registro de `sw.js`). Se recalculan ambos hashes byte a byte contra el `index.html` actual y se agregan los dos al `script-src`. El script `application/ld+json` no necesita hash: no es JavaScript ejecutable, así que `script-src` no se le aplica.
++- `index.html`: quitados `<meta http-equiv="X-Content-Type-Options">` y `<meta http-equiv="Permissions-Policy">` — ninguno de los dos tiene efecto declarado vía `<meta>` (los navegadores solo los respetan como header HTTP real). La protección real ya la da Cloudflare vía Response Header Transform Rules; dejarlos en el HTML solo generaba una falsa sensación de seguridad. `Referrer-Policy` se mantiene porque ese sí es válido vía `<meta>`.
++- `eslint.config.js`: la regla `eqeqeq` marcaba como error el patrón `!= null` / `== null` usado intencionalmente en `js/filters.js`, `js/uiRenderer.js` y `js/utils.js` para chequear `null`+`undefined` en una sola comparación. Se agrega la excepción `{"null": "ignore"}` para que el lint refleje el patrón real del código en vez de marcar falsos positivos.
++
++### 📝 Documentado
++- README: "Sin tracking" reemplazado por "Analítica anónima, sin tracking de terceros" — el proyecto sí usa Google Analytics 4 (documentado en el mismo README y en la política de privacidad), la frase anterior se contradecía con el resto del documento.
++- `SECURITY.md`: aclarado que `admin.html` no vive commiteado en `main` — se sube manualmente al hosting solo cuando se usa y se retira después (ver commit `5af65b2`). La descripción de riesgo del panel sigue aplicando mientras el archivo exista como artefacto deployable, esté o no en el árbol de este repositorio en un momento dado.
++- `sitemap.xml`: `lastmod` actualizado de `2026-06-27` a `2026-07-17` en las 3 URLs.
++
+ ## [2.2.3] - 2026-07-16
+ 
+ ### 🐛 Corregido
+diff --git a/README.md b/README.md
+index 058cd33..055d11b 100644
+--- a/README.md
++++ b/README.md
+@@ -181,7 +181,7 @@ El sistema se compone de tres capas principales:
+ 
+ - Acceso libre a información de medicamentos
+ - Sin publicidad
+-- Sin tracking
++- Analítica anónima, sin tracking de terceros
+ - Performance primero
+ - Mobile first
+ - Open source
+@@ -864,7 +864,7 @@ docker run -p 8080:80 remediar
+ - No se utilizan cookies de tracking
+ - No existe backend persistente
+ - Todo el frontend es auditable públicamente
+-- **Content Security Policy** via header HTTP con hash SHA256 del único script inline (Google Analytics): `script-src 'self' 'sha256-...' https://www.googletagmanager.com`
++- **Content Security Policy** via header HTTP con hash SHA256 de los dos scripts inline ejecutables (config de Google Analytics y registro del Service Worker): `script-src 'self' 'sha256-...' 'sha256-...' https://www.googletagmanager.com`. El script JSON-LD no necesita hash: no es JavaScript ejecutable.
+ - **CORS** habilitado en `/data/medicamentos.json` para consumo externo (`Access-Control-Allow-Origin: *`)
+ - `robots.txt` bloquea explícitamente GPTBot y ClaudeBot
+ - Google Analytics configurado en modo anónimo — ver [política de privacidad](https://remedi.ar/privacidad.html)
+diff --git a/SECURITY.md b/SECURITY.md
+index d468769..b34f5d8 100644
+--- a/SECURITY.md
++++ b/SECURITY.md
+@@ -7,7 +7,12 @@ usuario) que procesa datos públicos de precios de medicamentos. No maneja datos
+ personales de los visitantes del sitio más allá de analítica anónima (Google Analytics).
+ 
+ El único componente con superficie de ataque no trivial es el panel de administración
+-(`admin.html`), de uso exclusivo del mantenedor del proyecto.
++(`admin.html`), de uso exclusivo del mantenedor del proyecto. `admin.html` no vive
++commiteado en `main` — se sube manualmente al hosting solo cuando se necesita usar y
++se retira después. Esto es intencional (ver commit `5af65b2`, "security: saca admin.html
++del repo público"): reduce la superficie de ataque visible en el repo público sin dejar
++de existir como artefacto deployable, así que la descripción de riesgo de este documento
++sigue aplicando mientras ese archivo exista, esté o no en el árbol de este repositorio.
+ 
+ ## Versiones soportadas
+ 
+diff --git a/_headers b/_headers
+index 2601032..4be9907 100644
+--- a/_headers
++++ b/_headers
+@@ -3,8 +3,15 @@
+ # de producción para remedi.ar y www.remedi.ar— no lee _headers.
+ # Los headers de seguridad reales de producción se aplican vía
+ # Cloudflare Response Header Transform Rules (dashboard, ambos hosts
+-# en modo Proxied), no desde este archivo. Verificado con curl -I
+-# contra remedi.ar y www.remedi.ar — ver CHANGELOG.
++# en modo Proxied), no desde este archivo. Si se edita el CSP acá,
++# hay que actualizar la Transform Rule a mano y volver a verificar
++# con curl -I contra remedi.ar y www.remedi.ar — ver CHANGELOG.
++#
++# El script-src incluye DOS hashes porque index.html tiene DOS
++# scripts inline ejecutables: la config de gtag y el registro de
++# sw.js. El script JSON-LD (type="application/ld+json") no necesita
++# hash: los navegadores no lo tratan como JavaScript ejecutable, por
++# lo que script-src no se le aplica.
+ 
+ /*
+   X-Content-Type-Options: nosniff
+@@ -12,7 +19,7 @@
+   Referrer-Policy: strict-origin-when-cross-origin
+   Permissions-Policy: geolocation=(), microphone=(), camera=()
+   Strict-Transport-Security: max-age=31536000
+-  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-MVTN6Sw4i5Kl2lg2S1/S+evZQ3ClwdQGKNnToH573jI=' https://www.googletagmanager.com; style-src 'self'; img-src 'self' data:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com; font-src 'self';
++  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-3xToiT2+0hnEleZmvU5E1Sk+csjJnHtI+U1SpBv68cA=' 'sha256-vQzgczDFy/iatRc6pEF4+sxzSIrVGotATlJfQz7EfO0=' https://www.googletagmanager.com; style-src 'self'; img-src 'self' data:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com; font-src 'self';
+ 
+ /data/medicamentos.json
+   Content-Type: application/json; charset=utf-8
+diff --git a/eslint.config.js b/eslint.config.js
+index 93376af..09cb8cd 100644
+--- a/eslint.config.js
++++ b/eslint.config.js
+@@ -23,7 +23,7 @@ export default [
+     rules: {
+       "no-undef": "error",
+       "no-unused-vars": "warn",
+-      "eqeqeq": "error",
++      "eqeqeq": ["error", "always", { "null": "ignore" }],
+       "no-var": "error",
+     },
+   },
+diff --git a/index.html b/index.html
+index 626e51b..3ac640b 100644
+--- a/index.html
++++ b/index.html
+@@ -7,9 +7,10 @@
+ 
+ 
+     <meta name="robots" content="index, follow">
+-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
++    <!-- X-Content-Type-Options y Permissions-Policy solo tienen efecto real como
++         header HTTP (los aplica Cloudflare); via <meta> el navegador los ignora,
++         así que no se declaran acá para no dar falsa sensación de seguridad. -->
+     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+-    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+     <link rel="canonical" href="https://remedi.ar/">
+     <link rel="stylesheet" href="style.css">
+     <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+diff --git a/package.json b/package.json
+index e228d6c..54a047f 100644
+--- a/package.json
++++ b/package.json
+@@ -1,7 +1,7 @@
+ {
+   "name": "remediar",
+   "type": "module",
+-  "version": "2.2.3",
++  "version": "2.2.4",
+   "description": "Buscador de precios de medicamentos en Argentina. Procesa el PDF oficial de SIAFAR/COFA dos veces al día y genera un comparador estático, sin publicidad y sin tracking. Incluye cobertura PAMI.",
+   "homepage": "https://remedi.ar",
+   "repository": {
+diff --git a/sitemap.xml b/sitemap.xml
+index 6124f49..2df2580 100644
+--- a/sitemap.xml
++++ b/sitemap.xml
+@@ -2,19 +2,19 @@
+ <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+   <url>
+     <loc>https://remedi.ar/</loc>
+-    <lastmod>2026-06-27</lastmod>
++    <lastmod>2026-07-17</lastmod>
+     <changefreq>daily</changefreq>
+     <priority>1.0</priority>
+   </url>
+   <url>
+     <loc>https://remedi.ar/privacidad.html</loc>
+-    <lastmod>2026-06-27</lastmod>
++    <lastmod>2026-07-17</lastmod>
+     <changefreq>monthly</changefreq>
+     <priority>0.3</priority>
+   </url>
+   <url>
+     <loc>https://remedi.ar/terminos.html</loc>
+-    <lastmod>2026-06-27</lastmod>
++    <lastmod>2026-07-17</lastmod>
+     <changefreq>monthly</changefreq>
+     <priority>0.3</priority>
+   </url>
