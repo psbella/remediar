@@ -526,21 +526,36 @@ Cada tarjeta tiene un botón "Compartir" que abre el menú nativo en mobile o co
 ```
 ============================= test session starts ==============================
 platform linux -- Python 3.11.15, pytest-9.1.1, pluggy-1.6.0
-collected 13 items
-tests/test_etl_sanidad.py::test_cantidad_minima PASSED                   [  7%]
-tests/test_etl_sanidad.py::test_cantidad_maxima PASSED                   [ 15%]
-tests/test_etl_sanidad.py::test_campos_presentes PASSED                  [ 23%]
-tests/test_etl_sanidad.py::test_precios_positivos PASSED                 [ 30%]
-tests/test_etl_sanidad.py::test_precio_mediana_razonable PASSED          [ 38%]
-tests/test_etl_sanidad.py::test_drogas_vacias PASSED                     [ 46%]
-tests/test_etl_sanidad.py::test_laboratorios_desconocidos PASSED         [ 53%]
-tests/test_etl_sanidad.py::test_marcas_vacias PASSED                     [ 61%]
-tests/test_etl_sanidad.py::test_vigencia_score_rango PASSED              [ 69%]
-tests/test_etl_sanidad.py::test_pami_cobertura_rango PASSED              [ 76%]
-tests/test_etl_sanidad.py::test_estructura_raiz PASSED                   [ 84%]
-tests/test_etl_sanidad.py::test_fecha_presente PASSED                    [ 92%]
+collected 28 items
+tests/test_etl_modulos.py::test_limpiar_precio_formato_argentino PASSED  [  3%]
+tests/test_etl_modulos.py::test_limpiar_precio_valores_invalidos PASSED  [  7%]
+tests/test_etl_modulos.py::test_es_precio PASSED                        [ 10%]
+tests/test_etl_modulos.py::test_make_key_normaliza_case_y_espacios PASSED [ 14%]
+tests/test_etl_modulos.py::test_filtrar_blacklist_excluye_por_key PASSED [ 17%]
+tests/test_etl_modulos.py::test_filtrar_blacklist_vacia_no_toca_nada PASSED [ 21%]
+tests/test_etl_modulos.py::test_calcular_stats_por_droga_mediana_correcta PASSED [ 25%]
+tests/test_etl_modulos.py::test_evaluar_outlier_precio_invalido PASSED   [ 28%]
+tests/test_etl_modulos.py::test_evaluar_outlier_precio_normal_no_marca_nada PASSED [ 32%]
+tests/test_etl_modulos.py::test_evaluar_outlier_precio_criticamente_bajo PASSED [ 35%]
+tests/test_etl_modulos.py::test_separar_droga_marca_con_prefijo_conocido PASSED [ 39%]
+tests/test_etl_modulos.py::test_separar_droga_marca_sin_match_devuelve_none PASSED [ 42%]
+tests/test_etl_modulos.py::test_reparar_denver_variante_a_presentacion_pegada_a_marca PASSED [ 46%]
+tests/test_etl_modulos.py::test_reparar_denver_no_toca_otros_laboratorios PASSED [ 50%]
+tests/test_etl_modulos.py::test_deduplicar_elimina_solo_duplicados_exactos PASSED [ 53%]
+tests/test_etl_sanidad.py::test_cantidad_minima PASSED                   [ 57%]
+tests/test_etl_sanidad.py::test_cantidad_maxima PASSED                   [ 60%]
+tests/test_etl_sanidad.py::test_campos_presentes PASSED                  [ 64%]
+tests/test_etl_sanidad.py::test_precios_positivos PASSED                 [ 67%]
+tests/test_etl_sanidad.py::test_precio_mediana_razonable PASSED          [ 71%]
+tests/test_etl_sanidad.py::test_drogas_vacias PASSED                     [ 75%]
+tests/test_etl_sanidad.py::test_laboratorios_desconocidos PASSED        [ 78%]
+tests/test_etl_sanidad.py::test_marcas_vacias PASSED                     [ 82%]
+tests/test_etl_sanidad.py::test_vigencia_score_rango PASSED              [ 85%]
+tests/test_etl_sanidad.py::test_pami_cobertura_rango PASSED              [ 89%]
+tests/test_etl_sanidad.py::test_estructura_raiz PASSED                   [ 92%]
+tests/test_etl_sanidad.py::test_fecha_presente PASSED                    [ 96%]
 tests/test_schema.py::test_schema_valido PASSED                          [100%]
-13 passed in 1.79s
+28 passed in 1.64s
 ```
 ---
 
@@ -697,6 +712,7 @@ remediar/
 | Datos | JSON estático |
 | CI/CD | GitHub Actions |
 | Testing | pytest |
+| Lint | Ruff (Python) + ESLint (JS) — configurados, no bloquean CI todavía |
 | Hosting | GitHub Pages (origen) + Cloudflare (proxy/DNS) + Cloudflare Workers (mirror) |
 | SEO | JSON-LD + Open Graph + Twitter Cards |
 | Caché | sessionStorage (TTL 2h) + Service Worker |
@@ -915,7 +931,7 @@ git push origin feature/nueva-funcion
 # abrir Pull Request (se completa solo con el template del repo)
 ```
 
-Antes de abrir el PR: si tocaste el ETL, corré `pytest tests/` y confirmá que pasen los 28 tests (12 de sanidad + 1 de schema + 15 unitarios de scripts/etl/); si tocaste JS/CSS/HTML, probá el cambio en el navegador, no alcanza con leer el diff.
+Antes de abrir el PR: si tocaste el ETL, corré `pytest tests/` y confirmá que pasen los 28 tests (12 de sanidad + 1 de schema + 15 unitarios de scripts/etl/); si tocaste JS/CSS/HTML, probá el cambio en el navegador, no alcanza con leer el diff. También conviene correr `ruff check .` (Python) y `eslint js/` (JS) — todavía no bloquean el CI, pero sirven para agarrar errores antes de mergear.
 
 ## Convenciones de commits
 
