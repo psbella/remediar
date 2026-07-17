@@ -18,7 +18,7 @@
 
 <p align="left">
 <!-- Versión -->
-<img src="https://img.shields.io/badge/version-2.2.2-00897b">
+<img src="https://img.shields.io/badge/version-2.2.4-00897b">
 <img src="https://img.shields.io/github/v/release/psbella/remediar">
 <img src="https://img.shields.io/github/actions/workflow/status/psbella/remediar/update_prices.yml?label=ETL&logo=github-actions&logoColor=white">
 <br>
@@ -36,8 +36,6 @@
 <img src="https://img.shields.io/badge/Tracking-No-red">
 <img src="https://img.shields.io/badge/Privacy_First-Yes-success">
 <img src="https://img.shields.io/badge/PRs-Welcome-brightgreen">
-<img src="https://img.shields.io/badge/lang-es--AR-lightgrey">
-<img src="https://img.shields.io/badge/país-Argentina-74ACDF">
 <br>
 <!-- Frontend -->
 <img src="https://img.shields.io/badge/Responsive-Yes-brightgreen">
@@ -65,8 +63,6 @@
 <img src="https://img.shields.io/badge/Analytics-GA4-E37400?logo=googleanalytics&logoColor=white">
 <br>
 <!-- Datos -->
-<img src="https://img.shields.io/badge/Fuente-SIAFAR%2FCOFA-blue">
-<img src="https://img.shields.io/badge/PAMI-Crosswalk-00897b">
 <img src="https://img.shields.io/badge/CSP-SHA256-success">
 <br>
 <!-- Diagramas -->
