@@ -23,7 +23,7 @@ export default [
     rules: {
       "no-undef": "error",
       "no-unused-vars": "warn",
-      "eqeqeq": "error",
+      "eqeqeq": ["error", "always", { "null": "ignore" }],
       "no-var": "error",
     },
   },

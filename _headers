@@ -3,8 +3,15 @@
 # de producción para remedi.ar y www.remedi.ar— no lee _headers.
 # Los headers de seguridad reales de producción se aplican vía
 # Cloudflare Response Header Transform Rules (dashboard, ambos hosts
-# en modo Proxied), no desde este archivo. Verificado con curl -I
-# contra remedi.ar y www.remedi.ar — ver CHANGELOG.
+# en modo Proxied), no desde este archivo. Si se edita el CSP acá,
+# hay que actualizar la Transform Rule a mano y volver a verificar
+# con curl -I contra remedi.ar y www.remedi.ar — ver CHANGELOG.
+#
+# El script-src incluye DOS hashes porque index.html tiene DOS
+# scripts inline ejecutables: la config de gtag y el registro de
+# sw.js. El script JSON-LD (type="application/ld+json") no necesita
+# hash: los navegadores no lo tratan como JavaScript ejecutable, por
+# lo que script-src no se le aplica.
 
 /*
   X-Content-Type-Options: nosniff
@@ -12,7 +19,7 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), microphone=(), camera=()
   Strict-Transport-Security: max-age=31536000
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-MVTN6Sw4i5Kl2lg2S1/S+evZQ3ClwdQGKNnToH573jI=' https://www.googletagmanager.com; style-src 'self'; img-src 'self' data:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com; font-src 'self';
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-3xToiT2+0hnEleZmvU5E1Sk+csjJnHtI+U1SpBv68cA=' 'sha256-vQzgczDFy/iatRc6pEF4+sxzSIrVGotATlJfQz7EfO0=' https://www.googletagmanager.com; style-src 'self'; img-src 'self' data:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com; font-src 'self';
 
 /data/medicamentos.json
   Content-Type: application/json; charset=utf-8

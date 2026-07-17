@@ -7,7 +7,12 @@ usuario) que procesa datos públicos de precios de medicamentos. No maneja datos
 personales de los visitantes del sitio más allá de analítica anónima (Google Analytics).
 
 El único componente con superficie de ataque no trivial es el panel de administración
-(`admin.html`), de uso exclusivo del mantenedor del proyecto.
+(`admin.html`), de uso exclusivo del mantenedor del proyecto. `admin.html` no vive
+commiteado en `main` — se sube manualmente al hosting solo cuando se necesita usar y
+se retira después. Esto es intencional (ver commit `5af65b2`, "security: saca admin.html
+del repo público"): reduce la superficie de ataque visible en el repo público sin dejar
+de existir como artefacto deployable, así que la descripción de riesgo de este documento
+sigue aplicando mientras ese archivo exista, esté o no en el árbol de este repositorio.
 
 ## Versiones soportadas
 

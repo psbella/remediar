@@ -4,6 +4,18 @@ Todos los cambios notables de remedi.ar se documentan en este archivo.
 
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/es/1.0.0/) y el proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.4] - 2026-07-17
+
+### 🐛 Corregido
+- `_headers`/README: el hash SHA-256 del CSP no coincidía con ningún script inline real de `index.html` — cubría un solo hash cuando en realidad hay dos scripts inline ejecutables (config de Google Analytics y registro de `sw.js`). Se recalculan ambos hashes byte a byte contra el `index.html` actual y se agregan los dos al `script-src`. El script `application/ld+json` no necesita hash: no es JavaScript ejecutable, así que `script-src` no se le aplica.
+- `index.html`: quitados `<meta http-equiv="X-Content-Type-Options">` y `<meta http-equiv="Permissions-Policy">` — ninguno de los dos tiene efecto declarado vía `<meta>` (los navegadores solo los respetan como header HTTP real). La protección real ya la da Cloudflare vía Response Header Transform Rules; dejarlos en el HTML solo generaba una falsa sensación de seguridad. `Referrer-Policy` se mantiene porque ese sí es válido vía `<meta>`.
+- `eslint.config.js`: la regla `eqeqeq` marcaba como error el patrón `!= null` / `== null` usado intencionalmente en `js/filters.js`, `js/uiRenderer.js` y `js/utils.js` para chequear `null`+`undefined` en una sola comparación. Se agrega la excepción `{"null": "ignore"}` para que el lint refleje el patrón real del código en vez de marcar falsos positivos.
+
+### 📝 Documentado
+- README: "Sin tracking" reemplazado por "Analítica anónima, sin tracking de terceros" — el proyecto sí usa Google Analytics 4 (documentado en el mismo README y en la política de privacidad), la frase anterior se contradecía con el resto del documento.
+- `SECURITY.md`: aclarado que `admin.html` no vive commiteado en `main` — se sube manualmente al hosting solo cuando se usa y se retira después (ver commit `5af65b2`). La descripción de riesgo del panel sigue aplicando mientras el archivo exista como artefacto deployable, esté o no en el árbol de este repositorio en un momento dado.
+- `sitemap.xml`: `lastmod` actualizado de `2026-06-27` a `2026-07-17` en las 3 URLs.
+
 ## [2.2.3] - 2026-07-16
 
 ### 🐛 Corregido

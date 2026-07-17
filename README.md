@@ -181,7 +181,7 @@ El sistema se compone de tres capas principales:
 
 - Acceso libre a información de medicamentos
 - Sin publicidad
-- Sin tracking
+- Analítica anónima, sin tracking de terceros
 - Performance primero
 - Mobile first
 - Open source
@@ -864,7 +864,7 @@ docker run -p 8080:80 remediar
 - No se utilizan cookies de tracking
 - No existe backend persistente
 - Todo el frontend es auditable públicamente
-- **Content Security Policy** via header HTTP con hash SHA256 del único script inline (Google Analytics): `script-src 'self' 'sha256-...' https://www.googletagmanager.com`
+- **Content Security Policy** via header HTTP con hash SHA256 de los dos scripts inline ejecutables (config de Google Analytics y registro del Service Worker): `script-src 'self' 'sha256-...' 'sha256-...' https://www.googletagmanager.com`. El script JSON-LD no necesita hash: no es JavaScript ejecutable.
 - **CORS** habilitado en `/data/medicamentos.json` para consumo externo (`Access-Control-Allow-Origin: *`)
 - `robots.txt` bloquea explícitamente GPTBot y ClaudeBot
 - Google Analytics configurado en modo anónimo — ver [política de privacidad](https://remedi.ar/privacidad.html)
