@@ -6,6 +6,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 concurrency:
   group: repo-main-write
@@ -45,6 +46,7 @@ jobs:
             echo "No es viernes, saltando snapshot."
           fi
       - name: Commit y push
+        id: commit_push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "actions@github.com"
@@ -54,3 +56,25 @@ jobs:
           git commit -m "Actualizar precios $(date +'%Y-%m-%d')" || echo "No changes"
           git pull --rebase origin main
           git push origin main
+
+      - name: Avisar si fallo el commit/push
+        # Se dispara solo si ESTE paso especifico fallo (no si pytest u otro
+        # paso anterior corto antes de llegar aca). No bloquea el job: solo
+        # deja un issue para que quede visible sin tener que revisar Actions
+        # a mano. Evita duplicados si ya hay un issue abierto sin resolver.
+        if: always() && steps.commit_push.outcome == 'failure'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh label create ci-push-failure --repo "$GITHUB_REPOSITORY" \
+            --color "B60205" \
+            --description "Fallo el commit/push automatico de update_prices.yml" 2>/dev/null || true
+          ya_existe=$(gh issue list --repo "$GITHUB_REPOSITORY" --label ci-push-failure --state open --json number --jq 'length')
+          if [ "$ya_existe" != "0" ]; then
+            echo "Ya hay un issue abierto de este tipo, no se crea uno nuevo."
+            exit 0
+          fi
+          gh issue create --repo "$GITHUB_REPOSITORY" \
+            --title "update_prices: fallo el commit/push del $(date +'%Y-%m-%d')" \
+            --label ci-push-failure \
+            --body "El JSON se genero y paso los tests de sanidad (pytest), pero el paso de commit/push a main fallo, probablemente un conflicto de git pull --rebase con un push concurrente. No hay perdida de datos: la proxima corrida programada regenera todo desde el PDF fuente. Ver el log: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
