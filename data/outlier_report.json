@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-07-17T19:25:25.415229-03:00",
+  "timestamp": "2026-07-18T16:03:30.249325-03:00",
   "total_registros": 13376,
-  "total_outliers": 281,
+  "total_outliers": 282,
   "outliers": [
     {
       "droga": "abacavir, lamivudina",
@@ -24,7 +24,7 @@
       "precio": 4458857.48,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $4,458,857.48 < fence_low $5,486,515.76"
+        "precio $4,458,857.48 < fence_low $6,102,661.33"
       ],
       "mediana_droga": 11573421.64,
       "n_droga": 20
@@ -38,9 +38,9 @@
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
         "precio $1,433.00 < minimo $1,800",
-        "precio $1,433.00 < 10% mediana $16,741.82"
+        "precio $1,433.00 < 10% mediana $16,754.87"
       ],
-      "mediana_droga": 16741.82,
+      "mediana_droga": 16754.87,
       "n_droga": 35
     },
     {
@@ -52,9 +52,9 @@
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
         "precio $1,122.00 < minimo $1,800",
-        "precio $1,122.00 < 10% mediana $16,741.82"
+        "precio $1,122.00 < 10% mediana $16,754.87"
       ],
-      "mediana_droga": 16741.82,
+      "mediana_droga": 16754.87,
       "n_droga": 35
     },
     {
@@ -223,9 +223,9 @@
       "precio": 7300.0,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $14.60 << mediana_grupo $103.33"
+        "ppu $14.60 << mediana_grupo $105.00"
       ],
-      "mediana_droga": 11299.05,
+      "mediana_droga": 11336.81,
       "n_droga": 116
     },
     {
@@ -238,7 +238,7 @@
       "razones": [
         "ppu $12.76 << mediana_grupo $165.70"
       ],
-      "mediana_droga": 11299.05,
+      "mediana_droga": 11336.81,
       "n_droga": 116
     },
     {
@@ -251,7 +251,7 @@
       "razones": [
         "ppu $16.61 << mediana_grupo $121.52"
       ],
-      "mediana_droga": 11299.05,
+      "mediana_droga": 11336.81,
       "n_droga": 116
     },
     {
@@ -303,9 +303,9 @@
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
         "precio $278.00 < minimo $1,800",
-        "precio $278.00 < 10% mediana $22,300.00"
+        "precio $278.00 < 10% mediana $22,800.00"
       ],
-      "mediana_droga": 22300.0,
+      "mediana_droga": 22800.0,
       "n_droga": 67
     },
     {
@@ -318,7 +318,7 @@
       "razones": [
         "ppu $52.10 << mediana_grupo $15,707.63"
       ],
-      "mediana_droga": 22300.0,
+      "mediana_droga": 22800.0,
       "n_droga": 67
     },
     {
@@ -330,9 +330,9 @@
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
         "precio $388.00 < minimo $1,800",
-        "precio $388.00 < 10% mediana $22,300.00"
+        "precio $388.00 < 10% mediana $22,800.00"
       ],
-      "mediana_droga": 22300.0,
+      "mediana_droga": 22800.0,
       "n_droga": 67
     },
     {
@@ -344,9 +344,9 @@
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
         "precio $1,316.02 < minimo $1,800",
-        "precio $1,316.02 < 10% mediana $22,300.00"
+        "precio $1,316.02 < 10% mediana $22,800.00"
       ],
-      "mediana_droga": 22300.0,
+      "mediana_droga": 22800.0,
       "n_droga": 67
     },
     {
@@ -359,7 +359,7 @@
       "razones": [
         "ppu $196.82 << mediana_grupo $1,136.62"
       ],
-      "mediana_droga": 22300.0,
+      "mediana_droga": 22800.0,
       "n_droga": 67
     },
     {
@@ -463,7 +463,7 @@
       "razones": [
         "ppu $47.60 << mediana_grupo $877.47"
       ],
-      "mediana_droga": 19379.31,
+      "mediana_droga": 19547.32,
       "n_droga": 68
     },
     {
@@ -601,10 +601,10 @@
       "marca": "NEUMOCORT PLUS",
       "presentacion": "aer./inhal.x 60 ds.",
       "laboratorio": "Cassará",
-      "precio": 26990.0,
+      "precio": 27530.0,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $26,990.00 < 25% mediana $113,677.79 (n=26)"
+        "precio $27,530.00 < 25% mediana $113,677.79 (n=26)"
       ],
       "mediana_droga": 113677.79,
       "n_droga": 26
@@ -666,10 +666,10 @@
       "marca": "CARBOPLATINO VARIFARMA",
       "presentacion": "150 mg iny.liof.f.a.x 1",
       "laboratorio": "Varifarma",
-      "precio": 110688.12,
+      "precio": 112791.2,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $110,688.12 < 25% mediana $455,471.54 (n=22)"
+        "precio $112,791.20 < 25% mediana $455,471.54 (n=22)"
       ],
       "mediana_droga": 455471.54,
       "n_droga": 22
@@ -921,7 +921,7 @@
       "razones": [
         "ppu $705.14 << mediana_grupo $4,851.25"
       ],
-      "mediana_droga": 15317.91,
+      "mediana_droga": 15408.44,
       "n_droga": 116
     },
     {
@@ -934,7 +934,7 @@
       "razones": [
         "ppu $744.49 << mediana_grupo $10,677.67"
       ],
-      "mediana_droga": 15317.91,
+      "mediana_droga": 15408.44,
       "n_droga": 116
     },
     {
@@ -947,7 +947,7 @@
       "razones": [
         "ppu $761.96 << mediana_grupo $11,193.96"
       ],
-      "mediana_droga": 15317.91,
+      "mediana_droga": 15408.44,
       "n_droga": 116
     },
     {
@@ -1298,9 +1298,9 @@
       "precio": 73800.0,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $73,800.00 < fence_low $74,971.78"
+        "precio $73,800.00 < fence_low $74,173.25"
       ],
-      "mediana_droga": 98909.35,
+      "mediana_droga": 99389.99,
       "n_droga": 20
     },
     {
@@ -1664,9 +1664,9 @@
       "precio": 98386.99,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $98,386.99 < 25% mediana $485,424.74 (n=6)"
+        "precio $98,386.99 < 25% mediana $490,104.72 (n=6)"
       ],
-      "mediana_droga": 485424.74,
+      "mediana_droga": 490104.72,
       "n_droga": 6
     },
     {
@@ -1705,7 +1705,7 @@
       "razones": [
         "ppu $6.82 << mediana_grupo $135.01"
       ],
-      "mediana_droga": 8110.0,
+      "mediana_droga": 8237.91,
       "n_droga": 151
     },
     {
@@ -1718,7 +1718,7 @@
       "razones": [
         "ppu $10.52 << mediana_grupo $1,174.40"
       ],
-      "mediana_droga": 8110.0,
+      "mediana_droga": 8237.91,
       "n_droga": 151
     },
     {
@@ -1730,9 +1730,9 @@
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
         "precio $788.39 < minimo $1,800",
-        "precio $788.39 < 10% mediana $8,110.00"
+        "precio $788.39 < 10% mediana $8,237.91"
       ],
-      "mediana_droga": 8110.0,
+      "mediana_droga": 8237.91,
       "n_droga": 151
     },
     {
@@ -1745,7 +1745,7 @@
       "razones": [
         "ppu $11.90 << mediana_grupo $983.45"
       ],
-      "mediana_droga": 8110.0,
+      "mediana_droga": 8237.91,
       "n_droga": 151
     },
     {
@@ -1758,7 +1758,7 @@
       "razones": [
         "ppu $19.86 << mediana_grupo $1,047.40"
       ],
-      "mediana_droga": 8110.0,
+      "mediana_droga": 8237.91,
       "n_droga": 151
     },
     {
@@ -1769,9 +1769,9 @@
       "precio": 1998.06,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $1,998.06 < 25% mediana $8,110.00 (n=151)"
+        "precio $1,998.06 < 25% mediana $8,237.91 (n=151)"
       ],
-      "mediana_droga": 8110.0,
+      "mediana_droga": 8237.91,
       "n_droga": 151
     },
     {
@@ -1783,23 +1783,10 @@
       "precio_outlier_tipo": "bajo_absoluto",
       "razones": [
         "precio $1,348.73 < minimo $1,800",
-        "precio $1,348.73 < 25% mediana $8,110.00 (n=151)"
+        "precio $1,348.73 < 25% mediana $8,237.91 (n=151)"
       ],
-      "mediana_droga": 8110.0,
+      "mediana_droga": 8237.91,
       "n_droga": 151
-    },
-    {
-      "droga": "imatinib",
-      "marca": "MESINIB",
-      "presentacion": "400 mg comp.rec.x 30",
-      "laboratorio": "Varifarma",
-      "precio": 2223757.68,
-      "precio_outlier_tipo": "bajo_relativo",
-      "razones": [
-        "precio $2,223,757.68 < 25% mediana $8,983,005.09 (n=26)"
-      ],
-      "mediana_droga": 8983005.09,
-      "n_droga": 26
     },
     {
       "droga": "inmunoglobulina humana",
@@ -1811,7 +1798,7 @@
       "razones": [
         "ppu $1,104,628.17 << mediana_grupo $6,075,093.02"
       ],
-      "mediana_droga": 5875779.76,
+      "mediana_droga": 5929786.59,
       "n_droga": 30
     },
     {
@@ -2131,7 +2118,7 @@
       "razones": [
         "precio $5,019,753.62 < fence_low $5,265,241.04"
       ],
-      "mediana_droga": 7420724.83,
+      "mediana_droga": 7490350.66,
       "n_droga": 10
     },
     {
@@ -2520,9 +2507,9 @@
       "precio": 299625.36,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $299,625.36 < 25% mediana $1,305,885.13 (n=50)"
+        "precio $299,625.36 < 25% mediana $1,315,607.81 (n=50)"
       ],
-      "mediana_droga": 1305885.13,
+      "mediana_droga": 1315607.81,
       "n_droga": 50
     },
     {
@@ -2535,7 +2522,7 @@
       "razones": [
         "precio $5,484,732.00 < fence_low $6,517,913.36"
       ],
-      "mediana_droga": 9174510.55,
+      "mediana_droga": 9195471.9,
       "n_droga": 36
     },
     {
@@ -2548,7 +2535,7 @@
       "razones": [
         "precio $5,484,732.00 < fence_low $6,517,913.36"
       ],
-      "mediana_droga": 9174510.55,
+      "mediana_droga": 9195471.9,
       "n_droga": 36
     },
     {
@@ -2561,7 +2548,7 @@
       "razones": [
         "precio $5,484,732.00 < fence_low $6,517,913.36"
       ],
-      "mediana_droga": 9174510.55,
+      "mediana_droga": 9195471.9,
       "n_droga": 36
     },
     {
@@ -2657,6 +2644,32 @@
       "n_droga": 25
     },
     {
+      "droga": "paroxetina",
+      "marca": "DATEVAN",
+      "presentacion": "20 mg comp.x 10",
+      "laboratorio": "Rontag",
+      "precio": 18875.93,
+      "precio_outlier_tipo": "bajo_iqr",
+      "razones": [
+        "precio $18,875.93 < fence_low $18,877.90"
+      ],
+      "mediana_droga": 54977.55,
+      "n_droga": 33
+    },
+    {
+      "droga": "paroxetina",
+      "marca": "TIOARI",
+      "presentacion": "20 mg comp.x 30",
+      "laboratorio": "HLB Pharma",
+      "precio": 18559.14,
+      "precio_outlier_tipo": "bajo_iqr",
+      "razones": [
+        "precio $18,559.14 < fence_low $18,877.90"
+      ],
+      "mediana_droga": 54977.55,
+      "n_droga": 33
+    },
+    {
       "droga": "polisacaridosulf£rico,ác.(éste",
       "marca": "FLEBODERMA",
       "presentacion": "cr.x 30 g",
@@ -2688,10 +2701,10 @@
       "marca": "NEUROSOMAT 0.25 MG",
       "presentacion": "0.25 mg comp.x 30",
       "laboratorio": "Beta",
-      "precio": 22575.9,
+      "precio": 23004.84,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $22,575.90 < 25% mediana $94,702.11 (n=28)"
+        "precio $23,004.84 < 25% mediana $94,702.11 (n=28)"
       ],
       "mediana_droga": 94702.11,
       "n_droga": 28
@@ -2759,7 +2772,7 @@
       "razones": [
         "ppu $1,171.60 << mediana_grupo $16,674.03"
       ],
-      "mediana_droga": 41175.26,
+      "mediana_droga": 41386.7,
       "n_droga": 58
     },
     {
@@ -2772,7 +2785,7 @@
       "razones": [
         "ppu $1,887.90 << mediana_grupo $29,505.03"
       ],
-      "mediana_droga": 41175.26,
+      "mediana_droga": 41386.7,
       "n_droga": 58
     },
     {
@@ -2785,7 +2798,7 @@
       "razones": [
         "ppu $2,114.78 << mediana_grupo $29,505.03"
       ],
-      "mediana_droga": 41175.26,
+      "mediana_droga": 41386.7,
       "n_droga": 58
     },
     {
@@ -3263,10 +3276,10 @@
       "marca": "MOMENTUM",
       "presentacion": "20 mg comp.rec.x 2",
       "laboratorio": "Panalab",
-      "precio": 20871.12,
+      "precio": 21079.83,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $1,043.56 << mediana_grupo $7,710.04"
+        "ppu $1,053.99 << mediana_grupo $7,787.14"
       ],
       "mediana_droga": 67182.51,
       "n_droga": 81
@@ -3422,9 +3435,9 @@
       "precio": 2034511.31,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $2,034,511.31 < 25% mediana $8,564,135.65 (n=4)"
+        "precio $2,034,511.31 < 25% mediana $8,647,515.46 (n=4)"
       ],
-      "mediana_droga": 8564135.65,
+      "mediana_droga": 8647515.46,
       "n_droga": 4
     },
     {
