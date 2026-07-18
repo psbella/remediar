@@ -33,7 +33,7 @@
 <!-- Valores -->
 <img src="https://img.shields.io/badge/Open_Source-Yes-brightgreen">
 <img src="https://img.shields.io/badge/Ads-No-red">
-<img src="https://img.shields.io/badge/Tracking-No-red">
+<img src="https://img.shields.io/badge/Tracking-Anonymous_only-success">
 <img src="https://img.shields.io/badge/Privacy_First-Yes-success">
 <img src="https://img.shields.io/badge/PRs-Welcome-brightgreen">
 <br>
