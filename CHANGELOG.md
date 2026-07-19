@@ -13,8 +13,14 @@ El formato está basado en [Keep a Changelog](https://keepachangelog.com/es/1.0.
 
 ### 📝 Documentado
 - README: "Sin tracking" reemplazado por "Analítica anónima, sin tracking de terceros" — el proyecto sí usa Google Analytics 4 (documentado en el mismo README y en la política de privacidad), la frase anterior se contradecía con el resto del documento.
+- README: badge `Tracking-No` reemplazado por `Tracking-Anonymous only` — contradecía el badge `Analytics-GA4` de la misma sección de badges (mismo problema que en el punto anterior, quedó pendiente en este badge puntual).
+- README: sincronizado el snippet YAML de `## Workflow GitHub Actions` con el `update_prices.yml` real — le faltaban `permissions`, `concurrency`, `timeout-minutes`, el pineo por SHA de `checkout`/`setup-python`, el step de subida de debug y el step de aviso de fallo agregados en commits recientes.
 - `SECURITY.md`: aclarado que `admin.html` no vive commiteado en `main` — se sube manualmente al hosting solo cuando se usa y se retira después (ver commit `5af65b2`). La descripción de riesgo del panel sigue aplicando mientras el archivo exista como artefacto deployable, esté o no en el árbol de este repositorio en un momento dado.
 - `sitemap.xml`: `lastmod` actualizado de `2026-06-27` a `2026-07-17` en las 3 URLs.
+
+### ✅ Verificado en producción (2026-07-18)
+- Confirmado con `curl -sI https://remedi.ar | grep -i content-security-policy` que la Transform Rule de Cloudflare quedó actualizada con los dos hashes nuevos.
+- Confirmado en DevTools (Application → Service Workers) que `sw.js` pasa a `activated and running` — antes lo bloqueaba el CSP viejo. Con esto, GA y el Service Worker corren en producción sin bloqueos de CSP.
 
 ## [2.2.3] - 2026-07-16
 
