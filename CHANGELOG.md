@@ -4,6 +4,19 @@ Todos los cambios notables de remedi.ar se documentan en este archivo.
 
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/es/1.0.0/) y el proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.5] - 2026-07-19
+
+### 🐛 Corregido
+- `style.css`: sin foco visible en `#buscador` ni en los `<select>` de `.filtro-row` al navegar por teclado (WCAG 2.4.7) — se agrega `outline` en `:focus-visible`.
+- `style.css`: el checkbox de PAMI en `.filtro-toggle` usaba `display: none`, lo que lo saca por completo del orden de tabulación y de los lectores de pantalla — se reemplaza por ocultamiento visual accesible (`clip` + `position: absolute`), alcanzable con Tab y anunciado correctamente (WCAG 2.1.1).
+
+### 🔒 Seguridad
+- `.github/workflows/*.yml`: `actions/checkout`, `actions/setup-python` y `github/codeql-action/{init,analyze}` pasan de tag mutable (`@v7`, `@v6`, `@v4`) a SHA de commit fijo, con el tag original en comentario. Mitiga riesgo de supply-chain sobre workflows con permiso `contents: write`. Dependabot ya está configurado para actualizar estos SHA vía PR.
+
+### ✨ Agregado
+- `.github/workflows/lint.yml`: corre `ruff check .` y `eslint js/` en cada push/PR a `main`. `continue-on-error: true` en ambos pasos — no bloquea merges, da visibilidad automática de algo que antes solo se corría a mano.
+- `.github/workflows/update_prices.yml`: si el paso de commit/push falla, se abre un Issue automático con label `ci-push-failure` (crea la label si no existe) y link directo al run — sin duplicar si ya hay uno abierto. No dispara si un paso anterior (como `pytest`) cortó la ejecución antes de llegar al commit. Sin pérdida de datos en ningún escenario: la próxima corrida programada regenera el JSON desde el PDF fuente.
+
 ## [2.2.4] - 2026-07-17
 
 ### 🐛 Corregido
