@@ -40,7 +40,7 @@ jobs:
 
       - name: Instalar ruff
 
-        run: pip install ruff
+        run: pip install ruff==0.14.0
 
       - name: Ruff (Python)
 
@@ -60,7 +60,7 @@ jobs:
 
       - name: Instalar eslint
 
-        run: npm install eslint --no-save
+        run: npm install eslint@9 --no-save
 
       - name: ESLint (JavaScript)
 
