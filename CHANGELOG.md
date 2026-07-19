@@ -17,6 +17,9 @@ El formato está basado en [Keep a Changelog](https://keepachangelog.com/es/1.0.
 - `.github/workflows/lint.yml`: corre `ruff check .` y `eslint js/` en cada push/PR a `main`. `continue-on-error: true` en ambos pasos — no bloquea merges, da visibilidad automática de algo que antes solo se corría a mano.
 - `.github/workflows/update_prices.yml`: si el paso de commit/push falla, se abre un Issue automático con label `ci-push-failure` (crea la label si no existe) y link directo al run — sin duplicar si ya hay uno abierto. No dispara si un paso anterior (como `pytest`) cortó la ejecución antes de llegar al commit. Sin pérdida de datos en ningún escenario: la próxima corrida programada regenera el JSON desde el PDF fuente.
 
+### 🧹 Limpieza
+- Eliminadas 2 variables asignadas y nunca usadas (`droga_fixes.py`, `outliers.py`), 1 import muerto (`presentacion.py`), 1 nombre de variable ambiguo (`parser.py`) y 1 f-string sin placeholders (`test_etl_sanidad.py`). Ruff baja de 30 a 24 findings — los 24 restantes son puramente de estilo (E701/E702), ya documentados como no bloqueantes.
+
 ## [2.2.4] - 2026-07-17
 
 ### 🐛 Corregido
