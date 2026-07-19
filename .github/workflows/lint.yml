@@ -40,7 +40,7 @@ jobs:
 
       - name: Instalar ruff
 
-        run: pip install ruff==0.14.0
+        run: pip install ruff==0.15.22
 
       - name: Ruff (Python)
 
