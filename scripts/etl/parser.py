@@ -47,7 +47,7 @@ def parsear_pdf(pdf_bytes: bytes) -> list:
 
     for pagina_num in range(len(doc)):
         texto = doc[pagina_num].get_text()
-        lineas = [l.strip() for l in texto.split('\n') if l.strip()]
+        lineas = [linea.strip() for linea in texto.split('\n') if linea.strip()]
         i = 0
         while i < len(lineas):
             linea = lineas[i]

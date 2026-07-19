@@ -200,9 +200,6 @@ def reparar_droga_faltante(medicamentos: list, fixes: dict) -> tuple:
         # a) droga está vacía o es '-' (campo desplazado)
         # b) marca está vacía y droga tiene droga+marca fusionadas (246 casos)
         tiene_droga_vacia  = not droga or droga == '-'
-        # Caso: droga vacía y marca tiene principio_activo+nombre_comercial fusionados
-        # El parser asigna marca=DROGA.upper() cuando el PDF omite el campo droga
-        tiene_droga_en_marca = (not droga or droga == '-') and bool(marca)
         # Caso: droga tiene contenido pero marca está vacía (post-procesamiento anterior)
         tiene_marca_vacia    = not marca and droga
 

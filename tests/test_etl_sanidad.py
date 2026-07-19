@@ -46,7 +46,7 @@ def test_campos_presentes():
         for campo in campos:
             if campo not in m:
                 faltantes.append(f"[{i}] falta '{campo}' en {m.get('marca', '?')}")
-    assert not faltantes, f"Campos faltantes:\n" + "\n".join(faltantes[:20])
+    assert not faltantes, "Campos faltantes:\n" + "\n".join(faltantes[:20])
 
 
 def test_precios_positivos():

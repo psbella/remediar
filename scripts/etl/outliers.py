@@ -123,7 +123,6 @@ def calcular_vigencia(medicamentos):
     print(f"   {len(stats)} drogas distintas")
 
     for m in medicamentos:
-        droga = (m.get('droga') or '').strip().lower()
         score, flags, tipo, razones = evaluar_outlier(m, stats)
         m['vigencia_score']      = score
         m['flags']               = flags

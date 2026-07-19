@@ -1,7 +1,6 @@
 """etl/presentacion.py - Extraccion, parseo y debug de presentaciones de medicamentos."""
 
 import re
-import csv
 from datetime import datetime
 
 from .config import PRES_DEBUG_PATH, AR_TZ

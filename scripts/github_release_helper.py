@@ -76,7 +76,7 @@ def eliminar_asset(asset_id: int) -> None:
     url = f"{API_BASE}/repos/{REPO}/releases/assets/{asset_id}"
     req = urllib.request.Request(url, method="DELETE", headers=_headers())
     try:
-        with urllib.request.urlopen(req) as r:
+        with urllib.request.urlopen(req):
             pass  # 204 No Content — sin cuerpo
     except urllib.error.HTTPError as e:
         if e.code != 204:
