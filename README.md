@@ -1384,7 +1384,7 @@ Sí, desde el primer viernes de implementación. Cada viernes se genera un snaps
 
 ## Mediano plazo
 
-- Integración con API REST de ANMAT (trámite en curso — respuesta esperada 10/07/2026)
+- Integración con API REST de precios de medicamentos (gestión de acceso vía Ley 27.275 en curso, derivada al Ministerio de Salud el 14/07/2026)
 - IOMA como segunda fuente de crosswalk
 - API REST pública documentada
 - Dashboard estadístico de variación de precios
