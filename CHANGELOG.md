@@ -20,6 +20,9 @@ El formato está basado en [Keep a Changelog](https://keepachangelog.com/es/1.0.
 ### 🧹 Limpieza
 - Eliminadas 2 variables asignadas y nunca usadas (`droga_fixes.py`, `outliers.py`), 1 import muerto (`presentacion.py`), 1 nombre de variable ambiguo (`parser.py`) y 1 f-string sin placeholders (`test_etl_sanidad.py`). Ruff baja de 30 a 24 findings — los 24 restantes son puramente de estilo (E701/E702), ya documentados como no bloqueantes.
 
+### 🧹 Limpieza
+- Eliminadas 2 variables asignadas y nunca usadas (`droga_fixes.py`, `outliers.py`), 1 import muerto (`presentacion.py`), 1 nombre de variable ambiguo (`parser.py`) y 1 f-string sin placeholders (`test_etl_sanidad.py`). Ruff baja de 30 a 24 findings — los 24 restantes son puramente de estilo (E701/E702), ya documentados como no bloqueantes.
+
 ## [2.2.4] - 2026-07-17
 
 ### 🐛 Corregido
