@@ -352,7 +352,6 @@ on:
 
 permissions:
   contents: write
-  issues: write
 
 concurrency:
   group: repo-main-write
@@ -392,7 +391,6 @@ jobs:
           fi
 
       - name: Commit y push
-        id: commit_push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "actions@github.com"
@@ -402,14 +400,6 @@ jobs:
           git commit -m "Actualizar precios $(date +'%Y-%m-%d')" || echo "No changes"
           git pull --rebase origin main
           git push origin main
-
-      - name: Avisar si falló el commit/push
-        if: always() && steps.commit_push.outcome == 'failure'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          # abre un issue con label ci-push-failure, evitando duplicados
-          # (ver .github/workflows/update_prices.yml para el detalle completo)
 ```
 
 ---
@@ -714,8 +704,7 @@ remediar/
     ├── update_prices.yml
     ├── maintenance-on.yml
     ├── maintenance-off.yml
-    ├── codeql.yml
-    └── lint.yml
+    └── codeql.yml
 ```
 
 ---
@@ -732,7 +721,7 @@ remediar/
 | Datos | JSON estático |
 | CI/CD | GitHub Actions |
 | Testing | pytest |
-| Lint | Ruff (Python) + ESLint (JS) — corren automático en CI (`lint.yml`, push/PR a `main`), sin bloquear merges |
+| Lint | Ruff (Python) + ESLint (JS) — configurados, no bloquean CI |
 | Hosting | GitHub Pages (origen) + Cloudflare (proxy/DNS) + Cloudflare Workers (mirror) |
 | SEO | JSON-LD + Open Graph + Twitter Cards |
 | Caché | sessionStorage (TTL 2h) + Service Worker |
@@ -1294,7 +1283,6 @@ Un único breakpoint mobile-first en `600px` — no hay un nivel intermedio de t
 | `maintenance-on.yml` | Manual | Reemplaza `index.html` con página de mantenimiento |
 | `maintenance-off.yml` | Manual | Restaura `index.html` desde backup |
 | `codeql.yml` | Push/PR a `main` + cron semanal (lunes 06:00 UTC) | Análisis estático de seguridad (CodeQL) sobre JS y Python |
-| `lint.yml` | Push/PR a `main` | Corre `ruff check .` y `eslint js/`; no bloqueante (`continue-on-error: true`) |
 | `dependabot.yml` (config, no workflow) | Semanal | Propone actualizaciones de `requirements.txt` y de las actions usadas en los workflows |
 
 | Parámetro | Valor |
@@ -1306,7 +1294,6 @@ Un único breakpoint mobile-first en `600px` — no hay un nivel intermedio de t
 | Dependencias | Ver `requirements.txt` |
 | Trigger manual | Sí (`workflow_dispatch`) |
 | Pull antes de push | Sí (`git pull --rebase`) |
-| Si falla el commit/push | Abre un issue con label `ci-push-failure` (evita duplicados), sin bloquear la próxima corrida |
 | Tests | pytest antes de cada commit |
 | Snapshot semanal | Viernes — CSV subido a GitHub Releases (`historial-YYYY-MM`) |
 
