@@ -713,7 +713,9 @@ remediar/
 └── .github/workflows/
     ├── update_prices.yml
     ├── maintenance-on.yml
-    └── maintenance-off.yml
+    ├── maintenance-off.yml
+    ├── codeql.yml
+    └── lint.yml
 ```
 
 ---
@@ -730,7 +732,7 @@ remediar/
 | Datos | JSON estático |
 | CI/CD | GitHub Actions |
 | Testing | pytest |
-| Lint | Ruff (Python) + ESLint (JS) — configurados, no bloquean CI todavía |
+| Lint | Ruff (Python) + ESLint (JS) — corren automático en CI (`lint.yml`, push/PR a `main`), sin bloquear merges |
 | Hosting | GitHub Pages (origen) + Cloudflare (proxy/DNS) + Cloudflare Workers (mirror) |
 | SEO | JSON-LD + Open Graph + Twitter Cards |
 | Caché | sessionStorage (TTL 2h) + Service Worker |
@@ -1292,6 +1294,7 @@ Un único breakpoint mobile-first en `600px` — no hay un nivel intermedio de t
 | `maintenance-on.yml` | Manual | Reemplaza `index.html` con página de mantenimiento |
 | `maintenance-off.yml` | Manual | Restaura `index.html` desde backup |
 | `codeql.yml` | Push/PR a `main` + cron semanal (lunes 06:00 UTC) | Análisis estático de seguridad (CodeQL) sobre JS y Python |
+| `lint.yml` | Push/PR a `main` | Corre `ruff check .` y `eslint js/`; no bloqueante (`continue-on-error: true`) |
 | `dependabot.yml` (config, no workflow) | Semanal | Propone actualizaciones de `requirements.txt` y de las actions usadas en los workflows |
 
 | Parámetro | Valor |
@@ -1299,10 +1302,11 @@ Un único breakpoint mobile-first en `600px` — no hay un nivel intermedio de t
 | Schedule | 10:30 y 18:30 AR (lunes a viernes) |
 | Runtime | Ubuntu latest |
 | Python | 3.11 |
-| Caché de dependencias | `cache: 'pip'` en `setup-python@v5` |
+| Caché de dependencias | `cache: 'pip'` en `setup-python@v6` |
 | Dependencias | Ver `requirements.txt` |
 | Trigger manual | Sí (`workflow_dispatch`) |
 | Pull antes de push | Sí (`git pull --rebase`) |
+| Si falla el commit/push | Abre un issue con label `ci-push-failure` (evita duplicados), sin bloquear la próxima corrida |
 | Tests | pytest antes de cada commit |
 | Snapshot semanal | Viernes — CSV subido a GitHub Releases (`historial-YYYY-MM`) |
 
