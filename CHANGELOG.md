@@ -13,15 +13,23 @@ El formato está basado en [Keep a Changelog](https://keepachangelog.com/es/1.0.
 ### 🔒 Seguridad
 - `.github/workflows/*.yml`: `actions/checkout`, `actions/setup-python` y `github/codeql-action/{init,analyze}` pasan de tag mutable (`@v7`, `@v6`, `@v4`) a SHA de commit fijo, con el tag original en comentario. Mitiga riesgo de supply-chain sobre workflows con permiso `contents: write`. Dependabot ya está configurado para actualizar estos SHA vía PR.
 
-### ✨ Agregado
+### ✨ Agregado (revertido en 2.2.6 — ver abajo)
 - `.github/workflows/lint.yml`: corre `ruff check .` y `eslint js/` en cada push/PR a `main`. `continue-on-error: true` en ambos pasos — no bloquea merges, da visibilidad automática de algo que antes solo se corría a mano.
 - `.github/workflows/update_prices.yml`: si el paso de commit/push falla, se abre un Issue automático con label `ci-push-failure` (crea la label si no existe) y link directo al run — sin duplicar si ya hay uno abierto. No dispara si un paso anterior (como `pytest`) cortó la ejecución antes de llegar al commit. Sin pérdida de datos en ningún escenario: la próxima corrida programada regenera el JSON desde el PDF fuente.
 
 ### 🧹 Limpieza
 - Eliminadas 2 variables asignadas y nunca usadas (`droga_fixes.py`, `outliers.py`), 1 import muerto (`presentacion.py`), 1 nombre de variable ambiguo (`parser.py`) y 1 f-string sin placeholders (`test_etl_sanidad.py`). Ruff baja de 30 a 24 findings — los 24 restantes son puramente de estilo (E701/E702), ya documentados como no bloqueantes.
 
-### 🧹 Limpieza
-- Eliminadas 2 variables asignadas y nunca usadas (`droga_fixes.py`, `outliers.py`), 1 import muerto (`presentacion.py`), 1 nombre de variable ambiguo (`parser.py`) y 1 f-string sin placeholders (`test_etl_sanidad.py`). Ruff baja de 30 a 24 findings — los 24 restantes son puramente de estilo (E701/E702), ya documentados como no bloqueantes.
+### 📝 Nota
+- Esta entrada tenía la sección "🧹 Limpieza" duplicada dos veces de forma literal (error mecánico, no de contenido). Se corrige en 2.2.6.
+
+## [2.2.6] - 2026-07-20
+
+### ⏪ Revertido
+- `.github/workflows/lint.yml` (agregado en 2.2.5) y el step de alerta `ci-push-failure` en `update_prices.yml` (agregado en 2.2.5): ninguno de los dos aportaba algo que no existiera ya. El lint manual (`ruff`/`eslint` antes de mergear) ya cubría lo mismo que `lint.yml` sin bloquear nada; la alerta duplicaba la notificación que GitHub ya manda cuando un workflow falla, sumando un permiso (`issues: write`) y lógica de dedupe para un escenario de baja probabilidad. Se sacan ambos en línea con no sumar automatización sin función real.
+
+### ♻️ Refactorizado
+- `scripts/snapshot_semanal.py`: dejó de reimplementar `_api`, `_api_upload`, `obtener_o_crear_release` y `asset_existe` — ahora importa todo de `scripts/github_release_helper.py`, que es lo que su propio docstring ya decía que hacía. De paso, `github_release_helper.py` gana el `timeout=30`, el manejo de `URLError` y el mensaje específico de rate-limit (403/429 con reset epoch) que antes solo tenía `snapshot_semanal.py` — ahora `subir_debug.py` también se beneficia. 145 → 103 líneas en `snapshot_semanal.py`, sin cambio de comportamiento (verificado generando el CSV real y corriendo los 28 tests).
 
 ## [2.2.4] - 2026-07-17
 
