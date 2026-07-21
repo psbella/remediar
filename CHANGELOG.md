@@ -4,6 +4,17 @@ Todos los cambios notables de remedi.ar se documentan en este archivo.
 
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/es/1.0.0/) y el proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.6] - 2026-07-20
+
+### ⏪ Revertido
+- `.github/workflows/lint.yml` (agregado en 2.2.5) y el step de alerta `ci-push-failure` en `update_prices.yml` (agregado en 2.2.5): ninguno de los dos aportaba algo que no existiera ya. El lint manual (`ruff`/`eslint` antes de mergear) ya cubría lo mismo que `lint.yml` sin bloquear nada; la alerta duplicaba la notificación que GitHub ya manda cuando un workflow falla, sumando un permiso (`issues: write`) y lógica de dedupe para un escenario de baja probabilidad. Se sacan ambos en línea con no sumar automatización sin función real.
+
+### ♻️ Refactorizado
+- `scripts/snapshot_semanal.py`: dejó de reimplementar `_api`, `_api_upload`, `obtener_o_crear_release` y `asset_existe` — ahora importa todo de `scripts/github_release_helper.py`, que es lo que su propio docstring ya decía que hacía. De paso, `github_release_helper.py` gana el `timeout=30`, el manejo de `URLError` y el mensaje específico de rate-limit (403/429 con reset epoch) que antes solo tenía `snapshot_semanal.py` — ahora `subir_debug.py` también se beneficia. 145 → 103 líneas en `snapshot_semanal.py`, sin cambio de comportamiento (verificado generando el CSV real y corriendo los 28 tests).
+
+### 📝 Documentado
+- `## [2.2.5]` tenía la sección "🧹 Limpieza" duplicada dos veces de forma literal (error mecánico de otra sesión de trabajo sobre este mismo repo). Se corrige sacando la repetición; el contenido no cambia.
+  
 ## [2.2.5] - 2026-07-19
 
 ### 🐛 Corregido
@@ -19,17 +30,6 @@ El formato está basado en [Keep a Changelog](https://keepachangelog.com/es/1.0.
 
 ### 🧹 Limpieza
 - Eliminadas 2 variables asignadas y nunca usadas (`droga_fixes.py`, `outliers.py`), 1 import muerto (`presentacion.py`), 1 nombre de variable ambiguo (`parser.py`) y 1 f-string sin placeholders (`test_etl_sanidad.py`). Ruff baja de 30 a 24 findings — los 24 restantes son puramente de estilo (E701/E702), ya documentados como no bloqueantes.
-
-## [2.2.6] - 2026-07-20
-
-### ⏪ Revertido
-- `.github/workflows/lint.yml` (agregado en 2.2.5) y el step de alerta `ci-push-failure` en `update_prices.yml` (agregado en 2.2.5): ninguno de los dos aportaba algo que no existiera ya. El lint manual (`ruff`/`eslint` antes de mergear) ya cubría lo mismo que `lint.yml` sin bloquear nada; la alerta duplicaba la notificación que GitHub ya manda cuando un workflow falla, sumando un permiso (`issues: write`) y lógica de dedupe para un escenario de baja probabilidad. Se sacan ambos en línea con no sumar automatización sin función real.
-
-### ♻️ Refactorizado
-- `scripts/snapshot_semanal.py`: dejó de reimplementar `_api`, `_api_upload`, `obtener_o_crear_release` y `asset_existe` — ahora importa todo de `scripts/github_release_helper.py`, que es lo que su propio docstring ya decía que hacía. De paso, `github_release_helper.py` gana el `timeout=30`, el manejo de `URLError` y el mensaje específico de rate-limit (403/429 con reset epoch) que antes solo tenía `snapshot_semanal.py` — ahora `subir_debug.py` también se beneficia. 145 → 103 líneas en `snapshot_semanal.py`, sin cambio de comportamiento (verificado generando el CSV real y corriendo los 28 tests).
-
-### 📝 Documentado
-- `## [2.2.5]` tenía la sección "🧹 Limpieza" duplicada dos veces de forma literal (error mecánico de otra sesión de trabajo sobre este mismo repo). Se corrige sacando la repetición; el contenido no cambia.
 
 ## [2.2.4] - 2026-07-17
 
