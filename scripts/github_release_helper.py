@@ -30,11 +30,20 @@ def api(method: str, path: str, body: dict | None = None) -> dict:
     data = json.dumps(body).encode() if body else None
     req  = urllib.request.Request(url, data=data, method=method, headers=_headers())
     try:
-        with urllib.request.urlopen(req) as r:
+        with urllib.request.urlopen(req, timeout=30) as r:
             return json.loads(r.read())
     except urllib.error.HTTPError as e:
         detalle = e.read().decode()
-        raise RuntimeError(f"GitHub API {method} {path} → {e.code}: {detalle}")
+        restante = e.headers.get("X-RateLimit-Remaining")
+        if e.code in (403, 429) and restante == "0":
+            reset = e.headers.get("X-RateLimit-Reset")
+            raise RuntimeError(
+                f"GitHub API rate limit agotado (reset epoch={reset}). "
+                f"{method} {path} -> {e.code}: {detalle}"
+            )
+        raise RuntimeError(f"GitHub API {method} {path} -> {e.code}: {detalle}")
+    except urllib.error.URLError as e:
+        raise RuntimeError(f"GitHub API {method} {path} -> sin respuesta (timeout/red): {e}")
 
 
 def api_upload(upload_url: str, nombre: str, contenido: bytes, content_type: str) -> dict:
@@ -44,8 +53,14 @@ def api_upload(upload_url: str, nombre: str, contenido: bytes, content_type: str
         url, data=contenido, method="POST",
         headers=_headers(content_type),
     )
-    with urllib.request.urlopen(req) as r:
-        return json.loads(r.read())
+    try:
+        with urllib.request.urlopen(req, timeout=30) as r:
+            return json.loads(r.read())
+    except urllib.error.HTTPError as e:
+        detalle = e.read().decode()
+        raise RuntimeError(f"GitHub API upload -> {e.code}: {detalle}")
+    except urllib.error.URLError as e:
+        raise RuntimeError(f"GitHub API upload -> sin respuesta (timeout/red): {e}")
 
 
 def obtener_o_crear_release(tag: str, nombre: str, body: str) -> dict:
@@ -77,10 +92,10 @@ def eliminar_asset(asset_id: int) -> None:
     req = urllib.request.Request(url, method="DELETE", headers=_headers())
     try:
         with urllib.request.urlopen(req):
-            pass  # 204 No Content — sin cuerpo
+            pass  # 204 No Content -- sin cuerpo
     except urllib.error.HTTPError as e:
         if e.code != 204:
-            raise RuntimeError(f"GitHub API DELETE assets/{asset_id} → {e.code}")
+            raise RuntimeError(f"GitHub API DELETE assets/{asset_id} -> {e.code}")
 
 
 def subir_o_reemplazar_asset(release: dict, nombre: str, contenido: bytes, content_type: str) -> dict:
