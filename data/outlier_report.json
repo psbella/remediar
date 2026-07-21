@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-07-20T19:32:04.225353-03:00",
+  "timestamp": "2026-07-21T12:23:29.986184-03:00",
   "total_registros": 13376,
-  "total_outliers": 282,
+  "total_outliers": 283,
   "outliers": [
     {
       "droga": "abacavir, lamivudina",
@@ -1947,6 +1947,19 @@
       "n_droga": 9
     },
     {
+      "droga": "levofloxacina",
+      "marca": "FARMBIOTIC",
+      "presentacion": "500 mg comp.x 7",
+      "laboratorio": "HLB Pharma",
+      "precio": 10559.48,
+      "precio_outlier_tipo": "bajo_iqr",
+      "razones": [
+        "precio $10,559.48 < fence_low $11,447.55"
+      ],
+      "mediana_droga": 20316.38,
+      "n_droga": 42
+    },
+    {
       "droga": "lidocaína",
       "marca": "LIDOCAINA",
       "presentacion": "1% s/epi.a.x 5 ml",
@@ -2885,10 +2898,10 @@
       "marca": "SUPER-O",
       "presentacion": "50 mg comp.mast.x 2",
       "laboratorio": "Biotenk",
-      "precio": 6660.36,
+      "precio": 6793.57,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $133.21 << mediana_grupo $854.22"
+        "ppu $135.87 << mediana_grupo $871.31"
       ],
       "mediana_droga": 15509.21,
       "n_droga": 92
@@ -2911,10 +2924,10 @@
       "marca": "SUPER-O",
       "presentacion": "50 mg comp.rec.x 2",
       "laboratorio": "Biotenk",
-      "precio": 6652.13,
+      "precio": 6785.17,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $133.04 << mediana_grupo $854.22"
+        "ppu $135.70 << mediana_grupo $871.31"
       ],
       "mediana_droga": 15509.21,
       "n_droga": 92
