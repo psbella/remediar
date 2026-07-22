@@ -4,6 +4,15 @@ Todos los cambios notables de remedi.ar se documentan en este archivo.
 
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/es/1.0.0/) y el proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.7] - 2026-07-22
+
+### 🐛 Corregido
+- `index.html`: el `<span>Por qué remedi.ar</span>` del divisor institucional pasa a ser un `<h2>` real. La sección saltaba de `<h1>` a `<h3>` sin nivel intermedio. `style.css` gana un reset (`.inst-divider h2`) para que se vea idéntico al `span` anterior.
+- `sw.js`: `CACHE_NAME` sube a `v7` para que el cambio anterior llegue a usuarios con el sitio ya instalado (index.html/style.css se sirven cache-first, así que sin este bump el `<span>` viejo hubiera quedado cacheado indefinidamente).
+
+### ⚠️ Cambiado
+- `scripts/etl/blacklist.py`: se saca el fix de "doble encoding" que traía `cargar_blacklist()` — no reparaba las claves corruptas, las transformaba en otra forma igual de rota, en silencio. Verificado: 93 de 569 entradas (16%) quedan con la clave corrupta incluso después de ese fix, y ninguna de esas 93 puede matchear nunca contra un medicamento real (los datos del PDF vienen bien codificados), o sea que esas entradas no excluían nada sin que nadie se enterara. Se intentó reconstruir la cadena de encoding real (UTF-8/Latin-1/CP1252 y otros, en ambos sentidos, más `ftfy`) sin éxito — no es un mojibake de un solo paso reversible con las herramientas estándar. Ahora `cargar_blacklist()` detecta y loguea explícitamente las claves sospechosas en cada corrida, en vez de fingir que las arregla. Retipear esas 93 entradas a mano contra la fuente original queda pendiente, sin bloquear nada mientras tanto.
+
 ## [2.2.6] - 2026-07-20
 
 ### ⏪ Revertido
