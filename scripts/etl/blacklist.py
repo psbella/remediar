@@ -13,20 +13,24 @@ def make_key(m):
         (m.get('laboratorio')  or '').strip().lower(),
     ])
 
+def _parece_corrupta(texto):
+    """Heuristica simple para detectar mojibake tipico de un encoding mal
+    interpretado. No repara nada -- solo avisa para revision manual.
+    """
+    return 'Ã' in texto or 'â€' in texto or any(0x80 <= ord(c) <= 0x9f for c in texto)
+
+
 def cargar_blacklist():
     if BLACKLIST_PATH.exists():
         with open(BLACKLIST_PATH, encoding='utf-8') as f:
             bl = json.load(f)
-        # Corregir doble encoding en claves (latin-1 interpretado como utf-8)
-        fixed = {}
-        for key, val in bl.items():
-            try:
-                fixed_key = key.encode('latin-1').decode('utf-8')
-            except (UnicodeDecodeError, UnicodeEncodeError):
-                fixed_key = key
-            fixed[fixed_key] = val
-        print(f"   Lista negra: {len(fixed)} entradas cargadas")
-        return fixed
+        corruptas = [k for k in bl if _parece_corrupta(k)]
+        if corruptas:
+            print(f"   Lista negra: AVISO -- {len(corruptas)} clave(s) con encoding corrupto (no excluyen nada, revisar a mano):")
+            for k in corruptas:
+                print(f"      {k!r}")
+        print(f"   Lista negra: {len(bl)} entradas cargadas")
+        return bl
     print("   Lista negra: no encontrada, se usara vacia")
     return {}
 
