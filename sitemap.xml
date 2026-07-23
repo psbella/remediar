@@ -7,6 +7,12 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://remedi.ar/about.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://remedi.ar/privacidad.html</loc>
     <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>

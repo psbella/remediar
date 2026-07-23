@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre remedi.ar - Cómo funciona</title>
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <link rel="canonical" href="https://remedi.ar/about.html">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+    <link rel="manifest" href="manifest.json">
+    <meta name="description" content="Entendé cómo remedi.ar funciona: arquitectura, datos, actualización y preguntas frecuentes sobre el buscador de precios de medicamentos en Argentina.">
+    <meta property="og:title" content="Sobre remedi.ar - Cómo funciona">
+    <meta property="og:description" content="Entendé cómo remedi.ar funciona: arquitectura, datos, actualización y preguntas frecuentes.">
+    <meta property="og:url" content="https://remedi.ar/about.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_AR">
+    <meta property="og:image" content="https://remedi.ar/img/og-image.png">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Sobre remedi.ar",
+      "description": "Documentación sobre cómo funciona remedi.ar, su arquitectura y datos.",
+      "url": "https://remedi.ar/about.html",
+      "inLanguage": "es-AR",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "remedi.ar",
+        "url": "https://remedi.ar/"
+      }
+    }
+    </script>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+<div class="container">
+
+    <!-- Header -->
+    <div class="header">
+        <div class="header-logo-circle">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <path d="M12 3a5 5 0 0 1 5 5v8a5 5 0 0 1-10 0V8a5 5 0 0 1 5-5z"></path>
+                <line x1="7" y1="12" x2="17" y2="12" stroke-width="1.5"></line>
+            </svg>
+        </div>
+        <div class="header-texto">
+            <h1>Sobre remedi.ar</h1>
+            <p>Cómo funciona el buscador</p>
+        </div>
+        <div class="header-right">
+            <a href="index.html" class="about-back-link">
+                <span>← Volver</span>
+            </a>
+        </div>
+    </div>
+
+    <main id="main-content">
+
+    <!-- Navegación interna -->
+    <nav class="about-nav">
+        <a href="#que-es">Qué es</a>
+        <a href="#como-funciona">Cómo funciona</a>
+        <a href="#lo-diferente">Lo diferente</a>
+        <a href="#lo-que-no-hace">Lo que NO hace</a>
+        <a href="#numeros">Números</a>
+        <a href="#faq">Preguntas frecuentes</a>
+        <a href="#quien-sostiene">Quién lo sostiene</a>
+    </nav>
+
+    <!-- Sección: Qué es remedi.ar -->
+    <section id="que-es" class="about-section">
+        <h2>Qué es remedi.ar</h2>
+        <p class="about-lead">
+            Un buscador gratuito de precios de medicamentos en Argentina. Ingresás el nombre de un medicamento por su nombre comercial o principio activo, y obtenés todas las presentaciones disponibles con sus precios de venta al público y, si corresponde, el precio con cobertura PAMI. Sin registro, sin publicidad, sin datos de terceros.
+        </p>
+        <p>
+            Los datos provienen del listado oficial de SIAFAR/COFA, actualizado automáticamente dos veces al día de lunes a viernes. La búsqueda ocurre completamente en tu navegador — no hay un servidor guardando lo que buscás.
+        </p>
+    </section>
+
+    <!-- Sección: Cómo funciona -->
+    <section id="como-funciona" class="about-section">
+        <h2>Cómo funciona</h2>
+
+        <div class="about-steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Se descargan los datos oficiales</h3>
+                    <p>Dos veces por día, un programa automatizado descarga el PDF oficial que publica SIAFAR/COFA con la lista de precios de medicamentos.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Se limpian y organizan</h3>
+                    <p>El PDF viene sin una estructura estricta — laboratorios distintos informan sus datos de formas diferentes. Un pipeline de varios pasos normaliza los registros: corrige nombres cortados, separa campos fusionados, detecta valores incorrectos y descarta duplicados exactos.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Se enriquecen con PAMI</h3>
+                    <p>Cada medicamento se cruza con el vademécum oficial de PAMI para agregar la cobertura (porcentaje) y calcular el precio que pagaría un afiliado.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h3>Vos buscás, al instante</h3>
+                    <p>Cuando entrás al sitio, se descarga la base de datos una sola vez. La búsqueda ocurre directamente en tu navegador — cada letra que escribís se procesa localmente, sin pedirle nada al servidor.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección: Lo que lo hace distinto -->
+    <section id="lo-diferente" class="about-section">
+        <h2>Lo que lo hace distinto</h2>
+
+        <div class="about-features">
+            <div class="feature">
+                <h3>Sin publicidad</h3>
+                <p>No hay banners, pop-ups ni nada que interrumpa la búsqueda. El sitio es limpio y funcional.</p>
+            </div>
+
+            <div class="feature">
+                <h3>Sin recolectar datos</h3>
+                <p>No pide registro, no guarda tu historial en ningún servidor. La búsqueda ocurre en tu navegador.</p>
+            </div>
+
+            <div class="feature">
+                <h3>Datos públicos y auditables</h3>
+                <p>Toda la información sale de fuentes oficiales. El código que la procesa es público en GitHub — cualquiera puede revisar cómo se obtienen y se transforman los datos.</p>
+            </div>
+
+            <div class="feature">
+                <h3>Gratis, sin letra chica</h3>
+                <p>No hay versión paga, no hay funciones bloqueadas, no hay sorpresas. Se usa igual desde cualquier dispositivo.</p>
+            </div>
+
+            <div class="feature">
+                <h3>Pensado para el celular</h3>
+                <p>Funciona bien en pantallas chicas y se puede instalar como una app sin pasar por ninguna tienda de aplicaciones.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección: Lo que NO hace -->
+    <section id="lo-que-no-hace" class="about-section about-section-negative">
+        <h2>Lo que remedi.ar NO hace</h2>
+        <ul class="about-dont-list">
+            <li>No vende medicamentos ni reemplaza a la farmacia.</li>
+            <li>No da consejos médicos ni recomienda qué tomar.</li>
+            <li>No usa cookies de rastreo ni comparte datos con terceros.</li>
+            <li>No cobra ninguna suscripción ni pide tarjeta de crédito.</li>
+            <li>No guarda tu información en servidores de terceros.</li>
+        </ul>
+    </section>
+
+    <!-- Sección: Números -->
+    <section id="numeros" class="about-section">
+        <h2>El proyecto en números</h2>
+        <p class="about-updated-note">Datos actualizados al <span id="fecha-actualizacion"></span></p>
+
+        <div class="about-stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Presentaciones en la base</div>
+                <div class="stat-value" id="stat-total">-</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Drogas únicas</div>
+                <div class="stat-value" id="stat-drogas">-</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Con cobertura PAMI</div>
+                <div class="stat-value" id="stat-pami">-</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Porcentaje con PAMI</div>
+                <div class="stat-value" id="stat-pami-pct">-</div>
+            </div>
+        </div>
+
+        <div class="about-stats-table">
+            <div class="table-row">
+                <div class="table-label">Frecuencia de actualización</div>
+                <div class="table-value">Dos veces por día, de lunes a viernes</div>
+            </div>
+            <div class="table-row">
+                <div class="table-label">Fuente de datos</div>
+                <div class="table-value">Listado oficial SIAFAR/COFA</div>
+            </div>
+            <div class="table-row">
+                <div class="table-label">Cobertura PAMI</div>
+                <div class="table-value">Vademécum oficial publicado por PAMI</div>
+            </div>
+            <div class="table-row">
+                <div class="table-label">Costo para el usuario</div>
+                <div class="table-value">Gratis, sin registro</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección: FAQ -->
+    <section id="faq" class="about-section">
+        <h2>Preguntas frecuentes</h2>
+
+        <div class="about-faq">
+            <div class="faq-item">
+                <h3>¿Los precios son exactos al centavo en cualquier farmacia?</h3>
+                <p>Son el precio de venta al público oficial publicado por SIAFAR. Puede haber variaciones puntuales entre farmacias, y con la inflación los precios pueden desactualizarse levemente entre una actualización y la siguiente. El sitio marca con una advertencia los precios que parecen sospechosos o desactualizados usando un score de vigencia.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>¿Necesito ser afiliado a PAMI para usarlo?</h3>
+                <p>No. Cualquiera puede buscar precios. La información de cobertura PAMI es solo un dato adicional que se muestra cuando el medicamento la tiene, pero el sitio es útil aunque no seas afiliado.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>¿Tiene que ver con alguna farmacia o laboratorio?</h3>
+                <p>No. Es un proyecto completamente independiente, sin relación comercial con farmacias, droguerías, laboratorios ni PAMI. Solo agrega y organiza información pública.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>¿Por qué a veces falta la presentación de algún medicamento?</h3>
+                <p>En muy pocos casos (menos de 10 sobre más de 12.000) la fuente oficial no incluye ese dato. No es un error del sitio — el dato simplemente no está en el PDF de SIAFAR.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>¿Puedo confiar en que nadie está mirando lo que busco?</h3>
+                <p>Sí. El sitio no pide registro ni guarda tu búsqueda en ningún servidor. Se usa una analítica anónima y agregada (para saber, por ejemplo, cuánta gente visita el sitio en total), sin identificar personas ni rastrear individuos. No hay tracking de terceros.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>¿Cómo se calcula el precio con PAMI?</h3>
+                <p>El precio mostrado como "copago" es una aproximación: PVP × (1 − cobertura PAMI / 100). Por ejemplo, si el PVP es $1.000 y PAMI cubre el 50%, el copago estimado es $500. Esta es una aproximación — el copago real puede variar porque el porcentaje de cobertura viene del vademécum PAMI (que se actualiza con menor frecuencia) aplicado sobre el PVP actual de SIAFAR.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>¿Se puede usar el JSON libremente?</h3>
+                <p>Sí, bajo licencia MIT. El endpoint <code>https://remedi.ar/data/medicamentos.json</code> está habilitado con CORS (<code>Access-Control-Allow-Origin: *</code>), así que otros desarrolladores pueden usarlo en sus propios proyectos. Consultá el repositorio de GitHub para ejemplos de uso en JavaScript y Python.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección: Quién lo sostiene -->
+    <section id="quien-sostiene" class="about-section">
+        <h2>Quién sostiene todo esto</h2>
+        <div class="about-quien">
+            <p>
+                Una sola persona: <strong>Pablo</strong>, que mantiene remedi.ar en su tiempo libre. No hay empresa detrás, no hay equipo de soporte — solo alguien que creyó que los medicamentos deberían ser más accesibles en Argentina y decidió publicar el código para que cualquiera pueda revisar, mejorar o adaptarlo a sus necesidades.
+            </p>
+            <p>
+                Esto significa que las cosas se agregan con cuidado y sin apuro, priorizando que lo que ya funciona siga funcionando bien antes de sumar algo nuevo. También significa que <strong>el repo está abierto</strong>: si tenés una idea, encontrás un bug, o querés contribuir, <a href="https://github.com/psbella/remediar" target="_blank" rel="noopener noreferrer">podés abrir un issue o un pull request en GitHub</a>.
+            </p>
+            <p class="about-callout">
+                <strong>¿Encontraste un error?</strong> Reportalo en <a href="https://github.com/psbella/remediar/issues" target="_blank" rel="noopener noreferrer">GitHub Issues</a> o escribí a través del repo. Los datos de SIAFAR/COFA se actualizan dos veces al día, así que si un precio está mal, probablemente se corrija automáticamente en la próxima corrida.
+            </p>
+        </div>
+    </section>
+
+    <!-- Links útiles -->
+    <section class="about-section about-links-section">
+        <h2>Enlaces útiles</h2>
+        <div class="about-links">
+            <a href="https://github.com/psbella/remediar" target="_blank" rel="noopener noreferrer" class="about-link-btn">Ver el código en GitHub</a>
+            <a href="https://github.com/psbella/remediar/issues" target="_blank" rel="noopener noreferrer" class="about-link-btn">Reportar un problema</a>
+            <a href="privacidad.html" class="about-link-btn">Política de privacidad</a>
+            <a href="terminos.html" class="about-link-btn">Términos y condiciones</a>
+        </div>
+    </section>
+
+    </main>
+
+</div>
+
+<script type="module" src="js/about.js"></script>
+
+</body>
+</html>
