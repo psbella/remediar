@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-07-22T19:36:16.334430-03:00",
+  "timestamp": "2026-07-23T12:34:07.966173-03:00",
   "total_registros": 13376,
-  "total_outliers": 286,
+  "total_outliers": 285,
   "outliers": [
     {
       "droga": "abacavir, lamivudina",
@@ -67,7 +67,7 @@
       "razones": [
         "ppu $137.96 << mediana_grupo $838.37"
       ],
-      "mediana_droga": 21437.0,
+      "mediana_droga": 21844.0,
       "n_droga": 35
     },
     {
@@ -80,7 +80,7 @@
       "razones": [
         "ppu $48.77 << mediana_grupo $838.37"
       ],
-      "mediana_droga": 21437.0,
+      "mediana_droga": 21844.0,
       "n_droga": 35
     },
     {
@@ -93,7 +93,7 @@
       "razones": [
         "ppu $83.90 << mediana_grupo $838.37"
       ],
-      "mediana_droga": 21437.0,
+      "mediana_droga": 21844.0,
       "n_droga": 35
     },
     {
@@ -183,9 +183,9 @@
       "precio": 3745.45,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $3,745.45 < 25% mediana $21,382.35 (n=9)"
+        "precio $3,745.45 < 25% mediana $21,745.85 (n=9)"
       ],
-      "mediana_droga": 21382.35,
+      "mediana_droga": 21745.85,
       "n_droga": 9
     },
     {
@@ -259,12 +259,12 @@
       "marca": "OPTAMOX RESPIRATORIO DUO",
       "presentacion": "susp.x 140 ml",
       "laboratorio": "Roemmers",
-      "precio": 33924.0,
+      "precio": 34433.0,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $242.31 << mediana_grupo $1,453.94"
+        "ppu $245.95 << mediana_grupo $1,481.08"
       ],
-      "mediana_droga": 35621.0,
+      "mediana_droga": 36230.0,
       "n_droga": 2
     },
     {
@@ -289,9 +289,9 @@
       "precio": 10009.55,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $10,009.55 < fence_low $10,754.00"
+        "precio $10,009.55 < fence_low $10,915.50"
       ],
-      "mediana_droga": 16336.89,
+      "mediana_droga": 16542.0,
       "n_droga": 10
     },
     {
@@ -316,7 +316,7 @@
       "precio": 26051.35,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $52.10 << mediana_grupo $15,707.63"
+        "ppu $52.10 << mediana_grupo $15,974.22"
       ],
       "mediana_droga": 22800.0,
       "n_droga": 67
@@ -419,10 +419,10 @@
       "marca": "IRAZEM",
       "presentacion": "Sol.oral x 150 ml",
       "laboratorio": "Roemmers",
-      "precio": 46058.0,
+      "precio": 46933.0,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $307.05 << mediana_grupo $3,223.00"
+        "ppu $312.89 << mediana_grupo $3,223.00"
       ],
       "mediana_droga": 32571.5,
       "n_droga": 41
@@ -463,7 +463,7 @@
       "razones": [
         "ppu $47.60 << mediana_grupo $877.47"
       ],
-      "mediana_droga": 19547.32,
+      "mediana_droga": 19709.62,
       "n_droga": 68
     },
     {
@@ -472,11 +472,11 @@
       "presentacion": "caps.x 1",
       "laboratorio": "Domínguez",
       "precio": 46248.39,
-      "precio_outlier_tipo": "bajo_iqr",
+      "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $46,248.39 < fence_low $84,926.93"
+        "precio $46,248.39 < 25% mediana $186,941.28 (n=10)"
       ],
-      "mediana_droga": 183720.8,
+      "mediana_droga": 186941.28,
       "n_droga": 10
     },
     {
@@ -640,10 +640,10 @@
       "marca": "CARBETOCIN TA",
       "presentacion": "f.a.x 1 x 1 ml",
       "laboratorio": "Domínguez",
-      "precio": 87008.02,
+      "precio": 89183.22,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $87,008.02 < 25% mediana $411,275.98 (n=3)"
+        "precio $89,183.22 < 25% mediana $411,275.98 (n=3)"
       ],
       "mediana_droga": 411275.98,
       "n_droga": 3
@@ -1008,10 +1008,10 @@
       "marca": "FRENALER",
       "presentacion": "jbe.x 60 ml",
       "laboratorio": "Roemmers",
-      "precio": 12732.0,
+      "precio": 12859.0,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $212.20 << mediana_grupo $2,049.70"
+        "ppu $214.32 << mediana_grupo $2,070.20"
       ],
       "mediana_droga": 12304.94,
       "n_droga": 24
@@ -1052,7 +1052,7 @@
       "razones": [
         "ppu $195.58 << mediana_grupo $1,187.79"
       ],
-      "mediana_droga": 13007.1,
+      "mediana_droga": 13024.34,
       "n_droga": 12
     },
     {
@@ -1226,6 +1226,19 @@
       "n_droga": 17
     },
     {
+      "droga": "dimetil fumarato",
+      "marca": "LIXERAL",
+      "presentacion": "120 mg cáps.x 14",
+      "laboratorio": "Casasco",
+      "precio": 1705210.99,
+      "precio_outlier_tipo": "bajo_relativo",
+      "razones": [
+        "precio $1,705,210.99 < 25% mediana $6,823,566.49 (n=11)"
+      ],
+      "mediana_droga": 6823566.49,
+      "n_droga": 11
+    },
+    {
       "droga": "diosmina, hesperidina micronizada",
       "marca": "NIKZON",
       "presentacion": "500 mg comp.rec.x 30",
@@ -1298,9 +1311,9 @@
       "precio": 73800.0,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $73,800.00 < fence_low $74,173.25"
+        "precio $73,800.00 < fence_low $75,210.26"
       ],
-      "mediana_droga": 99389.99,
+      "mediana_droga": 99401.51,
       "n_droga": 20
     },
     {
@@ -1311,10 +1324,10 @@
       "precio": 84458.13,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $84,458.13 < 25% mediana $702,456.72 (n=34)",
-        "ppu $2,111.45 << mediana_grupo $11,513.44"
+        "precio $84,458.13 < 25% mediana $708,328.57 (n=34)",
+        "ppu $2,111.45 << mediana_grupo $11,709.17"
       ],
-      "mediana_droga": 702456.72,
+      "mediana_droga": 708328.57,
       "n_droga": 34
     },
     {
@@ -1325,9 +1338,9 @@
       "precio": 104875.44,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $104,875.44 < 25% mediana $702,456.72 (n=34)"
+        "precio $104,875.44 < 25% mediana $708,328.57 (n=34)"
       ],
-      "mediana_droga": 702456.72,
+      "mediana_droga": 708328.57,
       "n_droga": 34
     },
     {
@@ -1338,9 +1351,9 @@
       "precio": 127444.13,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $127,444.13 < 25% mediana $702,456.72 (n=34)"
+        "precio $127,444.13 < 25% mediana $708,328.57 (n=34)"
       ],
-      "mediana_droga": 702456.72,
+      "mediana_droga": 708328.57,
       "n_droga": 34
     },
     {
@@ -1351,9 +1364,9 @@
       "precio": 100336.31,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $100,336.31 < 25% mediana $702,456.72 (n=34)"
+        "precio $100,336.31 < 25% mediana $708,328.57 (n=34)"
       ],
-      "mediana_droga": 702456.72,
+      "mediana_droga": 708328.57,
       "n_droga": 34
     },
     {
@@ -1429,9 +1442,9 @@
       "precio": 3833.2,
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
-        "precio $3,833.20 < 10% mediana $66,416.40"
+        "precio $3,833.20 < 10% mediana $67,545.48"
       ],
-      "mediana_droga": 66416.4,
+      "mediana_droga": 67545.48,
       "n_droga": 9
     },
     {
@@ -1439,12 +1452,12 @@
       "marca": "EPAMIN",
       "presentacion": "liq.x 120 ml",
       "laboratorio": "Elea",
-      "precio": 29529.59,
+      "precio": 30031.59,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $246.08 << mediana_grupo $2,147.94"
+        "ppu $250.26 << mediana_grupo $2,184.46"
       ],
-      "mediana_droga": 66416.4,
+      "mediana_droga": 67545.48,
       "n_droga": 9
     },
     {
@@ -1521,9 +1534,9 @@
       "precio": 3058.51,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $3,058.51 < 25% mediana $21,507.92 (n=43)"
+        "precio $3,058.51 < 25% mediana $22,045.62 (n=43)"
       ],
-      "mediana_droga": 21507.92,
+      "mediana_droga": 22045.62,
       "n_droga": 43
     },
     {
@@ -1664,9 +1677,9 @@
       "precio": 6019.22,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $6,019.22 < 25% mediana $32,199.51 (n=11)"
+        "precio $6,019.22 < 25% mediana $32,203.70 (n=11)"
       ],
-      "mediana_droga": 32199.51,
+      "mediana_droga": 32203.7,
       "n_droga": 11
     },
     {
@@ -1810,9 +1823,9 @@
       "precio": 33047.1,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $33,047.10 < 25% mediana $143,418.07 (n=20)"
+        "precio $33,047.10 < 25% mediana $144,459.95 (n=20)"
       ],
-      "mediana_droga": 143418.07,
+      "mediana_droga": 144459.95,
       "n_droga": 20
     },
     {
@@ -1823,9 +1836,9 @@
       "precio": 84394.71,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $1,205.64 << mediana_grupo $6,514.03"
+        "ppu $1,205.64 << mediana_grupo $6,618.22"
       ],
-      "mediana_droga": 143418.07,
+      "mediana_droga": 144459.95,
       "n_droga": 20
     },
     {
@@ -1833,12 +1846,12 @@
       "marca": "INSULINA HUMULIN",
       "presentacion": "NPH 100 UI fco.x 10 ml",
       "laboratorio": "Raffo",
-      "precio": 96292.56,
+      "precio": 98218.41,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $962.93 << mediana_grupo $6,514.03"
+        "ppu $982.18 << mediana_grupo $6,618.22"
       ],
-      "mediana_droga": 143418.07,
+      "mediana_droga": 144459.95,
       "n_droga": 20
     },
     {
@@ -1943,7 +1956,7 @@
       "razones": [
         "precio $10,559.48 < fence_low $11,513.47"
       ],
-      "mediana_droga": 20316.38,
+      "mediana_droga": 20501.44,
       "n_droga": 42
     },
     {
@@ -2050,9 +2063,9 @@
       "precio": 7187.57,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $7,187.57 < 25% mediana $31,110.57 (n=82)"
+        "precio $7,187.57 < 25% mediana $31,402.07 (n=82)"
       ],
-      "mediana_droga": 31110.57,
+      "mediana_droga": 31402.07,
       "n_droga": 82
     },
     {
@@ -2064,9 +2077,9 @@
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
         "precio $347.50 < minimo $1,800",
-        "precio $347.50 < 10% mediana $31,110.57"
+        "precio $347.50 < 10% mediana $31,402.07"
       ],
-      "mediana_droga": 31110.57,
+      "mediana_droga": 31402.07,
       "n_droga": 82
     },
     {
@@ -2077,9 +2090,9 @@
       "precio": 7009.0,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $7,009.00 < 25% mediana $35,545.99 (n=36)"
+        "precio $7,009.00 < 25% mediana $35,845.51 (n=36)"
       ],
-      "mediana_droga": 35545.99,
+      "mediana_droga": 35845.51,
       "n_droga": 36
     },
     {
@@ -2090,9 +2103,9 @@
       "precio": 16190.0,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $16,190.00 < fence_low $23,513.72"
+        "precio $16,190.00 < fence_low $23,131.86"
       ],
-      "mediana_droga": 35545.99,
+      "mediana_droga": 35845.51,
       "n_droga": 36
     },
     {
@@ -2103,9 +2116,9 @@
       "precio": 6335.41,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $6,335.41 < 25% mediana $35,545.99 (n=36)"
+        "precio $6,335.41 < 25% mediana $35,845.51 (n=36)"
       ],
-      "mediana_droga": 35545.99,
+      "mediana_droga": 35845.51,
       "n_droga": 36
     },
     {
@@ -2143,9 +2156,9 @@
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
         "precio $1,556.96 < minimo $1,800",
-        "precio $1,556.96 < 10% mediana $15,896.90"
+        "precio $1,556.96 < 10% mediana $16,198.94"
       ],
-      "mediana_droga": 15896.9,
+      "mediana_droga": 16198.94,
       "n_droga": 11
     },
     {
@@ -2166,10 +2179,10 @@
       "marca": "5-ASA 1000",
       "presentacion": "1000 mg sup.x 30",
       "laboratorio": "Domínguez",
-      "precio": 244474.43,
+      "precio": 250097.35,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $244.47 << mediana_grupo $105,313.62"
+        "ppu $250.10 << mediana_grupo $107,735.83"
       ],
       "mediana_droga": 233070.25,
       "n_droga": 43
@@ -2179,10 +2192,10 @@
       "marca": "5-ASA 400",
       "presentacion": "400 mg sup.x 10",
       "laboratorio": "Domínguez",
-      "precio": 42367.2,
+      "precio": 43341.65,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $42,367.20 < 25% mediana $233,070.25 (n=43)"
+        "precio $43,341.65 < 25% mediana $233,070.25 (n=43)"
       ],
       "mediana_droga": 233070.25,
       "n_droga": 43
@@ -2301,7 +2314,7 @@
       "razones": [
         "ppu $1,320.30 << mediana_grupo $8,028.08"
       ],
-      "mediana_droga": 42067.04,
+      "mediana_droga": 42161.02,
       "n_droga": 50
     },
     {
@@ -2478,10 +2491,10 @@
       "marca": "DITROPAN",
       "presentacion": "jbe.x 200 ml",
       "laboratorio": "Elea",
-      "precio": 51917.16,
+      "precio": 52799.76,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $259.59 << mediana_grupo $1,351.55"
+        "ppu $264.00 << mediana_grupo $1,374.53"
       ],
       "mediana_droga": 59009.37,
       "n_droga": 16
@@ -2644,32 +2657,6 @@
       "n_droga": 25
     },
     {
-      "droga": "paroxetina",
-      "marca": "DATEVAN",
-      "presentacion": "20 mg comp.x 10",
-      "laboratorio": "Rontag",
-      "precio": 18875.93,
-      "precio_outlier_tipo": "bajo_iqr",
-      "razones": [
-        "precio $18,875.93 < fence_low $18,877.90"
-      ],
-      "mediana_droga": 54977.55,
-      "n_droga": 33
-    },
-    {
-      "droga": "paroxetina",
-      "marca": "TIOARI",
-      "presentacion": "20 mg comp.x 30",
-      "laboratorio": "HLB Pharma",
-      "precio": 18559.14,
-      "precio_outlier_tipo": "bajo_iqr",
-      "razones": [
-        "precio $18,559.14 < fence_low $18,877.90"
-      ],
-      "mediana_droga": 54977.55,
-      "n_droga": 33
-    },
-    {
       "droga": "polisacaridosulf£rico,ác.(éste",
       "marca": "FLEBODERMA",
       "presentacion": "cr.x 30 g",
@@ -2824,7 +2811,7 @@
       "razones": [
         "precio $52,210.08 < fence_low $63,732.18"
       ],
-      "mediana_droga": 111536.74,
+      "mediana_droga": 112088.45,
       "n_droga": 54
     },
     {
@@ -2837,7 +2824,7 @@
       "razones": [
         "precio $53,803.09 < fence_low $63,732.18"
       ],
-      "mediana_droga": 111536.74,
+      "mediana_droga": 112088.45,
       "n_droga": 54
     },
     {
@@ -2850,7 +2837,7 @@
       "razones": [
         "precio $53,359.00 < fence_low $63,732.18"
       ],
-      "mediana_droga": 111536.74,
+      "mediana_droga": 112088.45,
       "n_droga": 54
     },
     {
@@ -2858,12 +2845,12 @@
       "marca": "XAROBAN",
       "presentacion": "10 mg x 10 comp.rec.",
       "laboratorio": "Raffo",
-      "precio": 54729.86,
+      "precio": 55277.16,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $54,729.86 < fence_low $63,732.18"
+        "precio $55,277.16 < fence_low $63,732.18"
       ],
-      "mediana_droga": 111536.74,
+      "mediana_droga": 112088.45,
       "n_droga": 54
     },
     {
@@ -2876,7 +2863,7 @@
       "razones": [
         "precio $58,547.44 < fence_low $63,732.18"
       ],
-      "mediana_droga": 111536.74,
+      "mediana_droga": 112088.45,
       "n_droga": 54
     },
     {
@@ -2889,7 +2876,7 @@
       "razones": [
         "precio $58,943.18 < fence_low $63,732.18"
       ],
-      "mediana_droga": 111536.74,
+      "mediana_droga": 112088.45,
       "n_droga": 54
     },
     {
@@ -3276,10 +3263,10 @@
       "marca": "INVICTUS 20",
       "presentacion": "20 mg comp.rec.x 1",
       "laboratorio": "Roemmers",
-      "precio": 13234.0,
+      "precio": 13485.0,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $13,234.00 < 25% mediana $67,182.51 (n=81)"
+        "precio $13,485.00 < 25% mediana $67,182.51 (n=81)"
       ],
       "mediana_droga": 67182.51,
       "n_droga": 81
@@ -3367,10 +3354,10 @@
       "marca": "LEVAL",
       "presentacion": "20 mg comp.x 4",
       "laboratorio": "Elea",
-      "precio": 54115.43,
+      "precio": 55035.39,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $2,705.77 << mediana_grupo $22,580.67"
+        "ppu $2,751.77 << mediana_grupo $22,786.62"
       ],
       "mediana_droga": 67182.51,
       "n_droga": 81
@@ -3396,9 +3383,9 @@
       "precio": 26475.17,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $26,475.17 < fence_low $28,955.08"
+        "precio $26,475.17 < fence_low $29,259.32"
       ],
-      "mediana_droga": 83696.24,
+      "mediana_droga": 83910.04,
       "n_droga": 28
     },
     {
@@ -3419,10 +3406,10 @@
       "marca": "DRALITEM",
       "presentacion": "100 mg caps.x 5",
       "laboratorio": "Raffo",
-      "precio": 769094.26,
+      "precio": 783707.05,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $769,094.26 < 25% mediana $3,206,084.95 (n=34)"
+        "precio $783,707.05 < 25% mediana $3,206,084.95 (n=34)"
       ],
       "mediana_droga": 3206084.95,
       "n_droga": 34
