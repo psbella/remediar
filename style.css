@@ -21,7 +21,7 @@
 
 /* Paleta y tokens */
 :root {
-    --teal: #008B8B;
+    --teal: #007E7E;
     --teal-dark: #005f5f;
     --teal-darker: #003f3f;
     --teal-light: #e6f2f2;
@@ -84,7 +84,7 @@ body {
 
 .header-logo-circle svg { stroke: #fff; }
 .header-texto h1 { font-size: 17px; font-weight: 500; color: #fff; letter-spacing: -0.2px; }
-.header-texto p { font-size: 12px; color: rgba(255, 255, 255, 0.8); margin-top: 2px; }
+.header-texto p { font-size: 12px; color: rgba(255, 255, 255, 0.95); margin-top: 2px; }
 .header-right { margin-left: auto; }
 
 .update-pill {
@@ -870,6 +870,8 @@ body {
     border-radius: var(--r-md);
     border-left: 3px solid var(--teal);
 }
+
+.about-callout a { color: var(--teal-dark); }
 
 .about-quien p + p {
     margin-top: 16px;
