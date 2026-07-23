@@ -1,0 +1,48 @@
+name: Accesibilidad
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "index.html"
+      - "about.html"
+      - "style.css"
+      - "js/**"
+      - "scripts/checks/a11y-check.mjs"
+  pull_request:
+    branches: ["main"]
+    paths:
+      - "index.html"
+      - "about.html"
+      - "style.css"
+      - "js/**"
+      - "scripts/checks/a11y-check.mjs"
+  workflow_dispatch:
+
+concurrency:
+  group: accessibility-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  axe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
+
+      - name: Setup Node
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: "20"
+
+      - name: Instalar dependencias
+        run: npm install axe-core puppeteer
+
+      # No bloquea el build a propósito -- mismo criterio que ruff/eslint en
+      # este repo (ver .github/workflows/*): avisa, no rompe. Ver issue #24.
+      - name: Correr chequeo de accesibilidad (axe-core)
+        run: node scripts/checks/a11y-check.mjs

@@ -9,5 +9,12 @@
     "url": "https://github.com/psbella/remediar"
   },
   "license": "MIT",
-  "author": "Pablo Bella <pablo.s.bella@gmail.com>"
+  "author": "Pablo Bella <pablo.s.bella@gmail.com>",
+  "scripts": {
+    "a11y": "node scripts/checks/a11y-check.mjs"
+  },
+  "devDependencies": {
+    "axe-core": "^4.12.1",
+    "puppeteer": "^25.3.0"
+  }
 }
