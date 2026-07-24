@@ -28,7 +28,7 @@
     --teal-border: #a0c8c8;
     --teal-accent: #0e7490;
     --muted-teal: #9ab8b8;
-    --warn: #e65100;
+    --warn: #C74600;
     --warn-bg: #fff3e0;
     --warn-border: #ffcc80;
     --verify-bg: #fff8e1;
@@ -42,7 +42,7 @@
     --text-1: #111111;
     --text-2: #333333;
     --text-3: #555555;
-    --text-4: #777777;
+    --text-4: #666666;
     --text-5: #6c6c6c;
     --r-sm: 8px;
     --r-md: 12px;
@@ -871,7 +871,7 @@ body {
     border-left: 3px solid var(--teal);
 }
 
-.about-callout a { color: var(--teal-dark); }
+.about-quien .about-callout a { color: var(--teal-dark); }
 
 .about-quien p + p {
     margin-top: 16px;
