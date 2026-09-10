@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-09-09T20:28:15.920028-03:00",
-  "total_registros": 13127,
+  "timestamp": "2026-09-10T14:07:28.014204-03:00",
+  "total_registros": 13126,
   "total_outliers": 96,
   "outliers": [
     {
@@ -785,6 +785,19 @@
     },
     {
       "droga": "loratadina",
+      "marca": "PREDUAL L",
+      "presentacion": "jbe.x 60 ml",
+      "laboratorio": "Eurofarma",
+      "precio": 1983.73,
+      "precio_outlier_tipo": "bajo_relativo",
+      "razones": [
+        "precio $1,983.73 < 25% mediana $7,960.44 (n=38)"
+      ],
+      "mediana_droga": 7960.44,
+      "n_droga": 38
+    },
+    {
+      "droga": "loratadina",
       "marca": "ALERPRIV",
       "presentacion": "jbe.x 60 ml",
       "laboratorio": "Montpellier",
@@ -793,7 +806,7 @@
       "razones": [
         "ppu $132.03 << mediana_grupo $826.05"
       ],
-      "mediana_droga": 7913.69,
+      "mediana_droga": 7960.44,
       "n_droga": 38
     },
     {
@@ -947,7 +960,7 @@
       "precio": 7075157.19,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $7,075,157.19 < fence_low $7,697,697.08"
+        "precio $7,075,157.19 < fence_low $7,537,059.61"
       ],
       "mediana_droga": 9674695.19,
       "n_droga": 32
@@ -960,7 +973,7 @@
       "precio": 7075157.19,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $7,075,157.19 < fence_low $7,697,697.08"
+        "precio $7,075,157.19 < fence_low $7,537,059.61"
       ],
       "mediana_droga": 9674695.19,
       "n_droga": 32
@@ -977,19 +990,6 @@
       ],
       "mediana_droga": 9675.17,
       "n_droga": 80
-    },
-    {
-      "droga": "piroxicam",
-      "marca": "PIROXICAM DUPOMAR",
-      "presentacion": "gel x 50 g",
-      "laboratorio": "Siegfried",
-      "precio": 2921.34,
-      "precio_outlier_tipo": "bajo_relativo",
-      "razones": [
-        "precio $2,921.34 < 25% mediana $11,957.91 (n=8)"
-      ],
-      "mediana_droga": 11957.91,
-      "n_droga": 8
     },
     {
       "droga": "rifampicina",
