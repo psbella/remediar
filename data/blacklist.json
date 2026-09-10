@@ -7098,5 +7098,15 @@
     "tipo": "bajo_relativo",
     "motivo": "precio $4,653.77 < 25% mediana $19,929.67 (n=20)",
     "bloqueado_en": "2026-08-19T09:20"
+  },
+  "piroxicam|piroxicam dupomar|gel x 50 g|siegfried": {
+    "droga": "piroxicam",
+    "marca": "PIROXICAM DUPOMAR",
+    "presentacion": "gel x 50 g",
+    "laboratorio": "Siegfried",
+    "precio_detectado": 2921.34,
+    "tipo": "bajo_relativo",
+    "motivo": "precio $2,921.34 < 25% mediana $11,957.91 (n=8)",
+    "bloqueado_en": "2026-09-10T04:26"
   }
 }
