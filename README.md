@@ -885,6 +885,8 @@ docker run -p 8080:80 remediar
 | `scripts/github_release_helper.py` | Funciones compartidas para crear/obtener releases de GitHub y subir/reemplazar/verificar assets. Usado por `snapshot_semanal.py` y `subir_debug.py`, no se ejecuta directamente. |
 | `scripts/checks/a11y-check.mjs` | Chequeo de accesibilidad con axe-core + Puppeteer contra las páginas estáticas servidas localmente. No bloquea el CI (mismo criterio que Ruff/ESLint en este repo) — avisa, no rompe el build. |
 | `scripts/mantenimiento/fix_blacklist_encoding.py` | Reparación puntual de entradas con encoding corrupto en `blacklist.json`, vía cross-reference e historial de git. Ejecución manual, no forma parte del pipeline automático. |
+| `scripts/traducir_atc_who.py` | Traduce drogas a códigos ATC usando índice oficial WHOCC. Genera `data/atc/atc_por_droga.json`. |
+| `scripts/aplicar_atc_tabla_oms.py` | Aplica tabla ATC/DDD oficial WHOCC para enriquecer 206 drogas sin clasificación. |
 | `tests/test_etl_sanidad.py` | 12 tests de sanidad sobre el output del ETL: cantidad de registros, campos obligatorios, rangos de precios, calidad de datos y estructura del JSON |
 
 ### Paquete `scripts/etl/` (capas de normalización)
@@ -1392,6 +1394,7 @@ Un único breakpoint mobile-first en `600px` — no hay un nivel intermedio de t
 | `maintenance-off.yml` | Manual | Restaura `index.html` desde backup |
 | `codeql.yml` | Push/PR a `main` + cron semanal (sábado 01:33 UTC) | Análisis estático de seguridad (CodeQL) sobre JS, Python y los propios workflows de GitHub Actions |
 | `js-syntax-check.yml` | Push/PR a `main` que toque `js/**` o `scripts/checks/**` + manual | Corre `node --check` sobre todo el JS. A diferencia de ESLint/axe en este repo, SÍ bloquea el build — un error de sintaxis rompe la carga de JS en todo el sitio, no es una cuestión de estilo |
+| `headers-check.yml` | Push a `main` que toque `_headers` o `scripts/checks/headers-check.mjs` + cron semanal (domingo 06:00 UTC) + manual | Corre `scripts/checks/headers-check.mjs`. Como js-syntax-check, es un chequeo de seguridad y SÍ bloquea el build (no solo avisa como accessibility.yml) |
 | `accessibility.yml` | Push/PR a `main` que toque cualquier `*.html`, `css/style.css`, `js/**` o el propio check + cron semanal (domingo 05:00 UTC) + manual | Corre `scripts/checks/a11y-check.mjs` (axe-core + Puppeteer). Modo rápido (`index.html`, `about.html`, `terminos.html`, `privacidad.html`) en push/PR/manual; modo completo (todas las .html) solo en la corrida semanal. `admin-panel.html` queda excluido siempre. No bloquea el build — avisa, no rompe, mismo criterio que Ruff/ESLint |
 | `dependabot.yml` (config, no workflow) | Semanal | Propone actualizaciones de `requirements.txt` (pip), de las actions usadas en los workflows (`github-actions`) y de `package.json` (`npm` — `axe-core`/`puppeteer`, usados solo por `a11y-check.mjs`) |
 
@@ -1408,18 +1411,6 @@ Un único breakpoint mobile-first en `600px` — no hay un nivel intermedio de t
 | Snapshot semanal | Viernes — CSV subido a GitHub Releases (`historial-YYYY-MM`) |
 
 ---
-
-# 🔧 Documentación de Workflows
-
-| Workflow | Archivo | Trigger | Función |
-|---|---|---|---|
-| **ETL + Tests** | `.github/workflows/update_prices.yml` | Cron: 10:30 y 18:30 AR (L-V) + manual | Descarga PDF SIAFAR → ETL 8+ capas → medicamentos.json → 100 landings → 28 pytest → commit |
-| **Maintenance ON** | `.github/workflows/maintenance-on.yml` | Manual | Reemplaza index.html con mantenimiento.html |
-| **Maintenance OFF** | `.github/workflows/maintenance-off.yml` | Manual | Restaura index.html a estado normal |
-| **Accesibilidad** | `.github/workflows/accessibility.yml` | Push/PR a assets | axe-core contra todas las páginas → reporte; no bloquea |
-| **Sintaxis JS** | `.github/workflows/js-syntax-check.yml` | Push/PR a js/ | `node --check` → bloquea build si hay SyntaxError (v2.4.1+) |
-| **Headers Prod** | `.github/workflows/headers-check.yml` | Push a main | Valida headers en `_headers` vs Cloudflare Transform Rules |
-| **CodeQL** | `.github/workflows/codeql.yml` | Automático | Análisis estático de seguridad Python + JS |
 
 # ❓ Preguntas Frecuentes (FAQ)
 
