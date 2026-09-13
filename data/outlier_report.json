@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-09-11T20:30:13.301832-03:00",
+  "timestamp": "2026-09-13T20:04:01.921785-03:00",
   "total_registros": 13126,
-  "total_outliers": 96,
+  "total_outliers": 97,
   "outliers": [
     {
       "droga": "abiraterona,acetato",
@@ -89,9 +89,9 @@
       "precio": 6561.14,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $6,561.14 < 25% mediana $26,332.73 (n=79)"
+        "precio $6,561.14 < 25% mediana $26,464.40 (n=79)"
       ],
-      "mediana_droga": 26332.73,
+      "mediana_droga": 26464.4,
       "n_droga": 79
     },
     {
@@ -99,10 +99,10 @@
       "marca": "AMOXI DUO MAR",
       "presentacion": "875 mg comp. x 14",
       "laboratorio": "Mar",
-      "precio": 11390.0,
+      "precio": 11560.0,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $13.02 << mediana_grupo $169.00"
+        "ppu $13.21 << mediana_grupo $171.50"
       ],
       "mediana_droga": 11626.22,
       "n_droga": 115
@@ -143,7 +143,7 @@
       "razones": [
         "ppu $52.10 << mediana_grupo $16,293.18"
       ],
-      "mediana_droga": 24128.25,
+      "mediana_droga": 24303.25,
       "n_droga": 64
     },
     {
@@ -156,7 +156,7 @@
       "razones": [
         "ppu $204.37 << mediana_grupo $1,182.20"
       ],
-      "mediana_droga": 24128.25,
+      "mediana_droga": 24303.25,
       "n_droga": 64
     },
     {
@@ -394,6 +394,19 @@
       "n_droga": 5
     },
     {
+      "droga": "clindamicina, ketoconazol",
+      "marca": "MACRIL DUO",
+      "presentacion": "cáps.bl.vag.x 7",
+      "laboratorio": "Andrómaco",
+      "precio": 24099.84,
+      "precio_outlier_tipo": "bajo_iqr",
+      "razones": [
+        "precio $24,099.84 < fence_low $24,409.45"
+      ],
+      "mediana_droga": 26790.35,
+      "n_droga": 8
+    },
+    {
       "droga": "clonazepam",
       "marca": "CLONER",
       "presentacion": "gts.x 20 ml",
@@ -489,10 +502,10 @@
       "marca": "DESLORAMAR",
       "presentacion": "susp.fco.x 60 ml",
       "laboratorio": "Mar",
-      "precio": 10790.0,
+      "precio": 10950.0,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $179.83 << mediana_grupo $1,289.00"
+        "ppu $182.50 << mediana_grupo $1,308.00"
       ],
       "mediana_droga": 12623.48,
       "n_droga": 24
@@ -502,10 +515,10 @@
       "marca": "DESLORAMAR CORT",
       "presentacion": "susp.fco.x 60 ml",
       "laboratorio": "Mar",
-      "precio": 11970.0,
+      "precio": 12150.0,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $199.50 << mediana_grupo $1,211.75"
+        "ppu $202.50 << mediana_grupo $1,230.25"
       ],
       "mediana_droga": 13151.34,
       "n_droga": 12
@@ -671,12 +684,12 @@
       "marca": "IBUMULTIN",
       "presentacion": "600 mg comp. x 10",
       "laboratorio": "Lazar",
-      "precio": 6444.25,
+      "precio": 6553.8,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $10.74 << mediana_grupo $1,199.06"
+        "ppu $10.92 << mediana_grupo $1,219.45"
       ],
-      "mediana_droga": 8470.0,
+      "mediana_droga": 8525.0,
       "n_droga": 148
     },
     {
@@ -689,7 +702,7 @@
       "razones": [
         "ppu $12.35 << mediana_grupo $1,021.17"
       ],
-      "mediana_droga": 8470.0,
+      "mediana_droga": 8525.0,
       "n_droga": 148
     },
     {
@@ -702,7 +715,7 @@
       "razones": [
         "ppu $20.66 << mediana_grupo $1,133.54"
       ],
-      "mediana_droga": 8470.0,
+      "mediana_droga": 8525.0,
       "n_droga": 148
     },
     {
@@ -736,12 +749,12 @@
       "marca": "LACTULON",
       "presentacion": "jbe.x 120 ml",
       "laboratorio": "Lazar",
-      "precio": 17444.13,
+      "precio": 17740.68,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $145.37 << mediana_grupo $1,561.50"
+        "ppu $147.84 << mediana_grupo $1,588.04"
       ],
-      "mediana_droga": 19289.32,
+      "mediana_droga": 19617.24,
       "n_droga": 9
     },
     {
@@ -749,12 +762,12 @@
       "marca": "LACTULON",
       "presentacion": "jbe.x 250 ml",
       "laboratorio": "Lazar",
-      "precio": 29221.29,
+      "precio": 29718.05,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $116.89 << mediana_grupo $1,561.50"
+        "ppu $118.87 << mediana_grupo $1,588.04"
       ],
-      "mediana_droga": 19289.32,
+      "mediana_droga": 19617.24,
       "n_droga": 9
     },
     {
@@ -1178,10 +1191,10 @@
       "marca": "MOMENTUM",
       "presentacion": "20 mg comp.rec.x 4",
       "laboratorio": "Panalab",
-      "precio": 42101.29,
+      "precio": 42522.3,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $2,105.06 << mediana_grupo $11,902.45"
+        "ppu $2,126.12 << mediana_grupo $12,259.53"
       ],
       "mediana_droga": 87724.12,
       "n_droga": 66
