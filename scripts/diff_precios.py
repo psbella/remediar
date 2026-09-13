@@ -63,10 +63,13 @@ def cargar_anterior() -> dict:
             ["git", "show", "HEAD:data/medicamentos.json"],
             cwd=BASE, capture_output=True, text=True, check=True,
         )
+        data = json.loads(resultado.stdout)
     except subprocess.CalledProcessError as e:
         print(f"   No se pudo leer HEAD anterior ({e}); se asume primera corrida, sin diff.")
         return {}
-    data = json.loads(resultado.stdout)
+    except json.JSONDecodeError as e:
+        print(f"   JSON corrupto en HEAD ({e}); abortando diff.")
+        sys.exit(1)
     return _confiables(data.get("medicamentos", []))
 
 
@@ -104,9 +107,10 @@ def calcular_diff(anterior: dict, actual: dict, fecha_str: str) -> list[dict]:
         p_viejo = anterior[k].get("precio")
         if p_nuevo is None or p_viejo is None:
             continue
-        diferencia = round(p_nuevo - p_viejo, 2)
-        if abs(diferencia) < EPSILON:
+        # Aplicar EPSILON ANTES de redondear: filtra ruido flotante real
+        if abs(p_nuevo - p_viejo) < EPSILON:
             continue
+        diferencia = round(p_nuevo - p_viejo, 2)
         pct = round((diferencia / p_viejo) * 100, 2) if p_viejo else None
         filas.append({
             "fecha": fecha_str, "tipo": "cambio_precio",
