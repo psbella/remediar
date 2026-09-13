@@ -36,22 +36,15 @@ jobs:
         run: python scripts/subir_debug.py
       - name: Verificar sanidad del output
         run: pytest tests/ -v
-      - name: Snapshot semanal (solo viernes)
+      - name: Diff de precios
         if: github.event_name == 'schedule'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          if [ "$(TZ="America/Argentina/Buenos_Aires" date +%u)" = "5" ]; then
-            echo "Viernes detectado — generando snapshot semanal..."
-            python scripts/snapshot_semanal.py
-          else
-            echo "No es viernes, saltando snapshot."
-          fi
+        run: python scripts/diff_precios.py
       - name: Commit y push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "actions@github.com"
           git add data/medicamentos.json
+          git add data/historico/precios.json
           git add data/outlier_report.json
           git add data/presentaciones_debug.csv
           git add *.html
