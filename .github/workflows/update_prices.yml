@@ -38,6 +38,8 @@ jobs:
         run: pytest tests/ -v
       - name: Diff de precios
         if: github.event_name == 'schedule'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python scripts/diff_precios.py
       - name: Commit y push
         run: |
