@@ -1,5 +1,27 @@
 # Changelog
 
+## [2.5.0] - 2026-09-13
+
+### Added
+- Histórico incremental de precios en lugar de snapshot semanal
+  - `scripts/diff_precios.py`: compara precios entre corridas y registra solo cambios
+  - `data/historico/precios.json`: archivo versionado en repo (altas, bajas, cambios de precio)
+  - 2 corridas/día hábil vs 1x/semana anterior
+  - Reducción ~100x en I/O (típicamente 50-200 cambios por corrida)
+  - Sin dependencia de GitHub Releases ni GITHUB_TOKEN para histórico
+  - Timestamps en horario Argentina (-3)
+  - Filtro de ruido: EPSILON 0.005 ARS (absoluto)
+
+### Fixed
+- Workflow YAML: eliminar condicional inválido de snapshot viernes
+- diff_precios.py: aplicar EPSILON antes de redondear (evita registrar ruido flotante)
+- diff_precios.py: capturar JSONDecodeError para mayor robustez
+
+### Removed
+- `scripts/snapshot_semanal.py`: reemplazado por histórico incremental
+
+---
+
 Todos los cambios notables de remedi.ar se documentan en este archivo.
 
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y el proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
