@@ -1,21 +1,8 @@
 {
-  "timestamp": "2026-09-14T21:23:56.514751-03:00",
+  "timestamp": "2026-09-15T02:06:19.523938-03:00",
   "total_registros": 13126,
-  "total_outliers": 97,
+  "total_outliers": 96,
   "outliers": [
-    {
-      "droga": "abiraterona,acetato",
-      "marca": "ASTRODIL",
-      "presentacion": "comp.x 120",
-      "laboratorio": "Teva argentina",
-      "precio": 6712527.86,
-      "precio_outlier_tipo": "bajo_iqr",
-      "razones": [
-        "precio $6,712,527.86 < fence_low $6,933,338.05"
-      ],
-      "mediana_droga": 12074028.78,
-      "n_droga": 19
-    },
     {
       "droga": "aciclovir",
       "marca": "XICLOVIR",
@@ -60,12 +47,12 @@
       "marca": "VERMIZOLE",
       "presentacion": "200 mg comp.x 6",
       "laboratorio": "Lafedar",
-      "precio": 22870.01,
+      "precio": 23258.8,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $114.35 << mediana_grupo $3,250.87"
+        "ppu $116.29 << mediana_grupo $3,306.14"
       ],
-      "mediana_droga": 22685.65,
+      "mediana_droga": 23071.3,
       "n_droga": 9
     },
     {
@@ -73,12 +60,12 @@
       "marca": "VERMIZOLE",
       "presentacion": "400 mg comp.x 6",
       "laboratorio": "Lafedar",
-      "precio": 35132.76,
+      "precio": 35730.02,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $87.83 << mediana_grupo $3,250.87"
+        "ppu $89.33 << mediana_grupo $3,306.14"
       ],
-      "mediana_droga": 22685.65,
+      "mediana_droga": 23071.3,
       "n_droga": 9
     },
     {
@@ -377,7 +364,7 @@
       "razones": [
         "ppu $35.52 << mediana_grupo $1,229.12"
       ],
-      "mediana_droga": 19500.15,
+      "mediana_droga": 19664.62,
       "n_droga": 46
     },
     {
@@ -416,7 +403,7 @@
       "razones": [
         "ppu $781.29 << mediana_grupo $4,851.25"
       ],
-      "mediana_droga": 15817.77,
+      "mediana_droga": 15883.71,
       "n_droga": 116
     },
     {
@@ -429,7 +416,7 @@
       "razones": [
         "ppu $781.40 << mediana_grupo $11,206.97"
       ],
-      "mediana_droga": 15817.77,
+      "mediana_droga": 15883.71,
       "n_droga": 116
     },
     {
@@ -442,7 +429,7 @@
       "razones": [
         "ppu $788.86 << mediana_grupo $11,193.96"
       ],
-      "mediana_droga": 15817.77,
+      "mediana_droga": 15883.71,
       "n_droga": 116
     },
     {
@@ -771,19 +758,6 @@
       "n_droga": 9
     },
     {
-      "droga": "latanoprost, timolol",
-      "marca": "LATIMODORF",
-      "presentacion": "gts.oft.x 2.5 ml",
-      "laboratorio": "PharmaDorf",
-      "precio": 35262.83,
-      "precio_outlier_tipo": "bajo_iqr",
-      "razones": [
-        "precio $35,262.83 < fence_low $35,742.65"
-      ],
-      "mediana_droga": 39428.94,
-      "n_droga": 6
-    },
-    {
       "droga": "lidocaína",
       "marca": "LIGNOCAINA GRAY",
       "presentacion": "2% f.a.x 20 ml",
@@ -923,7 +897,7 @@
       "razones": [
         "ppu $1,348.80 << mediana_grupo $8,205.38"
       ],
-      "mediana_droga": 43119.35,
+      "mediana_droga": 43275.35,
       "n_droga": 50
     },
     {
@@ -1005,6 +979,19 @@
       "n_droga": 80
     },
     {
+      "droga": "paroxetina",
+      "marca": "DATEVAN",
+      "presentacion": "20 mg comp.x 10",
+      "laboratorio": "Rontag",
+      "precio": 19638.5,
+      "precio_outlier_tipo": "bajo_iqr",
+      "razones": [
+        "precio $19,638.50 < fence_low $20,320.80"
+      ],
+      "mediana_droga": 57416.16,
+      "n_droga": 32
+    },
+    {
       "droga": "rifampicina",
       "marca": "RIFAMPICINA RICHET",
       "presentacion": "300 mg caps.x 8",
@@ -1027,7 +1014,7 @@
       "razones": [
         "ppu $1,209.51 << mediana_grupo $17,213.55"
       ],
-      "mediana_droga": 42964.1,
+      "mediana_droga": 43016.19,
       "n_droga": 58
     },
     {
@@ -1040,7 +1027,7 @@
       "razones": [
         "ppu $1,927.55 << mediana_grupo $30,124.63"
       ],
-      "mediana_droga": 42964.1,
+      "mediana_droga": 43016.19,
       "n_droga": 58
     },
     {
@@ -1053,7 +1040,7 @@
       "razones": [
         "ppu $2,159.19 << mediana_grupo $30,124.63"
       ],
-      "mediana_droga": 42964.1,
+      "mediana_droga": 43016.19,
       "n_droga": 58
     },
     {
@@ -1118,7 +1105,7 @@
       "razones": [
         "ppu $162.41 << mediana_grupo $912.21"
       ],
-      "mediana_droga": 17443.35,
+      "mediana_droga": 17521.57,
       "n_droga": 20
     },
     {
@@ -1126,12 +1113,12 @@
       "marca": "SPECTREX",
       "presentacion": "susp.oral x 100 ml",
       "laboratorio": "Lafedar",
-      "precio": 16797.24,
+      "precio": 17082.79,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $167.97 << mediana_grupo $1,418.92"
+        "ppu $170.83 << mediana_grupo $1,443.04"
       ],
-      "mediana_droga": 17443.35,
+      "mediana_droga": 17521.57,
       "n_droga": 20
     },
     {
@@ -1144,7 +1131,7 @@
       "razones": [
         "ppu $105.24 << mediana_grupo $682.29"
       ],
-      "mediana_droga": 17443.35,
+      "mediana_droga": 17521.57,
       "n_droga": 20
     },
     {
