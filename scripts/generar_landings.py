@@ -4,6 +4,7 @@ import json
 import statistics
 from pathlib import Path
 from datetime import datetime
+from etl.config import AR_TZ
 import html as html_module
 
 BASE_DIR = Path(__file__).parent.parent
@@ -327,9 +328,9 @@ with open(DATA_DIR / "medicamentos.json", encoding='utf-8') as f:
     data = json.load(f)
 
 medicamentos = data.get('medicamentos', [])
-HOY     = datetime.now().strftime("%d/%m/%Y")
-HORA    = datetime.now().strftime("%H:%M")
-LASTMOD = datetime.now().strftime("%Y-%m-%d")
+HOY     = datetime.now(AR_TZ).strftime("%d/%m/%Y")
+HORA    = datetime.now(AR_TZ).strftime("%H:%M")
+LASTMOD = datetime.now(AR_TZ).strftime("%Y-%m-%d")
 
 por_droga: dict[str, list] = {}
 for m in medicamentos:
