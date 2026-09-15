@@ -31,6 +31,7 @@ OUTLIER_REPORT    = BASE / "data" / "outlier_report.json"
 MEDICAMENTOS_PATH = BASE / "data" / "medicamentos.json"
 PRES_DEBUG_PATH   = BASE / "data" / "presentaciones_debug.csv"
 DROGA_FIXES_PATH  = BASE / "data" / "droga_fixes.json"
+PDF_HASH_PATH     = BASE / "data" / ".pdf_hash"
 
 # Vademécum PAMI: se actualiza a mano ~1 vez por mes (ver README).
 # Fuente: https://datos.pami.org.ar/dataset/vademecum-pami-farmacia

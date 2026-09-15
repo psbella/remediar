@@ -27,17 +27,21 @@ jobs:
       - name: Instalar dependencias
         run: pip install -r requirements.txt
       - name: Ejecutar pdf_to_json.py
+        id: pdf_to_json
         run: python scripts/pdf_to_json.py
       - name: Generar landings + sitemap
+        if: steps.pdf_to_json.outputs.sin_cambios != 'true'
         run: python scripts/generar_landings.py
       - name: Subir debug a GitHub Releases
+        if: steps.pdf_to_json.outputs.sin_cambios != 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python scripts/subir_debug.py
       - name: Verificar sanidad del output
+        if: steps.pdf_to_json.outputs.sin_cambios != 'true'
         run: pytest tests/ -v
       - name: Diff de precios
-        if: github.event_name == 'schedule'
+        if: github.event_name == 'schedule' && steps.pdf_to_json.outputs.sin_cambios != 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python scripts/diff_precios.py
@@ -49,6 +53,7 @@ jobs:
           git add data/historico/precios.json
           git add data/outlier_report.json
           git add data/presentaciones_debug.csv
+          git add data/.pdf_hash
           git add *.html
           git add sitemap.xml
           git commit -m "Actualizar precios $(TZ="America/Argentina/Buenos_Aires" date +'%Y-%m-%d')" || echo "No changes"

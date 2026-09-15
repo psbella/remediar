@@ -6,10 +6,12 @@ scripts/etl/ como un módulo independiente y testeable por separado. Este
 archivo solo encadena los pasos en el orden correcto y persiste el resultado.
 """
 
+import hashlib
 import json
+import os
 from datetime import datetime
 
-from etl.config import AR_TZ, MEDICAMENTOS_PATH, BASE, DROGA_FIXES_PATH
+from etl.config import AR_TZ, MEDICAMENTOS_PATH, BASE, DROGA_FIXES_PATH, PDF_HASH_PATH
 from etl.parser import PDF_URL, descargar_pdf, parsear_pdf, deduplicar
 from etl.blacklist import cargar_blacklist, filtrar_blacklist
 from etl.reparaciones import (
@@ -30,8 +32,34 @@ from etl.outliers import calcular_vigencia
 from etl.enriquecimiento import enriquecer_dosis
 
 
+def _marcar_sin_cambios(sin_cambios: bool) -> None:
+    """Expone el resultado como output del step de GitHub Actions (si corre ahi),
+    para que el workflow salte landings/debug/tests/commit cuando el PDF de
+    origen es byte a byte el mismo que en la corrida anterior."""
+    github_output = os.environ.get("GITHUB_OUTPUT")
+    if github_output:
+        with open(github_output, "a", encoding="utf-8") as f:
+            f.write(f"sin_cambios={'true' if sin_cambios else 'false'}\n")
+
+
 def main():
     pdf_bytes = descargar_pdf(PDF_URL)
+
+    # ── Guard: si el PDF es identico al de la corrida anterior, no tiene
+    # sentido volver a parsear/generar/commitear. Se compara el hash del PDF
+    # crudo, no el del output, porque lo que queremos detectar es "SIAFAR no
+    # publico nada nuevo" antes de gastar tiempo de CI reprocesando lo mismo.
+    hash_actual   = hashlib.sha256(pdf_bytes).hexdigest()
+    hash_anterior = (
+        PDF_HASH_PATH.read_text(encoding="utf-8").strip()
+        if PDF_HASH_PATH.exists() else None
+    )
+    if hash_actual == hash_anterior:
+        print(f"PDF identico a la corrida anterior (sha256 {hash_actual[:12]}...). "
+              f"Sin cambios en la fuente, se omite el resto del pipeline.")
+        _marcar_sin_cambios(True)
+        return
+
     medicamentos = parsear_pdf(pdf_bytes)
 
     # ── Deduplicación de registros exactos ─────────────────────────────────
@@ -130,8 +158,11 @@ def main():
     PRETTY_PATH.parent.mkdir(parents=True, exist_ok=True)
     with open(PRETTY_PATH, 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
+    PDF_HASH_PATH.parent.mkdir(parents=True, exist_ok=True)
+    PDF_HASH_PATH.write_text(hash_actual, encoding="utf-8")
     print(f"\nGuardado: {MEDICAMENTOS_PATH}")
     print(f"Total: {len(medicamentos)} | Excluidos (blacklist): {n_bl} | Fecha: {fecha_str}")
+    _marcar_sin_cambios(False)
 
 
 if __name__ == "__main__":
