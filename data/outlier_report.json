@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-09-15T02:59:36.169364-03:00",
+  "timestamp": "2026-09-16T15:16:52.961363-03:00",
   "total_registros": 13126,
   "total_outliers": 96,
   "outliers": [
@@ -762,12 +762,12 @@
       "marca": "LIGNOCAINA GRAY",
       "presentacion": "2% f.a.x 20 ml",
       "laboratorio": "Gray",
-      "precio": 18369.72,
+      "precio": 18920.81,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $9,184.86 << mediana_grupo $344,088.43"
+        "ppu $9,460.41 << mediana_grupo $354,411.09"
       ],
-      "mediana_droga": 18369.72,
+      "mediana_droga": 18920.81,
       "n_droga": 15
     },
     {
@@ -1022,10 +1022,10 @@
       "marca": "RISPERDAL",
       "presentacion": "sol.oral x 100 ml",
       "laboratorio": "Janssen-Cilag",
-      "precio": 192755.05,
+      "precio": 196031.9,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $1,927.55 << mediana_grupo $30,124.63"
+        "ppu $1,960.32 << mediana_grupo $30,636.75"
       ],
       "mediana_droga": 43016.19,
       "n_droga": 58
@@ -1035,10 +1035,10 @@
       "marca": "RISPERDAL",
       "presentacion": "sol.oral x 30 ml",
       "laboratorio": "Janssen-Cilag",
-      "precio": 64775.6,
+      "precio": 65876.77,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $2,159.19 << mediana_grupo $30,124.63"
+        "ppu $2,195.89 << mediana_grupo $30,636.75"
       ],
       "mediana_droga": 43016.19,
       "n_droga": 58
