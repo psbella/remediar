@@ -46,6 +46,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python scripts/diff_precios.py
       - name: Commit y push
+        if: steps.pdf_to_json.outputs.sin_cambios != 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "actions@github.com"
