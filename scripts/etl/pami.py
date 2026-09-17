@@ -25,9 +25,11 @@ def _build_pami_index():
         return None, None, None
 
     df.columns = [c.strip() for c in df.columns]
-
     def _norm(s):
         import re as _re
+        import unicodedata as _ud
+        s_sin_acentos = _ud.normalize('NFKD', str(s or '')).encode('ascii', 'ignore').decode('utf-8')
+        return _re.sub(r'\s+', ' ', s_sin_acentos.strip().upper())
         return _re.sub(r'\s+', ' ', str(s or '').strip().upper())
 
     by_marca_pres  = {}
@@ -57,9 +59,11 @@ def _build_pami_index():
             key_dosis = (mk, p['dosis'], p['unidad'], p['cantidad'])
             if key_dosis not in by_marca_dosis:
                 by_marca_dosis[key_dosis] = row
+    import unicodedata as _ud
 
-    return by_marca_pres, by_marca, by_marca_dosis
-
+    def _norm(s):
+        s_sin_acentos = _ud.normalize('NFKD', str(s or '')).encode('ascii', 'ignore').decode('utf-8')
+        return _re.sub(r'\s+', ' ', s_sin_acentos.strip().upper())
 def crosswalk_pami(medicamentos: list) -> tuple:
     """
     Enriquece registros de SIAFAR usando el vademécum de PAMI.
