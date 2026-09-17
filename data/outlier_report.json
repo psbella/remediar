@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-09-16T15:16:52.961363-03:00",
+  "timestamp": "2026-09-17T15:24:14.520271-03:00",
   "total_registros": 13126,
-  "total_outliers": 96,
+  "total_outliers": 97,
   "outliers": [
     {
       "droga": "aciclovir",
@@ -167,9 +167,9 @@
       "precio": 114122.05,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $114,122.05 < fence_low $115,925.30"
+        "precio $114,122.05 < fence_low $116,825.60"
       ],
-      "mediana_droga": 136351.84,
+      "mediana_droga": 137330.32,
       "n_droga": 26
     },
     {
@@ -182,7 +182,7 @@
       "razones": [
         "ppu $2,217.07 << mediana_grupo $34,364.61"
       ],
-      "mediana_droga": 136351.84,
+      "mediana_droga": 137330.32,
       "n_droga": 26
     },
     {
@@ -307,12 +307,12 @@
       "marca": "ACANTEX",
       "presentacion": "500 mg IM f.a.x 1",
       "laboratorio": "Siegfried",
-      "precio": 14088.43,
+      "precio": 14292.01,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $28.18 << mediana_grupo $19,097.20"
+        "ppu $28.58 << mediana_grupo $19,373.16"
       ],
-      "mediana_droga": 18015.08,
+      "mediana_droga": 18154.19,
       "n_droga": 10
     },
     {
@@ -476,10 +476,10 @@
       "marca": "HEXALER",
       "presentacion": "jbe.x 60 ml",
       "laboratorio": "Siegfried",
-      "precio": 13157.61,
+      "precio": 13347.73,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $219.29 << mediana_grupo $1,539.85"
+        "ppu $222.46 << mediana_grupo $1,562.10"
       ],
       "mediana_droga": 12623.48,
       "n_droga": 24
@@ -533,7 +533,7 @@
       "razones": [
         "ppu $1,503.20 << mediana_grupo $9,276.70"
       ],
-      "mediana_droga": 33836.96,
+      "mediana_droga": 33961.64,
       "n_droga": 40
     },
     {
@@ -602,6 +602,19 @@
       "n_droga": 22
     },
     {
+      "droga": "enalapril",
+      "marca": "LOTRIAL",
+      "presentacion": "2.5 mg comp.x 30",
+      "laboratorio": "Roemmers",
+      "precio": 3615.0,
+      "precio_outlier_tipo": "bajo_relativo",
+      "razones": [
+        "precio $3,615.00 < 25% mediana $14,506.57 (n=104)"
+      ],
+      "mediana_droga": 14506.57,
+      "n_droga": 104
+    },
+    {
       "droga": "ergotamina, cafeína, asoc.",
       "marca": "MIGRA DIOXADOL",
       "presentacion": "comp.x 10",
@@ -609,9 +622,9 @@
       "precio": 5536.86,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $5,536.86 < 25% mediana $22,549.04 (n=14)"
+        "precio $5,536.86 < 25% mediana $22,727.99 (n=14)"
       ],
-      "mediana_droga": 22549.04,
+      "mediana_droga": 22727.99,
       "n_droga": 14
     },
     {
@@ -1105,7 +1118,7 @@
       "razones": [
         "ppu $162.41 << mediana_grupo $912.21"
       ],
-      "mediana_droga": 17521.57,
+      "mediana_droga": 17872.27,
       "n_droga": 20
     },
     {
@@ -1118,7 +1131,7 @@
       "razones": [
         "ppu $170.83 << mediana_grupo $1,443.04"
       ],
-      "mediana_droga": 17521.57,
+      "mediana_droga": 17872.27,
       "n_droga": 20
     },
     {
@@ -1131,7 +1144,7 @@
       "razones": [
         "ppu $105.24 << mediana_grupo $682.29"
       ],
-      "mediana_droga": 17521.57,
+      "mediana_droga": 17872.27,
       "n_droga": 20
     },
     {
