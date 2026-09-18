@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-09-17T15:24:14.520271-03:00",
+  "timestamp": "2026-09-18T04:38:52.710345-03:00",
   "total_registros": 13126,
   "total_outliers": 97,
   "outliers": [
@@ -91,7 +91,7 @@
       "razones": [
         "ppu $13.21 << mediana_grupo $171.50"
       ],
-      "mediana_droga": 11626.22,
+      "mediana_droga": 11800.0,
       "n_droga": 115
     },
     {
@@ -104,7 +104,7 @@
       "razones": [
         "ppu $17.48 << mediana_grupo $122.63"
       ],
-      "mediana_droga": 11626.22,
+      "mediana_droga": 11800.0,
       "n_droga": 115
     },
     {
@@ -221,7 +221,7 @@
       "razones": [
         "ppu $49.43 << mediana_grupo $911.13"
       ],
-      "mediana_droga": 20130.82,
+      "mediana_droga": 20140.58,
       "n_droga": 68
     },
     {
@@ -260,7 +260,7 @@
       "razones": [
         "ppu $425.92 << mediana_grupo $7,812.77"
       ],
-      "mediana_droga": 9765.36,
+      "mediana_droga": 9850.36,
       "n_droga": 38
     },
     {
@@ -520,7 +520,7 @@
       "razones": [
         "ppu $201.13 << mediana_grupo $1,932.44"
       ],
-      "mediana_droga": 15797.34,
+      "mediana_droga": 16000.0,
       "n_droga": 95
     },
     {
@@ -689,7 +689,7 @@
       "razones": [
         "ppu $10.92 << mediana_grupo $1,219.45"
       ],
-      "mediana_droga": 8525.0,
+      "mediana_droga": 8552.48,
       "n_droga": 148
     },
     {
@@ -702,7 +702,7 @@
       "razones": [
         "ppu $12.35 << mediana_grupo $1,021.17"
       ],
-      "mediana_droga": 8525.0,
+      "mediana_droga": 8552.48,
       "n_droga": 148
     },
     {
@@ -715,7 +715,7 @@
       "razones": [
         "ppu $20.66 << mediana_grupo $1,133.54"
       ],
-      "mediana_droga": 8525.0,
+      "mediana_droga": 8552.48,
       "n_droga": 148
     },
     {
@@ -910,7 +910,7 @@
       "razones": [
         "ppu $1,348.80 << mediana_grupo $8,205.38"
       ],
-      "mediana_droga": 43275.35,
+      "mediana_droga": 43289.3,
       "n_droga": 50
     },
     {
@@ -1181,9 +1181,9 @@
       "precio": 21548.21,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $21,548.21 < 25% mediana $87,724.12 (n=66)"
+        "precio $21,548.21 < 25% mediana $88,547.03 (n=66)"
       ],
-      "mediana_droga": 87724.12,
+      "mediana_droga": 88547.03,
       "n_droga": 66
     },
     {
@@ -1196,7 +1196,7 @@
       "razones": [
         "ppu $2,126.12 << mediana_grupo $12,259.53"
       ],
-      "mediana_droga": 87724.12,
+      "mediana_droga": 88547.03,
       "n_droga": 66
     },
     {
