@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-09-22T15:11:28.297581-03:00",
+  "timestamp": "2026-09-23T15:29:49.026266-03:00",
   "total_registros": 13126,
   "total_outliers": 96,
   "outliers": [
@@ -333,10 +333,10 @@
       "marca": "CICLOFOSFAMIDA FILAXIS",
       "presentacion": "1000 mg f.a.x 1",
       "laboratorio": "GP Pharm",
-      "precio": 205000.0,
+      "precio": 220000.0,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $205.00 << mediana_grupo $1,511.69"
+        "ppu $220.00 << mediana_grupo $1,622.30"
       ],
       "mediana_droga": 247263.16,
       "n_droga": 8
@@ -986,7 +986,7 @@
       "precio": 19638.5,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $19,638.50 < fence_low $20,320.80"
+        "precio $19,638.50 < fence_low $20,632.79"
       ],
       "mediana_droga": 57416.16,
       "n_droga": 32
@@ -1230,12 +1230,12 @@
       "marca": "ABNOBA VISCUM FRAXINI",
       "presentacion": "20 mg iny.a.x 8",
       "laboratorio": "GP Pharm",
-      "precio": 445960.88,
+      "precio": 453542.21,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $22,298.04 << mediana_grupo $122,639.24"
+        "ppu $22,677.11 << mediana_grupo $124,724.11"
       ],
-      "mediana_droga": 445960.88,
+      "mediana_droga": 453542.21,
       "n_droga": 4
     },
     {
