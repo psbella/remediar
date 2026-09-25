@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-09-24T15:30:58.639331-03:00",
+  "timestamp": "2026-09-25T15:46:37.071402-03:00",
   "total_registros": 13126,
-  "total_outliers": 96,
+  "total_outliers": 97,
   "outliers": [
     {
       "droga": "aciclovir",
@@ -537,6 +537,19 @@
       "n_droga": 17
     },
     {
+      "droga": "dimetil fumarato",
+      "marca": "LIXERAL",
+      "presentacion": "120 mg cáps.x 14",
+      "laboratorio": "Casasco",
+      "precio": 1769755.78,
+      "precio_outlier_tipo": "bajo_relativo",
+      "razones": [
+        "precio $1,769,755.78 < 25% mediana $7,081,848.71 (n=11)"
+      ],
+      "mediana_droga": 7081848.71,
+      "n_droga": 11
+    },
+    {
       "droga": "dipirona",
       "marca": "DIPIRONA KLONAL",
       "presentacion": "jbe.x 100 ml",
@@ -546,7 +559,7 @@
       "razones": [
         "ppu $123.16 << mediana_grupo $315,870.34"
       ],
-      "mediana_droga": 12916.98,
+      "mediana_droga": 13036.98,
       "n_droga": 22
     },
     {
@@ -559,7 +572,7 @@
       "razones": [
         "ppu $154.65 << mediana_grupo $978.32"
       ],
-      "mediana_droga": 12916.98,
+      "mediana_droga": 13036.98,
       "n_droga": 22
     },
     {
@@ -572,7 +585,7 @@
       "razones": [
         "ppu $95.94 << mediana_grupo $691.04"
       ],
-      "mediana_droga": 12916.98,
+      "mediana_droga": 13036.98,
       "n_droga": 22
     },
     {
@@ -585,7 +598,7 @@
       "razones": [
         "ppu $115.60 << mediana_grupo $978.32"
       ],
-      "mediana_droga": 12916.98,
+      "mediana_droga": 13036.98,
       "n_droga": 22
     },
     {
@@ -726,7 +739,7 @@
       "precio": 182648.12,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $2,609.26 << mediana_grupo $44,524.58"
+        "ppu $2,609.26 << mediana_grupo $45,415.07"
       ],
       "mediana_droga": 200908.88,
       "n_droga": 17
@@ -1009,10 +1022,10 @@
       "marca": "RISPERIN",
       "presentacion": "1mg/ml sol.oral x 30 ml",
       "laboratorio": "Gador",
-      "precio": 36285.15,
+      "precio": 36793.15,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $1,209.51 << mediana_grupo $17,213.55"
+        "ppu $1,226.44 << mediana_grupo $17,454.54"
       ],
       "mediana_droga": 43016.19,
       "n_droga": 58
@@ -1246,7 +1259,7 @@
       "precio": 13700.15,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $13,700.15 < fence_low $14,370.51"
+        "precio $13,700.15 < fence_low $15,120.51"
       ],
       "mediana_droga": 15806.69,
       "n_droga": 6
