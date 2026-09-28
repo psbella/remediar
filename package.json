@@ -17,6 +17,6 @@
   "devDependencies": {
     "axe-core": "^4.12.1",
     "eslint": "^10.11.0",
-    "puppeteer": "^25.11.0"
+    "puppeteer": "^25.12.0"
   }
 }
