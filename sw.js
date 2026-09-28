@@ -19,7 +19,6 @@ const CACHE_STATIC = [
     '/js/searchEngine.js',
     '/js/uiRenderer.js',
     '/js/atcClasificacion.js',
-    '/js/atcClasificacion.js',
     '/js/infoAdicional.js',
     '/js/utils.js',
     '/js/landing.js',
