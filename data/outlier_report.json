@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-09-25T15:46:37.071402-03:00",
+  "timestamp": "2026-09-28T17:39:00.575527-03:00",
   "total_registros": 13126,
   "total_outliers": 97,
   "outliers": [
@@ -91,7 +91,7 @@
       "razones": [
         "ppu $13.21 << mediana_grupo $171.50"
       ],
-      "mediana_droga": 11827.28,
+      "mediana_droga": 11831.0,
       "n_droga": 115
     },
     {
@@ -104,7 +104,7 @@
       "razones": [
         "ppu $18.09 << mediana_grupo $122.94"
       ],
-      "mediana_droga": 11827.28,
+      "mediana_droga": 11831.0,
       "n_droga": 115
     },
     {
@@ -167,9 +167,9 @@
       "precio": 114122.05,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $114,122.05 < fence_low $116,825.60"
+        "precio $114,122.05 < fence_low $116,930.43"
       ],
-      "mediana_droga": 137330.32,
+      "mediana_droga": 137364.45,
       "n_droga": 26
     },
     {
@@ -182,7 +182,7 @@
       "razones": [
         "ppu $2,217.07 << mediana_grupo $34,364.61"
       ],
-      "mediana_droga": 137330.32,
+      "mediana_droga": 137364.45,
       "n_droga": 26
     },
     {
@@ -216,10 +216,10 @@
       "marca": "TREXBIOTIC",
       "presentacion": "500 mg comp.rec.x 6",
       "laboratorio": "Casasco",
-      "precio": 24715.38,
+      "precio": 25135.55,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $49.43 << mediana_grupo $911.13"
+        "ppu $50.27 << mediana_grupo $926.62"
       ],
       "mediana_droga": 20299.18,
       "n_droga": 68
@@ -229,12 +229,12 @@
       "marca": "ERNEX",
       "presentacion": "liq.x 120 ml",
       "laboratorio": "Casasco",
-      "precio": 17402.36,
+      "precio": 17698.2,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $145.02 << mediana_grupo $954.89"
+        "ppu $147.49 << mediana_grupo $971.12"
       ],
-      "mediana_droga": 17402.36,
+      "mediana_droga": 17698.2,
       "n_droga": 5
     },
     {
@@ -398,10 +398,10 @@
       "marca": "QUAZEMIC",
       "presentacion": "gts.x 20 ml",
       "laboratorio": "Casasco",
-      "precio": 15627.98,
+      "precio": 15893.66,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $781.40 << mediana_grupo $11,206.97"
+        "ppu $794.68 << mediana_grupo $11,397.49"
       ],
       "mediana_droga": 16054.96,
       "n_droga": 116
@@ -541,12 +541,12 @@
       "marca": "LIXERAL",
       "presentacion": "120 mg cáps.x 14",
       "laboratorio": "Casasco",
-      "precio": 1769755.78,
+      "precio": 1794532.36,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $1,769,755.78 < 25% mediana $7,081,848.71 (n=11)"
+        "precio $1,794,532.36 < 25% mediana $7,180,273.60 (n=11)"
       ],
-      "mediana_droga": 7081848.71,
+      "mediana_droga": 7180273.6,
       "n_droga": 11
     },
     {
@@ -819,7 +819,7 @@
       "razones": [
         "ppu $191.29 << mediana_grupo $1,094.84"
       ],
-      "mediana_droga": 11470.15,
+      "mediana_droga": 11577.76,
       "n_droga": 14
     },
     {
@@ -905,10 +905,10 @@
       "marca": "MONTRATE",
       "presentacion": "sob.x 30",
       "laboratorio": "Casasco",
-      "precio": 40463.96,
+      "precio": 40990.0,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $1,348.80 << mediana_grupo $8,205.38"
+        "ppu $1,366.33 << mediana_grupo $8,328.46"
       ],
       "mediana_droga": 43466.33,
       "n_droga": 50
@@ -999,7 +999,7 @@
       "precio": 19638.5,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $19,638.50 < fence_low $20,632.79"
+        "precio $19,638.50 < fence_low $20,276.65"
       ],
       "mediana_droga": 57416.16,
       "n_droga": 32
@@ -1079,7 +1079,7 @@
       "razones": [
         "ppu $367.59 << mediana_grupo $2,181.61"
       ],
-      "mediana_droga": 18379.49,
+      "mediana_droga": 18533.67,
       "n_droga": 85
     },
     {
@@ -1256,10 +1256,10 @@
       "marca": "FACTOR X POLVO",
       "presentacion": "pvo.x 50 g",
       "laboratorio": "Casasco",
-      "precio": 13700.15,
+      "precio": 13891.96,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $13,700.15 < fence_low $15,120.51"
+        "precio $13,891.96 < fence_low $15,120.51"
       ],
       "mediana_droga": 15806.69,
       "n_droga": 6
