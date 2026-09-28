@@ -19,7 +19,7 @@
 <p align="left">
 <!-- Versión -->
 <img src="https://img.shields.io/github/v/release/psbella/remediar">
-<img src="https://img.shields.io/github/actions/workflow/status/psbella/remediar/update_prices.yml?label=ETL&logo=github-actions&logoColor=white">
+<img src="https://img.shields.io/github/actions/workflow/status/psbella/remediar/actualizar-precios.yml?label=ETL&logo=github-actions&logoColor=white">
 <br>
 <!-- Hosting & License -->
 <img src="https://img.shields.io/badge/hosted-GitHub%20Pages-181717?logo=github">
