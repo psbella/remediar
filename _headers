@@ -27,6 +27,11 @@
 # El script JSON-LD (type="application/ld+json") no necesita hash:
 # los navegadores no lo tratan como JavaScript ejecutable, por lo
 # que script-src no se le aplica.
+#
+# connect-src permite los endpoints de GA4: *.google-analytics.com,
+# analytics.google.com y *.analytics.google.com. Sin ellos gtag
+# reportaba violaciones de CSP en consola (2026-09-27). Igual que
+# el resto de los headers de seguridad, replicar en la Transform Rule.
 
 /*
   X-Content-Type-Options: nosniff
@@ -34,7 +39,7 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), microphone=(), camera=()
   Strict-Transport-Security: max-age=31536000
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-3xToiT2+0hnEleZmvU5E1Sk+csjJnHtI+U1SpBv68cA=' 'sha256-vQzgczDFy/iatRc6pEF4+sxzSIrVGotATlJfQz7EfO0=' https://www.googletagmanager.com; style-src 'self'; img-src 'self' data:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://api.github.com; font-src 'self';
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-3xToiT2+0hnEleZmvU5E1Sk+csjJnHtI+U1SpBv68cA=' 'sha256-vQzgczDFy/iatRc6pEF4+sxzSIrVGotATlJfQz7EfO0=' https://www.googletagmanager.com; style-src 'self'; img-src 'self' data:; connect-src 'self' https://*.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://www.googletagmanager.com https://api.github.com; font-src 'self';
 
 /data/medicamentos.json
   Content-Type: application/json; charset=utf-8
