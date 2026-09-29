@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-09-28T17:39:00.575527-03:00",
+  "timestamp": "2026-09-29T01:46:18.394722-03:00",
   "total_registros": 13126,
-  "total_outliers": 97,
+  "total_outliers": 98,
   "outliers": [
     {
       "droga": "aciclovir",
@@ -167,7 +167,7 @@
       "precio": 114122.05,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $114,122.05 < fence_low $116,930.43"
+        "precio $114,122.05 < fence_low $119,241.91"
       ],
       "mediana_droga": 137364.45,
       "n_droga": 26
@@ -177,10 +177,10 @@
       "marca": "CIARAN",
       "presentacion": "5mg comp.x 60",
       "laboratorio": "Montpellier",
-      "precio": 133024.3,
+      "precio": 134354.54,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $2,217.07 << mediana_grupo $34,364.61"
+        "ppu $2,239.24 << mediana_grupo $34,708.26"
       ],
       "mediana_droga": 137364.45,
       "n_droga": 26
@@ -255,10 +255,10 @@
       "marca": "CORTEROID",
       "presentacion": "cr.x 30 g",
       "laboratorio": "Montpellier",
-      "precio": 12777.53,
+      "precio": 13033.08,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $425.92 << mediana_grupo $7,812.77"
+        "ppu $434.44 << mediana_grupo $7,969.03"
       ],
       "mediana_droga": 9850.36,
       "n_droga": 38
@@ -520,7 +520,7 @@
       "razones": [
         "ppu $1,503.20 << mediana_grupo $9,276.70"
       ],
-      "mediana_droga": 33961.64,
+      "mediana_droga": 34046.82,
       "n_droga": 40
     },
     {
@@ -559,7 +559,7 @@
       "razones": [
         "ppu $123.16 << mediana_grupo $315,870.34"
       ],
-      "mediana_droga": 13036.98,
+      "mediana_droga": 13201.78,
       "n_droga": 22
     },
     {
@@ -572,7 +572,7 @@
       "razones": [
         "ppu $154.65 << mediana_grupo $978.32"
       ],
-      "mediana_droga": 13036.98,
+      "mediana_droga": 13201.78,
       "n_droga": 22
     },
     {
@@ -585,7 +585,7 @@
       "razones": [
         "ppu $95.94 << mediana_grupo $691.04"
       ],
-      "mediana_droga": 13036.98,
+      "mediana_droga": 13201.78,
       "n_droga": 22
     },
     {
@@ -598,7 +598,7 @@
       "razones": [
         "ppu $115.60 << mediana_grupo $978.32"
       ],
-      "mediana_droga": 13036.98,
+      "mediana_droga": 13201.78,
       "n_droga": 22
     },
     {
@@ -622,9 +622,9 @@
       "precio": 5536.86,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $5,536.86 < 25% mediana $22,727.99 (n=14)"
+        "precio $5,536.86 < 25% mediana $22,982.12 (n=14)"
       ],
-      "mediana_droga": 22727.99,
+      "mediana_droga": 22982.12,
       "n_droga": 14
     },
     {
@@ -771,6 +771,19 @@
       "n_droga": 9
     },
     {
+      "droga": "latanoprost, timolol",
+      "marca": "LATIMODORF",
+      "presentacion": "gts.oft.x 2.5 ml",
+      "laboratorio": "PharmaDorf",
+      "precio": 35262.83,
+      "precio_outlier_tipo": "bajo_iqr",
+      "razones": [
+        "precio $35,262.83 < fence_low $35,770.85"
+      ],
+      "mediana_droga": 40896.79,
+      "n_droga": 6
+    },
+    {
       "droga": "lidocaína",
       "marca": "LIGNOCAINA GRAY",
       "presentacion": "2% f.a.x 20 ml",
@@ -791,9 +804,9 @@
       "precio": 1983.73,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $1,983.73 < 25% mediana $7,960.44 (n=38)"
+        "precio $1,983.73 < 25% mediana $8,035.26 (n=38)"
       ],
-      "mediana_droga": 7960.44,
+      "mediana_droga": 8035.26,
       "n_droga": 38
     },
     {
@@ -801,12 +814,12 @@
       "marca": "ALERPRIV",
       "presentacion": "jbe.x 60 ml",
       "laboratorio": "Montpellier",
-      "precio": 7921.88,
+      "precio": 8080.31,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $132.03 << mediana_grupo $826.05"
+        "ppu $134.67 << mediana_grupo $842.57"
       ],
-      "mediana_droga": 7960.44,
+      "mediana_droga": 8035.26,
       "n_droga": 38
     },
     {
@@ -814,12 +827,12 @@
       "marca": "HISTAMINO CORTEROID L",
       "presentacion": "jbe.x 60 ml",
       "laboratorio": "Montpellier",
-      "precio": 11477.47,
+      "precio": 11707.01,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $191.29 << mediana_grupo $1,094.84"
+        "ppu $195.12 << mediana_grupo $1,116.74"
       ],
-      "mediana_droga": 11577.76,
+      "mediana_droga": 11682.35,
       "n_droga": 14
     },
     {
@@ -910,7 +923,7 @@
       "razones": [
         "ppu $1,366.33 << mediana_grupo $8,328.46"
       ],
-      "mediana_droga": 43466.33,
+      "mediana_droga": 43575.13,
       "n_droga": 50
     },
     {
@@ -999,7 +1012,7 @@
       "precio": 19638.5,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $19,638.50 < fence_low $20,276.65"
+        "precio $19,638.50 < fence_low $20,072.53"
       ],
       "mediana_droga": 57416.16,
       "n_droga": 32
