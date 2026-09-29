@@ -121,6 +121,8 @@ def main():
     print("\nCrosswalk PAMI...")
     medicamentos, stats_pami = crosswalk_pami(medicamentos)
     print(f"   Matches exactos: {stats_pami['match_exacto']} | "
+          f"Por dosis/cantidad: {stats_pami['match_dosis_cantidad']} | "
+          f"Por dosis+marca base: {stats_pami['match_dosis_marca_base']} | "
           f"Drogas recuperadas: {stats_pami['droga_recuperada']} | "
           f"Labs corregidos: {stats_pami['lab_corregido']}")
     if stats_pami['pami_cobertura_invalida'] > 0:
