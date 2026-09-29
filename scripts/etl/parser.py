@@ -12,6 +12,28 @@ from .utils import es_precio, limpiar_precio
 
 PDF_URL = "https://siafar.com/precios/pdf/"
 
+# Algunas fuentes/subconjuntos embebidos en el PDF de SIAFAR tienen mal el
+# ToUnicode CMap para estas dos letras acentuadas: el glifo se dibuja bien
+# (se ve "Ñ"/"Ú" en el PDF) pero fitz extrae el codepoint equivocado que ese
+# font le asocia. No es un problema en todas las paginas -- otras fuentes
+# del mismo PDF decodifican "Ñ" correctamente -- asi que esto no reemplaza
+# un chequeo de calidad, pero en el dataset auditado ambos caracteres de la
+# izquierda NUNCA son correctos (0 apariciones legitimas como signo de yen o
+# libra en una lista de medicamentos) y ambos de la derecha son siempre lo
+# que corresponde reponer, verificado contra medicamentos.json real
+# (ej. "NI¥OS" -> "NIÑOS", "alb£mina" -> "albÚmina").
+_GLIFOS_ROTOS = {
+    '¥': 'Ñ',
+    '£': 'Ú',
+}
+
+
+def _reparar_glifos_rotos(texto: str) -> str:
+    """Corrige los mojibake conocidos de fuentes rotas del PDF de SIAFAR."""
+    for roto, correcto in _GLIFOS_ROTOS.items():
+        texto = texto.replace(roto, correcto)
+    return texto
+
 
 def descargar_pdf(pdf_url=PDF_URL, max_reintentos=3, backoff_segundos=60) -> bytes:
     """Descarga el PDF de precios de SIAFAR con reintentos. Sale del proceso si fallan todos."""
@@ -46,7 +68,7 @@ def parsear_pdf(pdf_bytes: bytes) -> list:
     medicamentos = []
 
     for pagina_num in range(len(doc)):
-        texto = doc[pagina_num].get_text()
+        texto = _reparar_glifos_rotos(doc[pagina_num].get_text())
         lineas = [linea.strip() for linea in texto.split('\n') if linea.strip()]
         i = 0
         while i < len(lineas):
