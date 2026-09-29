@@ -1,5 +1,69 @@
 # Changelog
 
+## [2.5.1] - 2026-09-28
+
+### Corregido
+- CSP (`_headers` + Transform Rule de Cloudflare): `connect-src` no
+  incluía los endpoints reales de GA4 (`analytics.google.com`,
+  `*.analytics.google.com`), solo `www.google-analytics.com`. Los
+  `page_view` de gtag (ID G-9YFWN54197) quedaban bloqueados en cada
+  carga. Verificado con `curl -sI` en remedi.ar y www.remedi.ar.
+- `index.html`: `gtag('config')` ahora fija `page_location` a
+  `origin + pathname`, sin query ni hash. `js/main.js`
+  (`_actualizarURL`) escribe el término buscado en `?q=`, y ese valor
+  llegaba a GA4 en el evento inicial de cada carga. Verificado
+  decodificando el parámetro `dl` de un request `collect` real.
+- `sw.js`: entrada duplicada de `/js/atcClasificacion.js` en
+  `CACHE_STATIC` (dos líneas idénticas desde su alta original).
+
+### Configuración (fuera del repo, sin commit)
+- GA4 > Flujos de datos > remedi.ar: desactivada la medición
+  automática de "Búsquedas en el sitio" y los eventos de vista de
+  página basados en cambios de historial del navegador. Sin este
+  cambio, una búsqueda posterior a la carga inicial seguía enviando
+  `?q=` a GA4 pese al fix de `page_location` (afecta solo al primer
+  evento de cada carga). Verificado con un segundo request `collect`
+  en la misma sesión.
+
+### Documentado
+- `privacidad.html`: reflejadas las cookies reales de GA4 (`_ga`,
+  `_ga_9YFWN54197`) con su duración, el almacenamiento en caché de la
+  PWA (service worker), y el evento `share` de
+  `compartirMedicamento()` (`js/uiRenderer.js:187-192`), que envía a
+  GA4 la droga y la marca del medicamento compartido.
+
+## [2.5.1] - 2026-09-28
+
+### Corregido
+- CSP (`_headers` + Transform Rule de Cloudflare): `connect-src` no
+  incluía los endpoints reales de GA4 (`analytics.google.com`,
+  `*.analytics.google.com`), solo `www.google-analytics.com`. Los
+  `page_view` de gtag (ID G-9YFWN54197) quedaban bloqueados en cada
+  carga. Verificado con `curl -sI` en remedi.ar y www.remedi.ar.
+- `index.html`: `gtag('config')` ahora fija `page_location` a
+  `origin + pathname`, sin query ni hash. `js/main.js`
+  (`_actualizarURL`) escribe el término buscado en `?q=`, y ese valor
+  llegaba a GA4 en el evento inicial de cada carga. Verificado
+  decodificando el parámetro `dl` de un request `collect` real.
+- `sw.js`: entrada duplicada de `/js/atcClasificacion.js` en
+  `CACHE_STATIC` (dos líneas idénticas desde su alta original).
+
+### Configuración (fuera del repo, sin commit)
+- GA4 > Flujos de datos > remedi.ar: desactivada la medición
+  automática de "Búsquedas en el sitio" y los eventos de vista de
+  página basados en cambios de historial del navegador. Sin este
+  cambio, una búsqueda posterior a la carga inicial seguía enviando
+  `?q=` a GA4 pese al fix de `page_location` (afecta solo al primer
+  evento de cada carga). Verificado con un segundo request `collect`
+  en la misma sesión.
+
+### Documentado
+- `privacidad.html`: reflejadas las cookies reales de GA4 (`_ga`,
+  `_ga_9YFWN54197`) con su duración, el almacenamiento en caché de la
+  PWA (service worker), y el evento `share` de
+  `compartirMedicamento()` (`js/uiRenderer.js:187-192`), que envía a
+  GA4 la droga y la marca del medicamento compartido.
+
 ## [2.5.0] - 2026-09-13
 
 ### Added
