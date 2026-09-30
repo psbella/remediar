@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-09-29T01:46:18.394722-03:00",
-  "total_registros": 13126,
-  "total_outliers": 98,
+  "timestamp": "2026-09-30T16:32:19.416459-03:00",
+  "total_registros": 13129,
+  "total_outliers": 102,
   "outliers": [
     {
       "droga": "aciclovir",
@@ -41,6 +41,19 @@
       ],
       "mediana_droga": 22682.0,
       "n_droga": 35
+    },
+    {
+      "droga": "albúmina humana",
+      "marca": "ALBUMINA SERICA",
+      "presentacion": "20% iny.x 10 ml",
+      "laboratorio": "Hemoderivados",
+      "precio": 39464.0,
+      "precio_outlier_tipo": "bajo_relativo",
+      "razones": [
+        "precio $39,464.00 < 25% mediana $241,189.46 (n=7)"
+      ],
+      "mediana_droga": 241189.46,
+      "n_droga": 7
     },
     {
       "droga": "albendazol",
@@ -167,7 +180,7 @@
       "precio": 114122.05,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $114,122.05 < fence_low $119,241.91"
+        "precio $114,122.05 < fence_low $115,574.41"
       ],
       "mediana_droga": 137364.45,
       "n_droga": 26
@@ -364,7 +377,7 @@
       "razones": [
         "ppu $35.52 << mediana_grupo $1,229.12"
       ],
-      "mediana_droga": 19664.62,
+      "mediana_droga": 19778.84,
       "n_droga": 46
     },
     {
@@ -379,6 +392,19 @@
       ],
       "mediana_droga": 99489.61,
       "n_droga": 5
+    },
+    {
+      "droga": "clindamicina, ketoconazol",
+      "marca": "MACRIL DUO",
+      "presentacion": "cáps.bl.vag.x 7",
+      "laboratorio": "Andrómaco",
+      "precio": 24099.84,
+      "precio_outlier_tipo": "bajo_iqr",
+      "razones": [
+        "precio $24,099.84 < fence_low $24,383.38"
+      ],
+      "mediana_droga": 27245.78,
+      "n_droga": 8
     },
     {
       "droga": "clonazepam",
@@ -567,10 +593,10 @@
       "marca": "NOVALGINA",
       "presentacion": "jbe.x 100 ml",
       "laboratorio": "Opella Healthca",
-      "precio": 15464.77,
+      "precio": 16083.37,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $154.65 << mediana_grupo $978.32"
+        "ppu $160.83 << mediana_grupo $994.95"
       ],
       "mediana_droga": 13201.78,
       "n_droga": 22
@@ -593,10 +619,10 @@
       "marca": "NOVALGINA",
       "presentacion": "jbe.x 200 ml",
       "laboratorio": "Opella Healthca",
-      "precio": 23119.96,
+      "precio": 24044.76,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $115.60 << mediana_grupo $978.32"
+        "ppu $120.22 << mediana_grupo $994.95"
       ],
       "mediana_droga": 13201.78,
       "n_droga": 22
@@ -609,9 +635,9 @@
       "precio": 3615.0,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $3,615.00 < 25% mediana $14,506.57 (n=104)"
+        "precio $3,615.00 < 25% mediana $14,630.86 (n=104)"
       ],
-      "mediana_droga": 14506.57,
+      "mediana_droga": 14630.86,
       "n_droga": 104
     },
     {
@@ -671,12 +697,12 @@
       "marca": "BUSCAPINA",
       "presentacion": "grag.x 20",
       "laboratorio": "Opella Healthca",
-      "precio": 12900.0,
+      "precio": 13300.0,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $645.00 << mediana_grupo $3,789.17"
+        "ppu $665.00 << mediana_grupo $3,899.17"
       ],
-      "mediana_droga": 13900.0,
+      "mediana_droga": 14300.0,
       "n_droga": 5
     },
     {
@@ -689,8 +715,8 @@
       "razones": [
         "ppu $10.92 << mediana_grupo $1,219.45"
       ],
-      "mediana_droga": 8552.48,
-      "n_droga": 148
+      "mediana_droga": 8550.0,
+      "n_droga": 149
     },
     {
       "droga": "ibuprofeno",
@@ -702,8 +728,8 @@
       "razones": [
         "ppu $12.35 << mediana_grupo $1,021.17"
       ],
-      "mediana_droga": 8552.48,
-      "n_droga": 148
+      "mediana_droga": 8550.0,
+      "n_droga": 149
     },
     {
       "droga": "ibuprofeno",
@@ -715,8 +741,22 @@
       "razones": [
         "ppu $20.66 << mediana_grupo $1,133.54"
       ],
-      "mediana_droga": 8552.48,
-      "n_droga": 148
+      "mediana_droga": 8550.0,
+      "n_droga": 149
+    },
+    {
+      "droga": "ibuprofeno",
+      "marca": "IBUMEJORAL NIÑOS 2%",
+      "presentacion": "susp.oral.x 90 ml",
+      "laboratorio": "Laboratorio Gra",
+      "precio": 1348.73,
+      "precio_outlier_tipo": "bajo_absoluto",
+      "razones": [
+        "precio $1,348.73 < minimo $1,800",
+        "precio $1,348.73 < 25% mediana $8,550.00 (n=149)"
+      ],
+      "mediana_droga": 8550.0,
+      "n_droga": 149
     },
     {
       "droga": "inmunoglobulina humana",
@@ -728,7 +768,7 @@
       "razones": [
         "ppu $1,104,628.17 << mediana_grupo $6,075,093.02"
       ],
-      "mediana_droga": 6052280.46,
+      "mediana_droga": 6081853.44,
       "n_droga": 30
     },
     {
@@ -741,7 +781,7 @@
       "razones": [
         "ppu $2,609.26 << mediana_grupo $45,415.07"
       ],
-      "mediana_droga": 200908.88,
+      "mediana_droga": 204927.05,
       "n_droga": 17
     },
     {
@@ -975,7 +1015,7 @@
       "razones": [
         "precio $7,075,157.19 < fence_low $7,537,059.61"
       ],
-      "mediana_droga": 9674695.19,
+      "mediana_droga": 9699040.11,
       "n_droga": 32
     },
     {
@@ -988,7 +1028,7 @@
       "razones": [
         "precio $7,075,157.19 < fence_low $7,537,059.61"
       ],
-      "mediana_droga": 9674695.19,
+      "mediana_droga": 9699040.11,
       "n_droga": 32
     },
     {
@@ -1016,6 +1056,20 @@
       ],
       "mediana_droga": 57416.16,
       "n_droga": 32
+    },
+    {
+      "droga": "polisacaridosulfúrico,ác.(éste",
+      "marca": "FLEBODERMA",
+      "presentacion": "cr.x 30 g",
+      "laboratorio": "Laboratorio Gra",
+      "precio": 225.15,
+      "precio_outlier_tipo": "bajo_critico",
+      "razones": [
+        "precio $225.15 < minimo $1,800",
+        "precio $225.15 < 10% mediana $10,143.88"
+      ],
+      "mediana_droga": 10143.88,
+      "n_droga": 2
     },
     {
       "droga": "rifampicina",
@@ -1272,9 +1326,9 @@
       "precio": 13891.96,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $13,891.96 < fence_low $15,120.51"
+        "precio $13,891.96 < fence_low $14,407.87"
       ],
-      "mediana_droga": 15806.69,
+      "mediana_droga": 16043.86,
       "n_droga": 6
     }
   ]
