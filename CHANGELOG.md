@@ -1,6 +1,6 @@
 # Changelog
 
-## [2.5.3] - 2026-10-01
+## [2.5.2] - 2026-10-01
 
 ### Cambiado
 - `index.html`: la franja de números de la sección institucional
@@ -11,10 +11,6 @@
   usan sobre el mismo dataset, así que home y about muestran los mismos
   números ("Presentaciones en la base" y "Drogas únicas" en about).
 - `sw.js`: `CACHE_NAME` sube a `v26`.
-
-## [2.5.2] - 2026-10-01
-
-### Cambiado
 - `css/style.css`: texto del footer de 11–12px a 14–15px (`rem`), sin
   cambiar colores. Los links de `.footer-links` y el botón de instalar
   tienen más área táctil (alto mínimo de 44px en los links). Las clases
