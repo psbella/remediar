@@ -16,8 +16,6 @@
   tienen más área táctil (alto mínimo de 44px en los links). Las clases
   `.footer-*` también las usan las landings y las páginas legales, que
   reciben el mismo tamaño.
-- `sw.js`: `CACHE_NAME` sube a `v25` para que el cambio llegue a usuarios
-  con el sitio ya instalado.
 
 ## [2.5.1] - 2026-09-28
 
