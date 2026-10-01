@@ -1,4 +1,6 @@
 // js/about.js — Carga los números dinámicos de about.html
+import { calcularEstadisticas } from './utils.js';
+
 (async () => {
     try {
         const response = await fetch('data/medicamentos.json');
@@ -6,10 +8,7 @@
         const data = await response.json();
 
         const medicamentos = data.medicamentos || [];
-        const total = medicamentos.length;
-        const drogas = new Set(medicamentos.map(m => m.droga)).size;
-        const conPami = medicamentos.filter(m => m.pami_cobertura && m.pami_cobertura > 0).length;
-        const pctPami = total > 0 ? ((conPami / total) * 100).toFixed(1) : 0;
+        const { total, drogas, conPami, pctPami } = calcularEstadisticas(medicamentos);
 
         // Formato fecha
         const fecha = new Date(data.fecha).toLocaleDateString('es-AR', {

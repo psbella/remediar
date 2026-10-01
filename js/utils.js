@@ -248,3 +248,16 @@ export function parsearPresentacion(texto) {
     if (!dosis && !forma && !cantidad) return null;
     return { dosis, forma, cantidad };
 }
+
+/**
+ * Estadísticas del dataset para las franjas de números (home y about).
+ * Es la única definición: about.js y main.js la usan sobre el mismo JSON,
+ * así que los números coinciden en las dos páginas.
+ */
+export function calcularEstadisticas(medicamentos) {
+    const total   = medicamentos.length;
+    const drogas  = new Set(medicamentos.map(m => m.droga)).size;
+    const conPami = medicamentos.filter(m => m.pami_cobertura && m.pami_cobertura > 0).length;
+    const pctPami = total > 0 ? ((conPami / total) * 100).toFixed(1) : 0;
+    return { total, drogas, conPami, pctPami };
+}

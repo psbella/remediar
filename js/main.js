@@ -8,6 +8,7 @@ import {
     setInfoAdicionalMap, setAtcNivelesMap, setAtcPorDrogaMap, abrirModalInfo,
 } from './uiRenderer.js';
 import { cargarInfoAdicional } from './infoAdicional.js';
+import { calcularEstadisticas }  from './utils.js';
 import { cargarClasificacionATC, cargarAtcPorDroga } from './atcClasificacion.js';
 import {
     getState, getTodos,
@@ -169,6 +170,17 @@ function _initScrollTop() {
     });
 }
 
+// ── Franja de números de la sección institucional ────────────────────
+// Mismos números que about.html (calcularEstadisticas). Si el elemento no
+// existe, o el JSON no carga, queda el valor aproximado del HTML.
+function _actualizarEstadisticas(medicamentos) {
+    const { total, drogas } = calcularEstadisticas(medicamentos);
+    const elTotal  = document.getElementById('inst-stat-total');
+    const elDrogas = document.getElementById('inst-stat-drogas');
+    if (elTotal)  elTotal.textContent  = total.toLocaleString('es-AR');
+    if (elDrogas) elDrogas.textContent = drogas.toLocaleString('es-AR');
+}
+
 // ── Init ──────────────────────────────────────────────────────────────
 async function init() {
     mostrarSkeleton();
@@ -182,6 +194,7 @@ async function init() {
         initStore(medicamentos);
         cargarOpcionesFiltros(medicamentos);
         actualizarFechaEnFooter(data.fecha);
+        _actualizarEstadisticas(medicamentos);
 
         // Resolver hash (medicamento compartido) primero
         medDestacada = _resolverHash();
