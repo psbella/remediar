@@ -743,18 +743,18 @@ body {
 
 /* Footer del sitio */
 .footer { background: var(--white); border: 0.5px solid var(--border); border-radius: var(--r-md); padding: 12px 16px; margin-top: 16px; display: flex; flex-direction: column; gap: 10px; }
-.footer-update { text-align: center; font-size: 12px; color: var(--text-3); background: rgba(0, 0, 0, 0.03); border-radius: 20px; padding: 6px 12px; }
+.footer-update { text-align: center; font-size: 0.875rem; color: var(--text-3); background: rgba(0, 0, 0, 0.03); border-radius: 20px; padding: 6px 12px; }
 .footer-update strong { color: var(--teal-darker); }
-.footer-fuentes { text-align: center; font-size: 12px; color: var(--text-3); }
+.footer-fuentes { text-align: center; font-size: 0.875rem; color: var(--text-3); }
 .footer-fuentes a { color: var(--teal-dark); text-decoration: none; }
 .footer-fuentes a:hover { text-decoration: underline; }
-.footer-legal { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; row-gap: 4px; text-align: center; font-size: 12px; color: var(--text-3); }
+.footer-legal { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; row-gap: 4px; text-align: center; font-size: 0.875rem; color: var(--text-3); }
 .footer-legal a { color: var(--teal-dark); text-decoration: none; }
 .footer-legal a:hover { text-decoration: underline; }
 .footer-sep { margin: 0 6px; color: var(--text-5); }
 
 .footer-aviso {
-    font-size: 11px;
+    font-size: 0.9375rem;
     color: var(--text-4);
     background: rgba(0,0,0,0.03);
     border-radius: var(--r-sm);
@@ -771,8 +771,8 @@ body {
 .footer-aviso svg { stroke: var(--teal); flex-shrink: 0; margin-top: 1px; }
 .footer-aviso strong { color: var(--text-3); }
 
-.footer-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-.footer-links a { font-size: 12px; color: var(--text-3); text-decoration: none; display: flex; align-items: center; gap: 4px; transition: color 0.2s; }
+.footer-links { display: flex; justify-content: center; gap: 4px 20px; flex-wrap: wrap; }
+.footer-links a { font-size: 0.875rem; min-height: 44px; padding: 0 4px; color: var(--text-3); text-decoration: none; display: flex; align-items: center; gap: 4px; transition: color 0.2s; }
 .footer-links a svg { stroke: var(--text-5); }
 .footer-links a:hover { color: var(--teal-dark); }
 
@@ -784,8 +784,8 @@ body {
     color: var(--teal-darker);
     border: 1px solid var(--teal);
     border-radius: 20px;
-    padding: 5px 14px;
-    font-size: 12px;
+    padding: 8px 16px;
+    font-size: 0.875rem;
     font-weight: 600;
     cursor: pointer;
     margin: 8px 0;

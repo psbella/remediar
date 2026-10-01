@@ -1,5 +1,28 @@
 # Changelog
 
+## [2.5.3] - 2026-10-01
+
+### Cambiado
+- `index.html`: la franja de números de la sección institucional
+  ("medicamentos" y "principios activos") deja de tener valores fijos
+  (`~12.000`, `~1.500`) y se llena desde `medicamentos.json`. El HTML
+  conserva los valores aproximados como respaldo si el JSON no carga.
+- `js/utils.js`: nueva `calcularEstadisticas()`. `about.js` y `main.js` la
+  usan sobre el mismo dataset, así que home y about muestran los mismos
+  números ("Presentaciones en la base" y "Drogas únicas" en about).
+- `sw.js`: `CACHE_NAME` sube a `v26`.
+
+## [2.5.2] - 2026-10-01
+
+### Cambiado
+- `css/style.css`: texto del footer de 11–12px a 14–15px (`rem`), sin
+  cambiar colores. Los links de `.footer-links` y el botón de instalar
+  tienen más área táctil (alto mínimo de 44px en los links). Las clases
+  `.footer-*` también las usan las landings y las páginas legales, que
+  reciben el mismo tamaño.
+- `sw.js`: `CACHE_NAME` sube a `v25` para que el cambio llegue a usuarios
+  con el sitio ya instalado.
+
 ## [2.5.1] - 2026-09-28
 
 ### Corregido
