@@ -1,5 +1,22 @@
 # Changelog
 
+## [Sin publicar]
+
+### Cambiado
+- Footer rediseñado como barra teal en tres capas: principal (marca, fecha
+  de actualización y columnas Sitio / Legal / Fuente de datos), aviso médico
+  y base (licencia, versión e instalación). En celular las columnas se
+  apilan con filas de 48px de alto. Iconos Tabler 3.42.0 (los del mockup)
+  incrustados en el sprite SVG, sin webfont externa por la CSP. Se conservan los IDs que usa el JS
+  (`fecha-actualizacion-footer`, `footer-version`, `btnInstalarApp`,
+  `iosInstalarWrap`).
+- `index.html`: el `<footer>` no tenía la clase `footer`; ahora la tiene.
+- `privacidad.html`, `terminos.html` y el template de
+  `scripts/generar_landings.py` usan el mismo footer (las landings se
+  regeneran en la próxima corrida de precios o con
+  `py scripts/generar_landings.py`).
+- `sw.js`: `CACHE_NAME` sube a `v28`.
+
 ## [2.5.2] - 2026-10-01
 
 ### Cambiado
