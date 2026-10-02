@@ -361,19 +361,6 @@ def generar_filas_tabla(meds: list) -> str:
     return filas
 
 
-def generar_lista_marcas(meds: list) -> str:
-    vistas: list[str] = []
-    html = ""
-    for m in meds:
-        marca = m.get('marca', '')
-        if marca and marca not in vistas:
-            vistas.append(marca)
-            html += f'<span class="marca-chip">{esc(marca)}</span>'
-        if len(vistas) >= 15:
-            break
-    return html
-
-
 def generar_stats(meds: list, nombre: str) -> str:
     """Genera bloque de estadísticas únicas basadas en datos reales."""
     if not meds:
@@ -460,12 +447,12 @@ def generar_faq(nombre: str, accion: str, precio_rango: str, n_marcas: int, prec
         <p>{esc(accion)}. Consultá siempre con tu médico antes de iniciar, modificar o interrumpir cualquier tratamiento.</p>
     </details>
 
-    <details>
+    <details open>
         <summary>¿Cuántas marcas de {esc(nombre)} hay en Argentina?</summary>
         <p>Según los datos actuales de SIAFAR/COFA, hay <strong>{n_marcas} marcas</strong> comerciales de {esc(nombre)} disponibles en el mercado argentino. Incluyen tanto versiones de marca como genéricos.</p>
     </details>
 
-    <details>
+    <details open>
         <summary>¿Los precios de {esc(nombre)} se actualizan seguido?</summary>
         <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
     </details>
@@ -626,11 +613,9 @@ for droga_slug in DROGAS:
 
     if meds_ordenados:
         filas_tabla  = generar_filas_tabla(meds_ordenados)
-        lista_marcas = generar_lista_marcas(meds_ordenados)
         bloque_stats = generar_stats(meds_ordenados, nombre)
     else:
         filas_tabla  = '<tr><td colspan="4" class="sin-datos-tabla">No se encontraron precios para este medicamento en la base de datos actual.</td></tr>'
-        lista_marcas = '<p class="sin-datos-marcas">Sin datos disponibles.</p>'
         bloque_stats = ''
 
     bloque_relacionadas = generar_relacionadas(droga_slug)
@@ -793,13 +778,6 @@ for droga_slug in DROGAS:
             <p class="landing-tabla-nota">
                 Fuente: SIAFAR / COFA · Precios orientativos · Actualizado {HOY} {HORA} hs.
             </p>
-        </div>
-
-        <div class="marcas-comerciales">
-            <h2>Marcas comerciales de {esc(nombre)}</h2>
-            <div class="marcas-comerciales-lista">
-{lista_marcas}
-            </div>
         </div>
 
         {bloque_faq}
