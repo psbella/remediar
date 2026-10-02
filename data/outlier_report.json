@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-10-01T16:39:44.001425-03:00",
+  "timestamp": "2026-10-02T01:16:19.730171-03:00",
   "total_registros": 13129,
-  "total_outliers": 104,
+  "total_outliers": 105,
   "outliers": [
     {
       "droga": "aciclovir",
@@ -50,9 +50,9 @@
       "precio": 39464.0,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $39,464.00 < 25% mediana $241,189.46 (n=7)"
+        "precio $39,464.00 < 25% mediana $243,657.63 (n=7)"
       ],
-      "mediana_droga": 241189.46,
+      "mediana_droga": 243657.63,
       "n_droga": 7
     },
     {
@@ -206,7 +206,7 @@
       "precio": 38634.83,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $257.57 << mediana_grupo $3,406.11"
+        "ppu $257.57 << mediana_grupo $3,438.01"
       ],
       "mediana_droga": 33393.55,
       "n_droga": 41
@@ -284,7 +284,7 @@
       "precio": 105319.22,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $105,319.22 < fence_low $151,859.42"
+        "precio $105,319.22 < fence_low $141,568.68"
       ],
       "mediana_droga": 347153.84,
       "n_droga": 11
@@ -351,7 +351,7 @@
       "razones": [
         "ppu $220.00 << mediana_grupo $1,622.30"
       ],
-      "mediana_droga": 247263.16,
+      "mediana_droga": 249417.18,
       "n_droga": 8
     },
     {
@@ -388,7 +388,7 @@
       "precio": 99489.61,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $198.98 << mediana_grupo $77,263.86"
+        "ppu $198.98 << mediana_grupo $84,980.29"
       ],
       "mediana_droga": 99489.61,
       "n_droga": 5
@@ -437,12 +437,12 @@
       "marca": "NOLISIM",
       "presentacion": "100 mg/2ml IM/IV f.a.x1",
       "laboratorio": "Fada Pharma",
-      "precio": 61437.87,
+      "precio": 63895.38,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $614.38 << mediana_grupo $7,730.46"
+        "ppu $638.95 << mediana_grupo $8,039.68"
       ],
-      "mediana_droga": 61437.87,
+      "mediana_droga": 62923.09,
       "n_droga": 7
     },
     {
@@ -680,6 +680,19 @@
       "n_droga": 22
     },
     {
+      "droga": "hidroxiurea",
+      "marca": "HIDROXIUREA ECZANE",
+      "presentacion": "500 mg caps.x 20",
+      "laboratorio": "Eczane",
+      "precio": 131850.82,
+      "precio_outlier_tipo": "bajo_relativo",
+      "razones": [
+        "precio $131,850.82 < 25% mediana $531,360.59 (n=5)"
+      ],
+      "mediana_droga": 531360.59,
+      "n_droga": 5
+    },
+    {
       "droga": "hioscina,n-butilbr.",
       "marca": "BUSCAPINA",
       "presentacion": "grag.x 20",
@@ -755,7 +768,7 @@
       "razones": [
         "ppu $1,104,628.17 << mediana_grupo $6,075,093.02"
       ],
-      "mediana_droga": 6081853.44,
+      "mediana_droga": 6143753.1,
       "n_droga": 30
     },
     {
@@ -1013,9 +1026,9 @@
       "precio": 7075157.19,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $7,075,157.19 < fence_low $7,733,550.59"
+        "precio $7,075,157.19 < fence_low $7,927,531.15"
       ],
-      "mediana_droga": 9699040.11,
+      "mediana_droga": 9773069.88,
       "n_droga": 32
     },
     {
@@ -1026,9 +1039,9 @@
       "precio": 7075157.19,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $7,075,157.19 < fence_low $7,733,550.59"
+        "precio $7,075,157.19 < fence_low $7,927,531.15"
       ],
-      "mediana_droga": 9699040.11,
+      "mediana_droga": 9773069.88,
       "n_droga": 32
     },
     {
@@ -1039,7 +1052,7 @@
       "precio": 20278.6,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $405.57 << mediana_grupo $28,041.86"
+        "ppu $405.57 << mediana_grupo $26,554.79"
       ],
       "mediana_droga": 9675.17,
       "n_droga": 80
