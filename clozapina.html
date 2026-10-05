@@ -106,6 +106,13 @@
     <symbol id="ic-shield" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></symbol>
     <symbol id="ic-file"   viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></symbol>
     <symbol id="ic-mail"   viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></symbol>
+    <symbol id="ic-tb-search" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"/><path d="M21 21l-6 -6"/></symbol>
+    <symbol id="ic-tb-info-circle" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"/><path d="M12 9h.01"/><path d="M11 12h1v4h1"/></symbol>
+    <symbol id="ic-tb-shield-lock" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a12 12 0 0 0 8.5 3a12 12 0 0 1 -8.5 15a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3"/><path d="M11 11a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/><path d="M12 12l0 2.5"/></symbol>
+    <symbol id="ic-tb-file-text" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2"/><path d="M9 9l1 0"/><path d="M9 13l6 0"/><path d="M9 17l6 0"/></symbol>
+    <symbol id="ic-tb-mail" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10"/><path d="M3 7l9 6l9 -6"/></symbol>
+    <symbol id="ic-tb-external-link" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6"/><path d="M11 13l9 -9"/><path d="M15 4h5v5"/></symbol>
+    <symbol id="ic-tb-alert-circle" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"/><path d="M12 8v4"/><path d="M12 16h.01"/></symbol>
   </svg>
 </div>
 <div class="container">
@@ -206,7 +213,7 @@
                 </div>
             </div>
             <p class="landing-tabla-nota">
-                Fuente: SIAFAR / COFA · Precios orientativos · Actualizado 02/10/2026 02:09 hs.
+                Fuente: SIAFAR / COFA · Precios orientativos · Actualizado 05/10/2026 00:49 hs.
             </p>
         </div>
 
@@ -268,28 +275,35 @@
     </main>
 
     <footer class="footer">
-        <div class="footer-fuentes">
-            Fuente de datos:
-            <a href="https://siafar.com/precios/pdf/" target="_blank" rel="noopener">SIAFAR / COFA</a>
-            <span class="footer-sep">|</span>
-            <a href="https://datos.pami.org.ar/dataset/medicamentos-para-afiliados" target="_blank" rel="noopener">PAMI</a>
+        <div class="footer-main">
+            <div class="footer-marca">
+                <p class="footer-nombre">remedi.ar</p>
+                <p class="footer-desc">Precios de medicamentos en Argentina. Datos oficiales, sin publicidad.</p>
+            </div>
+            <nav class="footer-col" aria-label="Sitio">
+                <p class="footer-h">Sitio</p>
+                <a href="/"><svg width="20" height="20" aria-hidden="true"><use href="#ic-tb-search"/></svg>Buscar</a>
+                <a href="about.html"><svg width="20" height="20" aria-hidden="true"><use href="#ic-tb-info-circle"/></svg>Cómo funciona</a>
+            </nav>
+            <nav class="footer-col" aria-label="Legal">
+                <p class="footer-h">Legal</p>
+                <a href="privacidad.html"><svg width="20" height="20" aria-hidden="true"><use href="#ic-tb-shield-lock"/></svg>Privacidad</a>
+                <a href="terminos.html"><svg width="20" height="20" aria-hidden="true"><use href="#ic-tb-file-text"/></svg>Términos</a>
+                <a href="mailto:pablo.s.bella@gmail.com?subject=remedi.ar%20-%20Consulta"><svg width="20" height="20" aria-hidden="true"><use href="#ic-tb-mail"/></svg>Contacto</a>
+            </nav>
+            <div class="footer-col">
+                <p class="footer-h">Fuente de datos</p>
+                <a href="https://siafar.com/precios/pdf/" target="_blank" rel="noopener"><svg width="20" height="20" aria-hidden="true"><use href="#ic-tb-external-link"/></svg>SIAFAR / COFA</a>
+                <a href="https://datos.pami.org.ar/dataset/medicamentos-para-afiliados" target="_blank" rel="noopener"><svg width="20" height="20" aria-hidden="true"><use href="#ic-tb-external-link"/></svg>PAMI</a>
+            </div>
         </div>
         <div class="footer-aviso">
-            <svg width="14" height="14" aria-hidden="true"><use href="#ic-info"/></svg>
-            <span><strong>Aviso médico:</strong> Esta información no reemplaza la consulta con un profesional de la salud. Verificá precios en tu farmacia.</span>
+            <svg width="20" height="20" aria-hidden="true"><use href="#ic-tb-alert-circle"/></svg>
+            <span><strong>Aviso médico:</strong> esta información no reemplaza la consulta con un profesional de la salud. Verificá precios en tu farmacia.</span>
         </div>
-        <div class="footer-legal">
-            <a href="https://opensource.org/license/mit" target="_blank" rel="noopener">Licencia MIT</a>
-            <span class="footer-sep">|</span>
-            <span id="footer-version"></span>
+        <div class="footer-base">
+            <p class="footer-legal"><a href="https://opensource.org/license/mit" target="_blank" rel="noopener">Licencia MIT</a><span id="footer-version"></span></p>
         </div>
-        <nav class="footer-links">
-            <a href="about.html"><svg width="13" height="13" aria-hidden="true"><use href="#ic-info"/></svg>Cómo funciona</a>
-            <a href="privacidad.html"><svg width="13" height="13" aria-hidden="true"><use href="#ic-shield"/></svg>Privacidad</a>
-            <a href="terminos.html"><svg width="13" height="13" aria-hidden="true"><use href="#ic-file"/></svg>Términos</a>
-            <a href="mailto:pablo.s.bella@gmail.com?subject=remedi.ar%20-%20Consulta"><svg width="13" height="13" aria-hidden="true"><use href="#ic-mail"/></svg>Contacto</a>
-        </nav>
-
     </footer>
 </div>
 
