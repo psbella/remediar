@@ -23,6 +23,15 @@
   `py scripts/generar_landings.py`).
 - `sw.js`: `CACHE_NAME` sube a `v28`.
 
+### Corregido
+- `css/style.css`: dos desbordes horizontales en celular (375px) que ya
+  existían antes del cambio de ancho total. En `index.html`, el `select` de
+  `.filtro-row` no tenía `min-width: 0`, así que no bajaba del ancho de su
+  opción más larga y la flecha del filtro "Presentación" quedaba fuera de la
+  tarjeta (389px de `scrollWidth`). En `about.html`, la URL dentro de
+  `.faq-item code` (324px) no tenía dónde cortarse; ahora lleva
+  `overflow-wrap: anywhere`. `sw.js`: `CACHE_NAME` sube a `v31`.
+
 ## [2.5.2] - 2026-10-01
 
 ### Cambiado

@@ -300,6 +300,7 @@ body {
 
 .filtro-row select {
     flex: 1;
+    min-width: 0; /* sin esto no baja del ancho de su opcion mas larga y empuja la flecha fuera de la tarjeta */
     font-size: 13px;
     color: var(--text-2);
     border: none;
@@ -1351,6 +1352,7 @@ body {
     border-radius: 3px;
     font-family: 'Courier New', monospace;
     font-size: 13px;
+    overflow-wrap: anywhere; /* la URL del endpoint mide 324px y desbordaba en 375px */
 }
 
 /* Quién sostiene */
