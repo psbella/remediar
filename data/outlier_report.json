@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-10-02T01:16:19.730171-03:00",
+  "timestamp": "2026-10-05T18:33:15.257953-03:00",
   "total_registros": 13129,
-  "total_outliers": 105,
+  "total_outliers": 104,
   "outliers": [
     {
       "droga": "aciclovir",
@@ -89,9 +89,9 @@
       "precio": 6561.14,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $6,561.14 < 25% mediana $26,464.40 (n=79)"
+        "precio $6,561.14 < 25% mediana $26,729.04 (n=79)"
       ],
-      "mediana_droga": 26464.4,
+      "mediana_droga": 26729.04,
       "n_droga": 79
     },
     {
@@ -284,7 +284,7 @@
       "precio": 105319.22,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $105,319.22 < fence_low $141,568.68"
+        "precio $105,319.22 < fence_low $154,441.03"
       ],
       "mediana_droga": 347153.84,
       "n_droga": 11
@@ -351,7 +351,7 @@
       "razones": [
         "ppu $220.00 << mediana_grupo $1,622.30"
       ],
-      "mediana_droga": 249417.18,
+      "mediana_droga": 251466.64,
       "n_droga": 8
     },
     {
@@ -1265,19 +1265,6 @@
       ],
       "mediana_droga": 17034.34,
       "n_droga": 5
-    },
-    {
-      "droga": "tadalafilo",
-      "marca": "TADAL 20",
-      "presentacion": "20 mg comp.rec.x 2",
-      "laboratorio": "Finadiet",
-      "precio": 21979.18,
-      "precio_outlier_tipo": "bajo_relativo",
-      "razones": [
-        "precio $21,979.18 < 25% mediana $88,547.03 (n=66)"
-      ],
-      "mediana_droga": 88547.03,
-      "n_droga": 66
     },
     {
       "droga": "tadalafilo",
