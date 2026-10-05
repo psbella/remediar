@@ -3,6 +3,12 @@
 ## [Sin publicar]
 
 ### Cambiado
+- Header y footer ocupan todo el ancho de la pantalla (antes quedaban
+  dentro del `.container` de 1024px). Solo CSS: el contenido de ambos sigue
+  alineado con la columna (padding lateral `(100vw - 100%) / 2`), así que
+  las landings ya generadas lo reciben sin regenerarse. Variable nueva
+  `--pad-body`; `html { overflow-x: clip }` absorbe el exceso de `100vw`
+  cuando hay scrollbar clásica. `sw.js`: `CACHE_NAME` sube a `v30`.
 - Footer rediseñado como barra teal en tres capas: principal (marca, fecha
   de actualización y columnas Sitio / Legal / Fuente de datos), aviso médico
   y base (licencia, versión e instalación). En celular las columnas se

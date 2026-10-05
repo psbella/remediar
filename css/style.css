@@ -47,28 +47,34 @@
     --r-sm: 8px;
     --r-md: 12px;
     --r-lg: 16px;
+    --pad-body: 20px; /* padding del body */
 }
 
 /* Base */
+/* header y footer miden 100vw; con scrollbar clasica eso excede el viewport unos px */
+html { overflow-x: clip; }
 body {
     font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     background: var(--bg);
     min-height: 100vh;
-    padding: 20px;
+    padding: var(--pad-body);
     color: var(--text-1);
 }
 
 .container { max-width: 1024px; margin: 0 auto; padding: 0 16px; }
 
 /* Header */
+/* Header: barra a todo el ancho. Padding lateral = (100vw - 100%) / 2, donde 100% es el
+   ancho de la columna (contenido del .container): el contenido queda alineado con la
+   columna a cualquier ancho y aunque haya scrollbar clasica. */
 .header {
     background: var(--teal);
-    border-radius: var(--r-lg);
-    padding: 18px 24px;
+    width: 100vw;
+    margin: calc(-1 * var(--pad-body)) 0 16px calc(50% - 50vw);
+    padding: 18px calc((100vw - 100%) / 2);
     display: flex;
     align-items: center;
     gap: 16px;
-    margin-bottom: 16px;
 }
 
 .header-logo-circle {
@@ -746,11 +752,11 @@ body {
     --footer-acento: #b3dcdc;
     --footer-suave: #cfe6e6;
     --footer-linea: #1a6a6a;
-    margin-top: 16px;
+    width: 100vw;
+    margin: 16px 0 calc(-1 * var(--pad-body)) calc(50% - 50vw);
+    padding-inline: calc((100vw - 100%) / 2); /* el contenido ocupa la columna; las franjas oscuras la compensan */
     background: var(--teal-dark);
     color: #fff;
-    border-radius: var(--r-md);
-    overflow: hidden;
 }
 .footer a { color: #fff; text-decoration: none; }
 .footer a:hover { text-decoration: underline; text-underline-offset: 3px; }
@@ -761,7 +767,7 @@ body {
     display: grid;
     grid-template-columns: 1.5fr 1fr 1fr 1.1fr;
     gap: 24px;
-    padding: 28px 28px 20px;
+    padding: 28px 0 20px;
 }
 .footer-nombre { font-size: 1.25rem; font-weight: 500; margin-bottom: 6px; }
 .footer-desc { font-size: 0.875rem; line-height: 1.5; color: var(--footer-suave); margin-bottom: 12px; }
@@ -776,7 +782,8 @@ body {
     display: flex;
     align-items: flex-start;
     gap: 10px;
-    padding: 14px 28px;
+    margin-inline: calc((100vw - 100%) / -2);
+    padding: 14px calc((100vw - 100%) / 2);
     background: var(--teal-darker);
     font-size: 0.9375rem;
     line-height: 1.5;
@@ -789,7 +796,8 @@ body {
     align-items: center;
     justify-content: space-between;
     gap: 12px;
-    padding: 10px 28px;
+    margin-inline: calc((100vw - 100%) / -2);
+    padding: 10px calc((100vw - 100%) / 2);
     background: var(--teal-darker);
     border-top: 1px solid var(--footer-linea);
     font-size: 0.875rem;
@@ -823,12 +831,12 @@ body {
     .footer-marca { grid-column: 1 / -1; }
 }
 @media (max-width: 600px) {
-    .footer-main { display: block; padding: 24px 16px 8px; }
+    .footer-main { display: block; padding: 24px 0 8px; }
     .footer-marca { margin-bottom: 16px; }
     .footer-col + .footer-col { margin-top: 12px; }
     .footer-col a { min-height: 48px; border-top: 1px solid var(--footer-linea); }
-    .footer-aviso { padding: 14px 16px; }
-    .footer-base { flex-direction: column; align-items: stretch; padding: 12px 16px 16px; gap: 10px; }
+    .footer-aviso { padding-block: 14px; }
+    .footer-base { flex-direction: column; align-items: stretch; padding-block: 12px 16px; gap: 10px; }
     .footer-base .footer-install-badge,
     .footer-base .ios-install-wrap { width: 100%; }
 }
@@ -980,8 +988,8 @@ body {
     .fila-presentacion { flex-direction: column; align-items: flex-start; gap: 6px; }
     .fila-presentacion .pres-tabla { justify-content: flex-start; }
 
-    body { padding: 12px; }
-    .header { padding: 14px 16px; gap: 12px; }
+    :root { --pad-body: 12px; }
+    .header { padding-block: 14px; gap: 12px; }
     .header-texto h1 { font-size: 15px; }
     .update-pill { display: none; }
 
