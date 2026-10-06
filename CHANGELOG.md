@@ -1,43 +1,43 @@
 # Changelog
 
-## [Sin publicar]
+## [2.5.3] - 2026-10-06
 
 ### Cambiado
-- Header y footer ocupan todo el ancho de la pantalla (antes quedaban
-  dentro del `.container` de 1024px). Solo CSS: el contenido de ambos sigue
-  alineado con la columna (padding lateral `(100vw - 100%) / 2`), así que
-  las landings ya generadas lo reciben sin regenerarse. Variable nueva
-  `--pad-body`; `html { overflow-x: clip }` absorbe el exceso de `100vw`
-  cuando hay scrollbar clásica. `sw.js`: `CACHE_NAME` sube a `v30`.
 - Footer rediseñado como barra teal en tres capas: principal (marca, fecha
   de actualización y columnas Sitio / Legal / Fuente de datos), aviso médico
   y base (licencia, versión e instalación). En celular las columnas se
-  apilan con filas de 48px de alto. Iconos Tabler 3.42.0 (los del mockup)
-  incrustados en el sprite SVG, sin webfont externa por la CSP. Se conservan los IDs que usa el JS
-  (`fecha-actualizacion-footer`, `footer-version`, `btnInstalarApp`,
-  `iosInstalarWrap`).
+  apilan con filas de 48px de alto. Los iconos son Tabler 3.42.0, incrustados
+  en el sprite SVG (sin webfont externa, por la CSP). Se conservan los IDs
+  que usa el JS (`fecha-actualizacion-footer`, `footer-version`,
+  `btnInstalarApp`, `iosInstalarWrap`).
+- Header y footer ocupan todo el ancho de la pantalla (antes quedaban dentro
+  del `.container` de 1024px). Solo CSS: el contenido de ambos sigue alineado
+  con la columna (padding lateral `(100vw - 100%) / 2`), así que las landings
+  ya generadas lo reciben sin regenerarse. Variable nueva `--pad-body`;
+  `html { overflow-x: clip }` absorbe el exceso de `100vw` cuando hay
+  scrollbar clásica.
 - `index.html`: el `<footer>` no tenía la clase `footer`; ahora la tiene.
 - `privacidad.html`, `terminos.html` y el template de
-  `scripts/generar_landings.py` usan el mismo footer (las landings se
-  regeneran en la próxima corrida de precios o con
-  `py scripts/generar_landings.py`).
-- `sw.js`: `CACHE_NAME` sube a `v28`.
+  `scripts/generar_landings.py` usan el mismo footer.
+- Landings: se elimina el bloque "Marcas comerciales de {droga}"
+  (`generar_lista_marcas()` y los estilos `.marcas-comerciales*` y
+  `.sin-datos-marcas`) y los `<details>` del FAQ pasan a estar abiertos por
+  defecto.
+- `sw.js`: `CACHE_NAME` sube de `v26` a `v32`.
 
 ### Corregido
-- `css/style.css`: dos desbordes horizontales en celular (375px) que ya
-  existían antes del cambio de ancho total. En `index.html`, el `select` de
-  `.filtro-row` no tenía `min-width: 0`, así que no bajaba del ancho de su
-  opción más larga y la flecha del filtro "Presentación" quedaba fuera de la
-  tarjeta (389px de `scrollWidth`). En `about.html`, la URL dentro de
-  `.faq-item code` (324px) no tenía dónde cortarse; ahora lleva
-  `overflow-wrap: anywhere`. `sw.js`: `CACHE_NAME` sube a `v31`.
-- `css/style.css`: la búsqueda de `index.html` mostraba dos botones de
-  limpiar: la X nativa del `input type="search"` (solo borra el texto) y
-  `#btnLimpiar` (resetea texto, filtros, orden y PAMI). Queda solo el
-  segundo. Además `#btnLimpiar` se veía con el campo vacío porque la regla
-  por ID pisaba a `.hidden`; ahora solo aparece si hay texto, incluso cuando
-  el valor viene de un link. Las landings conservan la X nativa (no tienen
-  `#btnLimpiar`). `sw.js`: `CACHE_NAME` sube a `v32`.
+- Dos desbordes horizontales en celular (375px) que ya existían. En
+  `index.html`, el `select` de `.filtro-row` no tenía `min-width: 0`, así que
+  no bajaba del ancho de su opción más larga y la flecha del filtro
+  "Presentación" quedaba fuera de la tarjeta (389px de `scrollWidth`). En
+  `about.html`, la URL dentro de `.faq-item code` (324px) no tenía dónde
+  cortarse; ahora lleva `overflow-wrap: anywhere`.
+- Búsqueda de `index.html`: mostraba dos botones de limpiar, la X nativa del
+  `input type="search"` (solo borra el texto) y `#btnLimpiar` (resetea
+  texto, filtros, orden y PAMI). Queda solo el segundo. Además `#btnLimpiar`
+  se veía con el campo vacío porque la regla por ID pisaba a `.hidden`; ahora
+  solo aparece si hay texto, también cuando el valor viene de un link. Las
+  landings conservan la X nativa (no tienen `#btnLimpiar`).
 
 ## [2.5.2] - 2026-10-01
 
