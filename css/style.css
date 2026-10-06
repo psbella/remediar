@@ -216,6 +216,19 @@ body {
 #btnLimpiar:hover { background: #c0c0c0; }
 #btnLimpiar svg { stroke: #333; }
 
+/* Un solo boton de limpiar: el gris (#btnLimpiar), que resetea texto, filtros, orden y PAMI.
+   - Se oculta la X nativa del input type=search, solo donde existe el boton gris
+     (las landings no lo tienen y conservan la nativa).
+   - El gris se muestra solo si el campo tiene texto. Se decide por :placeholder-shown y no
+     por JS, asi tambien aparece cuando el valor llega de un link (?q=... o #medicamento).
+     Sin soporte de :has() las dos reglas se ignoran y queda como antes. */
+.busqueda-section:has(#btnLimpiar) #buscador::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    appearance: none;
+    display: none;
+}
+.busqueda-section:has(#buscador:placeholder-shown) #btnLimpiar { display: none; }
+
 /* Filtros */
 .filtros-section { margin-bottom: 0; }
 

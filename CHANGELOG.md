@@ -31,6 +31,13 @@
   tarjeta (389px de `scrollWidth`). En `about.html`, la URL dentro de
   `.faq-item code` (324px) no tenía dónde cortarse; ahora lleva
   `overflow-wrap: anywhere`. `sw.js`: `CACHE_NAME` sube a `v31`.
+- `css/style.css`: la búsqueda de `index.html` mostraba dos botones de
+  limpiar: la X nativa del `input type="search"` (solo borra el texto) y
+  `#btnLimpiar` (resetea texto, filtros, orden y PAMI). Queda solo el
+  segundo. Además `#btnLimpiar` se veía con el campo vacío porque la regla
+  por ID pisaba a `.hidden`; ahora solo aparece si hay texto, incluso cuando
+  el valor viene de un link. Las landings conservan la X nativa (no tienen
+  `#btnLimpiar`). `sw.js`: `CACHE_NAME` sube a `v32`.
 
 ## [2.5.2] - 2026-10-01
 
