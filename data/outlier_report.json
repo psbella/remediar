@@ -1,8 +1,47 @@
 {
-  "timestamp": "2026-10-05T18:33:15.257953-03:00",
+  "timestamp": "2026-10-06T16:38:05.048537-03:00",
   "total_registros": 13129,
-  "total_outliers": 104,
+  "total_outliers": 107,
   "outliers": [
+    {
+      "droga": "acetilsalicílico,ác., cafeína",
+      "marca": "ALIKAL",
+      "presentacion": "expend.sob.x 3 (c/prosp)",
+      "laboratorio": "GlaxoSmithKline",
+      "precio": 1949.94,
+      "precio_outlier_tipo": "bajo_relativo",
+      "razones": [
+        "precio $1,949.94 < 25% mediana $7,897.50 (n=8)"
+      ],
+      "mediana_droga": 7897.5,
+      "n_droga": 8
+    },
+    {
+      "droga": "acetilsalicílico,ác., cafeína",
+      "marca": "ALIKAL LIMON",
+      "presentacion": "expend.sob.x 3(c/prosp)",
+      "laboratorio": "GlaxoSmithKline",
+      "precio": 1949.94,
+      "precio_outlier_tipo": "bajo_relativo",
+      "razones": [
+        "precio $1,949.94 < 25% mediana $7,897.50 (n=8)"
+      ],
+      "mediana_droga": 7897.5,
+      "n_droga": 8
+    },
+    {
+      "droga": "acetilsalicílico,ác., cafeína",
+      "marca": "ALIKAL NARANJA",
+      "presentacion": "expend.sob.x 3(c/prosp)",
+      "laboratorio": "GlaxoSmithKline",
+      "precio": 1949.94,
+      "precio_outlier_tipo": "bajo_relativo",
+      "razones": [
+        "precio $1,949.94 < 25% mediana $7,897.50 (n=8)"
+      ],
+      "mediana_droga": 7897.5,
+      "n_droga": 8
+    },
     {
       "droga": "aciclovir",
       "marca": "XICLOVIR",
@@ -258,9 +297,9 @@
       "precio": 12145.01,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $12,145.01 < fence_low $12,998.92"
+        "precio $12,145.01 < fence_low $12,472.19"
       ],
-      "mediana_droga": 14248.09,
+      "mediana_droga": 14317.16,
       "n_droga": 6
     },
     {
@@ -377,7 +416,7 @@
       "razones": [
         "ppu $35.52 << mediana_grupo $1,289.69"
       ],
-      "mediana_droga": 19778.84,
+      "mediana_droga": 19814.13,
       "n_droga": 46
     },
     {
@@ -398,10 +437,10 @@
       "marca": "CLONER",
       "presentacion": "gts.x 20 ml",
       "laboratorio": "Vannier",
-      "precio": 15625.87,
+      "precio": 15844.57,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $781.29 << mediana_grupo $4,851.25"
+        "ppu $792.23 << mediana_grupo $4,851.25"
       ],
       "mediana_droga": 16054.96,
       "n_droga": 116
@@ -1026,7 +1065,7 @@
       "precio": 7075157.19,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $7,075,157.19 < fence_low $7,927,531.15"
+        "precio $7,075,157.19 < fence_low $7,881,506.75"
       ],
       "mediana_droga": 9773069.88,
       "n_droga": 32
@@ -1039,7 +1078,7 @@
       "precio": 7075157.19,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $7,075,157.19 < fence_low $7,927,531.15"
+        "precio $7,075,157.19 < fence_low $7,881,506.75"
       ],
       "mediana_droga": 9773069.88,
       "n_droga": 32
@@ -1067,7 +1106,7 @@
       "razones": [
         "precio $19,972.35 < fence_low $20,072.53"
       ],
-      "mediana_droga": 57416.16,
+      "mediana_droga": 59545.57,
       "n_droga": 32
     },
     {
@@ -1354,7 +1393,7 @@
       "razones": [
         "precio $13,891.96 < fence_low $14,407.87"
       ],
-      "mediana_droga": 16043.86,
+      "mediana_droga": 16287.01,
       "n_droga": 6
     }
   ]
