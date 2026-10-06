@@ -1,5 +1,13 @@
 # Changelog
 
+## [Sin publicar]
+
+### Cambiado
+- `about.html`: suma el footer del resto del sitio (barra teal con columnas
+  Sitio / Legal / Fuente de datos, aviso médico y licencia). Es el mismo
+  markup que `privacidad.html` y `terminos.html`; antes la página terminaba
+  sin footer. `sw.js`: `CACHE_NAME` sube a `v33`.
+
 ## [2.5.3] - 2026-10-06
 
 ### Cambiado
