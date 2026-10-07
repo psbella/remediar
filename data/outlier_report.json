@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-10-06T16:38:05.048537-03:00",
+  "timestamp": "2026-10-07T17:02:47.479378-03:00",
   "total_registros": 13129,
-  "total_outliers": 107,
+  "total_outliers": 106,
   "outliers": [
     {
       "droga": "acetilsalicílico,ác., cafeína",
@@ -719,19 +719,6 @@
       "n_droga": 22
     },
     {
-      "droga": "hidroxiurea",
-      "marca": "HIDROXIUREA ECZANE",
-      "presentacion": "500 mg caps.x 20",
-      "laboratorio": "Eczane",
-      "precio": 131850.82,
-      "precio_outlier_tipo": "bajo_relativo",
-      "razones": [
-        "precio $131,850.82 < 25% mediana $531,360.59 (n=5)"
-      ],
-      "mediana_droga": 531360.59,
-      "n_droga": 5
-    },
-    {
       "droga": "hioscina,n-butilbr.",
       "marca": "BUSCAPINA",
       "presentacion": "grag.x 20",
@@ -762,10 +749,10 @@
       "marca": "IBUPROFENO VENT-3",
       "presentacion": "600 mg comp.x 20",
       "laboratorio": "Vent 3",
-      "precio": 7411.56,
+      "precio": 7537.56,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $12.35 << mediana_grupo $1,021.17"
+        "ppu $12.56 << mediana_grupo $1,038.53"
       ],
       "mediana_droga": 8550.0,
       "n_droga": 149
@@ -1062,10 +1049,10 @@
       "marca": "IPALXANE",
       "presentacion": "125 mg cáps.x 21",
       "laboratorio": "Eczane",
-      "precio": 7075157.19,
+      "precio": 7174209.4,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $7,075,157.19 < fence_low $7,881,506.75"
+        "precio $7,174,209.40 < fence_low $7,881,506.75"
       ],
       "mediana_droga": 9773069.88,
       "n_droga": 32
@@ -1075,10 +1062,10 @@
       "marca": "IPALXANE",
       "presentacion": "75 mg cáps.x 21",
       "laboratorio": "Eczane",
-      "precio": 7075157.19,
+      "precio": 7174209.4,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $7,075,157.19 < fence_low $7,881,506.75"
+        "precio $7,174,209.40 < fence_low $7,881,506.75"
       ],
       "mediana_droga": 9773069.88,
       "n_droga": 32
