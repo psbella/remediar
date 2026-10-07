@@ -6,7 +6,7 @@
 
 <p align="center">
   <strong>Buscador de precios de medicamentos en Argentina</strong><br>
-  <em>Sistema open source que procesa datos oficiales de SIAFAR/COFA/PAMI y genera un comparador de precios con actualización automática dos veces al día.</em>
+  <em>Sistema open source que procesa datos oficiales de SIAFAR/COFA/PAMI y genera un comparador de precios con actualización automática dos veces por día hábil.</em>
 </p>
 
 <p align="center">
@@ -20,6 +20,9 @@
 <!-- Versión -->
 <img src="https://img.shields.io/github/v/release/psbella/remediar">
 <img src="https://img.shields.io/github/actions/workflow/status/psbella/remediar/actualizar-precios.yml?label=ETL&logo=github-actions&logoColor=white">
+<img src="https://img.shields.io/github/actions/workflow/status/psbella/remediar/codeql.yml?label=CodeQL&logo=github">
+<img src="https://img.shields.io/github/actions/workflow/status/psbella/remediar/accessibility.yml?label=Accesibilidad&logo=github">
+<img src="https://img.shields.io/github/actions/workflow/status/psbella/remediar/headers-check.yml?label=Headers&logo=github">
 <br>
 <!-- Hosting & License -->
 <img src="https://img.shields.io/badge/hosted-GitHub%20Pages-181717?logo=github">
@@ -32,7 +35,6 @@
 <!-- Valores -->
 <img src="https://img.shields.io/badge/Open_Source-Yes-brightgreen">
 <img src="https://img.shields.io/badge/Ads-No-red">
-<img src="https://img.shields.io/badge/Tracking-Anonymous_only-success">
 <img src="https://img.shields.io/badge/Privacy_First-Yes-success">
 <img src="https://img.shields.io/badge/PRs-Welcome-brightgreen">
 <br>
@@ -41,7 +43,6 @@
 <img src="https://img.shields.io/badge/Mobile_First-Yes-brightgreen">
 <img src="https://img.shields.io/badge/PWA-Enabled-5A0FC8?logo=pwa">
 <img src="https://img.shields.io/badge/SEO-Optimized-success">
-<img src="https://img.shields.io/badge/Lighthouse-94%2F100-success">
 <img src="https://img.shields.io/badge/dependencies-0-success">
 <img src="https://img.shields.io/badge/Static_Site-Yes-blue">
 <br>
@@ -68,13 +69,15 @@
 <img src="https://img.shields.io/badge/diagrams-Mermaid-ff3670?logo=mermaid&logoColor=white">
 <br>
 <!-- Features -->
-<img src="https://img.shields.io/badge/Historial-GitHub%20Releases-181717?logo=github">
+<img src="https://img.shields.io/badge/Historial-Incremental%20en%20el%20repo-181717?logo=github">
 <img src="https://img.shields.io/badge/Share-Deep%20Link-00897b">
 </p>
 
 ---
 
 > 🇬🇧 **[English version](./README.en.md)**
+
+> **Estado de este documento:** revisado el 2026-10-07 contra la versión **2.5.3** de `main` (más los cambios "Sin publicar" del [CHANGELOG](./CHANGELOG.md)). Las cifras se midieron sobre el `data/medicamentos.json` generado el 2026-10-06 16:38 (hora de Argentina). Si el código cambia, este archivo se actualiza junto con él; ante cualquier duda, el código manda.
 
 ---
 
@@ -118,8 +121,8 @@
 | Entorno | URL | Propósito |
 |---|---|---|
 | GitHub Pages (dominio propio, DNS en Cloudflare) | [remedi.ar](https://remedi.ar) | Producción — alojado en GitHub |
-| GitHub Pages (dominio por defecto) | [psbella.github.io/remediar](https://psbella.github.io/remediar/) | Mirror/respaldo |
-| Cloudflare Workers | [remediar.pablo-s-bella.workers.dev](https://remediar.pablo-s-bella.workers.dev/) | Mirror/respaldo |
+| GitHub Pages (dominio por defecto) | [psbella.github.io/remediar](https://psbella.github.io/remediar/) | **No es un mirror:** como el repo tiene un [`CNAME`](./CNAME), esa URL redirige a `remedi.ar` |
+| Cloudflare Workers | [remediar.pablo-s-bella.workers.dev](https://remediar.pablo-s-bella.workers.dev/) | Mirror estático ([`wrangler.toml`](./wrangler.toml)). Se despliega **a mano** (`npx wrangler deploy`), así que puede ir detrás de `main` |
 
 > **Headers de seguridad:** `remedi.ar` y `www.remedi.ar` están proxied (nube naranja) en Cloudflare, con GitHub Pages como origen. La CSP, `X-Frame-Options` y el resto de los headers de seguridad se aplican vía **Cloudflare Response Header Transform Rules** (dashboard), no desde el archivo `_headers` del repo — ese archivo solo lo procesa el mirror de Workers. Ver [`_headers`](./_headers) para el detalle de los valores replicados.
 
@@ -129,17 +132,24 @@
 
 # 📊 Dataset actual
 
+Medido el 2026-10-07 sobre la corrida del 2026-10-06 16:38 (hora de Argentina).
+
 | Métrica | Valor |
 |---|---|
-| Registros | ~13.400 |
-| Drogas únicas | ~1.830 |
-| Tamaño JSON | ~3.8 MB |
-| Tamaño gzip | ~345 KB |
-| Con cobertura PAMI | ~6.400 (48%) |
-| Entradas en blacklist | 710 |
-| Cobertura parser de presentaciones | ~99.5% |
-| Actualizaciones | 2 veces/día (lunes a viernes) |
-| Tests de sanidad | 28 checks automáticos post-ETL |
+| Registros | 13.129 |
+| Principios activos distintos (campo `droga`) | 1.819 |
+| Laboratorios (valores distintos, incluye variantes truncadas del PDF) | 198 |
+| Tamaño JSON | ~3,9 MB |
+| Tamaño gzip | ~310 KB |
+| Con cobertura PAMI | 6.890 (52,5 %); coberturas presentes: 40, 50, 60, 80 y 100 % |
+| Con precio a verificar (`vigencia_score < 50`) | 107 |
+| Claves en `blacklist.json` | 711 (679 excluidas en la última corrida) |
+| Registros con presentación parseada (`pres_forma`) | 12.931 (98,5 %) |
+| Entradas en `info_adicional.json` | 11.085 (2.855 inferidas por principio activo) |
+| Variaciones de precio en `data/historico/precios.json` | 6.970 |
+| Landing pages / URLs en `sitemap.xml` | 100 / 104 |
+| Actualizaciones | 2 veces por día hábil (11:30 y 15:30 hora de Argentina), solo si SIAFAR publicó un PDF distinto |
+| Tests automáticos | 31 (se corren post-ETL, antes del commit) |
 
 ---
 
@@ -149,10 +159,10 @@ El sistema se compone de tres capas principales:
 
 ## 1️⃣ Extracción y procesamiento
 
-- GitHub Actions ejecuta un workflow automático dos veces al día (lunes a viernes)
-- Se descarga el PDF oficial desde SIAFAR / COFA
+- GitHub Actions ejecuta un workflow automático dos veces al día (lunes a viernes: `30 14` y `30 18` UTC, es decir 11:30 y 15:30 hora de Argentina)
+- Se descarga el PDF oficial desde SIAFAR / COFA (hasta 3 reintentos). Si su SHA-256 coincide con `data/.pdf_hash`, no hubo publicación nueva: se omite el resto del pipeline y no se hace commit
 - Python extrae y normaliza los registros mediante un pipeline de 8+ capas
-- Se cruzan los datos con el vademécum de PAMI para enriquecer cobertura
+- Se cruzan los datos con el vademécum de PAMI (`data/pami.xlsx`, versionado y actualizado a mano ~1 vez por mes) para enriquecer cobertura
 - Se genera `medicamentos.json`
 
 ---
@@ -160,9 +170,9 @@ El sistema se compone de tres capas principales:
 ## 2️⃣ Distribución
 
 - El proyecto es 100% estático
-- GitHub Pages sirve el contenido como origen (dominio propio `remedi.ar` vía DNS de Cloudflare, y el dominio por defecto `psbella.github.io/remediar`)
+- GitHub Pages sirve el contenido como origen (dominio propio `remedi.ar` vía DNS de Cloudflare; el dominio por defecto `psbella.github.io/remediar` redirige al propio por el `CNAME`)
 - Cloudflare actúa como proxy delante de `remedi.ar`/`www.remedi.ar`: CDN, TLS, y una Transform Rule que inyecta los headers de seguridad (GitHub Pages no soporta headers custom)
-- Un mirror adicional corre en Cloudflare Workers (`remediar.pablo-s-bella.workers.dev`), sirviendo los mismos assets estáticos de forma independiente
+- Un mirror adicional corre en Cloudflare Workers (`remediar.pablo-s-bella.workers.dev`), sirviendo los mismos assets estáticos de forma independiente (se despliega a mano, no desde el workflow)
 - No existe backend persistente ni base de datos
 
 ---
@@ -180,7 +190,7 @@ El sistema se compone de tres capas principales:
 
 - Acceso libre a información de medicamentos
 - Sin publicidad
-- Analítica anónima, sin tracking de terceros
+- Analítica de uso con Google Analytics 4 (cookies propias, sin datos personales y sin publicidad)
 - Performance primero
 - Mobile first
 - Open source
@@ -216,7 +226,7 @@ sequenceDiagram
         CACHE-->>B: Datos cacheados
     else Caché vacía o vencida
         B->>CDN: GET /data/medicamentos.json
-        CDN-->>B: JSON comprimido (~520KB gzip)
+        CDN-->>B: JSON comprimido (~310KB gzip)
         B->>CACHE: Guardar datos + timestamp
     end
 
@@ -280,7 +290,9 @@ Los resultados se ordenan por tres criterios en cascada:
 2. **vigencia_score** — productos con precios confiables primero
 3. **precio** — ascendente como desempate final
 
-Los registros con `vigencia_score < 50` siempre van al fondo, independientemente del score de relevancia.
+Los registros con `vigencia_score < 50` siempre van al fondo, independientemente del score de relevancia: en el código, esa separación es la **primera** comparación del ordenamiento. Con varios términos, la relevancia textual se calcula con el **primer término**; los demás solo restringen el conjunto (intersección AND).
+
+La lista se muestra con un tope de **300 tarjetas**; el contador indica el total real.
 
 ---
 
@@ -291,33 +303,35 @@ Los registros con `vigencia_score < 50` siempre van al fondo, independientemente
 ```mermaid
 flowchart TD
 
-    A[⏰ Cron GitHub Actions]
-    B[📥 Descargar PDF SIAFAR]
+    A[⏰ Cron GitHub Actions<br/>L-V 11:30 y 15:30 AR]
+    B[📥 Descargar PDF SIAFAR<br/>hasta 3 reintentos]
+    HS{¿SHA-256 igual a<br/>data/.pdf_hash?}
+    SK[⏭️ sin_cambios: se omite el resto<br/>y no hay commit]
     C[📄 Extraer registros por página]
-    D[🧹 Limpiar y normalizar]
+    DD[🧹 Deduplicar]
     N1[🔧 Pipeline de normalización 8+ capas]
     BL[🛡️ Aplicar blacklist]
-    E[🔍 Detectar outliers]
+    E[🔍 Detectar outliers + vigencia_score]
     F[💾 Generar medicamentos.json]
     R[📋 Generar outlier_report.json]
     CSV[🔬 Generar presentaciones_debug.csv]
-    T[🧪 Tests de sanidad pytest]
-    H[📤 Commit automático]
+    L[🗺️ generar_landings.py<br/>100 landings + sitemap]
+    DBG[📦 subir_debug.py<br/>release debug-latest]
+    T[🧪 Tests pytest]
+    DF[📈 diff_precios.py<br/>solo corridas programadas]
+    H[📤 Commit + push<br/>reintentos de pull --rebase]
     I[🚀 GitHub Pages actualizado, servido vía proxy de Cloudflare]
 
-    A --> B
-    B --> C
-    C --> D
-    D --> N1
-    N1 --> BL
-    BL --> E
+    A --> B --> HS
+    HS -- igual --> SK
+    HS -- distinto --> C
+    C --> DD --> N1 --> BL --> E
     E --> F
     E --> R
     E --> CSV
-    F --> T
-    T --> H
-    R --> H
-    CSV --> H
+    F --> L --> DBG --> T
+    T -- fallan --> X[❌ El workflow se detiene:<br/>el sitio sigue con los datos anteriores]
+    T -- pasan --> DF --> H
     H --> I
 ```
 
@@ -337,21 +351,42 @@ El parser aplica correcciones en cascada para resolver los problemas estructural
 | 5 | `extraer_presentacion_de_marca()` | Extrae la presentacion fusionada en el campo marca. Antes del regex de corte: (1) separa laboratorios pegados sin espacio (`_build_re_lab_pegado()`, dinámico por dataset); (2) separa formas farmacéuticas pegadas (`_RE_FORMA_PEGADA`); (3) elimina duplicados mayúscula+minúscula (`_RE_TOKEN_DUPLICADO`) |
 | 5b | `reparar_presentacion_desplazada()` | Separa presentacion+lab fusionados en el campo lab (3 sub-patrones: 2A, 2B, 2C) |
 | 5c | `limpiar_dosis_residual_en_marca()` | Limpia la dosis numérica que queda pegada al nombre del laboratorio en `marca` |
-| 6 | `crosswalk_pami()` | Cruza contra el vademécum de PAMI (descargado en cada corrida desde la API pública de datos abiertos, ver más abajo): recupera droga vacía, corrige laboratorio, normaliza `presentacion`, agrega `pami_cobertura` |
+| 6 | `crosswalk_pami()` | Cruza contra el vademécum de PAMI (`data/pami.xlsx`, versionado y subido a mano cuando PAMI lo actualiza; si el archivo falta, el cruce se omite con un aviso en el log): recupera droga vacía, corrige laboratorio, normaliza `presentacion`, agrega `pami_cobertura` (descarta valores fuera de 0-100). Matchea por marca+presentación, por dosis/cantidad y por marca base + dosis |
 | 7 | `aplicar_droga_fixes()` | Aplica correcciones manuales desde `data/droga_fixes.json` |
 
+> **Orden real de ejecución** en `pdf_to_json.py`: descarga → parseo (Capa 1) → deduplicación de registros exactos → Capa 0 → 2 → 3 → 4 → 5 → 5b → 5c → 6 → 7 → blacklist → `calcular_vigencia` → debug de presentaciones → `enriquecer_dosis` (agrega `pres_forma`, `pres_dosis`, `pres_unidad`, `pres_cantidad`, con rescates desde la marca y desde PAMI) → persistencia. La Capa 1 es la detección de líneas de 4 campos que ocurre dentro del parseo (`parser.py`).
+>
 > Cada una de estas funciones vive en su propio módulo dentro de `scripts/etl/` (ver [Paquete `scripts/etl/`](#paquete-scriptsetl-capas-de-normalización)); `pdf_to_json.py` solo orquesta el orden de ejecución.
+
+---
+
+## Outliers y `vigencia_score`
+
+Los umbrales viven en `scripts/etl/config.py` (`OUTLIER_CONFIG`). Solo se detectan precios **anormalmente bajos**:
+
+| Condición | Flag | `vigencia_score` | `precio_outlier_tipo` |
+|---|---|---|---|
+| Precio inválido o ≤ 0 | `precio_obsoleto` | 20 | `invalido` |
+| Precio < $1.800 | `precio_bajo` | ≤ 45 | `bajo_absoluto` |
+| Precio < 10 % de la mediana de su droga | `precio_obsoleto` | 20 | `bajo_critico` |
+| Droga con ≥ 3 registros y precio < 25 % de la mediana | `precio_sospechoso` | ≤ 35 | `bajo_relativo` |
+| Droga con ≥ 3 registros y precio bajo el *fence* de Tukey (Q1 − 1,5·IQR) | `precio_sospechoso` | ≤ 40 | `bajo_iqr` |
+| Precio por unidad < 20 % de la mediana del grupo droga+marca | `precio_sospechoso` | ≤ 35 | `inconsistencia_escala` |
+
+Un registro sin anomalías tiene `vigencia_score = 100`. En el frontend, `< 50` significa "precio a verificar".
 
 ---
 
 ## Workflow GitHub Actions
 
+`.github/workflows/actualizar-precios.yml`, tal como está en `main`:
+
 ```yaml
 name: 🔃 Actualizar precios
-
 on:
   schedule:
-    - cron: '30 13,21 * * 1-5'
+    - cron: '30 14 * * 1-5'  # 11:30 Argentina
+    - cron: '30 18 * * 1-5'  # 18:30 Argentina
   workflow_dispatch:
 
 permissions:
@@ -368,55 +403,70 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
-
       - name: Setup Python
         uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: '3.11'
           cache: 'pip'
-
       - name: Instalar dependencias
         run: pip install -r requirements.txt
-
       - name: Ejecutar pdf_to_json.py
+        id: pdf_to_json
         run: python scripts/pdf_to_json.py
-
       - name: Generar landings + sitemap
+        if: steps.pdf_to_json.outputs.sin_cambios != 'true'
         run: python scripts/generar_landings.py
-
       - name: Subir debug a GitHub Releases
+        if: steps.pdf_to_json.outputs.sin_cambios != 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python scripts/subir_debug.py
-
       - name: Verificar sanidad del output
+        if: steps.pdf_to_json.outputs.sin_cambios != 'true'
         run: pytest tests/ -v
-
-      - name: Snapshot semanal (solo viernes)
-        if: github.event_name == 'schedule'
+      - name: Diff de precios
+        if: github.event_name == 'schedule' && steps.pdf_to_json.outputs.sin_cambios != 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          if [ "$(date +%u)" = "5" ]; then
-            echo "Viernes detectado — generando snapshot semanal..."
-            python scripts/snapshot_semanal.py
-          else
-            echo "No es viernes, saltando snapshot."
-          fi
-
+        run: python scripts/diff_precios.py
       - name: Commit y push
+        if: steps.pdf_to_json.outputs.sin_cambios != 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "actions@github.com"
           git add data/medicamentos.json
+          git add data/historico/precios.json
           git add data/outlier_report.json
           git add data/presentaciones_debug.csv
+          git add data/.pdf_hash
           git add *.html
           git add sitemap.xml
-          git commit -m "Actualizar precios $(date +'%Y-%m-%d')" || echo "No changes"
-          git pull --rebase origin "${{ github.ref_name }}"
-          git push origin "${{ github.ref_name }}"
+          git commit -m "Actualizar precios $(TZ="America/Argentina/Buenos_Aires" date +'%Y-%m-%d')" || echo "No changes"
+
+          # Reintenta pull --rebase + push hasta 3 veces: el concurrency group
+          # de arriba serializa las corridas de ESTE workflow entre si, asi que
+          # el unico conflicto posible es un push manual a main mientras corre
+          # el job. Si el rebase queda a medias, se aborta antes de reintentar
+          # -- si el conflicto es real (mismo archivo, misma linea), esto no
+          # lo resuelve solo: agota los 3 intentos y falla el job a proposito,
+          # para que alguien lo mire (probado ambos casos antes de mergear).
+          intentos=0
+          hasta=3
+          while [ "$intentos" -lt "$hasta" ]; do
+            intentos=$((intentos + 1))
+            if git pull --rebase origin "${{ github.ref_name }}" && git push origin "${{ github.ref_name }}"; then
+              echo "Push OK en el intento $intentos."
+              exit 0
+            fi
+            echo "Intento $intentos de $hasta fallo (rebase o push). Abortando rebase si quedo a medias..."
+            git rebase --abort 2>/dev/null || true
+            sleep $((intentos * 5))
+          done
+          echo "No se pudo pushear despues de $hasta intentos."
+          exit 1
 ```
+
+> ⚠️ **Ojo con el horario:** `30 18 * * 1-5` está en UTC y equivale a **15:30** hora de Argentina (UTC−3); el comentario `# 18:30 Argentina` del archivo no coincide con eso (y las landings generadas dicen "10:30 y 18:00 hs"). Si la intención era 18:30, el cron correcto sería `30 21 * * 1-5`.
 
 ---
 
@@ -431,7 +481,7 @@ jobs:
   "presentacion": "400 mg comp.x 20",
   "laboratorio": "Pfizer",
   "precio": 9800.50,
-  "pami_cobertura": 55,
+  "pami_cobertura": 60,
   "pres_forma": "COMPRIMIDOS",
   "pres_dosis": "400",
   "pres_unidad": "MG",
@@ -454,7 +504,7 @@ jobs:
 | `presentacion` | string | Dosis, forma farmacéutica y cantidad |
 | `laboratorio` | string | Laboratorio fabricante |
 | `precio` | number | PVP en ARS (fuente: SIAFAR) |
-| `pami_cobertura` | number\|null | Porcentaje de cobertura PAMI (ej: 55). Null si no está en el vademécum |
+| `pami_cobertura` | number (opcional) | Porcentaje de cobertura PAMI (40, 50, 60, 80 o 100). **La clave no existe** si el producto no está en el vademécum |
 | `pres_forma` | string\|null | Forma farmacéutica parseada (ej: `"COMPRIMIDOS RECUBIERTOS"`, `"JARABE"`) |
 | `pres_dosis` | string\|null | Dosis numérica (ej: `"400"`, `"500"`) |
 | `pres_unidad` | string\|null | Unidad de la dosis (ej: `"MG"`, `"ML"`, `"UI"`) |
@@ -470,10 +520,12 @@ jobs:
 
 | Archivo | Descripción |
 |---|---|
-| `data/pami.xlsx` | Vademécum PAMI, descargado automáticamente en cada corrida desde la [API de datos abiertos de PAMI](https://datos.pami.org.ar/dataset/medicamentos-para-afiliados) (no se versiona en git). Usado para: (1) cobertura por marca+presentacion, (2) recuperar droga faltante, (3) corregir laboratorio, (4) normalizar el campo `presentacion` |
+| `data/pami.xlsx` | Vademécum PAMI, **versionado en git y subido a mano** (PAMI lo actualiza ~1 vez por mes; no se descarga en cada corrida para no depender de la disponibilidad de su portal en CI). Fuente: [datos abiertos de PAMI](https://datos.pami.org.ar/dataset/medicamentos-para-afiliados). Usado para: (1) cobertura por marca+presentacion, (2) recuperar droga faltante, (3) corregir laboratorio, (4) normalizar el campo `presentacion` |
 | `data/droga_fixes.json` | Correcciones manuales marca→droga para casos no resolubles con regex |
-| `data/blacklist.json` | 710 registros excluidos manualmente. Las claves usan el formato `droga\|marca\|presentacion\|laboratorio` en minúsculas |
+| `data/blacklist.json` | 711 claves excluidas manualmente (se edita desde el panel admin). Las claves usan el formato `droga\|marca\|presentacion\|laboratorio` en minúsculas |
 | `data/outlier_report.json` | Reporte detallado de outliers de la última corrida |
+| `data/.pdf_hash` | SHA-256 del último PDF procesado. Si el PDF nuevo es idéntico, el workflow omite el resto del pipeline |
+| `data/historico/precios.json` | Histórico **incremental**: solo altas, bajas y cambios de precio de cada corrida programada (`scripts/diff_precios.py`, solo registros con `vigencia_score ≥ 50`). Hoy es un dato publicado; el sitio todavía no lo muestra |
 | `data/presentaciones_debug.csv` | Auditoría del parser: `presentacion_original` vs. campos parseados (`forma`, `dosis`, `unidad`, `cantidad`) |
 | `.debug/medicamentos.pretty.json` | Versión formateada con `indent=2` del dataset, solo para debug local — **no se publica** en el sitio ni se versiona en git |
 
@@ -485,7 +537,8 @@ jobs:
 |---|---|
 | `data/atc/atc_por_droga.json` | Mapeo droga → código ATC. WHOCC. Usado por modal +Info. |
 | `data/atc/atc_niveles.json` | Jerarquía ATC Nivel1-4. Decodificación en interfaz. |
-| `data/info-adicional/info_adicional.json` | Laboratorio, ATC, clases terapéuticas. Carga on-demand. |
+| `data/info-adicional/info_adicional.json` | Laboratorio, drogas, ATC, clases terapéuticas. Carga en segundo plano. Las entradas con `"inferido": true` se derivan del principio activo, no del producto. |
+| `data/info-adicional/faltantes_atc.csv` | Composiciones que todavía no tienen ATC, ordenadas por cantidad de medicamentos afectados (`scripts/listar_droga_sin_info.py`). |
 
 ### Cómo agregar una corrección a `droga_fixes.json`
 
@@ -540,9 +593,9 @@ Al buscar un medicamento, los filtros de presentación y laboratorio se actualiz
 
 CSS optimizado para móviles, tablets y desktop sin frameworks externos.
 
-## ✅ Renderizado progresivo
+## ✅ Renderizado acotado
 
-300 resultados por render para no bloquear el hilo principal. Los outliers (`vigencia_score < 50`) siempre aparecen al final, independientemente del orden seleccionado.
+Como máximo 300 tarjetas por consulta para no bloquear el hilo principal (el contador muestra el total real). Los outliers (`vigencia_score < 50`) siempre aparecen al final, independientemente del orden seleccionado.
 
 ## ✅ Filtros sin texto
 
@@ -554,7 +607,7 @@ Service Worker con estrategia network-first para datos y cache-first para assets
 
 ## ✅ Seguridad en headers HTTP
 
-CSP via header HTTP (no meta tag) con hash SHA256 del script inline de GA. `style-src` sin `unsafe-inline` (estilos migrados a CSS externo). `X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy` y `Access-Control-Allow-Origin: *` para el JSON público. ⚠️ En producción (`remedi.ar`/`www.remedi.ar`) estos headers los aplica una Cloudflare Response Header Transform Rule, no el archivo `_headers` del repo — [ver por qué](#por-qué-github-pages--cloudflare-como-proxy).
+CSP via header HTTP (no meta tag) con hashes SHA256 de los scripts inline ejecutables (config de GA y registro del Service Worker, más un hash transitorio del GA anterior). `style-src` sin `unsafe-inline` (estilos migrados a CSS externo). `X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy` y `Access-Control-Allow-Origin: *` para el JSON público (declarado en `_headers`; GitHub Pages además lo sirve con CORS abierto por defecto — verificable con `curl -sI https://remedi.ar/data/medicamentos.json`). ⚠️ En producción (`remedi.ar`/`www.remedi.ar`) estos headers los aplica una Cloudflare Response Header Transform Rule, no el archivo `_headers` del repo — [ver por qué](#por-qué-github-pages--cloudflare-como-proxy).
 
 ## ✅ Compartir medicamentos
 
@@ -604,13 +657,17 @@ tests/test_schema.py::test_schema_valido PASSED                         [100%]
 
 # ⏱️ Tiempos de Respuesta
 
-| Métrica | Valor |
+Este proyecto no publica tiempos "de referencia" fijos: dependen del dispositivo, la red y el momento de la medición. Lo que sí es verificable en el código y los datos:
+
+| Dato | Valor |
 |---|---|
-| FCP | 0.8 - 1.2s |
-| LCP | 1.5 - 2.0s |
-| TTI | 1.8 - 2.5s |
-| Búsqueda en índice | 25 - 100ms |
-| TTFB | 50 - 150ms |
+| Descarga única de `medicamentos.json` | ~310 KB con gzip (~3,9 MB descomprimido) |
+| Caché de datos en el navegador | `sessionStorage`, TTL 2 h (`remedios_data_v2`), más el Service Worker |
+| Debounce de búsqueda | 250 ms |
+| Búsqueda | 100 % en memoria, sin requests por consulta |
+| Resultados renderizados por consulta | máximo 300 |
+
+Para medir tiempos reales, usá [PageSpeed Insights](https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fremedi.ar) (datos de laboratorio y de campo) o Lighthouse desde Chrome DevTools.
 
 ---
 
@@ -625,7 +682,7 @@ flowchart LR
     end
 
     subgraph TWO["⚙️ AUTOMATIZACIÓN"]
-        C["⏰ Cron GitHub Actions\n10:30 y 18:30 AR"]
+        C["⏰ Cron GitHub Actions\nL-V 11:30 y 15:30 AR"]
         D["🔄 Workflow manual"]
     end
 
@@ -636,9 +693,9 @@ flowchart LR
     end
 
     subgraph REF["📋 REFERENCIA"]
-        H["Vademécum PAMI\n(API, descarga en runtime)"]
+        H["Vademécum PAMI\n(data/pami.xlsx, subida manual)"]
         I["droga_fixes.json"]
-        J["blacklist.json (710)"]
+        J["blacklist.json (711)"]
     end
 
     subgraph ATC["🏷️ CLASIFICACIÓN ATC (generado offline)"]
@@ -686,6 +743,10 @@ remediar/
 ├── index.html
 ├── manifest.json
 ├── requirements.txt
+├── pyproject.toml        # config de Ruff
+├── package.json          # versión del sitio + axe-core/puppeteer para los chequeos
+├── package-lock.json
+├── eslint.config.js
 ├── robots.txt
 ├── sitemap.xml           # generado por scripts/generar_landings.py
 ├── sitemap.xsl           # transforma sitemap.xml en tabla HTML legible en el navegador
@@ -696,9 +757,13 @@ remediar/
 ├── admin-panel.html      # panel interno (outliers/lista negra), noindex, auth por GitHub PAT
 ├── mantenimiento.html    # pagina de mantenimiento, se copia a index.html vía workflow
 ├── {droga}.html          # 100 landing pages SEO (una por droga), generadas
-├── README.md
-├── _headers
-├── .nojekyll
+├── README.md, README.en.md
+├── CHANGELOG.md, ROADMAP.md, CONTRIBUTING.md, SECURITY.md, LICENSE
+├── _headers              # headers esperados (los aplica Cloudflare en prod)
+├── wrangler.toml         # mirror en Cloudflare Workers
+├── .assetsignore         # qué NO sube Wrangler como asset
+├── CNAME, .nojekyll      # GitHub Pages
+├── humans.txt, favicon.ico
 ├── .gitignore
 │
 ├── css/
@@ -723,9 +788,9 @@ remediar/
 │   ├── utils.js
 │   ├── about.js
 │   ├── admin-panel.js
-│   ├── atcClasificacion.js          # clasificación ATC oficial ANMAT en modal +Info
+│   ├── atcClasificacion.js          # jerarquía ATC por droga para el modal +Info
 │   ├── infoAdicional.js             # modal "+Info" (laboratorio, droga, clases terapéuticas)
-│   └── landing.js                   # compartido por las 100 landing pages
+│   └── landing.js                   # compartido por las 100 landing pages y las páginas institucionales
 │
 ├── data/
 │   ├── medicamentos.json
@@ -733,23 +798,30 @@ remediar/
 │   ├── presentaciones_debug.csv
 │   ├── blacklist.json
 │   ├── droga_fixes.json
-│   ├── pami.xlsx                    # descargado en runtime
+│   ├── pami.xlsx                    # versionado, se sube a mano (~1 vez por mes)
+│   ├── .pdf_hash                    # SHA-256 del último PDF procesado
+│   ├── historico/
+│   │   └── precios.json             # variaciones de precio incrementales (diff_precios.py)
 │   ├── atc/
 │   │   ├── atc_por_droga.json       # clasificación ATC por droga
 │   │   └── atc_niveles.json         # jerarquía Nivel1-4
 │   └── info-adicional/
-│       └── info_adicional.json      # laboratorio, drogas, clases terapéuticas
+│       ├── info_adicional.json      # laboratorio, drogas, clases terapéuticas
+│       ├── faltantes_atc.csv        # composiciones sin ATC (reporte)
+│       └── enriquecer_info_adicional_por_droga.py
 │
 ├── scripts/
 │   ├── pdf_to_json.py               # orquestador ETL
 │   ├── generar_landings.py          # genera 100 landings + sitemap.xml
+│   ├── diff_precios.py              # histórico incremental de precios
 │   ├── github_release_helper.py     # helper de releases
 │   ├── subir_debug.py
-│   ├── snapshot_semanal.py
-│   ├── traducir_atc_who.py          # traduce drogas a códigos ATC WHOCC
-│   ├── aplicar_atc_tabla_oms.py     # aplica tabla ATC/DDD WHOCC (206 drogas)
+│   ├── traducir_atc_who.py          # completa atc_por_droga.json con el índice ATC/DDD de la OMS
+│   ├── aplicar_atc_tabla_oms.py     # completa el ATC de info_adicional.json desde una tabla ATC
+│   ├── listar_droga_sin_info.py     # reporte de composiciones sin ATC
 │   ├── checks/
-│   │   └── a11y-check.mjs
+│   │   ├── a11y-check.mjs
+│   │   └── headers-check.mjs
 │   ├── mantenimiento/
 │   │   └── fix_blacklist_encoding.py
 │   └── etl/
@@ -766,18 +838,23 @@ remediar/
 │
 ├── tests/
 │   ├── conftest.py
-│   ├── test_etl_sanidad.py
-│   ├── test_schema.py
+│   ├── test_etl_modulos.py          # 18 tests unitarios de scripts/etl/
+│   ├── test_etl_sanidad.py          # 12 tests de sanidad del output
+│   ├── test_schema.py               # 1 test de contrato (JSON Schema)
 │   └── medicamentos.schema.json
 │
-└── .github/workflows/
-    ├── update_prices.yml
-    ├── maintenance-on.yml
-    ├── maintenance-off.yml
-    ├── accessibility.yml
-    ├── js-syntax-check.yml
-    ├── headers-check.yml
-    └── codeql.yml
+└── .github/
+    ├── workflows/
+    │   ├── actualizar-precios.yml
+    │   ├── maintenance-on.yml
+    │   ├── maintenance-off.yml
+    │   ├── accessibility.yml
+    │   ├── js-syntax-check.yml
+    │   ├── headers-check.yml
+    │   └── codeql.yml
+    ├── ISSUE_TEMPLATE/              # bug, dato_incorrecto, idea
+    ├── PULL_REQUEST_TEMPLATE.md
+    └── dependabot.yml
 ```
 
 ---
@@ -794,11 +871,12 @@ remediar/
 | Datos | JSON estático |
 | CI/CD | GitHub Actions |
 | Testing | pytest |
-| Lint | Ruff (Python) + ESLint (JS) — configurados, no bloquean CI |
+| Lint | Ruff (Python) + ESLint (JS) — configurados para correr a mano; no corren en CI |
 | Hosting | GitHub Pages (origen) + Cloudflare (proxy/DNS) + Cloudflare Workers (mirror) |
 | SEO | JSON-LD + Open Graph + Twitter Cards |
 | Caché | sessionStorage (TTL 2h) + Service Worker |
-| Seguridad | CSP via header HTTP + SHA256 hash |
+| Seguridad | CSP via header HTTP + hashes SHA256 |
+| Analítica | Google Analytics 4 |
 | PWA | Service Worker + Web App Manifest |
 
 ---
@@ -817,7 +895,7 @@ remediar/
 - Hosting estático con costo prácticamente cero
 - CDN extremadamente eficiente
 - Menor complejidad operacional
-- El dataset (~13.400 registros) cabe perfectamente en memoria
+- El dataset (~13.000 registros) cabe perfectamente en memoria
 
 ## ¿Por qué 8+ capas de normalización?
 
@@ -828,7 +906,7 @@ El PDF de SIAFAR no tiene un esquema tabular estricto. Distintos laboratorios om
 - GitHub Pages es gratuito, confiable, y ya aloja el repo — cero infraestructura extra que mantener
 - **Importante**: GitHub Pages **no soporta un archivo `_headers`** para headers HTTP personalizados (esa convención es de Cloudflare Pages/Netlify, no de GitHub Pages). El archivo [`_headers`](./_headers) del repo documenta los valores deseados, pero quien los aplica de verdad en `remedi.ar`/`www.remedi.ar` es una **Cloudflare Response Header Transform Rule**, configurada en el dashboard (no en el repo) — ver la nota en la sección de Arquitectura
 - Cloudflare como proxy (nube naranja) suma CDN global, HTTPS gestionado, y la posibilidad de inyectar esos headers sin tocar el origen
-- El mirror en Cloudflare Workers (`remediar.pablo-s-bella.workers.dev`) sirve como respaldo independiente: al ser Workers Static Assets, sí procesa el `_headers` del repo nativamente, así que ese archivo no queda del todo huérfano
+- El mirror en Cloudflare Workers (`remediar.pablo-s-bella.workers.dev`) sirve como respaldo independiente (se despliega a mano): al ser Workers Static Assets, sí procesa el `_headers` del repo nativamente, así que ese archivo no queda del todo huérfano
 
 ---
 
@@ -861,7 +939,21 @@ python scripts/pdf_to_json.py
 pytest tests/ -v
 ```
 
-## Docker
+## Chequeos de calidad (opcionales)
+
+```bash
+# Lint (configurados; no corren en CI)
+pip install ruff && ruff check .
+npm install && npx eslint js/
+
+# Accesibilidad con axe-core
+npm install && npm run a11y        # páginas núcleo
+A11Y_FULL=1 npm run a11y           # todas las .html de la raíz
+```
+
+## Docker (ejemplo)
+
+El repo no incluye un `Dockerfile`; si querés servir el sitio estático con nginx, alcanza con esto:
 
 ```dockerfile
 FROM nginx:alpine
@@ -879,15 +971,20 @@ docker run -p 8080:80 remediar
 
 | Script | Función |
 |---|---|
-| `scripts/pdf_to_json.py` | Orquestador: encadena las capas de `scripts/etl/` en orden y persiste `medicamentos.json`, `outlier_report.json` y `presentaciones_debug.csv`. Ya no contiene la lógica de las capas — solo el flujo. |
-| `scripts/snapshot_semanal.py` | Genera un CSV con los precios confiables (`vigencia_score ≥ 50`) de la semana y lo sube como asset a la release mensual de GitHub (`historial-YYYY-MM`). Se ejecuta automáticamente cada viernes. |
+| `scripts/pdf_to_json.py` | Orquestador: encadena las capas de `scripts/etl/` en orden y persiste `medicamentos.json`, `outlier_report.json` y `presentaciones_debug.csv`. Ya no contiene la lógica de las capas — solo el flujo. Si el PDF no cambió (mismo SHA-256), corta antes de parsear. |
+| `scripts/diff_precios.py` | Compara `data/medicamentos.json` contra el de `HEAD` (el commit anterior) y agrega las variaciones — altas, bajas y cambios de precio — a `data/historico/precios.json`. Solo considera registros con `vigencia_score ≥ 50`. Corre en cada corrida programada, antes del commit. Reemplazó al antiguo `snapshot_semanal.py` (una foto semanal subida a GitHub Releases) en la 2.5.0. |
 | `scripts/generar_landings.py` | Genera las 100 landing pages estáticas (una por droga) a partir de `medicamentos.json`, y regenera `sitemap.xml` con las 100 URLs. Ver [Landing pages (long-tail SEO)](#landing-pages-long-tail-seo). |
-| `scripts/github_release_helper.py` | Funciones compartidas para crear/obtener releases de GitHub y subir/reemplazar/verificar assets. Usado por `snapshot_semanal.py` y `subir_debug.py`, no se ejecuta directamente. |
+| `scripts/github_release_helper.py` | Funciones compartidas para crear/obtener releases de GitHub y subir/reemplazar/verificar assets. Usado por `subir_debug.py`, no se ejecuta directamente. |
+| `scripts/checks/headers-check.mjs` | Compara los headers HTTP que sirven `remedi.ar` y `www.remedi.ar` contra el bloque `/*` de `_headers`. A diferencia de `a11y-check.mjs`, **sale con error** si hay divergencia: es un chequeo de seguridad. |
 | `scripts/checks/a11y-check.mjs` | Chequeo de accesibilidad con axe-core + Puppeteer contra las páginas estáticas servidas localmente. No bloquea el CI (mismo criterio que Ruff/ESLint en este repo) — avisa, no rompe el build. |
 | `scripts/mantenimiento/fix_blacklist_encoding.py` | Reparación puntual de entradas con encoding corrupto en `blacklist.json`, vía cross-reference e historial de git. Ejecución manual, no forma parte del pipeline automático. |
-| `scripts/traducir_atc_who.py` | Traduce drogas a códigos ATC usando índice oficial WHOCC. Genera `data/atc/atc_por_droga.json`. |
-| `scripts/aplicar_atc_tabla_oms.py` | Aplica tabla ATC/DDD oficial WHOCC para enriquecer 206 drogas sin clasificación. |
+| `scripts/traducir_atc_who.py` | Completa `data/atc/atc_por_droga.json` con el índice oficial ATC/DDD de la OMS (WHOCC): genera candidatos en español por reglas de sufijo INN, los cruza solo contra drogas que existen en `medicamentos.json` y requieren revisión manual (`--dry-run` disponible). |
+| `scripts/aplicar_atc_tabla_oms.py` | Parsea una tabla HTML de códigos ATC y completa el campo `atc` de `info_adicional.json` para principios activos simples que aparecen **una sola vez** en la tabla (sin ambigüedad). No toca `clases_terapeuticas`. |
+| `scripts/listar_droga_sin_info.py` | Genera `data/info-adicional/faltantes_atc.csv`: las composiciones sin ATC, ordenadas por cantidad de medicamentos afectados. |
+| `data/info-adicional/enriquecer_info_adicional_por_droga.py` | Extiende `info_adicional.json` por consenso de principio activo: si todas las entradas de AlfaBeta para una droga simple coinciden, copia ATC y clases a los productos sin dato y los marca `"inferido": true`. No propaga laboratorio ni vigencia. |
 | `tests/test_etl_sanidad.py` | 12 tests de sanidad sobre el output del ETL: cantidad de registros, campos obligatorios, rangos de precios, calidad de datos y estructura del JSON |
+| `tests/test_etl_modulos.py` | 18 tests unitarios de las funciones puras de `scripts/etl/` |
+| `tests/test_schema.py` | 1 test de contrato: valida el JSON completo contra `tests/medicamentos.schema.json` |
 
 ### Paquete `scripts/etl/` (capas de normalización)
 
@@ -908,14 +1005,17 @@ docker run -p 8080:80 remediar
 
 # 📊 Métricas y Rendimiento
 
-| Métrica | Valor |
-|---|---|
-| Lighthouse Performance | 94-96 |
-| Accessibility | 98 |
-| Best Practices | 100 |
-| SEO | 100 |
-| CLS | 0.02 |
-| FID | 12ms |
+Las puntuaciones de Lighthouse y los Core Web Vitals no se publican como cifras fijas en este README: cambian con cada medición y el README no puede indicar cuándo ni en qué condiciones se tomaron. Lo que el repositorio verifica automáticamente en CI:
+
+| Chequeo | Cómo | ¿Bloquea? |
+|---|---|---|
+| Accesibilidad (WCAG vía axe-core) | `accessibility.yml` + `a11y-check.mjs` | No (avisa) |
+| Sintaxis de todo el JS | `js-syntax-check.yml` (`node --check`) | Sí |
+| Headers de seguridad en producción | `headers-check.yml` | Falla si hay divergencia |
+| Calidad del dataset | `pytest` (31 tests) | Sí: impide el commit |
+| Seguridad estática | `codeql.yml` | — |
+
+Para el rendimiento percibido, la métrica de interactividad vigente de Core Web Vitals es **INP** (reemplazó a FID en marzo de 2024); medila con [PageSpeed Insights](https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fremedi.ar).
 
 ---
 
@@ -923,7 +1023,7 @@ docker run -p 8080:80 remediar
 
 ## Implementaciones
 
-- JSON-LD (`WebSite` + `SearchAction`)
+- JSON-LD (`WebSite` + `Organization` + `SearchAction`) en la home
 - Open Graph
 - Twitter Cards
 - Sitemap.xml (+ visor HTML vía XSL, ver más abajo)
@@ -935,7 +1035,7 @@ docker run -p 8080:80 remediar
 Además de la SPA (`index.html`), el sitio publica **100 páginas estáticas**, una por droga (`omeprazol.html`, `metformina.html`, `ibuprofeno.html`, etc.), pensadas para capturar búsquedas del tipo *"precio de X en Argentina"* que no indexan bien contra una SPA con contenido cargado por JS.
 
 - Generadas por `scripts/generar_landings.py` a partir de `data/medicamentos.json` — no se editan a mano
-- Cada landing incluye: precio min/prom/max, tabla de marcas y laboratorios, FAQ, drogas relacionadas, JSON-LD `Drug` + `BreadcrumbList`, y metadatos Open Graph/Twitter propios
+- Cada landing incluye: resumen de precios (mín/prom/máx), tabla de productos, FAQ, medicamentos relacionados, JSON-LD (`Drug` + `AggregateOffer`, `FAQPage` y `BreadcrumbList`), y metadatos Open Graph/Twitter propios
 - Comparten `js/landing.js` (volver arriba, scroll de tabla, buscador de footer) en vez de JS inline, cubierto por `script-src 'self'` en la CSP sin necesidad de hash
 - El mismo script regenera `sitemap.xml` con las 100 URLs (prioridad `0.9`) + home (`1.0`) + páginas institucionales (`0.5`/`0.3`)
 - Un mapeo manual (`SLUG_A_DROGA_REAL` en el script) resuelve los casos donde el slug de la URL no coincide textualmente con el campo `droga` del dataset (tildes, combos con coma, truncamientos del PDF de origen)
@@ -954,7 +1054,7 @@ flowchart LR
     D -.->|"<?xml-stylesheet?>"| E
 ```
 
-Se ejecuta automáticamente como parte de `update_prices.yml`, inmediatamente después de `pdf_to_json.py` — es decir, las 100 landings y el sitemap se regeneran en cada corrida del ETL (dos veces al día), no solo cuando cambia el catálogo de drogas.
+Se ejecuta automáticamente como parte de `actualizar-precios.yml`, inmediatamente después de `pdf_to_json.py` — es decir, las 100 landings y el sitemap se regeneran en cada corrida en la que SIAFAR publicó un PDF distinto (no solo cuando cambia el catálogo de drogas). `robots.txt` bloquea `/scripts/` y `/logs/`, pone `Crawl-delay` a AhrefsBot y SemrushBot y bloquea a MJ12bot, GPTBot y ClaudeBot.
 
 ## Sitemap legible (`sitemap.xsl`)
 
@@ -969,7 +1069,10 @@ Se ejecuta automáticamente como parte de `update_prices.yml`, inmediatamente de
   "name": "remedi.ar",
   "potentialAction": {
     "@type": "SearchAction",
-    "target": "https://remedi.ar/?q={search_term_string}",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://remedi.ar/?q={search_term_string}"
+    },
     "query-input": "required name=search_term_string"
   }
 }
@@ -979,14 +1082,28 @@ Se ejecuta automáticamente como parte de `update_prices.yml`, inmediatamente de
 
 # 🔒 Seguridad y Privacidad
 
-- No se recopilan datos personales
-- No se utilizan cookies de tracking
-- No existe backend persistente
+## Privacidad
+
+- No hay cuentas, formularios ni backend, y no se recopilan datos personales
+- El sitio usa **Google Analytics 4**, que instala cookies propias (un identificador aleatorio) para estadísticas de uso. No hay publicidad ni cookies publicitarias
+- La URL que se reporta a GA es `origen + ruta` (sin parámetros ni *hash*), de modo que las búsquedas y los productos compartidos no viajan en la URL
+- Al usar el botón "Compartir" se envía a GA el nombre de la droga y la marca del medicamento
+- El detalle completo está en la [política de privacidad](https://remedi.ar/privacidad.html)
 - Todo el frontend es auditable públicamente
-- **Content Security Policy** via header HTTP con hash SHA256 de los dos scripts inline ejecutables (config de Google Analytics y registro del Service Worker): `script-src 'self' 'sha256-...' 'sha256-...' https://www.googletagmanager.com`. El script JSON-LD no necesita hash: no es JavaScript ejecutable.
-- **CORS** habilitado en `/data/medicamentos.json` para consumo externo (`Access-Control-Allow-Origin: *`)
+
+## Headers y CSP
+
+- **Content Security Policy** via header HTTP: `default-src 'self'`; `script-src 'self'` más hashes SHA256 de los scripts inline ejecutables de `index.html` (config de Google Analytics, registro del Service Worker y un hash transitorio del GA anterior) y `https://www.googletagmanager.com`; `style-src 'self'` (sin `unsafe-inline`). El script JSON-LD no necesita hash: no es JavaScript ejecutable. Si se edita un script inline, hay que actualizar el hash en `_headers` **y** en la Transform Rule de Cloudflare
+- `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, `Referrer-Policy`, `Permissions-Policy` y HSTS
+- En producción los aplica una Cloudflare Response Header Transform Rule (no el archivo `_headers`). `headers-check.yml` compara semanalmente producción contra `_headers` y falla si divergen. Los `Cache-Control` por tipo de asset de `_headers` **no** están replicados en producción
+- **CORS** abierto en `/data/medicamentos.json` para consumo externo (`Access-Control-Allow-Origin: *`)
 - `robots.txt` bloquea explícitamente GPTBot y ClaudeBot
-- Google Analytics configurado en modo anónimo — ver [política de privacidad](https://remedi.ar/privacidad.html)
+
+## Panel admin y rama `main`
+
+- `admin-panel.html` (`noindex`) es la única superficie con permisos de escritura: edita `blacklist.json` vía la API de GitHub. Requiere un Personal Access Token que se ingresa a mano y vive solo en memoria del navegador (nunca en el repo ni en `localStorage`); sin token no se puede ejecutar ninguna acción. Se sirve con la misma CSP que el resto del sitio
+- `main` no tiene branch protection, a propósito (ver [Sobre la rama `main`](#sobre-la-rama-main))
+- Modelo de amenazas y cómo reportar una vulnerabilidad: [`SECURITY.md`](./SECURITY.md). CodeQL y Dependabot (`pip`, `github-actions`, `npm`) están activos; todas las acciones están fijadas por SHA de commit
 
 ---
 
@@ -1060,6 +1177,7 @@ Antes de abrir el PR: si tocaste el ETL, corré `pytest tests/` y confirmá que 
 | `fix` | Corrección de bug |
 | `docs` | Documentación |
 | `perf` | Performance |
+| `refactor` | Reestructuración sin cambio de comportamiento |
 | `chore` | Mantenimiento / limpieza |
 | `security` | Cambios de seguridad |
 
@@ -1069,7 +1187,7 @@ Antes de abrir el PR: si tocaste el ETL, corré `pytest tests/` y confirmá que 
 
 ## ⚠️ Ojo con el Service Worker al tocar assets estáticos
 
-Si modificás `index.html`, `css/style.css` o cualquier archivo en `js/`, **acordate de bumpear `CACHE_NAME` en `sw.js`** (ej. `remediar-v7` → `remediar-v8`). Esos archivos están precacheados por el Service Worker (`CACHE_STATIC`), así que sin el bump los usuarios que ya visitaron el sitio van a seguir viendo la versión vieja indefinidamente, sin ningún error visible — simplemente no se actualiza nada hasta que el navegador decida revalidar el cache por su cuenta.
+Si modificás `index.html`, `css/style.css` o cualquier archivo en `js/`, **acordate de bumpear `CACHE_NAME` en `sw.js`** (hoy `remediar-v36`; ej. `remediar-v36` → `remediar-v37`). Esos archivos están precacheados por el Service Worker (`CACHE_STATIC`), así que sin el bump los usuarios que ya visitaron el sitio van a seguir viendo la versión vieja indefinidamente, sin ningún error visible — simplemente no se actualiza nada hasta que el navegador decida revalidar el cache por su cuenta.
 
 ---
 
@@ -1082,6 +1200,7 @@ flowchart TD
 
     A[PDF SIAFAR]
     B[Descarga + extracción por página]
+    DD[Deduplicar registros exactos]
     C0[Capa 0: reparar_droga_faltante]
     C1[Capa 1: desplazamiento en parse]
     C2[Capa 2: rescatar_laboratorios]
@@ -1092,16 +1211,18 @@ flowchart TD
     C5C[Capa 5c: limpiar_dosis_residual_en_marca]
     C6[Capa 6: crosswalk_pami]
     C7[Capa 7: aplicar_droga_fixes]
-    BL[Blacklist 710 entradas]
-    OUT[Detección de outliers IQR]
-    PRES[Parser de presentaciones]
+    BL[Blacklist 711 claves]
+    OUT[Outliers + vigencia_score]
+    PRES[Debug de presentaciones]
+    ENR[enriquecer_dosis]
     T[🧪 pytest 31 tests]
     JSON[medicamentos.json]
     DEBUG[presentaciones_debug.csv]
     REPORT[outlier_report.json]
 
     A --> B
-    B --> C0
+    B --> DD
+    DD --> C0
     C0 --> C1
     C1 --> C2
     C2 --> C3
@@ -1114,8 +1235,9 @@ flowchart TD
     C7 --> BL
     BL --> OUT
     OUT --> PRES
-    PRES --> T
-    T --> JSON
+    PRES --> ENR
+    ENR --> JSON
+    JSON --> T
     PRES --> DEBUG
     OUT --> REPORT
 ```
@@ -1175,7 +1297,7 @@ flowchart TD
 | `pres_unidad` | `"MG"` |
 | `pres_cantidad` | `"20"` |
 
-Cobertura actual: **~99.5%**. El archivo `data/presentaciones_debug.csv` permite auditar los casos no resueltos después de cada corrida.
+Cobertura actual: **~98,5 %** (12.931 de 13.129 registros tienen `pres_forma`). El archivo `data/presentaciones_debug.csv` permite auditar los casos no resueltos después de cada corrida.
 
 ---
 
@@ -1270,7 +1392,7 @@ flowchart LR
         S5[precio]
     end
 
-    subgraph PAMI["📋 Vademécum PAMI (API)"]
+    subgraph PAMI["📋 Vademécum PAMI (data/pami.xlsx)"]
         P1[pami_cobertura]
         P2["droga (recuperación)"]
         P3["laboratorio (corrección)"]
@@ -1284,7 +1406,7 @@ flowchart LR
         PR4[pres_cantidad]
     end
 
-    subgraph OUTLIER["📊 Detección outliers (IQR)"]
+    subgraph OUTLIER["📊 Detección de outliers"]
         O1[vigencia_score]
         O2[flags]
         O3[precio_outlier_tipo]
@@ -1318,7 +1440,7 @@ flowchart LR
 - Render de tarjetas con principio activo en mayúsculas
 - Chips de presentación: usa `pres_forma` / `pres_dosis` / `pres_unidad` / `pres_cantidad` del JSON cuando están disponibles; cae a `parsearPresentacion()` (JS) como fallback
 - En modo PAMI activo, muestra el copago estimado como precio principal y el PVP como referencia secundaria
-- Chip PAMI con formato "Cobertura PAMI 55% · $4.500"
+- Chip PAMI con formato "Cobertura PAMI 60% · $4.000"
 - Skeleton loaders + mensajes de error/vacío
 - Scroll-to-top automático al superar 300px de scroll
 - Renderizado modular: `renderPresentacion(med)` y `renderPrecios(med, soloPami)` son funciones nombradas — sin IIFEs anónimas en template literals
@@ -1335,6 +1457,7 @@ flowchart LR
 - `normalizarLaboratorio()`: resuelve laboratorios truncados por el PDF
 - `parsearPresentacion()`: parser JS de fallback (60+ formas en `FORMAS_MAP`)
 - `extraerFiltros()`: construye sets de presentaciones y laboratorios válidos para dropdowns
+- `calcularEstadisticas()`: totales de medicamentos, drogas y cobertura PAMI (los usan `about.html` y la franja de números de la home)
 
 ## dataLoader.js
 
@@ -1348,12 +1471,32 @@ flowchart LR
 - Búsqueda AND multi-término normalizada (sin tildes, lowercase)
 - Ranking por relevancia textual (droga > marca > lab), `vigencia_score` y precio
 - Registros con `vigencia_score < 50` degradados al fondo
+- La relevancia textual se calcula con el primer término de la búsqueda
+
+## infoAdicional.js
+
+- Carga en segundo plano `data/info-adicional/info_adicional.json` (caché `sessionStorage`, clave `info_adicional_v1`, TTL 2 h)
+- Es un dato secundario: si falla la carga, devuelve `{}` y la lista principal sigue intacta
+
+## atcClasificacion.js
+
+- Carga `atc_niveles.json` y `atc_por_droga.json` y resuelve la jerarquía ATC de cada principio activo (`obtenerClasificacionPorDroga()`)
+- Normaliza nombres de droga: sales pegadas, truncamientos conocidos, ácidos y combinaciones con reglas de excepción
+
+## landing.js y about.js
+
+- `landing.js`: comportamiento compartido por las 100 landings y las páginas institucionales (volver arriba, scroll de tabla, buscador del footer)
+- `about.js`: carga los números dinámicos de `about.html`
+
+## admin-panel.js
+
+- Panel interno de outliers y lista negra (ver [Seguridad](#-seguridad-y-privacidad)); lee/escribe `blacklist.json` vía la API de GitHub
 
 ## filters.js
 
 - `aplicarFiltros()`: filtrado por presentación, laboratorio y PAMI
 - `ordenar()`: ordenamiento con conciencia de vigencia (`vigencia_score < 50` siempre al fondo)
-- `esValorCorrupto()`: detección de laboratorios con valores numéricos o de presentación en el campo lab
+- Usa `esLaboratorioCorrupto()` (de `utils.js`): los laboratorios con valores numéricos o de presentación en el campo lab nunca matchean un filtro de laboratorio
 
 ---
 
@@ -1363,20 +1506,20 @@ flowchart LR
 
 ```css
 :root {
-  --teal:          #008B8B;
+  --teal:          #007E7E;
   --teal-dark:     #005f5f;
   --teal-darker:   #003f3f;
   --teal-light:    #e6f2f2;
   --teal-accent:   #0e7490;
   --text-1:        #111111;
-  --text-4:        #777777;
+  --text-4:        #666666;
   --r-sm: 8px; --r-md: 12px; --r-lg: 16px;
 }
 ```
 
 ## Responsive
 
-Un único breakpoint mobile-first en `600px` — no hay un nivel intermedio de tablet separado, el layout de mobile se extiende hasta desktop.
+Breakpoint principal mobile-first en `600px` — no hay un nivel intermedio de tablet separado, el layout de mobile se extiende hasta desktop (hay además algún ajuste puntual en `900px`).
 
 | Breakpoint | Tamaño |
 |---|---|
@@ -1387,28 +1530,32 @@ Un único breakpoint mobile-first en `600px` — no hay un nivel intermedio de t
 
 # 🔧 Documentación de Workflows
 
+Todas las acciones están fijadas por SHA de commit.
+
 | Workflow | Trigger | Función |
 |---|---|---|
-| `update_prices.yml` | Cron `30 13,21 * * 1-5` + manual | ETL principal: descarga PDF, genera JSON, corre tests, hace commit |
-| `maintenance-on.yml` | Manual | Reemplaza `index.html` con página de mantenimiento |
-| `maintenance-off.yml` | Manual | Restaura `index.html` desde backup |
+| `actualizar-precios.yml` | Cron `30 14 * * 1-5` y `30 18 * * 1-5` (UTC; 11:30 y 15:30 hora de Argentina) + manual | ETL principal: descarga PDF, genera JSON, landings y sitemap, sube debug, corre tests, calcula el diff de precios (solo corridas programadas) y hace commit. Si el PDF no cambió, todos los pasos posteriores a `pdf_to_json.py` se saltean |
+| `maintenance-on.yml` | Manual | Reemplaza `index.html` con la página de mantenimiento (backup en `index.html.bak`) |
+| `maintenance-off.yml` | Manual | Restaura `index.html` desde el backup |
 | `codeql.yml` | Push/PR a `main` + cron semanal (sábado 01:33 UTC) | Análisis estático de seguridad (CodeQL) sobre JS, Python y los propios workflows de GitHub Actions |
 | `js-syntax-check.yml` | Push/PR a `main` que toque `js/**` o `scripts/checks/**` + manual | Corre `node --check` sobre todo el JS. A diferencia de ESLint/axe en este repo, SÍ bloquea el build — un error de sintaxis rompe la carga de JS en todo el sitio, no es una cuestión de estilo |
-| `headers-check.yml` | Push a `main` que toque `_headers` o `scripts/checks/headers-check.mjs` + cron semanal (domingo 06:00 UTC) + manual | Corre `scripts/checks/headers-check.mjs`. Como js-syntax-check, es un chequeo de seguridad y SÍ bloquea el build (no solo avisa como accessibility.yml) |
-| `accessibility.yml` | Push/PR a `main` que toque cualquier `*.html`, `css/style.css`, `js/**` o el propio check + cron semanal (domingo 05:00 UTC) + manual | Corre `scripts/checks/a11y-check.mjs` (axe-core + Puppeteer). Modo rápido (`index.html`, `about.html`, `terminos.html`, `privacidad.html`) en push/PR/manual; modo completo (todas las .html) solo en la corrida semanal. `admin-panel.html` queda excluido siempre. No bloquea el build — avisa, no rompe, mismo criterio que Ruff/ESLint |
+| `headers-check.yml` | Push a `main` que toque `_headers` o `scripts/checks/headers-check.mjs` + cron semanal (domingo 06:00 UTC) + manual | Corre `scripts/checks/headers-check.mjs`. Como js-syntax-check, es un chequeo de seguridad y falla ante cualquier divergencia (no solo avisa como accessibility.yml) |
+| `accessibility.yml` | Push/PR a `main` que toque cualquier `*.html`, `css/style.css`, `js/**` o el propio check + cron semanal (domingo 05:00 UTC) + manual | Corre `scripts/checks/a11y-check.mjs` (axe-core + Puppeteer). Modo rápido (`index.html`, `about.html`, `terminos.html`, `privacidad.html`) en push/PR/manual; modo completo (todas las .html) solo en la corrida semanal. `admin-panel.html` queda excluido siempre. No bloquea el build — avisa, no rompe |
 | `dependabot.yml` (config, no workflow) | Semanal | Propone actualizaciones de `requirements.txt` (pip), de las actions usadas en los workflows (`github-actions`) y de `package.json` (`npm` — `axe-core`/`puppeteer`, usados solo por `a11y-check.mjs`) |
 
-| Parámetro | Valor |
+`actualizar-precios`, `maintenance-on` y `maintenance-off` comparten el grupo de concurrencia `repo-main-write` para no escribir en `main` al mismo tiempo.
+
+| Parámetro de `actualizar-precios.yml` | Valor |
 |---|---|
-| Schedule | 10:30 y 18:30 AR (lunes a viernes) |
+| Schedule | 11:30 y 15:30 AR (lunes a viernes) |
 | Runtime | Ubuntu latest |
-| Python | 3.11 |
-| Caché de dependencias | `cache: 'pip'` en `setup-python@v6` |
+| Timeout | 15 minutos |
+| Python | 3.11 (`cache: 'pip'` en `setup-python`) |
 | Dependencias | Ver `requirements.txt` |
 | Trigger manual | Sí (`workflow_dispatch`) |
-| Pull antes de push | Sí (`git pull --rebase`) |
+| Pull antes de push | Sí (`git pull --rebase`, con reintentos) |
 | Tests | pytest antes de cada commit |
-| Snapshot semanal | Viernes — CSV subido a GitHub Releases (`historial-YYYY-MM`) |
+| Histórico de precios | `diff_precios.py` en cada corrida programada (incremental, en `data/historico/precios.json`) |
 
 ---
 
@@ -1416,29 +1563,29 @@ Un único breakpoint mobile-first en `600px` — no hay un nivel intermedio de t
 
 ## ¿De dónde salen los datos?
 
-Del PDF oficial publicado por SIAFAR / COFA dos veces al día, de lunes a viernes.
+Del PDF oficial publicado por SIAFAR / COFA. El workflow lo consulta dos veces por día hábil y solo reprocesa si el PDF cambió.
 
 ## ¿Qué es el vigencia_score?
 
-Un score de 0 a 100 que indica la confiabilidad del precio. Se calcula usando estadística IQR (rango intercuartílico) por droga + detección de inconsistencias de escala. Un score < 50 indica que el precio es probable outlier (obsoleto, cero, o estadísticamente anómalo respecto a la mediana de la droga).
+Un score de 0 a 100 que indica la confiabilidad del precio. Se calcula con la mediana y el rango intercuartílico (IQR) de cada droga, un piso de precio absoluto y la detección de inconsistencias de escala (ver la tabla de umbrales en [Actualización Automática de Datos](#-actualización-automática-de-datos)). Un score < 50 indica que el precio es probable outlier (obsoleto, cero, o estadísticamente anómalo respecto a la mediana de la droga).
 
 ## ¿Qué significa el chip PAMI?
 
-Muestra la cobertura y el copago estimado en un solo chip: **"Cobertura PAMI 55% · $4.500"**.
+Muestra la cobertura y el copago estimado en un solo chip: **"Cobertura PAMI 60% · $4.000"**.
 
 El copago se calcula como `precio × (1 - cobertura / 100)`.
 
 ```
 PVP SIAFAR:       $10.000
-Cobertura PAMI:   55%
-Copago estimado:  $10.000 × (1 - 0.55) = $4.500
+Cobertura PAMI:   60%
+Copago estimado:  $10.000 × (1 - 0.60) = $4.000
 ```
 
 Es una aproximación — el copago real puede variar porque el porcentaje de cobertura es del vademécum PAMI y el precio base es el PVP actualizado de SIAFAR.
 
 ## ¿Cada cuánto se actualiza?
 
-Dos veces al día, de lunes a viernes (10:30 y 18:30 hora Argentina).
+Dos veces por día hábil (11:30 y 15:30 hora Argentina), de lunes a viernes. Si SIAFAR no publicó un PDF nuevo, no se actualiza nada.
 
 ## ¿Tiene publicidad?
 
@@ -1446,7 +1593,7 @@ No.
 
 ## ¿Tiene tracking?
 
-No. Usamos Google Analytics en modo anónimo para entender el uso del sitio.
+No se recopilan datos personales ni hay publicidad. Sí usamos Google Analytics 4 (con cookies propias) para entender el uso del sitio; las URLs que se reportan no incluyen parámetros de búsqueda. Ver la [política de privacidad](https://remedi.ar/privacidad.html).
 
 ## ¿Se puede usar el JSON libremente?
 
@@ -1458,7 +1605,7 @@ Cada medicamento tiene una URL única con hash: `remedi.ar/#droga--marca--labora
 
 ## ¿Hay historial de precios?
 
-Sí, desde el primer viernes de implementación. Cada viernes se genera un snapshot CSV con los precios confiables de la semana y se sube como asset a la release mensual de GitHub (`historial-YYYY-MM`). Los snapshots están disponibles públicamente en la sección [Releases](https://github.com/psbella/remediar/releases) del repositorio.
+Sí, como dato (todavía no hay visualización en el sitio). Desde la versión 2.5.0, cada corrida programada agrega a `data/historico/precios.json` solo lo que cambió respecto de la corrida anterior (altas, bajas y variaciones de precio, con su fecha), y ese archivo se versiona en el propio repo. Antes de eso se publicaba un snapshot semanal en la sección [Releases](https://github.com/psbella/remediar/releases) (`historial-YYYY-MM`).
 
 ---
 
@@ -1466,7 +1613,11 @@ Sí, desde el primer viernes de implementación. Cada viernes se genera un snaps
 
 | Limitación | Descripción |
 |---|---|
-| ~9 registros sin presentación | El PDF de SIAFAR no incluye la presentación para estas marcas (KETOSTERIL, FRENALER D, DEXALERGIN, VIXALERG, KINALGIN P, ASFARADIL, FEMIDEN, SIGNORINA, VAXNEUVANCE). No son errores del parser — el dato simplemente no está en la fuente. |
+| 11 registros sin presentación | 7 son marcas para las que el PDF de SIAFAR no trae la presentación (ASFARADIL, DEXALERGIN, FEMIDEN, KETOSTERIL, SIGNORINA, VAXNEUVANCE, VIXALERG): el dato no está en la fuente. Los otros 4 son casos que el parser todavía no resuelve: la presentación quedó dentro de `marca` (`COMP.REC.X 10`, `COMP.REC.X 28`, `COMP.X 30`, `CÁPS. X 30`). |
+| `pami.xlsx` se actualiza a mano | El vademécum se sube manualmente ~1 vez por mes. Si no se refresca, la cobertura puede quedar desfasada; si el archivo falta, el cruce con PAMI se omite. |
+| Solo días hábiles y solo si cambió el PDF | No hay actualizaciones los fines de semana, y se reprocesa únicamente cuando SIAFAR publica un PDF distinto. |
+| Tope de 300 tarjetas | Cada consulta renderiza como máximo 300 resultados; el contador muestra el total. |
+| Mirror de Workers manual | Se despliega a mano (`npx wrangler deploy`), así que puede ir detrás de `main`. |
 | `pami_cobertura` es aproximado | El porcentaje proviene del vademécum PAMI (que se actualiza con menor frecuencia) aplicado sobre el PVP actual de SIAFAR. El copago real puede diferir. |
 | Precios de SIAFAR en ARS | Con la inflación argentina, los precios pueden quedar desactualizados entre corridas. El `vigencia_score` ayuda a identificar los registros más sospechosos. |
 | PDF de SIAFAR sin esquema fijo | Distintos laboratorios aplican su propia semántica al PDF. El pipeline de 8+ capas resuelve los patrones conocidos; pueden aparecer casos nuevos en futuras corridas. |
@@ -1482,7 +1633,7 @@ Sí, desde el primer viernes de implementación. Cada viernes se genera un snaps
 - ~~Tests automatizados del ETL~~ ✅
 - ~~Refactor IIFEs en uiRenderer.js~~ ✅
 - ~~Compartir medicamentos con deep link~~ ✅
-- ~~Snapshots semanales de precios en GitHub Releases~~ ✅
+- ~~Histórico incremental de precios (`diff_precios.py`)~~ ✅
 - Filtro por forma farmacéutica en la UI (usando `pres_forma`, ya disponible en el JSON)
 - Historial de precios (visualización en frontend)
 
@@ -1512,7 +1663,7 @@ Sí, desde el primer viernes de implementación. Cada viernes se genera un snaps
 
 Datos proporcionados por [SIAFAR / COFA](https://siafar.com/precios/pdf/) (precios) y el [vademécum oficial de PAMI](https://datos.pami.org.ar/dataset/medicamentos-para-afiliados) (cobertura).
 
-La clasificación ATC parte de la [página oficial de códigos ATC de ANMAT](https://www.anmat.gob.ar/atc/CodigosATC.asp), extraída al dataset propio [Codigos-ATC-ANMAT](https://github.com/psbella/Codigos-ATC-ANMAT) (`data/atc/atc_por_droga.json` / `atc_niveles.json`). Se completa con el índice oficial [ATC/DDD de la WHO Collaborating Centre for Drug Statistics Methodology (WHOCC)](https://atcddd.fhi.no/atc_ddd_index/), obtenido vía el scraper [fabkury/atcd](https://github.com/fabkury/atcd) (licencia [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/), uso no comercial). Los nombres de droga en inglés se cruzan contra el dataset local mediante reglas de sufijo INN estándar (ver `scripts/traducir_atc_who.py`).
+La información complementaria de cada producto (laboratorio, drogas, clases terapéuticas) proviene de datos de AlfaBeta; las entradas marcadas `inferido` se derivan del principio activo. La clasificación ATC parte de la [página oficial de códigos ATC de ANMAT](https://www.anmat.gob.ar/atc/CodigosATC.asp), extraída al dataset propio [Codigos-ATC-ANMAT](https://github.com/psbella/Codigos-ATC-ANMAT) (`data/atc/atc_por_droga.json` / `atc_niveles.json`). Se completa con el índice oficial [ATC/DDD de la WHO Collaborating Centre for Drug Statistics Methodology (WHOCC)](https://atcddd.fhi.no/atc_ddd_index/), obtenido vía el scraper [fabkury/atcd](https://github.com/fabkury/atcd) (licencia [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/), uso no comercial). Los nombres de droga en inglés se cruzan contra el dataset local mediante reglas de sufijo INN estándar (ver `scripts/traducir_atc_who.py`).
 
 ---
 
@@ -1521,8 +1672,8 @@ La clasificación ATC parte de la [página oficial de códigos ATC de ANMAT](htt
 | Recurso | URL |
 |---|---|
 | Producción | https://remedi.ar |
-| GitHub Pages (dominio por defecto) | https://psbella.github.io/remediar/ |
-| Mirror (Cloudflare Workers) | https://remediar.pablo-s-bella.workers.dev/ |
+| GitHub Pages (dominio por defecto, redirige a producción) | https://psbella.github.io/remediar/ |
+| Mirror (Cloudflare Workers, deploy manual) | https://remediar.pablo-s-bella.workers.dev/ |
 | Repositorio | https://github.com/psbella/remediar |
 | Actions / CI | https://github.com/psbella/remediar/actions |
 | medicamentos.json | https://remedi.ar/data/medicamentos.json |
