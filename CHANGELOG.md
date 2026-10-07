@@ -22,6 +22,10 @@
 - Las tres páginas suman el botón de volver arriba (`#btnTop`, mismo que la
   home y las landings) cargando `js/landing.js`, que ya estaba en el
   precache. `sw.js`: `CACHE_NAME` sube a `v35`.
+- `about.html`: se elimina la navegación interna (la barra con 7 links a las
+  secciones) y su CSS (`.about-nav`). Los `id` de las secciones se conservan,
+  así que los links con ancla (`about.html#faq`, etc.) siguen funcionando.
+  `sw.js`: `CACHE_NAME` sube a `v36`.
 
 ## [2.5.3] - 2026-10-06
 

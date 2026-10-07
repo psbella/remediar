@@ -1077,36 +1077,6 @@ body {
     margin-top: 16px;
 }
 
-.about-nav {
-    background: var(--white);
-    border: 0.5px solid var(--border);
-    border-radius: var(--r-md);
-    padding: 12px 16px;
-    margin-bottom: 24px;
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    position: sticky;
-    top: 12px;
-    z-index: 100;
-}
-
-.about-nav a {
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--teal);
-    text-decoration: none;
-    padding: 6px 12px;
-    border-radius: var(--r-sm);
-    transition: background 0.2s;
-    white-space: nowrap;
-}
-
-.about-nav a:hover {
-    background: var(--teal-light);
-    color: var(--teal-darker);
-}
-
 .about-section {
     background: var(--white);
     border: 0.5px solid var(--border);
@@ -1373,12 +1343,6 @@ body {
 
 /* Responsive */
 @media (max-width: 600px) {
-    .about-nav {
-        position: relative;
-        top: 0;
-        gap: 8px;
-    }
-
     .about-section {
         padding: 20px;
     }
