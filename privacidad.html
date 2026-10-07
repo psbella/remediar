@@ -10,14 +10,16 @@
 </head>
 <body>
 <div class="container">
-    <header class="header legal-header">
-        <a href="/" class="header-logo-circle" aria-label="Volver al inicio">
-            <img src="img/favicon.svg" alt="remedi.ar" width="38" height="38">
-        </a>
-        <div class="header-texto">
-            <h1>remedi.ar</h1>
-        </div>
-    </header>
+    <a href="index.html" class="header-link">
+        <header class="header">
+            <div class="header-logo-circle">
+                <img src="img/favicon.svg" alt="remedi.ar" width="38" height="38">
+            </div>
+            <div class="header-texto">
+                <h1>remedi.ar - Precios de medicamentos</h1>
+            </div>
+        </header>
+    </a>
     <div class="legal-container">
     <h1>Política de Privacidad</h1>
     <div class="fecha">Última actualización: 28 de septiembre de 2026</div>
@@ -147,5 +149,13 @@
         </div>
     </footer>
 </div>
+
+<button id="btnTop" aria-label="Volver arriba">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5">
+        <polyline points="18 15 12 9 6 15"/>
+    </svg>
+</button>
+
+<script src="js/landing.js" defer></script>
 </body>
 </html>

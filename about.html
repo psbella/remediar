@@ -38,22 +38,24 @@
 <div class="container">
 
     <!-- Header -->
-    <header class="header">
-        <div class="header-logo-circle">
-    <img src="img/favicon.svg" alt="remedi.ar" width="38" height="38">
-</div>
-        <div class="header-texto">
-            <h1>Sobre remedi.ar</h1>
-            <p>Cómo funciona el buscador</p>
-        </div>
-        <div class="header-right">
-            <a href="index.html" class="about-back-link">
-                <span>← Volver</span>
-            </a>
-        </div>
-    </header>
+    <a href="index.html" class="header-link">
+        <header class="header">
+            <div class="header-logo-circle">
+                <img src="img/favicon.svg" alt="remedi.ar" width="38" height="38">
+            </div>
+            <div class="header-texto">
+                <h1>remedi.ar - Precios de medicamentos</h1>
+            </div>
+        </header>
+    </a>
 
     <main id="main-content">
+
+    <nav class="breadcrumb">
+        <a href="index.html">Inicio</a>
+        <span class="breadcrumb-sep">›</span>
+        <span class="breadcrumb-actual">Sobre remedi.ar</span>
+    </nav>
 
     <!-- Navegación interna -->
     <nav class="about-nav">
@@ -310,6 +312,13 @@
 </div>
 
 <script type="module" src="js/about.js"></script>
+<script src="js/landing.js" defer></script>
+
+<button id="btnTop" aria-label="Volver arriba">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5">
+        <polyline points="18 15 12 9 6 15"/>
+    </svg>
+</button>
 
 </body>
 </html>

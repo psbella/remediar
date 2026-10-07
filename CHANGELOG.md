@@ -12,6 +12,16 @@
   los links a GitHub y a Issues siguen en "Quién lo sostiene". También se
   quita el CSS que quedó sin uso (`.about-links-section`, `.about-links` y
   `.about-link-btn`). `sw.js`: `CACHE_NAME` sube a `v34`.
+- `about.html`, `privacidad.html` y `terminos.html`: el header pasa a ser el
+  mismo que el de la home y las landings (logo, "remedi.ar - Precios de
+  medicamentos" y toda la barra clickeable hacia el inicio). Antes about
+  tenía otro título con subtítulo y un "← Volver", y las páginas legales
+  tenían el título más chico, solo "remedi.ar" y un borde inferior. About
+  suma el breadcrumb "Inicio › Sobre remedi.ar" que ya usan las landings.
+  Se quitan `.legal-header` y `.about-back-link`, que quedan sin uso.
+- Las tres páginas suman el botón de volver arriba (`#btnTop`, mismo que la
+  home y las landings) cargando `js/landing.js`, que ya estaba en el
+  precache. `sw.js`: `CACHE_NAME` sube a `v35`.
 
 ## [2.5.3] - 2026-10-06
 

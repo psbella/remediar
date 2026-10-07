@@ -1056,20 +1056,7 @@ body {
   font-weight: 500;
 }
 
-/* ── Override para páginas legales (privacidad.html, terminos.html) ── */
-.legal-header { border-bottom: 1px solid var(--border); margin-bottom: 0; }
-.legal-header .header-texto h1 { font-size: 18px; }
-
 /* ── about.html ── */
-
-.about-back-link {
-    color: white;
-    text-decoration: none;
-    font-size: 13px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
 
 .about-updated-note {
     margin-bottom: 24px;
