@@ -1090,15 +1090,6 @@ body {
     margin-top: 16px;
 }
 
-.about-links-section {
-    text-align: center;
-    padding-bottom: 40px;
-}
-
-.about-links-section h2 {
-    margin-bottom: 24px;
-}
-
 .about-nav {
     background: var(--white);
     border: 0.5px solid var(--border);
@@ -1393,31 +1384,6 @@ body {
     text-decoration: underline;
 }
 
-/* Links útiles */
-.about-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    justify-content: center;
-}
-
-.about-link-btn {
-    display: inline-flex;
-    align-items: center;
-    padding: 10px 20px;
-    background: var(--teal);
-    color: white;
-    text-decoration: none;
-    border-radius: var(--r-sm);
-    font-size: 14px;
-    font-weight: 500;
-    transition: background 0.2s;
-}
-
-.about-link-btn:hover {
-    background: var(--teal-dark);
-}
-
 /* Responsive */
 @media (max-width: 600px) {
     .about-nav {
@@ -1445,15 +1411,6 @@ body {
 
     .table-value {
         font-size: 12px;
-    }
-
-    .about-links {
-        flex-direction: column;
-    }
-
-    .about-link-btn {
-        width: 100%;
-        justify-content: center;
     }
 
     .step-number {

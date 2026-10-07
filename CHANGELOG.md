@@ -7,6 +7,11 @@
   Sitio / Legal / Fuente de datos, aviso médico y licencia). Es el mismo
   markup que `privacidad.html` y `terminos.html`; antes la página terminaba
   sin footer. `sw.js`: `CACHE_NAME` sube a `v33`.
+- `about.html`: se elimina la sección "Enlaces útiles" (botones a GitHub,
+  Issues, Privacidad y Términos). Privacidad y Términos están en el footer, y
+  los links a GitHub y a Issues siguen en "Quién lo sostiene". También se
+  quita el CSS que quedó sin uso (`.about-links-section`, `.about-links` y
+  `.about-link-btn`). `sw.js`: `CACHE_NAME` sube a `v34`.
 
 ## [2.5.3] - 2026-10-06
 
