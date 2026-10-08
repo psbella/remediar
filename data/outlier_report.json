@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-07T17:02:47.479378-03:00",
+  "timestamp": "2026-10-08T17:01:47.662305-03:00",
   "total_registros": 13129,
   "total_outliers": 106,
   "outliers": [
@@ -294,10 +294,10 @@
       "marca": "ORALSONE BENZOCAINA GEL",
       "presentacion": "gel x 10 g",
       "laboratorio": "Laboratorio Gra",
-      "precio": 12145.01,
+      "precio": 12327.18,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $12,145.01 < fence_low $12,472.19"
+        "precio $12,327.18 < fence_low $12,472.19"
       ],
       "mediana_droga": 14317.16,
       "n_droga": 6
@@ -1054,7 +1054,7 @@
       "razones": [
         "precio $7,174,209.40 < fence_low $7,881,506.75"
       ],
-      "mediana_droga": 9773069.88,
+      "mediana_droga": 9916562.57,
       "n_droga": 32
     },
     {
@@ -1067,7 +1067,7 @@
       "razones": [
         "precio $7,174,209.40 < fence_low $7,881,506.75"
       ],
-      "mediana_droga": 9773069.88,
+      "mediana_droga": 9916562.57,
       "n_droga": 32
     },
     {
@@ -1297,10 +1297,10 @@
       "marca": "MOMENTUM",
       "presentacion": "20 mg comp.rec.x 4",
       "laboratorio": "Panalab",
-      "precio": 42522.3,
+      "precio": 42947.52,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $2,126.12 << mediana_grupo $12,259.53"
+        "ppu $2,147.38 << mediana_grupo $12,504.72"
       ],
       "mediana_droga": 88547.03,
       "n_droga": 66
@@ -1326,9 +1326,9 @@
       "precio": 26091.16,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $434.85 << mediana_grupo $2,564.56"
+        "ppu $434.85 << mediana_grupo $2,575.19"
       ],
-      "mediana_droga": 31800.1,
+      "mediana_droga": 32118.93,
       "n_droga": 4
     },
     {
