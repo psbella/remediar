@@ -34,5 +34,5 @@ DROGA_FIXES_PATH  = BASE / "data" / "droga_fixes.json"
 PDF_HASH_PATH     = BASE / "data" / ".pdf_hash"
 
 # Vademécum PAMI: se actualiza a mano ~1 vez por mes (ver README).
-# Fuente: https://datos.pami.org.ar/dataset/vademecum-pami-farmacia
+# Fuente: https://datos.pami.org.ar/dataset/medicamentos-para-afiliados
 PAMI_PATH = BASE / "data" / "pami.xlsx"

@@ -454,7 +454,7 @@ def generar_faq(nombre: str, accion: str, precio_rango: str, n_marcas: int, prec
 
     <details open>
         <summary>¿Los precios de {esc(nombre)} se actualizan seguido?</summary>
-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
     </details>
 </section>'''
 
@@ -485,8 +485,8 @@ def generar_faq_ld(nombre: str, accion: str, precio_rango: str, n_marcas: int, p
         ),
         (
             f"\u00bfLos precios de {nombre} se actualizan seguido?",
-            "Los precios en remedi.ar se actualizan autom\u00e1ticamente dos veces al d\u00eda (a las 10:30 y "
-            "18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los "
+            "Los precios en remedi.ar se actualizan autom\u00e1ticamente dos veces al d\u00eda (a las 11:30 y "
+            "15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los "
             "precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.",
         ),
     ]

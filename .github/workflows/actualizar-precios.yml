@@ -2,7 +2,7 @@ name: 🔃 Actualizar precios
 on:
   schedule:
     - cron: '30 14 * * 1-5'  # 11:30 Argentina
-    - cron: '30 18 * * 1-5'  # 18:30 Argentina
+    - cron: '30 18 * * 1-5'  # 15:30 Argentina
   workflow_dispatch:
 
 permissions:
