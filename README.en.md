@@ -386,7 +386,7 @@ name: 🔃 Actualizar precios
 on:
   schedule:
     - cron: '30 14 * * 1-5'  # 11:30 Argentina
-    - cron: '30 18 * * 1-5'  # 18:30 Argentina
+    - cron: '30 18 * * 1-5'  # 15:30 Argentina
   workflow_dispatch:
 
 permissions:
@@ -465,8 +465,6 @@ jobs:
           echo "No se pudo pushear despues de $hasta intentos."
           exit 1
 ```
-
-> ⚠️ **Mind the schedule:** `30 18 * * 1-5` is in UTC and equals **15:30** Argentina time (UTC−3); the `# 18:30 Argentina` comment in the file does not match that (and the generated landings say "10:30 and 18:00"). If 18:30 was the intent, the right cron would be `30 21 * * 1-5`.
 
 ---
 
@@ -1373,51 +1371,6 @@ flowchart TD
     R7 --> notify
     notify --> U1
     notify --> U2
-```
-
----
-
-## Anatomy of a record
-
-```mermaid
-flowchart LR
-    subgraph SIAFAR["📄 SIAFAR / PDF"]
-        S1[droga]
-        S2[marca]
-        S3[presentacion]
-        S4[laboratorio]
-        S5[precio]
-    end
-
-    subgraph PAMI["📋 PAMI Formulary (data/pami.xlsx)"]
-        P1[pami_cobertura]
-        P2["droga (recovery)"]
-        P3["laboratorio (correction)"]
-        P4["presentacion (normalization)"]
-    end
-
-    subgraph PARSER["🔧 _parsear_presentacion()"]
-        PR1[pres_forma]
-        PR2[pres_dosis]
-        PR3[pres_unidad]
-        PR4[pres_cantidad]
-    end
-
-    subgraph OUTLIER["📊 Outlier detection"]
-        O1[vigencia_score]
-        O2[flags]
-        O3[precio_outlier_tipo]
-        O4[outlier_razones]
-    end
-
-    subgraph JSON["📦 medicamentos.json"]
-        J[Final record]
-    end
-
-    S1 & S2 & S3 & S4 & S5 --> J
-    P1 & P2 & P3 & P4 --> J
-    PR1 & PR2 & PR3 & PR4 --> J
-    O1 & O2 & O3 & O4 --> J
 ```
 
 ---

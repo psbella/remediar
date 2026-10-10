@@ -1,0 +1,2261 @@
+diff --git a/.github/workflows/actualizar-precios.yml b/.github/workflows/actualizar-precios.yml
+index 5cf215f1..de2fe66f 100644
+--- a/.github/workflows/actualizar-precios.yml
++++ b/.github/workflows/actualizar-precios.yml
+@@ -2,7 +2,7 @@ name: 🔃 Actualizar precios
+ on:
+   schedule:
+     - cron: '30 14 * * 1-5'  # 11:30 Argentina
+-    - cron: '30 18 * * 1-5'  # 18:30 Argentina
++    - cron: '30 18 * * 1-5'  # 15:30 Argentina
+   workflow_dispatch:
+ 
+ permissions:
+diff --git a/acetilcisteina.html b/acetilcisteina.html
+index 980ac802..64ab6245 100644
+--- a/acetilcisteina.html
++++ b/acetilcisteina.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Acetilcisteina se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -260,7 +260,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Acetilcisteina se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/aciclovir.html b/aciclovir.html
+index 23addfc9..ceb68b14 100644
+--- a/aciclovir.html
++++ b/aciclovir.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Aciclovir se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -259,7 +259,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Aciclovir se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/acido-acetilsalicilico.html b/acido-acetilsalicilico.html
+index 5c3701fa..e16337f9 100644
+--- a/acido-acetilsalicilico.html
++++ b/acido-acetilsalicilico.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Acido Acetilsalicilico se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -241,7 +241,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Acido Acetilsalicilico se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/acido-folico.html b/acido-folico.html
+index 7d001968..9122214b 100644
+--- a/acido-folico.html
++++ b/acido-folico.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Acido Folico se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -269,7 +269,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Acido Folico se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/alprazolam.html b/alprazolam.html
+index be5a4e75..9d913062 100644
+--- a/alprazolam.html
++++ b/alprazolam.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Alprazolam se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -287,7 +287,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Alprazolam se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/ambroxol.html b/ambroxol.html
+index 649ba357..a78c5342 100644
+--- a/ambroxol.html
++++ b/ambroxol.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Ambroxol se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -236,7 +236,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Ambroxol se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/amlodipina.html b/amlodipina.html
+index def7d13b..d5f1ac76 100644
+--- a/amlodipina.html
++++ b/amlodipina.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Amlodipina se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -287,7 +287,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Amlodipina se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/amoxicilina-clavulanico.html b/amoxicilina-clavulanico.html
+index 2b352ddb..2a1df1de 100644
+--- a/amoxicilina-clavulanico.html
++++ b/amoxicilina-clavulanico.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Amoxicilina Clavulanico se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -287,7 +287,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Amoxicilina Clavulanico se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/amoxicilina.html b/amoxicilina.html
+index dca9ce90..92dd6989 100644
+--- a/amoxicilina.html
++++ b/amoxicilina.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Amoxicilina se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -287,7 +287,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Amoxicilina se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/atorvastatina.html b/atorvastatina.html
+index 92b78a5a..caec2439 100644
+--- a/atorvastatina.html
++++ b/atorvastatina.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Atorvastatina se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -287,7 +287,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Atorvastatina se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/azitromicina.html b/azitromicina.html
+index c8bb9aa3..c5e6600d 100644
+--- a/azitromicina.html
++++ b/azitromicina.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Azitromicina se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -287,7 +287,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Azitromicina se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/betametasona.html b/betametasona.html
+index 3da34cbd..aab4d231 100644
+--- a/betametasona.html
++++ b/betametasona.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Betametasona se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -264,7 +264,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Betametasona se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/bisoprolol.html b/bisoprolol.html
+index 616db15d..0cf6312f 100644
+--- a/bisoprolol.html
++++ b/bisoprolol.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Bisoprolol se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -262,7 +262,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Bisoprolol se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/budesonide.html b/budesonide.html
+index 2d62ada8..68e79d33 100644
+--- a/budesonide.html
++++ b/budesonide.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Budesonide se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -263,7 +263,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Budesonide se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/bupropion.html b/bupropion.html
+index 32285828..5d8aed5e 100644
+--- a/bupropion.html
++++ b/bupropion.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Bupropion se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -235,7 +235,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Bupropion se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/butilescopolamina.html b/butilescopolamina.html
+index 054b4e76..f0b09887 100644
+--- a/butilescopolamina.html
++++ b/butilescopolamina.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Butilescopolamina se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -231,7 +231,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Butilescopolamina se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/carbamazepina.html b/carbamazepina.html
+index 4ad91e66..82beef88 100644
+--- a/carbamazepina.html
++++ b/carbamazepina.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Carbamazepina se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -244,7 +244,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Carbamazepina se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/carvedilol.html b/carvedilol.html
+index 40db0a84..fe1b146d 100644
+--- a/carvedilol.html
++++ b/carvedilol.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Carvedilol se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -287,7 +287,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Carvedilol se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/cefalexina.html b/cefalexina.html
+index 9b6c0cea..2a8bc0f7 100644
+--- a/cefalexina.html
++++ b/cefalexina.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Cefalexina se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -287,7 +287,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Cefalexina se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/celecoxib.html b/celecoxib.html
+index eaf8ff80..abd58085 100644
+--- a/celecoxib.html
++++ b/celecoxib.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Celecoxib se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -229,7 +229,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Celecoxib se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/cetirizina.html b/cetirizina.html
+index f3cf8f76..915daffb 100644
+--- a/cetirizina.html
++++ b/cetirizina.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Cetirizina se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -256,7 +256,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Cetirizina se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/ciprofloxacina.html b/ciprofloxacina.html
+index 982c2443..4a97f67c 100644
+--- a/ciprofloxacina.html
++++ b/ciprofloxacina.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Ciprofloxacina se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -272,7 +272,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Ciprofloxacina se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/clonazepam.html b/clonazepam.html
+index 1f10303f..cb759cf8 100644
+--- a/clonazepam.html
++++ b/clonazepam.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Clonazepam se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -287,7 +287,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Clonazepam se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/clopidogrel.html b/clopidogrel.html
+index 35db738e..ee2fb6d1 100644
+--- a/clopidogrel.html
++++ b/clopidogrel.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Clopidogrel se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -250,7 +250,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Clopidogrel se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/clortalidona.html b/clortalidona.html
+index 43aadf28..f3703c53 100644
+--- a/clortalidona.html
++++ b/clortalidona.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Clortalidona se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -229,7 +229,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Clortalidona se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/clotrimazol.html b/clotrimazol.html
+index 0be7e29b..bbc2b2cc 100644
+--- a/clotrimazol.html
++++ b/clotrimazol.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Clotrimazol se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -255,7 +255,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Clotrimazol se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/clozapina.html b/clozapina.html
+index f1e647b5..45b27278 100644
+--- a/clozapina.html
++++ b/clozapina.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Clozapina se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -237,7 +237,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Clozapina se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/complejo-b.html b/complejo-b.html
+index 960863cb..e889cef0 100644
+--- a/complejo-b.html
++++ b/complejo-b.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Complejo B se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -238,7 +238,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Complejo B se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/desloratadina.html b/desloratadina.html
+index fd3d3f32..1cb6f171 100644
+--- a/desloratadina.html
++++ b/desloratadina.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Desloratadina se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -247,7 +247,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Desloratadina se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/desogestrel.html b/desogestrel.html
+index b31160ff..2fb1e552 100644
+--- a/desogestrel.html
++++ b/desogestrel.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Desogestrel se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -233,7 +233,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Desogestrel se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/diazepam.html b/diazepam.html
+index 08cc11c0..c141af7c 100644
+--- a/diazepam.html
++++ b/diazepam.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Diazepam se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -251,7 +251,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Diazepam se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/diclofenac.html b/diclofenac.html
+index 700978c8..382d376f 100644
+--- a/diclofenac.html
++++ b/diclofenac.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Diclofenac se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -287,7 +287,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Diclofenac se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/digoxina.html b/digoxina.html
+index 6eb364ee..86d63ad8 100644
+--- a/digoxina.html
++++ b/digoxina.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Digoxina se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -233,7 +233,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Digoxina se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/domperidona.html b/domperidona.html
+index 5235b578..c1c81033 100644
+--- a/domperidona.html
++++ b/domperidona.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Domperidona se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -238,7 +238,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Domperidona se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/dorzolamida-timolol.html b/dorzolamida-timolol.html
+index 9ba0f658..c8c86f9e 100644
+--- a/dorzolamida-timolol.html
++++ b/dorzolamida-timolol.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Dorzolamida Timolol se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -235,7 +235,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Dorzolamida Timolol se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/drospirenona-etinilestradiol.html b/drospirenona-etinilestradiol.html
+index 1352d8b7..93940cbb 100644
+--- a/drospirenona-etinilestradiol.html
++++ b/drospirenona-etinilestradiol.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Drospirenona Etinilestradiol se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -264,7 +264,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Drospirenona Etinilestradiol se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/enalapril.html b/enalapril.html
+index bdde58a4..37cfc8db 100644
+--- a/enalapril.html
++++ b/enalapril.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Enalapril se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -287,7 +287,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Enalapril se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/escitalopram.html b/escitalopram.html
+index edff7c8e..42301556 100644
+--- a/escitalopram.html
++++ b/escitalopram.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Escitalopram se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -287,7 +287,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Escitalopram se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/espironolactona.html b/espironolactona.html
+index fc8750a4..94f4c655 100644
+--- a/espironolactona.html
++++ b/espironolactona.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Espironolactona se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -249,7 +249,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Espironolactona se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/etinilestradiol-levonorgestrel.html b/etinilestradiol-levonorgestrel.html
+index 754d4851..a7aeda82 100644
+--- a/etinilestradiol-levonorgestrel.html
++++ b/etinilestradiol-levonorgestrel.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Etinilestradiol Levonorgestrel se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -246,7 +246,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Etinilestradiol Levonorgestrel se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/famotidina.html b/famotidina.html
+index 8500ad15..f15f5662 100644
+--- a/famotidina.html
++++ b/famotidina.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Famotidina se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -243,7 +243,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Famotidina se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/fenobarbital.html b/fenobarbital.html
+index 8682b8e7..ceb012e8 100644
+--- a/fenobarbital.html
++++ b/fenobarbital.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Fenobarbital se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -234,7 +234,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Fenobarbital se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/fluconazol.html b/fluconazol.html
+index 5e146982..3279acea 100644
+--- a/fluconazol.html
++++ b/fluconazol.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Fluconazol se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -287,7 +287,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Fluconazol se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/fluoxetina.html b/fluoxetina.html
+index 24e9dfab..e5445b75 100644
+--- a/fluoxetina.html
++++ b/fluoxetina.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Fluoxetina se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -244,7 +244,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Fluoxetina se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/fluticasona.html b/fluticasona.html
+index 56ae5087..9cbd7943 100644
+--- a/fluticasona.html
++++ b/fluticasona.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Fluticasona se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -248,7 +248,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Fluticasona se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/furosemida.html b/furosemida.html
+index ee455fec..b35ea414 100644
+--- a/furosemida.html
++++ b/furosemida.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Furosemida se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -240,7 +240,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Furosemida se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/gabapentina.html b/gabapentina.html
+index 1741e4fa..4fee67a2 100644
+--- a/gabapentina.html
++++ b/gabapentina.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Gabapentina se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -251,7 +251,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Gabapentina se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/glibenclamida.html b/glibenclamida.html
+index db878ff7..02b929cb 100644
+--- a/glibenclamida.html
++++ b/glibenclamida.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Glibenclamida se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -242,7 +242,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Glibenclamida se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/haloperidol.html b/haloperidol.html
+index 25bad084..1885dccc 100644
+--- a/haloperidol.html
++++ b/haloperidol.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Haloperidol se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -247,7 +247,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Haloperidol se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/hidroclorotiazida.html b/hidroclorotiazida.html
+index d0252544..51781b30 100644
+--- a/hidroclorotiazida.html
++++ b/hidroclorotiazida.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Hidroclorotiazida se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -234,7 +234,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Hidroclorotiazida se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/ibuprofeno.html b/ibuprofeno.html
+index 1eea1ef0..4cea9fb4 100644
+--- a/ibuprofeno.html
++++ b/ibuprofeno.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Ibuprofeno se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -287,7 +287,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Ibuprofeno se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/insulina-glargina.html b/insulina-glargina.html
+index 2731c313..3396b129 100644
+--- a/insulina-glargina.html
++++ b/insulina-glargina.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Insulina Glargina se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -234,7 +234,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Insulina Glargina se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/insulina.html b/insulina.html
+index 986053fa..6c581c81 100644
+--- a/insulina.html
++++ b/insulina.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Insulina se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -268,7 +268,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Insulina se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/ipratropio.html b/ipratropio.html
+index 843539be..dc7883bb 100644
+--- a/ipratropio.html
++++ b/ipratropio.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Ipratropio se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -236,7 +236,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Ipratropio se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/ketorolac.html b/ketorolac.html
+index 5b8ee742..590b18b9 100644
+--- a/ketorolac.html
++++ b/ketorolac.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Ketorolac se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -276,7 +276,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Ketorolac se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/latanoprost.html b/latanoprost.html
+index 3f8793d2..1022b418 100644
+--- a/latanoprost.html
++++ b/latanoprost.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Latanoprost se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -234,7 +234,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Latanoprost se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/levocetirizina.html b/levocetirizina.html
+index 151a6f80..5035c537 100644
+--- a/levocetirizina.html
++++ b/levocetirizina.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Levocetirizina se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -250,7 +250,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Levocetirizina se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/levodopa-carbidopa.html b/levodopa-carbidopa.html
+index 465eb9ea..350a3908 100644
+--- a/levodopa-carbidopa.html
++++ b/levodopa-carbidopa.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Levodopa Carbidopa se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -235,7 +235,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Levodopa Carbidopa se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/levomepromazina.html b/levomepromazina.html
+index 7e5a2ee8..63ad7aac 100644
+--- a/levomepromazina.html
++++ b/levomepromazina.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Levomepromazina se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -238,7 +238,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Levomepromazina se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/levotiroxina.html b/levotiroxina.html
+index 8b681f2f..f65df151 100644
+--- a/levotiroxina.html
++++ b/levotiroxina.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Levotiroxina se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -262,7 +262,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Levotiroxina se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/litio.html b/litio.html
+index 9dcb741e..a09af73e 100644
+--- a/litio.html
++++ b/litio.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Litio se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -232,7 +232,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Litio se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/loperamida.html b/loperamida.html
+index 68235ef1..40d37e3e 100644
+--- a/loperamida.html
++++ b/loperamida.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Loperamida se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -255,7 +255,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Loperamida se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/loratadina.html b/loratadina.html
+index 8fe7224b..c04c23ed 100644
+--- a/loratadina.html
++++ b/loratadina.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Loratadina se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -263,7 +263,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Loratadina se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/lorazepam.html b/lorazepam.html
+index 084dbea2..a4d21858 100644
+--- a/lorazepam.html
++++ b/lorazepam.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Lorazepam se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -280,7 +280,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Lorazepam se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/losartan-hidroclorotiazida.html b/losartan-hidroclorotiazida.html
+index eaa4de1a..e82016c2 100644
+--- a/losartan-hidroclorotiazida.html
++++ b/losartan-hidroclorotiazida.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Losartan Hidroclorotiazida se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -260,7 +260,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Losartan Hidroclorotiazida se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/losartan.html b/losartan.html
+index 7b60d285..18d26943 100644
+--- a/losartan.html
++++ b/losartan.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Losartan se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -287,7 +287,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Losartan se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/melatonina.html b/melatonina.html
+index 74ef75b0..e143a730 100644
+--- a/melatonina.html
++++ b/melatonina.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Melatonina se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -238,7 +238,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Melatonina se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/meloxicam.html b/meloxicam.html
+index 1bf6d968..7aaa554f 100644
+--- a/meloxicam.html
++++ b/meloxicam.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Meloxicam se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -247,7 +247,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Meloxicam se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/metformina.html b/metformina.html
+index 473f0a1a..c3d0ed96 100644
+--- a/metformina.html
++++ b/metformina.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Metformina se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -287,7 +287,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Metformina se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/metoclopramida.html b/metoclopramida.html
+index 6794b9ac..340171dc 100644
+--- a/metoclopramida.html
++++ b/metoclopramida.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Metoclopramida se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -252,7 +252,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Metoclopramida se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/metoprolol.html b/metoprolol.html
+index 0304cf9d..0613936a 100644
+--- a/metoprolol.html
++++ b/metoprolol.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Metoprolol se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -230,7 +230,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Metoprolol se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/metronidazol.html b/metronidazol.html
+index 0814f84a..6b996404 100644
+--- a/metronidazol.html
++++ b/metronidazol.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Metronidazol se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -266,7 +266,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Metronidazol se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/montelukast.html b/montelukast.html
+index 490f192c..ad5a00ba 100644
+--- a/montelukast.html
++++ b/montelukast.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Montelukast se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -276,7 +276,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Montelukast se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/mupirocina.html b/mupirocina.html
+index 3ac9b00a..5d0d8b43 100644
+--- a/mupirocina.html
++++ b/mupirocina.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Mupirocina se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -240,7 +240,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Mupirocina se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/naproxeno.html b/naproxeno.html
+index ce81ec71..3d1000c6 100644
+--- a/naproxeno.html
++++ b/naproxeno.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Naproxeno se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -259,7 +259,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Naproxeno se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/nitrofurantoina.html b/nitrofurantoina.html
+index 009a40c2..0486f754 100644
+--- a/nitrofurantoina.html
++++ b/nitrofurantoina.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Nitrofurantoina se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -230,7 +230,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Nitrofurantoina se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/olanzapina.html b/olanzapina.html
+index 710c5bb9..5b8b8cc5 100644
+--- a/olanzapina.html
++++ b/olanzapina.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Olanzapina se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -277,7 +277,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Olanzapina se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/omeprazol.html b/omeprazol.html
+index d2e92939..04b87f36 100644
+--- a/omeprazol.html
++++ b/omeprazol.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Omeprazol se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -287,7 +287,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Omeprazol se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/package.json b/package.json
+index 3f06345b..81cc0bbd 100644
+--- a/package.json
++++ b/package.json
+@@ -2,7 +2,7 @@
+   "name": "remediar",
+   "type": "module",
+   "version": "2.5.3",
+-  "description": "Buscador de precios de medicamentos en Argentina. Procesa el PDF oficial de SIAFAR/COFA dos veces al día y genera un comparador estático, sin publicidad. Analítica anónima, sin tracking de terceros. Incluye cobertura PAMI.",
++  "description": "Buscador de precios de medicamentos en Argentina. Procesa el PDF oficial de SIAFAR/COFA dos veces por día hábil y genera un comparador estático, sin publicidad. Analítica de uso con Google Analytics 4, sin datos personales. Incluye cobertura PAMI.",
+   "homepage": "https://remedi.ar",
+   "repository": {
+     "type": "git",
+diff --git a/pantoprazol.html b/pantoprazol.html
+index ba15554a..f940e165 100644
+--- a/pantoprazol.html
++++ b/pantoprazol.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Pantoprazol se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -285,7 +285,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Pantoprazol se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/paracetamol.html b/paracetamol.html
+index f494f808..535bc131 100644
+--- a/paracetamol.html
++++ b/paracetamol.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Paracetamol se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -287,7 +287,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Paracetamol se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/prednisona.html b/prednisona.html
+index 9ea4028e..691eb12d 100644
+--- a/prednisona.html
++++ b/prednisona.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Prednisona se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -231,7 +231,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Prednisona se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/pregabalina.html b/pregabalina.html
+index 8756e891..12fa9c4d 100644
+--- a/pregabalina.html
++++ b/pregabalina.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Pregabalina se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -287,7 +287,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Pregabalina se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/quetiapina.html b/quetiapina.html
+index 650eadf2..1f0d706b 100644
+--- a/quetiapina.html
++++ b/quetiapina.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Quetiapina se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -287,7 +287,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Quetiapina se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/ramipril.html b/ramipril.html
+index 0e97be7b..7985a433 100644
+--- a/ramipril.html
++++ b/ramipril.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Ramipril se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -233,7 +233,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Ramipril se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/risperidona.html b/risperidona.html
+index 13c0ddab..8c91c3dc 100644
+--- a/risperidona.html
++++ b/risperidona.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Risperidona se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -282,7 +282,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Risperidona se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/rivaroxaban.html b/rivaroxaban.html
+index 2756c009..221436d9 100644
+--- a/rivaroxaban.html
++++ b/rivaroxaban.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Rivaroxaban se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -273,7 +273,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Rivaroxaban se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/rosuvastatina.html b/rosuvastatina.html
+index 05e056fa..94d65404 100644
+--- a/rosuvastatina.html
++++ b/rosuvastatina.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Rosuvastatina se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -287,7 +287,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Rosuvastatina se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/salbutamol.html b/salbutamol.html
+index 29d3ce59..2d252a25 100644
+--- a/salbutamol.html
++++ b/salbutamol.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Salbutamol se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -246,7 +246,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Salbutamol se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/scripts/etl/config.py b/scripts/etl/config.py
+index 0498d8b7..5f5744ab 100644
+--- a/scripts/etl/config.py
++++ b/scripts/etl/config.py
+@@ -34,5 +34,5 @@ DROGA_FIXES_PATH  = BASE / "data" / "droga_fixes.json"
+ PDF_HASH_PATH     = BASE / "data" / ".pdf_hash"
+ 
+ # Vademécum PAMI: se actualiza a mano ~1 vez por mes (ver README).
+-# Fuente: https://datos.pami.org.ar/dataset/vademecum-pami-farmacia
++# Fuente: https://datos.pami.org.ar/dataset/medicamentos-para-afiliados
+ PAMI_PATH = BASE / "data" / "pami.xlsx"
+diff --git a/scripts/generar_landings.py b/scripts/generar_landings.py
+index f064ec75..5c2c104f 100644
+--- a/scripts/generar_landings.py
++++ b/scripts/generar_landings.py
+@@ -454,7 +454,7 @@ def generar_faq(nombre: str, accion: str, precio_rango: str, n_marcas: int, prec
+ 
+     <details open>
+         <summary>¿Los precios de {esc(nombre)} se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>'''
+ 
+@@ -485,8 +485,8 @@ def generar_faq_ld(nombre: str, accion: str, precio_rango: str, n_marcas: int, p
+         ),
+         (
+             f"\u00bfLos precios de {nombre} se actualizan seguido?",
+-            "Los precios en remedi.ar se actualizan autom\u00e1ticamente dos veces al d\u00eda (a las 10:30 y "
+-            "18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los "
++            "Los precios en remedi.ar se actualizan autom\u00e1ticamente dos veces al d\u00eda (a las 11:30 y "
++            "15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los "
+             "precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.",
+         ),
+     ]
+diff --git a/sertralina.html b/sertralina.html
+index 3354d133..ccd59ce7 100644
+--- a/sertralina.html
++++ b/sertralina.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Sertralina se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -275,7 +275,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Sertralina se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/sildenafil.html b/sildenafil.html
+index dc11c553..4fc79b08 100644
+--- a/sildenafil.html
++++ b/sildenafil.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Sildenafil se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -287,7 +287,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Sildenafil se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/simeticona.html b/simeticona.html
+index f0d25a92..2b78e153 100644
+--- a/simeticona.html
++++ b/simeticona.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Simeticona se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -243,7 +243,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Simeticona se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/sulfato-ferroso.html b/sulfato-ferroso.html
+index fd97a322..35782e9b 100644
+--- a/sulfato-ferroso.html
++++ b/sulfato-ferroso.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Sulfato Ferroso se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -230,7 +230,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Sulfato Ferroso se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/telmisartan.html b/telmisartan.html
+index 3678316a..1d65688a 100644
+--- a/telmisartan.html
++++ b/telmisartan.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Telmisartan se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -254,7 +254,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Telmisartan se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/tramadol.html b/tramadol.html
+index 8f590d48..9a1e0a0b 100644
+--- a/tramadol.html
++++ b/tramadol.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Tramadol se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -287,7 +287,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Tramadol se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/valproato.html b/valproato.html
+index 6948031f..fe97a7fb 100644
+--- a/valproato.html
++++ b/valproato.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Valproato se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -265,7 +265,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Valproato se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/valsartan.html b/valsartan.html
+index f207a473..1b24a3af 100644
+--- a/valsartan.html
++++ b/valsartan.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Valsartan se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -287,7 +287,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Valsartan se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/venlafaxina.html b/venlafaxina.html
+index eeca8396..04c1fc0c 100644
+--- a/venlafaxina.html
++++ b/venlafaxina.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Venlafaxina se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -270,7 +270,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Venlafaxina se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/vitamina-d.html b/vitamina-d.html
+index 17de3eea..2d6b9be9 100644
+--- a/vitamina-d.html
++++ b/vitamina-d.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Vitamina D se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -229,7 +229,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Vitamina D se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/warfarina.html b/warfarina.html
+index 8775d3a5..47ddbb41 100644
+--- a/warfarina.html
++++ b/warfarina.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Warfarina se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -231,7 +231,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Warfarina se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
+diff --git a/zolpidem.html b/zolpidem.html
+index 41374b55..6b8fe9dd 100644
+--- a/zolpidem.html
++++ b/zolpidem.html
+@@ -92,7 +92,7 @@
+       "name": "¿Los precios de Zolpidem se actualizan seguido?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+-        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
++        "text": "Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar."
+       }
+     }
+   ]
+@@ -239,7 +239,7 @@
+ 
+     <details open>
+         <summary>¿Los precios de Zolpidem se actualizan seguido?</summary>
+-        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 10:30 y 18:00 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
++        <p>Los precios en remedi.ar se actualizan automáticamente dos veces al día (a las 11:30 y 15:30 hs de Argentina) a partir de los datos oficiales publicados por SIAFAR/COFA. Los precios son orientativos; te recomendamos confirmar en tu farmacia antes de comprar.</p>
+     </details>
+ </section>
+ 
