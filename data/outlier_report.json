@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-10-14T15:46:21.704224-03:00",
+  "timestamp": "2026-10-22T15:40:57.041770-03:00",
   "total_registros": 13129,
-  "total_outliers": 106,
+  "total_outliers": 107,
   "outliers": [
     {
       "droga": "acetilsalicílico,ác., cafeína",
@@ -99,12 +99,12 @@
       "marca": "VERMIZOLE",
       "presentacion": "200 mg comp.x 6",
       "laboratorio": "Lafedar",
-      "precio": 23258.8,
+      "precio": 23700.72,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $116.29 << mediana_grupo $3,306.14"
+        "ppu $118.50 << mediana_grupo $3,368.95"
       ],
-      "mediana_droga": 23071.3,
+      "mediana_droga": 23509.66,
       "n_droga": 9
     },
     {
@@ -112,12 +112,12 @@
       "marca": "VERMIZOLE",
       "presentacion": "400 mg comp.x 6",
       "laboratorio": "Lafedar",
-      "precio": 35730.02,
+      "precio": 36408.89,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $89.33 << mediana_grupo $3,306.14"
+        "ppu $91.02 << mediana_grupo $3,368.95"
       ],
-      "mediana_droga": 23071.3,
+      "mediana_droga": 23509.66,
       "n_droga": 9
     },
     {
@@ -138,12 +138,12 @@
       "marca": "AMOXI DUO MAR",
       "presentacion": "875 mg comp. x 14",
       "laboratorio": "Mar",
-      "precio": 11560.0,
+      "precio": 11780.0,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $13.21 << mediana_grupo $171.50"
+        "ppu $13.46 << mediana_grupo $174.80"
       ],
-      "mediana_droga": 11850.0,
+      "mediana_droga": 11965.25,
       "n_droga": 115
     },
     {
@@ -156,7 +156,7 @@
       "razones": [
         "ppu $18.09 << mediana_grupo $122.94"
       ],
-      "mediana_droga": 11850.0,
+      "mediana_droga": 11965.25,
       "n_droga": 115
     },
     {
@@ -182,7 +182,7 @@
       "razones": [
         "ppu $52.10 << mediana_grupo $16,569.72"
       ],
-      "mediana_droga": 24303.25,
+      "mediana_droga": 24540.75,
       "n_droga": 64
     },
     {
@@ -195,7 +195,7 @@
       "razones": [
         "ppu $207.84 << mediana_grupo $1,202.31"
       ],
-      "mediana_droga": 24303.25,
+      "mediana_droga": 24540.75,
       "n_droga": 64
     },
     {
@@ -219,9 +219,9 @@
       "precio": 114122.05,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $114,122.05 < fence_low $115,574.41"
+        "precio $114,122.05 < fence_low $116,483.71"
       ],
-      "mediana_droga": 137364.45,
+      "mediana_droga": 137578.97,
       "n_droga": 26
     },
     {
@@ -234,7 +234,7 @@
       "razones": [
         "ppu $2,239.24 << mediana_grupo $34,708.26"
       ],
-      "mediana_droga": 137364.45,
+      "mediana_droga": 137578.97,
       "n_droga": 26
     },
     {
@@ -312,7 +312,7 @@
       "razones": [
         "ppu $434.44 << mediana_grupo $7,969.03"
       ],
-      "mediana_droga": 9935.8,
+      "mediana_droga": 9985.8,
       "n_droga": 38
     },
     {
@@ -325,7 +325,7 @@
       "razones": [
         "precio $105,319.22 < fence_low $154,441.03"
       ],
-      "mediana_droga": 347153.84,
+      "mediana_droga": 353749.76,
       "n_droga": 11
     },
     {
@@ -359,12 +359,12 @@
       "marca": "ACANTEX",
       "presentacion": "500 mg IM f.a.x 1",
       "laboratorio": "Siegfried",
-      "precio": 14292.01,
+      "precio": 14522.82,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $28.58 << mediana_grupo $19,373.16"
+        "ppu $29.05 << mediana_grupo $19,686.03"
       ],
-      "mediana_droga": 18573.61,
+      "mediana_droga": 18731.33,
       "n_droga": 10
     },
     {
@@ -416,7 +416,7 @@
       "razones": [
         "ppu $35.52 << mediana_grupo $1,289.69"
       ],
-      "mediana_droga": 19814.13,
+      "mediana_droga": 19866.1,
       "n_droga": 46
     },
     {
@@ -442,7 +442,7 @@
       "razones": [
         "ppu $792.23 << mediana_grupo $4,851.25"
       ],
-      "mediana_droga": 16054.96,
+      "mediana_droga": 16073.74,
       "n_droga": 116
     },
     {
@@ -455,7 +455,7 @@
       "razones": [
         "ppu $794.68 << mediana_grupo $11,397.49"
       ],
-      "mediana_droga": 16054.96,
+      "mediana_droga": 16073.74,
       "n_droga": 116
     },
     {
@@ -468,7 +468,7 @@
       "razones": [
         "ppu $802.27 << mediana_grupo $11,384.26"
       ],
-      "mediana_droga": 16054.96,
+      "mediana_droga": 16073.74,
       "n_droga": 116
     },
     {
@@ -483,6 +483,19 @@
       ],
       "mediana_droga": 62923.09,
       "n_droga": 7
+    },
+    {
+      "droga": "condroitín,sulfato, glucosamin",
+      "marca": "MECANYL DUO",
+      "presentacion": "gran.sob.x 30",
+      "laboratorio": "Beta",
+      "precio": 24620.35,
+      "precio_outlier_tipo": "bajo_relativo",
+      "razones": [
+        "precio $24,620.35 < 25% mediana $100,408.74 (n=14)"
+      ],
+      "mediana_droga": 100408.74,
+      "n_droga": 14
     },
     {
       "droga": "desloratadina",
@@ -515,10 +528,10 @@
       "marca": "HEXALER",
       "presentacion": "jbe.x 60 ml",
       "laboratorio": "Siegfried",
-      "precio": 13347.73,
+      "precio": 13563.3,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $222.46 << mediana_grupo $1,562.10"
+        "ppu $226.05 << mediana_grupo $1,587.33"
       ],
       "mediana_droga": 12744.72,
       "n_droga": 24
@@ -528,10 +541,10 @@
       "marca": "DESLORAMAR",
       "presentacion": "susp.fco.x 60 ml",
       "laboratorio": "Mar",
-      "precio": 10950.0,
+      "precio": 11160.0,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $182.50 << mediana_grupo $1,308.00"
+        "ppu $186.00 << mediana_grupo $1,333.00"
       ],
       "mediana_droga": 12744.72,
       "n_droga": 24
@@ -541,12 +554,12 @@
       "marca": "DESLORAMAR CORT",
       "presentacion": "susp.fco.x 60 ml",
       "laboratorio": "Mar",
-      "precio": 12150.0,
+      "precio": 12380.0,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $202.50 << mediana_grupo $1,230.25"
+        "ppu $206.33 << mediana_grupo $1,253.17"
       ],
-      "mediana_droga": 13151.34,
+      "mediana_droga": 13160.84,
       "n_droga": 12
     },
     {
@@ -572,7 +585,7 @@
       "razones": [
         "ppu $1,548.29 << mediana_grupo $9,740.53"
       ],
-      "mediana_droga": 34046.82,
+      "mediana_droga": 34389.29,
       "n_droga": 40
     },
     {
@@ -674,9 +687,9 @@
       "precio": 5536.86,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $5,536.86 < 25% mediana $22,982.12 (n=14)"
+        "precio $5,536.86 < 25% mediana $23,185.01 (n=14)"
       ],
-      "mediana_droga": 22982.12,
+      "mediana_droga": 23185.01,
       "n_droga": 14
     },
     {
@@ -741,7 +754,7 @@
       "razones": [
         "ppu $10.92 << mediana_grupo $1,219.45"
       ],
-      "mediana_droga": 8550.0,
+      "mediana_droga": 8554.95,
       "n_droga": 149
     },
     {
@@ -754,7 +767,7 @@
       "razones": [
         "ppu $12.56 << mediana_grupo $1,038.53"
       ],
-      "mediana_droga": 8550.0,
+      "mediana_droga": 8554.95,
       "n_droga": 149
     },
     {
@@ -767,7 +780,7 @@
       "razones": [
         "ppu $20.66 << mediana_grupo $1,133.54"
       ],
-      "mediana_droga": 8550.0,
+      "mediana_droga": 8554.95,
       "n_droga": 149
     },
     {
@@ -779,9 +792,9 @@
       "precio_outlier_tipo": "bajo_absoluto",
       "razones": [
         "precio $1,348.73 < minimo $1,800",
-        "precio $1,348.73 < 25% mediana $8,550.00 (n=149)"
+        "precio $1,348.73 < 25% mediana $8,554.95 (n=149)"
       ],
-      "mediana_droga": 8550.0,
+      "mediana_droga": 8554.95,
       "n_droga": 149
     },
     {
@@ -857,9 +870,9 @@
       "precio": 1983.73,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $1,983.73 < 25% mediana $8,035.26 (n=38)"
+        "precio $1,983.73 < 25% mediana $8,039.66 (n=38)"
       ],
-      "mediana_droga": 8035.26,
+      "mediana_droga": 8039.66,
       "n_droga": 38
     },
     {
@@ -872,7 +885,7 @@
       "razones": [
         "ppu $134.67 << mediana_grupo $842.57"
       ],
-      "mediana_droga": 8035.26,
+      "mediana_droga": 8039.66,
       "n_droga": 38
     },
     {
@@ -896,9 +909,9 @@
       "precio": 8268.5,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $8,268.50 < 25% mediana $33,115.72 (n=80)"
+        "precio $8,268.50 < 25% mediana $33,212.90 (n=80)"
       ],
-      "mediana_droga": 33115.72,
+      "mediana_droga": 33212.9,
       "n_droga": 80
     },
     {
@@ -987,9 +1000,9 @@
       "precio": 5086.78,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $5,086.78 < 25% mediana $20,479.00 (n=40)"
+        "precio $5,086.78 < 25% mediana $20,608.47 (n=40)"
       ],
-      "mediana_droga": 20479.0,
+      "mediana_droga": 20608.47,
       "n_droga": 40
     },
     {
@@ -1002,7 +1015,7 @@
       "razones": [
         "ppu $1,366.33 << mediana_grupo $8,328.46"
       ],
-      "mediana_droga": 43575.13,
+      "mediana_droga": 43807.09,
       "n_droga": 50
     },
     {
@@ -1052,7 +1065,7 @@
       "precio": 7174209.4,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $7,174,209.40 < fence_low $7,881,506.75"
+        "precio $7,174,209.40 < fence_low $7,675,570.36"
       ],
       "mediana_droga": 9916562.57,
       "n_droga": 32
@@ -1065,7 +1078,7 @@
       "precio": 7174209.4,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $7,174,209.40 < fence_low $7,881,506.75"
+        "precio $7,174,209.40 < fence_low $7,675,570.36"
       ],
       "mediana_droga": 9916562.57,
       "n_droga": 32
@@ -1080,7 +1093,7 @@
       "razones": [
         "ppu $405.57 << mediana_grupo $26,554.79"
       ],
-      "mediana_droga": 9675.17,
+      "mediana_droga": 10244.24,
       "n_droga": 80
     },
     {
@@ -1091,7 +1104,7 @@
       "precio": 19972.35,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $19,972.35 < fence_low $20,072.53"
+        "precio $19,972.35 < fence_low $20,865.71"
       ],
       "mediana_droga": 59545.57,
       "n_droga": 32
@@ -1133,7 +1146,7 @@
       "razones": [
         "ppu $1,226.44 << mediana_grupo $17,454.54"
       ],
-      "mediana_droga": 43382.19,
+      "mediana_droga": 43790.58,
       "n_droga": 58
     },
     {
@@ -1141,12 +1154,12 @@
       "marca": "RISPERDAL",
       "presentacion": "sol.oral x 100 ml",
       "laboratorio": "Janssen-Cilag",
-      "precio": 196031.9,
+      "precio": 199756.51,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $1,960.32 << mediana_grupo $30,636.75"
+        "ppu $1,997.57 << mediana_grupo $31,218.85"
       ],
-      "mediana_droga": 43382.19,
+      "mediana_droga": 43790.58,
       "n_droga": 58
     },
     {
@@ -1154,12 +1167,12 @@
       "marca": "RISPERDAL",
       "presentacion": "sol.oral x 30 ml",
       "laboratorio": "Janssen-Cilag",
-      "precio": 65876.77,
+      "precio": 67128.43,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $2,195.89 << mediana_grupo $30,636.75"
+        "ppu $2,237.61 << mediana_grupo $31,218.85"
       ],
-      "mediana_droga": 43382.19,
+      "mediana_droga": 43790.58,
       "n_droga": 58
     },
     {
@@ -1237,7 +1250,7 @@
       "razones": [
         "ppu $165.17 << mediana_grupo $927.74"
       ],
-      "mediana_droga": 17872.27,
+      "mediana_droga": 18185.86,
       "n_droga": 20
     },
     {
@@ -1245,12 +1258,12 @@
       "marca": "SPECTREX",
       "presentacion": "susp.oral x 100 ml",
       "laboratorio": "Lafedar",
-      "precio": 17082.79,
+      "precio": 17407.37,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $170.83 << mediana_grupo $1,443.04"
+        "ppu $174.07 << mediana_grupo $1,470.46"
       ],
-      "mediana_droga": 17872.27,
+      "mediana_droga": 18185.86,
       "n_droga": 20
     },
     {
@@ -1263,7 +1276,7 @@
       "razones": [
         "ppu $105.24 << mediana_grupo $682.29"
       ],
-      "mediana_droga": 17872.27,
+      "mediana_droga": 18185.86,
       "n_droga": 20
     },
     {
@@ -1300,7 +1313,7 @@
       "precio": 42947.52,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $2,147.38 << mediana_grupo $12,504.72"
+        "ppu $2,147.38 << mediana_grupo $12,629.76"
       ],
       "mediana_droga": 88547.03,
       "n_droga": 66
