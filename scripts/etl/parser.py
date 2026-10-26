@@ -35,7 +35,7 @@ def _reparar_glifos_rotos(texto: str) -> str:
     return texto
 
 
-def descargar_pdf(pdf_url=PDF_URL, max_reintentos=3, backoff_segundos=60) -> bytes:
+def descargar_pdf(pdf_url=PDF_URL, max_reintentos=3, backoff_segundos=15) -> bytes:
     """Descarga el PDF de precios de SIAFAR con reintentos. Sale del proceso si fallan todos."""
     print(f"Descargando: {pdf_url}")
     pdf_bytes = None
