@@ -2,10 +2,11 @@
 
 import sys
 import time
+import http.client
 import urllib.request
 import urllib.error
 
-import fitz
+import pymupdf
 
 from .config import ssl_context
 from .utils import es_precio, limpiar_precio
@@ -46,7 +47,7 @@ def descargar_pdf(pdf_url=PDF_URL, max_reintentos=6, backoff_segundos=15) -> byt
             with urllib.request.urlopen(req, timeout=30, context=ssl_context) as r:
                 pdf_bytes = r.read()
             break
-        except (urllib.error.URLError, TimeoutError, ConnectionError) as e:
+        except (urllib.error.URLError, http.client.IncompleteRead, TimeoutError, ConnectionError) as e:
             print(f"   Intento {intento}/{max_reintentos} fallido: {e}")
             if intento < max_reintentos:
                 print(f"   Reintentando en {backoff_segundos}s...")
@@ -64,7 +65,7 @@ def parsear_pdf(pdf_bytes: bytes) -> list:
     Parsea el PDF de precios de SIAFAR y devuelve la lista cruda de
     medicamentos (sin ninguna capa de reparación aplicada todavía).
     """
-    doc = fitz.open(stream=pdf_bytes, filetype="pdf")
+    doc = pymupdf.open(stream=pdf_bytes, filetype="pdf")
     medicamentos = []
 
     for pagina_num in range(len(doc)):
