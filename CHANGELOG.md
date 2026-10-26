@@ -3,6 +3,16 @@
 ## [Sin publicar]
 
 ### Cambiado
+- `actualizar-precios.yml`: el workflow corre una vez por día, todos los días
+  (`7 14 * * *` UTC, 11:07 hora de Argentina), en lugar de dos veces de lunes
+  a viernes. SIAFAR también publica los sábados, y el PDF fechado se genera de
+  madrugada. El minuto `:07` evita los picos de `:00` y `:30`: las corridas
+  anteriores (`:30`) arrancaban entre 3 y 5,5 horas tarde. Los textos que
+  mencionaban la frecuencia se actualizan: las 100 landings y
+  `generar_landings.py` (ahora dicen "todos los días", sin horas exactas),
+  `about.html`, `terminos.html`, `index.html` (descripciones, JSON-LD y el
+  indicador "1× actualización diaria"), `package.json` y los dos README.
+  `sw.js`: `CACHE_NAME` sube a `v37`.
 - `about.html`: suma el footer del resto del sitio (barra teal con columnas
   Sitio / Legal / Fuente de datos, aviso médico y licencia). Es el mismo
   markup que `privacidad.html` y `terminos.html`; antes la página terminaba

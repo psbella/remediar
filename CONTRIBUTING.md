@@ -42,7 +42,7 @@ Los commits con prefijo `admin:` en el historial no son parte de esta convenció
 
 ## Sobre la rama `main`
 
-`main` no tiene branch protection activa. Es una decisión consciente: el repo tiene un solo colaborador con acceso de escritura, y GitHub no permite eximir al bot de `github-actions` de las reglas de protección en cuentas personales — activarla hubiera roto el workflow automático que pushea 2 veces al día. Si en algún momento se suma otro colaborador con acceso de escritura, esto se reevalúa.
+`main` no tiene branch protection activa. Es una decisión consciente: el repo tiene un solo colaborador con acceso de escritura, y GitHub no permite eximir al bot de `github-actions` de las reglas de protección en cuentas personales — activarla hubiera roto el workflow automático que pushea una vez por día. Si en algún momento se suma otro colaborador con acceso de escritura, esto se reevalúa.
 
 ## ⚠️ Ojo con el Service Worker al tocar assets estáticos
 

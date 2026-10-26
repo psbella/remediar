@@ -6,7 +6,7 @@
 
 <p align="center">
   <strong>Medication price search engine in Argentina</strong><br>
-  <em>Open source system that processes official SIAFAR/COFA/PAMI data and generates a price comparator updated automatically twice per business day.</em>
+  <em>Open source system that processes official SIAFAR/COFA/PAMI data and generates a price comparator updated automatically every day.</em>
 </p>
 
 <p align="center">
@@ -148,7 +148,7 @@ Measured on 2026-10-07 against the run of 2026-10-06 16:38 (Argentina time).
 | Entries in `info_adicional.json` | 11,085 (2,855 inferred from the active ingredient) |
 | Price changes in `data/historico/precios.json` | 6,970 |
 | Landing pages / URLs in `sitemap.xml` | 100 / 104 |
-| Updates | Twice per business day (11:30 and 15:30 Argentina time), only if SIAFAR published a different PDF |
+| Updates | Once a day, every day (cron at 11:07 Argentina time; GitHub often delays it by several hours), only if SIAFAR published a different PDF |
 | Automated tests | 31 (run post-ETL, before the commit) |
 
 ---
@@ -159,7 +159,7 @@ The system is made up of three main layers:
 
 ## 1️⃣ Extraction and processing
 
-- GitHub Actions runs an automated workflow twice a day (Monday to Friday: `30 14` and `30 18` UTC, i.e. 11:30 and 15:30 Argentina time)
+- GitHub Actions runs an automated workflow once a day, every day (`7 14 * * *` UTC, i.e. 11:07 Argentina time). GitHub often delays scheduled runs by several hours: with the previous cron, between 16 and 23 October 2026, the measured delay was 3 to 5.5 hours, so the actual run can land in the afternoon
 - The official PDF is downloaded from SIAFAR / COFA (up to 3 retries). If its SHA-256 matches `data/.pdf_hash`, nothing new was published: the rest of the pipeline is skipped and nothing is committed
 - Python extracts and normalizes the records through an 8+ layer pipeline
 - Data is cross-referenced against the PAMI formulary (`data/pami.xlsx`, versioned and refreshed by hand roughly once a month) to enrich coverage
@@ -303,7 +303,7 @@ The list is shown capped at **300 cards**; the counter shows the real total.
 ```mermaid
 flowchart TD
 
-    A[⏰ GitHub Actions Cron<br/>Mon-Fri 11:30 and 15:30 AR]
+    A[⏰ GitHub Actions Cron<br/>every day ~11:07 AR]
     B[📥 Download SIAFAR PDF<br/>up to 3 retries]
     HS{SHA-256 equal to<br/>data/.pdf_hash?}
     SK[⏭️ sin_cambios: skip the rest<br/>and no commit]
@@ -385,8 +385,9 @@ A record with no anomalies has `vigencia_score = 100`. In the frontend, `< 50` m
 name: 🔃 Actualizar precios
 on:
   schedule:
-    - cron: '30 14 * * 1-5'  # 11:30 Argentina
-    - cron: '30 18 * * 1-5'  # 15:30 Argentina
+    # Una vez por día, todos los días. 14:07 UTC = 11:07 Argentina (UTC-3). GitHub suele
+    # demorar las corridas programadas varias horas; el minuto :07 evita los picos de :00 y :30.
+    - cron: '7 14 * * *'
   workflow_dispatch:
 
 permissions:
@@ -677,7 +678,7 @@ flowchart LR
     end
 
     subgraph TWO["⚙️ AUTOMATION"]
-        C["⏰ GitHub Actions Cron\nMon-Fri 11:30 and 15:30 AR"]
+        C["⏰ GitHub Actions Cron\nevery day ~11:07 AR"]
         D["🔄 Manual workflow"]
     end
 
@@ -1178,11 +1179,11 @@ Before opening the PR: if you touched the ETL, run `pytest tests/` and confirm t
 
 ## About the `main` branch
 
-`main` doesn't have branch protection enabled. This is a conscious decision: the repo has a single collaborator with write access, and GitHub doesn't allow exempting the `github-actions` bot from protection rules on personal accounts — enabling it would have broken the automated workflow that pushes twice a day. If another collaborator with write access is ever added, this gets reevaluated.
+`main` doesn't have branch protection enabled. This is a conscious decision: the repo has a single collaborator with write access, and GitHub doesn't allow exempting the `github-actions` bot from protection rules on personal accounts — enabling it would have broken the automated workflow that pushes once a day. If another collaborator with write access is ever added, this gets reevaluated.
 
 ## ⚠️ Watch out for the Service Worker when touching static assets
 
-If you modify `index.html`, `css/style.css` or any file in `js/`, **remember to bump `CACHE_NAME` in `sw.js`** (currently `remediar-v36`; e.g. `remediar-v36` → `remediar-v37`). Those files are precached by the Service Worker (`CACHE_STATIC`), so without the bump, users who already visited the site will keep seeing the old version indefinitely, with no visible error — nothing updates until the browser decides to revalidate the cache on its own.
+If you modify `index.html`, `css/style.css` or any file in `js/`, **remember to bump `CACHE_NAME` in `sw.js`** (currently `remediar-v37`; e.g. `remediar-v37` → `remediar-v38`). Those files are precached by the Service Worker (`CACHE_STATIC`), so without the bump, users who already visited the site will keep seeing the old version indefinitely, with no visible error — nothing updates until the browser decides to revalidate the cache on its own.
 
 ---
 
@@ -1484,7 +1485,7 @@ All actions are pinned by commit SHA.
 
 | Workflow | Trigger | Function |
 |---|---|---|
-| `actualizar-precios.yml` | Cron `30 14 * * 1-5` and `30 18 * * 1-5` (UTC; 11:30 and 15:30 Argentina time) + manual | Main ETL: downloads the PDF, generates the JSON, landings and sitemap, uploads debug, runs tests, computes the price diff (scheduled runs only) and commits. If the PDF did not change, every step after `pdf_to_json.py` is skipped |
+| `actualizar-precios.yml` | Cron `7 14 * * *` (UTC; 11:07 Argentina time, every day) + manual | Main ETL: downloads the PDF, generates the JSON, landings and sitemap, uploads debug, runs tests, computes the price diff (scheduled runs only) and commits. If the PDF did not change, every step after `pdf_to_json.py` is skipped |
 | `maintenance-on.yml` | Manual | Replaces `index.html` with the maintenance page (backup in `index.html.bak`) |
 | `maintenance-off.yml` | Manual | Restores `index.html` from the backup |
 | `codeql.yml` | Push/PR to `main` + weekly cron (Saturday 01:33 UTC) | Static security analysis (CodeQL) over JS, Python, and the GitHub Actions workflows themselves |
@@ -1497,7 +1498,7 @@ All actions are pinned by commit SHA.
 
 | `actualizar-precios.yml` parameter | Value |
 |---|---|
-| Schedule | 11:30 and 15:30 AR (Monday to Friday) |
+| Schedule | 11:07 AR, every day (GitHub may delay it by several hours) |
 | Runtime | Ubuntu latest |
 | Timeout | 15 minutes |
 | Python | 3.11 (`cache: 'pip'` on `setup-python`) |
@@ -1513,7 +1514,7 @@ All actions are pinned by commit SHA.
 
 ## Where does the data come from?
 
-From the official PDF published by SIAFAR / COFA. The workflow checks it twice per business day and only reprocesses it if the PDF changed.
+From the official PDF published by SIAFAR / COFA. The workflow checks it once a day, every day, and only reprocesses it if the PDF changed.
 
 ## What is vigencia_score?
 
@@ -1535,7 +1536,7 @@ It's an approximation — the real copay may vary because the coverage percentag
 
 ## How often is it updated?
 
-Twice per business day (11:30 and 15:30 Argentina time), Monday to Friday. If SIAFAR did not publish a new PDF, nothing is updated.
+Once a day, every day: the cron is set for 11:07 Argentina time, but GitHub often delays scheduled runs by several hours. If SIAFAR did not publish a new PDF, nothing is updated.
 
 ## Does it have advertising?
 
@@ -1565,7 +1566,7 @@ Yes, as data (the site does not display it yet). Since version 2.5.0, every sche
 |---|---|
 | 11 records without a presentation | 7 are brands for which the SIAFAR PDF carries no presentation (ASFARADIL, DEXALERGIN, FEMIDEN, KETOSTERIL, SIGNORINA, VAXNEUVANCE, VIXALERG): the data is not in the source. The other 4 are cases the parser does not resolve yet: the presentation ended up inside `marca` (`COMP.REC.X 10`, `COMP.REC.X 28`, `COMP.X 30`, `CÁPS. X 30`). |
 | `pami.xlsx` is refreshed by hand | The formulary is uploaded manually roughly once a month. If it is not refreshed, coverage may go stale; if the file is missing, the PAMI crosswalk is skipped. |
-| Business days only, and only if the PDF changed | There are no weekend updates, and data is reprocessed only when SIAFAR publishes a different PDF. |
+| One run per day, and only if the PDF changed | The workflow runs once a day, every day, and reprocesses only when SIAFAR publishes a different PDF. GitHub may delay the scheduled run by several hours, so the day's data can show up in the afternoon. |
 | 300-card cap | Each query renders at most 300 results; the counter shows the total. |
 | Workers mirror is manual | It is deployed by hand (`npx wrangler deploy`), so it may lag behind `main`. |
 | `pami_cobertura` is approximate | The percentage comes from the PAMI formulary (which updates less frequently) applied to SIAFAR's current retail price. The real copay may differ. |

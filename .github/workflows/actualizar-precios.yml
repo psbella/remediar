@@ -1,8 +1,9 @@
 name: 🔃 Actualizar precios
 on:
   schedule:
-    - cron: '30 14 * * 1-5'  # 11:30 Argentina
-    - cron: '30 18 * * 1-5'  # 15:30 Argentina
+    # Una vez por día, todos los días. 14:07 UTC = 11:07 Argentina (UTC-3). GitHub suele
+    # demorar las corridas programadas varias horas; el minuto :07 evita los picos de :00 y :30.
+    - cron: '7 14 * * *'
   workflow_dispatch:
 
 permissions:
