@@ -115882,5 +115882,17 @@
     "precio_nuevo": 63536.97,
     "diferencia": 1123.44,
     "variacion_pct": 1.8
+  },
+  {
+    "fecha": "2026-10-27 16:21",
+    "tipo": "cambio_precio",
+    "droga": "ciprofloxacina",
+    "marca": "CIRIAX",
+    "laboratorio": "Roemmers",
+    "presentacion": "500 mg comp.x 20",
+    "precio_anterior": 41779.0,
+    "precio_nuevo": 42573.0,
+    "diferencia": 794.0,
+    "variacion_pct": 1.9
   }
 ]
