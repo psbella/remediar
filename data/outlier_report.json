@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-10-29T00:41:53.761554-03:00",
+  "timestamp": "2026-10-30T16:09:05.708984-03:00",
   "total_registros": 13130,
-  "total_outliers": 112,
+  "total_outliers": 114,
   "outliers": [
     {
       "droga": "acetilsalicílico,ác., cafeína",
@@ -221,7 +221,7 @@
       "razones": [
         "precio $114,122.05 < fence_low $116,483.71"
       ],
-      "mediana_droga": 137578.97,
+      "mediana_droga": 138709.93,
       "n_droga": 26
     },
     {
@@ -234,7 +234,7 @@
       "razones": [
         "ppu $2,239.24 << mediana_grupo $34,708.26"
       ],
-      "mediana_droga": 137578.97,
+      "mediana_droga": 138709.93,
       "n_droga": 26
     },
     {
@@ -268,10 +268,10 @@
       "marca": "TREXBIOTIC",
       "presentacion": "500 mg comp.rec.x 6",
       "laboratorio": "Casasco",
-      "precio": 25135.55,
+      "precio": 25613.12,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $50.27 << mediana_grupo $926.62"
+        "ppu $51.23 << mediana_grupo $944.22"
       ],
       "mediana_droga": 20470.41,
       "n_droga": 68
@@ -281,12 +281,12 @@
       "marca": "ERNEX",
       "presentacion": "liq.x 120 ml",
       "laboratorio": "Casasco",
-      "precio": 17698.2,
+      "precio": 18034.47,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $147.49 << mediana_grupo $971.12"
+        "ppu $150.29 << mediana_grupo $989.57"
       ],
-      "mediana_droga": 17698.2,
+      "mediana_droga": 18034.47,
       "n_droga": 5
     },
     {
@@ -433,6 +433,19 @@
       "n_droga": 5
     },
     {
+      "droga": "clindamicina, ketoconazol",
+      "marca": "MACRIL DUO",
+      "presentacion": "cáps.bl.vag.x 7",
+      "laboratorio": "Andrómaco",
+      "precio": 24702.33,
+      "precio_outlier_tipo": "bajo_iqr",
+      "razones": [
+        "precio $24,702.33 < fence_low $24,920.79"
+      ],
+      "mediana_droga": 27757.2,
+      "n_droga": 8
+    },
+    {
       "droga": "clonazepam",
       "marca": "CLONER",
       "presentacion": "gts.x 20 ml",
@@ -450,10 +463,10 @@
       "marca": "QUAZEMIC",
       "presentacion": "gts.x 20 ml",
       "laboratorio": "Casasco",
-      "precio": 15893.66,
+      "precio": 16195.65,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $794.68 << mediana_grupo $11,397.49"
+        "ppu $809.78 << mediana_grupo $11,614.03"
       ],
       "mediana_droga": 16294.64,
       "n_droga": 116
@@ -632,12 +645,12 @@
       "marca": "LIXERAL",
       "presentacion": "120 mg cáps.x 14",
       "laboratorio": "Casasco",
-      "precio": 1794532.36,
+      "precio": 1823244.87,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $1,794,532.36 < 25% mediana $7,180,994.59 (n=11)"
+        "precio $1,823,244.87 < 25% mediana $7,295,890.50 (n=11)"
       ],
-      "mediana_droga": 7180994.59,
+      "mediana_droga": 7295890.5,
       "n_droga": 11
     },
     {
@@ -658,10 +671,10 @@
       "marca": "NOVALGINA",
       "presentacion": "jbe.x 100 ml",
       "laboratorio": "Opella Healthca",
-      "precio": 16083.37,
+      "precio": 16400.0,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $160.83 << mediana_grupo $994.95"
+        "ppu $164.00 << mediana_grupo $1,013.17"
       ],
       "mediana_droga": 13306.78,
       "n_droga": 22
@@ -684,13 +697,26 @@
       "marca": "NOVALGINA",
       "presentacion": "jbe.x 200 ml",
       "laboratorio": "Opella Healthca",
-      "precio": 24044.76,
+      "precio": 24500.0,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $120.22 << mediana_grupo $994.95"
+        "ppu $122.50 << mediana_grupo $1,013.17"
       ],
       "mediana_droga": 13306.78,
       "n_droga": 22
+    },
+    {
+      "droga": "dorzolamida, timolol",
+      "marca": "GLAUCOTENSIL TD LC",
+      "presentacion": "sol.oft.x 5 ml",
+      "laboratorio": "Poen",
+      "precio": 47885.99,
+      "precio_outlier_tipo": "bajo_iqr",
+      "razones": [
+        "precio $47,885.99 < fence_low $48,048.14"
+      ],
+      "mediana_droga": 51765.38,
+      "n_droga": 8
     },
     {
       "droga": "enalapril",
@@ -762,12 +788,12 @@
       "marca": "BUSCAPINA",
       "presentacion": "grag.x 20",
       "laboratorio": "Opella Healthca",
-      "precio": 13300.0,
+      "precio": 13550.0,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $665.00 << mediana_grupo $3,899.17"
+        "ppu $677.50 << mediana_grupo $3,972.08"
       ],
-      "mediana_droga": 14300.0,
+      "mediana_droga": 14550.0,
       "n_droga": 5
     },
     {
@@ -846,7 +872,7 @@
       "razones": [
         "ppu $2,609.26 << mediana_grupo $46,323.37"
       ],
-      "mediana_droga": 204927.05,
+      "mediana_droga": 206561.81,
       "n_droga": 17
     },
     {
@@ -924,7 +950,7 @@
       "razones": [
         "ppu $195.12 << mediana_grupo $1,116.74"
       ],
-      "mediana_droga": 11682.35,
+      "mediana_droga": 11803.51,
       "n_droga": 14
     },
     {
@@ -963,7 +989,7 @@
       "razones": [
         "ppu $264.04 << mediana_grupo $113,742.11"
       ],
-      "mediana_droga": 277048.55,
+      "mediana_droga": 277419.29,
       "n_droga": 39
     },
     {
@@ -976,7 +1002,7 @@
       "razones": [
         "ppu $764.60 << mediana_grupo $263,240.51"
       ],
-      "mediana_droga": 277048.55,
+      "mediana_droga": 277419.29,
       "n_droga": 39
     },
     {
@@ -989,7 +1015,7 @@
       "razones": [
         "ppu $832.66 << mediana_grupo $229,175.57"
       ],
-      "mediana_droga": 277048.55,
+      "mediana_droga": 277419.29,
       "n_droga": 39
     },
     {
@@ -1002,7 +1028,7 @@
       "razones": [
         "ppu $435.97 << mediana_grupo $229,175.57"
       ],
-      "mediana_droga": 277048.55,
+      "mediana_droga": 277419.29,
       "n_droga": 39
     },
     {
@@ -1015,7 +1041,7 @@
       "razones": [
         "ppu $399.61 << mediana_grupo $263,240.51"
       ],
-      "mediana_droga": 277048.55,
+      "mediana_droga": 277419.29,
       "n_droga": 39
     },
     {
@@ -1036,12 +1062,12 @@
       "marca": "MONTRATE",
       "presentacion": "sob.x 30",
       "laboratorio": "Casasco",
-      "precio": 40990.0,
+      "precio": 41604.84,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $1,366.33 << mediana_grupo $8,328.46"
+        "ppu $1,386.83 << mediana_grupo $8,453.39"
       ],
-      "mediana_droga": 44005.78,
+      "mediana_droga": 44023.4,
       "n_droga": 50
     },
     {
@@ -1130,7 +1156,7 @@
       "precio": 19972.35,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $19,972.35 < fence_low $21,245.29"
+        "precio $19,972.35 < fence_low $20,231.75"
       ],
       "mediana_droga": 59545.57,
       "n_droga": 32
@@ -1245,12 +1271,12 @@
       "marca": "RAPAMUNE",
       "presentacion": "sol.oral x 60 ml",
       "laboratorio": "Pfizer",
-      "precio": 2612630.8,
+      "precio": 2659658.15,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $43,543.85 << mediana_grupo $1,307,581.21"
+        "ppu $44,327.64 << mediana_grupo $1,331,117.67"
       ],
-      "mediana_droga": 2615162.41,
+      "mediana_droga": 2662235.33,
       "n_droga": 4
     },
     {
@@ -1365,9 +1391,9 @@
       "precio": 22198.97,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $22,198.97 < 25% mediana $89,429.71 (n=66)"
+        "precio $22,198.97 < 25% mediana $89,806.53 (n=66)"
       ],
-      "mediana_droga": 89429.71,
+      "mediana_droga": 89806.53,
       "n_droga": 66
     },
     {
@@ -1380,7 +1406,7 @@
       "razones": [
         "ppu $2,147.38 << mediana_grupo $12,629.76"
       ],
-      "mediana_droga": 89429.71,
+      "mediana_droga": 89806.53,
       "n_droga": 66
     },
     {
@@ -1427,12 +1453,12 @@
       "marca": "VENCLEXTA",
       "presentacion": "100 mg comp.x 120",
       "laboratorio": "Abbvie",
-      "precio": 36903262.25,
+      "precio": 38305586.22,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $369,032.62 << mediana_grupo $4,166,894.73"
+        "ppu $383,055.86 << mediana_grupo $4,325,236.73"
       ],
-      "mediana_droga": 22434009.54,
+      "mediana_droga": 23286501.91,
       "n_droga": 2
     },
     {
@@ -1453,12 +1479,12 @@
       "marca": "FACTOR X POLVO",
       "presentacion": "pvo.x 50 g",
       "laboratorio": "Casasco",
-      "precio": 13891.96,
+      "precio": 14169.8,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $13,891.96 < fence_low $15,232.87"
+        "precio $14,169.80 < fence_low $14,743.52"
       ],
-      "mediana_droga": 16287.01,
+      "mediana_droga": 16449.85,
       "n_droga": 6
     }
   ]
