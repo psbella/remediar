@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-10-30T16:09:05.708984-03:00",
+  "timestamp": "2026-10-31T15:27:00.770602-03:00",
   "total_registros": 13130,
-  "total_outliers": 114,
+  "total_outliers": 115,
   "outliers": [
     {
       "droga": "acetilsalicílico,ác., cafeína",
@@ -143,7 +143,7 @@
       "razones": [
         "ppu $13.46 << mediana_grupo $174.80"
       ],
-      "mediana_droga": 12000.0,
+      "mediana_droga": 12047.0,
       "n_droga": 115
     },
     {
@@ -156,7 +156,7 @@
       "razones": [
         "ppu $18.82 << mediana_grupo $123.30"
       ],
-      "mediana_droga": 12000.0,
+      "mediana_droga": 12047.0,
       "n_droga": 115
     },
     {
@@ -219,7 +219,7 @@
       "precio": 114122.05,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $114,122.05 < fence_low $116,483.71"
+        "precio $114,122.05 < fence_low $119,583.56"
       ],
       "mediana_droga": 138709.93,
       "n_droga": 26
@@ -229,10 +229,10 @@
       "marca": "CIARAN",
       "presentacion": "5mg comp.x 60",
       "laboratorio": "Montpellier",
-      "precio": 134354.54,
+      "precio": 136369.86,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $2,239.24 << mediana_grupo $34,708.26"
+        "ppu $2,272.83 << mediana_grupo $35,228.88"
       ],
       "mediana_droga": 138709.93,
       "n_droga": 26
@@ -307,12 +307,12 @@
       "marca": "CORTEROID",
       "presentacion": "cr.x 30 g",
       "laboratorio": "Montpellier",
-      "precio": 13033.08,
+      "precio": 13293.74,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $434.44 << mediana_grupo $7,969.03"
+        "ppu $443.12 << mediana_grupo $8,128.41"
       ],
-      "mediana_droga": 9985.8,
+      "mediana_droga": 10082.9,
       "n_droga": 38
     },
     {
@@ -364,7 +364,7 @@
       "razones": [
         "ppu $29.05 << mediana_grupo $19,686.03"
       ],
-      "mediana_droga": 18731.33,
+      "mediana_droga": 18951.53,
       "n_droga": 10
     },
     {
@@ -372,12 +372,12 @@
       "marca": "CEFUROXIMA RICHET",
       "presentacion": "500 mg comp.x 8",
       "laboratorio": "Richet",
-      "precio": 131022.01,
+      "precio": 135607.78,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $262.04 << mediana_grupo $19,917.83"
+        "ppu $271.22 << mediana_grupo $20,614.96"
       ],
-      "mediana_droga": 131022.01,
+      "mediana_droga": 135607.78,
       "n_droga": 3
     },
     {
@@ -433,19 +433,6 @@
       "n_droga": 5
     },
     {
-      "droga": "clindamicina, ketoconazol",
-      "marca": "MACRIL DUO",
-      "presentacion": "cáps.bl.vag.x 7",
-      "laboratorio": "Andrómaco",
-      "precio": 24702.33,
-      "precio_outlier_tipo": "bajo_iqr",
-      "razones": [
-        "precio $24,702.33 < fence_low $24,920.79"
-      ],
-      "mediana_droga": 27757.2,
-      "n_droga": 8
-    },
-    {
       "droga": "clonazepam",
       "marca": "CLONER",
       "presentacion": "gts.x 20 ml",
@@ -494,7 +481,7 @@
       "razones": [
         "ppu $638.95 << mediana_grupo $8,039.68"
       ],
-      "mediana_droga": 62923.09,
+      "mediana_droga": 63895.38,
       "n_droga": 7
     },
     {
@@ -533,7 +520,7 @@
       "razones": [
         "ppu $216.93 << mediana_grupo $1,440.39"
       ],
-      "mediana_droga": 12843.14,
+      "mediana_droga": 12966.81,
       "n_droga": 24
     },
     {
@@ -546,7 +533,7 @@
       "razones": [
         "ppu $222.97 << mediana_grupo $2,153.70"
       ],
-      "mediana_droga": 12843.14,
+      "mediana_droga": 12966.81,
       "n_droga": 24
     },
     {
@@ -559,7 +546,7 @@
       "razones": [
         "ppu $226.05 << mediana_grupo $1,587.33"
       ],
-      "mediana_droga": 12843.14,
+      "mediana_droga": 12966.81,
       "n_droga": 24
     },
     {
@@ -572,7 +559,7 @@
       "razones": [
         "ppu $186.00 << mediana_grupo $1,333.00"
       ],
-      "mediana_droga": 12843.14,
+      "mediana_droga": 12966.81,
       "n_droga": 24
     },
     {
@@ -663,7 +650,7 @@
       "razones": [
         "ppu $123.16 << mediana_grupo $315,870.34"
       ],
-      "mediana_droga": 13306.78,
+      "mediana_droga": 13475.7,
       "n_droga": 22
     },
     {
@@ -676,7 +663,7 @@
       "razones": [
         "ppu $164.00 << mediana_grupo $1,013.17"
       ],
-      "mediana_droga": 13306.78,
+      "mediana_droga": 13475.7,
       "n_droga": 22
     },
     {
@@ -689,7 +676,7 @@
       "razones": [
         "ppu $97.76 << mediana_grupo $704.17"
       ],
-      "mediana_droga": 13306.78,
+      "mediana_droga": 13475.7,
       "n_droga": 22
     },
     {
@@ -702,7 +689,7 @@
       "razones": [
         "ppu $122.50 << mediana_grupo $1,013.17"
       ],
-      "mediana_droga": 13306.78,
+      "mediana_droga": 13475.7,
       "n_droga": 22
     },
     {
@@ -726,9 +713,9 @@
       "precio": 3615.0,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $3,615.00 < 25% mediana $14,630.86 (n=104)"
+        "precio $3,615.00 < 25% mediana $14,742.76 (n=104)"
       ],
-      "mediana_droga": 14630.86,
+      "mediana_droga": 14742.76,
       "n_droga": 104
     },
     {
@@ -739,9 +726,9 @@
       "precio": 5536.86,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $5,536.86 < 25% mediana $23,185.01 (n=14)"
+        "precio $5,536.86 < 25% mediana $23,393.40 (n=14)"
       ],
-      "mediana_droga": 23185.01,
+      "mediana_droga": 23393.4,
       "n_droga": 14
     },
     {
@@ -762,12 +749,12 @@
       "marca": "ESMOLOL RICHET",
       "presentacion": "2500 mg a.x 10 ml x 1",
       "laboratorio": "Richet",
-      "precio": 916954.23,
+      "precio": 944462.86,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $366.78 << mediana_grupo $2,296.89"
+        "ppu $377.79 << mediana_grupo $2,365.80"
       ],
-      "mediana_droga": 669827.48,
+      "mediana_droga": 689922.3,
       "n_droga": 2
     },
     {
@@ -775,12 +762,12 @@
       "marca": "HIDROCORTISONA RICHET",
       "presentacion": "500 mg liof.f.a.x 1",
       "laboratorio": "Richet",
-      "precio": 60264.35,
+      "precio": 61168.32,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $120.53 << mediana_grupo $946.10"
+        "ppu $122.34 << mediana_grupo $960.30"
       ],
-      "mediana_droga": 18250.04,
+      "mediana_droga": 18561.36,
       "n_droga": 22
     },
     {
@@ -922,9 +909,9 @@
       "precio": 1983.73,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $1,983.73 < 25% mediana $8,148.57 (n=38)"
+        "precio $1,983.73 < 25% mediana $8,225.33 (n=38)"
       ],
-      "mediana_droga": 8148.57,
+      "mediana_droga": 8225.33,
       "n_droga": 38
     },
     {
@@ -932,25 +919,38 @@
       "marca": "ALERPRIV",
       "presentacion": "jbe.x 60 ml",
       "laboratorio": "Montpellier",
-      "precio": 8080.31,
+      "precio": 8233.83,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $134.67 << mediana_grupo $842.57"
+        "ppu $137.23 << mediana_grupo $858.58"
       ],
-      "mediana_droga": 8148.57,
+      "mediana_droga": 8225.33,
       "n_droga": 38
+    },
+    {
+      "droga": "loratadina, betametasona",
+      "marca": "VIXIDONE LB",
+      "presentacion": "comp.x 10",
+      "laboratorio": "Siegfried",
+      "precio": 2971.3,
+      "precio_outlier_tipo": "bajo_relativo",
+      "razones": [
+        "precio $2,971.30 < 25% mediana $11,910.16 (n=14)"
+      ],
+      "mediana_droga": 11910.16,
+      "n_droga": 14
     },
     {
       "droga": "loratadina, betametasona",
       "marca": "HISTAMINO CORTEROID L",
       "presentacion": "jbe.x 60 ml",
       "laboratorio": "Montpellier",
-      "precio": 11707.01,
+      "precio": 11941.14,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $195.12 << mediana_grupo $1,116.74"
+        "ppu $199.02 << mediana_grupo $1,139.07"
       ],
-      "mediana_droga": 11803.51,
+      "mediana_droga": 11910.16,
       "n_droga": 14
     },
     {
@@ -961,22 +961,35 @@
       "precio": 8268.5,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $8,268.50 < 25% mediana $33,486.38 (n=80)"
+        "precio $8,268.50 < 25% mediana $33,744.92 (n=80)"
       ],
-      "mediana_droga": 33486.38,
+      "mediana_droga": 33744.92,
       "n_droga": 80
+    },
+    {
+      "droga": "mebendazol",
+      "marca": "MEBUTAR 200",
+      "presentacion": "susp.x 30 ml",
+      "laboratorio": "Andrómaco",
+      "precio": 26407.27,
+      "precio_outlier_tipo": "inconsistencia_escala",
+      "razones": [
+        "ppu $880.24 << mediana_grupo $4,401.21"
+      ],
+      "mediana_droga": 26407.27,
+      "n_droga": 5
     },
     {
       "droga": "meropenem",
       "marca": "MEROPENEM RICHET",
       "presentacion": "500 mg IV iny.f.a.x 1",
       "laboratorio": "Richet",
-      "precio": 122784.72,
+      "precio": 125240.41,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $245.57 << mediana_grupo $113,671.80"
+        "ppu $250.48 << mediana_grupo $115,945.24"
       ],
-      "mediana_droga": 122784.72,
+      "mediana_droga": 125240.41,
       "n_droga": 7
     },
     {
@@ -1067,7 +1080,7 @@
       "razones": [
         "ppu $1,386.83 << mediana_grupo $8,453.39"
       ],
-      "mediana_droga": 44023.4,
+      "mediana_droga": 44232.82,
       "n_droga": 50
     },
     {
@@ -1117,7 +1130,7 @@
       "precio": 7174209.4,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $7,174,209.40 < fence_low $7,768,107.58"
+        "precio $7,174,209.40 < fence_low $7,887,649.72"
       ],
       "mediana_droga": 9916562.57,
       "n_droga": 32
@@ -1130,7 +1143,7 @@
       "precio": 7174209.4,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $7,174,209.40 < fence_low $7,768,107.58"
+        "precio $7,174,209.40 < fence_low $7,887,649.72"
       ],
       "mediana_droga": 9916562.57,
       "n_droga": 32
@@ -1180,12 +1193,12 @@
       "marca": "RIFAMPICINA RICHET",
       "presentacion": "300 mg caps.x 8",
       "laboratorio": "Richet",
-      "precio": 24094.15,
+      "precio": 24816.98,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $80.31 << mediana_grupo $670.70"
+        "ppu $82.72 << mediana_grupo $690.82"
       ],
-      "mediana_droga": 24094.15,
+      "mediana_droga": 24816.98,
       "n_droga": 5
     },
     {
@@ -1250,7 +1263,7 @@
       "razones": [
         "ppu $374.94 << mediana_grupo $2,225.24"
       ],
-      "mediana_droga": 18747.08,
+      "mediana_droga": 18885.81,
       "n_droga": 85
     },
     {
@@ -1261,9 +1274,9 @@
       "precio": 4668.09,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $4,668.09 < 25% mediana $18,747.08 (n=85)"
+        "precio $4,668.09 < 25% mediana $18,885.81 (n=85)"
       ],
-      "mediana_droga": 18747.08,
+      "mediana_droga": 18885.81,
       "n_droga": 85
     },
     {
@@ -1440,12 +1453,12 @@
       "marca": "VANCOMICINA RICHET",
       "presentacion": "500 mg iny.IV f.a.x 1",
       "laboratorio": "Richet",
-      "precio": 28320.52,
+      "precio": 28886.93,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $56.64 << mediana_grupo $24,210.22"
+        "ppu $57.77 << mediana_grupo $24,694.42"
       ],
-      "mediana_droga": 28320.52,
+      "mediana_droga": 28886.93,
       "n_droga": 7
     },
     {
