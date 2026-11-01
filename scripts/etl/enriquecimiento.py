@@ -6,6 +6,29 @@ from .config import PAMI_PATH
 from .presentacion import _parsear_presentacion
 
 
+# Formas farmacéuticas que el nombre comercial declara y el PDF no trae (o trae
+# genéricas) en `presentacion`:
+#   NICOTINELL GUMS "2 mg cool mint x 24"  -> sin forma   -> CHICLES
+#   NICOTINELL LOZENGE "1 mg mint x 36"    -> sin forma   -> PASTILLAS
+#   NICOTINELL TTS 10 "sistemas x 21"      -> "SISTEMAS"  -> PARCHES (sistema
+#   transdérmico; es el único producto del dataset que dice "sistemas").
+_FORMA_POR_MARCA = (
+    (re.compile(r'\bGUMS?\b', re.IGNORECASE),     'CHICLES'),
+    (re.compile(r'\bLOZENGES?\b', re.IGNORECASE), 'PASTILLAS'),
+    (re.compile(r'\bTTS\b', re.IGNORECASE),       'PARCHES'),
+)
+# Formas del PDF demasiado genéricas: la marca puede reemplazarlas.
+_FORMAS_GENERICAS = {'SISTEMAS'}
+
+
+def forma_desde_marca(marca) -> str | None:
+    """Devuelve la forma indicada por el nombre comercial, o None si no hay."""
+    for patron, forma in _FORMA_POR_MARCA:
+        if patron.search(marca or ''):
+            return forma
+    return None
+
+
 def enriquecer_dosis(medicamentos: list) -> None:
     """
     Promueve campos de presentacion parseada (forma/dosis/unidad/cantidad)
@@ -59,6 +82,12 @@ def enriquecer_dosis(medicamentos: list) -> None:
             if r['cantidad']:
                 m['pres_cantidad'] = r['cantidad']
             n_enriquecidos += 1
+        # Fallback: forma desde el nombre comercial si la presentación no la trae
+        # (o solo trae una forma genérica)
+        if not m.get('pres_forma') or m['pres_forma'] in _FORMAS_GENERICAS:
+            forma_marca = forma_desde_marca(m.get('marca'))
+            if forma_marca:
+                m['pres_forma'] = forma_marca
         # Fallback: buscar dosis en el nombre de marca si presentacion no la tiene
         if not m.get('pres_dosis'):
             marca = (m.get('marca') or '').strip()

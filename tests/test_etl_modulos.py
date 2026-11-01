@@ -16,6 +16,7 @@ from etl.outliers import calcular_stats_por_droga, evaluar_outlier
 from etl.droga_fixes import _separar_droga_marca
 from etl.reparaciones import reparar_denver
 from etl.parser import deduplicar
+from etl.enriquecimiento import enriquecer_dosis, forma_desde_marca
 
 
 # ── utils.py ────────────────────────────────────────────────────────────────
@@ -157,3 +158,34 @@ def test_deduplicar_elimina_solo_duplicados_exactos():
     dedup, n = deduplicar(meds)
     assert n == 1
     assert len(dedup) == 2
+
+
+# ── enriquecimiento.py ──────────────────────────────────────────────────────
+
+def test_forma_desde_marca_chicles_pastillas_y_parches():
+    assert forma_desde_marca("NICOTINELL GUMS") == "CHICLES"
+    assert forma_desde_marca("NICOTINELL LOZENGE") == "PASTILLAS"
+    assert forma_desde_marca("NICOTINELL TTS 10") == "PARCHES"
+    assert forma_desde_marca("NIUX") is None
+    assert forma_desde_marca(None) is None
+
+
+def test_enriquecer_dosis_completa_forma_ausente_o_generica_desde_la_marca():
+    gums = {"marca": "NICOTINELL GUMS", "droga": "nicotina",
+            "presentacion": "2 mg cool mint x 24", "precio": 25546.0}
+    lozenge = {"marca": "NICOTINELL LOZENGE", "droga": "nicotina",
+               "presentacion": "1 mg mint x 36", "precio": 31559.0}
+    tts = {"marca": "NICOTINELL TTS 10", "droga": "nicotina",
+           "presentacion": "sistemas x 21", "precio": 84491.0}
+    enriquecer_dosis([gums, lozenge, tts])
+    assert gums["pres_forma"] == "CHICLES"
+    assert gums["pres_dosis"] == "2" and gums["pres_cantidad"] == "24"
+    assert lozenge["pres_forma"] == "PASTILLAS"
+    assert tts["pres_forma"] == "PARCHES" and tts["pres_cantidad"] == "21"
+
+
+def test_enriquecer_dosis_no_pisa_una_forma_especifica_ya_parseada():
+    m = {"marca": "NICOTINELL GUMS", "droga": "nicotina",
+         "presentacion": "2 mg comp x 24", "precio": 25546.0}
+    enriquecer_dosis([m])
+    assert m["pres_forma"] != "CHICLES"
