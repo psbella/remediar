@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-11-03T16:15:27.741618-03:00",
+  "timestamp": "2026-11-04T17:44:53.304045-03:00",
   "total_registros": 13130,
   "total_outliers": 113,
   "outliers": [
@@ -122,15 +122,28 @@
     },
     {
       "droga": "amlodipina",
+      "marca": "ABLOOM 5",
+      "presentacion": "5 mg comp.x 30",
+      "laboratorio": "Duncan",
+      "precio": 6687.34,
+      "precio_outlier_tipo": "bajo_relativo",
+      "razones": [
+        "precio $6,687.34 < 25% mediana $27,236.89 (n=79)"
+      ],
+      "mediana_droga": 27236.89,
+      "n_droga": 79
+    },
+    {
+      "droga": "amlodipina",
       "marca": "AMLOC",
       "presentacion": "5 mg tab.x 20",
       "laboratorio": "Aspen Pharma",
       "precio": 6561.14,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $6,561.14 < 25% mediana $26,729.04 (n=79)"
+        "precio $6,561.14 < 25% mediana $27,236.89 (n=79)"
       ],
-      "mediana_droga": 26729.04,
+      "mediana_droga": 27236.89,
       "n_droga": 79
     },
     {
@@ -221,7 +234,7 @@
       "razones": [
         "precio $114,122.05 < fence_low $115,414.91"
       ],
-      "mediana_droga": 138709.93,
+      "mediana_droga": 139645.43,
       "n_droga": 26
     },
     {
@@ -234,7 +247,7 @@
       "razones": [
         "ppu $2,272.83 << mediana_grupo $35,228.88"
       ],
-      "mediana_droga": 138709.93,
+      "mediana_droga": 139645.43,
       "n_droga": 26
     },
     {
@@ -299,7 +312,7 @@
       "razones": [
         "precio $12,327.18 < fence_low $13,648.87"
       ],
-      "mediana_droga": 14850.11,
+      "mediana_droga": 15003.57,
       "n_droga": 6
     },
     {
@@ -437,10 +450,10 @@
       "marca": "CLONER",
       "presentacion": "gts.x 20 ml",
       "laboratorio": "Vannier",
-      "precio": 15844.57,
+      "precio": 16045.43,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $792.23 << mediana_grupo $4,851.25"
+        "ppu $802.27 << mediana_grupo $4,851.25"
       ],
       "mediana_droga": 16294.64,
       "n_droga": 116
@@ -496,19 +509,6 @@
       ],
       "mediana_droga": 100408.74,
       "n_droga": 14
-    },
-    {
-      "droga": "darifenacina",
-      "marca": "CONTINEX",
-      "presentacion": "7.5mg comp.lib.prol.x 15",
-      "laboratorio": "Baliarda",
-      "precio": 29770.32,
-      "precio_outlier_tipo": "bajo_iqr",
-      "razones": [
-        "precio $29,770.32 < fence_low $29,854.93"
-      ],
-      "mediana_droga": 73792.55,
-      "n_droga": 10
     },
     {
       "droga": "desloratadina",
@@ -624,7 +624,7 @@
       "razones": [
         "ppu $127.21 << mediana_grupo $992.23"
       ],
-      "mediana_droga": 10834.63,
+      "mediana_droga": 11120.71,
       "n_droga": 17
     },
     {
@@ -1163,6 +1163,19 @@
       "n_droga": 2
     },
     {
+      "droga": "pregabalina",
+      "marca": "LUNEL",
+      "presentacion": "25 mg caps.x 30",
+      "laboratorio": "Montpellier",
+      "precio": 11601.63,
+      "precio_outlier_tipo": "bajo_relativo",
+      "razones": [
+        "precio $11,601.63 < 25% mediana $46,473.15 (n=112)"
+      ],
+      "mediana_droga": 46473.15,
+      "n_droga": 112
+    },
+    {
       "droga": "rifampicina",
       "marca": "RIFAMPICINA RICHET",
       "presentacion": "300 mg caps.x 8",
@@ -1315,7 +1328,7 @@
       "razones": [
         "ppu $168.31 << mediana_grupo $945.36"
       ],
-      "mediana_droga": 18185.86,
+      "mediana_droga": 18288.34,
       "n_droga": 20
     },
     {
@@ -1328,7 +1341,7 @@
       "razones": [
         "ppu $174.07 << mediana_grupo $1,470.46"
       ],
-      "mediana_droga": 18185.86,
+      "mediana_droga": 18288.34,
       "n_droga": 20
     },
     {
@@ -1341,7 +1354,7 @@
       "razones": [
         "ppu $105.24 << mediana_grupo $682.29"
       ],
-      "mediana_droga": 18185.86,
+      "mediana_droga": 18288.34,
       "n_droga": 20
     },
     {
@@ -1349,10 +1362,10 @@
       "marca": "NETOCUR BALSAMICO",
       "presentacion": "jbe.x 100 ml",
       "laboratorio": "Duncan",
-      "precio": 15917.59,
+      "precio": 16554.29,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $159.18 << mediana_grupo $961.55"
+        "ppu $165.54 << mediana_grupo $1,000.02"
       ],
       "mediana_droga": 17034.34,
       "n_droga": 5
@@ -1369,19 +1382,6 @@
       ],
       "mediana_droga": 17034.34,
       "n_droga": 5
-    },
-    {
-      "droga": "tadalafilo",
-      "marca": "TADAL 20",
-      "presentacion": "20 mg comp.rec.x 2",
-      "laboratorio": "Finadiet",
-      "precio": 22198.97,
-      "precio_outlier_tipo": "bajo_relativo",
-      "razones": [
-        "precio $22,198.97 < 25% mediana $89,806.53 (n=66)"
-      ],
-      "mediana_droga": 89806.53,
-      "n_droga": 66
     },
     {
       "droga": "tadalafilo",
@@ -1471,7 +1471,7 @@
       "razones": [
         "precio $14,169.80 < fence_low $14,743.52"
       ],
-      "mediana_droga": 16449.85,
+      "mediana_droga": 16617.91,
       "n_droga": 6
     }
   ]
