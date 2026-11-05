@@ -20,6 +20,10 @@ jobs:
 
       - name: Backup y reemplazar index
         run: |
+          if [ -f index.html.bak ]; then
+            echo "Ya existe index.html.bak: el sitio ya esta en mantenimiento. Abortando para no pisar el backup."
+            exit 1
+          fi
           cp index.html index.html.bak
           cp mantenimiento.html index.html
 
