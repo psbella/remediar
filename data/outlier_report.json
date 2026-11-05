@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-11-04T17:44:53.304045-03:00",
+  "timestamp": "2026-11-05T18:00:18.711224-03:00",
   "total_registros": 13130,
   "total_outliers": 113,
   "outliers": [
@@ -336,7 +336,7 @@
       "precio": 105319.22,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $105,319.22 < fence_low $142,744.09"
+        "precio $105,319.22 < fence_low $155,835.27"
       ],
       "mediana_droga": 353749.76,
       "n_droga": 11
@@ -403,7 +403,7 @@
       "razones": [
         "ppu $220.00 << mediana_grupo $1,622.30"
       ],
-      "mediana_droga": 251466.64,
+      "mediana_droga": 253550.92,
       "n_droga": 8
     },
     {
@@ -1198,7 +1198,7 @@
       "razones": [
         "ppu $1,244.83 << mediana_grupo $17,716.35"
       ],
-      "mediana_droga": 44206.58,
+      "mediana_droga": 44296.21,
       "n_droga": 58
     },
     {
@@ -1211,7 +1211,7 @@
       "razones": [
         "ppu $1,997.57 << mediana_grupo $31,218.85"
       ],
-      "mediana_droga": 44206.58,
+      "mediana_droga": 44296.21,
       "n_droga": 58
     },
     {
@@ -1224,7 +1224,7 @@
       "razones": [
         "ppu $2,237.61 << mediana_grupo $31,218.85"
       ],
-      "mediana_droga": 44206.58,
+      "mediana_droga": 44296.21,
       "n_droga": 58
     },
     {
