@@ -354,9 +354,9 @@ function renderTable(list) {
     else if (o.precio_outlier_tipo === 'bajo_critico') rowClass = 'critical';
     
     return `
-      <tr class="${rowClass}" data-key="${key}">
+      <tr class="${rowClass}" data-key="${escapeHtml(key)}">
         <td class="col-check">
-          <input type="checkbox" class="row-check" data-key="${key}" 
+          <input type="checkbox" class="row-check" data-key="${escapeHtml(key)}" 
             ${isSelected ? 'checked' : ''} ${isBlocked ? 'disabled' : ''}>
         </td>
         <td class="col-med">
@@ -375,8 +375,8 @@ function renderTable(list) {
         </td>
         <td class="col-action">
           ${isBlocked
-            ? `<button class="btn btn-sm" data-action="unblock" data-key="${key}">🔓</button>`
-            : `<button class="btn btn-sm btn-danger" data-action="block" data-key="${key}">⛔</button>`
+            ? `<button class="btn btn-sm" data-action="unblock" data-key="${escapeHtml(key)}">🔓</button>`
+            : `<button class="btn btn-sm btn-danger" data-action="block" data-key="${escapeHtml(key)}">⛔</button>`
           }
         </td>
       </tr>
