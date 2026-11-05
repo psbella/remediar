@@ -46,6 +46,8 @@ def descargar_pdf(pdf_url=PDF_URL, max_reintentos=10, backoff_segundos=3) -> byt
             req = urllib.request.Request(pdf_url, headers={"User-Agent": "Mozilla/5.0"})
             with urllib.request.urlopen(req, timeout=30, context=ssl_context) as r:
                 pdf_bytes = r.read()
+            if not pdf_bytes.startswith(b"%PDF-"):
+                raise urllib.error.URLError("la respuesta no es un PDF (no empieza con %PDF-)")
             break
         except (urllib.error.URLError, http.client.IncompleteRead, TimeoutError, ConnectionError) as e:
             print(f"   Intento {intento}/{max_reintentos} fallido: {e}")
