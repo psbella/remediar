@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-11-05T18:00:18.711224-03:00",
+  "timestamp": "2026-11-06T17:22:38.567658-03:00",
   "total_registros": 13130,
   "total_outliers": 113,
   "outliers": [
@@ -11,9 +11,9 @@
       "precio": 1949.94,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $1,949.94 < 25% mediana $7,897.50 (n=8)"
+        "precio $1,949.94 < 25% mediana $8,055.00 (n=8)"
       ],
-      "mediana_droga": 7897.5,
+      "mediana_droga": 8055.0,
       "n_droga": 8
     },
     {
@@ -24,9 +24,9 @@
       "precio": 1949.94,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $1,949.94 < 25% mediana $7,897.50 (n=8)"
+        "precio $1,949.94 < 25% mediana $8,055.00 (n=8)"
       ],
-      "mediana_droga": 7897.5,
+      "mediana_droga": 8055.0,
       "n_droga": 8
     },
     {
@@ -37,9 +37,9 @@
       "precio": 1949.94,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $1,949.94 < 25% mediana $7,897.50 (n=8)"
+        "precio $1,949.94 < 25% mediana $8,055.00 (n=8)"
       ],
-      "mediana_droga": 7897.5,
+      "mediana_droga": 8055.0,
       "n_droga": 8
     },
     {
@@ -307,10 +307,10 @@
       "marca": "ORALSONE BENZOCAINA GEL",
       "presentacion": "gel x 10 g",
       "laboratorio": "Laboratorio Gra",
-      "precio": 12327.18,
+      "precio": 12635.36,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $12,327.18 < fence_low $13,648.87"
+        "precio $12,635.36 < fence_low $13,648.87"
       ],
       "mediana_droga": 15003.57,
       "n_droga": 6
@@ -984,10 +984,10 @@
       "marca": "5-ASA 1000",
       "presentacion": "1000 mg sup.x 30",
       "laboratorio": "Domínguez",
-      "precio": 264040.27,
+      "precio": 271961.48,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $264.04 << mediana_grupo $113,742.11"
+        "ppu $271.96 << mediana_grupo $117,154.37"
       ],
       "mediana_droga": 282312.47,
       "n_droga": 39
@@ -1157,9 +1157,9 @@
       "precio_outlier_tipo": "bajo_critico",
       "razones": [
         "precio $225.15 < minimo $1,800",
-        "precio $225.15 < 10% mediana $10,143.88"
+        "precio $225.15 < 10% mediana $10,344.51"
       ],
-      "mediana_droga": 10143.88,
+      "mediana_droga": 10344.51,
       "n_droga": 2
     },
     {
