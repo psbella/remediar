@@ -153,7 +153,7 @@ def _total_en_head():
     try:
         r = subprocess.run(
             ["git", "show", "HEAD:data/medicamentos.json"],
-            cwd=DATA_PATH.parent.parent, capture_output=True, text=True, check=True,
+            cwd=DATA_PATH.parent.parent, capture_output=True, check=True,
         )
         return json.loads(r.stdout).get("total")
     except (subprocess.CalledProcessError, FileNotFoundError, json.JSONDecodeError):
