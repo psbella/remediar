@@ -6,7 +6,10 @@ y antes del commit, para evitar publicar datos rotos silenciosamente.
 """
 import json
 import statistics
+import subprocess
 from pathlib import Path
+
+import pytest
 
 DATA_PATH = Path(__file__).parent.parent / "data" / "medicamentos.json"
 
@@ -134,3 +137,40 @@ def test_fecha_presente():
     with open(DATA_PATH, encoding="utf-8") as f:
         data = json.load(f)
     assert data.get("fecha"), "El campo 'fecha' está vacío en medicamentos.json"
+
+
+# ── Variación contra la corrida anterior ──────────────────────────────────────
+
+# Calibrado con las 76 corridas consecutivas con datos entre 2026-08-24 y
+# 2026-11-05: el total osciló entre 13.126 y 13.130 (0,03%). 5% (~650
+# registros) queda muy por encima de ese ruido y muy por debajo del margen
+# del umbral absoluto de test_cantidad_minima (24% del dataset actual).
+MAX_VARIACION_CANTIDAD = 0.05
+
+
+def _total_en_head():
+    """Total de medicamentos.json en el commit anterior (HEAD), o None si no hay."""
+    try:
+        r = subprocess.run(
+            ["git", "show", "HEAD:data/medicamentos.json"],
+            cwd=DATA_PATH.parent.parent, capture_output=True, check=True,
+        )
+        return json.loads(r.stdout).get("total")
+    except (subprocess.CalledProcessError, FileNotFoundError, json.JSONDecodeError):
+        return None
+
+
+def test_cantidad_vs_corrida_anterior():
+    """La cantidad de registros no puede variar más de 5% contra HEAD.
+
+    Complementa a test_cantidad_minima/maxima: un parser roto que devuelva
+    11.000 registros pasa el umbral absoluto pero es una caída de ~16%.
+    """
+    anterior = _total_en_head()
+    if not anterior:
+        pytest.skip("No hay medicamentos.json en HEAD para comparar.")
+    variacion = abs(len(MEDICAMENTOS) - anterior) / anterior
+    assert variacion <= MAX_VARIACION_CANTIDAD, (
+        f"{len(MEDICAMENTOS)} registros vs {anterior} en la corrida anterior "
+        f"({variacion:.1%}) — supera el {MAX_VARIACION_CANTIDAD:.0%} tolerado."
+    )
