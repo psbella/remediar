@@ -1,6 +1,6 @@
 # Changelog
 
-## [v2.5.4 — Endurecimiento del ETL, tests en CI y correcciones de seguridadr]
+## [2.5.4] - 2026-11-07
 
 ### Cambiado
 - `actualizar-precios.yml`: el workflow corre una vez por día, todos los días
