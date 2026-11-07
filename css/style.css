@@ -90,6 +90,7 @@ body {
 
 .header-logo-circle svg { stroke: #fff; }
 .header-texto h1 { font-size: 17px; font-weight: 500; color: #fff; letter-spacing: -0.2px; }
+.header-texto .header-titulo { font-size: 17px; font-weight: 500; color: #fff; letter-spacing: -0.2px; }
 .header-texto p { font-size: 12px; color: rgba(255, 255, 255, 0.95); margin-top: 2px; }
 .header-right { margin-left: auto; }
 
@@ -1005,6 +1006,7 @@ body {
     :root { --pad-body: 12px; }
     .header { padding-block: 14px; gap: 12px; }
     .header-texto h1 { font-size: 15px; }
+    .header-texto .header-titulo { font-size: 15px; }
     .update-pill { display: none; }
 
     .busqueda-section { flex-wrap: wrap; }

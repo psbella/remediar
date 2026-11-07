@@ -725,7 +725,7 @@ for droga_slug in DROGAS:
                 <img src="img/favicon.svg" alt="remedi.ar" width="38" height="38">
             </div>
             <div class="header-texto">
-                <h1>remedi.ar - Precios de medicamentos</h1>
+                <div class="header-titulo">remedi.ar - Precios de medicamentos</div>
             </div>
         </header>
     </a>
