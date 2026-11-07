@@ -21,6 +21,7 @@
 <img src="https://img.shields.io/github/v/release/psbella/remediar">
 <img src="https://img.shields.io/github/actions/workflow/status/psbella/remediar/actualizar-precios.yml?label=ETL&logo=github-actions&logoColor=white">
 <img src="https://img.shields.io/github/actions/workflow/status/psbella/remediar/codeql.yml?label=CodeQL&logo=github">
+<img src="https://img.shields.io/github/actions/workflow/status/psbella/remediar/tests.yml?label=Tests&logo=github">
 <img src="https://img.shields.io/github/actions/workflow/status/psbella/remediar/accessibility.yml?label=Accesibilidad&logo=github">
 <img src="https://img.shields.io/github/actions/workflow/status/psbella/remediar/headers-check.yml?label=Headers&logo=github">
 <br>
@@ -77,7 +78,7 @@
 
 > 🇬🇧 **[English version](./README.en.md)**
 
-> **Estado de este documento:** revisado el 2026-10-07 contra la versión **2.5.3** de `main` (más los cambios "Sin publicar" del [CHANGELOG](./CHANGELOG.md)). Las cifras se midieron sobre el `data/medicamentos.json` generado el 2026-10-06 16:38 (hora de Argentina). Si el código cambia, este archivo se actualiza junto con él; ante cualquier duda, el código manda.
+> **Estado de este documento:** revisado el 2026-11-07 contra la versión **2.5.3** de `main` (más los cambios "Sin publicar" del [CHANGELOG](./CHANGELOG.md)). Las cifras se midieron sobre el `data/medicamentos.json` generado el 2026-11-07 15:39 (hora de Argentina). Si el código cambia, este archivo se actualiza junto con él; ante cualquier duda, el código manda.
 
 ---
 
@@ -132,24 +133,24 @@
 
 # 📊 Dataset actual
 
-Medido el 2026-10-07 sobre la corrida del 2026-10-06 16:38 (hora de Argentina).
+Medido el 2026-11-07 sobre la corrida del 2026-11-07 15:39 (hora de Argentina).
 
 | Métrica | Valor |
 |---|---|
-| Registros | 13.129 |
+| Registros | 13.130 |
 | Principios activos distintos (campo `droga`) | 1.819 |
 | Laboratorios (valores distintos, incluye variantes truncadas del PDF) | 198 |
 | Tamaño JSON | ~3,9 MB |
 | Tamaño gzip | ~310 KB |
-| Con cobertura PAMI | 6.890 (52,5 %); coberturas presentes: 40, 50, 60, 80 y 100 % |
-| Con precio a verificar (`vigencia_score < 50`) | 107 |
+| Con cobertura PAMI | 6.887 (52,5 %); coberturas presentes: 40, 50, 60, 80 y 100 % |
+| Con precio a verificar (`vigencia_score < 50`) | 113 |
 | Claves en `blacklist.json` | 711 (679 excluidas en la última corrida) |
-| Registros con presentación parseada (`pres_forma`) | 12.931 (98,5 %) |
+| Registros con presentación parseada (`pres_forma`) | 12.937 (98,5 %) |
 | Entradas en `info_adicional.json` | 11.085 (2.855 inferidas por principio activo) |
-| Variaciones de precio en `data/historico/precios.json` | 6.970 |
+| Variaciones de precio en `data/historico/precios.json` | 15.872 |
 | Landing pages / URLs en `sitemap.xml` | 100 / 104 |
 | Actualizaciones | Una vez por día, todos los días (cron a las 11:07 hora de Argentina; GitHub suele demorarlo varias horas), solo si SIAFAR publicó un PDF distinto |
-| Tests automáticos | 31 (se corren post-ETL, antes del commit) |
+| Tests automáticos | 37 (se corren post-ETL, antes del commit; también en cada push/PR que toque el ETL) |
 
 ---
 
@@ -160,7 +161,7 @@ El sistema se compone de tres capas principales:
 ## 1️⃣ Extracción y procesamiento
 
 - GitHub Actions ejecuta un workflow automático una vez por día, todos los días (`7 14 * * *` UTC, es decir 11:07 hora de Argentina). GitHub suele demorar las corridas programadas varias horas: con el cron anterior, entre el 16 y el 23 de octubre de 2026, la demora medida fue de 3 a 5,5 horas, así que la ejecución real puede caer por la tarde
-- Se descarga el PDF oficial desde SIAFAR / COFA (hasta 3 reintentos). Si su SHA-256 coincide con `data/.pdf_hash`, no hubo publicación nueva: se omite el resto del pipeline y no se hace commit
+- Se descarga el PDF oficial desde SIAFAR / COFA (hasta 10 intentos con 3 s de espera entre cada uno; también reintenta si la respuesta no es un PDF). Si su SHA-256 coincide con `data/.pdf_hash`, no hubo publicación nueva: se omite el resto del pipeline y no se hace commit
 - Python extrae y normaliza los registros mediante un pipeline de 8+ capas
 - Se cruzan los datos con el vademécum de PAMI (`data/pami.xlsx`, versionado y actualizado a mano ~1 vez por mes) para enriquecer cobertura
 - Se genera `medicamentos.json`
@@ -304,7 +305,7 @@ La lista se muestra con un tope de **300 tarjetas**; el contador indica el total
 flowchart TD
 
     A[⏰ Cron GitHub Actions<br/>todos los días ~11:07 AR]
-    B[📥 Descargar PDF SIAFAR<br/>hasta 3 reintentos]
+    B[📥 Descargar PDF SIAFAR<br/>hasta 10 intentos]
     HS{¿SHA-256 igual a<br/>data/.pdf_hash?}
     SK[⏭️ sin_cambios: se omite el resto<br/>y no hay commit]
     C[📄 Extraer registros por página]
@@ -405,7 +406,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
       - name: Setup Python
-        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: '3.11'
           cache: 'pip'
@@ -606,7 +607,7 @@ Service Worker con estrategia network-first para datos y cache-first para assets
 
 ## ✅ Seguridad en headers HTTP
 
-CSP via header HTTP (no meta tag) con hashes SHA256 de los scripts inline ejecutables (config de GA y registro del Service Worker, más un hash transitorio del GA anterior). `style-src` sin `unsafe-inline` (estilos migrados a CSS externo). `X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy` y `Access-Control-Allow-Origin: *` para el JSON público (declarado en `_headers`; GitHub Pages además lo sirve con CORS abierto por defecto — verificable con `curl -sI https://remedi.ar/data/medicamentos.json`). ⚠️ En producción (`remedi.ar`/`www.remedi.ar`) estos headers los aplica una Cloudflare Response Header Transform Rule, no el archivo `_headers` del repo — [ver por qué](#por-qué-github-pages--cloudflare-como-proxy).
+CSP via header HTTP (no meta tag) con hashes SHA256 de los scripts inline ejecutables (config de GA y registro del Service Worker). `style-src` sin `unsafe-inline` (estilos migrados a CSS externo). `X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy` y `Access-Control-Allow-Origin: *` para el JSON público (declarado en `_headers`; GitHub Pages además lo sirve con CORS abierto por defecto — verificable con `curl -sI https://remedi.ar/data/medicamentos.json`). ⚠️ En producción (`remedi.ar`/`www.remedi.ar`) estos headers los aplica una Cloudflare Response Header Transform Rule, no el archivo `_headers` del repo — [ver por qué](#por-qué-github-pages--cloudflare-como-proxy).
 
 ## ✅ Compartir medicamentos
 
@@ -614,43 +615,49 @@ Cada tarjeta tiene un botón "Compartir" que abre el menú nativo en mobile o co
 
 ## ✅ Tests de sanidad automáticos
 
-31 tests pytest corren después de cada actualización del ETL y antes del commit. Si alguno falla, el workflow se detiene y el sitio sigue sirviendo los datos anteriores. 12 validan umbrales de calidad de negocio (cantidad de registros, % de campos vacíos, rango de precios), 1 valida el contrato estructural completo del JSON contra un [JSON Schema versionado](./tests/medicamentos.schema.json), y 18 son tests unitarios de las funciones puras de scripts/etl/ — si el ETL cambia la forma del output o rompe una función de reparación, alguno de estos avisa.
+37 tests pytest corren después de cada actualización del ETL y antes del commit (y también en cada push/PR que toque el ETL, vía `tests.yml`). Si alguno falla, el workflow se detiene y el sitio sigue sirviendo los datos anteriores. 13 validan umbrales de calidad de negocio (cantidad de registros, variación de la cantidad contra la corrida anterior —máximo 5 %, solo significativa en la corrida diaria, donde los datos se acaban de regenerar—, % de campos vacíos, rango de precios), 1 valida el contrato estructural completo del JSON contra un [JSON Schema versionado](./tests/medicamentos.schema.json), y 23 son tests unitarios de las funciones puras de scripts/etl/ — si el ETL cambia la forma del output o rompe una función de reparación, alguno de estos avisa.
 ```
 ============================= test session starts ==============================
-platform linux -- Python 3.11.15, pytest-9.1.1, pluggy-1.6.0
-collected 31 items
-tests/test_etl_modulos.py::test_limpiar_precio_formato_argentino PASSED  [  3%]
-tests/test_etl_modulos.py::test_limpiar_precio_valores_invalidos PASSED  [  6%]
-tests/test_etl_modulos.py::test_es_precio PASSED                        [  9%]
-tests/test_etl_modulos.py::test_make_key_normaliza_case_y_espacios PASSED [ 12%]
-tests/test_etl_modulos.py::test_parece_corrupta_texto_limpio_no_marca_nada PASSED [ 16%]
-tests/test_etl_modulos.py::test_parece_corrupta_detecta_mojibake_clasico PASSED [ 19%]
-tests/test_etl_modulos.py::test_parece_corrupta_detecta_variantes_que_el_filtro_viejo_no_veia PASSED [ 22%]
-tests/test_etl_modulos.py::test_filtrar_blacklist_excluye_por_key PASSED [ 25%]
-tests/test_etl_modulos.py::test_filtrar_blacklist_vacia_no_toca_nada PASSED [ 29%]
-tests/test_etl_modulos.py::test_calcular_stats_por_droga_mediana_correcta PASSED [ 32%]
-tests/test_etl_modulos.py::test_evaluar_outlier_precio_invalido PASSED   [ 35%]
-tests/test_etl_modulos.py::test_evaluar_outlier_precio_normal_no_marca_nada PASSED [ 38%]
-tests/test_etl_modulos.py::test_evaluar_outlier_precio_criticamente_bajo PASSED [ 41%]
-tests/test_etl_modulos.py::test_separar_droga_marca_con_prefijo_conocido PASSED [ 45%]
-tests/test_etl_modulos.py::test_separar_droga_marca_sin_match_devuelve_none PASSED [ 48%]
-tests/test_etl_modulos.py::test_reparar_denver_variante_a_presentacion_pegada_a_marca PASSED [ 51%]
-tests/test_etl_modulos.py::test_reparar_denver_no_toca_otros_laboratorios PASSED [ 54%]
-tests/test_etl_modulos.py::test_deduplicar_elimina_solo_duplicados_exactos PASSED [ 58%]
-tests/test_etl_sanidad.py::test_cantidad_minima PASSED                  [ 61%]
-tests/test_etl_sanidad.py::test_cantidad_maxima PASSED                  [ 64%]
-tests/test_etl_sanidad.py::test_campos_presentes PASSED                 [ 67%]
-tests/test_etl_sanidad.py::test_precios_positivos PASSED                [ 70%]
-tests/test_etl_sanidad.py::test_precio_mediana_razonable PASSED         [ 74%]
-tests/test_etl_sanidad.py::test_drogas_vacias PASSED                    [ 77%]
-tests/test_etl_sanidad.py::test_laboratorios_desconocidos PASSED        [ 80%]
-tests/test_etl_sanidad.py::test_marcas_vacias PASSED                    [ 83%]
-tests/test_etl_sanidad.py::test_vigencia_score_rango PASSED             [ 87%]
-tests/test_etl_sanidad.py::test_pami_cobertura_rango PASSED             [ 90%]
-tests/test_etl_sanidad.py::test_estructura_raiz PASSED                  [ 93%]
-tests/test_etl_sanidad.py::test_fecha_presente PASSED                   [ 96%]
-tests/test_schema.py::test_schema_valido PASSED                         [100%]
-31 passed in 1.58s
+platform linux -- Python 3.12.3, pytest-9.2.0, pluggy-1.7.0
+collected 37 items
+tests/test_etl_modulos.py::test_limpiar_precio_formato_argentino PASSED [  2%]
+tests/test_etl_modulos.py::test_limpiar_precio_valores_invalidos PASSED [  5%]
+tests/test_etl_modulos.py::test_es_precio PASSED [  8%]
+tests/test_etl_modulos.py::test_make_key_normaliza_case_y_espacios PASSED [ 10%]
+tests/test_etl_modulos.py::test_parece_corrupta_texto_limpio_no_marca_nada PASSED [ 13%]
+tests/test_etl_modulos.py::test_parece_corrupta_detecta_mojibake_clasico PASSED [ 16%]
+tests/test_etl_modulos.py::test_parece_corrupta_detecta_variantes_que_el_filtro_viejo_no_veia PASSED [ 18%]
+tests/test_etl_modulos.py::test_filtrar_blacklist_excluye_por_key PASSED [ 21%]
+tests/test_etl_modulos.py::test_filtrar_blacklist_vacia_no_toca_nada PASSED [ 24%]
+tests/test_etl_modulos.py::test_calcular_stats_por_droga_mediana_correcta PASSED [ 27%]
+tests/test_etl_modulos.py::test_evaluar_outlier_precio_invalido PASSED [ 29%]
+tests/test_etl_modulos.py::test_evaluar_outlier_precio_normal_no_marca_nada PASSED [ 32%]
+tests/test_etl_modulos.py::test_evaluar_outlier_precio_criticamente_bajo PASSED [ 35%]
+tests/test_etl_modulos.py::test_separar_droga_marca_con_prefijo_conocido PASSED [ 37%]
+tests/test_etl_modulos.py::test_separar_droga_marca_sin_match_devuelve_none PASSED [ 40%]
+tests/test_etl_modulos.py::test_reparar_denver_variante_a_presentacion_pegada_a_marca PASSED [ 43%]
+tests/test_etl_modulos.py::test_reparar_denver_no_toca_otros_laboratorios PASSED [ 45%]
+tests/test_etl_modulos.py::test_deduplicar_elimina_solo_duplicados_exactos PASSED [ 48%]
+tests/test_etl_modulos.py::test_forma_desde_marca_chicles_pastillas_y_parches PASSED [ 51%]
+tests/test_etl_modulos.py::test_enriquecer_dosis_completa_forma_ausente_o_generica_desde_la_marca PASSED [ 54%]
+tests/test_etl_modulos.py::test_enriquecer_dosis_no_pisa_una_forma_especifica_ya_parseada PASSED [ 56%]
+tests/test_etl_modulos.py::test_es_pie_de_pagina_detecta_pies_tipicos PASSED [ 59%]
+tests/test_etl_modulos.py::test_es_pie_de_pagina_no_descarta_drogas_con_pag PASSED [ 62%]
+tests/test_etl_sanidad.py::test_cantidad_minima PASSED [ 64%]
+tests/test_etl_sanidad.py::test_cantidad_maxima PASSED [ 67%]
+tests/test_etl_sanidad.py::test_campos_presentes PASSED [ 70%]
+tests/test_etl_sanidad.py::test_precios_positivos PASSED [ 72%]
+tests/test_etl_sanidad.py::test_precio_mediana_razonable PASSED [ 75%]
+tests/test_etl_sanidad.py::test_drogas_vacias PASSED [ 78%]
+tests/test_etl_sanidad.py::test_laboratorios_desconocidos PASSED [ 81%]
+tests/test_etl_sanidad.py::test_marcas_vacias PASSED [ 83%]
+tests/test_etl_sanidad.py::test_vigencia_score_rango PASSED [ 86%]
+tests/test_etl_sanidad.py::test_pami_cobertura_rango PASSED [ 89%]
+tests/test_etl_sanidad.py::test_estructura_raiz PASSED [ 91%]
+tests/test_etl_sanidad.py::test_fecha_presente PASSED [ 94%]
+tests/test_etl_sanidad.py::test_cantidad_vs_corrida_anterior PASSED [ 97%]
+tests/test_schema.py::test_schema_valido PASSED [100%]
+37 passed in 2.53s
 ```
 ---
 
@@ -837,8 +844,8 @@ remediar/
 │
 ├── tests/
 │   ├── conftest.py
-│   ├── test_etl_modulos.py          # 18 tests unitarios de scripts/etl/
-│   ├── test_etl_sanidad.py          # 12 tests de sanidad del output
+│   ├── test_etl_modulos.py          # 23 tests unitarios de scripts/etl/
+│   ├── test_etl_sanidad.py          # 13 tests de sanidad del output
 │   ├── test_schema.py               # 1 test de contrato (JSON Schema)
 │   └── medicamentos.schema.json
 │
@@ -850,6 +857,7 @@ remediar/
     │   ├── accessibility.yml
     │   ├── js-syntax-check.yml
     │   ├── headers-check.yml
+    │   ├── tests.yml
     │   └── codeql.yml
     ├── ISSUE_TEMPLATE/              # bug, dato_incorrecto, idea
     ├── PULL_REQUEST_TEMPLATE.md
@@ -981,8 +989,8 @@ docker run -p 8080:80 remediar
 | `scripts/aplicar_atc_tabla_oms.py` | Parsea una tabla HTML de códigos ATC y completa el campo `atc` de `info_adicional.json` para principios activos simples que aparecen **una sola vez** en la tabla (sin ambigüedad). No toca `clases_terapeuticas`. |
 | `scripts/listar_droga_sin_info.py` | Genera `data/info-adicional/faltantes_atc.csv`: las composiciones sin ATC, ordenadas por cantidad de medicamentos afectados. |
 | `data/info-adicional/enriquecer_info_adicional_por_droga.py` | Extiende `info_adicional.json` por consenso de principio activo: si todas las entradas de AlfaBeta para una droga simple coinciden, copia ATC y clases a los productos sin dato y los marca `"inferido": true`. No propaga laboratorio ni vigencia. |
-| `tests/test_etl_sanidad.py` | 12 tests de sanidad sobre el output del ETL: cantidad de registros, campos obligatorios, rangos de precios, calidad de datos y estructura del JSON |
-| `tests/test_etl_modulos.py` | 18 tests unitarios de las funciones puras de `scripts/etl/` |
+| `tests/test_etl_sanidad.py` | 13 tests de sanidad sobre el output del ETL: cantidad de registros, campos obligatorios, rangos de precios, calidad de datos y estructura del JSON |
+| `tests/test_etl_modulos.py` | 23 tests unitarios de las funciones puras de `scripts/etl/` |
 | `tests/test_schema.py` | 1 test de contrato: valida el JSON completo contra `tests/medicamentos.schema.json` |
 
 ### Paquete `scripts/etl/` (capas de normalización)
@@ -1011,7 +1019,8 @@ Las puntuaciones de Lighthouse y los Core Web Vitals no se publican como cifras 
 | Accesibilidad (WCAG vía axe-core) | `accessibility.yml` + `a11y-check.mjs` | No (avisa) |
 | Sintaxis de todo el JS | `js-syntax-check.yml` (`node --check`) | Sí |
 | Headers de seguridad en producción | `headers-check.yml` | Falla si hay divergencia |
-| Calidad del dataset | `pytest` (31 tests) | Sí: impide el commit |
+| Calidad del dataset | `pytest` (37 tests) | Sí: impide el commit |
+| Tests del ETL en push/PR | `tests.yml` (`pytest tests/ -v`) | Falla si algún test falla; `main` no tiene branch protection, así que avisa pero no impide el merge |
 | Seguridad estática | `codeql.yml` | — |
 
 Para el rendimiento percibido, la métrica de interactividad vigente de Core Web Vitals es **INP** (reemplazó a FID en marzo de 2024); medila con [PageSpeed Insights](https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fremedi.ar).
@@ -1092,7 +1101,7 @@ Se ejecuta automáticamente como parte de `actualizar-precios.yml`, inmediatamen
 
 ## Headers y CSP
 
-- **Content Security Policy** via header HTTP: `default-src 'self'`; `script-src 'self'` más hashes SHA256 de los scripts inline ejecutables de `index.html` (config de Google Analytics, registro del Service Worker y un hash transitorio del GA anterior) y `https://www.googletagmanager.com`; `style-src 'self'` (sin `unsafe-inline`). El script JSON-LD no necesita hash: no es JavaScript ejecutable. Si se edita un script inline, hay que actualizar el hash en `_headers` **y** en la Transform Rule de Cloudflare
+- **Content Security Policy** via header HTTP: `default-src 'self'`; `script-src 'self'` más hashes SHA256 de los scripts inline ejecutables de `index.html` (config de Google Analytics y registro del Service Worker) y `https://www.googletagmanager.com`; `style-src 'self'` (sin `unsafe-inline`). El script JSON-LD no necesita hash: no es JavaScript ejecutable. Si se edita un script inline, hay que actualizar el hash en `_headers` **y** en la Transform Rule de Cloudflare
 - `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, `Referrer-Policy`, `Permissions-Policy` y HSTS
 - En producción los aplica una Cloudflare Response Header Transform Rule (no el archivo `_headers`). `headers-check.yml` compara semanalmente producción contra `_headers` y falla si divergen. Los `Cache-Control` por tipo de asset de `_headers` **no** están replicados en producción
 - **CORS** abierto en `/data/medicamentos.json` para consumo externo (`Access-Control-Allow-Origin: *`)
@@ -1166,7 +1175,7 @@ git push origin feature/nueva-funcion
 # abrir Pull Request (se completa solo con el template del repo)
 ```
 
-Antes de abrir el PR: si tocaste el ETL, corré `pytest tests/` y confirmá que pasen los 31 tests (12 de sanidad + 1 de schema + 18 unitarios de scripts/etl/); si tocaste JS/CSS/HTML, probá el cambio en el navegador, no alcanza con leer el diff. También conviene correr `ruff check .` (Python) y `eslint js/` (JS) — todavía no bloquean el CI, pero sirven para agarrar errores antes de mergear.
+Antes de abrir el PR: si tocaste el ETL, corré `pytest tests/` y confirmá que pasen los 37 tests (13 de sanidad + 1 de schema + 23 unitarios de scripts/etl/); si tocaste JS/CSS/HTML, probá el cambio en el navegador, no alcanza con leer el diff. También conviene correr `ruff check .` (Python) y `eslint js/` (JS) — todavía no bloquean el CI, pero sirven para agarrar errores antes de mergear.
 
 ## Convenciones de commits
 
@@ -1186,7 +1195,7 @@ Antes de abrir el PR: si tocaste el ETL, corré `pytest tests/` y confirmá que 
 
 ## ⚠️ Ojo con el Service Worker al tocar assets estáticos
 
-Si modificás `index.html`, `css/style.css` o cualquier archivo en `js/`, **acordate de bumpear `CACHE_NAME` en `sw.js`** (hoy `remediar-v37`; ej. `remediar-v37` → `remediar-v38`). Esos archivos están precacheados por el Service Worker (`CACHE_STATIC`), así que sin el bump los usuarios que ya visitaron el sitio van a seguir viendo la versión vieja indefinidamente, sin ningún error visible — simplemente no se actualiza nada hasta que el navegador decida revalidar el cache por su cuenta.
+Si modificás `index.html`, `css/style.css` o cualquier archivo en `js/`, **acordate de bumpear `CACHE_NAME` en `sw.js`** (hoy `remediar-v39`; ej. `remediar-v39` → `remediar-v40`). Esos archivos están precacheados por el Service Worker (`CACHE_STATIC`), así que sin el bump los usuarios que ya visitaron el sitio van a seguir viendo la versión vieja indefinidamente, sin ningún error visible — simplemente no se actualiza nada hasta que el navegador decida revalidar el cache por su cuenta.
 
 ---
 
@@ -1214,7 +1223,7 @@ flowchart TD
     OUT[Outliers + vigencia_score]
     PRES[Debug de presentaciones]
     ENR[enriquecer_dosis]
-    T[🧪 pytest 31 tests]
+    T[🧪 pytest 37 tests]
     JSON[medicamentos.json]
     DEBUG[presentaciones_debug.csv]
     REPORT[outlier_report.json]
@@ -1296,7 +1305,7 @@ flowchart TD
 | `pres_unidad` | `"MG"` |
 | `pres_cantidad` | `"20"` |
 
-Cobertura actual: **~98,5 %** (12.931 de 13.129 registros tienen `pres_forma`). El archivo `data/presentaciones_debug.csv` permite auditar los casos no resueltos después de cada corrida.
+Cobertura actual: **~98,5 %** (12.937 de 13.130 registros tienen `pres_forma`). El archivo `data/presentaciones_debug.csv` permite auditar los casos no resueltos después de cada corrida.
 
 ---
 
@@ -1493,6 +1502,7 @@ Todas las acciones están fijadas por SHA de commit.
 | `maintenance-off.yml` | Manual | Restaura `index.html` desde el backup |
 | `codeql.yml` | Push/PR a `main` + cron semanal (sábado 01:33 UTC) | Análisis estático de seguridad (CodeQL) sobre JS, Python y los propios workflows de GitHub Actions |
 | `js-syntax-check.yml` | Push/PR a `main` que toque `js/**` o `scripts/checks/**` + manual | Corre `node --check` sobre todo el JS. A diferencia de ESLint/axe en este repo, SÍ bloquea el build — un error de sintaxis rompe la carga de JS en todo el sitio, no es una cuestión de estilo |
+| `tests.yml` | Push/PR a `main` que toque `scripts/**`, `tests/**`, `requirements.txt` o `pyproject.toml` + manual | Corre `pytest tests/ -v` con permisos de solo lectura (`contents: read`) y cancela las corridas en curso del mismo ref. Falla si algún test falla; como `main` no tiene branch protection, avisa pero no impide el merge. No regenera datos: valida los que están commiteados |
 | `headers-check.yml` | Push a `main` que toque `_headers` o `scripts/checks/headers-check.mjs` + cron semanal (domingo 06:00 UTC) + manual | Corre `scripts/checks/headers-check.mjs`. Como js-syntax-check, es un chequeo de seguridad y falla ante cualquier divergencia (no solo avisa como accessibility.yml) |
 | `accessibility.yml` | Push/PR a `main` que toque cualquier `*.html`, `css/style.css`, `js/**` o el propio check + cron semanal (domingo 05:00 UTC) + manual | Corre `scripts/checks/a11y-check.mjs` (axe-core + Puppeteer). Modo rápido (`index.html`, `about.html`, `terminos.html`, `privacidad.html`) en push/PR/manual; modo completo (todas las .html) solo en la corrida semanal. `admin-panel.html` queda excluido siempre. No bloquea el build — avisa, no rompe |
 | `dependabot.yml` (config, no workflow) | Semanal | Propone actualizaciones de `requirements.txt` (pip), de las actions usadas en los workflows (`github-actions`) y de `package.json` (`npm` — `axe-core`/`puppeteer`, usados solo por `a11y-check.mjs`) |
@@ -1567,7 +1577,7 @@ Sí, como dato (todavía no hay visualización en el sitio). Desde la versión 2
 
 | Limitación | Descripción |
 |---|---|
-| 11 registros sin presentación | 7 son marcas para las que el PDF de SIAFAR no trae la presentación (ASFARADIL, DEXALERGIN, FEMIDEN, KETOSTERIL, SIGNORINA, VAXNEUVANCE, VIXALERG): el dato no está en la fuente. Los otros 4 son casos que el parser todavía no resuelve: la presentación quedó dentro de `marca` (`COMP.REC.X 10`, `COMP.REC.X 28`, `COMP.X 30`, `CÁPS. X 30`). |
+| 10 registros sin presentación | 6 son marcas para las que el PDF de SIAFAR no trae la presentación (ASFARADIL, DEXALERGIN, KETOSTERIL, SIGNORINA, VAXNEUVANCE, VIXALERG): el dato no está en la fuente. Los otros 4 son casos que el parser todavía no resuelve: la presentación quedó dentro de `marca` (`COMP.REC.X 10`, `COMP.REC.X 28`, `COMP.X 30`, `CÁPS. X 30`). |
 | `pami.xlsx` se actualiza a mano | El vademécum se sube manualmente ~1 vez por mes. Si no se refresca, la cobertura puede quedar desfasada; si el archivo falta, el cruce con PAMI se omite. |
 | Una corrida por día y solo si cambió el PDF | El workflow corre una vez por día, todos los días, y reprocesa únicamente cuando SIAFAR publica un PDF distinto. GitHub puede demorar la corrida programada varias horas, así que los datos del día pueden aparecer por la tarde. |
 | Tope de 300 tarjetas | Cada consulta renderiza como máximo 300 resultados; el contador muestra el total. |
