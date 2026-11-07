@@ -15,7 +15,7 @@ from etl.blacklist import make_key, filtrar_blacklist, _parece_corrupta
 from etl.outliers import calcular_stats_por_droga, evaluar_outlier
 from etl.droga_fixes import _separar_droga_marca
 from etl.reparaciones import reparar_denver
-from etl.parser import deduplicar
+from etl.parser import deduplicar, _es_pie_de_pagina
 from etl.enriquecimiento import enriquecer_dosis, forma_desde_marca
 
 
@@ -189,3 +189,16 @@ def test_enriquecer_dosis_no_pisa_una_forma_especifica_ya_parseada():
          "presentacion": "2 mg comp x 24", "precio": 25546.0}
     enriquecer_dosis([m])
     assert m["pres_forma"] != "CHICLES"
+
+
+# ── parser.py: pie de página ────────────────────────────────────────────────
+
+def test_es_pie_de_pagina_detecta_pies_tipicos():
+    for linea in ["Pag. 3", "Pag 12", "Página 3 de 280", "pagina 7", "PAG. 1/280", "Pág.5"]:
+        assert _es_pie_de_pagina(linea), linea
+
+
+def test_es_pie_de_pagina_no_descarta_drogas_con_pag():
+    for linea in ["dapagliflozina", "empagliflozina, metformina clorhidrato", "selexipag",
+                  "eltrombopag", "repaglinida", "HEPAGRIS", "PAGOCLONA"]:
+        assert not _es_pie_de_pagina(linea), linea

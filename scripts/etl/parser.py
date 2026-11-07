@@ -1,5 +1,6 @@
 """etl/parser.py - Descarga del PDF de SIAFAR y parseo a lista de medicamentos."""
 
+import re
 import sys
 import time
 import http.client
@@ -34,6 +35,26 @@ def _reparar_glifos_rotos(texto: str) -> str:
     for roto, correcto in _GLIFOS_ROTOS.items():
         texto = texto.replace(roto, correcto)
     return texto
+
+
+# Letras (con acentos y ñ) que, pegadas a "pag", indican que es parte de un
+# nombre (dapagliflozina, empagliflozina, selexipag, HEPAGRIS...) y no la
+# palabra "Pag"/"Pagina" de un pie de pagina.
+_LETRAS = "A-Za-zÁÉÍÓÚáéíóúÑñ"
+_RE_PAG = re.compile(rf"(?<![{_LETRAS}])p[aá]g(?:ina)?(?![{_LETRAS}])", re.IGNORECASE)
+
+
+def _es_pie_de_pagina(linea: str) -> bool:
+    """True si la linea es el pie/encabezado de pagina del PDF ("Pag. 3",
+    "Pagina 3 de 280", ...). Antes se descartaba toda linea que contuviera
+    "pag" como subcadena, lo que tambien descartaba la linea de droga de
+    dapagliflozina, empagliflozina, selexipag, eltrombopag, etc.
+    Fallback: una linea con "pag" y algun digito (numero de pagina) tambien
+    cuenta, para no depender de un unico formato de pie.
+    """
+    if _RE_PAG.search(linea):
+        return True
+    return "pag" in linea.lower() and any(c.isdigit() for c in linea)
 
 
 def descargar_pdf(pdf_url=PDF_URL, max_reintentos=10, backoff_segundos=3) -> bytes:
@@ -76,7 +97,7 @@ def parsear_pdf(pdf_bytes: bytes) -> list:
         i = 0
         while i < len(lineas):
             linea = lineas[i]
-            if 'MONODROGA' in linea or 'pag' in linea.lower():
+            if 'MONODROGA' in linea or _es_pie_de_pagina(linea):
                 i += 1
                 continue
             if es_precio(linea):
