@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-11-06T17:22:38.567658-03:00",
+  "timestamp": "2026-11-07T15:39:22.076030-03:00",
   "total_registros": 13130,
   "total_outliers": 113,
   "outliers": [
@@ -338,7 +338,7 @@
       "razones": [
         "precio $105,319.22 < fence_low $155,835.27"
       ],
-      "mediana_droga": 353749.76,
+      "mediana_droga": 371437.24,
       "n_droga": 11
     },
     {
