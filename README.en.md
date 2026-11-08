@@ -345,7 +345,7 @@ The parser applies cascading corrections to resolve the structural issues in the
 | Layer | Function | Description |
 |---|---|---|
 | 0 | `reparar_droga_faltante()` | When the PDF omits the active-ingredient line, all fields shift. Splits merged drug+brand using a dictionary of truncated prefixes |
-| 1 | Detection during parse | Detects records with 4 fields instead of 5 during PDF extraction |
+| 1 | Detection during parse | Detects records with 4 fields instead of 5 during PDF extraction. It also discards page footers with `_es_pie_de_pagina()`, anchored to "pag"/"pág"/"página" as a whole word or to "pag" followed by a digit, so drugs whose name contains "pag" (dapagliflozina, empagliflozina, eltrombopag, avatrombopag) are not lost |
 | 2 | `rescatar_laboratorios()` | Recovers `laboratorio="Desconocido"` (Unknown) by looking for the lab as a suffix in `presentacion` |
 | 3 | `reparar_denver()` | Denver Farma uses drug+lab as the brand name; splits merged brand and presentation (DENCR., DF variants) |
 | 4 | `reparar_marca_desplazada()` | When `marca` starts with a digit and `presentacion` is empty, reverses the shift |
@@ -555,7 +555,7 @@ Two supported formats:
 }
 ```
 
-The key is always the value of the `marca` or `droga` field in uppercase exactly as it appears in the JSON. The workflow applies it automatically on every run.
+The key is always the value of the `marca` or `droga` field in uppercase exactly as it appears in the JSON. The workflow applies it automatically on every run. Since the page-footer filter fix, the parser no longer drops drugs whose name contains "pag", so many entries of that kind (dapagliflozina and similar) stopped firing (72 → 24 fixes applied in a test run); they stay as a safety net.
 
 ---
 
@@ -599,7 +599,7 @@ Selecting a lab or presentation from the dropdown shows results even if the sear
 
 ## ✅ Full PWA
 
-Service Worker with a network-first strategy for data and cache-first for static assets. SVG + PNG icons (192×192 and 512×512) for installation on all devices.
+Service Worker with a network-first strategy for data and cache-first for static assets. SVG + PNG icons (192×192 and 512×512) for installation on all devices. Non-ok responses (4xx/5xx) for `medicamentos.json` are not cached, so an error is never served as if it were the data.
 
 ## ✅ HTTP header security
 

@@ -37,6 +37,53 @@
   así que los links con ancla (`about.html#faq`, etc.) siguen funcionando.
   `sw.js`: `CACHE_NAME` sube a `v36`.
 
+### Corregido
+- ETL (`scripts/etl/parser.py`): el filtro de pie de página descartaba toda
+  línea que contuviera "pag" como subcadena, y con eso las drogas
+  dapagliflozina, empagliflozina, eltrombopag y avatrombopag (inhibidores
+  SGLT2 y otras), que hasta ahora cubría `droga_fixes.json` marca por marca.
+  `_es_pie_de_pagina()` reconoce "pag"/"pág"/"página" solo como palabra, o
+  "pag" seguido de dígito. Medido con el mismo PDF (3.450.728 bytes), antes
+  vs después: registros extraídos 13.811 → 13.815, marcas desplazadas
+  reparadas 103 → 24, fixes manuales aplicados 72 → 24, registros con droga
+  vacía 37 → 6. Cambian 38 claves (droga, marca, presentación, laboratorio)
+  y aparecen 42; 32 de las 38 tenían un campo vacío. Efectos esperados, una
+  sola vez: el histórico registra unas ~40 altas y ~40 bajas por el cambio de
+  clave, y GLYXAMBI puede perder su entrada en `info_adicional.json` hasta
+  que se vuelva a correr el enriquecimiento. Tests nuevos:
+  `test_es_pie_de_pagina_detecta_pies_tipicos` y
+  `test_es_pie_de_pagina_no_descarta_drogas_con_pag`.
+- ETL (`descargar_pdf`): si la respuesta no empieza con `%PDF-`, cuenta como
+  intento fallido y se reintenta (hasta 10 veces, con 3 s de espera) en
+  lugar de seguir con una respuesta que no es el PDF.
+- `sw.js`: no se cachean las respuestas no-ok de `medicamentos.json` (solo
+  `response.ok` llega a `cache.put`). `CACHE_NAME` sube a `v38`.
+- Landings, `privacidad.html` y `terminos.html`: un solo `<h1>` por página.
+  El título del header pasa a `<div class="header-titulo">` (con su regla
+  CSS) y `generar_landings.py` genera el mismo markup. `sw.js`: `CACHE_NAME`
+  sube a `v39`.
+- `.github/workflows/maintenance-on.yml`: aborta si ya existe
+  `index.html.bak`, para no pisar el backup de la corrida anterior.
+
+### Agregado
+- `.github/workflows/tests.yml`: corre pytest en cada push a `main` y en cada
+  PR que toque `scripts/`, `tests/`, `requirements.txt` o `pyproject.toml`;
+  también a mano con `workflow_dispatch`.
+- `test_cantidad_vs_corrida_anterior`: falla si la cantidad de registros
+  varía más de 5 % contra el `medicamentos.json` del último commit. Lee
+  `git show` como bytes para que corra también en Windows. Con esto y los
+  tests del parser, la suite pasa de 31 a 37 tests.
+
+### Seguridad
+- CSP: se quita de `script-src` el hash transitorio del script anterior de
+  Google Analytics, en `_headers` y en la Transform Rule de Cloudflare
+  (verificado en `remedi.ar` y `www.remedi.ar`). Quedan dos hashes (config de
+  GA y registro del Service Worker) y `https://www.googletagmanager.com`.
+- `js/admin-panel.js`: los `data-key` se escapan con `escapeHtml` (4 lugares).
+
+### Cambiado (dependencias)
+- `pytest` 9.1.1 → 9.2.0 y `certifi` 2026.10.19 → 2026.10.23 (dependabot).
+
 ## [2.5.3] - 2026-10-06
 
 ### Cambiado

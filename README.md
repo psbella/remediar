@@ -345,7 +345,7 @@ El parser aplica correcciones en cascada para resolver los problemas estructural
 | Capa | Función | Descripción |
 |---|---|---|
 | 0 | `reparar_droga_faltante()` | Cuando el PDF omite la línea del principio activo, todos los campos se desplazan. Separa droga+marca fusionadas usando un diccionario de prefijos truncados |
-| 1 | Detección en parse | Detecta registros con 4 campos en lugar de 5 durante la extracción del PDF |
+| 1 | Detección en parse | Detecta registros con 4 campos en lugar de 5 durante la extracción del PDF. También descarta los pies de página con `_es_pie_de_pagina()`, anclado a "pag"/"pág"/"página" como palabra o a "pag" seguido de dígito, para no perder drogas que contienen "pag" (dapagliflozina, empagliflozina, eltrombopag, avatrombopag) |
 | 2 | `rescatar_laboratorios()` | Recupera `laboratorio="Desconocido"` buscando el lab como sufijo en `presentacion` |
 | 3 | `reparar_denver()` | Denver Farma usa droga+lab como nombre comercial; separa marca y presentacion fusionadas (variantes DENCR., DF) |
 | 4 | `reparar_marca_desplazada()` | Cuando `marca` empieza con dígito y `presentacion` está vacía, invierte el desplazamiento |
@@ -557,7 +557,7 @@ Dos formatos soportados:
 }
 ```
 
-La clave es siempre el valor del campo `marca` o `droga` en mayúsculas tal como aparece en el JSON. El workflow lo aplica automáticamente en cada corrida.
+La clave es siempre el valor del campo `marca` o `droga` en mayúsculas tal como aparece en el JSON. El workflow lo aplica automáticamente en cada corrida. Desde el fix del filtro de pie de página el parser ya no pierde las drogas que contienen "pag", así que muchas entradas de ese tipo (dapagliflozina y similares) dejaron de aplicarse (72 → 24 correcciones aplicadas en una corrida de prueba); se mantienen como red de seguridad.
 
 ---
 
@@ -603,7 +603,7 @@ Seleccionar laboratorio o presentación desde el desplegable muestra resultados 
 
 ## ✅ PWA completa
 
-Service Worker con estrategia network-first para datos y cache-first para assets estáticos. Íconos en SVG + PNG (192×192 y 512×512) para instalación en todos los dispositivos.
+Service Worker con estrategia network-first para datos y cache-first para assets estáticos. Íconos en SVG + PNG (192×192 y 512×512) para instalación en todos los dispositivos. Las respuestas no-ok (4xx/5xx) de `medicamentos.json` no se guardan en caché, para no servir un error como si fuera el dato.
 
 ## ✅ Seguridad en headers HTTP
 
