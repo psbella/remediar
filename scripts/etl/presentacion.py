@@ -402,6 +402,7 @@ _FORMAS_NORM_PRES = {
     'blister':           'BLÍSTER',
     'dispensador':       'DISPENSADOR',
     'dispenser':         'DISPENSADOR',
+    'disp.intrauterino': 'DISPOSITIVO INTRAUTERINO',
     'colir':             'COLIRIO',
     'granul.lp sob':     'GRÁNULOS LP SOBRES',
     'granul':            'GRÁNULOS',
