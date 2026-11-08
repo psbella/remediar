@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-11-07T15:39:22.076030-03:00",
-  "total_registros": 13130,
-  "total_outliers": 113,
+  "timestamp": "2026-11-08T15:45:37.574640-03:00",
+  "total_registros": 13134,
+  "total_outliers": 114,
   "outliers": [
     {
       "droga": "acetilsalicílico,ác., cafeína",
@@ -509,6 +509,19 @@
       ],
       "mediana_droga": 100408.74,
       "n_droga": 14
+    },
+    {
+      "droga": "dapagliflozina",
+      "marca": "DAPAX",
+      "presentacion": "5 mg comp.rec.x 30",
+      "laboratorio": "Baliarda",
+      "precio": 48743.71,
+      "precio_outlier_tipo": "bajo_iqr",
+      "razones": [
+        "precio $48,743.71 < fence_low $62,844.76"
+      ],
+      "mediana_droga": 74516.54,
+      "n_droga": 18
     },
     {
       "droga": "desloratadina",
