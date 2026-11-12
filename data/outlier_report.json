@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-11-11T18:14:59.047596-03:00",
+  "timestamp": "2026-11-12T18:24:53.791181-03:00",
   "total_registros": 13134,
   "total_outliers": 114,
   "outliers": [
@@ -661,7 +661,7 @@
       "precio": 12316.27,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $123.16 << mediana_grupo $315,870.34"
+        "ppu $123.16 << mediana_grupo $328,502.69"
       ],
       "mediana_droga": 13475.7,
       "n_droga": 22
@@ -801,10 +801,10 @@
       "marca": "IBUPROFENO VENT-3",
       "presentacion": "600 mg comp.x 20",
       "laboratorio": "Vent 3",
-      "precio": 7537.56,
+      "precio": 7680.77,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $12.56 << mediana_grupo $1,038.53"
+        "ppu $12.80 << mediana_grupo $1,058.27"
       ],
       "mediana_droga": 8554.95,
       "n_droga": 149
@@ -1127,10 +1127,10 @@
       "marca": "IPALXANE",
       "presentacion": "125 mg cáps.x 21",
       "laboratorio": "Eczane",
-      "precio": 7174209.4,
+      "precio": 7303345.17,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $7,174,209.40 < fence_low $7,863,705.75"
+        "precio $7,303,345.17 < fence_low $7,863,705.75"
       ],
       "mediana_droga": 9916562.57,
       "n_droga": 32
@@ -1140,10 +1140,10 @@
       "marca": "IPALXANE",
       "presentacion": "75 mg cáps.x 21",
       "laboratorio": "Eczane",
-      "precio": 7174209.4,
+      "precio": 7303345.17,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $7,174,209.40 < fence_low $7,863,705.75"
+        "precio $7,303,345.17 < fence_low $7,863,705.75"
       ],
       "mediana_droga": 9916562.57,
       "n_droga": 32
