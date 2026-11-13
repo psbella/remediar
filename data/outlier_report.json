@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-11-12T18:24:53.791181-03:00",
+  "timestamp": "2026-11-13T17:50:48.559064-03:00",
   "total_registros": 13134,
   "total_outliers": 114,
   "outliers": [
@@ -1401,10 +1401,10 @@
       "marca": "MOMENTUM",
       "presentacion": "20 mg comp.rec.x 4",
       "laboratorio": "Panalab",
-      "precio": 42947.52,
+      "precio": 43806.47,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $2,147.38 << mediana_grupo $12,629.76"
+        "ppu $2,190.32 << mediana_grupo $12,882.36"
       ],
       "mediana_droga": 89806.53,
       "n_droga": 66
