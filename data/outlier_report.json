@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-11-13T17:50:48.559064-03:00",
+  "timestamp": "2026-11-14T16:01:49.379020-03:00",
   "total_registros": 13134,
   "total_outliers": 114,
   "outliers": [
@@ -151,12 +151,12 @@
       "marca": "AMOXI DUO MAR",
       "presentacion": "875 mg comp. x 14",
       "laboratorio": "Mar",
-      "precio": 11780.0,
+      "precio": 12010.0,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $13.46 << mediana_grupo $174.80"
+        "ppu $13.73 << mediana_grupo $178.30"
       ],
-      "mediana_droga": 12075.0,
+      "mediana_droga": 12118.0,
       "n_droga": 115
     },
     {
@@ -169,7 +169,7 @@
       "razones": [
         "ppu $18.82 << mediana_grupo $123.30"
       ],
-      "mediana_droga": 12075.0,
+      "mediana_droga": 12118.0,
       "n_droga": 115
     },
     {
@@ -195,7 +195,7 @@
       "razones": [
         "ppu $52.10 << mediana_grupo $16,850.96"
       ],
-      "mediana_droga": 24540.75,
+      "mediana_droga": 24790.75,
       "n_droga": 64
     },
     {
@@ -208,7 +208,7 @@
       "razones": [
         "ppu $211.79 << mediana_grupo $1,225.16"
       ],
-      "mediana_droga": 24540.75,
+      "mediana_droga": 24790.75,
       "n_droga": 64
     },
     {
@@ -325,7 +325,7 @@
       "razones": [
         "ppu $443.12 << mediana_grupo $8,128.41"
       ],
-      "mediana_droga": 10082.9,
+      "mediana_droga": 10182.67,
       "n_droga": 38
     },
     {
@@ -377,7 +377,7 @@
       "razones": [
         "ppu $29.05 << mediana_grupo $19,686.03"
       ],
-      "mediana_droga": 18951.53,
+      "mediana_droga": 20448.43,
       "n_droga": 10
     },
     {
@@ -567,10 +567,10 @@
       "marca": "DESLORAMAR",
       "presentacion": "susp.fco.x 60 ml",
       "laboratorio": "Mar",
-      "precio": 11160.0,
+      "precio": 11380.0,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $186.00 << mediana_grupo $1,333.00"
+        "ppu $189.67 << mediana_grupo $1,360.00"
       ],
       "mediana_droga": 12966.81,
       "n_droga": 24
@@ -580,12 +580,12 @@
       "marca": "DESLORAMAR CORT",
       "presentacion": "susp.fco.x 60 ml",
       "laboratorio": "Mar",
-      "precio": 12380.0,
+      "precio": 12630.0,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $206.33 << mediana_grupo $1,253.17"
+        "ppu $210.50 << mediana_grupo $1,278.25"
       ],
-      "mediana_droga": 13268.84,
+      "mediana_droga": 13285.84,
       "n_droga": 12
     },
     {
@@ -658,10 +658,10 @@
       "marca": "DIPIRONA KLONAL",
       "presentacion": "jbe.x 100 ml",
       "laboratorio": "Klonal",
-      "precio": 12316.27,
+      "precio": 12808.93,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $123.16 << mediana_grupo $328,502.69"
+        "ppu $128.09 << mediana_grupo $328,505.15"
       ],
       "mediana_droga": 13475.7,
       "n_droga": 22
@@ -814,10 +814,10 @@
       "marca": "IBUPROFENO KLONAL FORTE",
       "presentacion": "600 mg comp.x 30",
       "laboratorio": "Klonal",
-      "precio": 12393.53,
+      "precio": 12641.4,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $20.66 << mediana_grupo $1,133.54"
+        "ppu $21.07 << mediana_grupo $1,156.21"
       ],
       "mediana_droga": 8554.95,
       "n_droga": 149
@@ -1219,10 +1219,10 @@
       "marca": "RISPERDAL",
       "presentacion": "sol.oral x 100 ml",
       "laboratorio": "Janssen-Cilag",
-      "precio": 199756.51,
+      "precio": 204151.15,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $1,997.57 << mediana_grupo $31,218.85"
+        "ppu $2,041.51 << mediana_grupo $31,905.66"
       ],
       "mediana_droga": 44296.21,
       "n_droga": 58
@@ -1232,10 +1232,10 @@
       "marca": "RISPERDAL",
       "presentacion": "sol.oral x 30 ml",
       "laboratorio": "Janssen-Cilag",
-      "precio": 67128.43,
+      "precio": 68605.27,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $2,237.61 << mediana_grupo $31,218.85"
+        "ppu $2,286.84 << mediana_grupo $31,905.66"
       ],
       "mediana_droga": 44296.21,
       "n_droga": 58
