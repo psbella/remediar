@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-11-17T19:10:52.753066-03:00",
+  "timestamp": "2026-11-18T18:48:18.625114-03:00",
   "total_registros": 13134,
-  "total_outliers": 116,
+  "total_outliers": 115,
   "outliers": [
     {
       "droga": "acetilsalicílico,ác., cafeína",
@@ -372,12 +372,12 @@
       "marca": "ACANTEX",
       "presentacion": "500 mg IM f.a.x 1",
       "laboratorio": "Siegfried",
-      "precio": 14522.82,
+      "precio": 14794.4,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $29.05 << mediana_grupo $19,686.03"
+        "ppu $29.59 << mediana_grupo $20,054.16"
       ],
-      "mediana_droga": 20448.43,
+      "mediana_droga": 20633.99,
       "n_droga": 10
     },
     {
@@ -398,10 +398,10 @@
       "marca": "CICLOFOSFAMIDA FILAXIS",
       "presentacion": "1000 mg f.a.x 1",
       "laboratorio": "GP Pharm",
-      "precio": 220000.0,
+      "precio": 248000.0,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $220.00 << mediana_grupo $1,622.30"
+        "ppu $248.00 << mediana_grupo $1,828.78"
       ],
       "mediana_droga": 253550.92,
       "n_droga": 8
@@ -518,9 +518,9 @@
       "precio": 24620.35,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $24,620.35 < 25% mediana $100,408.74 (n=14)"
+        "precio $24,620.35 < 25% mediana $103,980.36 (n=14)"
       ],
-      "mediana_droga": 100408.74,
+      "mediana_droga": 103980.36,
       "n_droga": 14
     },
     {
@@ -567,10 +567,10 @@
       "marca": "HEXALER",
       "presentacion": "jbe.x 60 ml",
       "laboratorio": "Siegfried",
-      "precio": 13563.3,
+      "precio": 13816.93,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $226.05 << mediana_grupo $1,587.33"
+        "ppu $230.28 << mediana_grupo $1,617.01"
       ],
       "mediana_droga": 12996.17,
       "n_droga": 24
@@ -637,7 +637,7 @@
       "razones": [
         "ppu $1,548.29 << mediana_grupo $9,740.53"
       ],
-      "mediana_droga": 34710.83,
+      "mediana_droga": 35095.08,
       "n_droga": 40
     },
     {
@@ -739,9 +739,9 @@
       "precio": 5536.86,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $5,536.86 < 25% mediana $23,393.40 (n=14)"
+        "precio $5,536.86 < 25% mediana $23,632.12 (n=14)"
       ],
-      "mediana_droga": 23393.4,
+      "mediana_droga": 23632.12,
       "n_droga": 14
     },
     {
@@ -859,7 +859,7 @@
       "razones": [
         "ppu $1,104,628.17 << mediana_grupo $6,075,093.02"
       ],
-      "mediana_droga": 6260484.4,
+      "mediana_droga": 6327444.06,
       "n_droga": 30
     },
     {
@@ -942,19 +942,6 @@
     },
     {
       "droga": "loratadina, betametasona",
-      "marca": "VIXIDONE LB",
-      "presentacion": "comp.x 10",
-      "laboratorio": "Siegfried",
-      "precio": 2971.3,
-      "precio_outlier_tipo": "bajo_relativo",
-      "razones": [
-        "precio $2,971.30 < 25% mediana $11,910.16 (n=14)"
-      ],
-      "mediana_droga": 11910.16,
-      "n_droga": 14
-    },
-    {
-      "droga": "loratadina, betametasona",
       "marca": "HISTAMINO CORTEROID L",
       "presentacion": "jbe.x 60 ml",
       "laboratorio": "Montpellier",
@@ -974,9 +961,9 @@
       "precio": 8268.5,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $8,268.50 < 25% mediana $33,744.92 (n=80)"
+        "precio $8,268.50 < 25% mediana $33,843.95 (n=80)"
       ],
-      "mediana_droga": 33744.92,
+      "mediana_droga": 33843.95,
       "n_droga": 80
     },
     {
@@ -1093,7 +1080,7 @@
       "razones": [
         "ppu $1,386.83 << mediana_grupo $8,453.39"
       ],
-      "mediana_droga": 44313.51,
+      "mediana_droga": 44365.79,
       "n_droga": 50
     },
     {
@@ -1145,7 +1132,7 @@
       "razones": [
         "precio $7,303,345.17 < fence_low $7,863,705.75"
       ],
-      "mediana_droga": 10095060.69,
+      "mediana_droga": 10100754.95,
       "n_droga": 32
     },
     {
@@ -1158,7 +1145,7 @@
       "razones": [
         "precio $7,303,345.17 < fence_low $7,863,705.75"
       ],
-      "mediana_droga": 10095060.69,
+      "mediana_droga": 10100754.95,
       "n_droga": 32
     },
     {
@@ -1367,7 +1354,7 @@
       "razones": [
         "ppu $168.31 << mediana_grupo $945.36"
       ],
-      "mediana_droga": 18382.11,
+      "mediana_droga": 18555.38,
       "n_droga": 20
     },
     {
@@ -1380,7 +1367,7 @@
       "razones": [
         "ppu $177.90 << mediana_grupo $1,502.81"
       ],
-      "mediana_droga": 18382.11,
+      "mediana_droga": 18555.38,
       "n_droga": 20
     },
     {
@@ -1393,7 +1380,7 @@
       "razones": [
         "ppu $105.24 << mediana_grupo $682.29"
       ],
-      "mediana_droga": 18382.11,
+      "mediana_droga": 18555.38,
       "n_droga": 20
     },
     {
@@ -1492,12 +1479,12 @@
       "marca": "ABNOBA VISCUM FRAXINI",
       "presentacion": "20 mg iny.a.x 8",
       "laboratorio": "GP Pharm",
-      "precio": 453542.21,
+      "precio": 462159.51,
       "precio_outlier_tipo": "inconsistencia_escala",
       "razones": [
-        "ppu $22,677.11 << mediana_grupo $124,724.11"
+        "ppu $23,107.98 << mediana_grupo $127,093.87"
       ],
-      "mediana_droga": 453542.21,
+      "mediana_droga": 462159.51,
       "n_droga": 4
     },
     {
