@@ -219526,5 +219526,17 @@
     "precio_nuevo": 850116.64,
     "diferencia": 27628.6,
     "variacion_pct": 3.36
+  },
+  {
+    "fecha": "2026-11-19 19:05",
+    "tipo": "cambio_precio",
+    "droga": "metilfenidato",
+    "marca": "CONCERTA",
+    "laboratorio": "Janssen-Cilag",
+    "presentacion": "18 mg comp.x 30",
+    "precio_anterior": 183153.13,
+    "precio_nuevo": 193791.74,
+    "diferencia": 10638.61,
+    "variacion_pct": 5.81
   }
 ]
