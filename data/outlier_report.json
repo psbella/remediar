@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-11-19T19:05:40.235047-03:00",
+  "timestamp": "2026-11-20T18:45:26.847681-03:00",
   "total_registros": 13134,
-  "total_outliers": 115,
+  "total_outliers": 116,
   "outliers": [
     {
       "droga": "acetilsalicílico,ác., cafeína",
@@ -286,7 +286,7 @@
       "razones": [
         "ppu $51.23 << mediana_grupo $944.22"
       ],
-      "mediana_droga": 20470.41,
+      "mediana_droga": 20577.72,
       "n_droga": 68
     },
     {
@@ -611,7 +611,7 @@
       "razones": [
         "ppu $205.35 << mediana_grupo $1,934.62"
       ],
-      "mediana_droga": 16419.44,
+      "mediana_droga": 16500.0,
       "n_droga": 95
     },
     {
@@ -622,9 +622,9 @@
       "precio": 4100.86,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $4,100.86 < 25% mediana $16,419.44 (n=95)"
+        "precio $4,100.86 < 25% mediana $16,500.00 (n=95)"
       ],
-      "mediana_droga": 16419.44,
+      "mediana_droga": 16500.0,
       "n_droga": 95
     },
     {
@@ -922,9 +922,9 @@
       "precio": 1983.73,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $1,983.73 < 25% mediana $8,225.33 (n=38)"
+        "precio $1,983.73 < 25% mediana $8,315.71 (n=38)"
       ],
-      "mediana_droga": 8225.33,
+      "mediana_droga": 8315.71,
       "n_droga": 38
     },
     {
@@ -937,7 +937,7 @@
       "razones": [
         "ppu $137.23 << mediana_grupo $858.58"
       ],
-      "mediana_droga": 8225.33,
+      "mediana_droga": 8315.71,
       "n_droga": 38
     },
     {
@@ -961,9 +961,9 @@
       "precio": 8268.5,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $8,268.50 < 25% mediana $33,843.95 (n=80)"
+        "precio $8,268.50 < 25% mediana $34,117.49 (n=80)"
       ],
-      "mediana_droga": 33843.95,
+      "mediana_droga": 34117.49,
       "n_droga": 80
     },
     {
@@ -1080,7 +1080,7 @@
       "razones": [
         "ppu $1,386.83 << mediana_grupo $8,453.39"
       ],
-      "mediana_droga": 44365.79,
+      "mediana_droga": 44508.07,
       "n_droga": 50
     },
     {
@@ -1411,6 +1411,19 @@
     },
     {
       "droga": "tadalafilo",
+      "marca": "TADAL 20",
+      "presentacion": "20 mg comp.rec.x 2",
+      "laboratorio": "Finadiet",
+      "precio": 22620.75,
+      "precio_outlier_tipo": "bajo_relativo",
+      "razones": [
+        "precio $22,620.75 < 25% mediana $90,796.89 (n=66)"
+      ],
+      "mediana_droga": 90796.89,
+      "n_droga": 66
+    },
+    {
+      "droga": "tadalafilo",
       "marca": "MOMENTUM",
       "presentacion": "20 mg comp.rec.x 4",
       "laboratorio": "Panalab",
@@ -1419,7 +1432,7 @@
       "razones": [
         "ppu $2,190.32 << mediana_grupo $12,882.36"
       ],
-      "mediana_droga": 89806.53,
+      "mediana_droga": 90796.89,
       "n_droga": 66
     },
     {
