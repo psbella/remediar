@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-11-24T20:26:56.830268-03:00",
+  "timestamp": "2026-11-25T20:02:00.487518-03:00",
   "total_registros": 13134,
-  "total_outliers": 117,
+  "total_outliers": 119,
   "outliers": [
     {
       "droga": "acetilsalicílico,ác., cafeína",
@@ -485,6 +485,19 @@
       "n_droga": 116
     },
     {
+      "droga": "coaltar, asoc.",
+      "marca": "MENCOGRIN A.P.",
+      "presentacion": "shamp.x 120 ml",
+      "laboratorio": "Raymos-Megalabs",
+      "precio": 5097.93,
+      "precio_outlier_tipo": "bajo_relativo",
+      "razones": [
+        "precio $5,097.93 < 25% mediana $20,443.24 (n=3)"
+      ],
+      "mediana_droga": 20443.24,
+      "n_droga": 3
+    },
+    {
       "droga": "colistina metansulfonato",
       "marca": "NOLISIM",
       "presentacion": "100 mg/2ml IM/IV f.a.x1",
@@ -515,10 +528,10 @@
       "marca": "DAPAX",
       "presentacion": "5 mg comp.rec.x 30",
       "laboratorio": "Baliarda",
-      "precio": 48743.71,
+      "precio": 49474.86,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $48,743.71 < fence_low $61,754.77"
+        "precio $49,474.86 < fence_low $64,347.32"
       ],
       "mediana_droga": 74516.54,
       "n_droga": 18
@@ -624,7 +637,7 @@
       "razones": [
         "ppu $1,548.29 << mediana_grupo $9,740.53"
       ],
-      "mediana_droga": 35095.08,
+      "mediana_droga": 35346.49,
       "n_droga": 40
     },
     {
@@ -703,6 +716,19 @@
         "ppu $122.50 << mediana_grupo $1,013.17"
       ],
       "mediana_droga": 13475.7,
+      "n_droga": 22
+    },
+    {
+      "droga": "empagliflozina",
+      "marca": "BECIADIC",
+      "presentacion": "10mg comp.x 30",
+      "laboratorio": "Denver Farma",
+      "precio": 83615.4,
+      "precio_outlier_tipo": "bajo_iqr",
+      "razones": [
+        "precio $83,615.40 < fence_low $83,893.32"
+      ],
+      "mediana_droga": 105355.38,
       "n_droga": 22
     },
     {
@@ -1169,7 +1195,7 @@
       "precio": 20351.82,
       "precio_outlier_tipo": "bajo_iqr",
       "razones": [
-        "precio $20,351.82 < fence_low $21,376.48"
+        "precio $20,351.82 < fence_low $22,006.99"
       ],
       "mediana_droga": 60857.68,
       "n_droga": 32
@@ -1196,9 +1222,9 @@
       "precio": 11601.63,
       "precio_outlier_tipo": "bajo_relativo",
       "razones": [
-        "precio $11,601.63 < 25% mediana $46,473.15 (n=112)"
+        "precio $11,601.63 < 25% mediana $46,533.21 (n=112)"
       ],
-      "mediana_droga": 46473.15,
+      "mediana_droga": 46533.21,
       "n_droga": 112
     },
     {
@@ -1224,7 +1250,7 @@
       "razones": [
         "ppu $1,244.83 << mediana_grupo $17,716.35"
       ],
-      "mediana_droga": 44659.18,
+      "mediana_droga": 44688.44,
       "n_droga": 58
     },
     {
@@ -1237,7 +1263,7 @@
       "razones": [
         "ppu $2,041.51 << mediana_grupo $31,905.66"
       ],
-      "mediana_droga": 44659.18,
+      "mediana_droga": 44688.44,
       "n_droga": 58
     },
     {
@@ -1250,7 +1276,7 @@
       "razones": [
         "ppu $2,286.84 << mediana_grupo $31,905.66"
       ],
-      "mediana_droga": 44659.18,
+      "mediana_droga": 44688.44,
       "n_droga": 58
     },
     {
