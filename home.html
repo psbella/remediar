@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+<html lang="es" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+	<head>
+ 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+ 		<meta charset="utf-8">
+ 		<title>PAMI - Farmacias</title>
+ 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+ 		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+ 		<link href="../../css/titulo.css" rel="stylesheet">
+	    <script src="js/jquery.min.js"></script>
+	   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> !-->
+	    <script src="/js/3.3.7/bootstrap.min.js"></script>
+	    
+ 	<style>
+		html,body{
+			background:url('back1.jpg') no-repeat no-repeat center center fixed;
+			-webkit-background-size: cover;
+    		-moz-background-size: cover;
+    		-o-background-size:  cover;
+    		background-size:  cover;
+			}
+			.style1 {
+			border-width: 0px;
+			}
+			.tooltip .tooltip-inner {
+			 max-width: 250px;
+       		 width: 250px;
+       		 color:black;background:white;
+			}
+		
+		</style>
+
+	</head>
+
+
+<script>
+$('#panelPrecios [data-toggle="tooltip"]').tooltip({
+    animated: 'fade',
+    placement: 'bottom',
+    html: true
+});
+</script>
+
+
+<body>
+
+
+<!--script>
+	function normal ()
+	{
+		$('#demo1').toggle();
+		$('#demo2').toggle();
+	}
+
+</script!-->
+
+<form method="post" name="ingreso" action="?">		
+
+<div align="center">
+
+	<a href="scan/cofa">
+
+	<img alt="" src="logo01.png" style="border-width: 0px" ></a><br>
+
+
+
+<br>
+<font style="color:red">
+
+</font>
+<script src='https://www.google.com/recaptcha/api.js?render=6LeMGnkUAAAAAGwmr1orFWBA0JlPgdo57-1YOZRN'> </script>
+
+
+	<div align="center"  id="demo1" >
+	<table style="font-family: Tahoma; font-size: medium"  >
+		<tr>
+			<td><b>Nº PAMI / usuario&nbsp;&nbsp;&nbsp;&nbsp; </b></td>
+			<td><input name="Farmacia" class="form-control" id="Farmacia" value="" placeholder="N° PAMI" onkeypress="chequear(event);" type="text" size="15" width="100px"></td>
+		</tr>
+		<tr>
+			<td colspan="2">&nbsp;</td>
+		</tr>
+		<tr>
+		<td><b>Clave</b></td>
+			<td>
+			<input name="Clave" class="form-control" id="Clave" placeholder="Clave" onkeypress="chequear(event);" type="password" size="15">
+			</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td><input type="hidden" name="recaptcha_response" id="recaptchaResponse"></td>
+		</tr>
+		<tr><td></td>
+			<td><input name="Button1" type="submit" value="Ingresar" class="btn btn-info">&nbsp;</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td><span class="clave1" data-toggle="modal" data-target="#myModal" style="cursor:pointer">* Obtener clave&nbsp;</span></td>
+		</tr>
+	</table>
+	</div>
+</div>
+
+<script>
+    grecaptcha.ready(function() {
+    grecaptcha.execute('6LeMGnkUAAAAAGwmr1orFWBA0JlPgdo57-1YOZRN', {action: 'formulario'})
+    .then(function(token) {
+    var recaptchaResponse = document.getElementById('recaptchaResponse');
+    recaptchaResponse.value = token;
+    });});
+</script>
+
+
+
+<div align="center" style="font-family: Tahoma; font-size: x-small; color: #00CC99">
+			
+		<table style="width: 335px; ">
+			<tr>
+				<td>
+					<hr style="width: 335px; color: #F5F5F5; height: 1px">
+				 	<p>	&#8226; Ingreso a servicios de entrega/validación PAMI <br>
+ 						para las farmacias del país	</p>
+					<hr style="width: 335px; color: #F5F5F5; height: 1px">
+				</td>
+			</tr>
+		</table>
+
+	
+
+</div>
+
+ 
+
+
+</div>
+ 
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Recuperación de clave</h4>
+      </div>
+      <div class="modal-body">
+        <iframe class="embed-responsive-item" src="siafar/clave.asp" name="frame1" style="border:0" scrolling="no" width="100%" height="230"></iframe>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Modal -->
+
+
+<!-- Modal1     modal-lg      -->
+<div id="myModal1" class="modal fade" role="dialog" >
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <div align="center"><h4 class="modal-title" style="font-family:Calibri;font-size:x-large;color:#29ABE2;">Hipertensión 
+			- ADHESIÓN</h4></div>
+      </div>
+      <div class="modal-body">
+        <div align="center">
+        	<span style="font-family:Verdana;font-size:medium">
+        	En mayo entrará en vigencia el<br>
+			<span style="font-weight:700;font-family:Verdana;font-size:medium">Servicio Farmacéutico Remunerado</span><br>
+			de Toma de Presión Arterial.<br><br> 
+			Adhiera a su farmacia</span><br>
+			<br>
+&nbsp;
+        <button type="button" class="btn btn-success" data-dismiss="modal" style="width:170px;" onclick="location.replace('siafar/hipertension')">Adherir</button>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal" style="width:170px;">cerrar</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Modal1 -->
+
+
+<!-- Modal2     modal-lg      -->
+<div id="myModal2" class="modal fade" role="dialog" >
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <div align="center"><h4 class="modal-title" style="font-family:Calibri;font-size:x-large;color:RED">ALERTA</h4></div>
+      </div>
+      <div class="modal-body">
+        <div align="left">
+        	<span style="font-family:Calibri;font-size:medium;color:#333333">        	
+				Su Farmacia ha sido identificada como realizando trazabilidad de productos de Alto Costo del Convenio PAMI
+				por fuera del sistema SIAFAR, procedimiento que se informó no debe realizarse.
+				<br>En el Convenio PAMI Alto Costo es el SIAFAR el sistema que realiza la traza de los productos, 
+				debiendo la farmacia solamente marcar a su tiempo la recepción y la dispensa o devolución de la receta.
+				Si la farmacia opera la trazabilidad en otro programa, en paralelo a los procedimientos que realiza en SIAFAR,
+				si bien el Sistema Nacional de Trazabilidad registra la operación, para el PAMI esa traza no es reconocida,
+				debitando el producto al laboratorio, en tanto no contiene la identificación de Obra Social
+				y el número de beneficiario al que se dispensó, datos que en los sistemas de trazabilidad (incluido ANMAT)
+				no son exigidos como obligatorios y por ende no suelen quedar registrados por esas vías.
+				<br>En cambio el SIAFAR sí los incluye en sus procesos de trazabilidad.
+				Su farmacia debe dejar de realizar trazas del Convenio Alto Costo por fuera de SIAFAR,
+				de persistir ese proceder nos veremos obligados a bloquear su ingreso a nuevas recetas.
+				Cualquier duda dirigirse por mensaje de whatsapp a 11-5996-4118 o gustavomansilla@cofa.org.ar
+				<br><br>Gracias        	
+        	</span><br>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger " data-dismiss="modal" style="width:170px;">cerrar</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Modal2 -->
+
+
+<!-- Modal3 -->
+<div id="myModal3" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">PAMI - Pagos Pendientes</h4>
+      </div>
+      <div class="modal-body" align="center">
+      			<span style="font-size:medium;font-family:verdana;color:#CC3300">
+      			Anticipos pendientes de pago</span><br><br>      	
+      			<table class="table"style="width: 1%">
+					<tr>
+						<td nowrap><span style="font-size:small;font-family:verdana;color:gray;font-weight:700">2da. quincena julio 2024</span></td>
+						<td nowrap><span style="font-size:medium;font-family:verdana;color:black">$0,00</span></td>
+					</tr>
+					<tr>
+						<td nowrap><span style="font-size:small;font-family:verdana;color:gray;font-weight:700">1ra. quincena agosto 2024</span></td>
+						<td nowrap><span style="font-size:medium;font-family:verdana;color:black">$0,00</span></td>
+					</tr>
+				</table>
+      			<span style="font-size:small;font-family:verdana;color:gray;font-style:oblique;">(integran el costo de la prestación junto a la cobertura y las notas de crédito)</span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Modal3 -->
+
+
+<!-- Modal4 -->
+<div id="myModal4" class="modal fade" role="dialog"  >
+  <div class="modal-dialog modal-lg" >
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Encuesta: Cursos CoFA</h4>
+      </div>
+      <div class="modal-body" align="center">
+		<iframe class="embed-responsive-item" src="https://valida.cofa.org.ar/encuesta/231214/" name="frame1" style="border:0" scrolling="yes" width="800px" height="700px"></iframe>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Modal4 -->
+
+
+
+
+
+<script>//$('#myModal4').modal('show');</script>
+
+
+
+
+ 
+<script type="text/javascript">
+
+function chequear(e) {
+  tecla = (document.all) ? e.keyCode : e.which;
+  if (tecla==13) document.ingreso.submit();
+}
+document.ingreso.Farmacia.focus();
+</script>
+
+
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();   
+});
+</script>

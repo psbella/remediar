@@ -683,6 +683,7 @@ for droga_slug in DROGAS:
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
     <link rel="manifest" href="manifest.json">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9YFWN54197"></script>
     <meta property="og:title" content="{esc(nombre)}: precio en Argentina — remedi.ar">
     <meta property="og:description" content="Precio de {esc(nombre)} en Argentina. {precio_rango} {n_marcas} marcas. Datos SIAFAR/COFA actualizados 2 veces al día.">
     <meta property="og:url" content="https://remedi.ar/{droga_slug}.html">

@@ -4,6 +4,13 @@
 // generadas por scripts/generar_landings.py; se movió a un archivo externo
 // para que quede cubierto por script-src 'self' en la CSP y no dependa de
 // mantener un hash SHA-256 sincronizado cada vez que se edita.
+// Google Analytics: misma propiedad que index.html. La config va en este archivo
+// externo (script-src 'self') para no necesitar un hash SHA-256 en la CSP; el
+// <script async src=".../gtag/js"> se agrega en el <head> desde generar_landings.py.
+window.dataLayer = window.dataLayer || [];
+function gtag() { window.dataLayer.push(arguments); }
+gtag('js', new Date());
+gtag('config', 'G-9YFWN54197', { page_location: location.origin + location.pathname });
 (function() {
     const btn = document.getElementById('btnTop');
     if (!btn) return;
